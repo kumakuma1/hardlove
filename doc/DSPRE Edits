@@ -55,4 +55,10 @@ More Pokeballs:
 SetVar 0x8005 50
 
 
+Disable Catch Tutorial:
+033 R29 : Script File 225 : Function 25
+Remove CatchTutorial 
+
+
+
 
