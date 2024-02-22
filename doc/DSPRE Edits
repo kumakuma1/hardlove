@@ -57,7 +57,16 @@ SetVar 0x8005 50
 
 Disable Catch Tutorial:
 033 R29 : Script File 225 : Function 25
-Remove CatchTutorial 
+Remove CatchTutorial
+
+
+
+Remove Cut Tree
+033 R29 : Event File 30 : ID 05 Flag 16 Script 1000
+033 R29 : Event File 30 : ID 05 Flag 17 Script 1000
+
+035 R31 : Event File 32 : ID 01 Flag 16 Script 1000
+035 R31 : Event File 32 : ID 03 Flag 17 Script 1000
 
 
 
