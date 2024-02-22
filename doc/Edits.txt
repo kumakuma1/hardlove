@@ -1,0 +1,21 @@
+Encounter:
+New Bark, Water
+Route 29, Normal
+Route 46, Flying
+Cherrygrove, Water
+Route 30, Bug
+Route 31, Bug
+Violet, Water/Togepi
+Route 32, Fire
+Sprout Tower 2F, Ghost
+Sprout Tower 3F, Dark
+
+TODO:
+rod encounter
+
+
+Mini Boss:
+Sprout Tower, Elder Li, 12
+Ruins of Alph, Nathan, 15, Electric encounter
+TODO:
+set warps for Alph Electric encounter

@@ -1,0 +1,58 @@
+Alph Ruins Encounter event File 110
+113 D24R0101 Hook 4 -> 312 D24R0202 Hook 00 -> 113 D24R0101 Hook 4
+113 D24R0101 Hook 6 -> 318 D24R0208 Hook 00 -> 113 D24R0101 Hook 7
+
+113 D24R0101 Hook 4  -> 113 D24R0101 Hook 7
+113 D24R0101 Hook 7  -> 113 D24R0101 Hook 4
+
+Delete Hooks back in
+318 D24R0208 Hook 00
+312 D24R0202 Hook 00
+
+Blocker NPC:
+113 D24R0101 - Event File 110  - Add Overworlds - OW Entry 20 - Flag 2456 (Morty Badge, Surf), Script 9
+Add new script:
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+Text Archive 72:
+Add Message 11 "..."
+
+
+Starter Hidden Ability
+Header 061 T20R0101
+Script File 843 : Script 13  add     SetFlag 2601 before starter selection screen
+
+Rare candies:
+Script File 843 : Function 15  add after Potions giving
+
+SetVar 0x8004 50
+SetVar 0x8005 995
+CheckItemSpace 0x8004 0x8005 0x800C
+CompareVarValue 0x800C 0
+JumpIf EQUAL Function#45
+SetVar 0x8004 50																
+SetVar 0x8005 995
+CommonScript 2008
+
+Super Repel:
+SetVar 0x8004 76
+...
+
+
+Old Rod:
+SetVar 0x8004 445
+SetVar 0x8005 1
+CommonScript 2033
+
+More Pokeballs:
+033 R29 : Script File 225 - Function 25
+SetVar 0x8005 50
+
+
+

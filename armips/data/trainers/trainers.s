@@ -8,6 +8,26 @@
 .include "armips/include/movenums.s"
 .include "armips/include/monnums.s"
 
+TRAINER_MON_TYPE_FLAGS equ TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS | 0
+
+TRAINER_AI_FLAGS equ F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+
+LEVEL_SILVER_1 equ 5
+LEVEL_ROUTE_30 equ 6
+LEVEL_ROUTE_31 equ 8
+
+LEVEL_VIOLET_CITY equ 9 /* Used for Sprout Tower */
+LEVEL_ELDER_LI equ 12
+LEVEL_VIOLET_GYM equ 12
+LEVEL_FALKNER equ 15
+
+LEVEL_ROUTE_32 equ 15 /* Also for Route 46 */
+LEVEL_UNION_CAVE equ 17 /* Also for Route 33 */
+LEVEL_SLOWPOKE_WELL equ 18
+LEVEL_PROTON_1 equ 19
+LEVEL_AZALEA_GYM equ 20
+LEVEL_BUGSY equ 22 /* Also used for Silver */
+
 trainerdata 0, "-"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass CLASS_PKMN_TRAINER_0
@@ -1379,24 +1399,89 @@ trainerdata 41, "Clyde"
         ballseal 0
     endparty
 
-trainerdata 42, "Nathan"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 42, "Nathan" // Ruins of Alph Mini Boss
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_PSYCHIC_M
-    nummons 1
+    nummons 4
+    item ITEM_NONE 
+    item ITEM_NONE 
+    item ITEM_NONE 
     item ITEM_NONE
-    item ITEM_NONE
-    item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 42
-        // mon 0
         ivs 0
         abilityslot 0
-        level 26
-        pokemon SPECIES_GIRAFARIG
+        level LEVEL_FALKNER-2
+        pokemon SPECIES_CLEFAIRY
+        item ITEM_FOCUS_SASH
+        move MOVE_STEALTH_ROCK
+        move MOVE_DRAINING_KISS
+        move MOVE_SOFT_BOILED
+        move MOVE_THUNDER_WAVE
+        ability ABILITY_MAGIC_GUARD
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_CALM
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER-1
+        pokemon SPECIES_SLOWPOKE
+        item ITEM_CHESTO_BERRY
+        move MOVE_WATER_GUN
+        move MOVE_CONFUSION
+        move MOVE_REST
+        move MOVE_SLEEP_TALK
+        ability ABILITY_REGENERATOR
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0 
+        nature NATURE_BOLD
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER
+        pokemon SPECIES_FLAAFFY
+        item ITEM_ORAN_BERRY
+        move MOVE_THUNDER_SHOCK
+        move MOVE_COTTON_GUARD
+        move MOVE_TAKE_DOWN
+        move MOVE_CHARGE
+        ability ABILITY_STATIC
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+    
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER
+        pokemon SPECIES_STARAVIA
+        item ITEM_ORAN_BERRY
+        move MOVE_QUICK_ATTACK
+        move MOVE_SAND_ATTACK
+        move MOVE_PLUCK
+        move MOVE_ROOST
+        ability ABILITY_STATIC
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -9976,38 +10061,89 @@ trainerdata 289, "Silver"
         ballseal 0
     endparty
 
-trainerdata 290, "Li"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 290, "Li" // Sprout Tower Boss
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_ELDER
-    nummons 3
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 290
-        // mon 0
         ivs 0
         abilityslot 0
-        level 7
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI-1
+        pokemon SPECIES_KOFFING
+        item ITEM_FOCUS_SASH
+        move MOVE_SMOG
+        move MOVE_SELF_DESTRUCT
+        move MOVE_SCREECH
+        move MOVE_TOXIC_SPIKES
+        ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_SASSY
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 1
+    
         ivs 0
         abilityslot 0
-        level 7
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI
+        pokemon SPECIES_ZUBAT
+        item ITEM_ORAN_BERRY
+        move MOVE_ROOST
+        move MOVE_SLUDGE
+        move MOVE_ABSORB
+        move MOVE_WING_ATTACK
+        ability ABILITY_SNIPER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 2
+    
         ivs 0
         abilityslot 0
-        level 10
-        pokemon SPECIES_HOOTHOOT
+        level LEVEL_ELDER_LI-1
+        pokemon SPECIES_LITWICK
+        item ITEM_ORAN_BERRY
+        move MOVE_SMOG
+        move MOVE_NIGHT_SHADE
+        move MOVE_WILL_O_WISP
+        move MOVE_EMBER
+        ability ABILITY_FLAME_BODY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+    
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI
+        pokemon SPECIES_MARILL
+        item ITEM_MUSCLE_BAND
+        move MOVE_AQUA_JET
+        move MOVE_BELLY_DRUM
+        move MOVE_BODYSLAM
+        move MOVE_ROCK_SMASH
+        ability ABILITY_HUGE_POWER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
