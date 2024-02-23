@@ -630,41 +630,126 @@ trainerdata 19, "Mickey"
         ballseal 0
     endparty
 
-trainerdata 20, "Falkner"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+trainerdata 20, "Falkner" // Leader 
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_LEADER_M
-    nummons 2
+    nummons 6
+    item ITEM_NONE 
+    item ITEM_NONE 
+    item ITEM_NONE 
     item ITEM_NONE
-    item ITEM_NONE
-    item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 20
-        // mon 0
-        ivs 50
+        ivs 0
         abilityslot 0
-        level 9
-        pokemon SPECIES_PIDGEY
-        item ITEM_NONE
-        move MOVE_TACKLE
-        move MOVE_SAND_ATTACK
-        move MOVE_NONE
-        move MOVE_NONE
+        level LEVEL_FALKNER-1
+        pokemon SPECIES_RUFFLET
+        item ITEM_BERRY_JUICE
+        move MOVE_AERIAL_ACE
+        move MOVE_ROCK_SMASH
+        move MOVE_SLASH
+        move MOVE_ROOST
+        ability ABILITY_HUSTLE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
-        ivs 50
+
+        ivs 0
         abilityslot 0
-        level 13
-        pokemon SPECIES_PIDGEOTTO
-        item ITEM_NONE
-        move MOVE_TACKLE
+        level LEVEL_FALKNER-1
+        pokemon SPECIES_EMOLGA
+        item ITEM_BERRY_JUICE
+        move MOVE_SHOCK_WAVE
+        move MOVE_AIR_CUTTER
+        move MOVE_U_TURN
         move MOVE_ROOST
-        move MOVE_GUST
-        move MOVE_NONE
+        ability ABILITY_MOTOR_DRIVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER
+        pokemon SPECIES_DRIFLOON
+        item ITEM_BERRY_JUICE
+        move MOVE_KNOCK_OFF
+        move MOVE_AIR_CUTTER
+        move MOVE_WILL_O_WISP
+        move MOVE_OMINOUS_WIND
+        ability ABILITY_AFTERMATH
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER-1
+        pokemon SPECIES_ARCHEN
+        item ITEM_BERRY_JUICE
+        move MOVE_ANCIENT_POWER
+        move MOVE_BULLDOZE
+        move MOVE_FACADE
+        move MOVE_ROOST
+        ability ABILITY_DEFEATIST
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER
+        pokemon SPECIES_STARAVIA
+        item ITEM_BERRY_JUICE
+        move MOVE_QUICK_ATTACK
+        move MOVE_DOUBLE_TEAM
+        move MOVE_AERIAL_ACE
+        move MOVE_ROOST
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER
+        pokemon SPECIES_PIDGEOTTO
+        item ITEM_BERRY_JUICE
+        move MOVE_QUICK_ATTACK
+        move MOVE_FEATHER_DANCE
+        move MOVE_WING_ATTACK
+        move MOVE_ROOST
+        ability ABILITY_NO_GUARD
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
