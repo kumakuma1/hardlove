@@ -1588,6 +1588,7 @@ void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon 
             int selectedValue = array[i];
             SetBoxMonData(boxmon, MON_DATA_HP_IV + selectedValue, &iv);
         }
+        ClearScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG);
     }
 }
 
