@@ -1585,7 +1585,7 @@ void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon 
         // Randomly chooses 3 stats
         for (int i = 0; i < 3; i++) 
         {
-            int selectedValue = arr[i];
+            int selectedValue = array[i];
             SetBoxMonData(boxmon, MON_DATA_HP_IV + selectedValue, &iv);
         }
     }
