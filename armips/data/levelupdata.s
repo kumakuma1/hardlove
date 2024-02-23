@@ -6657,6 +6657,8 @@ levelup SPECIES_SLAKOTH
 
 
 levelup SPECIES_VIGOROTH
+    learnset MOVE_SUCKER_PUNCH, 0
+    learnset MOVE_SUCKER_PUNCH, 1
     learnset MOVE_REVERSAL, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_FOCUS_ENERGY, 1
@@ -6675,13 +6677,15 @@ levelup SPECIES_VIGOROTH
 
 
 levelup SPECIES_SLAKING
-    learnset MOVE_SWAGGER, 0
+    learnset MOVE_BODY_SLAM, 0
+    learnset MOVE_BODY_SLAM, 1
     learnset MOVE_SWAGGER, 1
     learnset MOVE_HAMMER_ARM, 1
     learnset MOVE_PUNISHMENT, 1
     learnset MOVE_FLING, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_YAWN, 1
+    learnset MOVE_SUCKER_PUNCH, 1
     learnset MOVE_ENCORE, 1
     learnset MOVE_SLACK_OFF, 1
     learnset MOVE_ENCORE, 6
@@ -6695,6 +6699,7 @@ levelup SPECIES_SLAKING
     learnset MOVE_FLING, 47
     learnset MOVE_PUNISHMENT, 53
     learnset MOVE_HAMMER_ARM, 61
+    learnset MOVE_DOUBLE_EDGE, 65
     terminatelearnset
 
 
