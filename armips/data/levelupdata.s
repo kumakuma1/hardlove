@@ -12046,14 +12046,15 @@ levelup SPECIES_STOUTLAND
     learnset MOVE_BABY_DOLL_EYES, 19
     learnset MOVE_WORK_UP, 20
     learnset MOVE_RETALIATE, 23
+    learnset MOVE_TAKE_DOWN, 26
     learnset MOVE_CRUNCH, 27
-    learnset MOVE_TAKE_DOWN, 27
-    learnset MOVE_HELPING_HAND, 30
-    learnset MOVE_PLAY_ROUGH, 42
-    learnset MOVE_ROAR, 46
-    learnset MOVE_REVERSAL, 48
-    learnset MOVE_LAST_RESORT, 61
-    learnset MOVE_GIGA_IMPACT, 69
+    learnset MOVE_HELPING_HAND, 28
+    learnset MOVE_PLAY_ROUGH, 37
+    learnset MOVE_ROAR, 42
+    learnset MOVE_REVERSAL, 43
+    learnset MOVE_LAST_RESORT, 51
+    learnset MOVE_GIGA_IMPACT, 57
+    learnset MOVE_CLOSE_COMBAT, 60
     terminatelearnset
 
 
