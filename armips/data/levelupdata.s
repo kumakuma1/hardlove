@@ -9164,7 +9164,7 @@ levelup SPECIES_BIDOOF
     learnset MOVE_HYPER_FANG, 17
     learnset MOVE_YAWN, 21
     learnset MOVE_CRUNCH, 25
-    learnset MOVE_TAKE_DOWN, 29
+    learnset MOVE_SKULL_BASH, 29
     learnset MOVE_SUPER_FANG, 33
     learnset MOVE_SWORDS_DANCE, 37
     learnset MOVE_AMNESIA, 41
@@ -9174,7 +9174,7 @@ levelup SPECIES_BIDOOF
 
 
 levelup SPECIES_BIBAREL
-    learnset MOVE_WATER_GUN, 0
+    learnset MOVE_AQUA_JET, 0
     learnset MOVE_WATER_GUN, 1
     learnset MOVE_AQUA_JET, 1
     learnset MOVE_ROTOTILLER, 1
@@ -9183,10 +9183,11 @@ levelup SPECIES_BIBAREL
     learnset MOVE_DEFENSE_CURL, 5
     learnset MOVE_ROLLOUT, 9
     learnset MOVE_HEADBUTT, 13
+    learnset MOVE_AQUA_JET, 15
     learnset MOVE_HYPER_FANG, 18
     learnset MOVE_YAWN, 23
     learnset MOVE_CRUNCH, 28
-    learnset MOVE_TAKE_DOWN, 33
+    learnset MOVE_SKULL_BASH, 33
     learnset MOVE_SUPER_FANG, 38
     learnset MOVE_SWORDS_DANCE, 43
     learnset MOVE_AMNESIA, 48
