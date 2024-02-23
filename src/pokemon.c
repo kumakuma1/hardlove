@@ -1553,6 +1553,16 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
 
 u32 gLastPokemonLevelForMoneyCalc;
 
+
+void fisherYatesArrayShuffle(int array[], int n) {
+    for (int i = n - 1; i > 0; i--) {
+        int j = gf_rand() % (i + 1);
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
 /**
  *  @brief set the hidden ability specifically for the starter
  *
@@ -1563,8 +1573,21 @@ void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon 
 {
     if (CheckScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG) == 1)
     {
+        struct BoxPokemon *boxmon = &pp->box;
+
         SET_MON_HIDDEN_ABILITY_BIT(pp)
-        SetBoxMonAbility((void *)&pp->box);
+        SetBoxMonAbility(boxmon);
+
+        int array[] = {0, 1, 2, 3, 4, 5};
+        fisherYatesArrayShuffle(array, 6);
+        
+        int iv = 31;
+        // Randomly chooses 3 stats
+        for (int i = 0; i < 3; i++) 
+        {
+            int selectedValue = arr[i];
+            SetBoxMonData(boxmon, MON_DATA_HP_IV + selectedValue, &iv);
+        }
     }
 }
 
