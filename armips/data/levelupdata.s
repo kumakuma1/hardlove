@@ -9708,55 +9708,50 @@ levelup SPECIES_DRIFBLIM
 levelup SPECIES_BUNEARY
     learnset MOVE_SPLASH, 1
     learnset MOVE_POUND, 1
-    learnset MOVE_FRUSTRATION, 1
-    learnset MOVE_DEFENSE_CURL, 1
     learnset MOVE_FORESIGHT, 1
     learnset MOVE_DEFENSE_CURL, 4
     learnset MOVE_ENDURE, 6
     learnset MOVE_BABY_DOLL_EYES, 10
     learnset MOVE_QUICK_ATTACK, 16
     learnset MOVE_DOUBLE_KICK, 20
-    learnset MOVE_JUMP_KICK, 23
+    learnset MOVE_BOUNCE, 22
+    learnset MOVE_JUMP_KICK, 25
     learnset MOVE_AFTER_YOU, 26
     learnset MOVE_BATON_PASS, 27
-    learnset MOVE_HEADBUTT, 32
+    learnset MOVE_RETURN, 30
     learnset MOVE_CHARM, 34
     learnset MOVE_AGILITY, 34
-    learnset MOVE_DIZZY_PUNCH, 36
-    learnset MOVE_ENTRAINMENT, 44
+    learnset MOVE_FAKE_OUT, 36
     learnset MOVE_FLATTER, 44
-    learnset MOVE_BOUNCE, 51
+    learnset MOVE_ENTRAINMENT, 46
+    learnset MOVE_COPYCAT, 51
     learnset MOVE_HEALING_WISH, 57
+    learnset MOVE_HIGH_JUMP_KICK, 60
     terminatelearnset
 
 
 levelup SPECIES_LOPUNNY
-    learnset MOVE_RETURN, 0
-    learnset MOVE_MIRROR_COAT, 1
-    learnset MOVE_MAGIC_COAT, 1
+    learnset MOVE_U_TURN, 1
+    learnset MOVE_TRIPLE_AXEL, 1
     learnset MOVE_SPLASH, 1
     learnset MOVE_POUND, 1
-    learnset MOVE_DEFENSE_CURL, 1
+    learnset MOVE_MIRROR_COAT, 1
     learnset MOVE_BABY_DOLL_EYES, 1
-    learnset MOVE_RETURN, 1
-    learnset MOVE_HEALING_WISH, 1
-    learnset MOVE_BOUNCE, 1
-    learnset MOVE_ROTOTILLER, 1
-    learnset MOVE_FORESIGHT, 1
     learnset MOVE_ENDURE, 6
     learnset MOVE_BABY_DOLL_EYES, 13
     learnset MOVE_QUICK_ATTACK, 16
-    learnset MOVE_DOUBLE_KICK, 20
-    learnset MOVE_JUMP_KICK, 23
+    learnset MOVE_DIZZY_PUNCH, 20
+    learnset MOVE_BOUNCE, 22
+    learnset MOVE_JUMP_KICK, 25
     learnset MOVE_AFTER_YOU, 26
     learnset MOVE_BATON_PASS, 27
-    learnset MOVE_HEADBUTT, 32
+    learnset MOVE_RETURN, 30
     learnset MOVE_CHARM, 34
     learnset MOVE_AGILITY, 34
-    learnset MOVE_DIZZY_PUNCH, 36
+    learnset MOVE_FAKE_OUT, 36
     learnset MOVE_FLATTER, 44
     learnset MOVE_ENTRAINMENT, 46
-    learnset MOVE_BOUNCE, 51
+    learnset MOVE_COPYCAT, 51
     learnset MOVE_HEALING_WISH, 57
     learnset MOVE_HIGH_JUMP_KICK, 60
     terminatelearnset
