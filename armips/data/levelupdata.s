@@ -3715,13 +3715,13 @@ levelup SPECIES_SENTRET
     learnset MOVE_FURY_SWIPES, 13
     learnset MOVE_HELPING_HAND, 16
     learnset MOVE_FOLLOW_ME, 19
-    learnset MOVE_SLAM, 25
+    learnset MOVE_SUCKER_PUNCH, 25
     learnset MOVE_REST, 28
-    learnset MOVE_SUCKER_PUNCH, 31
+    learnset MOVE_EXTREME_SPEED, 31
     learnset MOVE_AMNESIA, 36
     learnset MOVE_BATON_PASS, 39
     learnset MOVE_ME_FIRST, 42
-    learnset MOVE_HYPER_VOICE, 47
+    learnset MOVE_DOUBLE_EDGE, 47
     terminatelearnset
 
 
@@ -3738,13 +3738,13 @@ levelup SPECIES_FURRET
     learnset MOVE_FURY_SWIPES, 13
     learnset MOVE_HELPING_HAND, 17
     learnset MOVE_FOLLOW_ME, 21
-    learnset MOVE_SLAM, 28
+    learnset MOVE_SUCKER_PUNCH, 27
     learnset MOVE_REST, 32
-    learnset MOVE_SUCKER_PUNCH, 36
+    learnset MOVE_EXTREME_SPEED, 36
     learnset MOVE_AMNESIA, 42
     learnset MOVE_BATON_PASS, 46
     learnset MOVE_ME_FIRST, 50
-    learnset MOVE_HYPER_VOICE, 56
+    learnset MOVE_DOUBLE_EDGE, 56
     terminatelearnset
 
 
