@@ -6790,7 +6790,7 @@ levelup SPECIES_WHISMUR
 
 
 levelup SPECIES_LOUDRED
-    learnset MOVE_BITE, 0
+    learnset MOVE_HYPER_VOICE, 0
     learnset MOVE_BITE, 1
     learnset MOVE_ASTONISH, 1
     learnset MOVE_POUND, 1
@@ -6799,7 +6799,7 @@ levelup SPECIES_LOUDRED
     learnset MOVE_ECHOED_VOICE, 4
     learnset MOVE_ASTONISH, 9
     learnset MOVE_HOWL, 11
-    learnset MOVE_STOMP, 23
+    learnset MOVE_STOMP, 22
     learnset MOVE_REST, 24
     learnset MOVE_SLEEP_TALK, 27
     learnset MOVE_SUPERSONIC, 27
