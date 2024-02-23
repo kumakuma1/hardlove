@@ -9678,12 +9678,12 @@ levelup SPECIES_DRIFLOON
     learnset MOVE_SHADOW_BALL, 27
     learnset MOVE_SWALLOW, 27
     learnset MOVE_SPIT_UP, 27
-    learnset MOVE_SELF_DESTRUCT, 29
+    learnset MOVE_AIR_CUTTER, 29
     learnset MOVE_DESTINY_BOND, 32
     learnset MOVE_BATON_PASS, 39
     learnset MOVE_TAILWIND, 40
     learnset MOVE_AMNESIA, 40
-    learnset MOVE_EXPLOSION, 46
+    learnset MOVE_AIR_SLASH, 46
     terminatelearnset
 
 
@@ -9706,12 +9706,12 @@ levelup SPECIES_DRIFBLIM
     learnset MOVE_SWALLOW, 28
     learnset MOVE_SPIT_UP, 28
     learnset MOVE_SHADOW_BALL, 29
-    learnset MOVE_SELF_DESTRUCT, 31
+    learnset MOVE_AIR_CUTTER, 31
     learnset MOVE_DESTINY_BOND, 36
     learnset MOVE_BATON_PASS, 46
     learnset MOVE_AMNESIA, 46
     learnset MOVE_TAILWIND, 48
-    learnset MOVE_EXPLOSION, 56
+    learnset MOVE_AIR_SLASH, 56
     learnset MOVE_PHANTOM_FORCE, 65
     terminatelearnset
 
