@@ -1113,18 +1113,17 @@ levelup SPECIES_DUGTRIO
 
 
 levelup SPECIES_MEOWTH
-    learnset MOVE_FAKE_OUT, 1
     learnset MOVE_GROWL, 1
     learnset MOVE_SCRATCH, 1
-    learnset MOVE_SCRATCH, 8
+    learnset MOVE_BITE, 8
     learnset MOVE_FAKE_OUT, 9
-    learnset MOVE_BITE, 11
+    learnset MOVE_BULLET_SEED, 11
+    learnset MOVE_SCREECH, 17
     learnset MOVE_PAY_DAY, 20
     learnset MOVE_TAUNT, 22
     learnset MOVE_FURY_SWIPES, 22
     learnset MOVE_FEINT_ATTACK, 22
-    learnset MOVE_FEINT, 25
-    learnset MOVE_SCREECH, 25
+    learnset MOVE_SHOCK_WAVE, 25
     learnset MOVE_ASSURANCE, 31
     learnset MOVE_SLASH, 34
     learnset MOVE_NASTY_PLOT, 39
@@ -1139,20 +1138,20 @@ levelup SPECIES_PERSIAN
     learnset MOVE_SWIFT, 0
     learnset MOVE_POWER_GEM, 1
     learnset MOVE_SWITCHEROO, 1
-    learnset MOVE_FAKE_OUT, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_FEINT, 1
     learnset MOVE_SCRATCH, 1
     learnset MOVE_SWIFT, 1
     learnset MOVE_PLAY_ROUGH, 1
     learnset MOVE_BITE, 1
+    learnset MOVE_BITE, 8
     learnset MOVE_FAKE_OUT, 9
-    learnset MOVE_BITE, 11
-    learnset MOVE_PAY_DAY, 12
+    learnset MOVE_BULLET_SEED, 11
+    learnset MOVE_SCREECH, 17
+    learnset MOVE_PAY_DAY, 20
     learnset MOVE_TAUNT, 22
+    learnset MOVE_FURY_SWIPES, 22
     learnset MOVE_FEINT_ATTACK, 22
-    learnset MOVE_FURY_SWIPES, 23
-    learnset MOVE_SCREECH, 27
+    learnset MOVE_SHOCK_WAVE, 25
     learnset MOVE_POWER_GEM, 32
     learnset MOVE_ASSURANCE, 35
     learnset MOVE_SLASH, 39
