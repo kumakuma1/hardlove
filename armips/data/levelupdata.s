@@ -2465,11 +2465,11 @@ levelup SPECIES_LICKITUNG
     learnset MOVE_DEFENSE_CURL, 1
     learnset MOVE_SUPERSONIC, 8
     learnset MOVE_DEFENSE_CURL, 9
+    learnset MOVE_KNOCK_OFF, 13
     learnset MOVE_WRAP, 17
-    learnset MOVE_ROLLOUT, 18
+    learnset MOVE_STOMP, 21
     learnset MOVE_DISABLE, 24
-    learnset MOVE_STOMP, 25
-    learnset MOVE_KNOCK_OFF, 25
+    learnset MOVE_ROLLOUT, 32
     learnset MOVE_CHIP_AWAY, 37
     learnset MOVE_SLAM, 39
     learnset MOVE_ME_FIRST, 41
