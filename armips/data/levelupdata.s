@@ -4,6 +4,7 @@
 .include "armips/include/macros.s"
 .include "armips/include/monnums.s"
 .include "armips/include/movenums.s"
+.include "armips/include/config.s"
 
 // the level up moves for each pokemon
 
@@ -3515,10 +3516,9 @@ levelup SPECIES_CHIKORITA
     learnset MOVE_SYNTHESIS, 12
     learnset MOVE_REFLECT, 15
     learnset MOVE_MAGICAL_LEAF, 20
-    learnset MOVE_NATURAL_GIFT, 23
+    learnset MOVE_BODY_SLAM, 23
     learnset MOVE_SWEET_SCENT, 28
     learnset MOVE_LIGHT_SCREEN, 31
-    learnset MOVE_BODY_SLAM, 34
     learnset MOVE_SAFEGUARD, 39
     learnset MOVE_AROMATHERAPY, 42
     learnset MOVE_GRASS_WHISTLE, 45
@@ -3539,10 +3539,9 @@ levelup SPECIES_BAYLEEF
     learnset MOVE_MEGA_DRAIN, 16
     learnset MOVE_REFLECT, 18
     learnset MOVE_MAGICAL_LEAF, 22
-    learnset MOVE_NATURAL_GIFT, 26
+    learnset MOVE_BODY_SLAM, 26
     learnset MOVE_SWEET_SCENT, 32
     learnset MOVE_LIGHT_SCREEN, 36
-    learnset MOVE_BODY_SLAM, 40
     learnset MOVE_SAFEGUARD, 46
     learnset MOVE_AROMATHERAPY, 50
     learnset MOVE_GRASS_WHISTLE, 52
@@ -3561,18 +3560,21 @@ levelup SPECIES_MEGANIUM
     learnset MOVE_SYNTHESIS, 12
     learnset MOVE_REFLECT, 18
     learnset MOVE_MAGICAL_LEAF, 22
-    learnset MOVE_NATURAL_GIFT, 26
+    learnset MOVE_BODY_SLAM, 26
+.if TYPE_CHANGES_IMPLEMENTED
     learnset MOVE_DRAINING_KISS, 32
+.endif
     learnset MOVE_ANCIENT_POWER, 34
     learnset MOVE_LIGHT_SCREEN, 40
-    learnset MOVE_BODY_SLAM, 46
+.if TYPE_CHANGES_IMPLEMENTED
+    learnset MOVE_MOONBLAST, 46
+.endif
     learnset MOVE_SAFEGUARD, 54
     learnset MOVE_AROMATHERAPY, 60
     learnset MOVE_GRASS_WHISTLE, 62
     learnset MOVE_SOLAR_BEAM, 66
     learnset MOVE_PETAL_BLIZZARD, 70
     terminatelearnset
-
 
 levelup SPECIES_CYNDAQUIL
     learnset MOVE_TACKLE, 1
