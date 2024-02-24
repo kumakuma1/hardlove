@@ -74,9 +74,13 @@ mondata SPECIES_IVYSAUR, "Ivysaur"
     mondexheight SPECIES_IVYSAUR, "3’03”"
     mondexweight SPECIES_IVYSAUR, "28.7 lbs."
 
-
+//BST 535
 mondata SPECIES_VENUSAUR, "Venusaur"
-    basestats 80, 82, 83, 80, 100, 100
+    .if STAT_CHANGES_IMPLEMENTED
+        basestats 80, 82, 93, 80, 100, 100
+    .else
+        basestats 80, 82, 83, 80, 100, 100
+    .endif
     types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
@@ -515,9 +519,18 @@ mondata SPECIES_EKANS, "Ekans"
     mondexheight SPECIES_EKANS, "6’07”"
     mondexweight SPECIES_EKANS, "15.2 lbs."
 
-
+//BST 448 > 469, poison > poison, dark
 mondata SPECIES_ARBOK, "Arbok"
-    basestats 60, 95, 69, 80, 65, 79
+    .if STAT_CHANGES_IMPLEMENTED
+        basestats 75, 95, 75, 80, 65, 79
+    .else
+        basestats 60, 95, 69, 80, 65, 79
+    .endif
+    .if TYPE_CHANGES_IMPLEMENTED
+        types TYPE_POISON, TYPE_DARK
+    .else
+        types TYPE_POISON, TYPE_POISON
+    .endif
     types TYPE_POISON, TYPE_POISON
     catchrate 90
     baseexp 0 // defined in baseexp.s
@@ -3413,9 +3426,13 @@ mondata SPECIES_SENTRET, "Sentret"
     mondexheight SPECIES_SENTRET, "2’07”"
     mondexweight SPECIES_SENTRET, "13.2 lbs."
 
-
+//BST 415 > 425
 mondata SPECIES_FURRET, "Furret"
-    basestats 85, 76, 64, 90, 45, 55
+    .if STAT_CHANGES_IMPLEMENTED
+        basestats 85, 86, 64, 90, 45, 55
+    .else
+        basestats 85, 76, 64, 90, 45, 55
+    .endif
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 90
     baseexp 0 // defined in baseexp.s
@@ -3426,7 +3443,11 @@ mondata SPECIES_FURRET, "Furret"
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
+    .if ABILITY_CHANGES_IMPLEMENTED
+        abilities ABILITY_ADAPTABILITY, ABILITY_KEEN_EYE
+    .else
+        abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
+    .endif
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_FURRET, "It makes a nest to suit its long and\nskinny body. The nest is impossible\nfor other Pokémon to enter."

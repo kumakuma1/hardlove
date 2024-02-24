@@ -850,11 +850,11 @@ superrodrate 75
 walklevels 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
 
 // morning encounter slots
-pokemon SPECIES_GROWLITHE		//20%
+pokemon SPECIES_PONYTA		    //10%
 pokemon SPECIES_SLUGMA			//20%
 pokemon SPECIES_NUMEL			//10%
 pokemon SPECIES_VULPIX			//10%
-pokemon SPECIES_PONYTA		    //10%
+pokemon SPECIES_GROWLITHE		//10%
 pokemon SPECIES_HOUNDOUR		//10%
 pokemon SPECIES_LITLEO			//5%
 pokemon SPECIES_LITWICK 		//5%
@@ -864,11 +864,11 @@ pokemon SPECIES_TORKOAL			//1%
 pokemon SPECIES_TORKOAL			//1%
 
 // day encounter slots
-pokemon SPECIES_GROWLITHE		//20%
+pokemon SPECIES_PONYTA		    //10%
 pokemon SPECIES_SLUGMA			//20%
 pokemon SPECIES_NUMEL			//10%
 pokemon SPECIES_VULPIX			//10%
-pokemon SPECIES_PONYTA		    //10%
+pokemon SPECIES_GROWLITHE		//10%
 pokemon SPECIES_HOUNDOUR		//10%
 pokemon SPECIES_LITLEO			//5%
 pokemon SPECIES_LITWICK 		//5%
@@ -878,11 +878,11 @@ pokemon SPECIES_TORKOAL			//1%
 pokemon SPECIES_TORKOAL			//1%
 
 // night encounter slots
-pokemon SPECIES_GROWLITHE		//20%
+pokemon SPECIES_PONYTA		    //10%
 pokemon SPECIES_SLUGMA			//20%
 pokemon SPECIES_NUMEL			//10%
 pokemon SPECIES_VULPIX			//10%
-pokemon SPECIES_PONYTA		    //10%
+pokemon SPECIES_GROWLITHE		//10%
 pokemon SPECIES_HOUNDOUR		//10%
 pokemon SPECIES_LITLEO			//5%
 pokemon SPECIES_LITWICK 		//5%
