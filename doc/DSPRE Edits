@@ -10,7 +10,7 @@ Delete Hooks back in
 312 D24R0202 Hook 00
 
 Blocker NPC:
-113 D24R0101 - Event File 110  - Add Overworlds - OW Entry 20 - Flag 2456 (Morty Badge, Surf), Script 9
+113 D24R0101 - Event File 110  - Add Overworlds - OW Entry 20 - Flag 166 (Morty Badge Gave TM), Script 9
 Add new script:
 Script 9:
 	PlayFanfare 1500
@@ -44,11 +44,15 @@ Super Repel:
 SetVar 0x8004 76
 ...
 
-
 Old Rod:
 SetVar 0x8004 445
 SetVar 0x8005 1
 CommonScript 2033
+
+Delete old Rod guy
+169 R32PC0101 : Script File 163 - ID 04 - Script 2
+
+
 
 More Pokeballs:
 033 R29 : Script File 225 - Function 25
@@ -62,11 +66,14 @@ Remove CatchTutorial
 
 
 Remove Cut Tree
-033 R29 : Event File 30 : ID 05 Flag 16 Script 1000
+033 R29 : Event File 30 : ID 04 Flag 16 Script 1000
 033 R29 : Event File 30 : ID 05 Flag 17 Script 1000
 
 035 R31 : Event File 32 : ID 01 Flag 16 Script 1000
 035 R31 : Event File 32 : ID 03 Flag 17 Script 1000
+
+036 R32 : Event File 33 : ID 02 Flag 16 Script 1000
+
 
 
 

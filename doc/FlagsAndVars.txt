@@ -1,0 +1,16 @@
+Flag
+
+106             - 061-T20R0101 : Script File 843, Script 13: StarterSelection Screen
+154             - 061-T20R0101 : Script File 225 - Function 25: CatchTutorial
+345             - 158-T22PC0101: Script File 860 - Maarep-Egg from Primo
+345             - 158-T22PC0101: Script File 860 - Wooper-Egg from Primo
+345             - 158-T22PC0101: Script File 860 - Slugma-Egg from Primo
+420             - 061-T20R0101 : Script File 225 - Function 25: CatchTutorial
+421             - "
+
+
+
+
+Variable
+16523 (0x408B)   - 061-T20R0101: Script File 225 - Function 25: CatchTutorial, set to 0
+16648 (0x4108)   - 061-T20R0101: Script File 843, Function 15: Potion giving event in Elm Lab
