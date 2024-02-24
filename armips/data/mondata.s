@@ -531,7 +531,6 @@ mondata SPECIES_ARBOK, "Arbok"
     .else
         types TYPE_POISON, TYPE_POISON
     .endif
-    types TYPE_POISON, TYPE_POISON
     catchrate 90
     baseexp 0 // defined in baseexp.s
     evyields 0, 2, 0, 0, 0, 0
@@ -3258,10 +3257,18 @@ mondata SPECIES_BAYLEEF, "Bayleef"
     mondexheight SPECIES_BAYLEEF, "3’11”"
     mondexweight SPECIES_BAYLEEF, "34.8 lbs."
 
-
+//BST 525 > 535
 mondata SPECIES_MEGANIUM, "Meganium"
-    basestats 80, 82, 100, 80, 83, 100
-    types TYPE_GRASS, TYPE_GRASS
+    .if STAT_CHANGES_IMPLEMENTED
+        basestats 80, 82, 100, 80, 93, 100
+    .else
+        basestats 80, 82, 100, 80, 83, 100
+    .endif
+    .if TYPE_CHANGES_IMPLEMENTED
+        types TYPE_GRASS, TYPE_FAIRY
+    .else
+        types TYPE_GRASS, TYPE_GRASS
+    .endif
     catchrate 45
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 1, 0, 0, 2
@@ -3384,9 +3391,13 @@ mondata SPECIES_CROCONAW, "Croconaw"
     mondexheight SPECIES_CROCONAW, "3’07”"
     mondexweight SPECIES_CROCONAW, "55.1 lbs."
 
-
+//BST 530 > 534
 mondata SPECIES_FERALIGATR, "Feraligatr"
-    basestats 85, 105, 100, 78, 79, 83
+    .if STAT_CHANGES_IMPLEMENTED
+        basestats 85, 105, 100, 78, 79, 87
+    .else
+        basestats 85, 105, 100, 78, 79, 83
+    .endif
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
