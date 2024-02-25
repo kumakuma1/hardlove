@@ -76,5 +76,42 @@ Remove Cut Tree
 
 
 
+Remove need to go back mom after starter, get Pokegear at beginning
+063 T20R0201 : Event File 60 - Script File 845 : Script 1:
+insert:
+SetFlag 286
+PlaySound 1418
+WaitSound
+
+    TextPlayerName 0
+	Message 8
+	SetFlag 156
+	PlaySound 1185
+	WaitSound
+
+Message 5
+CloseMessage 
+
+Add Shoes, Bycicle
+    GiveShoes
+    SetVar 0x8004 450
+	SetVar 0x8005 1
+	CommonScript 2033
 
 
+Remove Guide in Cherrygrove
+067 T201 : Event File 64 - Script File 850 : Script 1:
+delete triggers, this will put the guide in his house
+
+Can be added to Mom script in 063 T20R0201 : Event File 60
+get shoes:
+	GiveShoes
+	SetFlag 408 //Guide trigger, gets cleared before second event
+	....
+	CommonScript 2038
+	SetVar 0x4073 1
+
+get pokegear Map upgrade
+    SetFlag 408  // Guide trigger
+	UpgradePokegear 1
+	SetVar 0x4073 2  //scene trigger
