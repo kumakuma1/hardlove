@@ -8137,7 +8137,7 @@ trainerdata 249, "Don"  // Route 30
         ivs 0
         abilityslot 0
         level LEVEL_ROUTE_30
-        pokemon SPECIES_CRADILY
+        pokemon SPECIES_LILEEP
         item ITEM_ORAN_BERRY
         move MOVE_LEECH_SEED
         move MOVE_ACID
