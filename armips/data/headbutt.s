@@ -734,6 +734,7 @@ headbuttheader  32,  15,   0
     treecoords 848, 272, 849, 272, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
+//route 29
 headbuttheader  33,  35,   0
     // normal slots
     headbuttencounter SPECIES_HOOTHOOT, 2, 3
@@ -1847,6 +1848,7 @@ headbuttheader  73,  27,   0
     treecoords 461, 227, 462, 227, -1, -1, -1, -1, -1, -1, -1, -1
 .close
 
+// azalea
 headbuttheader  74,  15,   0
     // normal slots
     headbuttencounter SPECIES_SPEAROW, 3, 5
