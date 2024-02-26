@@ -101,7 +101,7 @@ Add Shoes, Bycicle
 
 Remove Guide in Cherrygrove
 067 T201 : Event File 64 - Script File 850 : Script 1:
-delete triggers, this will put the guide in his house
+delete triggers, flags set below will put the guide in his house
 
 Can be added to Mom script in 063 T20R0201 : Event File 60
 get shoes:
@@ -115,3 +115,24 @@ get pokegear Map upgrade
     SetFlag 408  // Guide trigger
 	UpgradePokegear 1
 	SetVar 0x4073 2  //scene trigger
+
+156 D15R0103 : Event File 151 - Script File 18 : Script 3: Text Archive 56
+Rotate trainer,
+create double battle
+
+Elder Li gives 3x Berry Juise, 2x Coba Berries
+156 D15R0103 : Event File 151 - Script File 18 : Script 3: Text Archive 56
+
+    SetVar 0x8004 43
+    SetVar 0x8005 3
+    CheckItemSpace 0x8004 0x8005 0x800C
+    SetVar 0x8004 43
+    SetVar 0x8005 3
+    CommonScript 2008
+    SetVar 0x8004 192
+    SetVar 0x8005 2
+    CheckItemSpace 0x8004 0x8005 0x800C
+    SetVar 0x8004 192
+    SetVar 0x8005 2
+    CommonScript 2008
+
