@@ -44,13 +44,13 @@ EIGHT_BADGES equ 6
 .halfword ITEM_REVIVE
 .halfword THREE_BADGES
 
-.halfword ITEM_ANTIDOTE
+.halfword ITEM_PECHA_BERRY
 .halfword ZERO_BADGES
 
-.halfword ITEM_PARALYZE_HEAL
+.halfword ITEM_CHERI_BERRY
 .halfword ZERO_BADGES
 
-.halfword ITEM_AWAKENING
+.halfword ITEM_CHESTO_BERRY
 .halfword ONE_BADGE
 
 .halfword ITEM_BURN_HEAL
