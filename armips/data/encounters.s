@@ -2096,49 +2096,49 @@ rocksmashrate 0
 oldrodrate 75
 goodrodrate 75
 superrodrate 75
-walklevels 5, 6, 5, 6, 6, 6, 5, 5, 5, 6, 5, 6
+walklevels 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7
 
 // morning encounter slots
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_PARAS
-pokemon SPECIES_PARAS
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
+pokemon SPECIES_BELLSPROUT	//20%
+pokemon SPECIES_ODDISH			//20%
+pokemon SPECIES_SUNKERN		  //10%
+pokemon SPECIES_SHROOMISH		//10%
+pokemon SPECIES_SEEDOT	 		//10%
+pokemon SPECIES_PARAS			  //10%
+pokemon SPECIES_PETILIL			//5%
+pokemon SPECIES_EXEGGCUTE		//5%
+pokemon SPECIES_BUDEW		    //4%
+pokemon SPECIES_BUDEW		    //4%
+pokemon SPECIES_FERROSEED		//1%
+pokemon SPECIES_FERROSEED		//1%
 
 // day encounter slots
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_METAPOD
-pokemon SPECIES_METAPOD
-pokemon SPECIES_METAPOD
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
+pokemon SPECIES_BELLSPROUT	//20%
+pokemon SPECIES_ODDISH			//20%
+pokemon SPECIES_SUNKERN		  //10%
+pokemon SPECIES_SHROOMISH		//10%
+pokemon SPECIES_SEEDOT	 		//10%
+pokemon SPECIES_PARAS			  //10%
+pokemon SPECIES_PETILIL			//5%
+pokemon SPECIES_EXEGGCUTE		//5%
+pokemon SPECIES_BUDEW		    //4%
+pokemon SPECIES_BUDEW		    //4%
+pokemon SPECIES_FERROSEED		//1%
+pokemon SPECIES_FERROSEED		//1%
 
 // night encounter slots
-pokemon SPECIES_ODDISH
-pokemon SPECIES_ODDISH
-pokemon SPECIES_ODDISH
-pokemon SPECIES_ODDISH
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
-pokemon SPECIES_PARAS
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_PARAS
+pokemon SPECIES_BELLSPROUT	//20%
+pokemon SPECIES_ODDISH			//20%
+pokemon SPECIES_SUNKERN		  //10%
+pokemon SPECIES_FOONGUS  		//10%
+pokemon SPECIES_SEEDOT	 		//10%
+pokemon SPECIES_PARAS			  //10%
+pokemon SPECIES_COTTONEE		//5%
+pokemon SPECIES_EXEGGCUTE		//5%
+pokemon SPECIES_BUDEW		    //4%
+pokemon SPECIES_BUDEW		    //4%
+pokemon SPECIES_FERROSEED		//1%
+pokemon SPECIES_FERROSEED		//1%
 
 // hoenn encounter slots
 pokemon SPECIES_SPOINK
@@ -2160,11 +2160,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
+encounter SPECIES_PSYDUCK, 7, 7
+encounter SPECIES_GOLDEEN, 7, 7
+encounter SPECIES_LOTAD, 7, 7
+encounter SPECIES_CARNIVINE, 7, 7
+encounter SPECIES_LILEEP, 7, 7
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
