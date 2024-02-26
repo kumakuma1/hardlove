@@ -1641,7 +1641,7 @@ encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
 encounter SPECIES_MAGIKARP, 5, 5        //40%
-encounter SPECIES_CORPISH, 5, 5         //30%
+encounter SPECIES_CORPHISH, 5, 5        //30%
 encounter SPECIES_BARBOACH, 5, 5        //15%
 encounter SPECIES_TYMPOLE, 5, 5         //10%
 encounter SPECIES_QWILFISH, 5, 5        //5%
