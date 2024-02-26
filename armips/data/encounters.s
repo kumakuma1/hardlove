@@ -2400,7 +2400,7 @@ pokemon SPECIES_MAGIKARP
 .close
 
 
-encounterdata  23   // National Park
+encounterdata  23   // National Park, mega
 
 walkrate 15
 surfrate 0
@@ -2408,49 +2408,62 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 10, 10, 10, 10, 12, 12, 12, 12, 10, 14, 10, 14
-
+walklevels 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12
+/*
+pokemon SPECIES_PIDGEY 	    //20%
+pokemon SPECIES_AUDINO		  //20%
+pokemon SPECIES_BULBASAUR   //10%
+pokemon SPECIES_CHARMANDER  //10%
+pokemon SPECIES_SQUIRTLE	  //10%
+pokemon SPECIES_BUNEARY		  //10%
+pokemon SPECIES_TREECKO		  //5%
+pokemon SPECIES_MUDKIP  	  //5%
+pokemon SPECIES_BEEDRILL	  //4%
+pokemon SPECIES_BEEDRILL	  //4%
+pokemon SPECIES_TORCHIC 	  //1%
+pokemon SPECIES_TORCHIC	    //1%
+*/
 // morning encounter slots
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_PIDGEY
+pokemon SPECIES_PIDGEY 	    //20%
+pokemon SPECIES_AUDINO		  //20%
+pokemon SPECIES_SNORUNT     //10%
+pokemon SPECIES_CARVANHA    //10%
+pokemon SPECIES_NUMEL    	  //10%
+pokemon SPECIES_ELECTRIKE	  //10%
+pokemon SPECIES_BULBASAUR		//5%
+pokemon SPECIES_SQUIRTLE  	//5%
+pokemon SPECIES_BUNEARY	    //4%
+pokemon SPECIES_BUNEARY	    //4%
+pokemon SPECIES_CHARMANDER 	//1%
+pokemon SPECIES_CHARMANDER	//1%
 
 // day encounter slots
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_CATERPIE
-pokemon SPECIES_METAPOD
-pokemon SPECIES_SUNKERN
-pokemon SPECIES_SUNKERN
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_SUNKERN
-pokemon SPECIES_PIDGEY
-pokemon SPECIES_SUNKERN
-pokemon SPECIES_PIDGEY
+pokemon SPECIES_PIDGEY 	    //20%
+pokemon SPECIES_AUDINO		  //20%
+pokemon SPECIES_SNORUNT     //10%
+pokemon SPECIES_CARVANHA    //10%
+pokemon SPECIES_NUMEL    	  //10%
+pokemon SPECIES_ELECTRIKE	  //10%
+pokemon SPECIES_BULBASAUR		//5%
+pokemon SPECIES_SQUIRTLE  	//5%
+pokemon SPECIES_BUNEARY	    //4%
+pokemon SPECIES_BUNEARY	    //4%
+pokemon SPECIES_CHARMANDER 	//1%
+pokemon SPECIES_CHARMANDER	//1%
 
 // night encounter slots
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
-pokemon SPECIES_HOOTHOOT
+pokemon SPECIES_PIDGEY 	    //20%
+pokemon SPECIES_AUDINO		  //20%
+pokemon SPECIES_SNORUNT     //10%
+pokemon SPECIES_CARVANHA    //10%
+pokemon SPECIES_NUMEL    	  //10%
+pokemon SPECIES_ELECTRIKE	  //10%
+pokemon SPECIES_BULBASAUR		//5%
+pokemon SPECIES_SQUIRTLE  	//5%
+pokemon SPECIES_BUNEARY	    //4%
+pokemon SPECIES_BUNEARY	    //4%
+pokemon SPECIES_CHARMANDER 	//1%
+pokemon SPECIES_CHARMANDER	//1%
 
 // hoenn encounter slots
 pokemon SPECIES_PLUSLE
