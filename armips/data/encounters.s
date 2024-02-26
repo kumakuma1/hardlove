@@ -383,7 +383,7 @@ pokemon SPECIES_BIDOOF
 // surf encounters
 encounter SPECIES_POLIWAG, 3, 3         //40%
 encounter SPECIES_SURSKIT, 3, 3         //30%
-encounter SPECIES_BINACLE, 3, 3         //15%
+encounter SPECIES_CLAMPERL, 3, 3        //15%
 encounter SPECIES_LOTAD, 3, 3           //10%
 encounter SPECIES_TYMPOLE, 3, 3         //5%
 
@@ -394,7 +394,7 @@ encounter SPECIES_NONE, 0, 0
 // old rod encounters
 encounter SPECIES_POLIWAG, 3, 3         //40%
 encounter SPECIES_SURSKIT, 3, 3         //30%
-encounter SPECIES_BINACLE, 3, 3         //15%
+encounter SPECIES_CLAMPERL, 3, 3        //15%
 encounter SPECIES_LOTAD, 3, 3           //10%
 encounter SPECIES_TYMPOLE, 3, 3         //5%
 
@@ -487,7 +487,7 @@ pokemon SPECIES_BIDOOF
 // surf encounters
 encounter SPECIES_POLIWAG, 3, 3         //40%
 encounter SPECIES_SURSKIT, 3, 3         //30%
-encounter SPECIES_BINACLE, 3, 3         //15%
+encounter SPECIES_CLAMPERL, 3, 3        //15%
 encounter SPECIES_LOTAD, 3, 3           //10%
 encounter SPECIES_TYMPOLE, 3, 3         //5%
 
@@ -498,7 +498,7 @@ encounter SPECIES_NONE, 0, 0
 // old rod encounters
 encounter SPECIES_POLIWAG, 3, 3         //40%
 encounter SPECIES_SURSKIT, 3, 3         //30%
-encounter SPECIES_BINACLE, 3, 3         //15%
+encounter SPECIES_CLAMPERL, 3, 3        //15%
 encounter SPECIES_LOTAD, 3, 3           //10%
 encounter SPECIES_TYMPOLE, 3, 3         //5%
 
