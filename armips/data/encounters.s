@@ -384,7 +384,7 @@ pokemon SPECIES_BIDOOF
 encounter SPECIES_POLIWAG, 3, 3         //40%
 encounter SPECIES_SURSKIT, 3, 3         //30%
 encounter SPECIES_BINACLE, 3, 3         //15%
-encounter SPECIES_CLAUNCHER, 3, 3       //10%
+encounter SPECIES_LOTAD, 3, 3           //10%
 encounter SPECIES_TYMPOLE, 3, 3         //5%
 
 // rock smash encounters
@@ -395,7 +395,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_POLIWAG, 3, 3         //40%
 encounter SPECIES_SURSKIT, 3, 3         //30%
 encounter SPECIES_BINACLE, 3, 3         //15%
-encounter SPECIES_CLAUNCHER, 3, 3       //10%
+encounter SPECIES_LOTAD, 3, 3           //10%
 encounter SPECIES_TYMPOLE, 3, 3         //5%
 
 // good rod encounters
@@ -488,7 +488,7 @@ pokemon SPECIES_BIDOOF
 encounter SPECIES_POLIWAG, 3, 3         //40%
 encounter SPECIES_SURSKIT, 3, 3         //30%
 encounter SPECIES_BINACLE, 3, 3         //15%
-encounter SPECIES_CLAUNCHER, 3, 3       //10%
+encounter SPECIES_LOTAD, 3, 3           //10%
 encounter SPECIES_TYMPOLE, 3, 3         //5%
 
 // rock smash encounters
@@ -499,7 +499,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_POLIWAG, 3, 3         //40%
 encounter SPECIES_SURSKIT, 3, 3         //30%
 encounter SPECIES_BINACLE, 3, 3         //15%
-encounter SPECIES_CLAUNCHER, 3, 3       //10%
+encounter SPECIES_LOTAD, 3, 3           //10%
 encounter SPECIES_TYMPOLE, 3, 3         //5%
 
 // good rod encounters
