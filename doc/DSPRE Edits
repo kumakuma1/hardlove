@@ -75,6 +75,9 @@ Remove Cut Tree
 036 R32 : Event File 33 : ID 02 Flag 16 Script 1000
 
 
+Prof comes to give number after starter has been given:
+060 T20 : Event File 57 - Script File 842 : Script 3:
+CheckFlag 156 -> CheckFlag 106
 
 Remove need to go back mom after starter, get Pokegear at beginning
 063 T20R0201 : Event File 60 - Script File 845 : Script 1:
@@ -136,3 +139,5 @@ Elder Li gives 3x Berry Juise, 2x Coba Berries
     SetVar 0x8005 2
     CommonScript 2008
 
+Goldenrod Gamecorner Prices/Items:
+536 T25SP0101 : Event File 488 - Script File 910 :
