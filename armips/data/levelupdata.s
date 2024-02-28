@@ -914,9 +914,7 @@ levelup SPECIES_ZUBAT
 
 levelup SPECIES_GOLBAT
     learnset MOVE_SCREECH, 1
-    learnset MOVE_ABSORB, 1
-    learnset MOVE_SUPERSONIC, 1
-    learnset MOVE_ASTONISH, 1
+    learnset MOVE_MEGA_DRAIN, 1
     learnset MOVE_MEAN_LOOK, 1
     learnset MOVE_BITE, 1
     learnset MOVE_SUPERSONIC, 5
@@ -4858,32 +4856,31 @@ levelup SPECIES_GRANBULL
 
 levelup SPECIES_QWILFISH
     learnset MOVE_POISON_STING, 1
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_FELL_STINGER, 1
-    learnset MOVE_HYDRO_PUMP, 1
-    learnset MOVE_DESTINY_BOND, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_SPIKES, 1
-    learnset MOVE_HARDEN, 6
-    learnset MOVE_WATER_GUN, 8
-    learnset MOVE_MINIMIZE, 12
-    learnset MOVE_BUBBLE, 13
-    learnset MOVE_ROLLOUT, 17
-    learnset MOVE_SPIKES, 20
-    learnset MOVE_BRINE, 28
-    learnset MOVE_REVENGE, 28
-    learnset MOVE_TOXIC_SPIKES, 29
-    learnset MOVE_FELL_STINGER, 34
-    learnset MOVE_PIN_MISSILE, 34
-    learnset MOVE_STOCKPILE, 35
-    learnset MOVE_SPIT_UP, 35
-    learnset MOVE_POISON_JAB, 44
-    learnset MOVE_TAKE_DOWN, 44
-    learnset MOVE_AQUA_TAIL, 50
-    learnset MOVE_TOXIC, 52
-    learnset MOVE_HYDRO_PUMP, 57
+    learnset MOVE_PAIN_SPLIT, 1 
+    learnset MOVE_SPIKES, 1 
+    learnset MOVE_FLAIL, 1 
+    learnset MOVE_REVERSAL, 1 
+    learnset MOVE_BUBBLE, 1 
+    learnset MOVE_POISON_STING, 1 
+    learnset MOVE_PIN_MISSILE, 5 
+    //learnset MOVE_WATER_GUN, 9 
+    //learnset MOVE_VENOM_DRENCH, 9 
+    learnset MOVE_VENOSHOCK, 12
+    learnset MOVE_POISON_FANG, 15
+    learnset MOVE_BUBBLE_BEAM, 18
+    learnset MOVE_REVENGE, 21
+    learnset MOVE_WATERFALL, 25
+    learnset MOVE_POISON_JAB, 29
+    learnset MOVE_TOXIC, 33
+    learnset MOVE_SELF_DESTRUCT, 36
+    learnset MOVE_AQUA_TAIL, 39
+    learnset MOVE_AQUA_JET, 42
+    learnset MOVE_PAYBACK, 46
+    learnset MOVE_EXPLOSION, 50
+    learnset MOVE_LIQUIDATION, 55
     learnset MOVE_DESTINY_BOND, 59
-    learnset MOVE_ACUPRESSURE, 60
+    learnset MOVE_GUNK_SHOT, 61
+    learnset MOVE_ACUPRESSURE, 65
     terminatelearnset
 
 
