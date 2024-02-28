@@ -8268,7 +8268,7 @@ const ITEMDATA __data[] =
 
 [ITEM_CHERI_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_PRZ_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 1,
@@ -8333,7 +8333,7 @@ const ITEMDATA __data[] =
 
 [ITEM_CHESTO_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_SLP_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 2,
@@ -8398,7 +8398,7 @@ const ITEMDATA __data[] =
 
 [ITEM_PECHA_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_PSN_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 3,
@@ -8463,7 +8463,7 @@ const ITEMDATA __data[] =
 
 [ITEM_RAWST_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_BRN_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 4,
@@ -8528,7 +8528,7 @@ const ITEMDATA __data[] =
 
 [ITEM_ASPEAR_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_FRZ_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 5,
@@ -8593,7 +8593,7 @@ const ITEMDATA __data[] =
 
 [ITEM_LEPPA_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 1000,
     .holdEffect = HOLD_EFFECT_PP_RESTORE,
     .holdEffectParam = 10,
     .pluckEffect = 6,
@@ -8723,7 +8723,7 @@ const ITEMDATA __data[] =
 
 [ITEM_PERSIM_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_CONFUSE_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 8,
@@ -8788,7 +8788,7 @@ const ITEMDATA __data[] =
 
 [ITEM_LUM_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 1000,
     .holdEffect = HOLD_EFFECT_STATUS_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 9,
@@ -8853,7 +8853,7 @@ const ITEMDATA __data[] =
 
 [ITEM_SITRUS_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 1000,
     .holdEffect = HOLD_EFFECT_HP_PCT_RESTORE,
     .holdEffectParam = 25,
     .pluckEffect = 10,
