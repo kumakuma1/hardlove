@@ -1851,18 +1851,18 @@ headbuttheader  73,  27,   0
 // azalea
 headbuttheader  74,  15,   0
     // normal slots
-    headbuttencounter SPECIES_HOOTHOOT, 3, 5
-    headbuttencounter SPECIES_HOOTHOOT, 3, 5
-    headbuttencounter SPECIES_HOOTHOOT, 3, 5
-    headbuttencounter SPECIES_HOOTHOOT, 3, 5
-    headbuttencounter SPECIES_HOOTHOOT, 3, 5
-    headbuttencounter SPECIES_HOOTHOOT, 3, 5
-    headbuttencounter SPECIES_HOOTHOOT, 6, 8
-    headbuttencounter SPECIES_HOOTHOOT, 6, 8
-    headbuttencounter SPECIES_HOOTHOOT, 6, 8
-    headbuttencounter SPECIES_HOOTHOOT, 6, 8
-    headbuttencounter SPECIES_HOOTHOOT, 6, 8
-    headbuttencounter SPECIES_HOOTHOOT, 6, 8
+    headbuttencounter  SPECIES_CATERPIE, 7, 7 	  //20%
+    headbuttencounter  SPECIES_WURMPLE, 7, 7		  //20%
+    headbuttencounter  SPECIES_SCATTERBUG, 7, 7   //10%
+    headbuttencounter  SPECIES_VENONAT, 7, 7 	    //10%
+    headbuttencounter  SPECIES_WEEDLE, 7, 7		    //10%
+    headbuttencounter  SPECIES_SPINARAK, 7, 7	    //10%
+    headbuttencounter  SPECIES_KRICKETOT, 7, 7		//5%
+    headbuttencounter  SPECIES_PINECO, 7, 7			  //5%
+    headbuttencounter  SPECIES_LEDYBA, 7, 7			  //4%
+    headbuttencounter  SPECIES_LEDYBA, 7, 7			  //4%
+    headbuttencounter  SPECIES_NINCADA, 7, 7			//1%
+    headbuttencounter  SPECIES_NINCADA, 7, 7			//1%
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
