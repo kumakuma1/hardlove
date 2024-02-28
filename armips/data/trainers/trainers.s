@@ -9460,37 +9460,124 @@ trainerdata 268, "Silver"
     endparty
 
 trainerdata 269, "Silver"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_RIVAL
-    nummons 3
+    nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 269
-        // mon 0
-        ivs 30
+        ivs 0
         abilityslot 0
-        level 14
-        pokemon SPECIES_GASTLY
+        level LEVEL_BUGSY
+        pokemon SPECIES_GOLBAT
+        item ITEM_BERRY_JUICE
+        move MOVE_U_TURN
+        move MOVE_POISON_FANG
+        move MOVE_BITE
+        move MOVE_WING_ATTACK
+        ability ABILITY_SNIPER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
-        ivs 30
+        ivs 0
         abilityslot 0
-        level 16
-        pokemon SPECIES_ZUBAT
+        level LEVEL_BUGSY-1
+        pokemon SPECIES_SABLEYE
+        item ITEM_BERRY_JUICE
+        move MOVE_FAKE_OUT
+        move MOVE_WILL_O_WISP
+        move MOVE_SHADOW_SNEAK
+        move MOVE_KNOCK_OFF
+        ability ABILITY_PRANKSTER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 2
-        ivs 30
+        ivs 0
         abilityslot 0
-        level 18
+        level LEVEL_BUGSY
+        pokemon SPECIES_SANDSLASH
+        item ITEM_BERRY_JUICE
+        move MOVE_CRUSH_CLAW
+        move MOVE_ROCK_TOMB
+        move MOVE_RAPID_SPIN
+        move MOVE_BULLDOZE
+        ability ABILITY_SAND_RUSH
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY-1
+        pokemon SPECIES_ROSELIA
+        item ITEM_BERRY_JUICE
+        move MOVE_MEGA_DRAIN
+        move MOVE_LEECH_SEED
+        move MOVE_GRASS_WHISTLE
+        move MOVE_GROWTH
+        ability ABILITY_POISON_POINT
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+		ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY
+        pokemon SPECIES_GROWLITHE
+        item ITEM_BERRY_JUICE
+        move MOVE_TAKE_DOWN
+        move MOVE_FIRE_FANG
+        move MOVE_COVET
+        move MOVE_BITE
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+		ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY
         pokemon SPECIES_CROCONAW
+        item ITEM_BERRY_JUICE
+        move MOVE_AQUA_JET
+        move MOVE_ROCK_TOMB
+        move MOVE_ICE_FANG
+        move MOVE_BITE
+        ability ABILITY_SHEER_FORCE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
