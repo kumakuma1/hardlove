@@ -20,14 +20,20 @@ EIGHT_BADGES equ 6
 .halfword ITEM_POKE_BALL
 .halfword ZERO_BADGES
 
+.halfword ITEM_QUICK_BALL  // ITEM_TOP_REPEL
+.halfword THREE_BADGES
+
 .halfword ITEM_GREAT_BALL
 .halfword THREE_BADGES
 
 .halfword ITEM_ULTRA_BALL
 .halfword FIVE_BADGES
 
-.halfword ITEM_ORAN_BERRY
+.halfword ITEM_ORAN_BERRY // ITEM_POTION
 .halfword ZERO_BADGES
+
+.halfword ITEM_SITRUS_BERRY //ITEM_REVIVE
+.halfword THREE_BADGES
 
 .halfword ITEM_SUPER_POTION
 .halfword ONE_BADGE
@@ -41,38 +47,32 @@ EIGHT_BADGES equ 6
 .halfword ITEM_FULL_RESTORE
 .halfword EIGHT_BADGES
 
-.halfword ITEM_REVIVE
-.halfword THREE_BADGES
-
-.halfword ITEM_PECHA_BERRY
+.halfword ITEM_PECHA_BERRY //ITEM_ANTIDOTE
 .halfword ZERO_BADGES
 
-.halfword ITEM_CHERI_BERRY
+.halfword ITEM_CHERI_BERRY //ITEM_PARALYZE_HEAL
 .halfword ZERO_BADGES
 
-.halfword ITEM_CHESTO_BERRY
+.halfword ITEM_CHESTO_BERRY //ITEM_WAKEUP
 .halfword ONE_BADGE
 
-.halfword ITEM_BURN_HEAL
+.halfword ITEM_RAWST_BERRY //ITEM_BURN_HEAL
 .halfword ONE_BADGE
 
-.halfword ITEM_ICE_HEAL
+.halfword ITEM_ASPEAR_BERRY //ITEM_ICE_HEAL
 .halfword ONE_BADGE
 
-.halfword ITEM_FULL_HEAL
+.halfword ITEM_PERSIM_BERRY //ITEM_ESCAPE_ROPE
+.halfword ONE_BADGE
+
+.halfword ITEM_LUM_BERRY // ITEM_FULL_HEAL
 .halfword FIVE_BADGES
 
-.halfword ITEM_ESCAPE_ROPE
-.halfword ONE_BADGE
-
-.halfword ITEM_REPEL
-.halfword ONE_BADGE
-
-.halfword ITEM_SUPER_REPEL
-.halfword THREE_BADGES
-
-.halfword ITEM_MAX_REPEL
+.halfword ITEM_LEPPA_BERRY //ITEM_REPEL
 .halfword FIVE_BADGES
+
+.halfword ITEM_POMEG_BERRY //ITEM_SUPER_REPEL
+.halfword ONE_BADGE
 
 /* Goldenrod Dept. Store - X Items */
 /* const u16 _020FBBB4[] = {ITEM_X_SPEED, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_GUARD_SPEC_, ITEM_DIRE_HIT, ITEM_X_ACCURACY, ITEM_X_SPECIAL, ITEM_X_SP__DEF, 0xFFFF}; *\
@@ -86,7 +86,7 @@ EIGHT_BADGES equ 6
 .halfword ITEM_MOON_STONE
 .halfword ITEM_SUN_STONE
 .halfword ITEM_ICE_STONE
-.halfword ITEM_EVERSTONE
+.halfword ITEM_SHINY_STONE
 .halfword 0xFFFF
 */
 
