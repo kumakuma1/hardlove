@@ -485,7 +485,7 @@ pokemon SPECIES_BUIZEL
 pokemon SPECIES_BIDOOF
 
 // surf encounters
-encounter SPECIES_POLIWAG, 3, 3         //40%
+encounter SPECIES_TENTACOOL, 3, 3        //40%
 encounter SPECIES_SURSKIT, 3, 3         //30%
 encounter SPECIES_CLAMPERL, 3, 3        //15%
 encounter SPECIES_LOTAD, 3, 3           //10%
@@ -496,7 +496,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_POLIWAG, 3, 3         //40%
+encounter SPECIES_TENTACOOL, 3, 3        //40%
 encounter SPECIES_SURSKIT, 3, 3         //30%
 encounter SPECIES_CLAMPERL, 3, 3        //15%
 encounter SPECIES_LOTAD, 3, 3           //10%
@@ -2211,8 +2211,8 @@ pokemon SPECIES_TEDDIURSA	  //10%
 pokemon SPECIES_DEERLING	  //10%
 pokemon SPECIES_EEVEE  		  //5%
 pokemon SPECIES_SWABLU  	  //5%
-pokemon SPECIES_SLAKOTH	      //4%
-pokemon SPECIES_SLAKOTH	      //4%
+pokemon SPECIES_MARILL	      //4%
+pokemon SPECIES_MARILL	      //4%
 pokemon SPECIES_DITTO 	      //1%
 pokemon SPECIES_DITTO	      //1%
 
@@ -2225,8 +2225,8 @@ pokemon SPECIES_TEDDIURSA	  //10%
 pokemon SPECIES_DEERLING	  //10%
 pokemon SPECIES_EEVEE  		  //5%
 pokemon SPECIES_SWABLU  	  //5%
-pokemon SPECIES_SLAKOTH	      //4%
-pokemon SPECIES_SLAKOTH	      //4%
+pokemon SPECIES_MARILL	      //4%
+pokemon SPECIES_MARILL	      //4%
 pokemon SPECIES_DITTO 	      //1%
 pokemon SPECIES_DITTO	      //1%
 
@@ -2239,8 +2239,8 @@ pokemon SPECIES_TEDDIURSA	  //10%
 pokemon SPECIES_DEERLING	  //10%
 pokemon SPECIES_EEVEE  		  //5%
 pokemon SPECIES_SWABLU  	  //5%
-pokemon SPECIES_SLAKOTH	      //4%
-pokemon SPECIES_SLAKOTH	      //4%
+pokemon SPECIES_MARILL	      //4%
+pokemon SPECIES_MARILL	      //4%
 pokemon SPECIES_DITTO 	      //1%
 pokemon SPECIES_DITTO	      //1%
 
