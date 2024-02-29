@@ -138,7 +138,7 @@ trainerdata 1, "Silver"
         additionalflags 0
         ballseal 0
 		
-		ivs 0
+	ivs 0
         abilityslot 0
         level LEVEL_BUGSY-1
         pokemon SPECIES_FLETCHINDER
@@ -156,7 +156,7 @@ trainerdata 1, "Silver"
         additionalflags 0
         ballseal 0
 		
-		ivs 0
+	ivs 0
         abilityslot 0
         level LEVEL_BUGSY
         pokemon SPECIES_BAYLEEF
@@ -9156,13 +9156,13 @@ trainerdata 263, "Silver"
         ivs 0
         abilityslot 0
         level LEVEL_ECRUTEAK
-        pokemon SPECIES_MASQUERAIN
-        item ITEM_SITRUS_BERRY
-        move MOVE_BUBBLE_BEAM
-        move MOVE_AIR_CUTTER
-        move MOVE_U_TURN
-        move MOVE_QUIVER_DANCE
-        ability ABILITY_INTIMIDATE
+        pokemon SPECIES_KINGDRA
+        item ITEM_LIFE_ORB
+        move MOVE_BRINE
+        move MOVE_DRAGON_BREATH
+        move MOVE_FLIP_TURN
+        move MOVE_YAWN
+        ability ABILITY_SNIPER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -9211,7 +9211,7 @@ trainerdata 263, "Silver"
         abilityslot 0
         level LEVEL_ECRUTEAK
         pokemon SPECIES_BAYLEEF
-        item ITEM_SITRUS_BERRY
+        item ITEM_EVIOLITE
         move MOVE_MEGA_DRAIN
         move MOVE_STUN_SPORE
         move MOVE_REFLECT
@@ -9220,7 +9220,7 @@ trainerdata 263, "Silver"
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_MODEST
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -9710,60 +9710,124 @@ trainerdata 269, "Silver"
     endparty
 
 trainerdata 270, "Silver"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_RIVAL
-    nummons 4
+    nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 270
-        // mon 0
-        ivs 80
+        ivs 0
         abilityslot 0
-        level 20
-        pokemon SPECIES_GASTLY
-        move MOVE_LICK
-        move MOVE_CONFUSE_RAY
-        move MOVE_MEAN_LOOK
-        move MOVE_CURSE
-        ballseal 0
-
-        // mon 1
-        ivs 80
-        abilityslot 0
-        level 18
-        pokemon SPECIES_MAGNEMITE
-        move MOVE_THUNDER_WAVE
-        move MOVE_THUNDER_SHOCK
-        move MOVE_SUPERSONIC
-        move MOVE_SONIC_BOOM
-        ballseal 0
-
-        // mon 2
-        ivs 80
-        abilityslot 0
-        level 20
-        pokemon SPECIES_ZUBAT
-        move MOVE_ASTONISH
-        move MOVE_SUPERSONIC
+        level LEVEL_ECRUTEAK
+        pokemon SPECIES_CROBAT
+        item ITEM_SITRUS_BERRY
+        move MOVE_U_TURN
+        move MOVE_POISON_FANG
         move MOVE_BITE
-        move MOVE_WING_ATTACK
+        move MOVE_AERIAL_ACE
+        ability ABILITY_SNIPER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 3
-        ivs 80
+        ivs 0
         abilityslot 0
-        level 22
+        level LEVEL_ECRUTEAK-1
+        pokemon SPECIES_SABLEYE
+        item ITEM_SITRUS_BERRY
+        move MOVE_FAKE_OUT
+        move MOVE_WILL_O_WISP
+        move MOVE_SHADOW_SNEAK
+        move MOVE_KNOCK_OFF
+        ability ABILITY_PRANKSTER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ECRUTEAK
+        pokemon SPECIES_EXCADRILL
+        item ITEM_SITRUS_BERRY
+        move MOVE_STOMPING_TANTRUM
+        move MOVE_ROCK_TOMB
+        move MOVE_RAPID_SPIN
+        move MOVE_METAL_CLAW
+        ability ABILITY_SAND_RUSH
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_ECRUTEAK-1
+        pokemon SPECIES_ARCANINE
+        item ITEM_SITRUS_BERRY
+        move MOVE_EXTREME_SPEED
+        move MOVE_FLAMETHROWER
+        move MOVE_COVET
+        move MOVE_THUNDER_FANG
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_ECRUTEAK-1
+        pokemon SPECIES_ROSERADE
+        item ITEM_LIFE_ORB
+        move MOVE_MEGA_DRAIN
+        move MOVE_LEECH_SEED
+        move MOVE_GRASS_WHISTLE
+        move MOVE_SLUDGE_BOMB
+        ability ABILITY_TECHNICIAN
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+	ivs 0
+        abilityslot 0
+        level LEVEL_ECRUTEAK
         pokemon SPECIES_CROCONAW
-        move MOVE_SCARY_FACE
+        item ITEM_EVIOLITE
+        move MOVE_AQUA_JET
+        move MOVE_FLIP_TURN
         move MOVE_ICE_FANG
-        move MOVE_WATER_GUN
-        move MOVE_BITE
+        move MOVE_CRUNCH
+        ability ABILITY_SHEER_FORCE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
