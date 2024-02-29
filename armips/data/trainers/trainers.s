@@ -1262,64 +1262,124 @@ trainerdata 30, "Whitney"
     endparty
 
 trainerdata 31, "Morty"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_LEADER_0
-    nummons 4
-    item ITEM_HYPER_POTION
-    item ITEM_HYPER_POTION
+    nummons 6
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    item ITEM_NONE
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 31
-        // mon 0
-        ivs 100
+        ivs 0
         abilityslot 0
-        level 21
-        pokemon SPECIES_GASTLY
-        item ITEM_NONE
-        move MOVE_LICK
-        move MOVE_SPITE
-        move MOVE_MEAN_LOOK
-        move MOVE_CURSE
+        level LEVEL_MORTY-1
+        pokemon SPECIES_LIEPARD
+        item ITEM_BLACK_CLASSES
+        move MOVE_U_TURN
+        move MOVE_FAKE_OUT
+        move MOVE_THUNDER_WAVE
+        move MOVE_DARK_PULSE
+        ability ABILITY_PRANKSTER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 1
-        ivs 100
+		
+	ivs 0
         abilityslot 0
-        level 21
-        pokemon SPECIES_HAUNTER
-        item ITEM_NONE
+        level LEVEL_MORTY-1
+        pokemon SPECIES_KLEFKI
+        item ITEM_LEFTOVER
+        move MOVE_SPIKES
+        move MOVE_PROTECT
+        move MOVE_THUNDER_WAVE
+        move MOVE_DRAINING_KISS
+        ability ABILITY_PRANKSTER
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_BOLD
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_MORTY
+        pokemon SPECIES_CHANDELURE
+        item ITEM_LEFTOVER
+        move MOVE_FLAMETHROWER
+        move MOVE_SHADOW_BALL
+        move MOVE_SUBSTITUTE
+        move MOVE_CALM_MIND
+        ability ABILITY_FLAME_BODY
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-1
+        pokemon SPECIES_WEAVILE
+        item ITEM_FOCUS_SASH
+        move MOVE_ICE_SHARD
+        move MOVE_ICE_PUNCH
+        move MOVE_KNOCK_OFF
+        move MOVE_POISON_JAB
+        ability ABILITY_INFILTRATOR
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-1
+        pokemon SPECIES_MISMAGIUS
+        item ITEM_LIFE_ORB
+        move MOVE_MOON_BLAST
+        move MOVE_SHADOW_BALL
+        move MOVE_ENERGY_BALL
+        move MOVE_PAIN_SPLIT
+        ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_MORTY
+        pokemon SPECIES_GENGAR
+        item ITEM_GENGARITE
+        move MOVE_SLUDGE_BOMB
+        move MOVE_SHADOW_BALL
         move MOVE_HYPNOSIS
         move MOVE_DREAM_EATER
-        move MOVE_CURSE
-        move MOVE_NIGHTMARE
-        ballseal 0
-
-        // mon 2
-        ivs 100
-        abilityslot 0
-        level 25
-        pokemon SPECIES_GENGAR
-        item ITEM_SITRUS_BERRY
-        move MOVE_HYPNOSIS
-        move MOVE_SHADOW_BALL
-        move MOVE_MEAN_LOOK
-        move MOVE_SUCKER_PUNCH
-        ballseal 0
-
-        // mon 3
-        ivs 100
-        abilityslot 0
-        level 23
-        pokemon SPECIES_HAUNTER
-        item ITEM_NONE
-        move MOVE_CURSE
-        move MOVE_MEAN_LOOK
-        move MOVE_SUCKER_PUNCH
-        move MOVE_NIGHT_SHADE
+        ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
