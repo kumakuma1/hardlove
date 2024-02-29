@@ -955,9 +955,9 @@ superrodrate 75
 walklevels 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
 
 // morning encounter slots
-pokemon SPECIES_SHINX			  //20%
+pokemon SPECIES_SHINX			//20%
 pokemon SPECIES_MAREEP			//20%
-pokemon SPECIES_YAMPER			//10%
+pokemon SPECIES_ELEKID			//10%
 pokemon SPECIES_TYNAMO			//10%
 pokemon SPECIES_BLITZLE			//10%
 pokemon SPECIES_ELECTRIKE		//10%
@@ -969,9 +969,9 @@ pokemon SPECIES_PACHIRISU		//1%
 pokemon SPECIES_PACHIRISU		//1%
 
 // day encounter slots
-pokemon SPECIES_SHINX			  //20%
+pokemon SPECIES_SHINX			//20%
 pokemon SPECIES_MAREEP			//20%
-pokemon SPECIES_YAMPER			//10%
+pokemon SPECIES_ELEKID			//10%
 pokemon SPECIES_TYNAMO			//10%
 pokemon SPECIES_BLITZLE			//10%
 pokemon SPECIES_ELECTRIKE		//10%
@@ -983,9 +983,9 @@ pokemon SPECIES_PACHIRISU		//1%
 pokemon SPECIES_PACHIRISU		//1%
 
 // night encounter slots
-pokemon SPECIES_SHINX			  //20%
+pokemon SPECIES_SHINX			//20%
 pokemon SPECIES_MAREEP			//20%
-pokemon SPECIES_YAMPER			//10%
+pokemon SPECIES_ELEKID			//10%
 pokemon SPECIES_TYNAMO			//10%
 pokemon SPECIES_BLITZLE			//10%
 pokemon SPECIES_ELECTRIKE		//10%
@@ -1059,46 +1059,46 @@ superrodrate 0
 walklevels 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
 
 // morning encounter slots
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
+pokemon SPECIES_DROWZEE			//20%
+pokemon SPECIES_MUNNA   		//20%
+pokemon SPECIES_ABRA			//10%
+pokemon SPECIES_SPOINK  		//10%
+pokemon SPECIES_EXEGGCUTE  		//10%
+pokemon SPECIES_BRONZOR			//10%
+pokemon SPECIES_SOLOSIS			//5%
+pokemon SPECIES_BALTOY			//5%
+pokemon SPECIES_SLOWPOKE		//4%
+pokemon SPECIES_SLOWPOKE		//4%
+pokemon SPECIES_RALTS			//1%
+pokemon SPECIES_RALTS			//1%
 
 // day encounter slots
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
+pokemon SPECIES_DROWZEE			//20%
+pokemon SPECIES_MUNNA   		//20%
+pokemon SPECIES_ABRA			//10%
+pokemon SPECIES_SPOINK		    //10%
+pokemon SPECIES_EXEGGCUTE  		//10%
+pokemon SPECIES_BRONZOR			//10%
+pokemon SPECIES_SOLOSIS			//5%
+pokemon SPECIES_BALTOY			//5%
+pokemon SPECIES_SLOWPOKE		//4%
+pokemon SPECIES_SLOWPOKE		//4%
+pokemon SPECIES_RALTS			//1%
+pokemon SPECIES_RALTS			//1%
 
 // night encounter slots
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
+pokemon SPECIES_DROWZEE			//20%
+pokemon SPECIES_GOTHITA   		//20%
+pokemon SPECIES_ABRA			//10%
+pokemon SPECIES_SPOINK		    //10%
+pokemon SPECIES_EXEGGCUTE  		//10%
+pokemon SPECIES_BRONZOR			//10%
+pokemon SPECIES_SOLOSIS			//5%
+pokemon SPECIES_BALTOY			//5%
+pokemon SPECIES_SLOWPOKE		//4%
+pokemon SPECIES_SLOWPOKE		//4%
+pokemon SPECIES_RALTS			//1%
+pokemon SPECIES_RALTS			//1%
 
 // hoenn encounter slots
 pokemon SPECIES_UNOWN
@@ -2264,11 +2264,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_KRABBY, 10, 10
-encounter SPECIES_KRABBY, 10, 10
+encounter SPECIES_CARVANHA, 10, 10
+encounter SPECIES_HORSEA, 10, 10
+encounter SPECIES_FEEBAS, 10, 10
+encounter SPECIES_CLAMPERL, 10, 10
+encounter SPECIES_ALOMOMOLA, 10, 10
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -7214,7 +7214,7 @@ pokemon SPECIES_WOOPER    	//10%
 pokemon SPECIES_DIGLETT		//10%
 pokemon SPECIES_SANDSHREW	//10%
 pokemon SPECIES_DRILBUR	    //10%
-pokemon SPECIES_LARVITAR	//5%
+pokemon SPECIES_HIPPOPOTAS	//5%
 pokemon SPECIES_NOSEPASS	//5%
 pokemon SPECIES_CUBONE		//4%
 pokemon SPECIES_CUBONE		//4%
@@ -7228,7 +7228,7 @@ pokemon SPECIES_WOOPER    	//10%
 pokemon SPECIES_DIGLETT		//10%
 pokemon SPECIES_SANDSHREW	//10%
 pokemon SPECIES_DRILBUR	    //10%
-pokemon SPECIES_LARVITAR	//5%
+pokemon SPECIES_HIPPOPOTAS	//5%
 pokemon SPECIES_NOSEPASS	//5%
 pokemon SPECIES_CUBONE		//4%
 pokemon SPECIES_CUBONE		//4%
@@ -7242,7 +7242,7 @@ pokemon SPECIES_WOOPER    	//10%
 pokemon SPECIES_DIGLETT		//10%
 pokemon SPECIES_SANDSHREW	//10%
 pokemon SPECIES_DRILBUR	    //10%
-pokemon SPECIES_LARVITAR	//5%
+pokemon SPECIES_HIPPOPOTAS	//5%
 pokemon SPECIES_NOSEPASS	//5%
 pokemon SPECIES_CUBONE		//4%
 pokemon SPECIES_CUBONE		//4%
