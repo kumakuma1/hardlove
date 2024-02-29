@@ -637,7 +637,7 @@ movedata MOVE_TAIL_WHIP, "Tail Whip"
     basepower 0
     type TYPE_NORMAL
     accuracy 100
-    pp 30
+    pp 10
     effectchance 0
     target MOVE_TARGET_BOTH
     priority 0
