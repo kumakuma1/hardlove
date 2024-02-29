@@ -1,0 +1,88 @@
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 350
+	JumpIf LESS Function#7
+	CheckItem 93 1 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	//Message 10
+	Message 12
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_349 
+	GetSelectedPartySlot 0x8005
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x8005 255
+	JumpIf EQUAL Function#8
+	GetPartyPokemonID 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	CMD_466 0x800C 0x8005
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	Message 13
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_467 0x8005
+	CMD_469 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#8
+	TakeItem 93 1 0x800C
+	TextPlayerName 3
+	Message 25
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+         I’m the Pokémon Relearner.\r I can make Pokémon remember their   \nmoves for a Heartscale.
+9  Me?\nI’m the Pokémon Move Maniac.\rI know every move that Pokémon learn\nwhile they’re leveling up, and I can\fmake Pokémon remember those moves.\rI can make a Pokémon of yours remember\na move if you’d like.\rBut...ahem! It’ll cost you.\rI’ll make a Pokémon remember a move\nif you’ll trade me a Heart Scale.
+10 Ha! That’s it! That’s an honest-to-\ngoodness Heart Scale!\rLet me guess, you want me to teach\none of your Pokémon a move?\r
+....delete 10
+11 If any of your Pokémon needs to learn a\nmove, come back with a Heart Scale.
+12 Which Pokémon needs tutoring?\r
+13 Which move should I make it remember?\r
+14 Sorry...\rThere isn’t any move I can make\nthat Pokémon remember.
+             There is no move to remember
+15 Hunh?\rDon’t you think it’d be tough for\nan Egg to remember a move?\rIt’s not even hatched.
+          Pal, this is an Egg...
+25 \v0103ぁあ\x0000 handed over one\nHeart Scale in exchange.
+
+Function 2: 7:
+	Message 9
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 350
+End 
+
+Function 3: 8:
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 4: 9:
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 5: 10:
+	Message 14
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+185 - T25PC0101 - Event File 178 - Script File 887
