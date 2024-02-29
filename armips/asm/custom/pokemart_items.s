@@ -76,7 +76,7 @@ EIGHT_BADGES equ 6
 
 /* Goldenrod Dept. Store - X Items */
 /* const u16 _020FBBB4[] = {ITEM_X_SPEED, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_GUARD_SPEC_, ITEM_DIRE_HIT, ITEM_X_ACCURACY, ITEM_X_SPECIAL, ITEM_X_SP__DEF, 0xFFFF}; *\
-/*
+
 .org 0x020FBBB4
 
 .halfword ITEM_FIRE_STONE
@@ -88,7 +88,7 @@ EIGHT_BADGES equ 6
 .halfword ITEM_ICE_STONE
 .halfword ITEM_SHINY_STONE
 .halfword 0xFFFF
-*/
+
 
 /* Goldenrod Dept. Store - TMs */
 /* .halfword ITEM_ICE_STONE * removed/
@@ -176,6 +176,7 @@ EIGHT_BADGES equ 6
 /* Full marts item list */
 
 /*
+          _020FBF22   - ordinary Mart
 const u16 _020FBA54[] = {ITEM_AIR_MAIL, ITEM_HEAL_BALL, 0xFFFF}; // Cherrygrove
 const u16 _020FBA78[] = {ITEM_TUNNEL_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF}; //violet
 const u16 _020FBAB0[] = {ITEM_BLOOM_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF}; //azalea
