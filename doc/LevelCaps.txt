@@ -1,0 +1,83 @@
+063 T20R0201 : Event File 60 - Script File 845 : Script 1:
+..
+Call Function#1
+..
+Function 1:
+	Message 39
+	SetVar 0x416F 100
+	YesNoBox 0x800C
+	CloseMessage 
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#5
+	CloseTouchScreen 
+Return 
+
+Function 5:
+	Message 40
+	SetFlag 117 // GOT_OLD FLAG, hopefully this is only used for the guy in Route 32 giving the rod
+	SetVar 0x416F 12
+Return
+
+//Elder Li
+156 D15R0103 : Event File 151 - Script File 18 : Script 3: Text Archive 56
+CheckFlag 117
+JumpIf EQUAL Function#4
+
+Function 4:
+	SetVar 0x416F 16
+Return 
+
+//Falk
+135 T22GYM0101 : Event File 131 -  Script File 859 : Script 2
+CheckFlag 117
+JumpIf EQUAL Function#7
+
+Function 7:
+	SetVar 0x416F 18
+Return 
+
+//Rocket Slowpoke
+177 D26R0102 : Event File 170 -  Script File 60 : Script 3
+CheckFlag 117
+JumpIf EQUAL Function#3
+
+Function 3:
+	SetVar 0x416F 22
+Return
+
+//bugsy
+180 T23GYM0102 : Event File 173 -  Script File 869 : Script 2
+CheckFlag 117
+JumpIf EQUAL Function#3
+
+Function 3:
+	SetVar 0x416F 27
+Return
+
+//whitney
+137 T25GYM0101 : Event File 133 -  Script File 886 : Script 1
+CheckFlag 117
+JumpIf EQUAL Function#22
+
+Function 22:
+	SetVar 0x416F 31
+Return
+
+//rival ecruteak
+007 D18R0101 : Event File 5 -  Script File 23 : Script 4, Functions 2/3
+CheckFlag 117
+JumpIf EQUAL Function#5
+
+Function 5:
+	SetVar 0x416F 32
+Return
+
+
+//Morty
+80 T27GYM0101 : Event File 77 -  Script File 922 : Script 2
+CheckFlag 117
+JumpIf EQUAL Function#16
+
+Function 16:
+	SetVar 0x416F 36
+Return

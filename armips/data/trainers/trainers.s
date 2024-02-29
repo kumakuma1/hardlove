@@ -7,6 +7,7 @@
 .include "armips/include/macros.s"
 .include "armips/include/movenums.s"
 .include "armips/include/monnums.s"
+.include "armips/include/config.s"
 
 TRAINER_MON_TYPE_FLAGS equ TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS | 0
 
