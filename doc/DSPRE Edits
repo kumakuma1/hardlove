@@ -123,7 +123,7 @@ get pokegear Map upgrade
 Rotate trainer,
 create double battle
 
-Elder Li gives 3x Berry Juise, 2x Coba Berries
+Elder Li gives 3x Berry Juice, 2x Coba Berries
 156 D15R0103 : Event File 151 - Script File 18 : Script 3: Text Archive 56
 
     SetVar 0x8004 43

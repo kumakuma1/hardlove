@@ -141,7 +141,7 @@ FLAG_TRADE_VIOLET_CITY_BELLSPROUT_ONIX                     equ  0x71
 FLAG_UNK_072                                               equ  0x72
 FLAG_GOT_TM51_FROM_FALKNER                                 equ  0x73
 FLAG_UNK_074                                               equ  0x74
-FLAG_GOT_OLD_ROD                                           equ  0x75 // unused
+FLAG_GOT_OLD_ROD                                           equ  0x75 // unused. used for level caps
 FLAG_UNK_076                                               equ  0x76
 FLAG_UNK_077                                               equ  0x77
 FLAG_UNK_078                                               equ  0x78

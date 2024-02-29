@@ -1278,7 +1278,7 @@ trainerdata 31, "Morty"
         abilityslot 0
         level LEVEL_MORTY-1
         pokemon SPECIES_LIEPARD
-        item ITEM_BLACK_CLASSES
+        item ITEM_BLACK_GLASSES
         move MOVE_U_TURN
         move MOVE_FAKE_OUT
         move MOVE_THUNDER_WAVE
@@ -1296,7 +1296,7 @@ trainerdata 31, "Morty"
         abilityslot 0
         level LEVEL_MORTY-1
         pokemon SPECIES_KLEFKI
-        item ITEM_LEFTOVER
+        item ITEM_LEFTOVERS
         move MOVE_SPIKES
         move MOVE_PROTECT
         move MOVE_THUNDER_WAVE
@@ -1314,7 +1314,7 @@ trainerdata 31, "Morty"
         abilityslot 0
         level LEVEL_MORTY
         pokemon SPECIES_CHANDELURE
-        item ITEM_LEFTOVER
+        item ITEM_LEFTOVERS
         move MOVE_FLAMETHROWER
         move MOVE_SHADOW_BALL
         move MOVE_SUBSTITUTE
@@ -1351,7 +1351,7 @@ trainerdata 31, "Morty"
         level LEVEL_MORTY-1
         pokemon SPECIES_MISMAGIUS
         item ITEM_LIFE_ORB
-        move MOVE_MOON_BLAST
+        move (TYPE_CHANGES_IMPLEMENTED) ? MOVE_MOONBLAST : MOVE_PSYCHIC
         move MOVE_SHADOW_BALL
         move MOVE_ENERGY_BALL
         move MOVE_PAIN_SPLIT
