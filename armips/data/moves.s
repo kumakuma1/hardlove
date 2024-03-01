@@ -650,7 +650,7 @@ movedata MOVE_TAIL_WHIP, "Tail Whip"
 movedata MOVE_POISON_STING, "Poison Sting"
     battleeffect 2
     pss SPLIT_PHYSICAL
-    basepower 15
+    basepower 30
     type TYPE_POISON
     accuracy 100
     pp 35
@@ -1741,7 +1741,7 @@ movedata MOVE_SMOKESCREEN, "SmokeScreen"
     basepower 0
     type TYPE_NORMAL
     accuracy 100
-    pp 20
+    pp 10
     effectchance 0
     target MOVE_TARGET_SELECTED
     priority 0
@@ -1773,7 +1773,7 @@ movedata MOVE_WITHDRAW, "Withdraw"
     basepower 0
     type TYPE_WATER
     accuracy 0
-    pp 40
+    pp 10
     effectchance 0
     target MOVE_TARGET_USER
     priority 0
@@ -1789,7 +1789,7 @@ movedata MOVE_DEFENSE_CURL, "Defense Curl"
     basepower 0
     type TYPE_NORMAL
     accuracy 0
-    pp 40
+    pp 10
     effectchance 0
     target MOVE_TARGET_USER
     priority 0
@@ -1805,7 +1805,7 @@ movedata MOVE_BARRIER, "Barrier"
     basepower 0
     type TYPE_PSYCHIC
     accuracy 0
-    pp 20
+    pp 5
     effectchance 0
     target MOVE_TARGET_USER
     priority 0
@@ -1821,7 +1821,7 @@ movedata MOVE_LIGHT_SCREEN, "Light Screen"
     basepower 0
     type TYPE_PSYCHIC
     accuracy 0
-    pp 30
+    pp 5
     effectchance 0
     target MOVE_TARGET_USER_SIDE
     priority 0
@@ -1837,7 +1837,7 @@ movedata MOVE_HAZE, "Haze"
     basepower 0
     type TYPE_ICE
     accuracy 0
-    pp 30
+    pp 5
     effectchance 0
     target MOVE_TARGET_ACTIVE_FIELD
     priority 0
@@ -1853,7 +1853,7 @@ movedata MOVE_REFLECT, "Reflect"
     basepower 0
     type TYPE_PSYCHIC
     accuracy 0
-    pp 20
+    pp 5
     effectchance 0
     target MOVE_TARGET_USER_SIDE
     priority 0
@@ -1869,7 +1869,7 @@ movedata MOVE_FOCUS_ENERGY, "Focus Energy"
     basepower 0
     type TYPE_NORMAL
     accuracy 0
-    pp 30
+    pp 10
     effectchance 0
     target MOVE_TARGET_USER
     priority 0
@@ -2205,7 +2205,7 @@ movedata MOVE_GLARE, "Glare"
     basepower 0
     type TYPE_NORMAL
     accuracy 100
-    pp 30
+    pp 10
     effectchance 0
     target MOVE_TARGET_SELECTED
     priority 0
@@ -2237,7 +2237,7 @@ movedata MOVE_POISON_GAS, "Poison Gas"
     basepower 0
     type TYPE_POISON
     accuracy 90
-    pp 40
+    pp 10
     effectchance 0
     target DEBUG_NEEDS_TESTING ? MOVE_TARGET_BOTH : MOVE_TARGET_SELECTED
     priority 0
