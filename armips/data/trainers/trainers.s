@@ -1298,7 +1298,7 @@ trainerdata 31, "Morty"
         level LEVEL_MORTY-1
         pokemon SPECIES_CLEFABLE // SPECIES_KLEFKI
         item ITEM_LEFTOVERS
-        move MOVE_STEALTH_ROCKS //MOVE_SPIKES
+        move MOVE_STEALTH_ROCK //MOVE_SPIKES
         move MOVE_PROTECT
         move MOVE_THUNDER_WAVE
         move MOVE_DRAINING_KISS
