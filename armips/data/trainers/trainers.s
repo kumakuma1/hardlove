@@ -1296,13 +1296,13 @@ trainerdata 31, "Morty"
 	ivs 0
         abilityslot 0
         level LEVEL_MORTY-1
-        pokemon SPECIES_KLEFKI
+        pokemon SPECIES_CLEFABLE // SPECIES_KLEFKI
         item ITEM_LEFTOVERS
-        move MOVE_SPIKES
+        move MOVE_STEALTH_ROCKS //MOVE_SPIKES
         move MOVE_PROTECT
         move MOVE_THUNDER_WAVE
         move MOVE_DRAINING_KISS
-        ability ABILITY_PRANKSTER
+        ability ABILITY_MAGIC_GUARD //ABILITY_PRANKSTER
         ball ITEM_POKE_BALL
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -9212,7 +9212,7 @@ trainerdata 263, "Silver"
         abilityslot 0
         level LEVEL_ECRUTEAK
         pokemon SPECIES_BAYLEEF
-        item ITEM_EVIOLITE
+        item ITEM_SITRUS_BERRY //ITEM_EVIOLITE
         move MOVE_MEGA_DRAIN
         move MOVE_STUN_SPORE
         move MOVE_REFLECT
@@ -9817,7 +9817,7 @@ trainerdata 270, "Silver"
         abilityslot 0
         level LEVEL_ECRUTEAK
         pokemon SPECIES_CROCONAW
-        item ITEM_EVIOLITE
+        item ITEM_SITRUS_BERRY //ITEM_EVIOLITE
         move MOVE_AQUA_JET
         move MOVE_FLIP_TURN
         move MOVE_ICE_FANG
