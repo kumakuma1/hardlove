@@ -141,3 +141,15 @@ Elder Li gives 3x Berry Juice, 2x Coba Berries
 
 Goldenrod Gamecorner Prices/Items:
 536 T25SP0101 : Event File 488 - Script File 910 :
+
+
+Block Ecruteak
+172 R38R0101 - Event File 166 - Script File 248 :
+Add spwanables with Flag 166 - Win against Morty
+
+042 R38 - Event File 39 - Script File 247 :
+Add spwanables with Flag 166 - Win against Morty
+
+17 Here is no getting through, Pal.
+18 We're doing some Insta pics!
+19 Our Turf, Buddy!

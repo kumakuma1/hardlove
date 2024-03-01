@@ -280,7 +280,7 @@ FLAG_UNK_0FC                                               equ  0xFC
 FLAG_GOT_ALL_FOUR_FRONTIER_PRINTS                          equ  0xFD
 FLAG_MET_HALL_STREAK_TRACKER_DUDE                          equ  0xFE
 FLAG_GOT_SCRATCH_CARD_INFO                                 equ  0xFF
-FLAG_UNK_100                                               equ 0x100
+FLAG_UNK_100                                               equ 0x100 //received Seal Case on Moomoo Farm
 FLAG_UNK_101                                               equ 0x101
 FLAG_UNK_102                                               equ 0x102
 FLAG_UNK_103                                               equ 0x103
