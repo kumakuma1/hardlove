@@ -1122,7 +1122,7 @@ mondata SPECIES_MEOWTH, "Meowth"
     catchrate 255
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 1, 0, 0
-    items ITEM_QUICK_CLAW, ITEM_NUGGET
+    items ITEM_QUICK_CLAW, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -1878,7 +1878,7 @@ mondata SPECIES_GRIMER, "Grimer"
     catchrate 190
     baseexp 0 // defined in baseexp.s
     evyields 1, 0, 0, 0, 0, 0
-    items ITEM_BLACK_SLUDGE, ITEM_NUGGET
+    items ITEM_BLACK_SLUDGE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -1899,7 +1899,7 @@ mondata SPECIES_MUK, "Muk"
     catchrate 75
     baseexp 0 // defined in baseexp.s
     evyields 1, 1, 0, 0, 0, 0
-    items ITEM_TOXIC_ORB, ITEM_NUGGET
+    items ITEM_TOXIC_ORB, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -7820,7 +7820,7 @@ mondata SPECIES_LUVDISC, "Luvdisc"
     catchrate 225
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 1, 0, 0
-    items ITEM_HEART_SCALE, ITEM_NONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -13028,7 +13028,7 @@ mondata SPECIES_TRUBBISH, "Trubbish"
     catchrate 190
     baseexp 0 // defined in baseexp.s
     evyields 0, 0, 0, 1, 0, 0
-    items ITEM_SILK_SCARF, ITEM_NUGGET
+    items ITEM_SILK_SCARF, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -13049,7 +13049,7 @@ mondata SPECIES_GARBODOR, "Garbodor"
     catchrate 60
     baseexp 0 // defined in baseexp.s
     evyields 0, 2, 0, 0, 0, 0
-    items ITEM_SILK_SCARF, ITEM_NUGGET
+    items ITEM_SILK_SCARF, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
