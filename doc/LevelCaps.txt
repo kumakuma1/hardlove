@@ -21,7 +21,7 @@ Return
 //Elder Li
 156 D15R0103 : Event File 151 - Script File 18 : Script 3: Text Archive 56
 CheckFlag 117
-JumpIf EQUAL Function#4
+JumpIf EQUAL Function#4  // FIX ALL  CallIf EQUAL...
 
 Function 4:
 	SetVar 0x416F 16
