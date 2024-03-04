@@ -118,6 +118,7 @@ Sprout Tower 3F
 -----------------------------
 - made trainier mandatory
 - Li increases Level caps
+- Li gives 3x Berry Juice, 2x Coba Berries
 TODO:
 - Block right path after last trainer has moved
 
