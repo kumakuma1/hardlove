@@ -1,3 +1,127 @@
+-----------------------------
+New Bark Town
+-----------------------------
+- Mom gives bicycle, pokegear with upgrade 1, running shoes
+- disables quide Kent in cherrygrove
+- Level caps
+- removed need to talk to mom after starter was received
+- Prof gives starter with hidden ability, 3x 31 IVs at random
+- Aide gives 995 super repels, candies, 2 heartscales, old rod
+- fishing encounter
+
+TODO:
+- use super rod for better encounter rates/ change encounter rates
+- remove Lyra events to safe time
+
+
+-----------------------------
+Route 29
+-----------------------------
+- removed cut trees
+- encounter
+
+TODO:
+- different formes at night
+
+
+-----------------------------
+Route 46
+-----------------------------
+- encounter
+
+TODO:
+- different formes at night
+
+
+-----------------------------
+Cherrygrove City
+-----------------------------
+- removed guide Kent events. He is placed in his house
+- fishing encounter
+
+TODO:
+- fight with kent, mega stone
+- surf encounter
+
+
+
+-----------------------------
+Route 30
+-----------------------------
+- fishing encounter
+- encounter
+
+TODO:
+- place trainer, so that they are mandatory
+- different formes at night
+- surf encounter
+
+-----------------------------
+Route 31
+-----------------------------
+- removed cut trees
+- fishing encounter
+- encounter
+
+TODO:
+- place trainer, so that they are mandatory
+- place bug catcher in front of dark cave
+- different formes at night
+- surf encounter
+
+
+-----------------------------
+Violet City
+-----------------------------
+- fishing encounter
+
+TODO:
+- IVs for Onix trade
+- remove Primo and use flags otherwise
+- (random egg)?
+- surf encounter
+
+-----------------------------
+Route 36 - First Part
+-----------------------------
+TODO:
+- (random egg)?
+
+
+-----------------------------
+Ruins of Alph
+-----------------------------
+- changed cave entries, so that grass is accessible
+- Mini-Boss before grass
+- Blocker NPC blocks Union Cave entry, vanishes after Morty
+- encounter
+- fishing encounter
+
+TODO:
+- Have blocker NPC say something
+- (Move NPC inside of cave to allow for early Union Cave encounter)?
+- surf encounter
+
+-----------------------------
+Route 32 - First Part
+-----------------------------
+TODO:
+- encounter
+
+-----------------------------
+Sprout Tower 2F
+-----------------------------
+- encounter
+
+-----------------------------
+Sprout Tower 3F
+-----------------------------
+- made trainier mandatory
+- Li increases Level caps
+TODO:
+- Block right path after last trainer has moved
+
+
 Encounter:
 New Bark, Water
 Route 29, Normal
