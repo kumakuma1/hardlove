@@ -125,24 +125,34 @@ TODO:
 - Block right path after last trainer has moved
 
 
-Encounter:
-New Bark, Water
-Route 29, Normal
-Route 46, Flying
-Cherrygrove, Water
-Route 30, Bug
-Route 31, Bug
-Violet, Water/Togepi
-Route 32, Fire
-Sprout Tower 2F, Ghost
-Sprout Tower 3F, Dark
 
+
+-----------------------------
+Radio Tower
+-----------------------------
 TODO:
-rod encounter
+- Rescuing Director gives Mega-Ring
+- Gauntlet with Giovanni
 
 
-Mini Boss:
-Sprout Tower, Elder Li, 12
-Ruins of Alph, Nathan, 15, Electric encounter
+-----------------------------
+Blackthorn City
+-----------------------------
 TODO:
-set warps for Alph Electric encounter
+- Replace Dratini by Random Pseudo legendary
+
+
+-----------------------------
+Kimono Gauntlet
+-----------------------------
+TODO:
+- Give Mega-stones instead of Ho-Oh Encounter
+
+-----------------------------
+Elite Four
+-----------------------------
+TODO:
+- Use Koga for Melanie
+- Use Lance for Melanie
+- New champ
+- port Lance, Melanie text
