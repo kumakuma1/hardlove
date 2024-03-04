@@ -179,3 +179,28 @@ Script 6:
 	CloseMessage 
 	ReleaseAll 
 End 
+
+
+
+Block Mahagony City
+132 - R42R0101 - Event File 128 - Script File 253
+1 The creator did such a lazy\njob by placing me...
+2 Team Rocket is building our\nBas...ehm Business!\rehm...in Mahagony City.
+2 Spawnables with OW entry 222, Flag 194  (TM from Jasmine)
+Script 3:
+	LockAll 
+	FacePlayer 
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 4:
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
