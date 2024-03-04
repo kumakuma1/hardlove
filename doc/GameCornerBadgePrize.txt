@@ -259,6 +259,17 @@ return
 
 --------------------------------
 --------------------------------
+Script 5 -> Function 12 replaced with Function 80
+
+11 CANCEL
+52 EEVEE\v0203\x0001ザ1000 Coins
+53 CORSOLA\v0203\x0001ザ2000 Coins
+54 PAWNIARD\v0203\x0001ザ2000 Coins
+55 SOLOSIS\v0203\x0001ザ3000 Coins
+56 SKARABORN\v0203\x0001ザ4000 Coins
+57 RIOLU\v0203\x0001ザ5000 Coins
+58 RALTS\v0203\x0001ザ5000 Coins
+
 Function 79:
 	Message 1
 	WaitButton 
@@ -421,10 +432,11 @@ Function 87:
 	CompareVarValue 0x8006 2000
 	JumpIf LESS Function#93
 	call Function#94
-	SetVarFromFlexible 0x4002 95
+	SetVarFromFlexible 0x4002 222
 	call Function#96
 	TakeCoins 2000
 	UpdateSpecialCurrency 0
+	SetFlag 2600
 	GivePokemon 0x4002 15 0 0 0 0x800C
 	Call Function#98
 Jump Function#80
@@ -451,6 +463,7 @@ Function 89:
 	call Function#96
 	TakeCoins 0xBB8
 	UpdateSpecialCurrency 0
+	SetFlag 2600
 	GivePokemon 0x4002 15 0 0 0 0x800C
 	Call Function#98
 Jump Function#80
@@ -460,10 +473,11 @@ Function 90:
 	CompareVarValue 0x8006 0xFA0
 	JumpIf LESS Function#93
 	call Function#94
-	SetVarFromFlexible 0x4002 324
+	SetVarFromFlexible 0x4002 214
 	call Function#96
 	TakeCoins 0xFA0
 	UpdateSpecialCurrency 0
+	SetFlag 2600
 	GivePokemon 0x4002 15 0 0 0 0x800C
 	Call Function#98
 Jump Function#80
@@ -473,11 +487,11 @@ Function 91:
 	CompareVarValue 0x8006 0x1388
 	JumpIf LESS Function#93
 	call Function#94
-	SetVarFromFlexible 0x4002 688
+	SetVarFromFlexible 0x4002 447
 	call Function#96
 	TakeCoins 0x1388
 	UpdateSpecialCurrency 0
-	GivePokemon 0x4002 15 0 0 0 0x800C
+	GivePokemon 0x4002 15 0 0 1 0x800C
 	Call Function#98
 Jump Function#80
 
@@ -490,7 +504,7 @@ Function 92:
 	call Function#96
 	TakeCoins 0x1388
 	UpdateSpecialCurrency 0
-	GivePokemon 0x4002 15 0 0 0 0x800C
+	GivePokemon 0x4002 15 0 0 1 0x800C
 	Call Function#98
 Jump Function#80
 
