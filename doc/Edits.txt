@@ -74,6 +74,8 @@ TODO:
 Violet City
 -----------------------------
 - fishing encounter
+- Trainer in gym are mandatory
+- Falk increases Level cap
 
 TODO:
 - IVs for Onix trade
