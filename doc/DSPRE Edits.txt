@@ -153,3 +153,29 @@ Add spwanables with Flag 166 - Win against Morty
 17 Here is no getting through, Pal.
 18 We're doing some Insta pics!
 19 Our Turf, Buddy!
+
+Script 4:
+	LockAll 
+	FacePlayer 
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 5:
+	LockAll 
+	FacePlayer
+	Message 18
+	WaitButton
+	CloseMessage
+	ReleaseAll 
+End 
+
+Script 6:
+	LockAll 
+	Message 19
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
