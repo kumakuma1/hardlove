@@ -203,3 +203,4 @@ TODO:
 - Use Lance for Melanie
 - New champ
 - port Lance, Melanie text
+- Sprite Raissa, change name to Meralda
