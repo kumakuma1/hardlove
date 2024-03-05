@@ -139,10 +139,21 @@ TODO:
 Goldenrod
 -----------------------------
 - relearner NPC in PC
+- move tutor 1 in PC
 TODO:
 - use bycicle store differently (fossil?)
 - remove quiz for radio upgrade
+- store items
+- flower shop items
 
+
+-----------------------------
+Goldenrod - Rocket
+-----------------------------
+- 
+TODO:
+- (rescuing director gives mega-ring?)
+- tag battle with giovanni
 
 -----------------------------
 Goldenrod Game Corner
@@ -153,6 +164,7 @@ TODO:
 - badge scaling pokemon held items
 - badge scaling offering 2 pokemons per badge
 - place relearner from PC to corner
+- place move tutor 1 here
 
 
 Park
