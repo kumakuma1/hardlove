@@ -108,7 +108,7 @@ TODO:
 Route 32 - First Part
 -----------------------------
 TODO:
-- encounter
+- night form encounter
 
 -----------------------------
 Sprout Tower 2F
@@ -133,6 +133,51 @@ TODO:
 - made trainier mandatory
 - items
 - Bird keeper Mini boss
+- fishing encounter
+- surf encounter
+
+-----------------------------
+Union Cave
+-----------------------------
+TODO:
+- night form encounter
+- fishing encounter
+- surf encounter
+
+-----------------------------
+Route 33
+-----------------------------
+- mandatory Mini boss
+TODO:
+- surf encounter
+
+-----------------------------
+Azalea
+-----------------------------
+- heabutt encounter
+TODO:
+- (TM ?)
+- overhall heabutt encounter
+
+-----------------------------
+Ilex Forrest
+-----------------------------
+- heabutt teacher moved to entry
+TODO:
+- encounter
+- overhall heabutt encounter
+- fishing encounter
+- surf encounter
+
+-----------------------------
+Slowproke cave
+-----------------------------
+- rocket increases level cap
+TODO:
+- encounter
+- fishing encounter
+- surf encounter
+
 
 
 -----------------------------
