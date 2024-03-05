@@ -11,7 +11,7 @@ New Bark Town
 
 TODO:
 - use super rod for better encounter rates/ change encounter rates
-- remove Lyra events to safe time
+- remove Lyra events to save time
 
 
 -----------------------------
@@ -124,7 +124,42 @@ Sprout Tower 3F
 TODO:
 - Block right path after last trainer has moved
 
+-----------------------------
+Route 32 - Second Part
+-----------------------------
+- removed cut tree
+- removed Guy giving old rod - used flag otherwise
+TODO:
+- made trainier mandatory
+- items
+- Bird keeper Mini boss
 
+
+-----------------------------
+Goldenrod
+-----------------------------
+- relearner NPC in PC
+TODO:
+- use bycicle store differently (fossil?)
+- remove quiz for radio upgrade
+
+
+-----------------------------
+Goldenrod Game Corner
+-----------------------------
+- add NPC to buy coins
+- replaced pokemon prizes with badge scaling prices
+TODO:
+- badge scaling pokemon held items
+- badge scaling offering 2 pokemons per badge
+- place relearner from PC to corner
+
+
+Park
+-----------------------------
+- 
+TODO:
+- Mini Boss with level cap increase
 
 
 -----------------------------
