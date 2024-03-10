@@ -346,7 +346,7 @@ It enables the user to evade all\nattacks. Its chance of failing rises\nif it is
 The user summons a heavy rain that\nfalls for five turns, powering up\nWater-type moves.
 A nutrient-draining attack. The user’s\nHP is restored by half the damage\ntaken by the target.
 The user creates a protective field\nthat prevents status problems like\npoison, paralysis, burn, and sleep.
-A full-power attack that grows more\npowerful the less the user likes its\nTrainer.
+The user attacks with a gust of\nchilled air. It also lowers the\ntarget’s Speed stat.
 A two-turn attack. The user gathers\nlight, then blasts a bundled beam on\nthe second turn.
 The foe is slammed with a sturdy\ntail of steel. It may also lower the\ntarget’s Defense stat if it hits.
 A strong electric blast is loosed at\nthe foe. It may also leave the foe\nparalyzed.

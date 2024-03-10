@@ -204,3 +204,79 @@ Script 4:
 	CloseMessage 
 	ReleaseAll 
 End 
+
+
+
+
+Move Tutor in Goldenrod PC
+185 - T25PC0101 - Event File 178 - Script File 887
+531 - D32R0103  - Event File 483 - Script File 82,  Top Left: Script 1 CommonScript 0x28C8
+531 - D32R0103  - Event File 483 - Script File 82,  Top right: Script 2 CommonScript 0x28C9
+531 - D32R0103  - Event File 483 - Script File 82,  Bottom right: Script 3 CommonScript 0x28CA
+
+Spawnable 328
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 0x28C8
+	ReleaseAll 
+End 
+
+
+Block light tower with Jasmine
+from
+225 - D27R0107 - Event File 211 - Script File 66
+first time talking to jasmine:
+function 2
+	SetVar 0x40A5 1
+	SetFlag 472
+
+
+Secret potion in
+233 - T24R0501 - Event File 219 - Script File 881
+SetFlag 185
+
+
+
+
+
+Place ordinary mall guy in Goldenrod Dep. Store: Add spawnable in 4F
+195 - T25R1005 - Event File 188 - Script File 903
+OW 334
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 2011
+	FreezeMessage 
+	SetVar 0x8004 6
+	CommonScript 2052 // Vitamins, will be replaced with TMs
+	ReleaseAll 
+End 
+
+Script 7: Happiness/Frustration Lady does not give TM21 Frustration any more
+Removed Flag 446 - The lady appears everyday instead of sundays
+remove lines
+	//GetPokemonHappiness 0x800C 0x8000
+	//CompareVarValue 0x800C 149
+	//JumpIf GREATER/EQUAL Function#12 gives TM return
+	CompareVarValue 0x800C 50
+	JumpIf LESS/EQUAL Function#13 gives TM21 Frustration
+
+194 - T25R1004 - Event File 187 - Script File 902
+OW 334
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 2011
+	FreezeMessage 
+	SetVar 0x8004 1
+	CommonScript 2048 // ordinary mart
+	ReleaseAll 
+End
+
+
+Swap with Vitamins guy
