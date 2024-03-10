@@ -226,11 +226,12 @@ End
 
 Block light tower with Jasmine
 from
-225 - D27R0107 - Event File 211 - Script File 66
+225 - D27R0107 - Event File 211 - Script File 66 : OW 357
+
 first time talking to jasmine:
 function 2
 	SetVar 0x40A5 1
-	SetFlag 472
+	SetFlag 472 // DOOR open
 
 
 Secret potion in
