@@ -6,10 +6,11 @@ New Bark Town
 - Level caps
 - removed need to talk to mom after starter was received
 - Prof gives starter with hidden ability, 3x 31 IVs at random
-- Aide gives 995 super repels, candies, 2 heartscales, old rod
+- Aide gives 995 super repels, 995 candies, 2 heartscales, old rod
 - fishing encounter
 
 TODO:
+- Aide fills up candies and repels
 - use super rod for better encounter rates/ change encounter rates
 - remove Lyra events to save time
 
@@ -100,7 +101,6 @@ Ruins of Alph
 - fishing encounter
 
 TODO:
-- Have blocker NPC say something
 - (Move NPC inside of cave to allow for early Union Cave encounter)?
 - surf encounter
 
@@ -170,7 +170,7 @@ TODO:
 - surf encounter
 
 -----------------------------
-Slowproke cave
+Slowpoke cave
 -----------------------------
 - rocket increases level cap
 TODO:
@@ -184,12 +184,18 @@ TODO:
 Goldenrod
 -----------------------------
 - relearner NPC in PC
-- move tutor 1 in PC
+- Store adds ordinary market
+- Store: Balls, Potions -> Berries
+- Store: X-Items -> Evolution Stones
+- Store: Vitamins -> TMs, moved next to ordinary TM guy
+- Lady giving TM27 Return and TM21 Frustration on Sunday, only gives TM27. Appears every day
 TODO:
 - use bycicle store differently (fossil?)
 - remove quiz for radio upgrade
 - store items
 - flower shop items
+- Correct store location messages
+- battle with lyra in underground
 
 
 -----------------------------
@@ -200,16 +206,18 @@ TODO:
 - (rescuing director gives mega-ring?)
 - tag battle with giovanni
 
+
 -----------------------------
 Goldenrod Game Corner
 -----------------------------
 - add NPC to buy coins
 - replaced pokemon prizes with badge scaling prices
+- move tutor 1 (Top left) here
 TODO:
 - badge scaling pokemon held items
 - badge scaling offering 2 pokemons per badge
-- place relearner from PC to corner
-- place move tutor 1 here
+- place relearner from PC to game corner
+
 
 
 Park
@@ -218,6 +226,14 @@ Park
 TODO:
 - Mini Boss with level cap increase
 
+
+
+-----------------------------
+Olivine City
+-----------------------------
+- Blocked Lighthouse with Jasmine, Disappears after Chuck is beaten
+TODO:
+- 
 
 -----------------------------
 Radio Tower
