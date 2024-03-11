@@ -92,7 +92,7 @@ mondata SPECIES_VENUSAUR, "Venusaur"
         basestats 80, 82, 93, 80, 100, 100
     .else
         basestats 80, 82, 83, 80, 100, 100
-        .endif
+    .endif
     types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
