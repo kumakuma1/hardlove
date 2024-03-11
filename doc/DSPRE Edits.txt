@@ -147,17 +147,17 @@ Block Ecruteak
 172 R38R0101 - Event File 166 - Script File 248 :
 Add spwanables with Flag 166 - Win against Morty
 
-042 R38 - Event File 39 - Script File 247 :
+043 R3R - Event File 40 - Script File 249 :
 Add spwanables with Flag 166 - Win against Morty
 
-17 Here is no getting through, Pal.
-18 We're doing some Insta pics!
-19 Our Turf, Buddy!
+15 Here is no getting through, Pal.
+16 We're doing some Insta pics!
+17 Our Turf, Buddy!
 
 Script 4:
 	LockAll 
 	FacePlayer 
-	Message 17
+	Message 15
 	WaitButton 
 	CloseMessage 
 	ReleaseAll 
@@ -166,7 +166,7 @@ End
 Script 5:
 	LockAll 
 	FacePlayer
-	Message 18
+	Message 16
 	WaitButton
 	CloseMessage
 	ReleaseAll 
@@ -174,7 +174,7 @@ End
 
 Script 6:
 	LockAll 
-	Message 19
+	Message 17
 	WaitButton 
 	CloseMessage 
 	ReleaseAll 
@@ -281,3 +281,30 @@ End
 
 
 Swap with Vitamins guy
+
+
+Remove Good Rod:
+230 - T26R0601 - Event File 216 - Script File 918
+
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	// CheckFlag 189
+	// JumpIf EQUAL Function#1
+	Message 0 -> Message 5
+	// OpenTouchScreen 
+	// YesNoTouchScreen 0x800C
+	// CloseTouchScreen 
+	// CompareVarValue 0x800C 0
+	// JumpIf EQUAL Function#2
+	// CompareVarValue 0x800C 1
+	// JumpIf EQUAL Function#3
+End 
+
+
+Bill gifts PORYGON instead of EEVEE:
+203 - T25R0401 - Event File 196 - Script File 892
+replace texts
+
+GivePokemon 133 5 0 0 0 0x800C -> 137 15
