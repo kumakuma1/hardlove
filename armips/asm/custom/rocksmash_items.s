@@ -30,7 +30,17 @@
 .halfword ITEM_POKE_BALL
 .halfword ITEM_POKE_BALL
 
-/* Any Other Area Table - Not Edited */
-/* .org 0x02209614 */
+
+/* Any Other Area Table*/
+.org 0x02209614
+
+.halfword ITEM_POKE_BALL
+.halfword ITEM_POKE_BALL
+.halfword ITEM_POKE_BALL
+.halfword ITEM_POKE_BALL
+.halfword ITEM_POKE_BALL
+.halfword ITEM_POKE_BALL
+.halfword ITEM_POKE_BALL
+.halfword ITEM_POKE_BALL
 
 .close
