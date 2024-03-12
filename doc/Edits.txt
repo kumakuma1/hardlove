@@ -194,7 +194,6 @@ Goldenrod
 - Whitney always in the arena
 TODO:
 - use bycicle store differently (fossil?)
-- remove quiz for radio upgrade
 - store items
 - flower shop items
 - Correct store location messages

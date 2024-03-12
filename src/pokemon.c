@@ -1329,6 +1329,15 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
     return ret;
 }
 
+void fisherYatesArrayShuffle(int array[], int n) {
+    for (int i = n - 1; i > 0; i--) {
+        int j = gf_rand() % (i + 1);
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
 /**
  *  @brief give a PartyPokemon to the player given species, level, form, ability, etc.
  *
@@ -1373,6 +1382,17 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
         SET_MON_HIDDEN_ABILITY_BIT(pokemon)
         // need to clear this script flag because this function is used for in-battle form change ability resets as well, which shouldn't happen normally
         ClearScriptFlag(HIDDEN_ABILITIES_FLAG);
+    }
+
+    int array[] = {0, 1, 2, 3, 4, 5};
+    fisherYatesArrayShuffle(array, 6);
+        
+    int iv = 31;
+    // Randomly chooses 3 stats
+    for (int i = 0; i < 3; i++) 
+    {
+        int selectedValue = array[i];
+        SetMonData(pokemon, MON_DATA_HP_IV + selectedValue, &iv);
     }
 
     if (ability != 0) {
@@ -1552,16 +1572,6 @@ bool8 LONG_CALL RevertFormChange(struct PartyPokemon *pp, u16 species, u8 form_n
 }
 
 u32 gLastPokemonLevelForMoneyCalc;
-
-
-void fisherYatesArrayShuffle(int array[], int n) {
-    for (int i = n - 1; i > 0; i--) {
-        int j = gf_rand() % (i + 1);
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-}
 
 /**
  *  @brief set the hidden ability specifically for the starter
