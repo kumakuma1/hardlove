@@ -189,6 +189,7 @@ Goldenrod
 - Store: X-Items -> Evolution Stones
 - Store: Vitamins -> TMs, moved next to ordinary TM guy
 - Lady giving TM27 Return and TM21 Frustration on Sunday, only gives TM27. Appears every day
+- Bill gifts Porygon instead of Eevee
 TODO:
 - use bycicle store differently (fossil?)
 - remove quiz for radio upgrade
