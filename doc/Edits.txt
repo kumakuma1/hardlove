@@ -228,11 +228,19 @@ TODO:
 - Mini Boss with level cap increase
 
 
+-----------------------------
+Route 39
+-----------------------------
+- Blocked with NPC until Morty is beaten
+TODO:
+- 
+
 
 -----------------------------
 Olivine City
 -----------------------------
 - Blocked Lighthouse with Jasmine, Disappears after Chuck is beaten
+- Good Rod no longer obtainable
 TODO:
 - 
 
