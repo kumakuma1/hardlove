@@ -90,7 +90,6 @@ Route 36 - First Part
 TODO:
 - (random egg)?
 
-
 -----------------------------
 Ruins of Alph
 -----------------------------
@@ -162,7 +161,7 @@ TODO:
 -----------------------------
 Ilex Forrest
 -----------------------------
-- heabutt teacher moved to entry
+- heabutt teacher moved closer to entrance
 TODO:
 - encounter
 - overhall heabutt encounter
@@ -229,11 +228,29 @@ TODO:
 
 
 -----------------------------
+Route 37
+-----------------------------
+TODO:
+- make trainer mandatory
+
+-----------------------------
+Route 38
+-----------------------------
+TODO:
+- make trainer mandatory
+
+-----------------------------
+Moomoo Farm
+-----------------------------
+TODO:
+- replace TM83 with TM42 Facade
+
+-----------------------------
 Route 39
 -----------------------------
 - Blocked with NPC until Morty is beaten
 TODO:
-- 
+- make trainer mandatory
 
 
 -----------------------------
