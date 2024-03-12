@@ -135,12 +135,33 @@ EIGHT_BADGES equ 6
 
 .org 0x020FBAFA
 
-.halfword ITEM_TM21
-.halfword ITEM_TM03
-.halfword ITEM_CALCIUM
-.halfword ITEM_ZINC
-.halfword ITEM_CARBOS
-.halfword ITEM_HP_UP
+.halfword ITEM_TM03 // WATER PULSE-> FLIP TURN
+.halfword ITEM_TM10 // HIDDEN POWER
+.halfword ITEM_TM12 // TAUNT
+.halfword ITEM_TM15 // HYPERBEAM -> ELECTRO WEB
+.halfword ITEM_TM21 // FRUSTRATION -> ICY WIND
+.halfword ITEM_TM83 // NATURAL GIFT -> SCALD
+.halfword 0xFFFF
+
+
+/* Goldenrod Dept. Store 5F -TMs */
+// Goldenrod 5F, 12
+const u16 _020FBC34[] = {ITEM_TM70, ITEM_TM17, ITEM_TM54, ITEM_TM83, ITEM_TM16, ITEM_TM33, ITEM_TM22, ITEM_TM52, ITEM_TM38, ITEM_TM25, ITEM_TM14, ITEM_TM15, 0xFFFF};
+
+.org 0x020FBC34
+
+.halfword ITEM_TM70 // ITEM_TM34 SHOCK WAVE -> VOLT SWITCH
+.halfword ITEM_TM17 // PROTECT
+.halfword ITEM_TM54 // FALSE SWIPE
+.halfword ITEM_TM83 // ITEM_TM53 ENERGY BALL
+.halfword ITEM_TM16 // ITEM_TM31 BRICK BREAK
+.halfword ITEM_TM33 // ITEM_TM81 X-SCISSOR
+.halfword ITEM_TM22 // SOLAR BEAM
+.halfword ITEM_TM52 // FOCUS BLAST
+.halfword ITEM_TM38 // FIRE BLAST
+.halfword ITEM_TM25 // THUNDER
+.halfword ITEM_TM14 // BLIZZARD
+.halfword ITEM_TM15 // HYPERBEAM
 .halfword 0xFFFF
 
 /* Celadon City Dept. Store - Vitamins */
