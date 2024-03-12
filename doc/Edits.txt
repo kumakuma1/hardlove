@@ -1,7 +1,8 @@
 -----------------------------
 New Bark Town
 -----------------------------
-- Mom gives bicycle, pokegear with upgrade 1, running shoes
+- Mom gives bicycle, pokegear with upgrade 1, running shoes, 
+- Mom gives radio upgrade (no quiz needed in goldenrod, sets Whitney in the arena)
 - disables quide Kent in cherrygrove
 - Level caps
 - removed need to talk to mom after starter was received
@@ -189,6 +190,8 @@ Goldenrod
 - Store: Vitamins -> TMs, moved next to ordinary TM guy
 - Lady giving TM27 Return and TM21 Frustration on Sunday, only gives TM27. Appears every day
 - Bill gifts Porygon instead of Eevee
+- quiz for radio upgrade no onger needed
+- Whitney always in the arena
 TODO:
 - use bycicle store differently (fossil?)
 - remove quiz for radio upgrade

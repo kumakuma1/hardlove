@@ -101,6 +101,16 @@ Add Shoes, Bycicle
 	SetVar 0x8005 1
 	CommonScript 2033
 
+Get Radio Card, Disable Quiz in Goldenrod
+From
+112 D23R0101 : Event File 109 - Script File 29 : Script 3:
+CheckFlag 138
+..
+UpgradePokegear 2
+SetFlag 138 // got upgrade
+..
+SetFlag 792 // remove whitney
+
 
 Remove Guide in Cherrygrove
 067 T201 : Event File 64 - Script File 850 : Script 1:
