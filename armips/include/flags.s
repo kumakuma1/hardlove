@@ -190,12 +190,12 @@ FLAG_GOT_HM03                                              equ  0xA2
 FLAG_GOT_DOWSING_MACHINE                                   equ  0xA3
 FLAG_ENGAGING_STATIC_POKEMON                               equ  0xA4
 FLAG_GOT_MAGNET_FROM_SUNNY                                 equ  0xA5
-FLAG_GOT_TM30_FROM_MORTY                                   equ  0xA6 // used to block Alph Ruins Union Cave entry
+FLAG_GOT_TM30_FROM_MORTY                                   equ  0xA6 // used to block Alph Ruins Union Cave entry, Route 42, Route 39
 FLAG_TALKED_TO_MOM_AFTER_NAMING_RIVAL                      equ  0xA7
 FLAG_UNK_0A8                                               equ  0xA8
 FLAG_UNK_0A9                                               equ  0xA9
 FLAG_UNK_0AA                                               equ  0xAA
-FLAG_GOT_TM83_FROM_MOOMOO_FARM_WOMAN                       equ  0xAB
+FLAG_GOT_TM83_FROM_MOOMOO_FARM_WOMAN                       equ  0xAB // replaced with TM42 Facade
 FLAG_UNK_0AC                                               equ  0xAC
 FLAG_UNK_0AD                                               equ  0xAD
 FLAG_UNK_0AE                                               equ  0xAE

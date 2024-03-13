@@ -118,3 +118,15 @@ Function 78:
 	JumpIf EQUAL Function#75
 	Message 50
 Jump Function#73
+
+
+Script 4: Function 8 :
+Substitute -> 6k     Function 21 : TakeCoins 2000  -> 0x1770
+Swords Dance -> 10k  Function 22 : TakeCoins 0xFA0 -> 0x2710
+//Rest -> 6k         Function 23 :  0x1770
+
+Script 4: Function 9 :
+20 SILK SCARF\n1,000 Coins -> SCOPE LENS\n5,000 Coins    Function 28 : compare/TakeCoins 1000  -> 0x1388, item 251 -> 232
+21 WIDE LENS\n1,000 Coins  -> 2000                       Function 29 : compare/TakeCoins 1000  -> 2000
+22 ZOOM LENS\n1,000 Coins  -> FLAME ORB\n5,000 Coins     Function 30 : compare/TakeCoins 1000  -> 0x1388, item 276 -> 273
+23 METRONOME\n1,000 Coins  -> TOXIC ORB\n5,000 Coins     Function 31 : compare/TakeCoins 1000  -> 0x1388, item 277 -> 272

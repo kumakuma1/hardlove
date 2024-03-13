@@ -154,10 +154,7 @@ Goldenrod Gamecorner Prices/Items:
 
 
 Block Ecruteak
-172 R38R0101 - Event File 166 - Script File 248 :
-Add spwanables with Flag 166 - Win against Morty
-
-043 R3R - Event File 40 - Script File 249 :
+043 R39 - Event File 40 - Script File 249 :
 Add spwanables with Flag 166 - Win against Morty
 
 15 Here is no getting through, Pal.
@@ -312,9 +309,147 @@ Script 1:
 	// JumpIf EQUAL Function#3
 End 
 
+MooMoo Farm gives MOVE_FACADE
+214 - R39R0101 - Event File 201 - Script File 250 - Texts 397
+SetVar 0x8004 410 -> 369
+SetVar 0x8005 1
+CheckItemSpace 0x8004 0x8005 0x800C
+
+
+
 
 Bill gifts PORYGON instead of EEVEE:
 203 - T25R0401 - Event File 196 - Script File 892
 replace texts
 
 GivePokemon 133 5 0 0 0 0x800C -> 137 15
+
+
+Eusin gives Item:
+275 - T24 - Event File 72 - Script File 875
+16... \nagain. Take this on your journey!\fSee you around!\r
+Script 3:
+Message 16
+GetRandom 0x800C 3
+CompareVarValue 0x800C 0
+CallIf EQUAL Function#18
+CompareVarValue 0x800C 1
+CallIf EQUAL Function#19
+CompareVarValue 0x800C 2
+CallIf EQUAL Function#20
+
+Function 18:
+    SetVar 0x8004 220 // Choice band
+    SetVar 0x8005 1
+    CheckItemSpace 0x8004 0x8005 0x800C
+    SetVar 0x8004 220
+    SetVar 0x8005 1
+    CommonScript 2008
+Return
+
+Function 19:
+    SetVar 0x8004 297 // Choice specs
+ ....
+Return
+
+Function 20:
+    SetVar 0x8004 270 //life orb
+...
+Return
+
+
+
+Random Fossil in Cianwood
+234 - T24R0601 - Event File 220 - Script File 882
+Add Spawnable
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 1
+    OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+    GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#2
+    GetRandom 0x800C 9
+    CompareVarValue 0x800C 0
+    CallIf EQUAL Function#3
+    CompareVarValue 0x800C 1
+    CallIf EQUAL Function#4
+    CompareVarValue 0x800C 2
+    CallIf EQUAL Function#5
+    CompareVarValue 0x800C 3
+    CallIf EQUAL Function#6
+    CompareVarValue 0x800C 4
+    CallIf EQUAL Function#7
+    CompareVarValue 0x800C 5
+    CallIf EQUAL Function#8
+    CompareVarValue 0x800C 6
+    CallIf EQUAL Function#9
+    CompareVarValue 0x800C 7
+    CallIf EQUAL Function#10
+    CompareVarValue 0x800C 8
+    CallIf EQUAL Function#11
+    GivePokemon 0x4002 20 0 0 0 0x800C
+    PlayFanfare 2323
+    Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 2:
+	Message 3
+	WaitButton 
+	CloseMessage
+    ReleaseAll 
+End
+
+Function 3:
+    SetVarFromFlexible 0x4002 138
+return
+
+Function 4:
+    SetVarFromFlexible 0x4002 140
+return
+
+Function 5:
+    SetVarFromFlexible 0x4002 142
+return
+
+Function 6:
+    SetFlag 2600
+    SetVarFromFlexible 0x4002 345
+return
+
+Function 7:
+    SetVarFromFlexible 0x4002 347
+return
+
+Function 8:
+    SetVarFromFlexible 0x4002 408
+return
+
+Function 9:
+    SetVarFromFlexible 0x4002 410
+return
+
+Function 10:
+    SetVarFromFlexible 0x4002 614
+return
+
+Function 11:
+    SetVarFromFlexible 0x4002 616
+return

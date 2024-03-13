@@ -215,6 +215,8 @@ Goldenrod Game Corner
 - add NPC to buy coins
 - replaced pokemon prizes with badge scaling prices
 - move tutor 1 (Top left) here
+- Items replaced: Scope lens (5k), Wide lens (2k), Toxic Orb (5k), Flame Orb (5k)
+- TMs: Swords Dance 10k, Substitute 6k
 TODO:
 - badge scaling pokemon held items
 - badge scaling offering 2 pokemons per badge
@@ -244,8 +246,9 @@ TODO:
 -----------------------------
 Moomoo Farm
 -----------------------------
-TODO:
 - replace TM83 with TM42 Facade
+TODO:
+- 
 
 -----------------------------
 Route 39
@@ -261,7 +264,16 @@ Olivine City
 - Blocked Lighthouse with Jasmine, Disappears after Chuck is beaten
 - Good Rod no longer obtainable
 TODO:
-- 
+
+
+
+-----------------------------
+Cianwood City
+-----------------------------
+- Eusin gives randomly Life Orb, Choice Specs, Choice Band
+TODO:
+- random fossil or Shuckle?
+
 
 -----------------------------
 Radio Tower

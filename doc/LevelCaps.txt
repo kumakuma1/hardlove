@@ -60,7 +60,7 @@ CheckFlag 117
 CallIf EQUAL Function#22
 
 Function 22:
-	SetVar 0x416F 31
+	SetVar 0x416F 31 -> 32, Rival below doesn't change cap
 Return
 
 //rival ecruteak
