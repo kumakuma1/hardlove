@@ -2640,8 +2640,8 @@ pokemon SPECIES_GOLETT    	//10%
 pokemon SPECIES_CACNEA	    //10%
 pokemon SPECIES_EKANS       //5%
 pokemon SPECIES_SNOVER 	    //5%
-pokemon SPECIES_SKRELP	    //4%
-pokemon SPECIES_SKRELP	    //4%
+pokemon SPECIES_SKORUPI	    //4%
+pokemon SPECIES_SKORUPI	    //4%
 pokemon SPECIES_SKORUPI 	  //1%
 pokemon SPECIES_SKORUPI	    //1%
 
@@ -2654,8 +2654,8 @@ pokemon SPECIES_GOLETT    	//10%
 pokemon SPECIES_CACNEA	    //10%
 pokemon SPECIES_EKANS       //5%
 pokemon SPECIES_SNOVER 	    //5%
-pokemon SPECIES_SKRELP	    //4%
-pokemon SPECIES_SKRELP	    //4%
+pokemon SPECIES_SKORUPI	    //4%
+pokemon SPECIES_SKORUPI	    //4%
 pokemon SPECIES_SKORUPI 	  //1%
 pokemon SPECIES_SKORUPI	    //1%
 
@@ -2668,8 +2668,8 @@ pokemon SPECIES_GOLETT    	//10%
 pokemon SPECIES_CACNEA	    //10%
 pokemon SPECIES_EKANS       //5%
 pokemon SPECIES_SNOVER 	    //5%
-pokemon SPECIES_SKRELP	    //4%
-pokemon SPECIES_SKRELP	    //4%
+pokemon SPECIES_SKORUPI	    //4%
+pokemon SPECIES_SKORUPI	    //4% SPECIES_SKRELP
 pokemon SPECIES_SKORUPI 	  //1%
 pokemon SPECIES_SKORUPI	    //1%
 
@@ -2736,7 +2736,7 @@ superrodrate 0
 walklevels 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18
 
 // morning encounter slots
-pokemon SPECIES_LITLEO 	    //20%
+pokemon SPECIES_RATTATA 	    //20% SPECIES_LITLEO
 pokemon SPECIES_NUZLEAF		  //20%
 pokemon SPECIES_STANTLER    //10%
 pokemon SPECIES_HOUNDOUR    //10%
@@ -2750,7 +2750,7 @@ pokemon SPECIES_MUNCHLAX 	  //1%
 pokemon SPECIES_MUNCHLAX	  //1%
 
 // day encounter slots
-pokemon SPECIES_LITLEO 	    //20%
+pokemon SPECIES_RATTATA 	    //20%
 pokemon SPECIES_NUZLEAF		  //20%
 pokemon SPECIES_STANTLER    //10%
 pokemon SPECIES_HOUNDOUR    //10%
@@ -2764,7 +2764,7 @@ pokemon SPECIES_MUNCHLAX 	  //1%
 pokemon SPECIES_MUNCHLAX	  //1%
 
 // night encounter slots
-pokemon SPECIES_LITLEO 	    //20%
+pokemon SPECIES_RATTATA 	    //20%
 pokemon SPECIES_NUZLEAF		  //20%
 pokemon SPECIES_STANTLER    //10%
 pokemon SPECIES_HOUNDOUR    //10%

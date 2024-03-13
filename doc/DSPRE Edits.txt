@@ -326,7 +326,7 @@ GivePokemon 133 5 0 0 0 0x800C -> 137 15
 
 
 Eusin gives Item:
-275 - T24 - Event File 72 - Script File 875
+075 - T24 - Event File 72 - Script File 875
 16... \nagain. Take this on your journey!\fSee you around!\r
 Script 3:
 Message 16
