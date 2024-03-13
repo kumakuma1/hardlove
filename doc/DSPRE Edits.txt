@@ -395,7 +395,6 @@ Script 2:
     CallIf EQUAL Function#10
     CompareVarValue 0x800C 8
     CallIf EQUAL Function#11
-    GivePokemon 0x4002 20 0 0 0 0x800C
     PlayFanfare 2323
     Message 4
 	WaitButton 
@@ -418,38 +417,38 @@ Function 2:
 End
 
 Function 3:
-    SetVarFromFlexible 0x4002 138
-return
+    GivePokemon 138 20 0 0 0 0x800C
+Return 
 
 Function 4:
-    SetVarFromFlexible 0x4002 140
-return
+    GivePokemon 140 20 0 0 0 0x800C
+Return 
 
 Function 5:
-    SetVarFromFlexible 0x4002 142
-return
+    GivePokemon 142 20 0 0 0 0x800C
+Return 
 
 Function 6:
-    SetFlag 2600
-    SetVarFromFlexible 0x4002 345
-return
+	SetFlag 2600
+    GivePokemon 345 20 0 0 0 0x800C
+Return 
 
 Function 7:
-    SetVarFromFlexible 0x4002 347
-return
+    GivePokemon 347 20 0 0 0 0x800C
+Return 
 
 Function 8:
-    SetVarFromFlexible 0x4002 408
-return
+    GivePokemon 408 20 0 0 0 0x800C
+Return 
 
 Function 9:
-    SetVarFromFlexible 0x4002 410
-return
+    GivePokemon 410 20 0 0 0 0x800C
+Return 
 
 Function 10:
-    SetVarFromFlexible 0x4002 614
-return
+    GivePokemon 614 20 0 0 0 0x800C
+Return 
 
 Function 11:
-    SetVarFromFlexible 0x4002 616
-return
+    GivePokemon 616 20 0 0 0 0x800C
+Return 
