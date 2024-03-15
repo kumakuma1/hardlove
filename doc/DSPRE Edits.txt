@@ -49,6 +49,43 @@ SetVar 0x8004 445
 SetVar 0x8005 1
 CommonScript 2033
 
+
+Candy refill:
+106 I am the re-filler.
+107 Here ya go!
+108 You're set!
+
+Script 17:
+	PlayFanfare 1500
+	LockAll 
+	Message 106 I am the re-filler.
+Jump Function#73
+
+Function 73:
+	SetVar 0x8004 50
+	SetVar 0x8005 100
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#74
+Jump Function#75
+
+Function 74:
+	Message 108
+	WaitButton
+	CloseMessage 
+	ReleaseAll 
+End
+
+Function 75:
+	Message 107
+	SetVar 0x8004 50
+	SetVar 0x8005 99
+	CommonScript 2008
+Jump Function#73
+
+
+
+
 Delete old Rod guy
 169 R32PC0101 : Script File 163 - ID 04 - Script 2
 
@@ -273,7 +310,8 @@ remove lines
 	CompareVarValue 0x800C 50
 	JumpIf LESS/EQUAL Function#13 gives TM21 Frustration
 
-194 - T25R1004 - Event File 187 - Script File 902
+Ordinary Mart instead of X-Items
+193 - T25R1003 - Event File 186 - Script File 901
 OW 334
 Script 1:
 	PlayFanfare 1500
@@ -325,7 +363,7 @@ replace texts
 GivePokemon 133 5 0 0 0 0x800C -> 137 15
 
 
-Eusin gives Item:
+Eusin gives Item, Choice Specs/Band, Life Orb, ITEM_MANECTITE
 075 - T24 - Event File 72 - Script File 875
 16... \nagain. Take this on your journey!\fSee you around!\r
 Script 3:
@@ -337,6 +375,13 @@ CompareVarValue 0x800C 1
 CallIf EQUAL Function#19
 CompareVarValue 0x800C 2
 CallIf EQUAL Function#20
+..
+     SetVar 0x8004 566
+    SetVar 0x8005 1
+    CheckItemSpace 0x8004 0x8005 0x800C
+    SetVar 0x8004 566
+    SetVar 0x8005 1
+    CommonScript 2008
 
 Function 18:
     SetVar 0x8004 220 // Choice band

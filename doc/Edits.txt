@@ -8,10 +8,11 @@ New Bark Town
 - removed need to talk to mom after starter was received
 - Prof gives starter with hidden ability, 3x 31 IVs at random
 - Aide gives 995 super repels, 995 candies, 2 heartscales, old rod
+- Additional Aide re-fills candy
 - fishing encounter
 
 TODO:
-- Aide fills up candies and repels
+- Aide fills up repels
 - use super rod for better encounter rates/ change encounter rates
 - remove Lyra events to save time
 
@@ -121,8 +122,9 @@ Sprout Tower 3F
 - made trainier mandatory
 - Li increases Level caps
 - Li gives 3x Berry Juice, 2x Coba Berries
+- Blocked right path after last trainer has moved
 TODO:
-- Block right path after last trainer has moved
+- 
 
 -----------------------------
 Route 32 - Second Part
@@ -270,9 +272,10 @@ TODO:
 -----------------------------
 Cianwood City
 -----------------------------
-- Eusin gives randomly Life Orb, Choice Specs, Choice Band
+- Eusin gives ITEM_MANECTITE and randomly Life Orb, Choice Specs, Choice Band
+- Guy in the Photographer's house gives random fossil pokemon
 TODO:
-- random fossil or Shuckle?
+- newer fossils
 
 
 -----------------------------
