@@ -63,7 +63,7 @@ PALETTE_BUG equ 610
 .skip 4
 
 // Change TM43 to Flying palette
-.skip (8 * 23) //43-19-1
+.skip (8 * 21) //43-21-1
 .skip 2
 .halfword PALETTE_FLYING
 .skip 4
