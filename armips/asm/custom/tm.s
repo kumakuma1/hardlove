@@ -57,10 +57,27 @@ PALETTE_BUG equ 610
 //.skip 4
 
 // Change TM21 to Ice palette
-.skip (8 * 19)
+.skip (8 * 19) //21-1-1
 .skip 2
 .halfword PALETTE_ICE
 .skip 4
 
+// Change TM43 to Flying palette
+.skip (8 * 23) //43-19-1
+.skip 2
+.halfword PALETTE_FLYING
+.skip 4
+
+// Change TM45 to Psychic palette - no Fairy colour
+.skip 8 //45-43-1
+.skip 2
+.halfword PALETTE_PSYCHIC
+.skip 4
+
+// Change TM83 to Water palette
+.skip (8 * 37) //83-45-1
+.skip 2
+.halfword PALETTE_WATER
+.skip 4
 
 .close

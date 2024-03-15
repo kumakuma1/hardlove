@@ -9302,7 +9302,7 @@ movedata MOVE_DRAINING_KISS, "Draining Kiss"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_DRAINING_KISS, "The user steals the\ntarget's HP with a\nkiss. The user's HP is\nrestored by over half of the damage\ntaken by the target. "
+    movedescription MOVE_DRAINING_KISS, "The user steals the\ntarget's HP with a\nkiss. The user's HP is\nrestored by over half of the damage\ntaken by the target."
 
 movedata MOVE_CRAFTY_SHIELD, "Crafty Shield"
     battleeffect 0
@@ -13062,7 +13062,8 @@ movedata MOVE_FLIP_TURN, "Flip Turn"
     appeal 0x00
     contesttype CONTEST_COOL
     terminatedata
-    movedescription MOVE_FLIP_TURN, "---"
+    movedescription MOVE_FLIP_TURN, "After attacking,\nthe user switches\nplaces with a\nparty Pokémon."
+                                    
 
 movedata MOVE_TRIPLE_AXEL, "Triple Axel"
     battleeffect 298
