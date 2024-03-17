@@ -1,25 +1,26 @@
 -----------------------------
 New Bark Town
 -----------------------------
+- shortened text
 - Mom gives bicycle, pokegear with upgrade 1, running shoes, 
 - Mom gives radio upgrade (no quiz needed in goldenrod, sets Whitney in the arena)
 - disables quide Kent in cherrygrove
 - Level caps
 - removed need to talk to mom after starter was received
 - Prof gives starter with hidden ability, 3x 31 IVs at random
-- Aide gives 995 super repels, 995 candies, 2 heartscales, old rod
-- Additional Aide re-fills candy
+- Aide gives 995 super repels, 995 candies, 2 heartscales, old rod, Infinite Candy
 - fishing encounter
 
 TODO:
 - Aide fills up repels
-- use super rod for better encounter rates/ change encounter rates
+- change encounter rates
 - remove Lyra events to save time
 
 
 -----------------------------
 Route 29
 -----------------------------
+- shortened Lyra text
 - removed cut trees
 - encounter
 
