@@ -1226,40 +1226,124 @@ trainerdata 29, "Rod"
     endparty
 
 trainerdata 30, "Whitney"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_LEADER
-    nummons 2
-    item ITEM_SUPER_POTION
-    item ITEM_SUPER_POTION
+    nummons 6
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
-    battletype SINGLE_BATTLE
+    item ITEM_NONE
+    aiflags TRAINER_AI_FLAGS
+    battletype DOUBLE_BATTLE
     endentry
 
     party 30
-        // mon 0
-        ivs 100
+        ivs 0
         abilityslot 0
-        level 17
-        pokemon SPECIES_CLEFAIRY
-        item ITEM_NONE
-        move MOVE_DOUBLE_SLAP
-        move MOVE_MIMIC
-        move MOVE_ENCORE
-        move MOVE_METRONOME
+        level LEVEL_WHITNEY-2
+        pokemon SPECIES_STANTLER
+        item ITEM_CHOPLE_BERRY
+        move MOVE_BODY_SLAM
+        move MOVE_ZEN_HEADBUTT
+        move MOVE_HYPNOSIS
+        move MOVE_SLEEP_TALK
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 1
-        ivs 100
-        abilityslot 32
-        level 19
-        pokemon SPECIES_MILTANK
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY
+        pokemon SPECIES_REGIGIGAS
         item ITEM_LUM_BERRY
-        move MOVE_ROLLOUT
-        move MOVE_ATTRACT
-        move MOVE_STOMP
-        move MOVE_MILK_DRINK
+        move MOVE_BODY_SLAM
+        move MOVE_SUPERPOWEER
+        move MOVE_SLEEP_TALK
+        move MOVE_REST
+        ability ABILITY_SLOW_START
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-2
+        pokemon SPECIES_WIGGLYTUFF
+        item ITEM_EXPERT_BELT
+        move MOVE_THUNDER
+        move MOVE_BLIZZARD
+        move MOVE_FIRE_BLAST
+        move MOVE_DRAINING_KISS
+        ability ABILITY_COMPETITIVE
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-1
+        pokemon SPECIES_CLEFABLE
+        item ITEM_LEFTOVERS
+        move MOVE_ICY_WIND
+        move MOVE_CALM_MIND
+        move MOVE_SOFT_BOILED
+        move MOVE_DRAINING_KISS
+        ability ABILITY_WATER_ABSORB
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_CALM
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-1
+        pokemon SPECIES_SAWSBUCK
+        item ITEM_MUSCLE_BAND
+        move MOVE_SWORDS_DANCE
+        move MOVE_JUMP_KICK
+        move MOVE_HEADBUTT
+        move MOVE_HORN_LEECH
+        ability ABILITY_SAP_SIPPER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY
+        pokemon SPECIES_PORYGON_2
+        item ITEM_LUM_BERRY //EVIOLITE
+        move MOVE_TRI_ATTACK
+        move MOVE_DISCHARGE
+        move MOVE_PSYBEAM
+        move MOVE_RECOVER
+        ability ABILITY_ANALYTIC
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
