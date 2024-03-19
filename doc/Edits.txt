@@ -188,13 +188,14 @@ Goldenrod
 -----------------------------
 - relearner NPC in PC
 - Store adds ordinary market
-- Store: Balls, Potions -> Berries
-- Store: X-Items -> Evolution Stones
+- Store: Balls -> Berries
+- Store: Potions -> Evolution Stones
 - Store: Vitamins -> TMs, moved next to ordinary TM guy
 - Lady giving TM27 Return and TM21 Frustration on Sunday, only gives TM27. Appears every day
 - Bill gifts Porygon instead of Eevee
 - quiz for radio upgrade no onger needed
 - Whitney always in the arena
+- Whitney gives TM45 Drain Kiss, shortened text
 TODO:
 - use bycicle store differently (fossil?)
 - store items
@@ -277,6 +278,16 @@ Cianwood City
 - Guy in the Photographer's house gives random fossil pokemon
 TODO:
 - newer fossils
+
+-----------------------------
+Safari-Zone Gate
+-----------------------------
+- Shop sells 2. line of evolution items
+
+-----------------------------
+Safari-Zone
+-----------------------------
+- Encounters changed
 
 
 -----------------------------
