@@ -33,6 +33,7 @@ LEVEL_WHITNEY equ 27 /* Also used for Silver */
 LEVEL_ECRUTEAK equ 31
 LEVEL_MORTY equ 32
 LEVEL_CHUCK equ 40
+LEVEL_JASMINE equ 46
 
 trainerdata 0, "-"
     trainermontype TRAINER_DATA_TYPE_NOTHING
@@ -1520,52 +1521,124 @@ trainerdata 32, "Pryce"
     endparty
 
 trainerdata 33, "Jasmine"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_LEADER_2
-    nummons 3
-    item ITEM_HYPER_POTION
-    item ITEM_HYPER_POTION
+    nummons 6
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    item ITEM_NONE
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 33
-        // mon 0
-        ivs 150
+        ivs 0
         abilityslot 0
-        level 30
-        pokemon SPECIES_MAGNEMITE
-        item ITEM_NONE
+        level LEVEL_JASMINE-1
+        pokemon SPECIES_HELIOLISK
+        item ITEM_CHOICE_SCARF
+	move MOVE_VOLT_SWITCH
+        move MOVE_U_TURN
         move MOVE_THUNDERBOLT
-        move MOVE_SUPERSONIC
-        move MOVE_SONIC_BOOM
-        move MOVE_THUNDER_WAVE
+        move MOVE_SURF
+        ability ABILITY_SAND_VEIL
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 1
-        ivs 150
-        abilityslot 32
-        level 30
-        pokemon SPECIES_MAGNEMITE
-        item ITEM_NONE
-        move MOVE_THUNDERBOLT
-        move MOVE_SUPERSONIC
-        move MOVE_SONIC_BOOM
-        move MOVE_THUNDER_WAVE
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-1
+        pokemon SPECIES_EXCADRILL
+        item ITEM_FOCUS_SASH
+        move MOVE_IRON_HEAD
+        move MOVE_EARTHQUAKE
+        move MOVE_SWORDS_DANCE
+        move MOVE_X_SCISSOR
+        ability ABILITY_SAND_RUSH
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 2
-        ivs 150
-        abilityslot 32
-        level 35
-        pokemon SPECIES_STEELIX
-        item ITEM_SITRUS_BERRY
-        move MOVE_SCREECH
-        move MOVE_SANDSTORM
-        move MOVE_ROCK_THROW
-        move MOVE_IRON_TAIL
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE
+        pokemon SPECIES_CRADILY
+        item ITEM_LEFTOVERS
+        move MOVE_GIGA_DRAIN
+        move MOVE_ANCIENT_POWER
+        move MOVE_RECOVER
+        move MOVE_TOXIC
+        ability ABILITY_STORM_DRAIN
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_CALM
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-1
+        pokemon SPECIES_SKARMORY
+        item ITEM_LEFTOVERS
+        move MOVE_ROOST
+        move MOVE_BRAVE_BIRD
+        move MOVE_WHIRLWIND
+        move MOVE_STEALTH_ROCKS
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_IMPISH
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE
+        pokemon SPECIES_JIRACHI
+        item ITEM_SHUCA_BERRY
+        move MOVE_PSYCHIC
+        move MOVE_ENERGY_BALL
+        move MOVE_THUNDER_WAVE
+        move MOVE_WISH
+        ability ABILITY_SERENE_GRACE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_HASTY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE
+        pokemon SPECIES_STEELIXITE
+        item ITEM_STEELIXITE
+        move MOVE_BODY_PRESS
+        move MOVE_GYRO_BALL
+        move MOVE_EARTHQUAKE
+        move MOVE_CURSE
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_BRAVE
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
