@@ -1627,7 +1627,7 @@ trainerdata 34, "Chuck"
         move MOVE_FIRE_BLAST
         move MOVE_CLOSE_COMBAT
         move MOVE_GRASS_KNOT
-        move MOVE_AURA_SPHERE
+        move MOVE_U_TURN
         ability ABILITY_IRON_FIST // Blaze?
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
