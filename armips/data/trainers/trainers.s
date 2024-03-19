@@ -1435,17 +1435,17 @@ trainerdata 31, "Morty"
 	    ivs 0
         abilityslot 0
         level LEVEL_MORTY-1
-        pokemon SPECIES_GIRATINA
-        item ITEM_GRISEOUS_ORB
-        move MOVE_DRAGON_CLAW
-        move MOVE_SHADOW_CLAW
-        move MOVE_IRON_HEAD
-        move MOVE_PAIN_SPLIT
-        ability ABILITY_PRESSURE
+        pokemon SPECIES_DARKRAI
+        item ITEM_LIFE_ORB
+        move MOVE_DARK_PULSE
+        move MOVE_FOCUS_BLAST
+        move MOVE_HYPNOSIS
+        move MOVE_NASTY_PLOT
+        ability ABILITY_BAD_DREAMS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
