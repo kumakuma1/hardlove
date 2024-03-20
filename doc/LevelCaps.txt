@@ -1,3 +1,19 @@
+Elder Li  12
+Falk      16
+Busgy     22
+Park      26
+Whitney   27
+Morty     35, Rival has starter at 36
+Chuck     40, Eusin 40
+Jasmine   46
+Rocket    50
+Pryce     52
+Tower     56, Rival 55
+Clair     60
+Rival     65
+Elite     70
+
+
 063 T20R0201 : Event File 60 - Script File 845 : Script 1:
 ..
 Call Function#1
