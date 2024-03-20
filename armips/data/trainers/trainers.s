@@ -26640,9 +26640,9 @@ trainerdata 728, "Charlotte"
     endparty
 
 trainerdata 729, "Duff & Eda"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_YOUNG_COUPLE
-    nummons 2
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -26652,18 +26652,76 @@ trainerdata 729, "Duff & Eda"
     endentry
 
     party 729
-        // mon 0
         ivs 0
-        abilityslot 32
-        level 22
-        pokemon SPECIES_ONIX
+        abilityslot 0
+        level LEVEL_CHUCK-1
+        pokemon SPECIES_HELIOLISK
+        item ITEM_BRIGHT_POWDER
+        move MOVE_THUNDERBOLT
+        move MOVE_DOUBLE_TEAM
+        move MOVE_THUNDER_WAVE
+        move MOVE_SURF
+        ability ABILITY_SAND_VEIL
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 32
-        level 22
-        pokemon SPECIES_CLOYSTER
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_CHUCK-1
+        pokemon SPECIES_CACTURNE
+        item ITEM_LIFE_ORB
+        move MOVE_GIGA_DRAIN
+        move MOVE_PROTECT   //SPIKEY SHIELD
+        move MOVE_SUCKER_PUNCH
+        move MOVE_POISON_JAB //STOMPING TANTRUM
+        ability ABILITY_WATER_ABSORB
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_SERIOUS
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_CHUCK
+        pokemon SPECIES_DUGTRIO
+        item ITEM_CHOICE_BAND
+        move MOVE_DIG
+        move MOVE_AERIAL_ACE
+        move MOVE_PURSUIT
+        move MOVE_ROCK_SLIDE
+        ability ABILITY_ARENA_TRAP
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_CHUCK-1
+        pokemon SPECIES_GLISCOR
+        item ITEM_YACHE_BERRY
+        move MOVE_EARTHQUAKE
+        move MOVE_ROOST
+        move MOVE_DOUBLE_TEAM
+        move MOVE_AERIAL_ACE
+        ability ABILITY_SAND_VEIL
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
