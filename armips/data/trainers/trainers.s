@@ -1263,7 +1263,7 @@ trainerdata 30, "Whitney"
         pokemon SPECIES_REGIGIGAS
         item ITEM_LUM_BERRY
         move MOVE_BODY_SLAM
-        move MOVE_SUPERPOWEER
+        move MOVE_SUPERPOWER
         move MOVE_SLEEP_TALK
         move MOVE_REST
         ability ABILITY_SLOW_START
@@ -1332,17 +1332,17 @@ trainerdata 30, "Whitney"
 	ivs 0
         abilityslot 0
         level LEVEL_WHITNEY
-        pokemon SPECIES_PORYGON_2
-        item ITEM_LUM_BERRY //EVIOLITE
-        move MOVE_TRI_ATTACK
-        move MOVE_DISCHARGE
-        move MOVE_PSYBEAM
-        move MOVE_RECOVER
+        pokemon SPECIES_TOGEKISS
+        item ITEM_LUM_BERRY
+        move MOVE_DRAINING_KISS
+        move MOVE_AIR_SLASH
+        move MOVE_AURA_SPHERE
+        move MOVE_ROOST
         ability ABILITY_ANALYTIC
         ball ITEM_POKE_BALL
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_MODEST
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1595,7 +1595,7 @@ trainerdata 33, "Jasmine"
         move MOVE_ROOST
         move MOVE_BRAVE_BIRD
         move MOVE_WHIRLWIND
-        move MOVE_STEALTH_ROCKS
+        move MOVE_STEALTH_ROCK
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1626,7 +1626,7 @@ trainerdata 33, "Jasmine"
 	ivs 0
         abilityslot 0
         level LEVEL_JASMINE
-        pokemon SPECIES_STEELIXITE
+        pokemon SPECIES_STEELIX
         item ITEM_STEELIXITE
         move MOVE_BODY_PRESS
         move MOVE_GYRO_BALL
@@ -17860,7 +17860,7 @@ trainerdata 498, "Eusine"
         level LEVEL_CHUCK
         pokemon SPECIES_MANECTRIC
         item ITEM_MANECTITE
-        move MOVE_THUNDER_BOLT
+        move MOVE_THUNDERBOLT
         move MOVE_VOLT_SWITCH
         move MOVE_FLAMETHROWER
         move MOVE_SIGNAL_BEAM
