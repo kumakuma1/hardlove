@@ -497,3 +497,185 @@ Return
 Function 11:
     GivePokemon 616 20 0 0 0 0x800C
 Return 
+
+
+
+
+Random Starter in Safari-Zone Gate
+174 - D47 - Event File 168 - Script File 116 - Text 133
+Use Spawnable
+
+5 Hey Trainer, I give out random\nStarter Pokemon.\fYou want one? \v0200\x0001\x0000
+18 Ok...
+19 You don’t have space.
+20 Here you go buddy!
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 5
+    OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#14
+    GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#15
+	SetFlag 2600
+    GetRandom 0x800C 21
+
+    CompareVarValue 0x800C 0
+    CallIf EQUAL Function#16
+    CompareVarValue 0x800C 1
+    CallIf EQUAL Function#17
+    CompareVarValue 0x800C 2
+    CallIf EQUAL Function#18
+    CompareVarValue 0x800C 3
+    CallIf EQUAL Function#19
+    CompareVarValue 0x800C 4
+    CallIf EQUAL Function#20
+    CompareVarValue 0x800C 5
+    CallIf EQUAL Function#21
+    CompareVarValue 0x800C 6
+    CallIf EQUAL Function#22
+    CompareVarValue 0x800C 7
+    CallIf EQUAL Function#23
+    CompareVarValue 0x800C 8
+    CallIf EQUAL Function#24
+	
+	CompareVarValue 0x800C 9
+    CallIf EQUAL Function#25
+    CompareVarValue 0x800C 10
+    CallIf EQUAL Function#26
+    CompareVarValue 0x800C 11
+    CallIf EQUAL Function#27
+    CompareVarValue 0x800C 12
+    CallIf EQUAL Function#28
+    CompareVarValue 0x800C 13
+    CallIf EQUAL Function#29
+    CompareVarValue 0x800C 14
+    CallIf EQUAL Function#30
+    CompareVarValue 0x800C 15
+    CallIf EQUAL Function#31
+    CompareVarValue 0x800C 16
+    CallIf EQUAL Function#32
+    CompareVarValue 0x800C 17
+    CallIf EQUAL Function#33
+	
+	CompareVarValue 0x800C 18
+    CallIf EQUAL Function#34
+    CompareVarValue 0x800C 19
+    CallIf EQUAL Function#35
+    CompareVarValue 0x800C 20
+    CallIf EQUAL Function#36
+	
+    PlayFanfare 2323
+    Message 20
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 14:
+	Message 18
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 15:
+	Message 19
+	WaitButton 
+	CloseMessage
+    ReleaseAll 
+End
+
+
+Function 16:
+    GivePokemon 1 20 0 0 0 0x800C
+Return 
+
+Function 17:
+    GivePokemon 4 20 0 0 0 0x800C
+Return 
+
+Function 18:
+    GivePokemon 7 20 0 0 0 0x800C
+Return 
+
+Function 19:
+    GivePokemon 152 20 0 0 0 0x800C
+Return 
+
+Function 20:
+    GivePokemon 155 20 0 0 0 0x800C
+Return 
+
+Function 21:
+    GivePokemon 158 20 0 0 0 0x800C
+Return 
+
+Function 22:
+    GivePokemon 252 20 0 0 0 0x800C
+Return 
+
+Function 23:
+    GivePokemon 255 20 0 0 0 0x800C
+Return 
+
+Function 24:
+    GivePokemon 258 20 0 0 0 0x800C
+Return 
+
+
+
+
+Function 25:
+    GivePokemon 387 20 0 0 0 0x800C
+Return 
+
+Function 26:
+    GivePokemon 390 20 0 0 0 0x800C
+Return 
+
+Function 27:
+    GivePokemon 393 20 0 0 0 0x800C
+Return 
+
+Function 28:
+    GivePokemon 545 20 0 0 0 0x800C
+Return 
+
+Function 29:
+    GivePokemon 548 20 0 0 0 0x800C
+Return 
+
+Function 30:
+    GivePokemon 551 20 0 0 0 0x800C
+Return 
+
+Function 31:
+    GivePokemon 700 20 0 0 0 0x800C
+Return 
+
+Function 32:
+    GivePokemon 703 20 0 0 0 0x800C
+Return 
+
+Function 33:
+    GivePokemon 706 20 0 0 0 0x800C
+Return 
+
+Function 34:
+    GivePokemon 772 20 0 0 0 0x800C
+Return 
+
+Function 35:
+    GivePokemon 775 20 0 0 0 0x800C
+Return 
+
+Function 36:
+    GivePokemon 778 20 0 0 0 0x800C
+Return 
