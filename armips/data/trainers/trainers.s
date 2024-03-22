@@ -11012,42 +11012,24 @@ trainerdata 290, "Li" // Sprout Tower Boss
     endentry
 
     party 290
-        ivs 0
+    	ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-1
-        pokemon SPECIES_KOFFING
-        item ITEM_FOCUS_SASH
-        move MOVE_SMOG
-        move MOVE_SELF_DESTRUCT
-        move MOVE_SCREECH
-        move MOVE_TOXIC_SPIKES
-        ability ABILITY_LEVITATE
+        pokemon SPECIES_EEVEE
+        item ITEM_LUM_BERRY
+        move MOVE_QUICK_ATTACK
+        move MOVE_SAND_ATTACK
+        move MOVE_CHARM
+        move MOVE_BITE
+        ability ABILITY_ADAPTABILITY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_SASSY
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
-    
-        ivs 0
-        abilityslot 0
-        level LEVEL_ELDER_LI
-        pokemon SPECIES_ZUBAT
-        item ITEM_ORAN_BERRY
-        move MOVE_ROOST
-        move MOVE_SLUDGE
-        move MOVE_ABSORB
-        move MOVE_WING_ATTACK
-        ability ABILITY_SNIPER
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-    
+	
         ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-1
@@ -11065,6 +11047,24 @@ trainerdata 290, "Li" // Sprout Tower Boss
         shinylock 0
         additionalflags 0
         ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI
+        pokemon SPECIES_EXEGGCUTE
+        item ITEM_ORAN_BERRY
+        move MOVE_KONFUSION
+        move MOVE_BULLET_SEED
+        move MOVE_STUN_SPORE
+        move MOVE_LEECH_SEED
+        ability ABILITY_HARVEST
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_SERIOUS
+        shinylock 0
+        additionalflags 0
+        ballseal 0
     
         ivs 0
         abilityslot 0
@@ -11072,9 +11072,9 @@ trainerdata 290, "Li" // Sprout Tower Boss
         pokemon SPECIES_MARILL
         item ITEM_MUSCLE_BAND
         move MOVE_AQUA_JET
-        move MOVE_BELLY_DRUM
         move MOVE_BODY_SLAM
         move MOVE_ROCK_SMASH
+	move MOVE_NONE
         ability ABILITY_HUGE_POWER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
