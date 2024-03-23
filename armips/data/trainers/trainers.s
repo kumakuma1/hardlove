@@ -11053,7 +11053,7 @@ trainerdata 290, "Li" // Sprout Tower Boss
         level LEVEL_ELDER_LI
         pokemon SPECIES_EXEGGCUTE
         item ITEM_ORAN_BERRY
-        move MOVE_KONFUSION
+        move MOVE_CONFUSION
         move MOVE_BULLET_SEED
         move MOVE_STUN_SPORE
         move MOVE_LEECH_SEED

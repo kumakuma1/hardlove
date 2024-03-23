@@ -267,6 +267,7 @@ Olivine City
 -----------------------------
 - Blocked Lighthouse with Jasmine, Disappears after Chuck is beaten
 - Good Rod no longer obtainable
+- Find VM 08 Rock Climb next to jasmine in the lighthouse
 TODO:
 
 
@@ -276,6 +277,7 @@ Cianwood City
 -----------------------------
 - Eusin gives ITEM_MANECTITE and randomly Life Orb, Choice Specs, Choice Band
 - Guy in the Photographer's house gives random fossil pokemon
+- Chuck gives TM60 Drain Punch
 TODO:
 - newer fossils
 
