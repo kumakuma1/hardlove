@@ -101,4 +101,8 @@
 // modern generations have this value at 160, older ones at 220.  still max out at 255
 #define FRIENDSHIP_EVOLUTION_THRESHOLD 160
 
+#define RANDOM_3_MAX_IVS
+#define RANDOM_3_MAX_IVS_FLAG 2599
+
+
 #endif
