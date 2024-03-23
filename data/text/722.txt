@@ -166,7 +166,7 @@ Moves can be used\nregardless of Abilities.
 Protects against attacks\nthat limit move choices.
 Protects Grass-type allies\nfrom stat/status effects.
 Restores HP as well when\nthe Pokémon eats a Berry.
-It changes type to that\nof the move it’s about to use.
+Changes type to match\nmove.
 Halves the damage from\nphysical moves.
 Steals the held item of\na Pokémon it hits.
 Protects the Pokémon from\nsome ball and bomb moves.
