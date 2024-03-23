@@ -91,4 +91,8 @@
 // LEARNSET_TOTAL_MOVES is the amount of moves that each pokémon should be able to learn by level up
 #define LEARNSET_TOTAL_MOVES 41 // 40+terminate - currently driven by gallade
 
+
+#define RANDOM_3_MAX_IVS
+#define RANDOM_3_MAX_IVS_FLAG 2599
+
 #endif

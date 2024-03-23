@@ -1384,15 +1384,19 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
         ClearScriptFlag(HIDDEN_ABILITIES_FLAG);
     }
 
-    int array[] = {0, 1, 2, 3, 4, 5};
-    fisherYatesArrayShuffle(array, 6);
-        
-    int iv = 31;
-    // Randomly chooses 3 stats
-    for (int i = 0; i < 3; i++) 
+    if (CheckScriptFlag(RANDOM_3_MAX_IVS_FLAG) == 1)
     {
-        int selectedValue = array[i];
-        SetMonData(pokemon, MON_DATA_HP_IV + selectedValue, &iv);
+        int array[] = {0, 1, 2, 3, 4, 5};
+        fisherYatesArrayShuffle(array, 6);
+            
+        int iv = 31;
+        // Randomly chooses 3 stats
+        for (int i = 0; i < 3; i++) 
+        {
+            int selectedValue = array[i];
+            SetMonData(pokemon, MON_DATA_HP_IV + selectedValue, &iv);
+        }
+        ClearScriptFlag(RANDOM_3_MAX_IVS_FLAG);
     }
 
     if (ability != 0) {
@@ -1581,13 +1585,16 @@ u32 gLastPokemonLevelForMoneyCalc;
  */
 void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon *pp)
 {
+    struct BoxPokemon *boxmon = &pp->box;
     if (CheckScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG) == 1)
     {
-        struct BoxPokemon *boxmon = &pp->box;
-
         SET_MON_HIDDEN_ABILITY_BIT(pp)
         SetBoxMonAbility(boxmon);
+        ClearScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG);
+    }
 
+    if (CheckScriptFlag(RANDOM_3_MAX_IVS_FLAG) == 1)
+    {
         int array[] = {0, 1, 2, 3, 4, 5};
         fisherYatesArrayShuffle(array, 6);
         
@@ -1598,7 +1605,7 @@ void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon 
             int selectedValue = array[i];
             SetBoxMonData(boxmon, MON_DATA_HP_IV + selectedValue, &iv);
         }
-        ClearScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG);
+        ClearScriptFlag(RANDOM_3_MAX_IVS_FLAG);
     }
 }
 
