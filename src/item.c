@@ -18,6 +18,8 @@ void *_CreateRevealGlassWork(FieldSystem *fieldSystem);
 void ItemMenuUseFunc_DNASplicers(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
 BOOL ItemFieldUseFunc_DNASplicers(struct ItemFieldUseData *data);
 void *_CreateDNASplicersWork(FieldSystem *fieldSystem);
+BOOL ItemFieldUseFunc_InfiniteCandy(struct ItemFieldUseData *data);
+void *_CreateInfiniteCandyWork(FieldSystem *fieldSystem);
 void ItemMenuUseFunc_AbilityCapsule(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
 void ItemMenuUseFunc_LonelyMint(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
 void ItemMenuUseFunc_AdamantMint(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
@@ -97,6 +99,7 @@ const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
     { ItemMenuUseFunc_JollyMint, NULL, NULL },
     { ItemMenuUseFunc_NaiveMint, NULL, NULL },
     { ItemMenuUseFunc_SeriousMint, NULL, NULL },
+    { ItemMenuUseFunc_HealingItem, ItemFieldUseFunc_InfiniteCandy, NULL },
 };
 
 u16 GetItemIndex(u16 item, u16 type)
@@ -409,4 +412,16 @@ void ItemMenuUseFunc_SeriousMint(struct ItemMenuUseData *data, const struct Item
     struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_SERIOUS_MINT);
     sub_0203C8F0(env, 0x0203CA9C | 1);
+}
+
+
+BOOL ItemFieldUseFunc_InfiniteCandy(struct ItemFieldUseData *data)
+{
+    RegisteredItem_CreateGoToAppTask(data, (FieldApplicationWorkCtor)_CreateInfiniteCandyWork, FALSE);
+    return TRUE;
+}
+
+void *_CreateInfiniteCandyWork(FieldSystem *fieldSystem)
+{
+    return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_INFINITE_CANDY);
 }
