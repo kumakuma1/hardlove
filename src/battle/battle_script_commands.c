@@ -3031,7 +3031,7 @@ u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
         //ballRate = 10;
         break;
     case ITEM_SAFARI_BALL:
-        ballRate = 15;
+        return 4; // automatic success
         break;
     case ITEM_NET_BALL:
         if (type1 == TYPE_WATER || type2 == TYPE_WATER || type1 == TYPE_BUG || type2 == TYPE_BUG)
