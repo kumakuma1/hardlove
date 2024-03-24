@@ -104,5 +104,7 @@
 #define RANDOM_3_MAX_IVS
 #define RANDOM_3_MAX_IVS_FLAG 2599
 
+#define RANDOMIZE_EGG
+#define RANDOMIZE_EGG_FLAG 2598
 
 #endif
