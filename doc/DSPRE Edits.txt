@@ -793,3 +793,47 @@ Script 91:
 	SetVar 0x8009 1
 Jump Function#1
 
+
+Text file 281 added 15 "Creator" - SetFlag 2598  will change hooked c-function 
+19 Hey Trainer, I give out random\nEggs.\fYou want one? \v0200\x0001\x0000
+20 Ok...
+21 You don’t have space.
+22 Here you go buddy!
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 19
+    OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#36
+    GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#37
+	SetFlag 2600
+	SetFlag 2599
+	SetFlag 2598
+	GivePokemonEgg 10 15
+    PlayFanfare 2323
+    Message 22
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 36:
+	Message 20
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 37:
+	Message 21
+	WaitButton 
+	CloseMessage
+    ReleaseAll 
+End
