@@ -1384,6 +1384,7 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
         ClearScriptFlag(HIDDEN_ABILITIES_FLAG);
     }
 
+#ifdef RANDOM_3_MAX_IVS
     if (CheckScriptFlag(RANDOM_3_MAX_IVS_FLAG) == 1)
     {
         int array[] = {0, 1, 2, 3, 4, 5};
@@ -1398,6 +1399,7 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
         }
         ClearScriptFlag(RANDOM_3_MAX_IVS_FLAG);
     }
+#endif
 
     if (ability != 0) {
         SetMonData(pokemon, MON_DATA_ABILITY, &ability);
@@ -1593,6 +1595,7 @@ void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon 
         ClearScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG);
     }
 
+#ifdef RANDOM_3_MAX_IVS
     if (CheckScriptFlag(RANDOM_3_MAX_IVS_FLAG) == 1)
     {
         int array[] = {0, 1, 2, 3, 4, 5};
@@ -1607,6 +1610,7 @@ void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon 
         }
         ClearScriptFlag(RANDOM_3_MAX_IVS_FLAG);
     }
+#endif
 }
 
 /**
