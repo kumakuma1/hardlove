@@ -837,3 +837,19 @@ Function 37:
 	CloseMessage
     ReleaseAll 
 End
+
+TODO
+##############
+034 R30 : Event File 31 - Script File 227
+Trigger Event
+16524 when 0  script 3 - function 2
+
+
+Add 063 T20R0201 : Event File 60 - Script File 845 : Script 1:
+	SetVar 0x8004 468
+	SetVar 0x8005 1
+	CommonScript 2033
+	
+	SetFlag 109
+	SetVar 0x408C 1
+########
