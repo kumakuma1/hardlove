@@ -76,7 +76,7 @@ CheckFlag 117
 CallIf EQUAL Function#22
 
 Function 22:
-	SetVar 0x416F 31 -> 32, Rival below doesn't change cap
+	SetVar 0x416F 35
 Return
 
 //rival ecruteak
@@ -85,7 +85,7 @@ CheckFlag 117
 CallIf EQUAL Function#5
 
 Function 5:
-	SetVar 0x416F 32
+	SetVar 0x416F 35
 Return
 
 
@@ -95,5 +95,23 @@ CheckFlag 117
 CallIf EQUAL Function#16
 
 Function 16:
-	SetVar 0x416F 36
+	SetVar 0x416F 40
+Return
+
+//Chuck
+139 T24GYM0101 : Event File 135 -  Script File 877 : Script 1
+CheckFlag 117
+CallIf EQUAL Function#11
+
+Function 11:
+	SetVar 0x416F 46
+Return
+
+//Jasmine
+138 T26GYM0101 : Event File 134 -  Script File 913 : Script 1
+CheckFlag 117
+CallIf EQUAL Function#50
+
+Function 50:
+	SetVar 0x416F 52
 Return

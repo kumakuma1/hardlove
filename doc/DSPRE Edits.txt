@@ -838,12 +838,12 @@ Function 37:
     ReleaseAll 
 End
 
-TODO
-##############
+
 034 R30 : Event File 31 - Script File 227
 Trigger Event
-16524 when 0  script 3 - function 2
-
+16524 when 0  script 3 - function 2  // Use Variable and Flag for whitney
+NPC flag 591
+ClearFag ...
 
 Add 063 T20R0201 : Event File 60 - Script File 845 : Script 1:
 	SetVar 0x8004 468
@@ -852,4 +852,8 @@ Add 063 T20R0201 : Event File 60 - Script File 845 : Script 1:
 	
 	SetFlag 109
 	SetVar 0x408C 1
-########
+
+####
+Make Cut usable without learning move
+script file 146 - script 1 - text file 211
+####
