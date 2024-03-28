@@ -500,7 +500,7 @@ encounter SPECIES_TENTACOOL, 3, 3       //40%
 encounter SPECIES_WOOPER, 3, 3          //30% //PALDEAN
 encounter SPECIES_GRIMER, 3, 3          //15%
 encounter SPECIES_SKRELP, 3, 3          //10%
-encounter SPECIES_MAREANI, 3, 3         //5%
+encounter SPECIES_MAREANIE, 3, 3         //5%
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
