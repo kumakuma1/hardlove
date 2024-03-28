@@ -288,11 +288,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 3, 3        //40%
-encounter SPECIES_KRABBY, 3, 3          //30%
-encounter SPECIES_GOLDEEN, 3, 3         //15%
-encounter SPECIES_TYMPOLE, 3, 3         //10%
-encounter SPECIES_HORSEA, 3, 3          //5%
+encounter SPECIES_KRABBY, 3, 3          //40%
+encounter SPECIES_GOLDEEN, 3, 3         //30%
+encounter SPECIES_TYMPOLE, 3, 3         //15%
+encounter SPECIES_HORSEA, 3, 3          //10%
+encounter SPECIES_CORSOLA, 3, 3         //5%
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -485,7 +485,7 @@ pokemon SPECIES_BUIZEL
 pokemon SPECIES_BIDOOF
 
 // surf encounters
-encounter SPECIES_TENTACOOL, 3, 3        //40%
+encounter SPECIES_TENTACOOL, 3, 3       //40%
 encounter SPECIES_SURSKIT, 3, 3         //30%
 encounter SPECIES_CLAMPERL, 3, 3        //15%
 encounter SPECIES_LOTAD, 3, 3           //10%
@@ -496,11 +496,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_TENTACOOL, 3, 3        //40%
-encounter SPECIES_SURSKIT, 3, 3         //30%
-encounter SPECIES_CLAMPERL, 3, 3        //15%
-encounter SPECIES_LOTAD, 3, 3           //10%
-encounter SPECIES_SPHEAL, 3, 3          //5%
+encounter SPECIES_TENTACOOL, 3, 3       //40%
+encounter SPECIES_WOOPER, 3, 3          //30% //PALDEAN
+encounter SPECIES_GRIMER, 3, 3          //15%
+encounter SPECIES_SKRELP, 3, 3          //10%
+encounter SPECIES_MAREANI, 3, 3         //5%
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -600,10 +600,10 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_GOLDEEN, 3, 3         //40%
-encounter SPECIES_REMORAID, 3, 3        //30%
-encounter SPECIES_KRABBY, 3, 3          //15%
-encounter SPECIES_SPHEAL, 3, 3          //10%
+encounter SPECIES_REMORAID, 3, 3        //40%
+encounter SPECIES_KRABBY, 3, 3          //30%
+encounter SPECIES_SPHEAL, 3, 3          //15%
+encounter SPECIES_SEEL, 3, 3           //10%
 encounter SPECIES_SHELLDER, 3, 3        //5%
 
 // good rod encounters
@@ -912,11 +912,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_TENTACOOL, 5, 5       //40%
-encounter SPECIES_LOTAD, 5, 5           //30%
+encounter SPECIES_AZURILL, 5, 5         //40%
+encounter SPECIES_FRILLISH, 5, 5        //30%
 encounter SPECIES_SHELLDER, 5, 5        //15%
 encounter SPECIES_BUIZEL, 5, 5          //10%
-encounter SPECIES_SEEL, 5, 5            //5%
+encounter SPECIES_QWILFISH, 5, 5        //5%
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -1018,9 +1018,9 @@ encounter SPECIES_GEODUDE, 3, 6
 // old rod encounters
 encounter SPECIES_TYNAMO, 5, 5          //40%
 encounter SPECIES_CHINCHOU, 5, 5        //30%
-encounter SPECIES_GOLDEEN, 5, 5         //15%
+encounter SPECIES_CLAMPERL, 5, 5        //15%
 encounter SPECIES_BUIZEL, 5, 5          //10%
-encounter SPECIES_QWILFISH, 5, 5        //5%
+encounter SPECIES_LUVDISC, 5, 5         //5%
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -1537,10 +1537,10 @@ encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
 encounter SPECIES_WOOPER, 5, 5          //40%
-encounter SPECIES_CHINCHOU, 5, 5        //30%
+encounter SPECIES_SHELLOS, 5, 5        //30%
 encounter SPECIES_BARBOACH, 5, 5        //15%
 encounter SPECIES_TYMPOLE, 5, 5         //10%
-encounter SPECIES_QWILFISH, 5, 5        //5%
+encounter SPECIES_RELICANTH, 5, 5       //5%
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -1640,10 +1640,10 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 5, 5        //40%
+encounter SPECIES_TYMPOLE, 5, 5         //40%
 encounter SPECIES_CORPHISH, 5, 5        //30%
-encounter SPECIES_BARBOACH, 5, 5        //15%
-encounter SPECIES_TYMPOLE, 5, 5         //10%
+encounter SPECIES_FINNEON, 5, 5         //15%
+encounter SPECIES_BINACLE, 5, 5         //10%
 encounter SPECIES_STUNFISK, 5, 5        //5%
 
 // good rod encounters
@@ -1955,8 +1955,8 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_SLOWPOKE, 7, 7
 encounter SPECIES_PSYDUCK, 7, 7
 encounter SPECIES_HORSEA, 7, 7
-encounter SPECIES_PSYDUCK, 7, 7
-encounter SPECIES_QWILFISH, 7, 7
+encounter SPECIES_STARYU, 7, 7
+encounter SPECIES_CARVANHA, 7, 7
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -2160,9 +2160,9 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_KRABBY, 7, 7
-encounter SPECIES_GOLDEEN, 7, 7
 encounter SPECIES_LOTAD, 7, 7
+encounter SPECIES_PHANTUMP, 7, 7
+encounter SPECIES_PUMPKABOO, 7, 7
 encounter SPECIES_CARNIVINE, 7, 7
 encounter SPECIES_LILEEP, 7, 7
 
@@ -2264,7 +2264,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_CARVANHA, 10, 10
+encounter SPECIES_MARILL, 10, 10
 encounter SPECIES_HORSEA, 10, 10
 encounter SPECIES_FEEBAS, 10, 10
 encounter SPECIES_CLAMPERL, 10, 10
@@ -2369,10 +2369,10 @@ encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
 encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
+encounter SPECIES_CROAGUNK, 10, 10
+encounter SPECIES_CRABRAWLER, 10, 10
 encounter SPECIES_POLIWAG, 10, 10
-encounter SPECIES_POLIWAG, 10, 10
+encounter SPECIES_SCRAGGY, 10, 10
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20

@@ -9,6 +9,31 @@
 
 .open "base/overlay/overlay_0002.bin", 0x02245B80
 
+// Surfing Encounters
+// Change rates to 25/25/25/20/5
+
+.org 0x02247734
+
+// 25%
+.byte 25
+.skip 9
+
+// 25%
+.byte 50
+.skip 7
+.byte 50
+.skip 3
+
+// 25%
+.byte 75
+.skip 7
+.byte 75
+.skip 3
+
+// 20%
+// then values 95 - 99 activate last slot
+.byte 95
+
 // Fishing Encounters
 // Change rates to 25/25/25/20/5
 
