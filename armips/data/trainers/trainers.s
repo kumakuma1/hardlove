@@ -11,7 +11,7 @@
 
 TRAINER_MON_TYPE_FLAGS equ TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS | 0
 
-TRAINER_AI_FLAGS equ F_PRIORITIZE_DAMAGE | F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+TRAINER_AI_FLAGS equ F_USE_WEATHER | F_PRIORITIZE_DAMAGE | F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
 
 LEVEL_SILVER_1 equ 5
 LEVEL_ROUTE_30 equ 8
@@ -34,6 +34,7 @@ LEVEL_ECRUTEAK equ 31
 LEVEL_MORTY equ 32
 LEVEL_CHUCK equ 40
 LEVEL_JASMINE equ 46
+LEVEL_PRYZE equ 52
 
 trainerdata 0, "-"
     trainermontype TRAINER_DATA_TYPE_NOTHING
@@ -1471,52 +1472,124 @@ trainerdata 31, "Morty"
     endparty
 
 trainerdata 32, "Pryce"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_LEADER_1
-    nummons 3
-    item ITEM_HYPER_POTION
-    item ITEM_FULL_RESTORE
+    nummons 6
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_USE_WEATHER | 0
-    battletype SINGLE_BATTLE
+    item ITEM_NONE
+    aiflags TRAINER_AI_FLAGS
+    battletype DOUBLE_BATTLE
     endentry
 
     party 32
-        // mon 0
-        ivs 150
+        ivs 0
         abilityslot 0
-        level 30
-        pokemon SPECIES_SEEL
-        item ITEM_NONE
-        move MOVE_SNORE
-        move MOVE_HAIL
-        move MOVE_ICY_WIND
-        move MOVE_REST
+        level LEVEL_PRYZE-1
+        pokemon SPECIES_QWILFISH
+        item ITEM_FOCUS_SASH // SHUCA//CUSTAP ?
+        move MOVE_AQUA_JET
+        move MOVE_FLIP_TURN
+        move MOVE_THUNDER_WAVE
+        move MOVE_EXPLOSION
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 1
-        ivs 150
+				
+	    ivs 0
         abilityslot 0
-        level 32
-        pokemon SPECIES_DEWGONG
-        item ITEM_NONE
-        move MOVE_SLEEP_TALK
-        move MOVE_ICE_SHARD
-        move MOVE_AURORA_BEAM
-        move MOVE_REST
-        ballseal 0
-
-        // mon 2
-        ivs 150
-        abilityslot 32
-        level 34
-        pokemon SPECIES_PILOSWINE
-        item ITEM_SITRUS_BERRY
-        move MOVE_HAIL
-        move MOVE_ICE_FANG
-        move MOVE_MUD_BOMB
+        level LEVEL_PRYZE
+        pokemon SPECIES_FROSLASS
+        item ITEM_CHOICE_SCARF
         move MOVE_BLIZZARD
+        move MOVE_SHADOW_BALL
+        move MOVE_PSYCHIC
+        move MOVE_THUNDERBOLT
+        ability ABILITY_FLAME_BODY
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_PRYZE-1
+        pokemon SPECIES_HITMONTOP
+        item ITEM_LEFTOVERS
+        move MOVE_RAPID_SPIN
+        move MOVE_MACH_PUNCH
+        move MOVE_CLOSE_COMBAT
+        move MOVE_KNOCK_OFF
+        ability ABILITY_INTIMIDATE //ASSAULT_VEST ?
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_PRYZE-1
+        pokemon SPECIES_NINETALES //_ALOLAN
+        item ITEM_BRIGHT_POWDER
+        move MOVE_DAZZLING_GLEAM
+        move MOVE_REFLECT // MOVE_AUROA_VEIL
+        move MOVE_FREEZE_DRY
+        move MOVE_EXTRASENSORY
+        ability ABILITY_SNOW_CLOAK
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_PRYZE
+        pokemon SPECIES_ARTICUNO
+        item ITEM_LEFTOVERS
+        move MOVE_BLIZZARD
+        move MOVE_SHEER_COLD
+        move MOVE_ROOST
+        move MOVE_AEROBLAST
+        ability ABILITY_SNOW_CLOAK
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_PRYZE
+        pokemon SPECIES_ABOMASNOW
+        item ITEM_ABOMASITE
+        move MOVE_GIGA_DRAIN
+        move MOVE_BLIZZARD
+        move MOVE_EARTH_POWER
+        move MOVE_ROCK_SLIDE
+        ability ABILITY_SNOW_WARNING
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_HASTY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 

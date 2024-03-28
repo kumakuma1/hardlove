@@ -3973,7 +3973,7 @@ pokemon SPECIES_NONE
 .close
 
 
-encounterdata  38   // Route 38 Steel, Electro
+encounterdata  38   // Route 38 Steel, Ground
 
 walkrate 15
 surfrate 0
@@ -3984,45 +3984,45 @@ superrodrate 0
 walklevels 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18
 
 // morning encounter slots
-pokemon SPECIES_SHINX 	   //20%
-pokemon SPECIES_KLINK		   //20%
-pokemon SPECIES_BRONZOR    //10%
-pokemon SPECIES_TYNAMO     //10%
-pokemon SPECIES_VOLTORB    //10%
+pokemon SPECIES_BUNNELBY 	 //20%
+pokemon SPECIES_KLINK		 //20%
+pokemon SPECIES_BRONZOR      //10%
+pokemon SPECIES_STUNFISK     //10%
+pokemon SPECIES_SANDILE      //10%
 pokemon SPECIES_MAGNEMITE	 //10%
-pokemon SPECIES_ARON       //5%
-pokemon SPECIES_MAREEP 	   //5%
+pokemon SPECIES_ARON         //5%
+pokemon SPECIES_DIGLETT	     //5%
 pokemon SPECIES_FERROSEED	 //4%
-pokemon SPECIES_FERROSEED  //4%
-pokemon SPECIES_SKARMORY   //1%
+pokemon SPECIES_FERROSEED    //4%
+pokemon SPECIES_SKARMORY     //1%
 pokemon SPECIES_SKARMORY	 //1%
 
 // day encounter slots
-pokemon SPECIES_SHINX 	   //20%
-pokemon SPECIES_KLINK		   //20%
-pokemon SPECIES_BRONZOR    //10%
-pokemon SPECIES_TYNAMO     //10%
-pokemon SPECIES_VOLTORB    //10%
+pokemon SPECIES_BUNNELBY 	 //20%
+pokemon SPECIES_KLINK		 //20%
+pokemon SPECIES_BRONZOR      //10%
+pokemon SPECIES_STUNFISK     //10%
+pokemon SPECIES_SANDILE      //10%
 pokemon SPECIES_MAGNEMITE	 //10%
-pokemon SPECIES_ARON       //5%
-pokemon SPECIES_MAREEP 	   //5%
+pokemon SPECIES_ARON         //5%
+pokemon SPECIES_DIGLETT	     //5%
 pokemon SPECIES_FERROSEED	 //4%
-pokemon SPECIES_FERROSEED  //4%
-pokemon SPECIES_SKARMORY   //1%
+pokemon SPECIES_FERROSEED    //4%
+pokemon SPECIES_SKARMORY     //1%
 pokemon SPECIES_SKARMORY	 //1%
 
 // night encounter slots
-pokemon SPECIES_SHINX 	   //20%
-pokemon SPECIES_KLINK		   //20%
-pokemon SPECIES_BRONZOR    //10%
-pokemon SPECIES_TYNAMO     //10%
-pokemon SPECIES_VOLTORB    //10%
+pokemon SPECIES_BUNNELBY 	 //20%
+pokemon SPECIES_KLINK		 //20%
+pokemon SPECIES_BRONZOR      //10%
+pokemon SPECIES_STUNFISK     //10% //GALAR
+pokemon SPECIES_SANDILE      //10%
 pokemon SPECIES_MAGNEMITE	 //10%
-pokemon SPECIES_ARON       //5%
-pokemon SPECIES_MAREEP 	   //5%
+pokemon SPECIES_ARON         //5%
+pokemon SPECIES_DIGLETT	     //5% //GALAR
 pokemon SPECIES_FERROSEED	 //4%
-pokemon SPECIES_FERROSEED  //4%
-pokemon SPECIES_SKARMORY   //1%
+pokemon SPECIES_FERROSEED    //4%
+pokemon SPECIES_SKARMORY     //1%
 pokemon SPECIES_SKARMORY	 //1%
 
 // hoenn encounter slots
@@ -4077,7 +4077,7 @@ pokemon SPECIES_NONE
 .close
 
 
-encounterdata  39   // Route 39
+encounterdata  39   // Route 39 Flying, Electro
 
 walkrate 15
 surfrate 0
@@ -4085,49 +4085,49 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 16, 17, 16, 17, 16, 16, 16, 16, 15, 15, 15, 15
+walklevels 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25
 
 // morning encounter slots
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATICATE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATICATE
-pokemon SPECIES_MAGNEMITE
-pokemon SPECIES_MAGNEMITE
-pokemon SPECIES_FARFETCHD
-pokemon SPECIES_FARFETCHD
-pokemon SPECIES_MILTANK
-pokemon SPECIES_TAUROS
-pokemon SPECIES_MILTANK
-pokemon SPECIES_TAUROS
+pokemon SPECIES_SHINX    	 //20%
+pokemon SPECIES_STARLY		 //20%
+pokemon SPECIES_TYNAMO       //10%
+pokemon SPECIES_FLETCHLING   //10%
+pokemon SPECIES_NATU         //10%
+pokemon SPECIES_JOLTIK  	 //10%
+pokemon SPECIES_SWABLU       //5%
+pokemon SPECIES_MAREEP	     //5%
+pokemon SPECIES_EMOLGA	     //4%
+pokemon SPECIES_EMOLGA       //4%
+pokemon SPECIES_ROTOM        //1%
+pokemon SPECIES_ROTOM	     //1%
 
 // day encounter slots
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATICATE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATICATE
-pokemon SPECIES_MAGNEMITE
-pokemon SPECIES_MAGNEMITE
-pokemon SPECIES_FARFETCHD
-pokemon SPECIES_FARFETCHD
-pokemon SPECIES_MILTANK
-pokemon SPECIES_TAUROS
-pokemon SPECIES_MILTANK
-pokemon SPECIES_TAUROS
+pokemon SPECIES_SHINX    	 //20%
+pokemon SPECIES_STARLY		 //20%
+pokemon SPECIES_TYNAMO       //10%
+pokemon SPECIES_FLETCHLING   //10%
+pokemon SPECIES_NATU         //10%
+pokemon SPECIES_JOLTIK  	 //10%
+pokemon SPECIES_SWABLU       //5%
+pokemon SPECIES_MAREEP	     //5%
+pokemon SPECIES_EMOLGA	     //4%
+pokemon SPECIES_EMOLGA       //4%
+pokemon SPECIES_ROTOM        //1%
+pokemon SPECIES_ROTOM	     //1%
 
 // night encounter slots
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATICATE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATICATE
-pokemon SPECIES_MAGNEMITE
-pokemon SPECIES_MAGNEMITE
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_MILTANK
-pokemon SPECIES_TAUROS
-pokemon SPECIES_MILTANK
-pokemon SPECIES_TAUROS
+pokemon SPECIES_SHINX    	 //20%
+pokemon SPECIES_STARLY		 //20%
+pokemon SPECIES_TYNAMO       //10%
+pokemon SPECIES_FLETCHLING   //10%
+pokemon SPECIES_NATU         //10%
+pokemon SPECIES_JOLTIK  	 //10%
+pokemon SPECIES_SWABLU       //5%
+pokemon SPECIES_MAREEP	     //5%
+pokemon SPECIES_EMOLGA	     //4%
+pokemon SPECIES_EMOLGA       //4%
+pokemon SPECIES_ROTOM        //1%
+pokemon SPECIES_ROTOM	     //1%
 
 // hoenn encounter slots
 pokemon SPECIES_PLUSLE
