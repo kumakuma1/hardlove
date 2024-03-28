@@ -856,4 +856,84 @@ Add 063 T20R0201 : Event File 60 - Script File 845 : Script 1:
 ####
 Make Cut usable without learning move
 script file 146 - script 1 - text file 211
+script 1
+
+CheckItem 420 1 0x800C
+CompareVarValue 0x800C 0
+
+Make Rocksmash usable
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+
+CheckItem 425 1 0x800C
+CompareVarValue 0x800C 0
+	//CheckMoveInParty 0x800C 249
+	//SetVarFromVariable 0x8004 0x800C
+	//CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#4
+	CheckBadge 0 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+
+	..
+Function 5:
+	//TextPokeNickname 0 0x8004
+	//Message 5
+	//CloseMessage 
+	CMD_727 0x8005
+	CheckPlayerForm 0x800C
+	CheckFollowingPoke 0x8006
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#32
+	SetVar 0x8007 0
+	//CutAnimation 0x8004
+	...
 ####
+
+VS Box
+097 - R31R0101 - Event File 94 - Script File 231
+Triggers 
+0x4132/16690 when 1 - script 1 
+..
+SetVar 0x8004 465
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x4132 1
+
+Add to 063 mom script
+
+
+CatchingTutorial
+033 R29 : Script File 225 : Function 25
+remove trigger
+16523 when 1, script 2
+
+
+
+Illex:
+117 D36R0101 : Script File 114 : Function 92
+Remove Porenta triggers
+
+script 18:
+SetVar 0x40F4 0
+
+    CheckFlag 128
+    JumpIf EQUAL Function#28
+    SetVar 0x8004 420
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#29
+	CommonScript 2033
+	SetFlag 431 //hide VM master
+	SetFlag 429 //hide VM guy 1
+	SetFlag 423 //hide catch por1
+	SetFlag 424 //hide catch por2
+	SetFlag 467 //hide sitting por
+	SetFlag 468
+	SetFlag 128 //got VM01
+	ClearFlag 430
+	ClearFlag 428
+	SetVar 0x40F4 0 //trigger
