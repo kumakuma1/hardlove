@@ -1732,12 +1732,12 @@ trainerdata 34, "Chuck"
         ivs 0
         abilityslot 0
         level LEVEL_CHUCK-1
-        pokemon SPECIES_PRIMEAPE // :todo movepool
+        pokemon SPECIES_TOXICROAK // :todo movepool
         item ITEM_FOCUS_SASH
         move MOVE_STONE_EDGE
-        move MOVE_EARTHQUAKE
+        move MOVE_SUCKER_PUNCH
         move MOVE_CLOSE_COMBAT
-        move MOVE_STEALTH_ROCK
+        move MOVE_TOXIC_SPIKES
         ability ABILITY_DEFIANT
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -2284,7 +2284,7 @@ trainerdata 47, "Mikey"  // Route 30
         // mon 1
         ivs 0
         abilityslot 0
-        level LEVEL_ROUTE_30
+        level LEVEL_ROUTE_30-1
         pokemon SPECIES_CLEFAIRY
         item ITEM_BERRY_JUICE
         move MOVE_METRONOME
@@ -2303,7 +2303,7 @@ trainerdata 47, "Mikey"  // Route 30
         //mon 2
         ivs 0
         abilityslot 0
-        level LEVEL_ROUTE_30
+        level LEVEL_ROUTE_30-1
         pokemon SPECIES_AUDINO
         item ITEM_BERRY_JUICE
         move MOVE_METRONOME
