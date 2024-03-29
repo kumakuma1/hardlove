@@ -890,6 +890,15 @@ Function 5:
 	SetVar 0x8007 0
 	//CutAnimation 0x8004
 	...
+
+
+	Rock Climb
+	Script 4:
+	CheckMoveInParty 0x800C 431 -> CheckItem 427 1 0x800C
+	                               CompareVarValue 0x800C 0
+
+	Function 10:
+	CheckMoveInParty 0x800C 431 -> GetFirstAlivePokemonSlot 0x800C
 ####
 
 VS Box
