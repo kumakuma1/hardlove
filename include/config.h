@@ -97,4 +97,8 @@
 #define RANDOMIZE_EGG
 #define RANDOMIZE_EGG_FLAG 2598
 
+// FRIENDSHIP_EVOLUTION_THRESHOLD defines the amount of friendship needed to evolve mons with friendship-related evolutions
+// modern generations have this value at 160, older ones at 220.  still max out at 255
+#define FRIENDSHIP_EVOLUTION_THRESHOLD 160
+
 #endif
