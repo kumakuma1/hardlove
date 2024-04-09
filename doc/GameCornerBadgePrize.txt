@@ -315,3 +315,52 @@ Function 98:
 	TextPokemon 1 0x4002 0 0
 	Message 8
 return
+
+
+Function 98:
+	CheckBadge 7 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#12
+	MultiTouchLocalText 1 1 0 1 0x4000
+	CreateMultiTouchBox 52 255 0
+	CreateMultiTouchBox 53 255 1
+	CreateMultiTouchBox 54 255 2
+	CreateMultiTouchBox 55 255 3
+	CreateMultiTouchBox 56 255 4
+	CreateMultiTouchBox 57 255 5
+	CreateMultiTouchBox 58 255 6
+	CreateMultiTouchBox 59 255 7
+	CreateMultiTouchBox 11 255 8
+	CloseMultiTouch 
+	SetVarFromVariable 0x8008 0x4000
+	CompareVarValue 0x8008 0
+	JumpIf EQUAL Function#35
+	CompareVarValue 0x8008 1
+	JumpIf EQUAL Function#36
+	CompareVarValue 0x8008 2
+	JumpIf EQUAL Function#37
+	CompareVarValue 0x8008 3
+	JumpIf EQUAL Function#38
+	CompareVarValue 0x8008 4
+	JumpIf EQUAL Function#39
+	CompareVarValue 0x8008 5
+	JumpIf EQUAL Function#40
+	CompareVarValue 0x8008 6
+	JumpIf EQUAL Function#41
+	CompareVarValue 0x8008 7
+	JumpIf EQUAL Function#99
+Jump Function#10
+
+
+Function 99:
+	CheckCoins 0x8006
+	CompareVarValue 0x8006 0x1770
+	JumpIf LESS Function#62
+	Call Function#63
+	SetVarFromFlexible 0x4002 151
+	Call Function#64
+	TakeCoins 0x1770
+	UpdateSpecialCurrency 0
+	GivePokemon 0x4002 15 0 0 1 0x800C
+	Call Function#65
+Jump Function#98
