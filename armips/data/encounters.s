@@ -125,44 +125,44 @@ walklevels 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
 // morning encounter slots
 pokemon SPECIES_RATTATA 	//20%
 pokemon SPECIES_SENTRET		//20%
-pokemon SPECIES_MEOWTH      //10%
+pokemon SPECIES_LILLIPUP  //10%
 pokemon SPECIES_ZIGZAGOON	//10%
-pokemon SPECIES_WHISMUR		//10%
+pokemon SPECIES_STARLY		//10%
 pokemon SPECIES_BIDOOF		//10%
 pokemon SPECIES_BUNEARY		//5%
 pokemon SPECIES_BUNNELBY	//5%
-pokemon SPECIES_LILLIPUP	//4%
-pokemon SPECIES_LILLIPUP	//4%
-pokemon SPECIES_SLAKOTH 	//1%
-pokemon SPECIES_SLAKOTH	    //1%
+pokemon SPECIES_IGGLYBUFF	//4%
+pokemon SPECIES_IGGLYBUFF	//4%
+pokemon SPECIES_MEOWTH 	  //1%
+pokemon SPECIES_MEOWTH	  //1%
 
 // day encounter slots
 pokemon SPECIES_RATTATA 	//20%
 pokemon SPECIES_SENTRET		//20%
-pokemon SPECIES_MEOWTH      //10%
+pokemon SPECIES_LILLIPUP  //10%
 pokemon SPECIES_ZIGZAGOON	//10%
-pokemon SPECIES_WHISMUR		//10%
+pokemon SPECIES_STARLY		//10%
 pokemon SPECIES_BIDOOF		//10%
 pokemon SPECIES_BUNEARY		//5%
 pokemon SPECIES_BUNNELBY	//5%
-pokemon SPECIES_LILLIPUP	//4%
-pokemon SPECIES_LILLIPUP	//4%
-pokemon SPECIES_SLAKOTH	    //1%
-pokemon SPECIES_SLAKOTH	    //1%
+pokemon SPECIES_IGGLYBUFF	//4%
+pokemon SPECIES_IGGLYBUFF	//4%
+pokemon SPECIES_MEOWTH	  //1%
+pokemon SPECIES_MEOWTH	  //1%
 
 // night encounter slots
 pokemon SPECIES_RATTATA 	//20%
 pokemon SPECIES_SENTRET		//20%
-pokemon SPECIES_MEOWTH      //10%
+pokemon SPECIES_LILLIPUP  //10%
 pokemon SPECIES_ZIGZAGOON	//10%
-pokemon SPECIES_WHISMUR		//10%
+pokemon SPECIES_STARLY		//10%
 pokemon SPECIES_BIDOOF		//10%
 pokemon SPECIES_BUNEARY		//5%
 pokemon SPECIES_BUNNELBY	//5%
-pokemon SPECIES_LILLIPUP	//4%
-pokemon SPECIES_LILLIPUP	//4%
-pokemon SPECIES_SLAKOTH	    //1%
-pokemon SPECIES_SLAKOTH	    //1%
+pokemon SPECIES_IGGLYBUFF	//4%
+pokemon SPECIES_IGGLYBUFF	//4%
+pokemon SPECIES_MEOWTH	  //1%
+pokemon SPECIES_MEOWTH	  //1%
 
 // hoenn encounter slots
 pokemon SPECIES_PLUSLE
