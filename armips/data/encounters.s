@@ -754,7 +754,7 @@ pokemon SPECIES_RATTATA			//10%
 pokemon SPECIES_SANDYGAST		//10%
 pokemon SPECIES_YAMASK			//10%
 pokemon SPECIES_PURRLOIN		//10%
-pokemon SSPECIES_FRILLISH		//5%
+pokemon SPECIES_FRILLISH		//5%
 pokemon SPECIES_PAWNIARD		//5%
 pokemon SPECIES_DRIFLOON		//4%
 pokemon SPECIES_DRIFLOON		//4%
@@ -768,7 +768,7 @@ pokemon SPECIES_RATTATA			//10%
 pokemon SPECIES_SANDYGAST		//10%
 pokemon SPECIES_YAMASK			//10%
 pokemon SPECIES_PURRLOIN		//10%
-pokemon SSPECIES_FRILLISH		//5%
+pokemon SPECIES_FRILLISH		//5%
 pokemon SPECIES_PAWNIARD		//5%
 pokemon SPECIES_DRIFLOON		//4%
 pokemon SPECIES_DRIFLOON		//4%
@@ -782,7 +782,7 @@ pokemon SPECIES_RATTATA			//10%
 pokemon SPECIES_SANDYGAST		//10%
 pokemon SPECIES_YAMASK			//10%
 pokemon SPECIES_PURRLOIN		//10%
-pokemon SSPECIES_FRILLISH		//5%
+pokemon SPECIES_FRILLISH		//5%
 pokemon SPECIES_PAWNIARD		//5%
 pokemon SPECIES_DRIFLOON		//4%
 pokemon SPECIES_DRIFLOON		//4%
