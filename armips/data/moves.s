@@ -3465,7 +3465,7 @@ movedata MOVE_HEAL_BELL, "Heal Bell"
     movedescription MOVE_HEAL_BELL, "The user makes a\nsoothing bell chime\nto heal the status\nproblems of all the\nparty Pokémon."
 
 movedata MOVE_RETURN, "Return"
-    battleeffect 0
+    battleeffect MOVE_EFFECT_POWER_BASED_ON_FRIENDSHIP
     pss SPLIT_PHYSICAL
     basepower 102
     type TYPE_NORMAL
@@ -3497,7 +3497,7 @@ movedata MOVE_PRESENT, "Present"
     movedescription MOVE_PRESENT, "The user attacks by\ngiving the foe a\nbooby-trapped gift.\nIt restores HP\nsometimes, however."
 
 movedata MOVE_FRUSTRATION, "Frustration"
-    battleeffect 0
+    battleeffect MOVE_EFFECT_POWER_BASED_ON_LOW_FRIENDSHIP
     pss SPLIT_PHYSICAL
     basepower 102
     type TYPE_NORMAL
