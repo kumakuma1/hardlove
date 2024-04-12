@@ -123,9 +123,9 @@ superrodrate 0
 walklevels 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
 
 // morning encounter slots
-pokemon SPECIES_RATTATA 	//20%
+monwithform SPECIES_RATTATA, 1 	//20%
 pokemon SPECIES_SENTRET		//20%
-pokemon SPECIES_LILLIPUP  //10%
+pokemon SPECIES_LILLIPUP    //10%
 pokemon SPECIES_ZIGZAGOON	//10%
 pokemon SPECIES_STARLY		//10%
 pokemon SPECIES_BIDOOF		//10%
@@ -133,13 +133,13 @@ pokemon SPECIES_BUNEARY		//5%
 pokemon SPECIES_BUNNELBY	//5%
 pokemon SPECIES_IGGLYBUFF	//4%
 pokemon SPECIES_IGGLYBUFF	//4%
-pokemon SPECIES_MEOWTH 	  //1%
-pokemon SPECIES_MEOWTH	  //1%
+monwithform SPECIES_MEOWTH, 1 	    //1%
+monwithform SPECIES_MEOWTH, 1	    //1%
 
 // day encounter slots
 pokemon SPECIES_RATTATA 	//20%
 pokemon SPECIES_SENTRET		//20%
-pokemon SPECIES_LILLIPUP  //10%
+pokemon SPECIES_LILLIPUP    //10%
 pokemon SPECIES_ZIGZAGOON	//10%
 pokemon SPECIES_STARLY		//10%
 pokemon SPECIES_BIDOOF		//10%
@@ -147,22 +147,22 @@ pokemon SPECIES_BUNEARY		//5%
 pokemon SPECIES_BUNNELBY	//5%
 pokemon SPECIES_IGGLYBUFF	//4%
 pokemon SPECIES_IGGLYBUFF	//4%
-pokemon SPECIES_MEOWTH	  //1%
-pokemon SPECIES_MEOWTH	  //1%
+pokemon SPECIES_MEOWTH	    //1%
+pokemon SPECIES_MEOWTH	    //1%
 
 // night encounter slots
-pokemon SPECIES_RATTATA 	//20%
+monwithform SPECIES_RATTATA, 1 	//20%
 pokemon SPECIES_SENTRET		//20%
-pokemon SPECIES_LILLIPUP  //10%
-pokemon SPECIES_ZIGZAGOON	//10%
+pokemon SPECIES_LILLIPUP    //10%
+monwithform SPECIES_ZIGZAGOON, 1	//10%
 pokemon SPECIES_STARLY		//10%
 pokemon SPECIES_BIDOOF		//10%
 pokemon SPECIES_BUNEARY		//5%
 pokemon SPECIES_BUNNELBY	//5%
 pokemon SPECIES_IGGLYBUFF	//4%
 pokemon SPECIES_IGGLYBUFF	//4%
-pokemon SPECIES_MEOWTH	  //1%
-pokemon SPECIES_MEOWTH	  //1%
+monwithform SPECIES_MEOWTH, 1	    //1%
+monwithform SPECIES_MEOWTH, 1	    //1%
 
 // hoenn encounter slots
 pokemon SPECIES_PLUSLE
@@ -296,17 +296,17 @@ encounter SPECIES_CORSOLA, 3, 3         //5%
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_KRABBY, 20, 20
-encounter SPECIES_KRABBY, 20, 20
-encounter SPECIES_CORSOLA, 20, 20
-encounter SPECIES_KRABBY, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
 
 // super rod encounters
-encounter SPECIES_KRABBY, 40, 40
-encounter SPECIES_CORSOLA, 40, 40
-encounter SPECIES_KRABBY, 40, 40
-encounter SPECIES_KINGLER, 40, 40
-encounter SPECIES_KRABBY, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
 
 // swarm grass
 pokemon SPECIES_NONE
@@ -400,16 +400,16 @@ encounter SPECIES_SPHEAL, 3, 3          //5%
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
-encounter SPECIES_POLIWAG, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
 
 // super rod encounters
-encounter SPECIES_POLIWAG, 40, 40
-encounter SPECIES_POLIWAG, 40, 40
 encounter SPECIES_MAGIKARP, 40, 40
-encounter SPECIES_POLIWAG, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
 encounter SPECIES_MAGIKARP, 40, 40
 
 // swarm grass
@@ -441,7 +441,7 @@ pokemon SPECIES_CROAGUNK 		//10%
 pokemon SPECIES_KOFFING			//10%
 pokemon SPECIES_GULPIN			//10%
 pokemon SPECIES_GRIMER			//10%
-pokemon SPECIES_BUDEW		//5%
+pokemon SPECIES_BUDEW		    //5%
 pokemon SPECIES_STUNKY  		//5%
 pokemon SPECIES_ZUBAT			//4%
 pokemon SPECIES_ZUBAT			//4%
@@ -452,7 +452,7 @@ pokemon SPECIES_SALANDIT  		//1%
 pokemon SPECIES_NIDORAN_M		//20%
 pokemon SPECIES_EKANS			//20%
 pokemon SPECIES_CROAGUNK 		//10%
-pokemon SPECIES_KOFFING			//10%
+monwithform  SPECIES_KOFFING, 1			//10%
 pokemon SPECIES_GULPIN			//10%
 pokemon SPECIES_GRIMER			//10%
 pokemon SPECIES_BUDEW		    //5%
@@ -468,7 +468,7 @@ pokemon SPECIES_EKANS			//20%
 pokemon SPECIES_CROAGUNK 		//10%
 pokemon SPECIES_KOFFING			//10%
 pokemon SPECIES_GULPIN			//10%
-pokemon SPECIES_GRIMER			//10%
+monwithform  SPECIES_GRIMER, 1			//10%
 pokemon SPECIES_BUDEW		    //5%
 pokemon SPECIES_STUNKY  		//5%
 pokemon SPECIES_ZUBAT			//4%
@@ -680,8 +680,8 @@ pokemon SPECIES_YAMASK		//10%
 pokemon SPECIES_FRILLISH	//10%
 pokemon SPECIES_HOUNDOUR	//5%
 pokemon SPECIES_SHUPPET		//5%
-pokemon SPECIES_ZIGZAGOON	//4%
-pokemon SPECIES_ZIGZAGOON	//4%
+monwithform  SPECIES_ZIGZAGOON, 1	//4%
+monwithform  SPECIES_ZIGZAGOON, 1	//4%
 pokemon SPECIES_SABLEYE		//1%
 pokemon SPECIES_SABLEYE		//1%
 
@@ -750,9 +750,9 @@ walklevels 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
 // morning encounter slots
 pokemon SPECIES_GASTLY			//20%
 pokemon SPECIES_GRIMER			//20%
-pokemon SPECIES_RATTATA			//10%
+monwithform  SPECIES_RATTATA, 1			//10%
 pokemon SPECIES_SANDYGAST		//10%
-pokemon SPECIES_YAMASK			//10%
+monwithform  SPECIES_YAMASK, 1			//10%
 pokemon SPECIES_PURRLOIN		//10%
 pokemon SPECIES_FRILLISH		//5%
 pokemon SPECIES_PAWNIARD		//5%
@@ -763,7 +763,7 @@ pokemon SPECIES_MISDREAVUS		//1%
 
 // day encounter slots
 pokemon SPECIES_GASTLY			//20%
-pokemon SPECIES_GRIMER			//20%
+monwithform  SPECIES_GRIMER, 1			//20%
 pokemon SPECIES_RATTATA			//10%
 pokemon SPECIES_SANDYGAST		//10%
 pokemon SPECIES_YAMASK			//10%
@@ -777,8 +777,8 @@ pokemon SPECIES_MISDREAVUS		//1%
 
 // night encounter slots
 pokemon SPECIES_GASTLY			//20%
-pokemon SPECIES_GRIMER			//20%
-pokemon SPECIES_RATTATA			//10%
+monwithform  SPECIES_GRIMER, 1			//20%
+monwithform  SPECIES_RATTATA, 1			//10%
 pokemon SPECIES_SANDYGAST		//10%
 pokemon SPECIES_YAMASK			//10%
 pokemon SPECIES_PURRLOIN		//10%
@@ -860,8 +860,8 @@ pokemon SPECIES_SIZZLIPEDE	    //10%
 pokemon SPECIES_LITLEO	        //10%
 pokemon SPECIES_HOUNDOUR		//5%
 pokemon SPECIES_LITWICK 		//5%
-pokemon SPECIES_GROWLITHE		//4%
-pokemon SPECIES_GROWLITHE		//4%
+monwithform  SPECIES_GROWLITHE, 1		//4%
+monwithform  SPECIES_GROWLITHE, 1		//4%
 pokemon SPECIES_MAGBY			//1%
 pokemon SPECIES_MAGBY			//1%
 
@@ -883,7 +883,7 @@ pokemon SPECIES_MAGBY			//1%
 pokemon SPECIES_PONYTA		    //10%
 pokemon SPECIES_SLUGMA			//20%
 pokemon SPECIES_SALANDIT		//10%
-pokemon SPECIES_VULPIX			//10%
+monwithform  SPECIES_VULPIX, 1			//10%
 pokemon SPECIES_SIZZLIPEDE	    //10%
 pokemon SPECIES_LITLEO	        //10%
 pokemon SPECIES_HOUNDOUR		//5%
@@ -977,7 +977,7 @@ pokemon SPECIES_TYNAMO			//10%
 pokemon SPECIES_BLITZLE			//10%
 pokemon SPECIES_ELECTRIKE		//10%
 pokemon SPECIES_MAGNEMITE		//5%
-pokemon SPECIES_VOLTORB			//5%
+monwithform  SPECIES_VOLTORB, 1			//5%
 pokemon SPECIES_PIKACHU			//4%
 pokemon SPECIES_PIKACHU			//4%
 pokemon SPECIES_TOGEDEMARU		//1%
@@ -1096,8 +1096,8 @@ pokemon SPECIES_EXEGGCUTE  		//10%
 pokemon SPECIES_BRONZOR			//10%
 pokemon SPECIES_SOLOSIS			//5%
 pokemon SPECIES_BALTOY			//5%
-pokemon SPECIES_SLOWPOKE		//4%
-pokemon SPECIES_SLOWPOKE		//4%
+monwithform  SPECIES_SLOWPOKE, 1		//4%
+monwithform  SPECIES_SLOWPOKE, 1		//4%
 pokemon SPECIES_RALTS			//1%
 pokemon SPECIES_RALTS			//1%
 
@@ -3993,8 +3993,8 @@ pokemon SPECIES_SANDILE      //10%
 pokemon SPECIES_MAGNEMITE	 //10%
 pokemon SPECIES_ARON         //5%
 pokemon SPECIES_DIGLETT	     //5%
-pokemon SPECIES_FERROSEED	 //4%
-pokemon SPECIES_FERROSEED    //4%
+pokemon SPECIES_TOGEDEMARU	 //4%
+pokemon SPECIES_TOGEDEMARU    //4%
 pokemon SPECIES_SKARMORY     //1%
 pokemon SPECIES_SKARMORY	 //1%
 
@@ -4099,8 +4099,8 @@ pokemon SPECIES_TOGEDEMARU   //5%
 pokemon SPECIES_MAREEP	     //5%
 pokemon SPECIES_EMOLGA	     //4%
 pokemon SPECIES_EMOLGA       //4%
-pokemon SPECIES_ROTOM        //1%
-pokemon SPECIES_ROTOM	     //1%
+pokemon SPECIES_CORVISQUIRE        //1%
+pokemon SPECIES_CORVISQUIRE	     //1%
 
 // day encounter slots
 pokemon SPECIES_SHINX    	 //20%
@@ -4113,8 +4113,8 @@ pokemon SPECIES_TOGEDEMARU   //5%
 pokemon SPECIES_MAREEP	     //5%
 pokemon SPECIES_EMOLGA	     //4%
 pokemon SPECIES_EMOLGA       //4%
-pokemon SPECIES_ROTOM        //1%
-pokemon SPECIES_ROTOM	     //1%
+pokemon SPECIES_CORVISQUIRE        //1%
+pokemon SPECIES_CORVISQUIRE	     //1%
 
 // night encounter slots
 pokemon SPECIES_SHINX    	 //20%
@@ -4127,8 +4127,8 @@ pokemon SPECIES_TOGEDEMARU   //5%
 pokemon SPECIES_MAREEP	     //5%
 pokemon SPECIES_EMOLGA	     //4%
 pokemon SPECIES_EMOLGA       //4%
-pokemon SPECIES_ROTOM        //1%
-pokemon SPECIES_ROTOM	     //1%
+pokemon SPECIES_CORVISQUIRE        //1%
+pokemon SPECIES_CORVISQUIRE	     //1%
 
 // hoenn encounter slots
 pokemon SPECIES_PLUSLE
@@ -7112,11 +7112,11 @@ pokemon SPECIES_TAILLOW		//10%
 pokemon SPECIES_FLETCHLING	//10%
 pokemon SPECIES_WINGULL		//10%
 pokemon SPECIES_NATU		//5%
-pokemon SPECIES_DUCKLETT	//5%
+pokemon SPECIES_ROOKIDEE	//5%
 pokemon SPECIES_PIDOVE		//4%
 pokemon SPECIES_PIDOVE		//4%
-pokemon SPECIES_EMOLGA		//1%
-pokemon SPECIES_EMOLGA		//1%
+pokemon SPECIES_ZUBAT		//1%
+pokemon SPECIES_ZUBAT		//1%
 
 // day encounter slots
 pokemon SPECIES_PIDGEY 		//20%
@@ -7126,7 +7126,7 @@ pokemon SPECIES_TAILLOW		//10%
 pokemon SPECIES_FLETCHLING	//10%
 pokemon SPECIES_WINGULL		//10%
 pokemon SPECIES_NATU		//5%
-pokemon SPECIES_DUCKLETT	//5%
+pokemon SPECIES_ROOKIDEE	//5%
 pokemon SPECIES_PIDOVE		//4%
 pokemon SPECIES_PIDOVE		//4%
 pokemon SPECIES_EMOLGA		//1%
@@ -7140,7 +7140,7 @@ pokemon SPECIES_TAILLOW		//10%
 pokemon SPECIES_FLETCHLING	//10%
 pokemon SPECIES_WINGULL		//10%
 pokemon SPECIES_NATU		//5%
-pokemon SPECIES_DUCKLETT	//5%
+pokemon SPECIES_ROOKIDEE	//5%
 pokemon SPECIES_PIDOVE		//4%
 pokemon SPECIES_PIDOVE		//4%
 pokemon SPECIES_MURKROW 	//1%
