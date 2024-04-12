@@ -229,9 +229,10 @@ Goldenrod Game Corner
 - move tutor 1 (Top left) here
 - Items replaced: Scope lens (5k), Wide lens (2k), Toxic Orb (5k), Flame Orb (5k)
 - TMs: Swords Dance 10k, Substitute 6k
+- Move deleter 
 TODO:
 - badge scaling pokemon held items
-- badge scaling offering 2 pokemons per badge
+- badge scaling offering multiple pokemons per badge
 - place relearner from PC to game corner
 
 
