@@ -2970,8 +2970,8 @@ pokemon SPECIES_MEDITITE 	  //5%
 pokemon SPECIES_BALTOY 	  //5%
 pokemon SPECIES_MAGMAR	  //4%
 pokemon SPECIES_MAGMAR	  //4%
-pokemon SPECIES_SPRITOMB 	  //1%
-pokemon SPECIES_SPRITOMB	  //1%
+pokemon SPECIES_SPIRITOMB 	  //1%
+pokemon SPECIES_SPIRITOMB	  //1%
 
 // hoenn encounter slots
 pokemon SPECIES_ZIGZAGOON

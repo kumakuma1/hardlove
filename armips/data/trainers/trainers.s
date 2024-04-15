@@ -1737,10 +1737,10 @@ trainerdata 34, "Chuck"
         move MOVE_STONE_EDGE
         move MOVE_EARTHQUAKE
         move MOVE_GYRO_BALL
-        move MOVE_STEALH_ROCK
+        move MOVE_STEALTH_ROCK
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 0, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_BRAVE
         shinylock 0
