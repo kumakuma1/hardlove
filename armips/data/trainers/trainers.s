@@ -1627,12 +1627,12 @@ trainerdata 33, "Jasmine"
 	ivs 0
         abilityslot 0
         level LEVEL_JASMINE-1
-        pokemon SPECIES_EXCADRILL
-        item ITEM_FOCUS_SASH
-        move MOVE_IRON_HEAD
+        pokemon SPECIES_DRACOVISH
+        item ITEM_CHOICE_BAND
+        move MOVE_PSYCHIC_FANGS
         move MOVE_EARTHQUAKE
-        move MOVE_SWORDS_DANCE
-        move MOVE_X_SCISSOR
+        move MOVE_WATERFALL
+        move MOVE_DRAGON_CLAW
         ability ABILITY_SAND_RUSH
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1699,17 +1699,17 @@ trainerdata 33, "Jasmine"
 	ivs 0
         abilityslot 0
         level LEVEL_JASMINE
-        pokemon SPECIES_STEELIX
-        item ITEM_STEELIXITE
-        move MOVE_BODY_PRESS
-        move MOVE_GYRO_BALL
-        move MOVE_EARTHQUAKE
-        move MOVE_CURSE
-        ability ABILITY_STURDY
+        pokemon SPECIES_LUCARIO
+        item ITEM_LUCARIONITE
+        move MOVE_AURA_SPHERE
+        move MOVE_FLASH_CANNON
+        move MOVE_SHADOW_BALL
+        move MOVE_VACUUM_WAVE
+        ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_BRAVE
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1732,17 +1732,17 @@ trainerdata 34, "Chuck"
         ivs 0
         abilityslot 0
         level LEVEL_CHUCK-1
-        pokemon SPECIES_TOXICROAK // :todo movepool
-        item ITEM_FOCUS_SASH
+        pokemon SPECIES_STEELIX
+        item ITEM_LEFTOVERS
         move MOVE_STONE_EDGE
-        move MOVE_SUCKER_PUNCH
-        move MOVE_CLOSE_COMBAT
-        move MOVE_TOXIC_SPIKES
-        ability ABILITY_DEFIANT
+        move MOVE_EARTHQUAKE
+        move MOVE_GYRO_BALL
+        move MOVE_STEALH_ROCK
+        ability ABILITY_STURDY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_BRAVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1751,7 +1751,7 @@ trainerdata 34, "Chuck"
         abilityslot 0
         level LEVEL_CHUCK-1
         pokemon SPECIES_SCRAFTY
-        item ITEM_LEFTOVERS
+        item ITEM_LEFTOVERS //ROSELI
         move MOVE_REST
         move MOVE_DRAIN_PUNCH
         move MOVE_KNOCK_OFF
@@ -1769,16 +1769,16 @@ trainerdata 34, "Chuck"
         abilityslot 0
         level LEVEL_CHUCK
         pokemon SPECIES_INFERNAPE
-        item ITEM_CHOICE_SCARF
-        move MOVE_FIRE_BLAST
+        item ITEM_FOCUS_SASH
+        move MOVE_FAKE_OUT
         move MOVE_CLOSE_COMBAT
-        move MOVE_GRASS_KNOT
+        move MOVE_OVERHEAT
         move MOVE_U_TURN
-        ability ABILITY_IRON_FIST // Blaze?
+        ability ABILITY_IRON_FIST
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_HASTY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1819,20 +1819,20 @@ trainerdata 34, "Chuck"
         additionalflags 0
         ballseal 0
 		
-	    ivs 0
+	ivs 0
         abilityslot 0
         level LEVEL_CHUCK
-        pokemon SPECIES_LUCARIO
-        item ITEM_LUCARIONITE
-        move MOVE_AURA_SPHERE
-        move MOVE_FLASH_CANNON
-        move MOVE_SHADOW_BALL
-        move MOVE_VACUUM_WAVE
-        ability ABILITY_INNER_FOCUS
+        pokemon SPECIES_GALLADE
+        item ITEM_GALLADITE
+        move MOVE_CLOSE_COMBAT
+        move MOVE_SHADOW_SNEAK
+        move MOVE_PSYCHO_CUT
+        move MOVE_NIGHT_SLASH
+        ability ABILITY_STEADFAST
         ball ITEM_POKE_BALL
-        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
