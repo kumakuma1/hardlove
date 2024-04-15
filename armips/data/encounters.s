@@ -1013,8 +1013,8 @@ encounterwithform SPECIES_MUK, 1, 30, 30        //10%
 encounter SPECIES_EELEKTROSS, 30, 30            //5%
 
 // rock smash encounters
-encounterwithform SPECIES_GEODUDE, 1, 5, 5
 encounter SPECIES_GEODUDE, 5, 5
+encounterwithform SPECIES_GEODUDE, 1, 5, 5
 
 // old rod encounters
 encounter SPECIES_TYNAMO, 5, 5          //40%
@@ -2724,44 +2724,44 @@ superrodrate 0
 walklevels 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18
 
 // morning encounter slots
-pokemon SPECIES_RATTATA 	    //20% SPECIES_LITLEO
+pokemon SPECIES_LITLEO 	    //20% 
 pokemon SPECIES_NUZLEAF		  //20%
-pokemon SPECIES_STANTLER    //10%
-pokemon SPECIES_HOUNDOUR    //10%
+pokemon SPECIES_GIRAFARIG    //10%
+pokemon SPECIES_POOCHYENA    //10%
 pokemon SPECIES_RATTATA    	//10%
 pokemon SPECIES_SANDILE	    //10%
-pokemon SPECIES_GROWLITHE   //5%
+pokemon SPECIES_GROWLITHE     //5%
 pokemon SPECIES_DARUMAKA 	  //5%
-pokemon SPECIES_POOCHYENA	  //4%
-pokemon SPECIES_POOCHYENA	  //4%
-pokemon SPECIES_MUNCHLAX 	  //1%
-pokemon SPECIES_MUNCHLAX	  //1%
+pokemon SPECIES_HOUNDOUR	  //4%
+pokemon SPECIES_HOUNDOUR	  //4%
+pokemon SPECIES_KANGASKHAN 	  //1%
+pokemon SPECIES_KANGASKHAN	  //1%
 
 // day encounter slots
-pokemon SPECIES_RATTATA 	    //20%
+pokemon SPECIES_LITLEO 	    //20% 
 pokemon SPECIES_NUZLEAF		  //20%
 pokemon SPECIES_STANTLER    //10%
-pokemon SPECIES_HOUNDOUR    //10%
+pokemon SPECIES_POOCHYENA    //10%
 pokemon SPECIES_RATTATA    	//10%
 pokemon SPECIES_SANDILE	    //10%
-pokemon SPECIES_GROWLITHE   //5%
+pokemon SPECIES_GROWLITHE     //5%
 pokemon SPECIES_DARUMAKA 	  //5%
-pokemon SPECIES_POOCHYENA	  //4%
-pokemon SPECIES_POOCHYENA	  //4%
-pokemon SPECIES_MUNCHLAX 	  //1%
-pokemon SPECIES_MUNCHLAX	  //1%
+pokemon SPECIES_HOUNDOUR	  //4%
+pokemon SPECIES_HOUNDOUR	  //4%
+pokemon SPECIES_VIGOROTH 	  //1%
+pokemon SPECIES_VIGOROTH	  //1%
 
 // night encounter slots
-pokemon SPECIES_RATTATA 	    //20%
+pokemon SPECIES_LITLEO 	    //20% 
 pokemon SPECIES_NUZLEAF		  //20%
 pokemon SPECIES_STANTLER    //10%
-pokemon SPECIES_HOUNDOUR    //10%
-pokemon SPECIES_RATTATA    	//10%
+pokemon SPECIES_POOCHYENA    //10%
+monWithForm SPECIES_RATTATA, 1    	//10%
 pokemon SPECIES_SANDILE	    //10%
-pokemon SPECIES_GROWLITHE   //5%
+monWithForm SPECIES_GROWLITHE, 1   //5%
 pokemon SPECIES_DARUMAKA 	  //5%
-pokemon SPECIES_POOCHYENA	  //4%
-pokemon SPECIES_POOCHYENA	  //4%
+pokemon SPECIES_HOUNDOUR	  //4%
+pokemon SPECIES_HOUNDOUR	  //4%
 pokemon SPECIES_MUNCHLAX 	  //1%
 pokemon SPECIES_MUNCHLAX	  //1%
 
@@ -2929,49 +2929,49 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 13, 14, 13, 14, 15, 15, 14, 14, 16, 15, 16, 15
+walklevels 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20
 
 // morning encounter slots
-pokemon SPECIES_RATTATA
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATTATA
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATICATE
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATICATE
+pokemon SPECIES_CUBONE 	    //20% 
+pokemon SPECIES_KOFFING		  //20%
+pokemon SPECIES_SANDILE   //10%
+pokemon SPECIES_NUMEL    //10%
+pokemon SPECIES_FENNEKIN    	//10%
+pokemon SPECIES_ZUBAT	    //10%
+pokemon SPECIES_LITLEO     //5%
+pokemon SPECIES_MEDITITE 	  //5%
+pokemon SPECIES_MAGMAR	  //4%
+pokemon SPECIES_MAGMAR	  //4%
+pokemon SPECIES_IMPIDIMP 	  //1%
+pokemon SPECIES_IMPIDIMP	  //1%
 
 // day encounter slots
-pokemon SPECIES_RATTATA
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATTATA
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATICATE
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATICATE
+pokemon SPECIES_CUBONE 	    //20% 
+pokemon SPECIES_KOFFING		  //20%
+pokemon SPECIES_SANDILE    //10%
+pokemon SPECIES_NUMEL    //10%
+pokemon SPECIES_FENNEKIN    	//10%
+pokemon SPECIES_ZUBAT	    //10%
+pokemon SPECIES_MEDITITE 	  //5%
+pokemon SPECIES_BALTOY 	  //5%
+pokemon SPECIES_MAGMAR	  //4%
+pokemon SPECIES_MAGMAR	  //4%
+pokemon SPECIES_SHUPPET 	  //1%
+pokemon SPECIES_SHUPPET	  //1%
 
 // night encounter slots
-pokemon SPECIES_RATTATA
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATTATA
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_ZUBAT
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATICATE
-pokemon SPECIES_KOFFING
-pokemon SPECIES_RATICATE
+pokemon SPECIES_CUBONE 	    //20% 
+pokemon SPECIES_KOFFING		  //20%
+pokemon SPECIES_SANDILE    //10%
+pokemon SPECIES_NUMEL    //10%
+pokemon SPECIES_LITTEN    	//10%
+pokemon SPECIES_ZUBAT	    //10%
+pokemon SPECIES_MEDITITE 	  //5%
+pokemon SPECIES_BALTOY 	  //5%
+pokemon SPECIES_MAGMAR	  //4%
+pokemon SPECIES_MAGMAR	  //4%
+pokemon SPECIES_SPRITOMB 	  //1%
+pokemon SPECIES_SPRITOMB	  //1%
 
 // hoenn encounter slots
 pokemon SPECIES_ZIGZAGOON
@@ -3033,7 +3033,7 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 14, 14, 14, 14, 16, 16, 16, 16, 15, 14, 15, 14
+walklevels 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20
 
 // morning encounter slots
 pokemon SPECIES_RATTATA
@@ -3976,7 +3976,7 @@ pokemon SPECIES_BUNNELBY 	 //20%
 pokemon SPECIES_KLINK		 //20%
 pokemon SPECIES_BRONZOR      //10%
 pokemon SPECIES_STUNFISK     //10%
-pokemon SPECIES_SANDILE      //10%
+pokemon SPECIES_DRILBUR      //10%
 pokemon SPECIES_MAGNEMITE	 //10%
 pokemon SPECIES_ARON         //5%
 pokemon SPECIES_DIGLETT	     //5%
@@ -3990,7 +3990,7 @@ pokemon SPECIES_BUNNELBY 	 //20%
 pokemon SPECIES_KLINK		 //20%
 pokemon SPECIES_BRONZOR      //10%
 pokemon SPECIES_STUNFISK     //10%
-pokemon SPECIES_SANDILE      //10%
+pokemon SPECIES_DRILBUR      //10%
 pokemon SPECIES_MAGNEMITE	 //10%
 pokemon SPECIES_ARON         //5%
 pokemon SPECIES_DIGLETT	     //5%
@@ -4004,7 +4004,7 @@ pokemon SPECIES_BUNNELBY 	 //20%
 pokemon SPECIES_KLINK		 //20%
 pokemon SPECIES_BRONZOR      //10%
 pokemon SPECIES_STUNFISK     //10%
-pokemon SPECIES_SANDILE      //10%
+pokemon SPECIES_MUDBRAY      //10%
 pokemon SPECIES_MAGNEMITE	 //10%
 pokemon SPECIES_ARON         //5%
 monwithform SPECIES_DIGLETT, 1	     //5% //GALAR
