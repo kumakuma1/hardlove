@@ -589,11 +589,11 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 // surf encounters
-encounter SPECIES_POLIWAG, 15, 25
-encounter SPECIES_POLIWAG, 10, 20
-encounter SPECIES_POLIWHIRL, 15, 25
-encounter SPECIES_POLIWHIRL, 15, 25
-encounter SPECIES_POLIWHIRL, 15, 25
+encounter SPECIES_POPPLIO, 5, 5
+encounter SPECIES_POPPLIO, 5, 5
+encounter SPECIES_FROAKIE, 5, 5
+encounter SPECIES_FROAKIE, 5, 5
+encounter SPECIES_AZURILL, 5, 5
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
@@ -1476,44 +1476,44 @@ superrodrate 75
 walklevels 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7
 
 // morning encounter slots
-pokemon SPECIES_WOOPER		 	//20%
-pokemon SPECIES_PHANPY			//20%
-pokemon SPECIES_TRAPINCH 		//10%
-pokemon SPECIES_SANDILE			//10%
-pokemon SPECIES_BALTOY			//10%
-pokemon SPECIES_ONIX			  //10%
-pokemon SPECIES_DRILBUR	    //5%
-pokemon SPECIES_SANDSHREW		//5%
-pokemon SPECIES_CUBONE			//4%
-pokemon SPECIES_CUBONE			//4%
+pokemon SPECIES_ROGGENROLA		//20%
+pokemon SPECIES_WOOPER	        //20%
+pokemon SPECIES_ARON 		    //10%
+pokemon SPECIES_MUDBRAY			//10%
+pokemon SPECIES_NOSEPASS		//10%
+pokemon SPECIES_BALTOY	    	//10%
+pokemon SPECIES_CUBONE	        //5%
+pokemon SPECIES_DRILBUR	    	//5%
+pokemon SPECIES_ONIX			//4%
+pokemon SPECIES_ONIX			//4%
 pokemon SPECIES_GLIGAR			//1%
 pokemon SPECIES_GLIGAR			//1%
 
 // day encounter slots
-pokemon SPECIES_WOOPER		 	//20%
-pokemon SPECIES_PHANPY			//20%
-pokemon SPECIES_TRAPINCH 		//10%
-pokemon SPECIES_SANDILE			//10%
-pokemon SPECIES_BALTOY			//10%
-pokemon SPECIES_ONIX			  //10%
-pokemon SPECIES_DRILBUR	    //5%
-pokemon SPECIES_SANDSHREW		//5%
-pokemon SPECIES_CUBONE			//4%
-pokemon SPECIES_CUBONE			//4%
+pokemon SPECIES_ROGGENROLA		//20%
+pokemon SPECIES_WOOPER	        //20%
+pokemon SPECIES_ARON 		    //10%
+pokemon SPECIES_MUDBRAY			//10%
+pokemon SPECIES_NOSEPASS		//10%
+pokemon SPECIES_BALTOY	    	//10%
+pokemon SPECIES_CUBONE	        //5%
+pokemon SPECIES_DRILBUR	    	//5%
+pokemon SPECIES_ONIX			//4%
+pokemon SPECIES_ONIX			//4%
 pokemon SPECIES_GLIGAR			//1%
 pokemon SPECIES_GLIGAR			//1%
 
 // night encounter slots
-pokemon SPECIES_WOOPER		 	//20%
-pokemon SPECIES_PHANPY			//20%
-pokemon SPECIES_TRAPINCH 		//10%
-pokemon SPECIES_SANDILE			//10%
-pokemon SPECIES_BALTOY			//10%
-pokemon SPECIES_ONIX			  //10%
-pokemon SPECIES_DRILBUR	    //5%
-pokemon SPECIES_SANDSHREW		//5%
-pokemon SPECIES_CUBONE			//4%
-pokemon SPECIES_CUBONE			//4%
+pokemon SPECIES_ROGGENROLA		//20%
+pokemon SPECIES_WOOPER	        //20%
+pokemon SPECIES_ARON 		    //10%
+pokemon SPECIES_MUDBRAY			//10%
+pokemon SPECIES_NOSEPASS		//10%
+pokemon SPECIES_BALTOY	    	//10%
+pokemon SPECIES_CUBONE	        //5%
+pokemon SPECIES_DRILBUR	    	//5%
+pokemon SPECIES_ONIX			//4%
+pokemon SPECIES_ONIX			//4%
 pokemon SPECIES_GLIGAR			//1%
 pokemon SPECIES_GLIGAR			//1%
 
@@ -1537,7 +1537,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_WOOPER, 5, 5          //40%
+encounter SPECIES_TIRTOUGA, 5, 5          //40%
 encounter SPECIES_SHELLOS, 5, 5        //30%
 encounter SPECIES_BARBOACH, 5, 5        //15%
 encounter SPECIES_TYMPOLE, 5, 5         //10%
@@ -1581,43 +1581,43 @@ walklevels 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7
 
 // morning encounter slots
 pokemon SPECIES_GEODUDE		 	//20%
-pokemon SPECIES_ROGGENROLA	//20%
+pokemon SPECIES_PHANPY	        //20%
 pokemon SPECIES_DWEBBLE 		//10%
-pokemon SPECIES_ARON  			//10%
-pokemon SPECIES_NOSEPASS		//10%
-pokemon SPECIES_SANDSHREW	  //10%
-pokemon SPECIES_ARCHEN	    //5%
-pokemon SPECIES_ONIX		    //5%
-pokemon SPECIES_BONSLY			//4%
-pokemon SPECIES_BONSLY			//4%
+pokemon SPECIES_SANDSHREW  		//10%
+pokemon SPECIES_SANDILE			//10%
+pokemon SPECIES_ONIX		    //10%
+pokemon SPECIES_CUBONE	        //5%
+pokemon SPECIES_TRAPINCH		//5%
+pokemon SPECIES_TOGEDEMARU		//4%
+pokemon SPECIES_TOGEDEMARU		//4%
 pokemon SPECIES_STUNFISK		//1%
 pokemon SPECIES_STUNFISK		//1%
 
 // day encounter slots
 pokemon SPECIES_GEODUDE		 	//20%
-pokemon SPECIES_ROGGENROLA	//20%
+pokemon SPECIES_PHANPY	        //20%
 pokemon SPECIES_DWEBBLE 		//10%
-pokemon SPECIES_ARON  			//10%
-pokemon SPECIES_NOSEPASS		//10%
-pokemon SPECIES_SANDSHREW	  //10%
-pokemon SPECIES_ARCHEN	    //5%
-pokemon SPECIES_ONIX		    //5%
-pokemon SPECIES_BONSLY			//4%
-pokemon SPECIES_BONSLY			//4%
-pokemon SPECIES_SOLROCK	  	//1%
+pokemon SPECIES_SANDSHREW  		//10%
+pokemon SPECIES_SANDILE			//10%
+pokemon SPECIES_ONIX		    //10%
+pokemon SPECIES_CUBONE	        //5%
+pokemon SPECIES_TRAPINCH		//5%
+pokemon SPECIES_TOGEDEMARU		//4%
+pokemon SPECIES_TOGEDEMARU		//4%
+pokemon SPECIES_SOLROCK	  	    //1%
 pokemon SPECIES_SOLROCK  		//1%
 
 // night encounter slots
 pokemon SPECIES_GEODUDE		 	//20%
-pokemon SPECIES_ROGGENROLA	//20%
+pokemon SPECIES_PHANPY	        //20%
 pokemon SPECIES_DWEBBLE 		//10%
-pokemon SPECIES_ARON  			//10%
-pokemon SPECIES_NOSEPASS		//10%
-pokemon SPECIES_SANDSHREW	  //10%
-pokemon SPECIES_ARCHEN      //5%
-pokemon SPECIES_ONIX		    //5%
-pokemon SPECIES_BONSLY			//4%
-pokemon SPECIES_BONSLY			//4%
+pokemon SPECIES_SANDSHREW  		//10%
+pokemon SPECIES_SANDILE			//10%
+pokemon SPECIES_ONIX		    //10%
+pokemon SPECIES_CUBONE	        //5%
+pokemon SPECIES_TRAPINCH		//5%
+pokemon SPECIES_TOGEDEMARU		//4%
+pokemon SPECIES_TOGEDEMARU		//4%
 pokemon SPECIES_LUNATONE		//1%
 pokemon SPECIES_LUNATONE		//1%
 
@@ -1649,16 +1649,16 @@ encounter SPECIES_STUNFISK, 5, 5        //5%
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
 
 // super rod encounters
-encounter SPECIES_GOLDEEN, 40, 40
-encounter SPECIES_GOLDEEN, 40, 40
 encounter SPECIES_MAGIKARP, 40, 40
-encounter SPECIES_SEAKING, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
 encounter SPECIES_MAGIKARP, 40, 40
 
 // swarm grass
@@ -1790,7 +1790,7 @@ walklevels 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7
 // morning encounter slots
 pokemon SPECIES_POLIWAG		  //20%
 pokemon SPECIES_WINGULL			//20%
-pokemon SPECIES_BARBOACH 		//10%
+pokemon SPECIES_TYMPOLE 		//10%
 pokemon SPECIES_PSYDUCK			//10%
 pokemon SPECIES_CORPHISH		//10%
 pokemon SPECIES_KRABBY			//10%
@@ -1804,7 +1804,7 @@ pokemon SPECIES_CORSOLA 		//1%
 // day encounter slots
 pokemon SPECIES_POLIWAG		  //20%
 pokemon SPECIES_WINGULL			//20%
-pokemon SPECIES_BARBOACH 		//10%
+pokemon SPECIES_TYMPOLE 		//10%
 pokemon SPECIES_PSYDUCK			//10%
 pokemon SPECIES_CORPHISH		//10%
 pokemon SPECIES_KRABBY			//10%
@@ -1818,7 +1818,7 @@ pokemon SPECIES_CORSOLA 		//1%
 // night encounter slots
 pokemon SPECIES_POLIWAG		  //20%
 pokemon SPECIES_WINGULL			//20%
-pokemon SPECIES_BARBOACH 		//10%
+pokemon SPECIES_TYMPOLE 		//10%
 pokemon SPECIES_PSYDUCK			//10%
 pokemon SPECIES_CORPHISH		//10%
 pokemon SPECIES_KRABBY			//10%
@@ -1961,16 +1961,16 @@ encounter SPECIES_CARVANHA, 7, 7
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
-encounter SPECIES_GOLDEEN, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
+encounter SPECIES_MAGIKARP, 20, 20
 
 // super rod encounters
-encounter SPECIES_GOLDEEN, 40, 40
-encounter SPECIES_GOLDEEN, 40, 40
 encounter SPECIES_MAGIKARP, 40, 40
-encounter SPECIES_SEAKING, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
+encounter SPECIES_MAGIKARP, 40, 40
 encounter SPECIES_MAGIKARP, 40, 40
 
 // swarm grass
