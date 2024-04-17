@@ -679,7 +679,6 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, in
 {
     u32 ovyId, ret, offset;
     BOOL (*internalFunc)(void *bw, struct BattleStruct *sp, int *seq_no);
-
     ovyId = OVERLAY_MOVEHITDEFENDERABILITYCHECK_SPECIFIC;
     offset = 0x023C0400 | 1;
     HandleLoadOverlay(ovyId, 2);
