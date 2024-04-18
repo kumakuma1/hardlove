@@ -2022,11 +2022,15 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         case ABILITY_DEFIANT:
             if ((sp->battlemon[sp->defence_client].hp != 0)
              && (sp->oneSelfFlag[sp->state_client].defiant_flag)
-             && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
+              && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
              && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
              && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
              && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0))
             {
+                if (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 11)
+                    sp->addeffect_param = ADD_STATE_ATTACK_UP_2;
+                else
+                    sp->addeffect_param = ADD_STATE_ATTACK_UP;
                 sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 sp->state_client = sp->defence_client;
                 sp->client_work = sp->defence_client;
@@ -2044,6 +2048,10 @@ BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
              && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
              && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0))
             {
+                if (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 11)
+                    sp->addeffect_param = ADD_STATE_SP_ATK_UP_2;
+                else
+                    sp->addeffect_param = ADD_STATE_SP_ATK_UP;
                 sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 sp->state_client = sp->defence_client;
                 sp->client_work = sp->defence_client;
