@@ -1488,7 +1488,7 @@ trainerdata 32, "Pryce"
         abilityslot 0
         level LEVEL_PRYZE-1
         pokemon SPECIES_QWILFISH
-        item ITEM_FOCUS_SASH // SHUCA//CUSTAP ?
+        item ITEM_CUSTAP_BERRY // SHUCA//CUSTAP/SASH ?
         move MOVE_AQUA_JET
         move MOVE_FLIP_TURN
         move MOVE_THUNDER_WAVE
@@ -1511,7 +1511,7 @@ trainerdata 32, "Pryce"
         move MOVE_SHADOW_BALL
         move MOVE_PSYCHIC
         move MOVE_THUNDERBOLT
-        ability ABILITY_FLAME_BODY
+        ability ABILITY_SNOW_CLOAK
         ball ITEM_POKE_BALL
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1523,17 +1523,17 @@ trainerdata 32, "Pryce"
 	    ivs 0
         abilityslot 0
         level LEVEL_PRYZE-1
-        pokemon SPECIES_HITMONTOP
-        item ITEM_LEFTOVERS
-        move MOVE_RAPID_SPIN
-        move MOVE_MACH_PUNCH
-        move MOVE_CLOSE_COMBAT
-        move MOVE_KNOCK_OFF
-        ability ABILITY_INTIMIDATE //ASSAULT_VEST ?
+        pokemon SPECIES_ARCTOZOLT
+        item ITEM_LIFE_ORB
+        move MOVE_WILD_CHARGE // MOVE_BOLT_BEAK
+        move MOVE_BLIZZARD
+        move MOVE_HYDRO_PUMP
+        move MOVE_FREEZE_DRY
+        ability ABILITY_SLUSH_RUSH
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1541,8 +1541,8 @@ trainerdata 32, "Pryce"
 	    ivs 0
         abilityslot 0
         level LEVEL_PRYZE-1
-        pokemon SPECIES_NINETALES //_ALOLAN
-        item ITEM_BRIGHT_POWDER
+        monwithform SPECIES_NINETALES, 1 //_ALOLAN
+        item ITEM_FOCUS_SASH
         move MOVE_DAZZLING_GLEAM
         move MOVE_REFLECT // MOVE_AUROA_VEIL
         move MOVE_FREEZE_DRY
