@@ -2096,17 +2096,17 @@ trainerdata 42, "Nathan" // Ruins of Alph Mini Boss
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-1
-        pokemon SPECIES_SLOWPOKE
+        pokemon SPECIES_BIBAREL
         item ITEM_CHESTO_BERRY
-        move MOVE_WATER_GUN
-        move MOVE_CONFUSION
+        move MOVE_AQUA_JET
+        move MOVE_HEADBUTT
         move MOVE_REST
         move MOVE_SLEEP_TALK
-        ability ABILITY_REGENERATOR
+        ability ABILITY_UNAWARE
         ball ITEM_POKE_BALL
-        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0 
-        nature NATURE_BOLD
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
