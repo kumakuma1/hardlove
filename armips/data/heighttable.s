@@ -915,7 +915,7 @@ heightentry SPECIES_SIZZLIPEDE, 3, 3, 0, 0
 heightentry SPECIES_CENTISKORCH, 3, 3, 0, 0
 heightentry SPECIES_CLOBBOPUS, 3, 3, 0, 0
 heightentry SPECIES_GRAPPLOCT, 3, 3, 0, 0
-heightentry SPECIES_SINISTEA, 3, 3, 0, 0
+heightentry SPECIES_SINISTEA, 0, 0, 0, 0
 heightentry SPECIES_POLTEAGEIST, 0, 0, 0, 0
 heightentry SPECIES_HATENNA, 3, 3, 0, 0
 heightentry SPECIES_HATTREM, 3, 3, 0, 0
@@ -931,7 +931,7 @@ heightentry SPECIES_MR_RIME, 3, 3, 0, 0
 heightentry SPECIES_RUNERIGUS, 3, 3, 0, 0
 heightentry SPECIES_MILCERY, 3, 3, 0, 0
 heightentry SPECIES_ALCREMIE, 3, 3, 0, 0
-heightentry SPECIES_FALINKS, 3, 3, 0, 0
+heightentry SPECIES_FALINKS, 0, 0, 0, 0
 heightentry SPECIES_PINCURCHIN, 0, 0, 0, 0
 heightentry SPECIES_SNOM, 3, 3, 0, 0
 heightentry SPECIES_FROSMOTH, 0, 0, 0, 0
@@ -1048,7 +1048,7 @@ heightentry SPECIES_FARIGIRAF, 0, 0, 0, 0
 heightentry SPECIES_DUDUNSPARCE, 3, 3, 0, 0
 heightentry SPECIES_KINGAMBIT, 3, 3, 0, 0
 heightentry SPECIES_GREAT_TUSK, 3, 3, 0, 0
-heightentry SPECIES_SCREAM_TAIL, 3, 3, 0, 0
+heightentry SPECIES_SCREAM_TAIL, 0, 0, 0, 0
 heightentry SPECIES_BRUTE_BONNET, 0, 0, 0, 0
 heightentry SPECIES_FLUTTER_MANE, 0, 0, 0, 0
 heightentry SPECIES_SLITHER_WING, 3, 3, 0, 0
