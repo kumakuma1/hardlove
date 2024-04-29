@@ -777,9 +777,9 @@ trainerdata 20, "Falkner" // Leader
     party 20
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-1
+        level LEVEL_FALKNER-2
         pokemon SPECIES_RUFFLET
-        item ITEM_BERRY_JUICE
+        item ITEM_ORAN_BERRY
         move MOVE_AERIAL_ACE
         move MOVE_ROCK_SMASH
         move MOVE_SLASH
@@ -796,9 +796,9 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-1
+        level LEVEL_FALKNER-2
         pokemon SPECIES_EMOLGA
-        item ITEM_BERRY_JUICE
+        item ITEM_ORAN_BERRY
         move MOVE_SHOCK_WAVE
         move MOVE_AIR_CUTTER
         move MOVE_U_TURN
@@ -814,10 +814,10 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER
+        level LEVEL_FALKNER-2
         pokemon SPECIES_DRIFLOON
-        item ITEM_BERRY_JUICE
-        move MOVE_KNOCK_OFF
+        item ITEM_ORAN_BERRY
+        move MOVE_ROOST
         move MOVE_AIR_CUTTER
         move MOVE_WILL_O_WISP
         move MOVE_OMINOUS_WIND
@@ -832,27 +832,27 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-1
-        pokemon SPECIES_ARCHEN
-        item ITEM_BERRY_JUICE
-        move MOVE_ANCIENT_POWER
-        move MOVE_BULLDOZE
-        move MOVE_FACADE
-        move MOVE_ROOST
-        ability ABILITY_DEFEATIST
+        level LEVEL_FALKNER
+        pokemon SPECIES_DRATINI
+        item ITEM_FLAME_ORB
+        move MOVE_DRAGON_BREATH
+        move MOVE_WATER_PULSE
+        move MOVE_SLEEP_TALK
+        move MOVE_REST
+        ability ABILITY_MARVEL_SCALE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER
+        level LEVEL_FALKNER-1
         pokemon SPECIES_STARAVIA
-        item ITEM_BERRY_JUICE
+        item ITEM_ORAN_BERRY
         move MOVE_QUICK_ATTACK
         move MOVE_DOUBLE_TEAM
         move MOVE_AERIAL_ACE
@@ -870,7 +870,7 @@ trainerdata 20, "Falkner" // Leader
         abilityslot 0
         level LEVEL_FALKNER
         pokemon SPECIES_PIDGEOTTO
-        item ITEM_BERRY_JUICE
+        item ITEM_ORAN_BERRY
         move MOVE_QUICK_ATTACK
         move MOVE_FEATHER_DANCE
         move MOVE_WING_ATTACK
@@ -925,7 +925,7 @@ trainerdata 21, "Bugsy"
         move MOVE_SPORE
         move MOVE_BULLET_SEED
         move MOVE_BUG_BITE
-        move MOVE_PROTECT
+        move MOVE_COUNTER
         ability ABILITY_DRY_SKIN
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -938,10 +938,10 @@ trainerdata 21, "Bugsy"
         ivs 0
         abilityslot 0
         level LEVEL_BUGSY-1
-        pokemon SPECIES_VIBRAVA // Wormadam sandy? Flash, Double Team
-        item ITEM_EXPERT_BELT
+        pokemon SPECIES_VIBRAVA
+        item ITEM_EXPERT_BELT   // TODO: ITEM_EVIOLITE
         move MOVE_BULLDOZE
-        move MOVE_DRAGON_BREATH
+        move MOVE_BREAKING_SWIPE
         move MOVE_ROCK_SLIDE
         move MOVE_SUPERPOWER
         ability ABILITY_LEVITATE
@@ -960,7 +960,7 @@ trainerdata 21, "Bugsy"
         item ITEM_BERRY_JUICE
         move MOVE_SCALD
         move MOVE_AIR_CUTTER
-        move MOVE_BUG_BUZZ
+        move MOVE_SIGNAL_BEAM
         move MOVE_U_TURN
         ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
@@ -974,13 +974,13 @@ trainerdata 21, "Bugsy"
         ivs 0
         abilityslot 0
         level LEVEL_BUGSY-1
-        pokemon SPECIES_GALVANTULA
-        item ITEM_BERRY_JUICE
-        move MOVE_MEGA_DRAIN
-        move MOVE_DISCHARGE
-        move MOVE_STRUGGLE_BUG
-        move MOVE_SILVER_WIND
-        ability ABILITY_UNNERVE
+        pokemon SPECIES_POIPOLE
+        item ITEM_BLACK_SLUDGE
+        move MOVE_VENOSHOCK
+        move MOVE_TOXIC
+        move MOVE_SIGNAL_BEAM
+        move MOVE_SHOCK_WAVE
+        ability ABILITY_BEAST_BOOST
         ball ITEM_POKE_BALL
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
