@@ -946,3 +946,121 @@ SetVar 0x40F4 0
 	ClearFlag 430
 	ClearFlag 428
 	SetVar 0x40F4 0 //trigger
+
+
+
+
+Additional Lance Intraction before Double battle
+248 D35R0103 : Script File 90 : Text Archive 113
+Function 4 and 5:
+    
+	PlayCry 149 0
+	WaitCry 
+	Movement Overworld.0 Action#23
+    TextPlayerName 0
+	GenderMessage 28 29
+	CloseMessage 
+	Movement Overworld.0 Action#24
+	WaitMovement 
+	Message 30
+	CloseMessage 
+	Movement Overworld.8 Action#19
+	WaitMovement 
+
+28/29: Lance: \v0103ぁ\x0000\x0000!\nI will handle those clowns!\rTeam Rocket only uses Ratattas and\nZubats.\r
+               Let my Mega-Mence sweep and try not\nto wipe. Just stay a little back.\r
+30:	Lance: Equip your Mega-Rings!\nWe battle!\r
+
+
+
+Whitney Rematch in Goldenrod before Rocket Radio tower
+
+Mom initializes in 063
+SetVar 0x4024 0
+...
+Pryce sets variable:
+140 T28GYM0101 : Script File 90 : Text Archive 113
+SetVar 0x4024 1
+
+Goldenrod
+076 T25: Script File 885 : Event File 73: Text Archive 581
+Add trigger:
+watch: 16420, when 1, script 34
+
+Add Whitney (ID 21) outside  383,353
+
+Script 34:
+    MecScript
+	PlayFanfare 1538
+	LockAll 
+    LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	TextPlayerName 0
+	GenderMessage 47 48
+	CloseMessage
+    Movement Player Action#28
+    WaitMovement
+    WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+    SetOWPosition Overworld.21 356 0 353 Left
+    Movement Overworld.21 Action#29
+    WaitMovement
+    Message 49
+    CloseMessage
+    Movement Overworld.21 Action#31
+    WaitMovement
+    Message 50
+    CloseMessage 
+	TrainerBattle 714 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#56
+    Message 51
+    SetVar 0x8004 577
+    SetVar 0x8005 1
+	CommonScript 2033
+    CloseMessage
+    Movement Overworld.21 Action#30
+    WaitMovement
+    SetOWPosition Overworld.21 386 0 353 Left
+    SetVar 0x4024 2
+	ReleaseAll 
+End 
+
+
+Action 28:
+	WalkDownFast 0x1
+End
+
+Action 29:
+	WalkLeftFast 0xE
+    LookUp 0x1
+End
+
+Action 30:
+	LookRight 0x1
+	WalkRightFast 0xE
+End
+
+Action 31:
+    LookLeft 0x1
+    Freeze8 0x1
+	LookRight 0x1
+    Freeze8 0x1
+	LookLeft 0x1
+    Freeze8 0x1
+    LookUp 0x1
+End
+
+Function 56:
+	LostBattle 
+	ReleaseAll 
+End 
+
+47/48: Whitney: Hey, \v0103ぁ\x0000\x0000!\r
+49: Whitney: You came to see me?!\nThat’s so cute! I have time now.\rWhere are we gonna do?\r...\rWhat do mean by other reasons...?\rWhat about Team Rocket?!?!\r...\r
+50: Whitney: There is no Team Rocket!\rI thought you were different!\r...\rHmmpf. I am furious! I will show you\nin a fight!\rThe boys will deal with you!\r
+51: Whitney: OMG! You are so strong!\rI have to think about it...\rBut you can have this. See ya!\r
