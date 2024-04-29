@@ -14,17 +14,16 @@ SEVEN_BADGES equ 5
 EIGHT_BADGES equ 6
 
 /* General Poké Mart Table */
-
 .org 0x020FBF22
 
 .halfword ITEM_POKE_BALL
 .halfword ZERO_BADGES
 
 .halfword ITEM_QUICK_BALL  // ITEM_TOP_REPEL
-.halfword THREE_BADGES
+.halfword ONE_BADGE
 
 .halfword ITEM_ULTRA_BALL
-.halfword THREE_BADGES
+.halfword ONE_BADGE
 
 .halfword ITEM_SUPER_REPEL
 .halfword ZERO_BADGES
@@ -54,16 +53,16 @@ EIGHT_BADGES equ 6
 .halfword ZERO_BADGES
 
 .halfword ITEM_CHESTO_BERRY //ITEM_WAKEUP
-.halfword ONE_BADGE
+.halfword ZERO_BADGES
 
 .halfword ITEM_RAWST_BERRY //ITEM_BURN_HEAL
-.halfword ONE_BADGE
+.halfword ZERO_BADGES
 
 .halfword ITEM_ASPEAR_BERRY //ITEM_ICE_HEAL
-.halfword ONE_BADGE
+.halfword ZERO_BADGES
 
 .halfword ITEM_PERSIM_BERRY //ITEM_ESCAPE_ROPE
-.halfword ONE_BADGE
+.halfword ZERO_BADGES
 
 .halfword ITEM_LUM_BERRY // ITEM_FULL_HEAL
 .halfword FIVE_BADGES
@@ -72,7 +71,7 @@ EIGHT_BADGES equ 6
 .halfword FIVE_BADGES
 
 .halfword ITEM_POMEG_BERRY //ITEM_SUPER_REPEL
-.halfword ONE_BADGE
+.halfword ZERO_BADGES
 
 /* Goldenrod 2F, 11, lower - CommonScript 2052  3 */
 /* const u16 _020FBBEA[] = {ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_ANTIDOTE, ITEM_PARALYZE_HEAL, ITEM_BURN_HEAL, ITEM_ICE_HEAL, ITEM_AWAKENING, ITEM_FULL_HEAL, 0xFFFF}; */

@@ -326,7 +326,7 @@ mondata SPECIES_BUTTERFREE, "Butterfree"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -401,7 +401,7 @@ mondata SPECIES_BEEDRILL, "Beedrill"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -526,7 +526,7 @@ mondata SPECIES_RATICATE, "Raticate"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -551,7 +551,7 @@ mondata SPECIES_SPEAROW, "Spearow"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SHARP_BEAK
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -576,7 +576,7 @@ mondata SPECIES_FEAROW, "Fearow"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SHARP_BEAK
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -634,7 +634,7 @@ mondata SPECIES_ARBOK, "Arbok"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -659,7 +659,7 @@ mondata SPECIES_PIKACHU, "Pikachu"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_LIGHT_BALL
+    items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
@@ -684,7 +684,7 @@ mondata SPECIES_RAICHU, "Raichu"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_ORAN_BERRY
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
@@ -709,7 +709,7 @@ mondata SPECIES_SANDSHREW, "Sandshrew"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -734,7 +734,7 @@ mondata SPECIES_SANDSLASH, "Sandslash"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_SOFT_SAND, ITEM_QUICK_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -909,7 +909,7 @@ mondata SPECIES_CLEFAIRY, "Clefairy"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_LEPPA_BERRY, ITEM_MOON_STONE
+    items ITEM_NONE, ITEM_MOON_STONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 140
@@ -934,7 +934,7 @@ mondata SPECIES_CLEFABLE, "Clefable"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_LEPPA_BERRY, ITEM_MOON_STONE
+    items ITEM_NONE, ITEM_MOON_STONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 140
@@ -959,7 +959,7 @@ mondata SPECIES_VULPIX, "Vulpix"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_RAWST_BERRY, ITEM_CHARCOAL
+    items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -984,7 +984,7 @@ mondata SPECIES_NINETALES, "Ninetales"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_RAWST_BERRY, ITEM_CHARCOAL
+    items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -1009,7 +1009,7 @@ mondata SPECIES_JIGGLYPUFF, "Jigglypuff"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_MOON_STONE
+    items ITEM_NONE, ITEM_MOON_STONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
@@ -1034,7 +1034,7 @@ mondata SPECIES_WIGGLYTUFF, "Wigglytuff"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_MOON_STONE
+    items ITEM_NONE, ITEM_MOON_STONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
@@ -1259,7 +1259,7 @@ mondata SPECIES_VENOMOTH, "Venomoth"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_SHED_SHELL, ITEM_SILVER_POWDER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -1284,7 +1284,7 @@ mondata SPECIES_DIGLETT, "Diglett"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SOFT_SAND
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -1309,7 +1309,7 @@ mondata SPECIES_DUGTRIO, "Dugtrio"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SOFT_SAND
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -1334,7 +1334,7 @@ mondata SPECIES_MEOWTH, "Meowth"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_QUICK_CLAW, ITEM_NONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -1359,7 +1359,7 @@ mondata SPECIES_PERSIAN, "Persian"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_QUICK_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -1684,7 +1684,7 @@ mondata SPECIES_MACHOP, "Machop"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_FOCUS_BAND
+    items ITEM_NONE, ITEM_NONE
     genderratio 63
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -1709,7 +1709,7 @@ mondata SPECIES_MACHOKE, "Machoke"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_FOCUS_BAND
+    items ITEM_NONE, ITEM_NONE
     genderratio 63
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -1734,7 +1734,7 @@ mondata SPECIES_MACHAMP, "Machamp"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_FOCUS_BAND
+    items ITEM_NONE, ITEM_NONE
     genderratio 63
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -1834,7 +1834,7 @@ mondata SPECIES_TENTACOOL, "Tentacool"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -1859,7 +1859,7 @@ mondata SPECIES_TENTACRUEL, "Tentacruel"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -1884,7 +1884,7 @@ mondata SPECIES_GEODUDE, "Geodude"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_EVERSTONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -1909,7 +1909,7 @@ mondata SPECIES_GRAVELER, "Graveler"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_HARD_STONE, ITEM_EVERSTONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -1934,7 +1934,7 @@ mondata SPECIES_GOLEM, "Golem"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_HARD_STONE, ITEM_EVERSTONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -2009,7 +2009,7 @@ mondata SPECIES_SLOWPOKE, "Slowpoke"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_LAGGING_TAIL, ITEM_KINGS_ROCK
+    items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -2084,7 +2084,7 @@ mondata SPECIES_MAGNETON, "Magneton"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_MAGNET, ITEM_METAL_COAT
+    items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -2134,7 +2134,7 @@ mondata SPECIES_DODUO, "Doduo"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SHARP_BEAK
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -2159,7 +2159,7 @@ mondata SPECIES_DODRIO, "Dodrio"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SHARP_BEAK
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -2209,7 +2209,7 @@ mondata SPECIES_DEWGONG, "Dewgong"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ASPEAR_BERRY, ITEM_NEVER_MELT_ICE
+    items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -2234,7 +2234,7 @@ mondata SPECIES_GRIMER, "Grimer"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_BLACK_SLUDGE, ITEM_NONE
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -2259,7 +2259,7 @@ mondata SPECIES_MUK, "Muk"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_TOXIC_ORB, ITEM_NONE
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -2409,7 +2409,7 @@ mondata SPECIES_ONIX, "Onix"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_HARD_STONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
@@ -2734,7 +2734,7 @@ mondata SPECIES_LICKITUNG, "Lickitung"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_LAGGING_TAIL
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -2859,7 +2859,7 @@ mondata SPECIES_CHANSEY, "Chansey"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_OVAL_STONE, ITEM_LUCKY_EGG
+    items ITEM_OVAL_STONE, ITEM_NONE
     genderratio 254
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 140
@@ -2984,7 +2984,7 @@ mondata SPECIES_GOLDEEN, "Goldeen"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_MYSTIC_WATER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -3009,7 +3009,7 @@ mondata SPECIES_SEAKING, "Seaking"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_MYSTIC_WATER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -3084,7 +3084,7 @@ mondata SPECIES_MR_MIME, "Mr. Mime"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_LEPPA_BERRY
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
@@ -3309,7 +3309,7 @@ mondata SPECIES_LAPRAS, "Lapras"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_MYSTIC_WATER, ITEM_NONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
@@ -3734,7 +3734,7 @@ mondata SPECIES_DRAGONAIR, "Dragonair"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
@@ -3759,7 +3759,7 @@ mondata SPECIES_DRAGONITE, "Dragonite"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
@@ -4071,7 +4071,7 @@ mondata SPECIES_SENTRET, "Sentret"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_ORAN_BERRY
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -4100,7 +4100,7 @@ mondata SPECIES_FURRET, "Furret"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -4354,7 +4354,7 @@ mondata SPECIES_PICHU, "Pichu"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_ORAN_BERRY
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
@@ -4379,7 +4379,7 @@ mondata SPECIES_CLEFFA, "Cleffa"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_LEPPA_BERRY, ITEM_MOON_STONE
+    items ITEM_NONE, ITEM_MOON_STONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 140
@@ -4404,7 +4404,7 @@ mondata SPECIES_IGGLYBUFF, "Igglybuff"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_NONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
@@ -4879,7 +4879,7 @@ mondata SPECIES_YANMA, "Yanma"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_WIDE_LENS
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -5329,7 +5329,7 @@ mondata SPECIES_QWILFISH, "Qwilfish"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -5379,7 +5379,7 @@ mondata SPECIES_SHUCKLE, "Shuckle"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_BERRY_JUICE, ITEM_ORAN_BERRY
+    items ITEM_BERRY_JUICE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -5429,7 +5429,7 @@ mondata SPECIES_SNEASEL, "Sneasel"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
@@ -5454,7 +5454,7 @@ mondata SPECIES_TEDDIURSA, "Teddiursa"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -5479,7 +5479,7 @@ mondata SPECIES_URSARING, "Ursaring"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -5579,7 +5579,7 @@ mondata SPECIES_PILOSWINE, "Piloswine"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ASPEAR_BERRY, ITEM_NEVER_MELT_ICE
+    items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -5604,7 +5604,7 @@ mondata SPECIES_CORSOLA, "Corsola"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_HARD_STONE, ITEM_RED_SHARD
+    items ITEM_NONE, ITEM_RED_SHARD
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -5729,7 +5729,7 @@ mondata SPECIES_SKARMORY, "Skarmory"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_SHARP_BEAK, ITEM_METAL_COAT
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
@@ -6104,7 +6104,7 @@ mondata SPECIES_BLISSEY, "Blissey"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_OVAL_STONE, ITEM_LUCKY_EGG
+    items ITEM_OVAL_STONE, ITEM_NONE
     genderratio 254
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 140
@@ -6629,7 +6629,7 @@ mondata SPECIES_ZIGZAGOON, "Zigzagoon"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_POTION, ITEM_REVIVE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -6654,7 +6654,7 @@ mondata SPECIES_LINOONE, "Linoone"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_POTION, ITEM_MAX_REVIVE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -6679,7 +6679,7 @@ mondata SPECIES_WURMPLE, "Wurmple"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_PECHA_BERRY, ITEM_BRIGHT_POWDER
+    items ITEM_PECHA_BERRY, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -6729,7 +6729,7 @@ mondata SPECIES_BEAUTIFLY, "Beautifly"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_SHED_SHELL, ITEM_SILVER_POWDER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -6779,7 +6779,7 @@ mondata SPECIES_DUSTOX, "Dustox"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_SHED_SHELL, ITEM_SILVER_POWDER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -6879,7 +6879,7 @@ mondata SPECIES_SEEDOT, "Seedot"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POWER_HERB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -6904,7 +6904,7 @@ mondata SPECIES_NUZLEAF, "Nuzleaf"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POWER_HERB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -6929,7 +6929,7 @@ mondata SPECIES_SHIFTRY, "Shiftry"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POWER_HERB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -7004,7 +7004,7 @@ mondata SPECIES_WINGULL, "Wingull"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_PRETTY_FEATHER, ITEM_NONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -7029,7 +7029,7 @@ mondata SPECIES_PELIPPER, "Pelipper"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_PRETTY_FEATHER, ITEM_LUCKY_EGG
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -7154,7 +7154,7 @@ mondata SPECIES_MASQUERAIN, "Masquerain"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -7304,7 +7304,7 @@ mondata SPECIES_NINCADA, "Nincada"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SOFT_SAND
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -7454,7 +7454,7 @@ mondata SPECIES_MAKUHITA, "Makuhita"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_BLACK_BELT
+    items ITEM_NONE, ITEM_NONE
     genderratio 63
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -7529,7 +7529,7 @@ mondata SPECIES_NOSEPASS, "Nosepass"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_MAGNET, ITEM_HARD_STONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -7554,7 +7554,7 @@ mondata SPECIES_SKITTY, "Skitty"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_PECHA_BERRY, ITEM_LEPPA_BERRY
+    items ITEM_MOON_STONE, ITEM_MOON_STONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -7579,7 +7579,7 @@ mondata SPECIES_DELCATTY, "Delcatty"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_PECHA_BERRY, ITEM_LEPPA_BERRY
+    items ITEM_MOON_STONE, ITEM_MOON_STONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -7604,7 +7604,7 @@ mondata SPECIES_SABLEYE, "Sableye"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_WIDE_LENS
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
@@ -7629,7 +7629,7 @@ mondata SPECIES_MAWILE, "Mawile"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_IRON_BALL, ITEM_OCCA_BERRY
+    items ITEM_NONE, ITEM_OCCA_BERRY
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -7654,7 +7654,7 @@ mondata SPECIES_ARON, "Aron"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_HARD_STONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 35
@@ -7679,7 +7679,7 @@ mondata SPECIES_LAIRON, "Lairon"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_HARD_STONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 35
@@ -7704,7 +7704,7 @@ mondata SPECIES_AGGRON, "Aggron"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_HARD_STONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 35
@@ -7879,7 +7879,7 @@ mondata SPECIES_VOLBEAT, "Volbeat"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_BRIGHT_POWDER
+    items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -7904,7 +7904,7 @@ mondata SPECIES_ILLUMISE, "Illumise"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_BRIGHT_POWDER
+    items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -7929,7 +7929,7 @@ mondata SPECIES_ROSELIA, "Roselia"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ABSORB_BULB, ITEM_POISON_BARB
+    items ITEM_ABSORB_BULB, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -7954,7 +7954,7 @@ mondata SPECIES_GULPIN, "Gulpin"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_BIG_PEARL
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -7979,7 +7979,7 @@ mondata SPECIES_SWALOT, "Swalot"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_BIG_PEARL
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -8004,7 +8004,7 @@ mondata SPECIES_CARVANHA, "Carvanha"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_DEEP_SEA_TOOTH
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
@@ -8029,7 +8029,7 @@ mondata SPECIES_SHARPEDO, "Sharpedo"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_DEEP_SEA_TOOTH
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
@@ -8154,7 +8154,7 @@ mondata SPECIES_TORKOAL, "Torkoal"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_CHARCOAL
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -8254,7 +8254,7 @@ mondata SPECIES_TRAPINCH, "Trapinch"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SOFT_SAND
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -8329,7 +8329,7 @@ mondata SPECIES_CACNEA, "Cacnea"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_STICKY_BARB, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
@@ -8354,7 +8354,7 @@ mondata SPECIES_CACTURNE, "Cacturne"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_STICKY_BARB, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
@@ -8429,7 +8429,7 @@ mondata SPECIES_ZANGOOSE, "Zangoose"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_QUICK_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -8454,7 +8454,7 @@ mondata SPECIES_SEVIPER, "Seviper"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_PERSIM_BERRY, ITEM_SHED_SHELL
+    items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -8629,7 +8629,7 @@ mondata SPECIES_BALTOY, "Baltoy"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -8654,7 +8654,7 @@ mondata SPECIES_CLAYDOL, "Claydol"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -8679,7 +8679,7 @@ mondata SPECIES_LILEEP, "Lileep"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_BIG_ROOT
+    items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
@@ -8704,7 +8704,7 @@ mondata SPECIES_CRADILY, "Cradily"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_BIG_ROOT
+    items ITEM_NONE, ITEM_NONE
     genderratio 31
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
@@ -8829,7 +8829,7 @@ mondata SPECIES_CASTFORM, "Castform"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_MYSTIC_WATER, ITEM_NONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
@@ -9104,7 +9104,7 @@ mondata SPECIES_GLALIE, "Glalie"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NEVER_MELT_ICE, ITEM_BABIRI_BERRY
+    items ITEM_NONE, ITEM_BABIRI_BERRY
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -9329,7 +9329,7 @@ mondata SPECIES_BAGON, "Bagon"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
@@ -9354,7 +9354,7 @@ mondata SPECIES_SHELGON, "Shelgon"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
@@ -9379,7 +9379,7 @@ mondata SPECIES_SALAMENCE, "Salamence"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
@@ -10054,7 +10054,7 @@ mondata SPECIES_BIBAREL, "Bibarel"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -10079,7 +10079,7 @@ mondata SPECIES_KRICKETOT, "Kricketot"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_METRONOME
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -10104,7 +10104,7 @@ mondata SPECIES_KRICKETUNE, "Kricketune"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_METRONOME
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -10204,7 +10204,7 @@ mondata SPECIES_BUDEW, "Budew"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -10229,7 +10229,7 @@ mondata SPECIES_ROSERADE, "Roserade"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ABSORB_BULB, ITEM_POISON_BARB
+    items ITEM_ABSORB_BULB, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -10379,7 +10379,7 @@ mondata SPECIES_WORMADAM, "Wormadam"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -10404,7 +10404,7 @@ mondata SPECIES_MOTHIM, "Mothim"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -10454,7 +10454,7 @@ mondata SPECIES_VESPIQUEN, "Vespiquen"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -10554,7 +10554,7 @@ mondata SPECIES_CHERUBI, "Cherubi"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -10579,7 +10579,7 @@ mondata SPECIES_CHERRIM, "Cherrim"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -10704,7 +10704,7 @@ mondata SPECIES_DRIFBLIM, "Drifblim"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_AIR_BALLOON
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
@@ -10954,7 +10954,7 @@ mondata SPECIES_BRONZOR, "Bronzor"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_METAL_COAT
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -10979,7 +10979,7 @@ mondata SPECIES_BRONZONG, "Bronzong"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_METAL_COAT
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -11029,7 +11029,7 @@ mondata SPECIES_MIMEJR, "Mime Jr."
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_LEPPA_BERRY
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
@@ -11054,7 +11054,7 @@ mondata SPECIES_HAPPINY, "Happiny"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_OVAL_STONE, ITEM_LUCKY_EGG
+    items ITEM_OVAL_STONE, ITEM_NONE
     genderratio 254
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 140
@@ -11079,7 +11079,7 @@ mondata SPECIES_CHATOT, "Chatot"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_METRONOME
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
@@ -11204,7 +11204,7 @@ mondata SPECIES_MUNCHLAX, "Munchlax"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_LEFTOVERS, ITEM_NONE
+    items ITEM_NONE, ITEM_LEFTOVERS
     genderratio 31
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
@@ -11329,7 +11329,7 @@ mondata SPECIES_SKORUPI, "Skorupi"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -11354,7 +11354,7 @@ mondata SPECIES_DRAPION, "Drapion"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -11529,7 +11529,7 @@ mondata SPECIES_SNOVER, "Snover"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -11554,7 +11554,7 @@ mondata SPECIES_ABOMASNOW, "Abomasnow"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -11579,7 +11579,7 @@ mondata SPECIES_WEAVILE, "Weavile"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
@@ -11629,7 +11629,7 @@ mondata SPECIES_LICKILICKY, "Lickilicky"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_LAGGING_TAIL
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -11779,7 +11779,7 @@ mondata SPECIES_YANMEGA, "Yanmega"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_WIDE_LENS
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -11954,7 +11954,7 @@ mondata SPECIES_PROBOPASS, "Probopass"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_MAGNET, ITEM_HARD_STONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -12529,7 +12529,7 @@ mondata SPECIES_WORMADAM_SANDY, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -12554,7 +12554,7 @@ mondata SPECIES_WORMADAM_TRASHY, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -14079,7 +14079,7 @@ mondata SPECIES_PANSAGE, "Pansage"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_OCCA_BERRY
+    items ITEM_NONE, ITEM_OCCA_BERRY
     genderratio 31
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -14104,7 +14104,7 @@ mondata SPECIES_SIMISAGE, "Simisage"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_OCCA_BERRY
+    items ITEM_NONE, ITEM_OCCA_BERRY
     genderratio 31
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -14129,7 +14129,7 @@ mondata SPECIES_PANSEAR, "Pansear"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_PASSHO_BERRY
+    items ITEM_NONE, ITEM_PASSHO_BERRY
     genderratio 31
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -14154,7 +14154,7 @@ mondata SPECIES_SIMISEAR, "Simisear"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_PASSHO_BERRY
+    items ITEM_NONE, ITEM_PASSHO_BERRY
     genderratio 31
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -14179,7 +14179,7 @@ mondata SPECIES_PANPOUR, "Panpour"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_RINDO_BERRY
+    items ITEM_NONE, ITEM_RINDO_BERRY
     genderratio 31
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -14204,7 +14204,7 @@ mondata SPECIES_SIMIPOUR, "Simipour"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_RINDO_BERRY
+    items ITEM_NONE, ITEM_RINDO_BERRY
     genderratio 31
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -14404,7 +14404,7 @@ mondata SPECIES_ROGGENROLA, "Roggenrola"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_EVERSTONE, ITEM_HARD_STONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -14429,7 +14429,7 @@ mondata SPECIES_BOLDORE, "Boldore"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_EVERSTONE, ITEM_HARD_STONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -14454,7 +14454,7 @@ mondata SPECIES_GIGALITH, "Gigalith"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_EVERSTONE, ITEM_HARD_STONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -14579,7 +14579,7 @@ mondata SPECIES_AUDINO, "Audino"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -14754,7 +14754,7 @@ mondata SPECIES_THROH, "Throh"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_EXPERT_BELT, ITEM_BLACK_BELT
+    items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -14779,7 +14779,7 @@ mondata SPECIES_SAWK, "Sawk"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_EXPERT_BELT, ITEM_BLACK_BELT
+    items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -14879,7 +14879,7 @@ mondata SPECIES_VENIPEDE, "Venipede"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_PECHA_BERRY, ITEM_POISON_BARB
+    items ITEM_PECHA_BERRY, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -14904,7 +14904,7 @@ mondata SPECIES_WHIRLIPEDE, "Whirlipede"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_PECHA_BERRY, ITEM_POISON_BARB
+    items ITEM_PECHA_BERRY, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -14929,7 +14929,7 @@ mondata SPECIES_SCOLIPEDE, "Scolipede"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_PECHA_BERRY, ITEM_POISON_BARB
+    items ITEM_PECHA_BERRY, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -15079,7 +15079,7 @@ mondata SPECIES_SANDILE, "Sandile"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_BLACK_GLASSES
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -15104,7 +15104,7 @@ mondata SPECIES_KROKOROK, "Krokorok"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_BLACK_GLASSES
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -15129,7 +15129,7 @@ mondata SPECIES_KROOKODILE, "Krookodile"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_BLACK_GLASSES, ITEM_NONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -15204,7 +15204,7 @@ mondata SPECIES_MARACTUS, "Maractus"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -15229,7 +15229,7 @@ mondata SPECIES_DWEBBLE, "Dwebble"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_HARD_STONE, ITEM_RARE_BONE
+    items ITEM_NONE, ITEM_RARE_BONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -15254,7 +15254,7 @@ mondata SPECIES_CRUSTLE, "Crustle"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_HARD_STONE, ITEM_RARE_BONE
+    items ITEM_NONE, ITEM_RARE_BONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -15279,7 +15279,7 @@ mondata SPECIES_SCRAGGY, "Scraggy"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SHED_SHELL
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 35
@@ -15304,7 +15304,7 @@ mondata SPECIES_SCRAFTY, "Scrafty"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SHED_SHELL
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -15504,7 +15504,7 @@ mondata SPECIES_TRUBBISH, "Trubbish"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_SILK_SCARF, ITEM_NONE
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -15529,7 +15529,7 @@ mondata SPECIES_GARBODOR, "Garbodor"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_SILK_SCARF, ITEM_NONE
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -15854,7 +15854,7 @@ mondata SPECIES_VANILLITE, "Vanillite"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -15879,7 +15879,7 @@ mondata SPECIES_VANILLISH, "Vanillish"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -15904,7 +15904,7 @@ mondata SPECIES_VANILLUXE, "Vanilluxe"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NEVER_MELT_ICE, ITEM_NONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -16229,7 +16229,7 @@ mondata SPECIES_FERROSEED, "Ferroseed"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_STICKY_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -16254,7 +16254,7 @@ mondata SPECIES_FERROTHORN, "Ferrothorn"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_STICKY_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -16679,7 +16679,7 @@ mondata SPECIES_CRYOGONAL, "Cryogonal"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
@@ -16754,7 +16754,7 @@ mondata SPECIES_STUNFISK, "Stunfisk"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SOFT_SAND
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -16829,7 +16829,7 @@ mondata SPECIES_DRUDDIGON, "Druddigon"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_DRAGON_FANG
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
@@ -16854,7 +16854,7 @@ mondata SPECIES_GOLETT, "Golett"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
@@ -16879,7 +16879,7 @@ mondata SPECIES_GOLURK, "Golurk"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
@@ -17079,7 +17079,7 @@ mondata SPECIES_HEATMOR, "Heatmor"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_FLAME_ORB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -17229,7 +17229,7 @@ mondata SPECIES_VOLCARONA, "Volcarona"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_SILVER_POWDER, ITEM_NONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
@@ -18904,7 +18904,7 @@ mondata SPECIES_GOOMY, "Goomy"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SHED_SHELL
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
@@ -18929,7 +18929,7 @@ mondata SPECIES_SLIGGOO, "Sliggoo"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SHED_SHELL
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
@@ -19579,7 +19579,7 @@ mondata SPECIES_PIKIPEK, "Pikipek"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_ORAN_BERRY
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -19979,7 +19979,7 @@ mondata SPECIES_MAREANIE, "Mareanie"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -20004,7 +20004,7 @@ mondata SPECIES_TOXAPEX, "Toxapex"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -20029,7 +20029,7 @@ mondata SPECIES_MUDBRAY, "Mudbray"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -20054,7 +20054,7 @@ mondata SPECIES_MUDSDALE, "Mudsdale"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -20079,7 +20079,7 @@ mondata SPECIES_DEWPIDER, "Dewpider"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_MYSTIC_WATER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -20104,7 +20104,7 @@ mondata SPECIES_ARAQUANID, "Araquanid"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_MYSTIC_WATER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -20129,7 +20129,7 @@ mondata SPECIES_FOMANTIS, "Fomantis"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -20154,7 +20154,7 @@ mondata SPECIES_LURANTIS, "Lurantis"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -20704,7 +20704,7 @@ mondata SPECIES_TURTONATOR, "Turtonator"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_CHARCOAL
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -20779,7 +20779,7 @@ mondata SPECIES_BRUXISH, "Bruxish"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_RAZOR_FANG
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -20854,7 +20854,7 @@ mondata SPECIES_JANGMO_O, "Jangmo-o"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_RAZOR_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
@@ -20879,7 +20879,7 @@ mondata SPECIES_HAKAMO_O, "Hakamo-o"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_RAZOR_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
@@ -20904,7 +20904,7 @@ mondata SPECIES_KOMMO_O, "Kommo-o"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_RAZOR_CLAW, ITEM_NONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
@@ -27034,7 +27034,7 @@ mondata SPECIES_MEGA_BEEDRILL, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
@@ -27494,7 +27494,7 @@ mondata SPECIES_MEGA_AGGRON, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_HARD_STONE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 35
@@ -27654,7 +27654,7 @@ mondata SPECIES_MEGA_GLALIE, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
@@ -28017,7 +28017,7 @@ mondata SPECIES_SANDSHREW_ALOLAN, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_GRIP_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -28101,7 +28101,7 @@ mondata SPECIES_DIGLETT_ALOLAN, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SOFT_SAND
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -28122,7 +28122,7 @@ mondata SPECIES_DUGTRIO_ALOLAN, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_SOFT_SAND
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -28143,7 +28143,7 @@ mondata SPECIES_MEOWTH_ALOLAN, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_QUICK_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -28164,7 +28164,7 @@ mondata SPECIES_PERSIAN_ALOLAN, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_QUICK_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -28269,7 +28269,7 @@ mondata SPECIES_MUK_ALOLAN, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -29025,7 +29025,7 @@ mondata SPECIES_CASTFORM_SUNNY, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_MYSTIC_WATER, ITEM_MYSTIC_WATER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
@@ -29046,7 +29046,7 @@ mondata SPECIES_CASTFORM_RAINY, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_MYSTIC_WATER, ITEM_MYSTIC_WATER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
@@ -29067,7 +29067,7 @@ mondata SPECIES_CASTFORM_SNOWY, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_MYSTIC_WATER, ITEM_MYSTIC_WATER
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
@@ -29088,7 +29088,7 @@ mondata SPECIES_CHERRIM_SUNSHINE, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -31965,7 +31965,7 @@ mondata SPECIES_QWILFISH_HISUIAN, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_POISON_BARB
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
@@ -31986,7 +31986,7 @@ mondata SPECIES_SNEASEL_HISUIAN, "-----"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
