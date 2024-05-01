@@ -1025,12 +1025,12 @@ heightentry SPECIES_TINKATUFF, 3, 3, 0, 0
 heightentry SPECIES_TINKATON, 3, 3, 0, 0
 heightentry SPECIES_WIGLETT, 0, 0, 0, 0
 heightentry SPECIES_WUGTRIO, 0, 0, 0, 0
-heightentry SPECIES_BOMBIRDIER, 3, 3, 0, 0
+heightentry SPECIES_BOMBIRDIER, 0, 0, 0, 0
 heightentry SPECIES_FINIZEN, 3, 3, 0, 0
 heightentry SPECIES_PALAFIN, 3, 3, 0, 0
-heightentry SPECIES_VAROOM, 3, 3, 0, 0
-heightentry SPECIES_REVAVROOM, 3, 3, 0, 0
-heightentry SPECIES_CYCLIZAR, 3, 3, 0, 0
+heightentry SPECIES_VAROOM, 0, 0, 0, 0
+heightentry SPECIES_REVAVROOM, 0, 0, 0, 0
+heightentry SPECIES_CYCLIZAR, 0, 0, 0, 0
 heightentry SPECIES_ORTHWORM, 0, 0, 0, 0
 heightentry SPECIES_GLIMMET, 3, 3, 0, 0
 heightentry SPECIES_GLIMMORA, 3, 3, 0, 0
