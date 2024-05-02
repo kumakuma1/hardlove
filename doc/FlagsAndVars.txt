@@ -1,12 +1,12 @@
 Flag
 
 106             - 061-T20R0101 : Script File 843, Script 13: StarterSelection Screen
-154             - 061-T20R0101 : Script File 225 - Function 25: CatchTutorial
+154             - 061-T20R0101 : Script File 225 - Function 25: CatchTutorial done -  Prof Elm sets after receiving balls
 345             - 158-T22PC0101: Script File 860 - Maarep-Egg from Primo
 345             - 158-T22PC0101: Script File 860 - Wooper-Egg from Primo
 345             - 158-T22PC0101: Script File 860 - Slugma-Egg from Primo
-420             - 061-T20R0101 : Script File 225 - Function 25: CatchTutorial
-421             - "
+420             - 061-T20R0101 : Script File 225 - Function 25: Hide Friend. Flag is set.
+421             - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
 
 
 
@@ -18,3 +18,4 @@ Variable
 
 
 16420 (0x4024) - Unused. Use for Whitney Rematch
+16523 (0x408B) - Catching Tutorial trigger - Prof Elm sets to zero after receiving balls
