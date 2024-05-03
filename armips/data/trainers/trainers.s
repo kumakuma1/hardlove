@@ -31,10 +31,10 @@ LEVEL_BUGSY equ 22 /* Also used for Silver */
 LEVEL_GOLDENROD equ 26 /* Also used for Lyra */
 LEVEL_WHITNEY equ 27 /* Also used for Silver */
 LEVEL_ECRUTEAK equ 31
-LEVEL_MORTY equ 32
+LEVEL_MORTY equ 35
 LEVEL_CHUCK equ 40
 LEVEL_JASMINE equ 46
-LEVEL_PRYZE equ 52
+LEVEL_PRYCE equ 52
 LEVEL_WHITNEY_REMATCH equ 56
 
 trainerdata 0, "-"
@@ -1487,7 +1487,7 @@ trainerdata 32, "Pryce"
     party 32
         ivs 0
         abilityslot 0
-        level LEVEL_PRYZE-1
+        level LEVEL_PRYCE-1
         pokemon SPECIES_QWILFISH
         item ITEM_CUSTAP_BERRY // SHUCA//CUSTAP/SASH ?
         move MOVE_AQUA_JET
@@ -1505,7 +1505,7 @@ trainerdata 32, "Pryce"
 				
 	    ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         pokemon SPECIES_FROSLASS
         item ITEM_CHOICE_SCARF
         move MOVE_BLIZZARD
@@ -1523,7 +1523,7 @@ trainerdata 32, "Pryce"
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_PRYZE-1
+        level LEVEL_PRYCE-1
         pokemon SPECIES_ARCTOZOLT
         item ITEM_LIFE_ORB
         move MOVE_WILD_CHARGE // MOVE_BOLT_BEAK
@@ -1541,7 +1541,7 @@ trainerdata 32, "Pryce"
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_PRYZE-1
+        level LEVEL_PRYCE-1
         monwithform SPECIES_NINETALES, 1 //_ALOLAN
         item ITEM_FOCUS_SASH
         move MOVE_DAZZLING_GLEAM
@@ -1559,7 +1559,7 @@ trainerdata 32, "Pryce"
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         pokemon SPECIES_ARTICUNO
         item ITEM_LEFTOVERS
         move MOVE_BLIZZARD
@@ -1577,7 +1577,7 @@ trainerdata 32, "Pryce"
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         pokemon SPECIES_ABOMASNOW
         item ITEM_ABOMASITE
         move MOVE_GIGA_DRAIN
@@ -17110,7 +17110,7 @@ trainerdata 479, "Ariana"
     party 479
 		ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         pokemon SPECIES_EMPOLEON
         item ITEM_SHUCA_BERRY
         move MOVE_SCALD
@@ -17128,7 +17128,7 @@ trainerdata 479, "Ariana"
 		
 		ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         pokemon SPECIES_ALTARIA
         item ITEM_ALTARIANITE
         move MOVE_HYPER_VOICE
@@ -17146,7 +17146,7 @@ trainerdata 479, "Ariana"
 		
         ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         pokemon SPECIES_ARCANINE
         item ITEM_LIFE_ORB
         move MOVE_FLARE_BLITZ
@@ -18056,7 +18056,7 @@ trainerdata 499, "Proton"
     party 499
 		ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         pokemon SPECIES_MAMOSWINE
         item ITEM_LIFE_ORB
         move MOVE_ICE_SHARD
@@ -18074,7 +18074,7 @@ trainerdata 499, "Proton"
 		
         ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         monwithform SPECIES_ROTOM, 2 // rotom wash
         item ITEM_LEFTOVERS
         move MOVE_SCALD
@@ -18092,7 +18092,7 @@ trainerdata 499, "Proton"
 		
 		ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         pokemon SPECIES_MAWILE
         item ITEM_MAWILITE
         move MOVE_PLAY_ROUGH
@@ -24014,7 +24014,7 @@ trainerdata 675, "Lance"
     party 675
 		ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         pokemon SPECIES_SALAMENCE
         item ITEM_SALAMENCITE
         move MOVE_DOUBLE_EDGE
@@ -24032,7 +24032,7 @@ trainerdata 675, "Lance"
 		
 		ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         pokemon SPECIES_GARCHOMP
         item ITEM_LIFE_ORB
         move MOVE_DRAGON_CLAW
@@ -24050,7 +24050,7 @@ trainerdata 675, "Lance"
 		
         ivs 0
         abilityslot 0
-        level LEVEL_PRYZE
+        level LEVEL_PRYCE
         pokemon SPECIES_DRAGONITE
         item ITEM_CHOICE_SCARF
         move MOVE_DRAGON_CLAW
