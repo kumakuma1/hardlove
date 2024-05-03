@@ -1048,7 +1048,7 @@ heightentry SPECIES_FARIGIRAF, 0, 0, 0, 0
 heightentry SPECIES_DUDUNSPARCE, 3, 3, 0, 0
 heightentry SPECIES_KINGAMBIT, 3, 3, 0, 0
 heightentry SPECIES_GREAT_TUSK, 3, 3, 0, 0
-heightentry SPECIES_SCREAM_TAIL, 0, 0, 0, 0
+heightentry SPECIES_SCREAM_TAIL, 3, 3, 0, 0
 heightentry SPECIES_BRUTE_BONNET, 0, 0, 0, 0
 heightentry SPECIES_FLUTTER_MANE, 0, 0, 0, 0
 heightentry SPECIES_SLITHER_WING, 3, 3, 0, 0
