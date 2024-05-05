@@ -189,7 +189,13 @@ TODO:
 - fishing encounter
 - surf encounter
 
-
+-----------------------------
+Route 34
+-----------------------------
+- After receiving the Mega-Ring, the player can earn a Choice Scarf in the Gauntlet against 3 Ace Trainers.
+TODO:
+- make trainer mandatory
+- scale level of gauntlet
 
 -----------------------------
 Goldenrod
@@ -215,7 +221,7 @@ TODO:
 -----------------------------
 Goldenrod - Rocket
 -----------------------------
-- 
+- Before entering tower, Whitney challenges to a rematch
 TODO:
 - (rescuing director gives mega-ring?)
 - tag battle with giovanni

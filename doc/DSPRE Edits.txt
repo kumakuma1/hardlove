@@ -67,50 +67,10 @@ SetVar 0x8005 1
 CommonScript 2033
 
 
-Candy refill:
-106 I am the re-filler.
-107 Here ya go!
-108 You're set!
-
-Script 17:
-	PlayFanfare 1500
-	LockAll 
-	Message 106 I am the re-filler.
-Jump Function#73
-
-Function 73:
-	SetVar 0x8004 50
-	SetVar 0x8005 100
-	CheckItemSpace 0x8004 0x8005 0x800C
-	CompareVarValue 0x800C 0
-	JumpIf EQUAL Function#74
-Jump Function#75
-
-Function 74:
-	Message 108
-	WaitButton
-	CloseMessage 
-	ReleaseAll 
-End
-
-Function 75:
-	Message 107
-	SetVar 0x8004 50
-	SetVar 0x8005 99
-	CommonScript 2008
-Jump Function#73
-
-
-
 
 Delete old Rod guy
 169 R32PC0101 : Script File 163 - ID 04 - Script 2
 
-
-
-More Pokeballs:
-033 R29 : Script File 225 - Function 25
-SetVar 0x8005 50
 
 
 Disable Catch Tutorial:
@@ -1064,3 +1024,193 @@ End
 49: Whitney: You came to see me?!\nThat’s so cute! I have time now.\rWhere are we gonna do?\r...\rWhat do mean by other reasons...?\rWhat about Team Rocket?!?!\r...\r
 50: Whitney: There is no Team Rocket!\rI thought you were different!\r...\rHmmpf. I am furious! I will show you\nin a fight!\rThe boys will deal with you!\r
 51: Whitney: OMG! You are so strong!\rI have to think about it...\rBut you can have this. See ya!\r
+
+
+Mega-Ring
+202 D37R0105: Script File 79 : Event File 195: Text Archive 120
+Director Script 2:
+..
+    Message 2
+    SetVar 0x8004 763
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 3
+	WaitButton
+    SetFlag 189
+..
+Remove Message 2 in Function 2
+
+
+0: Director: Who? What? You came to\nrescue me? Oh thank God!\rThe Radio Tower!\nTeam Rocket took over it.\rWe could not stop them.\nThis Archer guy is to powerful.\rHe wants to demonstrate some sort of\ntechnology.\rSomething about controling Pokemon.\rYou have to stop them!\nHere. Take this Card Key.\r
+
+2: Director: Use that to open the\nshutters on 3F.\rArcher is incredibly strong. You’ll\nneed as much help as possible when\fyou face him.\rTake this too. I was not able to\nbeat him.\rMaybe the Ring serves you better\nthan me.\r
+
+3: I’m begging you to help.\rThere’s no telling what they’ll do if\nthey control the transmitter.\rYou’re the only one I can call on.\nPlease save the Radio Tower...\fand the World!
+
+
+
+Choice Scarf Gauntlet
+
+Route 34
+038 R34: Script File 237 : Event File 35: Text Archive 384
+Add OW (ID 16), Entry 17, Flag 189 - FLAG_GOT_GOOD_ROD
+50: Below is the Choice Scarf Gauntlet.\rYou can challenge the Ladies in a\nGauntlet to earn a Choice Scarf.\rBut you need a Mega-Ring to do so...
+
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 50
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End
+
+Script 5:
+	MecScript 
+	LockAll 
+	//CountAlivePokemonExceptFirst 0x4003 6
+	//CompareVarValue 0x4003 1
+	//JumpIf DIFFERENT Function#5
+Jump Function#6
+....
+Function 6:
+	Movement Overworld.6 Action#21
+	WaitMovement 
+	Message 26
+	...
+	CloseMessage 
+	Movement Overworld.7 Action#12, Action#12 plus one step
+	StopMusic 0
+	PlayMusic 1107
+	WaitMovement 
+	Movement Player Action#47
+	WaitMovement 
+	Message 28
+    CloseMessage 
+	StopMusic 0
+	TrainerBattle 118 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	SetVar 0x4097 2
+    Message 30
+	SetVar 0x8004 287
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CommonScript 2033
+	SetVar 0x4097 3
+	Message 32
+	WaitButton 
+	CloseMessage
+	ReleaseAll 
+End
+
+Function 15:
+	SetVar 0x8004 287
+	SetVar 0x8005 1
+
+
+
+
+Action 47:
+	LookDown 0x1
+End
+
+19: Irene: You want a Choice Scarf?!\nYou are to weak to win!\r
+21: Irene: You might have a chance!\r
+22: ..
+23: Irene: I love being a Choice Scarf\nGauntlet Girl!
+24: Jenn: Uhh a real challenger for the\nChoice Scarf?!\r
+
+27: Jenn: You and us... We might as well\nbecome friends!\rMaybe friends with benefits! ;)
+28: Kate: Huh. You beat my sisters.\nImpressive.\rIf you beat me, I will reward you\nwith a Choice Scarf.\r
+
+32: Kate: Congratulations!\nYou earned the Choice Scarf!
+
+
+
+
+Bugsy Rematch Route 46
+Whitney sets variable in Goldenrod
+...
+SetVar 0x4024 2
+
+Route 46
+076 T25: Script File 885 : Event File 73: Text Archive 581
+Add trigger:
+watch: 16420, when 2, script XX
+
+Add Bugsy (ID 20??), add Scizor?
+
+Script XX:
+    MecScript
+	PlayFanfare 1538
+    LockAll 
+    LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+
+	Message....
+	//Fly away
+CMD_775 8 10
+	SetFlag 484
+	RemoveOW Overworld.8
+	RemoveOW Overworld.10
+
+
+
+
+
+
+Cut Scene on Route 47, after Bridge
+
+Mom initializes in 063
+SetVar 0x4025 0
+...
+Use Flag 420?
+
+Route 47
+151 R47: Script File 260 : Event File 146: Text Archive 407
+Add trigger:
+watch: 16421, when 0, script 8
+
+Add Grunt 1 (ID ??)
+Add Grunt 2 (ID ??)
+Add Grunt 3 (ID ??) in water to block path.
+
+Script 8:
+    MecScript
+	PlayFanfare 1538
+	LockAll 
+    LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+    Message 11
+	CloseMessage
+	Movement Player Action#6
+    WaitMovement
+
+	Message 12
+	Message 13
+	CloseMessage
+
+	SetFlag XXX
+    SetVar 0x4025 1
+	ReleaseAll 
+End 
+
+//player action
+Action 6:
+	WalkLeftFast 0x2
+End
+
+
+11: Grunt 1: Bro, I am telling you. This is is the cave!
+12: Grunt 2: No, this is not it. The Lore says something about whirlpools protecting the cave.
+13: Grunt 1: Ah, fuck the Lore. People always create crazy stuff in those tales about legendary Pokemon. I am certain, this is the cave!
+			 Grunt 2: Are you sure?
+			 Yea. Trust me, bro. The Boss will be pleased when we inform him about the location of this Pokemon. He is looking for it quite some while.
+			 Let's go. You first!
