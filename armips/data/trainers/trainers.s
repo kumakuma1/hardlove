@@ -25608,7 +25608,7 @@ trainerdata 713, "Bugsy"
         item ITEM_LIFE_ORB
         move MOVE_SLUDGE_BOMB
         move MOVE_DRACO_METEOR
-        move MOVE_THUNDER_BOLT
+        move MOVE_THUNDERBOLT
         move MOVE_U_TURN
         ability ABILITY_BEAST_BOOST
         ball ITEM_POKE_BALL
