@@ -25500,7 +25500,7 @@ trainerdata 712, "Falkner"
 
 trainerdata 713, "Bugsy"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LEADER
+    trainerclass CLASS_LEADER_F
     nummons 6
     item ITEM_MEGA_RING
     item ITEM_NONE
