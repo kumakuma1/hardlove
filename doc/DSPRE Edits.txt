@@ -851,6 +851,17 @@ Function 5:
 	//CutAnimation 0x8004
 	...
 
+Make Strength usable with TM:
+Function 6:
+	//CheckMoveInParty 0x800C 70
+	//CompareVarValue 0x800C 6
+CheckItem 425 1 0x800C
+CompareVarValue 0x800C 0
+
+function 35:
+CheckMoveInParty 0x800C 70 -> GetFirstAlivePokemonSlot 0x800C
+
+script 3 -> Function
 
 	Rock Climb
 	Script 4:
@@ -961,7 +972,6 @@ Script 34:
 	CloseMessage
     Movement Player Action#28
     WaitMovement
-    WaitMovement 
 	WaitFollowingPoke 
 	LockFollowingPoke 1
 	SetFollowingPokeMovement 48
@@ -1145,24 +1155,61 @@ watch: 16420, when 2, script XX
 
 Add Bugsy (ID 20??), add Scizor?
 
-Script XX:
+Script 4:
     MecScript
 	PlayFanfare 1538
     LockAll 
     LockFollowingPoke 0
 	WaitFollowingPoke 
 	SetFollowingPokeMovement 55
+    TextPlayerName 0
+	GenderMessage 4 5
+	CloseMessage
+    SetOWPosition Overworld.7 639 0 332 Left
+    SetOWPosition Overworld.8 640 0 332 Left
+    Movement Player Action#1
+    Movement Overworld.7 Action#2
+    Movement Overworld.8 Action#2
+    WaitMovement
+    Message 6
+    CloseMessage 
+	TrainerBattle 713 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#2
+    Message 7
+    SetVar 0x8004 554
+    SetVar 0x8005 1
+	CommonScript 2033
+    SetVar 0x8004 555
+    SetVar 0x8005 1
+	CommonScript 2033
+    Message 8
+    CloseMessage
+    CMD_775 7 8
+    SetOWPosition Overworld.7 621 0 322 Down
+    SetOWPosition Overworld.8 620 0 322 Down 
+    SetVar 0x4024 3
+	ReleaseAll 
+End 
 
 	Message....
 	//Fly away
-CMD_775 8 10
+CMD_775 7 8
 	SetFlag 484
 	RemoveOW Overworld.8
 	RemoveOW Overworld.10
 
 
+Action 1:
+	WalkDownFast 0x2
+End
 
-
+4: Bugsy: Hey, \v0103ぁ\x0000\x0000!\r
+5: Bugsy: Hey, \v0103ぁ\x0000\x0000!\r
+6: Bugsy: What are you doing here?\r...\rYou collected quite some badges. Wow!\nYou have grown pretty strong.\rSince this is my training ground,\nhow about a little fight?\rLet’s see what you learned.\r
+7: Bugsy: That’s is what I call Training!\nYou have become very powerful.\rSuch a wonderful experience to meet\nyou here again.\rI will give you these.
+8: Bugsy: I will be on my way now.\nScizor, let’s go.\r
 
 
 Cut Scene on Route 47, after Bridge
