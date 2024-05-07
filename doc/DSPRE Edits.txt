@@ -863,13 +863,38 @@ CheckMoveInParty 0x800C 70 -> GetFirstAlivePokemonSlot 0x800C
 
 script 3 -> Function
 
-	Rock Climb
+Rock Climb
 	Script 4:
 	CheckMoveInParty 0x800C 431 -> CheckItem 427 1 0x800C
 	                               CompareVarValue 0x800C 0
 
 	Function 10:
 	CheckMoveInParty 0x800C 431 -> GetFirstAlivePokemonSlot 0x800C
+
+
+
+Waterfall
+script 6:
+	//CheckMoveInParty 0x800C 127
+	//CompareVarValue 0x800C 6
+	//JumpIf EQUAL Function#14
+	-> CheckItem 426 1 0x800C
+	CompareVarValue 0x800C 0
+
+Function 15:
+	CheckMoveInParty 0x800C 127 -> GetFirstAlivePokemonSlot 0x800C
+
+
+Whirlpool
+script 17:
+	//CheckMoveInParty 0x800C 250
+	//CompareVarValue 0x800C 6
+	//JumpIf EQUAL Function#14
+	-> CheckItem 425 1 0x800C
+	CompareVarValue 0x800C 0
+
+	Function 27:
+	CheckMoveInParty 0x800C 250 -> GetFirstAlivePokemonSlot 0x800C
 ####
 
 VS Box
@@ -1212,6 +1237,29 @@ End
 8: Bugsy: I will be on my way now.\nScizor, let’s go.\r
 
 
+
+
+Block Kanto until after Badge 8:
+
+3 NPCs, Flag : FLAG_GOT_TM59_FROM_CLAIR : 218
+
+Script 6:  7:  8:
+	PlayFanfare 1500
+	LockAll 
+	Message 4 / 5 / 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+4:Kanto sieht schon gudd aus!\nGugge mol was die alles hann.
+5:Sagenhaft! Du, Kanto kann was.\nMei liewer Scholli.
+6:Oh, ich finns dehäm scheener. Immer\nschleppe die mich mit uf ihr Reise do.
+
+
+
+
+
 Cut Scene on Route 47, after Bridge
 
 Mom initializes in 063
@@ -1261,3 +1309,8 @@ End
 			 Grunt 2: Are you sure?
 			 Yea. Trust me, bro. The Boss will be pleased when we inform him about the location of this Pokemon. He is looking for it quite some while.
 			 Let's go. You first!
+
+
+
+
+

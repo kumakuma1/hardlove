@@ -1,4 +1,4 @@
-- Cut, Rock Smash, Rock Climb can be used without teaching the move. Only the HM and the badge are required
+- Cut, Rock Smash, Rock Climb, Strength, Whirlpool, Waterfall can be used without teaching the move. Only the HM and the badge are required
 - Rock Climb usable after Jasmine
 
 -----------------------------
@@ -292,7 +292,7 @@ TODO:
 -----------------------------
 Cianwood City
 -----------------------------
-- Eusin gives ITEM_MANECTITE and randomly Life Orb, Choice Specs, Choice Band
+- Eusin gives Manectite and randomly Life Orb, Choice Specs, Choice Band
 - Guy in the Photographer's house gives random fossil pokemon
 - Chuck gives TM60 Drain Punch
 TODO:
@@ -328,9 +328,9 @@ TODO:
 -----------------------------
 Radio Tower
 -----------------------------
-TODO:
 - Rescuing Director gives Mega-Ring
-- Gauntlet with Giovanni
+TODO:
+- Perma Tailwind, Sun at Archer
 
 
 -----------------------------
@@ -340,11 +340,29 @@ TODO:
 - Replace Dratini by Random Pseudo legendary
 
 
+
+-----------------------------
+Route 46 - Uppper Part
+-----------------------------
+- When entering Dark Cave, Bugsy appears and challenges for a rematch. Gives Scizorite, Heracrossnite
+TODO:
+- Rain, Encounter, Trainer, Items
+
+
 -----------------------------
 Kimono Gauntlet
 -----------------------------
 TODO:
 - Give Mega-stones instead of Ho-Oh Encounter
+
+
+
+-----------------------------
+Route 27
+-----------------------------
+- Blocked until Badge 8 is received. Surf Area still accessable.
+TODO:
+- 
 
 -----------------------------
 Elite Four
