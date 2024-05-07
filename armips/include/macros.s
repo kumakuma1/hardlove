@@ -17,22 +17,7 @@
 .endmacro
 
 .macro learnset,move,level
-.if move <= MOVE_FLYING_PRESS
     .word (level << 16 | move)
-.else
-	.if move == MOVE_DRAINING_KISS
-		.word (level << 16 | move)
-	.endif
-	.if move == MOVE_MOONBLAST
-		.word (level << 16 | move)
-	.endif
-	.if move == MOVE_PLAY_ROUGH
-		.word (level << 16 | move)
-	.endif
-	.if move == MOVE_NUZZLE
-		.word (level << 16 | move)
-	.endif
-.endif
 .endmacro
 
 .macro terminatelearnset
