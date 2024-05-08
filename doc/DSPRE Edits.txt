@@ -890,7 +890,7 @@ script 17:
 	//CheckMoveInParty 0x800C 250
 	//CompareVarValue 0x800C 6
 	//JumpIf EQUAL Function#14
-	-> CheckItem 425 1 0x800C
+	-> CheckItem 424 1 0x800C
 	CompareVarValue 0x800C 0
 
 	Function 27:
@@ -1255,6 +1255,58 @@ End
 4:Kanto sieht schon gudd aus!\nGugge mol was die alles hann.
 5:Sagenhaft! Du, Kanto kann was.\nMei liewer Scholli.
 6:Oh, ich finns dehäm scheener. Immer\nschleppe die mich mit uf ihr Reise do.
+
+
+Quizz in Dragon's Den:
+288 D44R0103: Script File 112 : Event File 259: Text Archive 130
+Remove Photographer and script 6
+
+
+Levelscript Script 4:
+Make all Dialoge options to zero, remove jump
+	CreateMultiTouchBox 292 255 0
+	CreateMultiTouchBox 293 255 0
+	CreateMultiTouchBox 294 255 0
+	CloseMultiTouch 
+	CloseTouchScreen 
+	//CompareVarValue 0x800C 1
+	//JumpIf EQUAL Function#6
+remove version Check and Lugia Text
+	//CheckVersion 0x800C
+	//CompareVarValue 0x800C 7
+	//JumpIf DIFFERENT Function#7
+	//Message 20
+...
+	RemoveOW Overworld.3
+	CommonScript 2045
+	WaitSound 
+	Movement Overworld.0 Action#14
+	WaitMovement 
+	TextPlayerName 0
+	Message 33
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 2456
+	SetFlag 234
+	ClearFlag 521
+	SetVar 0x40C4 1
+	SetFlag 741
+	SetVar 0x40C3 1
+	SetVar 0x407B 1
+	SetVar 0x4108 8
+	ClearFlag 422
+	SetVar 0x4081 1
+End 
+
+33: \v0103ぁ\x0000\x0000!\nYou now collected all 8 badges.\rThis means you deemed yourself worthy\nof challenging the Elite Four.\rThe Elite Four are the most powerful\nTrainers.\rNot many are ever make it to challenge\nthem.\rPrepare yourself for the last part of\nyour journey. Good luck!\r
+
+
+
+
+
+
+
+
 
 
 
