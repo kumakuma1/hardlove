@@ -101,6 +101,10 @@
 // modern generations have this value at 160, older ones at 220.  still max out at 255
 #define FRIENDSHIP_EVOLUTION_THRESHOLD 160
 
+// RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle
+// comment out the line below to keep vanilla behavior
+#define RESTORE_ITEMS_AT_BATTLE_END
+
 #define RANDOM_3_MAX_IVS
 #define RANDOM_3_MAX_IVS_FLAG 2599
 
