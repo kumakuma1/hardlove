@@ -1301,11 +1301,106 @@ End
 33: \v0103ぁ\x0000\x0000!\nYou now collected all 8 badges.\rThis means you deemed yourself worthy\nof challenging the Elite Four.\rThe Elite Four are the most powerful\nTrainers.\rNot many are ever make it to challenge\nthem.\rPrepare yourself for the last part of\nyour journey. Good luck!\r
 
 
+Function 5:
+	PlaySound 1188
+	WaitSound
+    SetFlag 2599 
+	GetRandom 0x800C 10
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#8
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#9
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#10
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#11
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#12
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#13
+	CompareVarValue 0x800C 6
+	CallIf EQUAL Function#14
+	CompareVarValue 0x800C 7
+	CallIf EQUAL Function#15
+	CompareVarValue 0x800C 8
+	CallIf EQUAL Function#16
+	CompareVarValue 0x800C 9
+	CallIf EQUAL Function#17
+	TextPlayerName 0
+	TextPokemon 1 0x4002 0 0
+	Message 34
+	TextPokemon 0 0x4002 0 0
+	Message 32
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	CallIf DIFFERENT Function#18
+Jump Function#2
 
 
 
+Function 8:
+    SetFlag 2600
+    SetVarFromFlexible 0x4002 147
+	GivePokemon 0x4002 10 0 0 0 0x800C
+	ReplaceMove 0x8005 0 245
+Return 
 
+Function 9:
+    SetVarFromFlexible 0x4002 246
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
 
+Function 10:
+    SetVarFromFlexible 0x4002 371
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 11:
+    SetVarFromFlexible 0x4002 374
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 12:
+    SetFlag 2600
+    SetVarFromFlexible 0x4002 443
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 13:
+    SetVarFromFlexible 0x4002 683
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 14:
+    SetVarFromFlexible 0x4002 832
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 15:
+    SetVarFromFlexible 0x4002 935
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 16:
+    SetVarFromFlexible 0x4002 755
+	GivePokemon 0x4002 30 0 0 0 0x800C
+Return 
+
+Function 17:
+    SetVarFromFlexible 0x4002 1324
+	GivePokemon 0x4002 30 0 0 0 0x800C
+Return 
+
+Function 18:
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	ChoosePokemonNickname 0x8005 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Jump Function#2
 
 
 
