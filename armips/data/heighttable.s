@@ -915,7 +915,7 @@ heightentry SPECIES_SIZZLIPEDE, 3, 3, 0, 0
 heightentry SPECIES_CENTISKORCH, 3, 3, 0, 0
 heightentry SPECIES_CLOBBOPUS, 3, 3, 0, 0
 heightentry SPECIES_GRAPPLOCT, 3, 3, 0, 0
-heightentry SPECIES_SINISTEA, 0, 0, 0, 0
+heightentry SPECIES_SINISTEA, 3, 3, 0, 0
 heightentry SPECIES_POLTEAGEIST, 0, 0, 0, 0
 heightentry SPECIES_HATENNA, 3, 3, 0, 0
 heightentry SPECIES_HATTREM, 3, 3, 0, 0
@@ -931,7 +931,7 @@ heightentry SPECIES_MR_RIME, 3, 3, 0, 0
 heightentry SPECIES_RUNERIGUS, 3, 3, 0, 0
 heightentry SPECIES_MILCERY, 3, 3, 0, 0
 heightentry SPECIES_ALCREMIE, 3, 3, 0, 0
-heightentry SPECIES_FALINKS, 0, 0, 0, 0
+heightentry SPECIES_FALINKS, 3, 3, 0, 0
 heightentry SPECIES_PINCURCHIN, 0, 0, 0, 0
 heightentry SPECIES_SNOM, 3, 3, 0, 0
 heightentry SPECIES_FROSMOTH, 0, 0, 0, 0
@@ -1025,12 +1025,12 @@ heightentry SPECIES_TINKATUFF, 3, 3, 0, 0
 heightentry SPECIES_TINKATON, 3, 3, 0, 0
 heightentry SPECIES_WIGLETT, 0, 0, 0, 0
 heightentry SPECIES_WUGTRIO, 0, 0, 0, 0
-heightentry SPECIES_BOMBIRDIER, 0, 0, 0, 0
+heightentry SPECIES_BOMBIRDIER, 3, 3, 0, 0
 heightentry SPECIES_FINIZEN, 3, 3, 0, 0
 heightentry SPECIES_PALAFIN, 3, 3, 0, 0
-heightentry SPECIES_VAROOM, 0, 0, 0, 0
-heightentry SPECIES_REVAVROOM, 0, 0, 0, 0
-heightentry SPECIES_CYCLIZAR, 0, 0, 0, 0
+heightentry SPECIES_VAROOM, 3, 3, 0, 0
+heightentry SPECIES_REVAVROOM, 3, 3, 0, 0
+heightentry SPECIES_CYCLIZAR, 3, 3, 0, 0
 heightentry SPECIES_ORTHWORM, 0, 0, 0, 0
 heightentry SPECIES_GLIMMET, 3, 3, 0, 0
 heightentry SPECIES_GLIMMORA, 3, 3, 0, 0
