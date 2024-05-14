@@ -778,8 +778,7 @@ struct __attribute__((packed)) BattlePokemon
                u32 parental_bond_flag : 2;
                u32 parental_bond_is_active : 1;
                u32 ability_activated_flag : 1;
-               u32 protean_flag : 1;
-               u32 : 5; // need to add to ClearBattleMonFlags when added to here as well
+               u32 : 6; // need to add to ClearBattleMonFlags when added to here as well
     /* 0x2c */ u8 pp[4];                     /**< move pp left */
     /* 0x30 */ u8 pp_count[4];               /**< move max pp */
     /* 0x34 */ u8 level;                     /**< current level */
@@ -2847,23 +2846,5 @@ void LONG_CALL ov12_0224DC0C(struct BattleSystem *bsys, struct BattleStruct *ctx
 void LONG_CALL SortExecutionOrderBySpeed(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 void LONG_CALL SortMonsBySpeed(struct BattleSystem *bsys, struct BattleStruct *ctx);
-
-BOOL LONG_CALL ov12_0224B398(struct BattleSystem *bsys, struct BattleStruct *ctx);
-
-BOOL LONG_CALL ov12_02250BBC(struct BattleSystem *bsys, struct BattleStruct *ctx);
-
-BOOL LONG_CALL BattleSystem_CheckMoveHit(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerIdAttacker, int battlerIdTarget, int move);
-
-BOOL LONG_CALL ov12_0224B498(struct BattleSystem *bsys, struct BattleStruct *ctx);
-
-BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx);
-
-/**
- *  @brief checks if the given move should be weakened or not (only prints message)
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @return TRUE/FALSE
- */
-BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp);
 
 #endif // BATTLE_H
