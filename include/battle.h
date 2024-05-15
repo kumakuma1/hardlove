@@ -2847,4 +2847,14 @@ void LONG_CALL SortExecutionOrderBySpeed(struct BattleSystem *bsys, struct Battl
 
 void LONG_CALL SortMonsBySpeed(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
+BOOL LONG_CALL ov12_0224B398(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+BOOL LONG_CALL ov12_02250BBC(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+BOOL LONG_CALL BattleSystem_CheckMoveHit(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerIdAttacker, int battlerIdTarget, int move);
+
+BOOL LONG_CALL ov12_0224B498(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
 #endif // BATTLE_H
