@@ -2857,4 +2857,12 @@ BOOL LONG_CALL ov12_0224B498(struct BattleSystem *bsys, struct BattleStruct *ctx
 
 BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
+/**
+ *  @brief checks if the given move should be weakened or not (only prints message)
+ *  @param bw battle work structure
+ *  @param sp global battle structure
+ *  @return TRUE/FALSE
+ */
+BOOL CheckStrongWindsWeaken(struct BattleSystem *bw, struct BattleStruct *sp);
+
 #endif // BATTLE_H
