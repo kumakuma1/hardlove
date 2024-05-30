@@ -143,7 +143,7 @@ const ITEMDATA __data[] =
 
 [ITEM_ULTRA_BALL] =
 {
-    .price = 1200,
+    .price = 600,
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -208,7 +208,7 @@ const ITEMDATA __data[] =
 
 [ITEM_GREAT_BALL] =
 {
-    .price = 600,
+    .price = 300,
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -273,7 +273,7 @@ const ITEMDATA __data[] =
 
 [ITEM_POKE_BALL] =
 {
-    .price = 200,
+    .price = 100,
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -988,7 +988,7 @@ const ITEMDATA __data[] =
 
 [ITEM_QUICK_BALL] =
 {
-    .price = 1000,
+    .price = 800,
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -8268,7 +8268,7 @@ const ITEMDATA __data[] =
 
 [ITEM_CHERI_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_PRZ_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 1,
@@ -8333,7 +8333,7 @@ const ITEMDATA __data[] =
 
 [ITEM_CHESTO_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_SLP_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 2,
@@ -8398,7 +8398,7 @@ const ITEMDATA __data[] =
 
 [ITEM_PECHA_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_PSN_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 3,
@@ -8463,7 +8463,7 @@ const ITEMDATA __data[] =
 
 [ITEM_RAWST_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_BRN_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 4,
@@ -8528,7 +8528,7 @@ const ITEMDATA __data[] =
 
 [ITEM_ASPEAR_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_FRZ_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 5,
@@ -8593,7 +8593,7 @@ const ITEMDATA __data[] =
 
 [ITEM_LEPPA_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 1000,
     .holdEffect = HOLD_EFFECT_PP_RESTORE,
     .holdEffectParam = 10,
     .pluckEffect = 6,
@@ -8723,7 +8723,7 @@ const ITEMDATA __data[] =
 
 [ITEM_PERSIM_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 100,
     .holdEffect = HOLD_EFFECT_CONFUSE_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 8,
@@ -8788,7 +8788,7 @@ const ITEMDATA __data[] =
 
 [ITEM_LUM_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 1000,
     .holdEffect = HOLD_EFFECT_STATUS_RESTORE,
     .holdEffectParam = 0,
     .pluckEffect = 9,
@@ -8853,7 +8853,7 @@ const ITEMDATA __data[] =
 
 [ITEM_SITRUS_BERRY - NUM_UNKNOWN_SLOTS] =
 {
-    .price = 20,
+    .price = 1000,
     .holdEffect = HOLD_EFFECT_HP_PCT_RESTORE,
     .holdEffectParam = 25,
     .pluckEffect = 10,
@@ -49995,5 +49995,71 @@ const ITEMDATA __data[] =
         .friendship_mod_hi_param =  0,
     },
 },
+
+[ITEM_INFINITE_CANDY - NUM_UNKNOWN_SLOTS_EXPLORER_KIT] =
+{
+    .price = 0,
+    .holdEffect = 0,
+    .holdEffectParam = 0,
+    .pluckEffect = 0,
+    .flingEffect = 0,
+    .flingPower = 0,
+    .naturalGiftPower = 0,
+    .naturalGiftType = 31,
+    .prevent_toss = TRUE,
+    .selectable = TRUE,
+    .fieldPocket = POCKET_KEY_ITEMS,
+    .battlePocket = BATTLE_POCKET_NONE,
+    .fieldUseFunc = 54,
+    .battleUseFunc = 0,
+    .partyUse = 1,
+    .partyUseParam = {
+        .slp_heal = FALSE,
+        .psn_heal = FALSE,
+        .brn_heal = FALSE,
+        .frz_heal = FALSE,
+        .prz_heal = FALSE,
+        .cfs_heal = FALSE,
+        .inf_heal = FALSE,
+        .guard_spec = FALSE,
+        .revive = TRUE,
+        .revive_all = FALSE,
+        .level_up = TRUE,
+        .evolve = FALSE,
+        .atk_stages = 0,
+        .def_stages = 0,
+        .spatk_stages = 0,
+        .spdef_stages = 0,
+        .speed_stages = 0,
+        .accuracy_stages = 0,
+        .critrate_stages = 0,
+        .pp_up = FALSE,
+        .pp_max = FALSE,
+        .pp_restore = FALSE,
+        .pp_restore_all = FALSE,
+        .hp_restore = FALSE,
+        .hp_ev_up = FALSE,
+        .atk_ev_up = FALSE,
+        .def_ev_up = FALSE,
+        .speed_ev_up = FALSE,
+        .spatk_ev_up = FALSE,
+        .spdef_ev_up = FALSE,
+        .friendship_mod_lo = TRUE,
+        .friendship_mod_med = TRUE,
+        .friendship_mod_hi = TRUE,
+        .hp_ev_up_param = 0,
+        .atk_ev_up_param = 0,
+        .def_ev_up_param = 0,
+        .speed_ev_up_param = 0,
+        .spatk_ev_up_param = 0,
+        .spdef_ev_up_param = 0,
+        .hp_restore_param = 0,
+        .pp_restore_param = 0,
+        .friendship_mod_lo_param =  5,
+        .friendship_mod_med_param = 3,
+        .friendship_mod_hi_param =  2,
+    },
+},
+
 
 };
