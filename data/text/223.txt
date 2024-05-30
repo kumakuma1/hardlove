@@ -790,3 +790,5 @@ a {COLOR 255}Hasty Mint{COLOR 0}
 a {COLOR 255}Jolly Mint{COLOR 0}
 a {COLOR 255}Naive Mint{COLOR 0}
 a {COLOR 255}Serious Mint{COLOR 0}
+ {COLOR 255}Infinite Candy{COLOR 0}
+ 
