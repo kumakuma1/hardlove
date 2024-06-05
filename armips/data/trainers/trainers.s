@@ -504,38 +504,89 @@ trainerdata 11, "Mickey"
         ballseal 0
     endparty
 
-trainerdata 12, "Grunt"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_TEAM_ROCKET
-    nummons 3
+trainerdata 12, "Ariana"
+    trainermontype TRAINER_MON_TYPE_FLAGS
+    trainerclass CLASS_EXECUTIVE
+    nummons 4
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 12
-        // mon 0
-        ivs 30
-        abilityslot 32
-        level 7
-        pokemon SPECIES_RATTATA
-        ballseal 0
-
-        // mon 1
-        ivs 30
+	ivs 0
         abilityslot 0
-        level 9
-        pokemon SPECIES_ZUBAT
+        level LEVEL_PROTON_1-1
+        pokemon SPECIES_PRINPLUP
+        item ITEM_SITRUS_BERRY
+        move MOVE_BUBBLE_BEAM
+        move MOVE_PLUCK
+        move MOVE_FEATHER_DANCE
+        move MOVE_AQUA_JET
+        ability ABILITY_COMPETITIVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_DOCILE
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 2
-        ivs 30
+		
+        ivs 0
         abilityslot 0
-        level 9
-        pokemon SPECIES_ZUBAT
+        level LEVEL_PROTON_1-1
+        pokemon SPECIES_GROWLITHE
+        item ITEM_KINGS_ROCK
+        move MOVE_FIRE_FANG
+        move MOVE_COVET
+        move MOVE_THUNDER_FANG
+        move MOVE_WIL_O_WISP
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_PROTON_1-1
+        pokemon SPECIES_TANGELA
+        item ITEM_LEFTOVERS
+        move MOVE_MEGA_DRAIN
+        move MOVE_LEECH_SEED
+        move MOVE_POISON_POWDER
+        move MOVE_PROTECT
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_PROTON_1
+        pokemon SPECIES_SWABLU
+        item ITEM_EVIOLITE
+        move MOVE_AERIAL_ACE
+        move MOVE_FACADE
+        move MOVE_ROOST
+        move MOVE_TOXIC
+        ability ABILITY_NATURAL_CURE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
