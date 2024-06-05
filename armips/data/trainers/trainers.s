@@ -17414,32 +17414,90 @@ trainerdata 485, "Archer"
     endparty
 
 trainerdata 486, "Proton"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_EXECUTIVE_1
-    nummons 2
+    nummons 4
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 486
-        // mon 0
-        ivs 100
+	ivs 0
         abilityslot 0
-        level 8
-        pokemon SPECIES_ZUBAT
+        level LEVEL_PROTON_1-1
+        pokemon SPECIES_SWINUB
+        item ITEM_FOCUS_SASH
+        move MOVE_ICE_SHARD
+        move MOVE_BULLDOZE
+        move MOVE_ENDEAVOR
+        move MOVE_FREEZE_DRY
+        ability ABILITY_OBLIVIOUS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 1
-        ivs 100
+		
+        ivs 0
         abilityslot 0
-        level 12
-        pokemon SPECIES_KOFFING
+        level LEVEL_PROTON_1-1
+        monwithform SPECIES_ROTOM, 0 // rotom
+        item ITEM_SITRUS_BERRY
+        move MOVE_ASTONISH
+        move MOVE_THUNDER_WAVE
+        move MOVE_THUNDER_SHOCK
+        move MOVE_PAIN_SPLIT
+        ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_DOCILE
+        shinylock 0
+        additionalflags 0
         ballseal 0
-    endparty
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_PROTON_1-1
+        pokemon SPECIES_LOMBRE
+        item ITEM_SITRUS_BERRY
+        move MOVE_FAKE_OUT
+        move MOVE_BUBBLE_BEAM
+        move MOVE_MEGA_DRAIN
+        move MOVE_TEETER_DANCE
+        ability ABILITY_OWN_TEMPO
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_PROTON_1
+        pokemon SPECIES_MAWILE
+        item ITEM_LEFTOVERS
+        move MOVE_COVET
+        move MOVE_METAL_CLAW
+        move MOVE_SUCKER_PUNCH
+        move MOVE_FACADE
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+   endparty
 
 trainerdata 487, "Petrel"
     trainermontype TRAINER_DATA_TYPE_MOVES
