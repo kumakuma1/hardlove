@@ -19,7 +19,11 @@ mondata SPECIES_NONE, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -40,10 +44,14 @@ mondata SPECIES_BULBASAUR, "Bulbasaur"
     types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -61,10 +69,14 @@ mondata SPECIES_IVYSAUR, "Ivysaur"
     types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -76,16 +88,24 @@ mondata SPECIES_IVYSAUR, "Ivysaur"
     mondexheight SPECIES_IVYSAUR, "3’03”"
     mondexweight SPECIES_IVYSAUR, "28.7 lbs."
 
-
+//BST 535
 mondata SPECIES_VENUSAUR, "Venusaur"
-    basestats 80, 82, 83, 80, 100, 100
+    .if STAT_CHANGES_IMPLEMENTED
+        basestats 80, 82, 93, 80, 100, 100
+    .else
+        basestats 80, 82, 83, 80, 100, 100
+    .endif
     types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -103,10 +123,14 @@ mondata SPECIES_CHARMANDER, "Charmander"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -124,10 +148,14 @@ mondata SPECIES_CHARMELEON, "Charmeleon"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -145,10 +173,14 @@ mondata SPECIES_CHARIZARD, "Charizard"
     types TYPE_FIRE, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -166,10 +198,14 @@ mondata SPECIES_SQUIRTLE, "Squirtle"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -187,10 +223,14 @@ mondata SPECIES_WARTORTLE, "Wartortle"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -208,10 +248,14 @@ mondata SPECIES_BLASTOISE, "Blastoise"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -229,10 +273,14 @@ mondata SPECIES_CATERPIE, "Caterpie"
     types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -250,10 +298,14 @@ mondata SPECIES_METAPOD, "Metapod"
     types TYPE_BUG, TYPE_BUG
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -271,10 +323,14 @@ mondata SPECIES_BUTTERFREE, "Butterfree"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 1
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -292,10 +348,14 @@ mondata SPECIES_WEEDLE, "Weedle"
     types TYPE_BUG, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -313,10 +373,14 @@ mondata SPECIES_KAKUNA, "Kakuna"
     types TYPE_BUG, TYPE_POISON
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -334,10 +398,14 @@ mondata SPECIES_BEEDRILL, "Beedrill"
     types TYPE_BUG, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 1
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -355,10 +423,14 @@ mondata SPECIES_PIDGEY, "Pidgey"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -376,10 +448,14 @@ mondata SPECIES_PIDGEOTTO, "Pidgeotto"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -397,10 +473,14 @@ mondata SPECIES_PIDGEOT, "Pidgeot"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -418,10 +498,14 @@ mondata SPECIES_RATTATA, "Rattata"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CHILAN_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -439,10 +523,14 @@ mondata SPECIES_RATICATE, "Raticate"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 127
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -460,10 +548,14 @@ mondata SPECIES_SPEAROW, "Spearow"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_NONE, ITEM_SHARP_BEAK
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -481,10 +573,14 @@ mondata SPECIES_FEAROW, "Fearow"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_NONE, ITEM_SHARP_BEAK
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -502,10 +598,14 @@ mondata SPECIES_EKANS, "Ekans"
     types TYPE_POISON, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
@@ -517,16 +617,28 @@ mondata SPECIES_EKANS, "Ekans"
     mondexheight SPECIES_EKANS, "6’07”"
     mondexweight SPECIES_EKANS, "15.2 lbs."
 
-
+//BST 448 > 469, poison > poison, dark
 mondata SPECIES_ARBOK, "Arbok"
-    basestats 60, 95, 69, 80, 65, 79
-    types TYPE_POISON, TYPE_POISON
+    .if STAT_CHANGES_IMPLEMENTED
+        basestats 75, 95, 75, 80, 65, 79
+    .else
+        basestats 60, 95, 69, 80, 65, 79
+        .endif
+    .if TYPE_CHANGES_IMPLEMENTED
+        types TYPE_POISON, TYPE_DARK
+    .else
+        types TYPE_POISON, TYPE_POISON
+        .endif
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
@@ -544,10 +656,14 @@ mondata SPECIES_PIKACHU, "Pikachu"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_LIGHT_BALL
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -565,10 +681,14 @@ mondata SPECIES_RAICHU, "Raichu"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
-    items ITEM_NONE, ITEM_ORAN_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -586,10 +706,14 @@ mondata SPECIES_SANDSHREW, "Sandshrew"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -607,10 +731,14 @@ mondata SPECIES_SANDSLASH, "Sandslash"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_SOFT_SAND, ITEM_QUICK_CLAW
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -628,10 +756,14 @@ mondata SPECIES_NIDORAN_F, "Nidoran♀"
     types TYPE_POISON, TYPE_POISON
     catchrate 235
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -649,10 +781,14 @@ mondata SPECIES_NIDORINA, "Nidorina"
     types TYPE_POISON, TYPE_POISON
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -670,10 +806,14 @@ mondata SPECIES_NIDOQUEEN, "Nidoqueen"
     types TYPE_POISON, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -691,10 +831,14 @@ mondata SPECIES_NIDORAN_M, "Nidoran♂"
     types TYPE_POISON, TYPE_POISON
     catchrate 235
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -712,10 +856,14 @@ mondata SPECIES_NIDORINO, "Nidorino"
     types TYPE_POISON, TYPE_POISON
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -733,10 +881,14 @@ mondata SPECIES_NIDOKING, "Nidoking"
     types TYPE_POISON, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -754,10 +906,14 @@ mondata SPECIES_CLEFAIRY, "Clefairy"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 150
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_LEPPA_BERRY, ITEM_MOON_STONE
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_MOON_STONE
     genderratio 190
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 140
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -775,10 +931,14 @@ mondata SPECIES_CLEFABLE, "Clefable"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
-    items ITEM_LEPPA_BERRY, ITEM_MOON_STONE
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_MOON_STONE
     genderratio 190
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 140
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -796,10 +956,14 @@ mondata SPECIES_VULPIX, "Vulpix"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_RAWST_BERRY, ITEM_CHARCOAL
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -817,10 +981,14 @@ mondata SPECIES_NINETALES, "Ninetales"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 1
-    items ITEM_RAWST_BERRY, ITEM_CHARCOAL
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -838,10 +1006,14 @@ mondata SPECIES_JIGGLYPUFF, "Jigglypuff"
     types TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 170
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_MOON_STONE
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_MOON_STONE
     genderratio 190
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -859,10 +1031,14 @@ mondata SPECIES_WIGGLYTUFF, "Wigglytuff"
     types TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_MOON_STONE
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_MOON_STONE
     genderratio 190
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -880,10 +1056,14 @@ mondata SPECIES_ZUBAT, "Zubat"
     types TYPE_POISON, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -901,10 +1081,14 @@ mondata SPECIES_GOLBAT, "Golbat"
     types TYPE_POISON, TYPE_FLYING
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -922,10 +1106,14 @@ mondata SPECIES_ODDISH, "Oddish"
     types TYPE_GRASS, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_ABSORB_BULB
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -943,10 +1131,14 @@ mondata SPECIES_GLOOM, "Gloom"
     types TYPE_GRASS, TYPE_POISON
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_ABSORB_BULB
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -964,10 +1156,14 @@ mondata SPECIES_VILEPLUME, "Vileplume"
     types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_ABSORB_BULB
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -985,10 +1181,14 @@ mondata SPECIES_PARAS, "Paras"
     types TYPE_BUG, TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_GRASS
@@ -1006,10 +1206,14 @@ mondata SPECIES_PARASECT, "Parasect"
     types TYPE_BUG, TYPE_GRASS
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_GRASS
@@ -1027,10 +1231,14 @@ mondata SPECIES_VENONAT, "Venonat"
     types TYPE_BUG, TYPE_POISON
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -1048,10 +1256,14 @@ mondata SPECIES_VENOMOTH, "Venomoth"
     types TYPE_BUG, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 1, 0
-    items ITEM_SHED_SHELL, ITEM_SILVER_POWDER
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -1069,10 +1281,14 @@ mondata SPECIES_DIGLETT, "Diglett"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_NONE, ITEM_SOFT_SAND
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -1090,10 +1306,14 @@ mondata SPECIES_DUGTRIO, "Dugtrio"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_NONE, ITEM_SOFT_SAND
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -1111,10 +1331,14 @@ mondata SPECIES_MEOWTH, "Meowth"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_QUICK_CLAW, ITEM_NUGGET
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -1132,10 +1356,14 @@ mondata SPECIES_PERSIAN, "Persian"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_NONE, ITEM_QUICK_CLAW
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -1153,10 +1381,14 @@ mondata SPECIES_PSYDUCK, "Psyduck"
     types TYPE_WATER, TYPE_WATER
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -1174,10 +1406,14 @@ mondata SPECIES_GOLDUCK, "Golduck"
     types TYPE_WATER, TYPE_WATER
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -1195,10 +1431,14 @@ mondata SPECIES_MANKEY, "Mankey"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PAYAPA_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -1216,10 +1456,14 @@ mondata SPECIES_PRIMEAPE, "Primeape"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PAYAPA_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -1237,10 +1481,14 @@ mondata SPECIES_GROWLITHE, "Growlithe"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -1258,10 +1506,14 @@ mondata SPECIES_ARCANINE, "Arcanine"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -1279,10 +1531,14 @@ mondata SPECIES_POLIWAG, "Poliwag"
     types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -1300,10 +1556,14 @@ mondata SPECIES_POLIWHIRL, "Poliwhirl"
     types TYPE_WATER, TYPE_WATER
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -1321,10 +1581,14 @@ mondata SPECIES_POLIWRATH, "Poliwrath"
     types TYPE_WATER, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -1342,10 +1606,14 @@ mondata SPECIES_ABRA, "Abra"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_TWISTED_SPOON
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -1363,10 +1631,14 @@ mondata SPECIES_KADABRA, "Kadabra"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_TWISTED_SPOON
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -1384,10 +1656,14 @@ mondata SPECIES_ALAKAZAM, "Alakazam"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_TWISTED_SPOON
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -1405,10 +1681,14 @@ mondata SPECIES_MACHOP, "Machop"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_FOCUS_BAND
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -1426,10 +1706,14 @@ mondata SPECIES_MACHOKE, "Machoke"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_FOCUS_BAND
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -1447,10 +1731,14 @@ mondata SPECIES_MACHAMP, "Machamp"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_FOCUS_BAND
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -1468,10 +1756,14 @@ mondata SPECIES_BELLSPROUT, "Bellsprout"
     types TYPE_GRASS, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -1489,10 +1781,14 @@ mondata SPECIES_WEEPINBELL, "Weepinbell"
     types TYPE_GRASS, TYPE_POISON
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -1510,10 +1806,14 @@ mondata SPECIES_VICTREEBEL, "Victreebel"
     types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -1531,10 +1831,14 @@ mondata SPECIES_TENTACOOL, "Tentacool"
     types TYPE_WATER, TYPE_POISON
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -1552,10 +1856,14 @@ mondata SPECIES_TENTACRUEL, "Tentacruel"
     types TYPE_WATER, TYPE_POISON
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -1573,10 +1881,14 @@ mondata SPECIES_GEODUDE, "Geodude"
     types TYPE_ROCK, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_EVERSTONE
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -1594,10 +1906,14 @@ mondata SPECIES_GRAVELER, "Graveler"
     types TYPE_ROCK, TYPE_GROUND
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_HARD_STONE, ITEM_EVERSTONE
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -1615,10 +1931,14 @@ mondata SPECIES_GOLEM, "Golem"
     types TYPE_ROCK, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
-    items ITEM_HARD_STONE, ITEM_EVERSTONE
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -1636,10 +1956,14 @@ mondata SPECIES_PONYTA, "Ponyta"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SHUCA_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -1657,10 +1981,14 @@ mondata SPECIES_RAPIDASH, "Rapidash"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SHUCA_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -1678,10 +2006,14 @@ mondata SPECIES_SLOWPOKE, "Slowpoke"
     types TYPE_WATER, TYPE_PSYCHIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_LAGGING_TAIL, ITEM_KINGS_ROCK
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -1699,10 +2031,14 @@ mondata SPECIES_SLOWBRO, "Slowbro"
     types TYPE_WATER, TYPE_PSYCHIC
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -1720,10 +2056,14 @@ mondata SPECIES_MAGNEMITE, "Magnemite"
     types TYPE_ELECTRIC, TYPE_STEEL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -1741,10 +2081,14 @@ mondata SPECIES_MAGNETON, "Magneton"
     types TYPE_ELECTRIC, TYPE_STEEL
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
-    items ITEM_MAGNET, ITEM_METAL_COAT
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -1762,10 +2106,14 @@ mondata SPECIES_FARFETCHD, "Farfetch’d"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LEEK
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FIELD
@@ -1783,10 +2131,14 @@ mondata SPECIES_DODUO, "Doduo"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_SHARP_BEAK
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -1804,10 +2156,14 @@ mondata SPECIES_DODRIO, "Dodrio"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_SHARP_BEAK
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -1825,10 +2181,14 @@ mondata SPECIES_SEEL, "Seel"
     types TYPE_WATER, TYPE_WATER
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -1846,10 +2206,14 @@ mondata SPECIES_DEWGONG, "Dewgong"
     types TYPE_WATER, TYPE_ICE
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
-    items ITEM_ASPEAR_BERRY, ITEM_NEVER_MELT_ICE
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -1867,10 +2231,14 @@ mondata SPECIES_GRIMER, "Grimer"
     types TYPE_POISON, TYPE_POISON
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_BLACK_SLUDGE, ITEM_NUGGET
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -1888,10 +2256,14 @@ mondata SPECIES_MUK, "Muk"
     types TYPE_POISON, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 1, 1, 0, 0, 0, 0
-    items ITEM_TOXIC_ORB, ITEM_NUGGET
+    .if EV_ENABLED
+        evyields 1, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -1909,10 +2281,14 @@ mondata SPECIES_SHELLDER, "Shellder"
     types TYPE_WATER, TYPE_WATER
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PEARL, ITEM_BIG_PEARL
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -1930,10 +2306,14 @@ mondata SPECIES_CLOYSTER, "Cloyster"
     types TYPE_WATER, TYPE_ICE
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PEARL, ITEM_BIG_PEARL
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -1951,10 +2331,14 @@ mondata SPECIES_GASTLY, "Gastly"
     types TYPE_GHOST, TYPE_POISON
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -1972,10 +2356,14 @@ mondata SPECIES_HAUNTER, "Haunter"
     types TYPE_GHOST, TYPE_POISON
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -1993,14 +2381,18 @@ mondata SPECIES_GENGAR, "Gengar"
     types TYPE_GHOST, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
-    abilities ABILITY_CURSED_BODY, ABILITY_NONE
+    abilities ABILITY_LEVITATE, ABILITY_CURSED_BODY
     runchance 0
     colorflip BODY_COLOR_PURPLE, 0
     mondexentry SPECIES_GENGAR, "It steals heat from its surroundings.\nIf you feel a sudden chill,\nit is certain that a GENGAR appeared."
@@ -2014,10 +2406,14 @@ mondata SPECIES_ONIX, "Onix"
     types TYPE_ROCK, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_HARD_STONE
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -2035,10 +2431,14 @@ mondata SPECIES_DROWZEE, "Drowzee"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -2056,10 +2456,14 @@ mondata SPECIES_HYPNO, "Hypno"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -2077,10 +2481,14 @@ mondata SPECIES_KRABBY, "Krabby"
     types TYPE_WATER, TYPE_WATER
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -2098,10 +2506,14 @@ mondata SPECIES_KINGLER, "Kingler"
     types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -2119,10 +2531,14 @@ mondata SPECIES_VOLTORB, "Voltorb"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -2140,10 +2556,14 @@ mondata SPECIES_ELECTRODE, "Electrode"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -2161,10 +2581,14 @@ mondata SPECIES_EXEGGCUTE, "Exeggcute"
     types TYPE_GRASS, TYPE_PSYCHIC
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PSYCHIC_SEED
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -2182,10 +2606,14 @@ mondata SPECIES_EXEGGUTOR, "Exeggutor"
     types TYPE_GRASS, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -2203,10 +2631,14 @@ mondata SPECIES_CUBONE, "Cubone"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_THICK_CLUB
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -2224,10 +2656,14 @@ mondata SPECIES_MAROWAK, "Marowak"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_THICK_CLUB
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -2245,10 +2681,14 @@ mondata SPECIES_HITMONLEE, "Hitmonlee"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -2266,10 +2706,14 @@ mondata SPECIES_HITMONCHAN, "Hitmonchan"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -2287,10 +2731,14 @@ mondata SPECIES_LICKITUNG, "Lickitung"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_LAGGING_TAIL
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -2308,10 +2756,14 @@ mondata SPECIES_KOFFING, "Koffing"
     types TYPE_POISON, TYPE_POISON
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SMOKE_BALL
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -2329,10 +2781,14 @@ mondata SPECIES_WEEZING, "Weezing"
     types TYPE_POISON, TYPE_POISON
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SMOKE_BALL
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -2350,10 +2806,14 @@ mondata SPECIES_RHYHORN, "Rhyhorn"
     types TYPE_GROUND, TYPE_ROCK
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -2371,10 +2831,14 @@ mondata SPECIES_RHYDON, "Rhydon"
     types TYPE_GROUND, TYPE_ROCK
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -2392,10 +2856,14 @@ mondata SPECIES_CHANSEY, "Chansey"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_OVAL_STONE, ITEM_LUCKY_EGG
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_OVAL_STONE, ITEM_NONE
     genderratio 254
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 140
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -2413,10 +2881,14 @@ mondata SPECIES_TANGELA, "Tangela"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -2434,10 +2906,14 @@ mondata SPECIES_KANGASKHAN, "Kangaskhan"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -2455,10 +2931,14 @@ mondata SPECIES_HORSEA, "Horsea"
     types TYPE_WATER, TYPE_WATER
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
@@ -2476,10 +2956,14 @@ mondata SPECIES_SEADRA, "Seadra"
     types TYPE_WATER, TYPE_WATER
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
@@ -2497,10 +2981,14 @@ mondata SPECIES_GOLDEEN, "Goldeen"
     types TYPE_WATER, TYPE_WATER
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_MYSTIC_WATER
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -2518,10 +3006,14 @@ mondata SPECIES_SEAKING, "Seaking"
     types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_MYSTIC_WATER
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -2539,10 +3031,14 @@ mondata SPECIES_STARYU, "Staryu"
     types TYPE_WATER, TYPE_WATER
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_STARDUST, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -2560,10 +3056,14 @@ mondata SPECIES_STARMIE, "Starmie"
     types TYPE_WATER, TYPE_PSYCHIC
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_STARDUST, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -2581,10 +3081,14 @@ mondata SPECIES_MR_MIME, "Mr. Mime"
     types TYPE_PSYCHIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
-    items ITEM_NONE, ITEM_LEPPA_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -2602,10 +3106,14 @@ mondata SPECIES_SCYTHER, "Scyther"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -2623,10 +3131,14 @@ mondata SPECIES_JYNX, "Jynx"
     types TYPE_ICE, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 254
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -2644,10 +3156,14 @@ mondata SPECIES_ELECTABUZZ, "Electabuzz"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_ELECTIRIZER, ITEM_NONE
     genderratio 63
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -2665,10 +3181,14 @@ mondata SPECIES_MAGMAR, "Magmar"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_RAWST_BERRY, ITEM_MAGMARIZER
     genderratio 63
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -2686,10 +3206,14 @@ mondata SPECIES_PINSIR, "Pinsir"
     types TYPE_BUG, TYPE_BUG
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -2707,10 +3231,14 @@ mondata SPECIES_TAUROS, "Tauros"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -2728,10 +3256,14 @@ mondata SPECIES_MAGIKARP, "Magikarp"
     types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 5
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 5
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_DRAGON
@@ -2749,10 +3281,14 @@ mondata SPECIES_GYARADOS, "Gyarados"
     types TYPE_WATER, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 5
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 5
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_DRAGON
@@ -2770,10 +3306,14 @@ mondata SPECIES_LAPRAS, "Lapras"
     types TYPE_WATER, TYPE_ICE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_MYSTIC_WATER, ITEM_NONE
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -2791,10 +3331,14 @@ mondata SPECIES_DITTO, "Ditto"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 35
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_QUICK_POWDER, ITEM_METAL_POWDER
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_DITTO, EGG_GROUP_DITTO
@@ -2812,10 +3356,14 @@ mondata SPECIES_EEVEE, "Eevee"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -2833,10 +3381,14 @@ mondata SPECIES_VAPOREON, "Vaporeon"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -2854,10 +3406,14 @@ mondata SPECIES_JOLTEON, "Jolteon"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -2875,10 +3431,14 @@ mondata SPECIES_FLAREON, "Flareon"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -2896,10 +3456,14 @@ mondata SPECIES_PORYGON, "Porygon"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -2917,10 +3481,14 @@ mondata SPECIES_OMANYTE, "Omanyte"
     types TYPE_ROCK, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -2938,10 +3506,14 @@ mondata SPECIES_OMASTAR, "Omastar"
     types TYPE_ROCK, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -2959,10 +3531,14 @@ mondata SPECIES_KABUTO, "Kabuto"
     types TYPE_ROCK, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -2980,10 +3556,14 @@ mondata SPECIES_KABUTOPS, "Kabutops"
     types TYPE_ROCK, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -3001,10 +3581,14 @@ mondata SPECIES_AERODACTYL, "Aerodactyl"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -3022,10 +3606,14 @@ mondata SPECIES_SNORLAX, "Snorlax"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_CHESTO_BERRY, ITEM_LEFTOVERS
     genderratio 31
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -3043,10 +3631,14 @@ mondata SPECIES_ARTICUNO, "Articuno"
     types TYPE_ICE, TYPE_FLYING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -3064,10 +3656,14 @@ mondata SPECIES_ZAPDOS, "Zapdos"
     types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -3085,10 +3681,14 @@ mondata SPECIES_MOLTRES, "Moltres"
     types TYPE_FIRE, TYPE_FLYING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -3106,10 +3706,14 @@ mondata SPECIES_DRATINI, "Dratini"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
@@ -3127,10 +3731,14 @@ mondata SPECIES_DRAGONAIR, "Dragonair"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
@@ -3148,10 +3756,14 @@ mondata SPECIES_DRAGONITE, "Dragonite"
     types TYPE_DRAGON, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
@@ -3169,10 +3781,14 @@ mondata SPECIES_MEWTWO, "Mewtwo"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -3190,10 +3806,14 @@ mondata SPECIES_MEW, "Mew"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_LUM_BERRY, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -3211,10 +3831,14 @@ mondata SPECIES_CHIKORITA, "Chikorita"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_LUM_BERRY, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -3232,10 +3856,14 @@ mondata SPECIES_BAYLEEF, "Bayleef"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -3247,16 +3875,28 @@ mondata SPECIES_BAYLEEF, "Bayleef"
     mondexheight SPECIES_BAYLEEF, "3’11”"
     mondexweight SPECIES_BAYLEEF, "34.8 lbs."
 
-
+//BST 525 > 535
 mondata SPECIES_MEGANIUM, "Meganium"
-    basestats 80, 82, 100, 80, 83, 100
-    types TYPE_GRASS, TYPE_GRASS
+    .if STAT_CHANGES_IMPLEMENTED
+        basestats 80, 82, 100, 80, 93, 100
+    .else
+        basestats 80, 82, 100, 80, 83, 100
+        .endif
+    .if TYPE_CHANGES_IMPLEMENTED
+        types TYPE_GRASS, TYPE_FAIRY
+    .else
+        types TYPE_GRASS, TYPE_GRASS
+        .endif
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -3274,10 +3914,14 @@ mondata SPECIES_CYNDAQUIL, "Cyndaquil"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -3295,10 +3939,14 @@ mondata SPECIES_QUILAVA, "Quilava"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -3316,10 +3964,14 @@ mondata SPECIES_TYPHLOSION, "Typhlosion"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -3337,10 +3989,14 @@ mondata SPECIES_TOTODILE, "Totodile"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -3358,10 +4014,14 @@ mondata SPECIES_CROCONAW, "Croconaw"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -3373,16 +4033,24 @@ mondata SPECIES_CROCONAW, "Croconaw"
     mondexheight SPECIES_CROCONAW, "3’07”"
     mondexweight SPECIES_CROCONAW, "55.1 lbs."
 
-
+//BST 530 > 534
 mondata SPECIES_FERALIGATR, "Feraligatr"
-    basestats 85, 105, 100, 78, 79, 83
+    .if STAT_CHANGES_IMPLEMENTED
+        basestats 85, 105, 100, 78, 79, 87
+    .else
+        basestats 85, 105, 100, 78, 79, 83
+        .endif
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -3400,10 +4068,14 @@ mondata SPECIES_SENTRET, "Sentret"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_ORAN_BERRY
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -3415,20 +4087,32 @@ mondata SPECIES_SENTRET, "Sentret"
     mondexheight SPECIES_SENTRET, "2’07”"
     mondexweight SPECIES_SENTRET, "13.2 lbs."
 
-
+//BST 415 > 425
 mondata SPECIES_FURRET, "Furret"
-    basestats 85, 76, 64, 90, 45, 55
+    .if STAT_CHANGES_IMPLEMENTED
+        basestats 85, 86, 64, 90, 45, 55
+    .else
+        basestats 85, 76, 64, 90, 45, 55
+        .endif
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
+    .if ABILITY_CHANGES_IMPLEMENTED
+        abilities ABILITY_ADAPTABILITY, ABILITY_KEEN_EYE
+    .else
+        abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
+        .endif
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_FURRET, "It makes a nest to suit its long and\nskinny body. The nest is impossible\nfor other Pokémon to enter."
@@ -3442,10 +4126,14 @@ mondata SPECIES_HOOTHOOT, "Hoothoot"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -3463,10 +4151,14 @@ mondata SPECIES_NOCTOWL, "Noctowl"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -3484,10 +4176,14 @@ mondata SPECIES_LEDYBA, "Ledyba"
     types TYPE_BUG, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -3505,10 +4201,14 @@ mondata SPECIES_LEDIAN, "Ledian"
     types TYPE_BUG, TYPE_FLYING
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -3526,10 +4226,14 @@ mondata SPECIES_SPINARAK, "Spinarak"
     types TYPE_BUG, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -3547,10 +4251,14 @@ mondata SPECIES_ARIADOS, "Ariados"
     types TYPE_BUG, TYPE_POISON
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -3568,10 +4276,14 @@ mondata SPECIES_CROBAT, "Crobat"
     types TYPE_POISON, TYPE_FLYING
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -3589,10 +4301,14 @@ mondata SPECIES_CHINCHOU, "Chinchou"
     types TYPE_WATER, TYPE_ELECTRIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_DEEP_SEA_SCALE, ITEM_YELLOW_SHARD
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -3610,10 +4326,14 @@ mondata SPECIES_LANTURN, "Lanturn"
     types TYPE_WATER, TYPE_ELECTRIC
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_DEEP_SEA_SCALE, ITEM_YELLOW_SHARD
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -3631,10 +4351,14 @@ mondata SPECIES_PICHU, "Pichu"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_NONE, ITEM_ORAN_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -3652,10 +4376,14 @@ mondata SPECIES_CLEFFA, "Cleffa"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 150
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
-    items ITEM_LEPPA_BERRY, ITEM_MOON_STONE
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_MOON_STONE
     genderratio 190
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 140
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -3673,10 +4401,14 @@ mondata SPECIES_IGGLYBUFF, "Igglybuff"
     types TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 170
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_NONE
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 190
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -3694,10 +4426,14 @@ mondata SPECIES_TOGEPI, "Togepi"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -3715,10 +4451,14 @@ mondata SPECIES_TOGETIC, "Togetic"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_FLYING
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FAIRY
@@ -3736,10 +4476,14 @@ mondata SPECIES_NATU, "Natu"
     types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -3757,10 +4501,14 @@ mondata SPECIES_XATU, "Xatu"
     types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -3778,10 +4526,14 @@ mondata SPECIES_MAREEP, "Mareep"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 235
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -3799,10 +4551,14 @@ mondata SPECIES_FLAAFFY, "Flaaffy"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -3820,10 +4576,14 @@ mondata SPECIES_AMPHAROS, "Ampharos"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -3841,10 +4601,14 @@ mondata SPECIES_BELLOSSOM, "Bellossom"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_ABSORB_BULB
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -3862,10 +4626,14 @@ mondata SPECIES_MARILL, "Marill"
     types TYPE_WATER, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_WATER
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FAIRY
@@ -3883,10 +4651,14 @@ mondata SPECIES_AZUMARILL, "Azumarill"
     types TYPE_WATER, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_WATER
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FAIRY
@@ -3904,10 +4676,14 @@ mondata SPECIES_SUDOWOODO, "Sudowoodo"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 65
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -3925,10 +4701,14 @@ mondata SPECIES_POLITOED, "Politoed"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -3946,10 +4726,14 @@ mondata SPECIES_HOPPIP, "Hoppip"
     types TYPE_GRASS, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
@@ -3967,10 +4751,14 @@ mondata SPECIES_SKIPLOOM, "Skiploom"
     types TYPE_GRASS, TYPE_FLYING
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
@@ -3988,10 +4776,14 @@ mondata SPECIES_JUMPLUFF, "Jumpluff"
     types TYPE_GRASS, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
@@ -4009,10 +4801,14 @@ mondata SPECIES_AIPOM, "Aipom"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4030,10 +4826,14 @@ mondata SPECIES_SUNKERN, "Sunkern"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 235
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_COBA_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -4051,10 +4851,14 @@ mondata SPECIES_SUNFLORA, "Sunflora"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -4072,10 +4876,14 @@ mondata SPECIES_YANMA, "Yanma"
     types TYPE_BUG, TYPE_FLYING
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_NONE, ITEM_WIDE_LENS
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -4093,10 +4901,14 @@ mondata SPECIES_WOOPER, "Wooper"
     types TYPE_WATER, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -4114,10 +4926,14 @@ mondata SPECIES_QUAGSIRE, "Quagsire"
     types TYPE_WATER, TYPE_GROUND
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -4135,10 +4951,14 @@ mondata SPECIES_ESPEON, "Espeon"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4156,10 +4976,14 @@ mondata SPECIES_UMBREON, "Umbreon"
     types TYPE_DARK, TYPE_DARK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 35
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4177,10 +5001,14 @@ mondata SPECIES_MURKROW, "Murkrow"
     types TYPE_DARK, TYPE_FLYING
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -4198,10 +5026,14 @@ mondata SPECIES_SLOWKING, "Slowking"
     types TYPE_WATER, TYPE_PSYCHIC
     catchrate 70
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -4219,10 +5051,14 @@ mondata SPECIES_MISDREAVUS, "Misdreavus"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -4240,10 +5076,14 @@ mondata SPECIES_UNOWN, "Unown"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -4261,10 +5101,14 @@ mondata SPECIES_WOBBUFFET, "Wobbuffet"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -4282,10 +5126,14 @@ mondata SPECIES_GIRAFARIG, "Girafarig"
     types TYPE_NORMAL, TYPE_PSYCHIC
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PERSIM_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4303,10 +5151,14 @@ mondata SPECIES_PINECO, "Pineco"
     types TYPE_BUG, TYPE_BUG
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -4324,10 +5176,14 @@ mondata SPECIES_FORRETRESS, "Forretress"
     types TYPE_BUG, TYPE_STEEL
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -4345,10 +5201,14 @@ mondata SPECIES_DUNSPARCE, "Dunsparce"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4366,10 +5226,14 @@ mondata SPECIES_GLIGAR, "Gligar"
     types TYPE_GROUND, TYPE_FLYING
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -4387,10 +5251,14 @@ mondata SPECIES_STEELIX, "Steelix"
     types TYPE_STEEL, TYPE_GROUND
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -4408,10 +5276,14 @@ mondata SPECIES_SNUBBULL, "Snubbull"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -4429,10 +5301,14 @@ mondata SPECIES_GRANBULL, "Granbull"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -4450,10 +5326,14 @@ mondata SPECIES_QWILFISH, "Qwilfish"
     types TYPE_WATER, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -4471,10 +5351,14 @@ mondata SPECIES_SCIZOR, "Scizor"
     types TYPE_BUG, TYPE_STEEL
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -4492,10 +5376,14 @@ mondata SPECIES_SHUCKLE, "Shuckle"
     types TYPE_BUG, TYPE_ROCK
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
-    items ITEM_BERRY_JUICE, ITEM_ORAN_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_BERRY_JUICE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -4513,10 +5401,14 @@ mondata SPECIES_HERACROSS, "Heracross"
     types TYPE_BUG, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -4534,10 +5426,14 @@ mondata SPECIES_SNEASEL, "Sneasel"
     types TYPE_DARK, TYPE_ICE
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4555,10 +5451,14 @@ mondata SPECIES_TEDDIURSA, "Teddiursa"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4576,10 +5476,14 @@ mondata SPECIES_URSARING, "Ursaring"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4597,10 +5501,14 @@ mondata SPECIES_SLUGMA, "Slugma"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -4618,10 +5526,14 @@ mondata SPECIES_MAGCARGO, "Magcargo"
     types TYPE_FIRE, TYPE_ROCK
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -4639,10 +5551,14 @@ mondata SPECIES_SWINUB, "Swinub"
     types TYPE_ICE, TYPE_GROUND
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4660,10 +5576,14 @@ mondata SPECIES_PILOSWINE, "Piloswine"
     types TYPE_ICE, TYPE_GROUND
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 1, 1, 0, 0, 0, 0
-    items ITEM_ASPEAR_BERRY, ITEM_NEVER_MELT_ICE
+    .if EV_ENABLED
+        evyields 1, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4681,10 +5601,14 @@ mondata SPECIES_CORSOLA, "Corsola"
     types TYPE_WATER, TYPE_ROCK
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
-    items ITEM_HARD_STONE, ITEM_RED_SHARD
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_RED_SHARD
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -4702,10 +5626,14 @@ mondata SPECIES_REMORAID, "Remoraid"
     types TYPE_WATER, TYPE_WATER
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
@@ -4723,10 +5651,14 @@ mondata SPECIES_OCTILLERY, "Octillery"
     types TYPE_WATER, TYPE_WATER
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
@@ -4744,10 +5676,14 @@ mondata SPECIES_DELIBIRD, "Delibird"
     types TYPE_ICE, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -4765,10 +5701,14 @@ mondata SPECIES_MANTINE, "Mantine"
     types TYPE_WATER, TYPE_FLYING
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -4786,10 +5726,14 @@ mondata SPECIES_SKARMORY, "Skarmory"
     types TYPE_STEEL, TYPE_FLYING
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_SHARP_BEAK, ITEM_METAL_COAT
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -4807,10 +5751,14 @@ mondata SPECIES_HOUNDOUR, "Houndour"
     types TYPE_DARK, TYPE_FIRE
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4828,10 +5776,14 @@ mondata SPECIES_HOUNDOOM, "Houndoom"
     types TYPE_DARK, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4849,10 +5801,14 @@ mondata SPECIES_KINGDRA, "Kingdra"
     types TYPE_WATER, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 1
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
@@ -4870,10 +5826,14 @@ mondata SPECIES_PHANPY, "Phanpy"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PASSHO_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4891,10 +5851,14 @@ mondata SPECIES_DONPHAN, "Donphan"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PASSHO_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4912,10 +5876,14 @@ mondata SPECIES_PORYGON2, "Porygon2"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_UP_GRADE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -4933,10 +5901,14 @@ mondata SPECIES_STANTLER, "Stantler"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4954,10 +5926,14 @@ mondata SPECIES_SMEARGLE, "Smeargle"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -4975,10 +5951,14 @@ mondata SPECIES_TYROGUE, "Tyrogue"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -4996,10 +5976,14 @@ mondata SPECIES_HITMONTOP, "Hitmontop"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -5017,10 +6001,14 @@ mondata SPECIES_SMOOCHUM, "Smoochum"
     types TYPE_ICE, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 254
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -5038,10 +6026,14 @@ mondata SPECIES_ELEKID, "Elekid"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_ELECTIRIZER, ITEM_NONE
     genderratio 63
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -5059,10 +6051,14 @@ mondata SPECIES_MAGBY, "Magby"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_RAWST_BERRY, ITEM_MAGMARIZER
     genderratio 63
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -5080,10 +6076,14 @@ mondata SPECIES_MILTANK, "Miltank"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_MOOMOO_MILK, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -5101,10 +6101,14 @@ mondata SPECIES_BLISSEY, "Blissey"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
-    items ITEM_OVAL_STONE, ITEM_LUCKY_EGG
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_OVAL_STONE, ITEM_NONE
     genderratio 254
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 140
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -5122,10 +6126,14 @@ mondata SPECIES_RAIKOU, "Raikou"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -5143,10 +6151,14 @@ mondata SPECIES_ENTEI, "Entei"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 1, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -5164,10 +6176,14 @@ mondata SPECIES_SUICUNE, "Suicune"
     types TYPE_WATER, TYPE_WATER
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -5185,10 +6201,14 @@ mondata SPECIES_LARVITAR, "Larvitar"
     types TYPE_ROCK, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -5206,10 +6226,14 @@ mondata SPECIES_PUPITAR, "Pupitar"
     types TYPE_ROCK, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -5227,10 +6251,14 @@ mondata SPECIES_TYRANITAR, "Tyranitar"
     types TYPE_ROCK, TYPE_DARK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -5248,10 +6276,14 @@ mondata SPECIES_LUGIA, "Lugia"
     types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -5269,10 +6301,14 @@ mondata SPECIES_HO_OH, "Ho-oh"
     types TYPE_FIRE, TYPE_FLYING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_SACRED_ASH, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -5290,10 +6326,14 @@ mondata SPECIES_CELEBI, "Celebi"
     types TYPE_PSYCHIC, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_LUM_BERRY, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -5311,10 +6351,14 @@ mondata SPECIES_TREECKO, "Treecko"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -5332,10 +6376,14 @@ mondata SPECIES_GROVYLE, "Grovyle"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -5353,10 +6401,14 @@ mondata SPECIES_SCEPTILE, "Sceptile"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -5374,10 +6426,14 @@ mondata SPECIES_TORCHIC, "Torchic"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -5395,10 +6451,14 @@ mondata SPECIES_COMBUSKEN, "Combusken"
     types TYPE_FIRE, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -5416,10 +6476,14 @@ mondata SPECIES_BLAZIKEN, "Blaziken"
     types TYPE_FIRE, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -5437,10 +6501,14 @@ mondata SPECIES_MUDKIP, "Mudkip"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -5458,10 +6526,14 @@ mondata SPECIES_MARSHTOMP, "Marshtomp"
     types TYPE_WATER, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -5479,10 +6551,14 @@ mondata SPECIES_SWAMPERT, "Swampert"
     types TYPE_WATER, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -5500,10 +6576,14 @@ mondata SPECIES_POOCHYENA, "Poochyena"
     types TYPE_DARK, TYPE_DARK
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -5521,10 +6601,14 @@ mondata SPECIES_MIGHTYENA, "Mightyena"
     types TYPE_DARK, TYPE_DARK
     catchrate 127
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -5542,10 +6626,14 @@ mondata SPECIES_ZIGZAGOON, "Zigzagoon"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_POTION, ITEM_REVIVE
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -5563,10 +6651,14 @@ mondata SPECIES_LINOONE, "Linoone"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_POTION, ITEM_MAX_REVIVE
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -5584,10 +6676,14 @@ mondata SPECIES_WURMPLE, "Wurmple"
     types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_PECHA_BERRY, ITEM_BRIGHT_POWDER
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_PECHA_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -5605,10 +6701,14 @@ mondata SPECIES_SILCOON, "Silcoon"
     types TYPE_BUG, TYPE_BUG
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -5626,10 +6726,14 @@ mondata SPECIES_BEAUTIFLY, "Beautifly"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
-    items ITEM_SHED_SHELL, ITEM_SILVER_POWDER
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -5647,10 +6751,14 @@ mondata SPECIES_CASCOON, "Cascoon"
     types TYPE_BUG, TYPE_BUG
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -5668,10 +6776,14 @@ mondata SPECIES_DUSTOX, "Dustox"
     types TYPE_BUG, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
-    items ITEM_SHED_SHELL, ITEM_SILVER_POWDER
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -5689,10 +6801,14 @@ mondata SPECIES_LOTAD, "Lotad"
     types TYPE_WATER, TYPE_GRASS
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_GRASS
@@ -5710,10 +6826,14 @@ mondata SPECIES_LOMBRE, "Lombre"
     types TYPE_WATER, TYPE_GRASS
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_GRASS
@@ -5731,10 +6851,14 @@ mondata SPECIES_LUDICOLO, "Ludicolo"
     types TYPE_WATER, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_GRASS
@@ -5752,10 +6876,14 @@ mondata SPECIES_SEEDOT, "Seedot"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_POWER_HERB
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -5773,10 +6901,14 @@ mondata SPECIES_NUZLEAF, "Nuzleaf"
     types TYPE_GRASS, TYPE_DARK
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_POWER_HERB
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -5794,10 +6926,14 @@ mondata SPECIES_SHIFTRY, "Shiftry"
     types TYPE_GRASS, TYPE_DARK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_POWER_HERB
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -5815,10 +6951,14 @@ mondata SPECIES_TAILLOW, "Taillow"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CHARTI_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -5836,10 +6976,14 @@ mondata SPECIES_SWELLOW, "Swellow"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CHARTI_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -5857,10 +7001,14 @@ mondata SPECIES_WINGULL, "Wingull"
     types TYPE_WATER, TYPE_FLYING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_PRETTY_FEATHER, ITEM_NONE
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
@@ -5878,10 +7026,14 @@ mondata SPECIES_PELIPPER, "Pelipper"
     types TYPE_WATER, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_PRETTY_FEATHER, ITEM_LUCKY_EGG
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
@@ -5899,10 +7051,14 @@ mondata SPECIES_RALTS, "Ralts"
     types TYPE_PSYCHIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 235
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_AMORPHOUS
@@ -5920,10 +7076,14 @@ mondata SPECIES_KIRLIA, "Kirlia"
     types TYPE_PSYCHIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_AMORPHOUS
@@ -5941,10 +7101,14 @@ mondata SPECIES_GARDEVOIR, "Gardevoir"
     types TYPE_PSYCHIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_AMORPHOUS
@@ -5962,10 +7126,14 @@ mondata SPECIES_SURSKIT, "Surskit"
     types TYPE_BUG, TYPE_WATER
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_HONEY, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_BUG
@@ -5983,10 +7151,14 @@ mondata SPECIES_MASQUERAIN, "Masquerain"
     types TYPE_BUG, TYPE_FLYING
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 1
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_BUG
@@ -6004,10 +7176,14 @@ mondata SPECIES_SHROOMISH, "Shroomish"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
@@ -6025,10 +7201,14 @@ mondata SPECIES_BRELOOM, "Breloom"
     types TYPE_GRASS, TYPE_FIGHTING
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
@@ -6046,10 +7226,14 @@ mondata SPECIES_SLAKOTH, "Slakoth"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -6067,10 +7251,14 @@ mondata SPECIES_VIGOROTH, "Vigoroth"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -6088,10 +7276,14 @@ mondata SPECIES_SLAKING, "Slaking"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -6109,10 +7301,14 @@ mondata SPECIES_NINCADA, "Nincada"
     types TYPE_BUG, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_SOFT_SAND
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -6130,10 +7326,14 @@ mondata SPECIES_NINJASK, "Ninjask"
     types TYPE_BUG, TYPE_FLYING
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -6151,10 +7351,14 @@ mondata SPECIES_SHEDINJA, "Shedinja"
     types TYPE_BUG, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -6172,10 +7376,14 @@ mondata SPECIES_WHISMUR, "Whismur"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CHESTO_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -6193,10 +7401,14 @@ mondata SPECIES_LOUDRED, "Loudred"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CHESTO_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -6214,10 +7426,14 @@ mondata SPECIES_EXPLOUD, "Exploud"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CHESTO_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -6235,10 +7451,14 @@ mondata SPECIES_MAKUHITA, "Makuhita"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_BLACK_BELT
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -6256,10 +7476,14 @@ mondata SPECIES_HARIYAMA, "Hariyama"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -6277,10 +7501,14 @@ mondata SPECIES_AZURILL, "Azurill"
     types TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 150
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 190
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -6298,10 +7526,14 @@ mondata SPECIES_NOSEPASS, "Nosepass"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_MAGNET, ITEM_HARD_STONE
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -6319,10 +7551,14 @@ mondata SPECIES_SKITTY, "Skitty"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_PECHA_BERRY, ITEM_LEPPA_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_MOON_STONE, ITEM_MOON_STONE
     genderratio 190
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -6340,10 +7576,14 @@ mondata SPECIES_DELCATTY, "Delcatty"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 1, 0, 0
-    items ITEM_PECHA_BERRY, ITEM_LEPPA_BERRY
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_MOON_STONE, ITEM_MOON_STONE
     genderratio 190
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -6361,10 +7601,14 @@ mondata SPECIES_SABLEYE, "Sableye"
     types TYPE_DARK, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_WIDE_LENS
+    .if EV_ENABLED
+        evyields 0, 1, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -6382,10 +7626,14 @@ mondata SPECIES_MAWILE, "Mawile"
     types TYPE_STEEL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 1, 0, 0, 0
-    items ITEM_IRON_BALL, ITEM_OCCA_BERRY
+    .if EV_ENABLED
+        evyields 0, 1, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_OCCA_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -6403,10 +7651,14 @@ mondata SPECIES_ARON, "Aron"
     types TYPE_STEEL, TYPE_ROCK
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_HARD_STONE
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -6424,10 +7676,14 @@ mondata SPECIES_LAIRON, "Lairon"
     types TYPE_STEEL, TYPE_ROCK
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_NONE, ITEM_HARD_STONE
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -6445,10 +7701,14 @@ mondata SPECIES_AGGRON, "Aggron"
     types TYPE_STEEL, TYPE_ROCK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
-    items ITEM_NONE, ITEM_HARD_STONE
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -6466,10 +7726,14 @@ mondata SPECIES_MEDITITE, "Meditite"
     types TYPE_FIGHTING, TYPE_PSYCHIC
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -6487,10 +7751,14 @@ mondata SPECIES_MEDICHAM, "Medicham"
     types TYPE_FIGHTING, TYPE_PSYCHIC
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -6508,10 +7776,14 @@ mondata SPECIES_ELECTRIKE, "Electrike"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -6529,10 +7801,14 @@ mondata SPECIES_MANECTRIC, "Manectric"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -6550,10 +7826,14 @@ mondata SPECIES_PLUSLE, "Plusle"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -6571,10 +7851,14 @@ mondata SPECIES_MINUN, "Minun"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -6592,10 +7876,14 @@ mondata SPECIES_VOLBEAT, "Volbeat"
     types TYPE_BUG, TYPE_BUG
     catchrate 150
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_NONE, ITEM_BRIGHT_POWDER
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_BUG, EGG_GROUP_HUMAN_LIKE
@@ -6613,10 +7901,14 @@ mondata SPECIES_ILLUMISE, "Illumise"
     types TYPE_BUG, TYPE_BUG
     catchrate 150
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_NONE, ITEM_BRIGHT_POWDER
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_BUG, EGG_GROUP_HUMAN_LIKE
@@ -6634,10 +7926,14 @@ mondata SPECIES_ROSELIA, "Roselia"
     types TYPE_GRASS, TYPE_POISON
     catchrate 150
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
-    items ITEM_ABSORB_BULB, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_ABSORB_BULB, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
@@ -6655,10 +7951,14 @@ mondata SPECIES_GULPIN, "Gulpin"
     types TYPE_POISON, TYPE_POISON
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_BIG_PEARL
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -6676,10 +7976,14 @@ mondata SPECIES_SWALOT, "Swalot"
     types TYPE_POISON, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_BIG_PEARL
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -6697,10 +8001,14 @@ mondata SPECIES_CARVANHA, "Carvanha"
     types TYPE_WATER, TYPE_DARK
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_DEEP_SEA_TOOTH
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -6718,10 +8026,14 @@ mondata SPECIES_SHARPEDO, "Sharpedo"
     types TYPE_WATER, TYPE_DARK
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_DEEP_SEA_TOOTH
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -6739,10 +8051,14 @@ mondata SPECIES_WAILMER, "Wailmer"
     types TYPE_WATER, TYPE_WATER
     catchrate 125
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_FIELD, EGG_GROUP_WATER_2
@@ -6760,10 +8076,14 @@ mondata SPECIES_WAILORD, "Wailord"
     types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_FIELD, EGG_GROUP_WATER_2
@@ -6781,10 +8101,14 @@ mondata SPECIES_NUMEL, "Numel"
     types TYPE_FIRE, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -6802,10 +8126,14 @@ mondata SPECIES_CAMERUPT, "Camerupt"
     types TYPE_FIRE, TYPE_GROUND
     catchrate 150
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -6823,10 +8151,14 @@ mondata SPECIES_TORKOAL, "Torkoal"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_NONE, ITEM_CHARCOAL
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -6844,10 +8176,14 @@ mondata SPECIES_SPOINK, "Spoink"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PERSIM_BERRY, ITEM_TANGA_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -6865,10 +8201,14 @@ mondata SPECIES_GRUMPIG, "Grumpig"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PERSIM_BERRY, ITEM_TANGA_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -6886,10 +8226,14 @@ mondata SPECIES_SPINDA, "Spinda"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CHESTO_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -6907,10 +8251,14 @@ mondata SPECIES_TRAPINCH, "Trapinch"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_SOFT_SAND
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_DRAGON
@@ -6928,10 +8276,14 @@ mondata SPECIES_VIBRAVA, "Vibrava"
     types TYPE_GROUND, TYPE_DRAGON
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_DRAGON
@@ -6949,10 +8301,14 @@ mondata SPECIES_FLYGON, "Flygon"
     types TYPE_GROUND, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_DRAGON
@@ -6970,10 +8326,14 @@ mondata SPECIES_CACNEA, "Cacnea"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
-    items ITEM_STICKY_BARB, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_HUMAN_LIKE
@@ -6991,10 +8351,14 @@ mondata SPECIES_CACTURNE, "Cacturne"
     types TYPE_GRASS, TYPE_DARK
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 0
-    items ITEM_STICKY_BARB, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_HUMAN_LIKE
@@ -7012,10 +8376,14 @@ mondata SPECIES_SWABLU, "Swablu"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
@@ -7033,10 +8401,14 @@ mondata SPECIES_ALTARIA, "Altaria"
     types TYPE_DRAGON, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
@@ -7054,10 +8426,14 @@ mondata SPECIES_ZANGOOSE, "Zangoose"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_QUICK_CLAW
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -7075,10 +8451,14 @@ mondata SPECIES_SEVIPER, "Seviper"
     types TYPE_POISON, TYPE_POISON
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 0
-    items ITEM_PERSIM_BERRY, ITEM_SHED_SHELL
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
@@ -7096,10 +8476,14 @@ mondata SPECIES_LUNATONE, "Lunatone"
     types TYPE_ROCK, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_STARDUST, ITEM_MOON_STONE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -7117,10 +8501,14 @@ mondata SPECIES_SOLROCK, "Solrock"
     types TYPE_ROCK, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_STARDUST, ITEM_SUN_STONE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -7138,10 +8526,14 @@ mondata SPECIES_BARBOACH, "Barboach"
     types TYPE_WATER, TYPE_GROUND
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -7159,10 +8551,14 @@ mondata SPECIES_WHISCASH, "Whiscash"
     types TYPE_WATER, TYPE_GROUND
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -7180,10 +8576,14 @@ mondata SPECIES_CORPHISH, "Corphish"
     types TYPE_WATER, TYPE_WATER
     catchrate 205
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -7201,10 +8601,14 @@ mondata SPECIES_CRAWDAUNT, "Crawdaunt"
     types TYPE_WATER, TYPE_DARK
     catchrate 155
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -7222,10 +8626,14 @@ mondata SPECIES_BALTOY, "Baltoy"
     types TYPE_GROUND, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -7243,10 +8651,14 @@ mondata SPECIES_CLAYDOL, "Claydol"
     types TYPE_GROUND, TYPE_PSYCHIC
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -7264,10 +8676,14 @@ mondata SPECIES_LILEEP, "Lileep"
     types TYPE_ROCK, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
-    items ITEM_NONE, ITEM_BIG_ROOT
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -7285,10 +8701,14 @@ mondata SPECIES_CRADILY, "Cradily"
     types TYPE_ROCK, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
-    items ITEM_NONE, ITEM_BIG_ROOT
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -7306,10 +8726,14 @@ mondata SPECIES_ANORITH, "Anorith"
     types TYPE_ROCK, TYPE_BUG
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -7327,10 +8751,14 @@ mondata SPECIES_ARMALDO, "Armaldo"
     types TYPE_ROCK, TYPE_BUG
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -7348,10 +8776,14 @@ mondata SPECIES_FEEBAS, "Feebas"
     types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
@@ -7369,10 +8801,14 @@ mondata SPECIES_MILOTIC, "Milotic"
     types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
@@ -7390,10 +8826,14 @@ mondata SPECIES_CASTFORM, "Castform"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_MYSTIC_WATER, ITEM_NONE
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -7411,10 +8851,14 @@ mondata SPECIES_KECLEON, "Kecleon"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PERSIM_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -7432,10 +8876,14 @@ mondata SPECIES_SHUPPET, "Shuppet"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -7453,10 +8901,14 @@ mondata SPECIES_BANETTE, "Banette"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -7474,10 +8926,14 @@ mondata SPECIES_DUSKULL, "Duskull"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_SPELL_TAG, ITEM_KASIB_BERRY
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -7495,10 +8951,14 @@ mondata SPECIES_DUSCLOPS, "Dusclops"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_SPELL_TAG, ITEM_KASIB_BERRY
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -7516,10 +8976,14 @@ mondata SPECIES_TROPIUS, "Tropius"
     types TYPE_GRASS, TYPE_FLYING
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -7537,10 +9001,14 @@ mondata SPECIES_CHIMECHO, "Chimecho"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_CLEANSE_TAG, ITEM_COLBUR_BERRY
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -7558,10 +9026,14 @@ mondata SPECIES_ABSOL, "Absol"
     types TYPE_DARK, TYPE_DARK
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIFE_ORB
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -7579,10 +9051,14 @@ mondata SPECIES_WYNAUT, "Wynaut"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 125
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -7600,10 +9076,14 @@ mondata SPECIES_SNORUNT, "Snorunt"
     types TYPE_ICE, TYPE_ICE
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_SNOWBALL, ITEM_BABIRI_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
@@ -7621,10 +9101,14 @@ mondata SPECIES_GLALIE, "Glalie"
     types TYPE_ICE, TYPE_ICE
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_NEVER_MELT_ICE, ITEM_BABIRI_BERRY
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_BABIRI_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
@@ -7642,10 +9126,14 @@ mondata SPECIES_SPHEAL, "Spheal"
     types TYPE_ICE, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -7663,10 +9151,14 @@ mondata SPECIES_SEALEO, "Sealeo"
     types TYPE_ICE, TYPE_WATER
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -7684,10 +9176,14 @@ mondata SPECIES_WALREIN, "Walrein"
     types TYPE_ICE, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -7705,10 +9201,14 @@ mondata SPECIES_CLAMPERL, "Clamperl"
     types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PEARL, ITEM_BLUE_SHARD
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -7726,10 +9226,14 @@ mondata SPECIES_HUNTAIL, "Huntail"
     types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_DEEP_SEA_TOOTH
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -7747,10 +9251,14 @@ mondata SPECIES_GOREBYSS, "Gorebyss"
     types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_DEEP_SEA_SCALE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -7768,10 +9276,14 @@ mondata SPECIES_RELICANTH, "Relicanth"
     types TYPE_WATER, TYPE_ROCK
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_DEEP_SEA_SCALE, ITEM_GREEN_SHARD
     genderratio 31
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
@@ -7789,10 +9301,14 @@ mondata SPECIES_LUVDISC, "Luvdisc"
     types TYPE_WATER, TYPE_WATER
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_HEART_SCALE, ITEM_NONE
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -7810,10 +9326,14 @@ mondata SPECIES_BAGON, "Bagon"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -7831,10 +9351,14 @@ mondata SPECIES_SHELGON, "Shelgon"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -7852,10 +9376,14 @@ mondata SPECIES_SALAMENCE, "Salamence"
     types TYPE_DRAGON, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
-    items ITEM_DRAGON_FANG, ITEM_DRAGON_SCALE
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_DRAGON_SCALE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -7873,10 +9401,14 @@ mondata SPECIES_BELDUM, "Beldum"
     types TYPE_STEEL, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -7894,10 +9426,14 @@ mondata SPECIES_METANG, "Metang"
     types TYPE_STEEL, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -7915,10 +9451,14 @@ mondata SPECIES_METAGROSS, "Metagross"
     types TYPE_STEEL, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -7936,10 +9476,14 @@ mondata SPECIES_REGIROCK, "Regirock"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -7957,10 +9501,14 @@ mondata SPECIES_REGICE, "Regice"
     types TYPE_ICE, TYPE_ICE
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -7978,10 +9526,14 @@ mondata SPECIES_REGISTEEL, "Registeel"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -7999,10 +9551,14 @@ mondata SPECIES_LATIAS, "Latias"
     types TYPE_DRAGON, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 90
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -8020,10 +9576,14 @@ mondata SPECIES_LATIOS, "Latios"
     types TYPE_DRAGON, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 90
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -8041,10 +9601,14 @@ mondata SPECIES_KYOGRE, "Kyogre"
     types TYPE_WATER, TYPE_WATER
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -8062,10 +9626,14 @@ mondata SPECIES_GROUDON, "Groudon"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -8083,10 +9651,14 @@ mondata SPECIES_RAYQUAZA, "Rayquaza"
     types TYPE_DRAGON, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -8104,10 +9676,14 @@ mondata SPECIES_JIRACHI, "Jirachi"
     types TYPE_STEEL, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_STAR_PIECE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -8125,10 +9701,14 @@ mondata SPECIES_DEOXYS, "Deoxys"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -8146,10 +9726,14 @@ mondata SPECIES_TURTWIG, "Turtwig"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -8167,10 +9751,14 @@ mondata SPECIES_GROTLE, "Grotle"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -8188,10 +9776,14 @@ mondata SPECIES_TORTERRA, "Torterra"
     types TYPE_GRASS, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -8209,10 +9801,14 @@ mondata SPECIES_CHIMCHAR, "Chimchar"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -8230,10 +9826,14 @@ mondata SPECIES_MONFERNO, "Monferno"
     types TYPE_FIRE, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -8251,10 +9851,14 @@ mondata SPECIES_INFERNAPE, "Infernape"
     types TYPE_FIRE, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -8272,10 +9876,14 @@ mondata SPECIES_PIPLUP, "Piplup"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -8293,10 +9901,14 @@ mondata SPECIES_PRINPLUP, "Prinplup"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -8314,10 +9926,14 @@ mondata SPECIES_EMPOLEON, "Empoleon"
     types TYPE_WATER, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -8335,10 +9951,14 @@ mondata SPECIES_STARLY, "Starly"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_YACHE_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -8356,10 +9976,14 @@ mondata SPECIES_STARAVIA, "Staravia"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_YACHE_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -8377,10 +10001,14 @@ mondata SPECIES_STARAPTOR, "Staraptor"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_YACHE_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -8398,10 +10026,14 @@ mondata SPECIES_BIDOOF, "Bidoof"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -8419,10 +10051,14 @@ mondata SPECIES_BIBAREL, "Bibarel"
     types TYPE_NORMAL, TYPE_WATER
     catchrate 127
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -8440,10 +10076,14 @@ mondata SPECIES_KRICKETOT, "Kricketot"
     types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_METRONOME
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -8461,10 +10101,14 @@ mondata SPECIES_KRICKETUNE, "Kricketune"
     types TYPE_BUG, TYPE_BUG
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_METRONOME
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -8482,10 +10126,14 @@ mondata SPECIES_SHINX, "Shinx"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 235
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -8503,10 +10151,14 @@ mondata SPECIES_LUXIO, "Luxio"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 100
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -8524,10 +10176,14 @@ mondata SPECIES_LUXRAY, "Luxray"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -8545,10 +10201,14 @@ mondata SPECIES_BUDEW, "Budew"
     types TYPE_GRASS, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -8566,10 +10226,14 @@ mondata SPECIES_ROSERADE, "Roserade"
     types TYPE_GRASS, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
-    items ITEM_ABSORB_BULB, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_ABSORB_BULB, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
@@ -8587,10 +10251,14 @@ mondata SPECIES_CRANIDOS, "Cranidos"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 70
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -8608,10 +10276,14 @@ mondata SPECIES_RAMPARDOS, "Rampardos"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 70
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -8629,10 +10301,14 @@ mondata SPECIES_SHIELDON, "Shieldon"
     types TYPE_ROCK, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 70
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -8650,10 +10326,14 @@ mondata SPECIES_BASTIODON, "Bastiodon"
     types TYPE_ROCK, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 70
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -8671,10 +10351,14 @@ mondata SPECIES_BURMY, "Burmy"
     types TYPE_BUG, TYPE_BUG
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -8692,10 +10376,14 @@ mondata SPECIES_WORMADAM, "Wormadam"
     types TYPE_BUG, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -8713,10 +10401,14 @@ mondata SPECIES_MOTHIM, "Mothim"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 0
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -8734,10 +10426,14 @@ mondata SPECIES_COMBEE, "Combee"
     types TYPE_BUG, TYPE_FLYING
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_HONEY, ITEM_NONE
     genderratio 31
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -8755,10 +10451,14 @@ mondata SPECIES_VESPIQUEN, "Vespiquen"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -8776,10 +10476,14 @@ mondata SPECIES_PACHIRISU, "Pachirisu"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 100
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -8797,10 +10501,14 @@ mondata SPECIES_BUIZEL, "Buizel"
     types TYPE_WATER, TYPE_WATER
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_WACAN_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -8818,10 +10526,14 @@ mondata SPECIES_FLOATZEL, "Floatzel"
     types TYPE_WATER, TYPE_WATER
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_WACAN_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -8839,10 +10551,14 @@ mondata SPECIES_CHERUBI, "Cherubi"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
@@ -8860,10 +10576,14 @@ mondata SPECIES_CHERRIM, "Cherrim"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
@@ -8881,10 +10601,14 @@ mondata SPECIES_SHELLOS, "Shellos"
     types TYPE_WATER, TYPE_WATER
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
@@ -8902,10 +10626,14 @@ mondata SPECIES_GASTRODON, "Gastrodon"
     types TYPE_WATER, TYPE_GROUND
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
@@ -8923,10 +10651,14 @@ mondata SPECIES_AMBIPOM, "Ambipom"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 100
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -8944,10 +10676,14 @@ mondata SPECIES_DRIFLOON, "Drifloon"
     types TYPE_GHOST, TYPE_FLYING
     catchrate 125
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -8965,10 +10701,14 @@ mondata SPECIES_DRIFBLIM, "Drifblim"
     types TYPE_GHOST, TYPE_FLYING
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_AIR_BALLOON
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_FLUCTUATING
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -8986,10 +10726,14 @@ mondata SPECIES_BUNEARY, "Buneary"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PECHA_BERRY, ITEM_CHOPLE_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 0
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -9007,10 +10751,14 @@ mondata SPECIES_LOPUNNY, "Lopunny"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PECHA_BERRY, ITEM_CHOPLE_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 140
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -9028,10 +10776,14 @@ mondata SPECIES_MISMAGIUS, "Mismagius"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -9049,10 +10801,14 @@ mondata SPECIES_HONCHKROW, "Honchkrow"
     types TYPE_DARK, TYPE_FLYING
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -9070,10 +10826,14 @@ mondata SPECIES_GLAMEOW, "Glameow"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CHERI_BERRY
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -9091,10 +10851,14 @@ mondata SPECIES_PURUGLY, "Purugly"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CHERI_BERRY
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -9112,10 +10876,14 @@ mondata SPECIES_CHINGLING, "Chingling"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_CLEANSE_TAG, ITEM_COLBUR_BERRY
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -9133,10 +10901,14 @@ mondata SPECIES_STUNKY, "Stunky"
     types TYPE_POISON, TYPE_DARK
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -9154,10 +10926,14 @@ mondata SPECIES_SKUNTANK, "Skuntank"
     types TYPE_POISON, TYPE_DARK
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -9175,10 +10951,14 @@ mondata SPECIES_BRONZOR, "Bronzor"
     types TYPE_STEEL, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_METAL_COAT
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -9196,10 +10976,14 @@ mondata SPECIES_BRONZONG, "Bronzong"
     types TYPE_STEEL, TYPE_PSYCHIC
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
-    items ITEM_NONE, ITEM_METAL_COAT
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -9217,10 +11001,14 @@ mondata SPECIES_BONSLY, "Bonsly"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -9238,10 +11026,14 @@ mondata SPECIES_MIMEJR, "Mime Jr."
     types TYPE_PSYCHIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 145
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
-    items ITEM_NONE, ITEM_LEPPA_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -9259,10 +11051,14 @@ mondata SPECIES_HAPPINY, "Happiny"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 130
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_OVAL_STONE, ITEM_LUCKY_EGG
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_OVAL_STONE, ITEM_NONE
     genderratio 254
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 140
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -9280,10 +11076,14 @@ mondata SPECIES_CHATOT, "Chatot"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_METRONOME
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -9301,10 +11101,14 @@ mondata SPECIES_SPIRITOMB, "Spiritomb"
     types TYPE_GHOST, TYPE_DARK
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -9322,10 +11126,14 @@ mondata SPECIES_GIBLE, "Gible"
     types TYPE_DRAGON, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_HABAN_BERRY
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -9343,10 +11151,14 @@ mondata SPECIES_GABITE, "Gabite"
     types TYPE_DRAGON, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_HABAN_BERRY
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -9364,10 +11176,14 @@ mondata SPECIES_GARCHOMP, "Garchomp"
     types TYPE_DRAGON, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_HABAN_BERRY
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -9385,10 +11201,14 @@ mondata SPECIES_MUNCHLAX, "Munchlax"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_LEFTOVERS, ITEM_NONE
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_LEFTOVERS
     genderratio 31
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -9406,10 +11226,14 @@ mondata SPECIES_RIOLU, "Riolu"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -9427,10 +11251,14 @@ mondata SPECIES_LUCARIO, "Lucario"
     types TYPE_FIGHTING, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -9448,10 +11276,14 @@ mondata SPECIES_HIPPOPOTAS, "Hippopotas"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 140
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -9469,10 +11301,14 @@ mondata SPECIES_HIPPOWDON, "Hippowdon"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -9490,10 +11326,14 @@ mondata SPECIES_SKORUPI, "Skorupi"
     types TYPE_POISON, TYPE_BUG
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_WATER_3
@@ -9511,10 +11351,14 @@ mondata SPECIES_DRAPION, "Drapion"
     types TYPE_POISON, TYPE_DARK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_WATER_3
@@ -9532,10 +11376,14 @@ mondata SPECIES_CROAGUNK, "Croagunk"
     types TYPE_POISON, TYPE_FIGHTING
     catchrate 140
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 100
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -9553,10 +11401,14 @@ mondata SPECIES_TOXICROAK, "Toxicroak"
     types TYPE_POISON, TYPE_FIGHTING
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -9574,10 +11426,14 @@ mondata SPECIES_CARNIVINE, "Carnivine"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -9595,10 +11451,14 @@ mondata SPECIES_FINNEON, "Finneon"
     types TYPE_WATER, TYPE_WATER
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_RINDO_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -9616,10 +11476,14 @@ mondata SPECIES_LUMINEON, "Lumineon"
     types TYPE_WATER, TYPE_WATER
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_RINDO_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -9637,10 +11501,14 @@ mondata SPECIES_MANTYKE, "Mantyke"
     types TYPE_WATER, TYPE_FLYING
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -9658,10 +11526,14 @@ mondata SPECIES_SNOVER, "Snover"
     types TYPE_GRASS, TYPE_ICE
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -9679,10 +11551,14 @@ mondata SPECIES_ABOMASNOW, "Abomasnow"
     types TYPE_GRASS, TYPE_ICE
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 0
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -9700,10 +11576,14 @@ mondata SPECIES_WEAVILE, "Weavile"
     types TYPE_DARK, TYPE_ICE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 1, 0, 0
-    items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -9721,10 +11601,14 @@ mondata SPECIES_MAGNEZONE, "Magnezone"
     types TYPE_ELECTRIC, TYPE_STEEL
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -9742,10 +11626,14 @@ mondata SPECIES_LICKILICKY, "Lickilicky"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_LAGGING_TAIL
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -9763,10 +11651,14 @@ mondata SPECIES_RHYPERIOR, "Rhyperior"
     types TYPE_GROUND, TYPE_ROCK
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -9784,10 +11676,14 @@ mondata SPECIES_TANGROWTH, "Tangrowth"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -9805,10 +11701,14 @@ mondata SPECIES_ELECTIVIRE, "Electivire"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_ELECTIRIZER, ITEM_NONE
     genderratio 63
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -9826,10 +11726,14 @@ mondata SPECIES_MAGMORTAR, "Magmortar"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_MAGMARIZER
     genderratio 63
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -9847,10 +11751,14 @@ mondata SPECIES_TOGEKISS, "Togekiss"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_FLYING
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FAIRY
@@ -9868,10 +11776,14 @@ mondata SPECIES_YANMEGA, "Yanmega"
     types TYPE_BUG, TYPE_FLYING
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_WIDE_LENS
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -9889,10 +11801,14 @@ mondata SPECIES_LEAFEON, "Leafeon"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 35
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -9910,10 +11826,14 @@ mondata SPECIES_GLACEON, "Glaceon"
     types TYPE_ICE, TYPE_ICE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 35
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -9931,10 +11851,14 @@ mondata SPECIES_GLISCOR, "Gliscor"
     types TYPE_GROUND, TYPE_FLYING
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -9952,10 +11876,14 @@ mondata SPECIES_MAMOSWINE, "Mamoswine"
     types TYPE_ICE, TYPE_GROUND
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -9973,10 +11901,14 @@ mondata SPECIES_PORYGON_Z, "Porygon-Z"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -9994,10 +11926,14 @@ mondata SPECIES_GALLADE, "Gallade"
     types TYPE_PSYCHIC, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_AMORPHOUS
@@ -10015,10 +11951,14 @@ mondata SPECIES_PROBOPASS, "Probopass"
     types TYPE_ROCK, TYPE_STEEL
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 2
-    items ITEM_MAGNET, ITEM_HARD_STONE
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -10036,10 +11976,14 @@ mondata SPECIES_DUSKNOIR, "Dusknoir"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_SPELL_TAG, ITEM_KASIB_BERRY
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -10057,10 +12001,14 @@ mondata SPECIES_FROSLASS, "Froslass"
     types TYPE_ICE, TYPE_GHOST
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_BABIRI_BERRY
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
@@ -10078,10 +12026,14 @@ mondata SPECIES_ROTOM, "Rotom"
     types TYPE_ELECTRIC, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -10099,10 +12051,14 @@ mondata SPECIES_UXIE, "Uxie"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 140
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10120,10 +12076,14 @@ mondata SPECIES_MESPRIT, "Mesprit"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 1, 1
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 140
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10141,10 +12101,14 @@ mondata SPECIES_AZELF, "Azelf"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 140
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10162,10 +12126,14 @@ mondata SPECIES_DIALGA, "Dialga"
     types TYPE_STEEL, TYPE_DRAGON
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10183,10 +12151,14 @@ mondata SPECIES_PALKIA, "Palkia"
     types TYPE_WATER, TYPE_DRAGON
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10204,10 +12176,14 @@ mondata SPECIES_HEATRAN, "Heatran"
     types TYPE_FIRE, TYPE_STEEL
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10225,10 +12201,14 @@ mondata SPECIES_REGIGIGAS, "Regigigas"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10246,10 +12226,14 @@ mondata SPECIES_GIRATINA, "Giratina"
     types TYPE_GHOST, TYPE_DRAGON
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10267,10 +12251,14 @@ mondata SPECIES_CRESSELIA, "Cresselia"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10288,10 +12276,14 @@ mondata SPECIES_PHIONE, "Phione"
     types TYPE_WATER, TYPE_WATER
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FAIRY
@@ -10309,10 +12301,14 @@ mondata SPECIES_MANAPHY, "Manaphy"
     types TYPE_WATER, TYPE_WATER
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FAIRY
@@ -10330,10 +12326,14 @@ mondata SPECIES_DARKRAI, "Darkrai"
     types TYPE_DARK, TYPE_DARK
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10351,10 +12351,14 @@ mondata SPECIES_SHAYMIN, "Shaymin"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_LUM_BERRY, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10372,10 +12376,14 @@ mondata SPECIES_ARCEUS, "Arceus"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10393,10 +12401,14 @@ mondata SPECIES_EGG, "Egg"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 3
     baseexp 255
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10414,10 +12426,14 @@ mondata SPECIES_BAD_EGG, "Bad Egg"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 3
     baseexp 255
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10435,10 +12451,14 @@ mondata SPECIES_DEOXYS_ATTACK, "-----"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 3
     baseexp 215
-    evyields 0, 2, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10456,10 +12476,14 @@ mondata SPECIES_DEOXYS_DEFENSE, "-----"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 3
     baseexp 215
-    evyields 0, 0, 2, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10477,10 +12501,14 @@ mondata SPECIES_DEOXYS_SPEED, "-----"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 3
     baseexp 215
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10498,10 +12526,14 @@ mondata SPECIES_WORMADAM_SANDY, "-----"
     types TYPE_BUG, TYPE_GROUND
     catchrate 45
     baseexp 159
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -10519,10 +12551,14 @@ mondata SPECIES_WORMADAM_TRASHY, "-----"
     types TYPE_BUG, TYPE_STEEL
     catchrate 45
     baseexp 159
-    evyields 0, 0, 1, 0, 0, 1
-    items ITEM_NONE, ITEM_SILVER_POWDER
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -10540,10 +12576,14 @@ mondata SPECIES_GIRATINA_ORIGIN, "-----"
     types TYPE_GHOST, TYPE_DRAGON
     catchrate 3
     baseexp 220
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10561,10 +12601,14 @@ mondata SPECIES_SHAYMIN_SKY, "-----"
     types TYPE_GRASS, TYPE_FLYING
     catchrate 45
     baseexp 64
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_LUM_BERRY, ITEM_LUM_BERRY
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -10582,10 +12626,14 @@ mondata SPECIES_ROTOM_HEAT, "-----"
     types TYPE_ELECTRIC, TYPE_FIRE
     catchrate 45
     baseexp 132
-    evyields 0, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -10603,10 +12651,14 @@ mondata SPECIES_ROTOM_WASH, "-----"
     types TYPE_ELECTRIC, TYPE_WATER
     catchrate 45
     baseexp 132
-    evyields 0, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -10624,10 +12676,14 @@ mondata SPECIES_ROTOM_FROST, "-----"
     types TYPE_ELECTRIC, TYPE_ICE
     catchrate 45
     baseexp 132
-    evyields 0, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -10645,10 +12701,14 @@ mondata SPECIES_ROTOM_FAN, "-----"
     types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 45
     baseexp 132
-    evyields 0, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -10666,10 +12726,14 @@ mondata SPECIES_ROTOM_MOW, "-----"
     types TYPE_ELECTRIC, TYPE_GRASS
     catchrate 45
     baseexp 132
-    evyields 0, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -10687,7 +12751,11 @@ mondata SPECIES_508, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10708,7 +12776,11 @@ mondata SPECIES_509, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10729,7 +12801,11 @@ mondata SPECIES_510, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10750,7 +12826,11 @@ mondata SPECIES_511, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10771,7 +12851,11 @@ mondata SPECIES_512, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10792,7 +12876,11 @@ mondata SPECIES_513, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10813,7 +12901,11 @@ mondata SPECIES_514, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10834,7 +12926,11 @@ mondata SPECIES_515, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10855,7 +12951,11 @@ mondata SPECIES_516, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10876,7 +12976,11 @@ mondata SPECIES_517, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10897,7 +13001,11 @@ mondata SPECIES_518, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10918,7 +13026,11 @@ mondata SPECIES_519, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10939,7 +13051,11 @@ mondata SPECIES_520, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10960,7 +13076,11 @@ mondata SPECIES_521, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -10981,7 +13101,11 @@ mondata SPECIES_522, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11002,7 +13126,11 @@ mondata SPECIES_523, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11023,7 +13151,11 @@ mondata SPECIES_524, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11044,7 +13176,11 @@ mondata SPECIES_525, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11065,7 +13201,11 @@ mondata SPECIES_526, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11086,7 +13226,11 @@ mondata SPECIES_527, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11107,7 +13251,11 @@ mondata SPECIES_528, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11128,7 +13276,11 @@ mondata SPECIES_529, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11149,7 +13301,11 @@ mondata SPECIES_530, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11170,7 +13326,11 @@ mondata SPECIES_531, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11191,7 +13351,11 @@ mondata SPECIES_532, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11212,7 +13376,11 @@ mondata SPECIES_533, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11233,7 +13401,11 @@ mondata SPECIES_534, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11254,7 +13426,11 @@ mondata SPECIES_535, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11275,7 +13451,11 @@ mondata SPECIES_536, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11296,7 +13476,11 @@ mondata SPECIES_537, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11317,7 +13501,11 @@ mondata SPECIES_538, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11338,7 +13526,11 @@ mondata SPECIES_539, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11359,7 +13551,11 @@ mondata SPECIES_540, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11380,7 +13576,11 @@ mondata SPECIES_541, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11401,7 +13601,11 @@ mondata SPECIES_542, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11422,7 +13626,11 @@ mondata SPECIES_543, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 0
     baseexp 0
-    evyields 0, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -11443,10 +13651,14 @@ mondata SPECIES_VICTINI, "Victini"
     types TYPE_PSYCHIC, TYPE_FIRE
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -11464,10 +13676,14 @@ mondata SPECIES_SNIVY, "Snivy"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -11485,10 +13701,14 @@ mondata SPECIES_SERVINE, "Servine"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -11506,10 +13726,14 @@ mondata SPECIES_SERPERIOR, "Serperior"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -11527,10 +13751,14 @@ mondata SPECIES_TEPIG, "Tepig"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11548,10 +13776,14 @@ mondata SPECIES_PIGNITE, "Pignite"
     types TYPE_FIRE, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11569,10 +13801,14 @@ mondata SPECIES_EMBOAR, "Emboar"
     types TYPE_FIRE, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11590,10 +13826,14 @@ mondata SPECIES_OSHAWOTT, "Oshawott"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11611,10 +13851,14 @@ mondata SPECIES_DEWOTT, "Dewott"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11632,10 +13876,14 @@ mondata SPECIES_SAMUROTT, "Samurott"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11653,10 +13901,14 @@ mondata SPECIES_PATRAT, "Patrat"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11674,10 +13926,14 @@ mondata SPECIES_WATCHOG, "Watchog"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11695,10 +13951,14 @@ mondata SPECIES_LILLIPUP, "Lillipup"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11716,10 +13976,14 @@ mondata SPECIES_HERDIER, "Herdier"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11737,10 +14001,14 @@ mondata SPECIES_STOUTLAND, "Stoutland"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11758,10 +14026,14 @@ mondata SPECIES_PURRLOIN, "Purrloin"
     types TYPE_DARK, TYPE_DARK
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11779,10 +14051,14 @@ mondata SPECIES_LIEPARD, "Liepard"
     types TYPE_DARK, TYPE_DARK
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11800,10 +14076,14 @@ mondata SPECIES_PANSAGE, "Pansage"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_OCCA_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_OCCA_BERRY
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11821,10 +14101,14 @@ mondata SPECIES_SIMISAGE, "Simisage"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_OCCA_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_OCCA_BERRY
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11842,10 +14126,14 @@ mondata SPECIES_PANSEAR, "Pansear"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_PASSHO_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_PASSHO_BERRY
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11863,10 +14151,14 @@ mondata SPECIES_SIMISEAR, "Simisear"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_PASSHO_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_PASSHO_BERRY
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11884,10 +14176,14 @@ mondata SPECIES_PANPOUR, "Panpour"
     types TYPE_WATER, TYPE_WATER
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_RINDO_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_RINDO_BERRY
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11905,10 +14201,14 @@ mondata SPECIES_SIMIPOUR, "Simipour"
     types TYPE_WATER, TYPE_WATER
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_RINDO_BERRY
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_RINDO_BERRY
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11926,10 +14226,14 @@ mondata SPECIES_MUNNA, "Munna"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11947,10 +14251,14 @@ mondata SPECIES_MUSHARNA, "Musharna"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -11968,10 +14276,14 @@ mondata SPECIES_PIDOVE, "Pidove"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -11989,10 +14301,14 @@ mondata SPECIES_TRANQUILL, "Tranquill"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -12010,10 +14326,14 @@ mondata SPECIES_UNFEZANT, "Unfezant"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -12031,10 +14351,14 @@ mondata SPECIES_BLITZLE, "Blitzle"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_CHERI_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -12052,10 +14376,14 @@ mondata SPECIES_ZEBSTRIKA, "Zebstrika"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_CHERI_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -12073,10 +14401,14 @@ mondata SPECIES_ROGGENROLA, "Roggenrola"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_EVERSTONE, ITEM_HARD_STONE
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -12094,10 +14426,14 @@ mondata SPECIES_BOLDORE, "Boldore"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 1, 0, 0, 0
-    items ITEM_EVERSTONE, ITEM_HARD_STONE
+    .if EV_ENABLED
+        evyields 0, 1, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -12115,10 +14451,14 @@ mondata SPECIES_GIGALITH, "Gigalith"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
-    items ITEM_EVERSTONE, ITEM_HARD_STONE
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -12136,10 +14476,14 @@ mondata SPECIES_WOOBAT, "Woobat"
     types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FLYING
@@ -12157,10 +14501,14 @@ mondata SPECIES_SWOOBAT, "Swoobat"
     types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FLYING
@@ -12178,10 +14526,14 @@ mondata SPECIES_DRILBUR, "Drilbur"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -12199,10 +14551,14 @@ mondata SPECIES_EXCADRILL, "Excadrill"
     types TYPE_GROUND, TYPE_STEEL
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -12220,10 +14576,14 @@ mondata SPECIES_AUDINO, "Audino"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_ORAN_BERRY, ITEM_SITRUS_BERRY
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -12241,10 +14601,14 @@ mondata SPECIES_TIMBURR, "Timburr"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -12262,10 +14626,14 @@ mondata SPECIES_GURDURR, "Gurdurr"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -12283,10 +14651,14 @@ mondata SPECIES_CONKELDURR, "Conkeldurr"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -12304,10 +14676,14 @@ mondata SPECIES_TYMPOLE, "Tympole"
     types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PECHA_BERRY, ITEM_PERSIM_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -12325,10 +14701,14 @@ mondata SPECIES_PALPITOAD, "Palpitoad"
     types TYPE_WATER, TYPE_GROUND
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PECHA_BERRY, ITEM_PERSIM_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -12346,10 +14726,14 @@ mondata SPECIES_SEISMITOAD, "Seismitoad"
     types TYPE_WATER, TYPE_GROUND
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PECHA_BERRY, ITEM_PERSIM_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -12367,10 +14751,14 @@ mondata SPECIES_THROH, "Throh"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_EXPERT_BELT, ITEM_BLACK_BELT
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -12388,10 +14776,14 @@ mondata SPECIES_SAWK, "Sawk"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_EXPERT_BELT, ITEM_BLACK_BELT
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -12409,10 +14801,14 @@ mondata SPECIES_SEWADDLE, "Sewaddle"
     types TYPE_BUG, TYPE_GRASS
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -12430,10 +14826,14 @@ mondata SPECIES_SWADLOON, "Swadloon"
     types TYPE_BUG, TYPE_GRASS
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -12451,10 +14851,14 @@ mondata SPECIES_LEAVANNY, "Leavanny"
     types TYPE_BUG, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -12472,10 +14876,14 @@ mondata SPECIES_VENIPEDE, "Venipede"
     types TYPE_BUG, TYPE_POISON
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_PECHA_BERRY, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_PECHA_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -12493,10 +14901,14 @@ mondata SPECIES_WHIRLIPEDE, "Whirlipede"
     types TYPE_BUG, TYPE_POISON
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_PECHA_BERRY, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_PECHA_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -12514,10 +14926,14 @@ mondata SPECIES_SCOLIPEDE, "Scolipede"
     types TYPE_BUG, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
-    items ITEM_PECHA_BERRY, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_PECHA_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -12535,10 +14951,14 @@ mondata SPECIES_COTTONEE, "Cottonee"
     types TYPE_GRASS, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_ABSORB_BULB
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_FAIRY
@@ -12556,10 +14976,14 @@ mondata SPECIES_WHIMSICOTT, "Whimsicott"
     types TYPE_GRASS, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_GRASS
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_ABSORB_BULB
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_FAIRY
@@ -12577,10 +15001,14 @@ mondata SPECIES_PETILIL, "Petilil"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_ABSORB_BULB
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -12598,10 +15026,14 @@ mondata SPECIES_LILLIGANT, "Lilligant"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_ABSORB_BULB
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -12619,10 +15051,14 @@ mondata SPECIES_BASCULIN, "Basculin"
     types TYPE_WATER, TYPE_WATER
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_DEEP_SEA_TOOTH
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -12640,10 +15076,14 @@ mondata SPECIES_SANDILE, "Sandile"
     types TYPE_GROUND, TYPE_DARK
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_BLACK_GLASSES
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -12661,10 +15101,14 @@ mondata SPECIES_KROKOROK, "Krokorok"
     types TYPE_GROUND, TYPE_DARK
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_BLACK_GLASSES
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -12682,10 +15126,14 @@ mondata SPECIES_KROOKODILE, "Krookodile"
     types TYPE_GROUND, TYPE_DARK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
-    items ITEM_BLACK_GLASSES, ITEM_NONE
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -12703,10 +15151,14 @@ mondata SPECIES_DARUMAKA, "Darumaka"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -12724,10 +15176,14 @@ mondata SPECIES_DARMANITAN, "Darmanitan"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_RAWST_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -12745,10 +15201,14 @@ mondata SPECIES_MARACTUS, "Maractus"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -12766,10 +15226,14 @@ mondata SPECIES_DWEBBLE, "Dwebble"
     types TYPE_BUG, TYPE_ROCK
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_HARD_STONE, ITEM_RARE_BONE
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_RARE_BONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_MINERAL
@@ -12787,10 +15251,14 @@ mondata SPECIES_CRUSTLE, "Crustle"
     types TYPE_BUG, TYPE_ROCK
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_HARD_STONE, ITEM_RARE_BONE
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_RARE_BONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_MINERAL
@@ -12808,10 +15276,14 @@ mondata SPECIES_SCRAGGY, "Scraggy"
     types TYPE_DARK, TYPE_FIGHTING
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_SHED_SHELL
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 35
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
@@ -12829,10 +15301,14 @@ mondata SPECIES_SCRAFTY, "Scrafty"
     types TYPE_DARK, TYPE_FIGHTING
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
-    items ITEM_NONE, ITEM_SHED_SHELL
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
@@ -12850,10 +15326,14 @@ mondata SPECIES_SIGILYPH, "Sigilyph"
     types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -12871,10 +15351,14 @@ mondata SPECIES_YAMASK, "Yamask"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -12892,10 +15376,14 @@ mondata SPECIES_COFAGRIGUS, "Cofagrigus"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -12913,10 +15401,14 @@ mondata SPECIES_TIRTOUGA, "Tirtouga"
     types TYPE_WATER, TYPE_ROCK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -12934,10 +15426,14 @@ mondata SPECIES_CARRACOSTA, "Carracosta"
     types TYPE_WATER, TYPE_ROCK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -12955,10 +15451,14 @@ mondata SPECIES_ARCHEN, "Archen"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_WATER_3
@@ -12976,10 +15476,14 @@ mondata SPECIES_ARCHEOPS, "Archeops"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_WATER_3
@@ -12997,10 +15501,14 @@ mondata SPECIES_TRUBBISH, "Trubbish"
     types TYPE_POISON, TYPE_POISON
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_SILK_SCARF, ITEM_NUGGET
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -13018,10 +15526,14 @@ mondata SPECIES_GARBODOR, "Garbodor"
     types TYPE_POISON, TYPE_POISON
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_SILK_SCARF, ITEM_NUGGET
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -13039,10 +15551,14 @@ mondata SPECIES_ZORUA, "Zorua"
     types TYPE_DARK, TYPE_DARK
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -13060,10 +15576,14 @@ mondata SPECIES_ZOROARK, "Zoroark"
     types TYPE_DARK, TYPE_DARK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -13081,10 +15601,14 @@ mondata SPECIES_MINCCINO, "Minccino"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_CHESTO_BERRY, ITEM_NONE
     genderratio 190
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -13102,10 +15626,14 @@ mondata SPECIES_CINCCINO, "Cinccino"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_CHESTO_BERRY, ITEM_NONE
     genderratio 190
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -13123,10 +15651,14 @@ mondata SPECIES_GOTHITA, "Gothita"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -13144,10 +15676,14 @@ mondata SPECIES_GOTHORITA, "Gothorita"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -13165,10 +15701,14 @@ mondata SPECIES_GOTHITELLE, "Gothitelle"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -13186,10 +15726,14 @@ mondata SPECIES_SOLOSIS, "Solosis"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -13207,10 +15751,14 @@ mondata SPECIES_DUOSION, "Duosion"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -13228,10 +15776,14 @@ mondata SPECIES_REUNICLUS, "Reuniclus"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_PERSIM_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -13249,10 +15801,14 @@ mondata SPECIES_DUCKLETT, "Ducklett"
     types TYPE_WATER, TYPE_FLYING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
@@ -13270,10 +15826,14 @@ mondata SPECIES_SWANNA, "Swanna"
     types TYPE_WATER, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
@@ -13291,10 +15851,14 @@ mondata SPECIES_VANILLITE, "Vanillite"
     types TYPE_ICE, TYPE_ICE
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -13312,10 +15876,14 @@ mondata SPECIES_VANILLISH, "Vanillish"
     types TYPE_ICE, TYPE_ICE
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -13333,10 +15901,14 @@ mondata SPECIES_VANILLUXE, "Vanilluxe"
     types TYPE_ICE, TYPE_ICE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
-    items ITEM_NEVER_MELT_ICE, ITEM_NONE
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -13354,10 +15926,14 @@ mondata SPECIES_DEERLING, "Deerling"
     types TYPE_NORMAL, TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -13375,10 +15951,14 @@ mondata SPECIES_SAWSBUCK, "Sawsbuck"
     types TYPE_NORMAL, TYPE_GRASS
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -13396,10 +15976,14 @@ mondata SPECIES_EMOLGA, "Emolga"
     types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_CHERI_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -13417,10 +16001,14 @@ mondata SPECIES_KARRABLAST, "Karrablast"
     types TYPE_BUG, TYPE_BUG
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -13438,10 +16026,14 @@ mondata SPECIES_ESCAVALIER, "Escavalier"
     types TYPE_BUG, TYPE_STEEL
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -13459,10 +16051,14 @@ mondata SPECIES_FOONGUS, "Foongus"
     types TYPE_GRASS, TYPE_POISON
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -13480,10 +16076,14 @@ mondata SPECIES_AMOONGUSS, "Amoonguss"
     types TYPE_GRASS, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -13501,10 +16101,14 @@ mondata SPECIES_FRILLISH, "Frillish"
     types TYPE_WATER, TYPE_GHOST
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -13522,10 +16126,14 @@ mondata SPECIES_JELLICENT, "Jellicent"
     types TYPE_WATER, TYPE_GHOST
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -13543,10 +16151,14 @@ mondata SPECIES_ALOMOMOLA, "Alomomola"
     types TYPE_WATER, TYPE_WATER
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
@@ -13564,10 +16176,14 @@ mondata SPECIES_JOLTIK, "Joltik"
     types TYPE_BUG, TYPE_ELECTRIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -13585,10 +16201,14 @@ mondata SPECIES_GALVANTULA, "Galvantula"
     types TYPE_BUG, TYPE_ELECTRIC
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -13606,10 +16226,14 @@ mondata SPECIES_FERROSEED, "Ferroseed"
     types TYPE_GRASS, TYPE_STEEL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_STICKY_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_MINERAL
@@ -13627,10 +16251,14 @@ mondata SPECIES_FERROTHORN, "Ferrothorn"
     types TYPE_GRASS, TYPE_STEEL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_NONE, ITEM_STICKY_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_MINERAL
@@ -13648,10 +16276,14 @@ mondata SPECIES_KLINK, "Klink"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 130
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -13669,10 +16301,14 @@ mondata SPECIES_KLANG, "Klang"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -13690,10 +16326,14 @@ mondata SPECIES_KLINKLANG, "Klinklang"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -13711,10 +16351,14 @@ mondata SPECIES_TYNAMO, "Tynamo"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -13732,10 +16376,14 @@ mondata SPECIES_EELEKTRIK, "Eelektrik"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -13753,10 +16401,14 @@ mondata SPECIES_EELEKTROSS, "Eelektross"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -13774,10 +16426,14 @@ mondata SPECIES_ELGYEM, "Elgyem"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -13795,10 +16451,14 @@ mondata SPECIES_BEHEEYEM, "Beheeyem"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -13816,10 +16476,14 @@ mondata SPECIES_LITWICK, "Litwick"
     types TYPE_GHOST, TYPE_FIRE
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -13837,10 +16501,14 @@ mondata SPECIES_LAMPENT, "Lampent"
     types TYPE_GHOST, TYPE_FIRE
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -13858,10 +16526,14 @@ mondata SPECIES_CHANDELURE, "Chandelure"
     types TYPE_GHOST, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -13879,10 +16551,14 @@ mondata SPECIES_AXEW, "Axew"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -13900,10 +16576,14 @@ mondata SPECIES_FRAXURE, "Fraxure"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -13921,10 +16601,14 @@ mondata SPECIES_HAXORUS, "Haxorus"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -13942,10 +16626,14 @@ mondata SPECIES_CUBCHOO, "Cubchoo"
     types TYPE_ICE, TYPE_ICE
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -13963,10 +16651,14 @@ mondata SPECIES_BEARTIC, "Beartic"
     types TYPE_ICE, TYPE_ICE
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_ASPEAR_BERRY, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -13984,10 +16676,14 @@ mondata SPECIES_CRYOGONAL, "Cryogonal"
     types TYPE_ICE, TYPE_ICE
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -14005,10 +16701,14 @@ mondata SPECIES_SHELMET, "Shelmet"
     types TYPE_BUG, TYPE_BUG
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -14026,10 +16726,14 @@ mondata SPECIES_ACCELGOR, "Accelgor"
     types TYPE_BUG, TYPE_BUG
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -14047,10 +16751,14 @@ mondata SPECIES_STUNFISK, "Stunfisk"
     types TYPE_GROUND, TYPE_ELECTRIC
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_SOFT_SAND
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
@@ -14068,10 +16776,14 @@ mondata SPECIES_MIENFOO, "Mienfoo"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -14089,10 +16801,14 @@ mondata SPECIES_MIENSHAO, "Mienshao"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -14110,10 +16826,14 @@ mondata SPECIES_DRUDDIGON, "Druddigon"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_DRAGON_FANG
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_MONSTER
@@ -14131,10 +16851,14 @@ mondata SPECIES_GOLETT, "Golett"
     types TYPE_GROUND, TYPE_GHOST
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -14152,10 +16876,14 @@ mondata SPECIES_GOLURK, "Golurk"
     types TYPE_GROUND, TYPE_GHOST
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -14173,10 +16901,14 @@ mondata SPECIES_PAWNIARD, "Pawniard"
     types TYPE_DARK, TYPE_STEEL
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -14194,10 +16926,14 @@ mondata SPECIES_BISHARP, "Bisharp"
     types TYPE_DARK, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -14215,10 +16951,14 @@ mondata SPECIES_BOUFFALANT, "Bouffalant"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -14236,10 +16976,14 @@ mondata SPECIES_RUFFLET, "Rufflet"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -14257,10 +17001,14 @@ mondata SPECIES_BRAVIARY, "Braviary"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -14278,10 +17026,14 @@ mondata SPECIES_VULLABY, "Vullaby"
     types TYPE_DARK, TYPE_FLYING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -14299,10 +17051,14 @@ mondata SPECIES_MANDIBUZZ, "Mandibuzz"
     types TYPE_DARK, TYPE_FLYING
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -14320,10 +17076,14 @@ mondata SPECIES_HEATMOR, "Heatmor"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
-    items ITEM_NONE, ITEM_FLAME_ORB
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -14341,10 +17101,14 @@ mondata SPECIES_DURANT, "Durant"
     types TYPE_BUG, TYPE_STEEL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -14362,10 +17126,14 @@ mondata SPECIES_DEINO, "Deino"
     types TYPE_DARK, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -14383,10 +17151,14 @@ mondata SPECIES_ZWEILOUS, "Zweilous"
     types TYPE_DARK, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -14404,10 +17176,14 @@ mondata SPECIES_HYDREIGON, "Hydreigon"
     types TYPE_DARK, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -14425,10 +17201,14 @@ mondata SPECIES_LARVESTA, "Larvesta"
     types TYPE_BUG, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -14446,10 +17226,14 @@ mondata SPECIES_VOLCARONA, "Volcarona"
     types TYPE_BUG, TYPE_FIRE
     catchrate 15
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
-    items ITEM_SILVER_POWDER, ITEM_NONE
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -14467,10 +17251,14 @@ mondata SPECIES_COBALION, "Cobalion"
     types TYPE_STEEL, TYPE_FIGHTING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14488,10 +17276,14 @@ mondata SPECIES_TERRAKION, "Terrakion"
     types TYPE_ROCK, TYPE_FIGHTING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14509,10 +17301,14 @@ mondata SPECIES_VIRIZION, "Virizion"
     types TYPE_GRASS, TYPE_FIGHTING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14530,10 +17326,14 @@ mondata SPECIES_TORNADUS, "Tornadus"
     types TYPE_FLYING, TYPE_FLYING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 90
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14551,10 +17351,14 @@ mondata SPECIES_THUNDURUS, "Thundurus"
     types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 90
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14572,10 +17376,14 @@ mondata SPECIES_RESHIRAM, "Reshiram"
     types TYPE_DRAGON, TYPE_FIRE
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14593,10 +17401,14 @@ mondata SPECIES_ZEKROM, "Zekrom"
     types TYPE_DRAGON, TYPE_ELECTRIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14614,10 +17426,14 @@ mondata SPECIES_LANDORUS, "Landorus"
     types TYPE_GROUND, TYPE_FLYING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 90
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14635,10 +17451,14 @@ mondata SPECIES_KYUREM, "Kyurem"
     types TYPE_DRAGON, TYPE_ICE
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 1, 1, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 1, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14656,10 +17476,14 @@ mondata SPECIES_KELDEO, "Keldeo"
     types TYPE_WATER, TYPE_FIGHTING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14677,10 +17501,14 @@ mondata SPECIES_MELOETTA, "Meloetta"
     types TYPE_NORMAL, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 1, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_STAR_PIECE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14698,10 +17526,14 @@ mondata SPECIES_GENESECT, "Genesect"
     types TYPE_BUG, TYPE_STEEL
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -14719,10 +17551,14 @@ mondata SPECIES_CHESPIN, "Chespin"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -14740,10 +17576,14 @@ mondata SPECIES_QUILLADIN, "Quilladin"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -14761,10 +17601,14 @@ mondata SPECIES_CHESNAUGHT, "Chesnaught"
     types TYPE_GRASS, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -14782,10 +17626,14 @@ mondata SPECIES_FENNEKIN, "Fennekin"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -14803,10 +17651,14 @@ mondata SPECIES_BRAIXEN, "Braixen"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -14824,10 +17676,14 @@ mondata SPECIES_DELPHOX, "Delphox"
     types TYPE_FIRE, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -14845,10 +17701,14 @@ mondata SPECIES_FROAKIE, "Froakie"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -14866,10 +17726,14 @@ mondata SPECIES_FROGADIER, "Frogadier"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -14887,10 +17751,14 @@ mondata SPECIES_GRENINJA, "Greninja"
     types TYPE_WATER, TYPE_DARK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -14908,10 +17776,14 @@ mondata SPECIES_BUNNELBY, "Bunnelby"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -14929,10 +17801,14 @@ mondata SPECIES_DIGGERSBY, "Diggersby"
     types TYPE_NORMAL, TYPE_GROUND
     catchrate 127
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -14950,10 +17826,14 @@ mondata SPECIES_FLETCHLING, "Fletchling"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -14971,10 +17851,14 @@ mondata SPECIES_FLETCHINDER, "Flechinder"
     types TYPE_FIRE, TYPE_FLYING
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -14992,10 +17876,14 @@ mondata SPECIES_TALONFLAME, "Talonflame"
     types TYPE_FIRE, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -15013,10 +17901,14 @@ mondata SPECIES_SCATTERBUG, "Scatterbug"
     types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -15034,10 +17926,14 @@ mondata SPECIES_SPEWPA, "Spewpa"
     types TYPE_BUG, TYPE_BUG
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -15055,10 +17951,14 @@ mondata SPECIES_VIVILLON, "Vivillon"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -15076,10 +17976,14 @@ mondata SPECIES_LITLEO, "Litleo"
     types TYPE_FIRE, TYPE_NORMAL
     catchrate 220
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 222
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -15097,10 +18001,14 @@ mondata SPECIES_PYROAR, "Pyroar"
     types TYPE_FIRE, TYPE_NORMAL
     catchrate 65
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -15118,10 +18026,14 @@ mondata SPECIES_FLABEBE, "Flabébé"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -15139,10 +18051,14 @@ mondata SPECIES_FLOETTE, "Floette"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -15160,10 +18076,14 @@ mondata SPECIES_FLORGES, "Florges"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -15181,10 +18101,14 @@ mondata SPECIES_SKIDDO, "Skiddo"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -15202,10 +18126,14 @@ mondata SPECIES_GOGOAT, "Gogoat"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -15223,10 +18151,14 @@ mondata SPECIES_PANCHAM, "Pancham"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 220
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -15244,10 +18176,14 @@ mondata SPECIES_PANGORO, "Pangoro"
     types TYPE_FIGHTING, TYPE_DARK
     catchrate 65
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_MENTAL_HERB
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -15265,10 +18201,14 @@ mondata SPECIES_FURFROU, "Furfrou"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -15286,10 +18226,14 @@ mondata SPECIES_ESPURR, "Espurr"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -15307,10 +18251,14 @@ mondata SPECIES_MEOWSTIC, "Meowstic"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -15328,10 +18276,14 @@ mondata SPECIES_HONEDGE, "Honedge"
     types TYPE_STEEL, TYPE_GHOST
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -15349,10 +18301,14 @@ mondata SPECIES_DOUBLADE, "Doublade"
     types TYPE_STEEL, TYPE_GHOST
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -15370,10 +18326,14 @@ mondata SPECIES_AEGISLASH, "Aegislash"
     types TYPE_STEEL, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -15391,10 +18351,14 @@ mondata SPECIES_SPRITZEE, "Spritzee"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -15412,10 +18376,14 @@ mondata SPECIES_AROMATISSE, "Aromatisse"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 140
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -15433,10 +18401,14 @@ mondata SPECIES_SWIRLIX, "Swirlix"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -15454,10 +18426,14 @@ mondata SPECIES_SLURPUFF, "Slurpuff"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 140
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -15475,10 +18451,14 @@ mondata SPECIES_INKAY, "Inkay"
     types TYPE_DARK, TYPE_PSYCHIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
@@ -15496,10 +18476,14 @@ mondata SPECIES_MALAMAR, "Malamar"
     types TYPE_DARK, TYPE_PSYCHIC
     catchrate 80
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_2
@@ -15517,10 +18501,14 @@ mondata SPECIES_BINACLE, "Binacle"
     types TYPE_ROCK, TYPE_WATER
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -15538,10 +18526,14 @@ mondata SPECIES_BARBARACLE, "Barbaracle"
     types TYPE_ROCK, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -15559,10 +18551,14 @@ mondata SPECIES_SKRELP, "Skrelp"
     types TYPE_POISON, TYPE_WATER
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
@@ -15580,10 +18576,14 @@ mondata SPECIES_DRAGALGE, "Dragalge"
     types TYPE_POISON, TYPE_DRAGON
     catchrate 55
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_DRAGON
@@ -15601,10 +18601,14 @@ mondata SPECIES_CLAUNCHER, "Clauncher"
     types TYPE_WATER, TYPE_WATER
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -15622,10 +18626,14 @@ mondata SPECIES_CLAWITZER, "Clawitzer"
     types TYPE_WATER, TYPE_WATER
     catchrate 55
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -15643,10 +18651,14 @@ mondata SPECIES_HELIOPTILE, "Helioptile"
     types TYPE_ELECTRIC, TYPE_NORMAL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -15664,10 +18676,14 @@ mondata SPECIES_HELIOLISK, "Heliolisk"
     types TYPE_ELECTRIC, TYPE_NORMAL
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -15685,10 +18701,14 @@ mondata SPECIES_TYRUNT, "Tyrunt"
     types TYPE_ROCK, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -15706,10 +18726,14 @@ mondata SPECIES_TYRANTRUM, "Tyrantrum"
     types TYPE_ROCK, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -15727,10 +18751,14 @@ mondata SPECIES_AMAURA, "Amaura"
     types TYPE_ROCK, TYPE_ICE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -15748,10 +18776,14 @@ mondata SPECIES_AURORUS, "Aurorus"
     types TYPE_ROCK, TYPE_ICE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -15769,10 +18801,14 @@ mondata SPECIES_SYLVEON, "Sylveon"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -15790,10 +18826,14 @@ mondata SPECIES_HAWLUCHA, "Hawlucha"
     types TYPE_FIGHTING, TYPE_FLYING
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_KINGS_ROCK
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_HUMAN_LIKE
@@ -15811,10 +18851,14 @@ mondata SPECIES_DEDENNE, "Dedenne"
     types TYPE_ELECTRIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_ELECTRIC
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -15832,10 +18876,14 @@ mondata SPECIES_CARBINK, "Carbink"
     types TYPE_ROCK, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_ROCK
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
@@ -15853,10 +18901,14 @@ mondata SPECIES_GOOMY, "Goomy"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
-    items ITEM_NONE, ITEM_SHED_SHELL
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -15874,10 +18926,14 @@ mondata SPECIES_SLIGGOO, "Sliggoo"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
-    items ITEM_NONE, ITEM_SHED_SHELL
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -15895,10 +18951,14 @@ mondata SPECIES_GOODRA, "Goodra"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -15916,10 +18976,14 @@ mondata SPECIES_KLEFKI, "Klefki"
     types TYPE_STEEL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_STEEL
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -15937,10 +19001,14 @@ mondata SPECIES_PHANTUMP, "Phantump"
     types TYPE_GHOST, TYPE_GRASS
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_AMORPHOUS
@@ -15958,10 +19026,14 @@ mondata SPECIES_TREVENANT, "Trevenant"
     types TYPE_GHOST, TYPE_GRASS
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_AMORPHOUS
@@ -15979,10 +19051,14 @@ mondata SPECIES_PUMPKABOO, "Pumpkaboo"
     types TYPE_GHOST, TYPE_GRASS
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -16000,10 +19076,14 @@ mondata SPECIES_GOURGEIST, "Gourgeist"
     types TYPE_GHOST, TYPE_GRASS
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -16021,10 +19101,14 @@ mondata SPECIES_BERGMITE, "Bergmite"
     types TYPE_ICE, TYPE_ICE
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MINERAL
@@ -16042,10 +19126,14 @@ mondata SPECIES_AVALUGG, "Avalugg"
     types TYPE_ICE, TYPE_ICE
     catchrate 55
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MINERAL
@@ -16063,10 +19151,14 @@ mondata SPECIES_NOIBAT, "Noibat"
     types TYPE_FLYING, TYPE_DRAGON
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
@@ -16084,10 +19176,14 @@ mondata SPECIES_NOIVERN, "Noivern"
     types TYPE_FLYING, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
@@ -16105,10 +19201,14 @@ mondata SPECIES_XERNEAS, "Xerneas"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -16126,10 +19226,14 @@ mondata SPECIES_YVELTAL, "Yveltal"
     types TYPE_DARK, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -16147,10 +19251,14 @@ mondata SPECIES_ZYGARDE, "Zygarde"
     types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -16168,10 +19276,14 @@ mondata SPECIES_DIANCIE, "Diancie"
     types TYPE_ROCK, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_ROCK
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -16189,10 +19301,14 @@ mondata SPECIES_HOOPA, "Hoopa"
     types TYPE_PSYCHIC, TYPE_GHOST
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -16210,10 +19326,14 @@ mondata SPECIES_VOLCANION, "Volcanion"
     types TYPE_FIRE, TYPE_WATER
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -16231,10 +19351,14 @@ mondata SPECIES_ROWLET, "Rowlet"
     types TYPE_GRASS, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -16252,10 +19376,14 @@ mondata SPECIES_DARTRIX, "Dartrix"
     types TYPE_GRASS, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -16273,10 +19401,14 @@ mondata SPECIES_DECIDUEYE, "Decidueye"
     types TYPE_GRASS, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -16294,10 +19426,14 @@ mondata SPECIES_LITTEN, "Litten"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -16315,10 +19451,14 @@ mondata SPECIES_TORRACAT, "Torracat"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -16336,10 +19476,14 @@ mondata SPECIES_INCINEROAR, "Incineroar"
     types TYPE_FIRE, TYPE_DARK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -16357,10 +19501,14 @@ mondata SPECIES_POPPLIO, "Popplio"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -16378,10 +19526,14 @@ mondata SPECIES_BRIONNE, "Brionne"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -16399,10 +19551,14 @@ mondata SPECIES_PRIMARINA, "Primarina"
     types TYPE_WATER, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -16420,10 +19576,14 @@ mondata SPECIES_PIKIPEK, "Pikipek"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_ORAN_BERRY
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -16441,10 +19601,14 @@ mondata SPECIES_TRUMBEAK, "Trumbeak"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SITRUS_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -16462,10 +19626,14 @@ mondata SPECIES_TOUCANNON, "Toucannon"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_RAWST_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -16483,10 +19651,14 @@ mondata SPECIES_YUNGOOS, "Yungoos"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -16504,10 +19676,14 @@ mondata SPECIES_GUMSHOOS, "Gumshoos"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 127
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -16525,10 +19701,14 @@ mondata SPECIES_GRUBBIN, "Grubbin"
     types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -16546,10 +19726,14 @@ mondata SPECIES_CHARJABUG, "Charjabug"
     types TYPE_BUG, TYPE_ELECTRIC
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -16567,10 +19751,14 @@ mondata SPECIES_VIKAVOLT, "Vikavolt"
     types TYPE_BUG, TYPE_ELECTRIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -16588,10 +19776,14 @@ mondata SPECIES_CRABRAWLER, "Crabrawler"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 225
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_ASPEAR_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -16609,10 +19801,14 @@ mondata SPECIES_CRABOMINABLE, "Crabomnabl"
     types TYPE_FIGHTING, TYPE_ICE
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CHERI_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -16630,10 +19826,14 @@ mondata SPECIES_ORICORIO, "Oricorio"
     types TYPE_FIRE, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_HONEY
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -16651,10 +19851,14 @@ mondata SPECIES_CUTIEFLY, "Cutiefly"
     types TYPE_BUG, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_BUG
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_HONEY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_FAIRY
@@ -16672,10 +19876,14 @@ mondata SPECIES_RIBOMBEE, "Ribombee"
     types TYPE_BUG, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_BUG
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_HONEY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_FAIRY
@@ -16693,10 +19901,14 @@ mondata SPECIES_ROCKRUFF, "Rockruff"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -16714,10 +19926,14 @@ mondata SPECIES_LYCANROC, "Lycanroc"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -16735,10 +19951,14 @@ mondata SPECIES_WISHIWASHI, "Wishiwashi"
     types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -16756,10 +19976,14 @@ mondata SPECIES_MAREANIE, "Mareanie"
     types TYPE_POISON, TYPE_WATER
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -16777,10 +20001,14 @@ mondata SPECIES_TOXAPEX, "Toxapex"
     types TYPE_POISON, TYPE_WATER
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -16798,10 +20026,14 @@ mondata SPECIES_MUDBRAY, "Mudbray"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -16819,10 +20051,14 @@ mondata SPECIES_MUDSDALE, "Mudsdale"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_LIGHT_CLAY
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -16840,10 +20076,14 @@ mondata SPECIES_DEWPIDER, "Dewpider"
     types TYPE_WATER, TYPE_BUG
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
-    items ITEM_NONE, ITEM_MYSTIC_WATER
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_BUG
@@ -16861,10 +20101,14 @@ mondata SPECIES_ARAQUANID, "Araquanid"
     types TYPE_WATER, TYPE_BUG
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
-    items ITEM_NONE, ITEM_MYSTIC_WATER
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_BUG
@@ -16882,10 +20126,14 @@ mondata SPECIES_FOMANTIS, "Fomantis"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -16903,10 +20151,14 @@ mondata SPECIES_LURANTIS, "Lurantis"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -16924,10 +20176,14 @@ mondata SPECIES_MORELULL, "Morelull"
     types TYPE_GRASS, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -16945,10 +20201,14 @@ mondata SPECIES_SHIINOTIC, "Shiinotic"
     types TYPE_GRASS, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_GRASS
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_TINY_MUSHROOM, ITEM_BIG_MUSHROOM
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -16966,10 +20226,14 @@ mondata SPECIES_SALANDIT, "Salandit"
     types TYPE_POISON, TYPE_FIRE
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SMOKE_BALL
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -16987,10 +20251,14 @@ mondata SPECIES_SALAZZLE, "Salazzle"
     types TYPE_POISON, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SMOKE_BALL
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -17008,10 +20276,14 @@ mondata SPECIES_STUFFUL, "Stufful"
     types TYPE_NORMAL, TYPE_FIGHTING
     catchrate 140
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -17029,10 +20301,14 @@ mondata SPECIES_BEWEAR, "Bewear"
     types TYPE_NORMAL, TYPE_FIGHTING
     catchrate 70
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -17050,10 +20326,14 @@ mondata SPECIES_BOUNSWEET, "Bounsweet"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 235
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_GRASSY_SEED
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -17071,10 +20351,14 @@ mondata SPECIES_STEENEE, "Steenee"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_GRASSY_SEED
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -17092,10 +20376,14 @@ mondata SPECIES_TSAREENA, "Tsareena"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_GRASSY_SEED, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -17113,10 +20401,14 @@ mondata SPECIES_COMFEY, "Comfey"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_MISTY_SEED
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -17134,10 +20426,14 @@ mondata SPECIES_ORANGURU, "Oranguru"
     types TYPE_NORMAL, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -17155,10 +20451,14 @@ mondata SPECIES_PASSIMIAN, "Passimian"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -17176,10 +20476,14 @@ mondata SPECIES_WIMPOD, "Wimpod"
     types TYPE_BUG, TYPE_WATER
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_WATER_3
@@ -17197,10 +20501,14 @@ mondata SPECIES_GOLISOPOD, "Golisopod"
     types TYPE_BUG, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_WATER_3
@@ -17218,10 +20526,14 @@ mondata SPECIES_SANDYGAST, "Sandygast"
     types TYPE_GHOST, TYPE_GROUND
     catchrate 140
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -17239,10 +20551,14 @@ mondata SPECIES_PALOSSAND, "Palossand"
     types TYPE_GHOST, TYPE_GROUND
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -17260,10 +20576,14 @@ mondata SPECIES_PYUKUMUKU, "Pyukumuku"
     types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -17281,10 +20601,14 @@ mondata SPECIES_TYPE_NULL, "Type: Null"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17302,10 +20626,14 @@ mondata SPECIES_SILVALLY, "Silvally"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17323,10 +20651,14 @@ mondata SPECIES_MINIOR, "Minior"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -17344,10 +20676,14 @@ mondata SPECIES_KOMALA, "Komala"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -17365,10 +20701,14 @@ mondata SPECIES_TURTONATOR, "Turtonator"
     types TYPE_FIRE, TYPE_DRAGON
     catchrate 70
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_NONE, ITEM_CHARCOAL
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -17386,10 +20726,14 @@ mondata SPECIES_TOGEDEMARU, "Togedemaru"
     types TYPE_ELECTRIC, TYPE_STEEL
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_ELECTRIC_SEED
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -17407,10 +20751,14 @@ mondata SPECIES_MIMIKYU, "Mimikyu"
     types TYPE_GHOST, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CHESTO_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -17428,10 +20776,14 @@ mondata SPECIES_BRUXISH, "Bruxish"
     types TYPE_WATER, TYPE_PSYCHIC
     catchrate 80
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_RAZOR_FANG
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -17449,10 +20801,14 @@ mondata SPECIES_DRAMPA, "Drampa"
     types TYPE_NORMAL, TYPE_DRAGON
     catchrate 70
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PERSIM_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -17470,10 +20826,14 @@ mondata SPECIES_DHELMISE, "Dhelmise"
     types TYPE_GHOST, TYPE_GRASS
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -17491,10 +20851,14 @@ mondata SPECIES_JANGMO_O, "Jangmo-o"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_RAZOR_CLAW
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -17512,10 +20876,14 @@ mondata SPECIES_HAKAMO_O, "Hakamo-o"
     types TYPE_DRAGON, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
-    items ITEM_NONE, ITEM_RAZOR_CLAW
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -17533,10 +20901,14 @@ mondata SPECIES_KOMMO_O, "Kommo-o"
     types TYPE_DRAGON, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
-    items ITEM_RAZOR_CLAW, ITEM_NONE
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -17554,10 +20926,14 @@ mondata SPECIES_TAPU_KOKO, "Tapu Koko"
     types TYPE_ELECTRIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_ELECTRIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17575,10 +20951,14 @@ mondata SPECIES_TAPU_LELE, "Tapu Lele"
     types TYPE_PSYCHIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17596,10 +20976,14 @@ mondata SPECIES_TAPU_BULU, "Tapu Bulu"
     types TYPE_GRASS, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_GRASS
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17617,10 +21001,14 @@ mondata SPECIES_TAPU_FINI, "Tapu Fini"
     types TYPE_WATER, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_WATER
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17638,10 +21026,14 @@ mondata SPECIES_COSMOG, "Cosmog"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17659,10 +21051,14 @@ mondata SPECIES_COSMOEM, "Cosmoem"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17680,10 +21076,14 @@ mondata SPECIES_SOLGALEO, "Solgaleo"
     types TYPE_PSYCHIC, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17701,10 +21101,14 @@ mondata SPECIES_LUNALA, "Lunala"
     types TYPE_PSYCHIC, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17722,10 +21126,14 @@ mondata SPECIES_NIHILEGO, "Nihilego"
     types TYPE_ROCK, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17743,10 +21151,14 @@ mondata SPECIES_BUZZWOLE, "Buzzwole"
     types TYPE_BUG, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17764,10 +21176,14 @@ mondata SPECIES_PHEROMOSA, "Pheromosa"
     types TYPE_BUG, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17785,10 +21201,14 @@ mondata SPECIES_XURKITREE, "Xurkitree"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17806,10 +21226,14 @@ mondata SPECIES_CELESTEELA, "Celesteela"
     types TYPE_STEEL, TYPE_FLYING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 1, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 1, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17827,10 +21251,14 @@ mondata SPECIES_KARTANA, "Kartana"
     types TYPE_GRASS, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17848,10 +21276,14 @@ mondata SPECIES_GUZZLORD, "Guzzlord"
     types TYPE_DARK, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17869,10 +21301,14 @@ mondata SPECIES_NECROZMA, "Necrozma"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17890,10 +21326,14 @@ mondata SPECIES_MAGEARNA, "Magearna"
     types TYPE_STEEL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_STEEL
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17911,10 +21351,14 @@ mondata SPECIES_MARSHADOW, "Marshadow"
     types TYPE_FIGHTING, TYPE_GHOST
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17932,10 +21376,14 @@ mondata SPECIES_POIPOLE, "Poipole"
     types TYPE_POISON, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17953,10 +21401,14 @@ mondata SPECIES_NAGANADEL, "Naganadel"
     types TYPE_POISON, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17974,10 +21426,14 @@ mondata SPECIES_STAKATAKA, "Stakataka"
     types TYPE_ROCK, TYPE_STEEL
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -17995,10 +21451,14 @@ mondata SPECIES_BLACEPHALON, "Blacefalon"
     types TYPE_FIRE, TYPE_GHOST
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -18016,10 +21476,14 @@ mondata SPECIES_ZERAORA, "Zeraora"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -18037,10 +21501,14 @@ mondata SPECIES_MELTAN, "Meltan"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -18058,10 +21526,14 @@ mondata SPECIES_MELMETAL, "Melmetal"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -18079,10 +21551,14 @@ mondata SPECIES_GROOKEY, "Grookey"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -18100,10 +21576,14 @@ mondata SPECIES_THWACKEY, "Thwackey"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -18121,10 +21601,14 @@ mondata SPECIES_RILLABOOM, "Rillaboom"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -18142,10 +21626,14 @@ mondata SPECIES_SCORBUNNY, "Scorbunny"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -18163,10 +21651,14 @@ mondata SPECIES_RABOOT, "Raboot"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -18184,10 +21676,14 @@ mondata SPECIES_CINDERACE, "Cinderace"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -18205,10 +21701,14 @@ mondata SPECIES_SOBBLE, "Sobble"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -18226,10 +21726,14 @@ mondata SPECIES_DRIZZILE, "Drizzile"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -18247,10 +21751,14 @@ mondata SPECIES_INTELEON, "Inteleon"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -18268,10 +21776,14 @@ mondata SPECIES_SKWOVET, "Skwovet"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -18289,10 +21801,14 @@ mondata SPECIES_GREEDENT, "Greedent"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -18310,10 +21826,14 @@ mondata SPECIES_ROOKIDEE, "Rookidee"
     types TYPE_FLYING, TYPE_FLYING
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -18331,10 +21851,14 @@ mondata SPECIES_CORVISQUIRE, "Corvsquire"
     types TYPE_FLYING, TYPE_FLYING
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -18352,10 +21876,14 @@ mondata SPECIES_CORVIKNIGHT, "Corviknite"
     types TYPE_FLYING, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -18373,10 +21901,14 @@ mondata SPECIES_BLIPBUG, "Blipbug"
     types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -18394,10 +21926,14 @@ mondata SPECIES_DOTTLER, "Dottler"
     types TYPE_BUG, TYPE_PSYCHIC
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -18415,10 +21951,14 @@ mondata SPECIES_ORBEETLE, "Orbeetle"
     types TYPE_BUG, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -18436,10 +21976,14 @@ mondata SPECIES_NICKIT, "Nickit"
     types TYPE_DARK, TYPE_DARK
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -18457,10 +22001,14 @@ mondata SPECIES_THIEVUL, "Thievul"
     types TYPE_DARK, TYPE_DARK
     catchrate 127
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -18478,10 +22026,14 @@ mondata SPECIES_GOSSIFLEUR, "Gossifleur"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -18499,10 +22051,14 @@ mondata SPECIES_ELDEGOSS, "Eldegoss"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -18520,10 +22076,14 @@ mondata SPECIES_WOOLOO, "Wooloo"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -18541,10 +22101,14 @@ mondata SPECIES_DUBWOOL, "Dubwool"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 127
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -18562,10 +22126,14 @@ mondata SPECIES_CHEWTLE, "Chewtle"
     types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -18583,10 +22151,14 @@ mondata SPECIES_DREDNAW, "Drednaw"
     types TYPE_WATER, TYPE_ROCK
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -18604,10 +22176,14 @@ mondata SPECIES_YAMPER, "Yamper"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -18625,10 +22201,14 @@ mondata SPECIES_BOLTUND, "Boltund"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -18646,10 +22226,14 @@ mondata SPECIES_ROLYCOLY, "Rolycoly"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -18667,10 +22251,14 @@ mondata SPECIES_CARKOL, "Carkol"
     types TYPE_ROCK, TYPE_FIRE
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -18688,10 +22276,14 @@ mondata SPECIES_COALOSSAL, "Coalossal"
     types TYPE_ROCK, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -18709,10 +22301,14 @@ mondata SPECIES_APPLIN, "Applin"
     types TYPE_GRASS, TYPE_DRAGON
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_GRASS, EGG_GROUP_DRAGON
@@ -18730,10 +22326,14 @@ mondata SPECIES_FLAPPLE, "Flapple"
     types TYPE_GRASS, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_GRASS, EGG_GROUP_DRAGON
@@ -18751,10 +22351,14 @@ mondata SPECIES_APPLETUN, "Appletun"
     types TYPE_GRASS, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_GRASS, EGG_GROUP_DRAGON
@@ -18772,10 +22376,14 @@ mondata SPECIES_SILICOBRA, "Silicobra"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
@@ -18793,10 +22401,14 @@ mondata SPECIES_SANDACONDA, "Sandaconda"
     types TYPE_GROUND, TYPE_GROUND
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_DRAGON
@@ -18814,10 +22426,14 @@ mondata SPECIES_CRAMORANT, "Cramorant"
     types TYPE_FLYING, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
@@ -18835,10 +22451,14 @@ mondata SPECIES_ARROKUDA, "Arrokuda"
     types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -18856,10 +22476,14 @@ mondata SPECIES_BARRASKEWDA, "Baraskewda"
     types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -18877,10 +22501,14 @@ mondata SPECIES_TOXEL, "Toxel"
     types TYPE_ELECTRIC, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -18898,10 +22526,14 @@ mondata SPECIES_TOXTRICITY, "Toxtricity"
     types TYPE_ELECTRIC, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -18919,10 +22551,14 @@ mondata SPECIES_SIZZLIPEDE, "Sizzlipede"
     types TYPE_FIRE, TYPE_BUG
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -18940,10 +22576,14 @@ mondata SPECIES_CENTISKORCH, "Centskorch"
     types TYPE_FIRE, TYPE_BUG
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -18961,10 +22601,14 @@ mondata SPECIES_CLOBBOPUS, "Clobbopus"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_HUMAN_LIKE
@@ -18982,10 +22626,14 @@ mondata SPECIES_GRAPPLOCT, "Grapploct"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_HUMAN_LIKE
@@ -19003,10 +22651,14 @@ mondata SPECIES_SINISTEA, "Sinistea"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -19024,10 +22676,14 @@ mondata SPECIES_POLTEAGEIST, "Poltegeist"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -19045,10 +22701,14 @@ mondata SPECIES_HATENNA, "Hatenna"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 235
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -19066,10 +22726,14 @@ mondata SPECIES_HATTREM, "Hattrem"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -19087,10 +22751,14 @@ mondata SPECIES_HATTERENE, "Hatterene"
     types TYPE_PSYCHIC, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -19108,10 +22776,14 @@ mondata SPECIES_IMPIDIMP, "Impidimp"
     types TYPE_DARK, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_DARK
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE
@@ -19129,10 +22801,14 @@ mondata SPECIES_MORGREM, "Morgrem"
     types TYPE_DARK, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_DARK
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE
@@ -19150,10 +22826,14 @@ mondata SPECIES_GRIMMSNARL, "Grimmsnarl"
     types TYPE_DARK, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_DARK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_HUMAN_LIKE
@@ -19171,10 +22851,14 @@ mondata SPECIES_OBSTAGOON, "Obstagoon"
     types TYPE_DARK, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -19192,10 +22876,14 @@ mondata SPECIES_PERRSERKER, "Perrserker"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -19213,10 +22901,14 @@ mondata SPECIES_CURSOLA, "Cursola"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 190
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -19234,10 +22926,14 @@ mondata SPECIES_SIRFETCHD, "Sirfetch’d"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FIELD
@@ -19255,10 +22951,14 @@ mondata SPECIES_MR_RIME, "Mr. Rime"
     types TYPE_ICE, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -19276,10 +22976,14 @@ mondata SPECIES_RUNERIGUS, "Runerigus"
     types TYPE_GROUND, TYPE_GHOST
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -19297,10 +23001,14 @@ mondata SPECIES_MILCERY, "Milcery"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -19318,10 +23026,14 @@ mondata SPECIES_ALCREMIE, "Alcremie"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -19339,10 +23051,14 @@ mondata SPECIES_FALINKS, "Falinks"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
@@ -19360,10 +23076,14 @@ mondata SPECIES_PINCURCHIN, "Pincurchin"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
@@ -19381,10 +23101,14 @@ mondata SPECIES_SNOM, "Snom"
     types TYPE_ICE, TYPE_BUG
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -19402,10 +23126,14 @@ mondata SPECIES_FROSMOTH, "Frosmoth"
     types TYPE_ICE, TYPE_BUG
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -19423,10 +23151,14 @@ mondata SPECIES_STONJOURNER, "Stonjorner"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -19444,10 +23176,14 @@ mondata SPECIES_EISCUE, "Eiscue"
     types TYPE_ICE, TYPE_ICE
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -19465,10 +23201,14 @@ mondata SPECIES_INDEEDEE, "Indeedee"
     types TYPE_PSYCHIC, TYPE_NORMAL
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 140
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -19486,10 +23226,14 @@ mondata SPECIES_MORPEKO, "Morpeko"
     types TYPE_ELECTRIC, TYPE_DARK
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -19507,10 +23251,14 @@ mondata SPECIES_CUFANT, "Cufant"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_MINERAL
@@ -19528,10 +23276,14 @@ mondata SPECIES_COPPERAJAH, "Copperajah"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_MINERAL
@@ -19549,10 +23301,14 @@ mondata SPECIES_DRACOZOLT, "Dracozolt"
     types TYPE_ELECTRIC, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19570,10 +23326,14 @@ mondata SPECIES_ARCTOZOLT, "Arctozolt"
     types TYPE_ELECTRIC, TYPE_ICE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19591,10 +23351,14 @@ mondata SPECIES_DRACOVISH, "Dracovish"
     types TYPE_WATER, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19612,10 +23376,14 @@ mondata SPECIES_ARCTOVISH, "Arctovish"
     types TYPE_WATER, TYPE_ICE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19633,10 +23401,14 @@ mondata SPECIES_DURALUDON, "Duraludon"
     types TYPE_STEEL, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_DRAGON
@@ -19654,10 +23426,14 @@ mondata SPECIES_DREEPY, "Dreepy"
     types TYPE_DRAGON, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_DRAGON
@@ -19675,10 +23451,14 @@ mondata SPECIES_DRAKLOAK, "Drakloak"
     types TYPE_DRAGON, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_DRAGON
@@ -19696,10 +23476,14 @@ mondata SPECIES_DRAGAPULT, "Dragapult"
     types TYPE_DRAGON, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_DRAGON
@@ -19717,10 +23501,14 @@ mondata SPECIES_ZACIAN, "Zacian"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 10
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19738,10 +23526,14 @@ mondata SPECIES_ZAMAZENTA, "Zamazenta"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 10
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19759,10 +23551,14 @@ mondata SPECIES_ETERNATUS, "Eternatus"
     types TYPE_POISON, TYPE_DRAGON
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19780,10 +23576,14 @@ mondata SPECIES_KUBFU, "Kubfu"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19801,10 +23601,14 @@ mondata SPECIES_URSHIFU, "Urshifu"
     types TYPE_FIGHTING, TYPE_DARK
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19822,10 +23626,14 @@ mondata SPECIES_ZARUDE, "Zarude"
     types TYPE_DARK, TYPE_GRASS
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19843,10 +23651,14 @@ mondata SPECIES_REGIELEKI, "Regieleki"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19864,10 +23676,14 @@ mondata SPECIES_REGIDRAGO, "Regidrago"
     types TYPE_DRAGON, TYPE_DRAGON
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19885,10 +23701,14 @@ mondata SPECIES_GLASTRIER, "Glastrier"
     types TYPE_ICE, TYPE_ICE
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19906,10 +23726,14 @@ mondata SPECIES_SPECTRIER, "Spectrier"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19927,10 +23751,14 @@ mondata SPECIES_CALYREX, "Calyrex"
     types TYPE_PSYCHIC, TYPE_GRASS
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -19948,7 +23776,11 @@ mondata SPECIES_WYRDEER, "Wyrdeer"
     types TYPE_NORMAL, TYPE_PSYCHIC
     catchrate 135
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
@@ -19969,7 +23801,11 @@ mondata SPECIES_KLEAVOR, "Kleavor"
     types TYPE_BUG, TYPE_ROCK
     catchrate 115
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
@@ -19990,7 +23826,11 @@ mondata SPECIES_URSALUNA, "Ursaluna"
     types TYPE_GROUND, TYPE_NORMAL
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
@@ -20011,7 +23851,11 @@ mondata SPECIES_BASCULEGION, "Basclegion"
     types TYPE_WATER, TYPE_GHOST
     catchrate 135
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
     eggcycles 0
@@ -20032,7 +23876,11 @@ mondata SPECIES_SNEASLER, "Sneasler"
     types TYPE_FIGHTING, TYPE_POISON
     catchrate 135
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
@@ -20053,7 +23901,11 @@ mondata SPECIES_OVERQWIL, "Overqwil"
     types TYPE_DARK, TYPE_POISON
     catchrate 135
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
     eggcycles 0
@@ -20074,7 +23926,11 @@ mondata SPECIES_ENAMORUS, "Enamorus"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_FLYING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
@@ -20095,10 +23951,14 @@ mondata SPECIES_SPRIGATITO, "Sprigatito"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -20116,10 +23976,14 @@ mondata SPECIES_FLORAGATO, "Floragato"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -20137,10 +24001,14 @@ mondata SPECIES_MEOWSCARADA, "Mewscarada"
     types TYPE_GRASS, TYPE_DARK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
@@ -20158,10 +24026,14 @@ mondata SPECIES_FUECOCO, "Fuecoco"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -20179,10 +24051,14 @@ mondata SPECIES_CROCALOR, "Crocalor"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -20200,10 +24076,14 @@ mondata SPECIES_SKELEDIRGE, "Skeledirge"
     types TYPE_FIRE, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -20221,10 +24101,14 @@ mondata SPECIES_QUAXLY, "Quaxly"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_WATER_1
@@ -20242,10 +24126,14 @@ mondata SPECIES_QUAXWELL, "Quaxwell"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_WATER_1
@@ -20263,10 +24151,14 @@ mondata SPECIES_QUAQUAVAL, "Quaquaval"
     types TYPE_WATER, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_WATER_1
@@ -20284,10 +24176,14 @@ mondata SPECIES_LECHONK, "Lechonk"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -20305,10 +24201,14 @@ mondata SPECIES_OINKOLOGNE, "Oinkologne"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -20326,10 +24226,14 @@ mondata SPECIES_TAROUNTULA, "Tarountula"
     types TYPE_BUG, TYPE_BUG
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -20347,10 +24251,14 @@ mondata SPECIES_SPIDOPS, "Spidops"
     types TYPE_BUG, TYPE_BUG
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -20368,10 +24276,14 @@ mondata SPECIES_NYMBLE, "Nymble"
     types TYPE_BUG, TYPE_BUG
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 20
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -20389,10 +24301,14 @@ mondata SPECIES_LOKIX, "Lokix"
     types TYPE_BUG, TYPE_DARK
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 0
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -20410,10 +24326,14 @@ mondata SPECIES_PAWMI, "Pawmi"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -20431,10 +24351,14 @@ mondata SPECIES_PAWMO, "Pawmo"
     types TYPE_ELECTRIC, TYPE_FIGHTING
     catchrate 80
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -20452,10 +24376,14 @@ mondata SPECIES_PAWMOT, "Pawmot"
     types TYPE_ELECTRIC, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -20473,10 +24401,14 @@ mondata SPECIES_TANDEMAUS, "Tandemaus"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 150
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -20494,10 +24426,14 @@ mondata SPECIES_MAUSHOLD, "Maushold"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -20515,10 +24451,14 @@ mondata SPECIES_FIDOUGH, "Fidough"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_MINERAL
@@ -20536,10 +24476,14 @@ mondata SPECIES_DACHSBUN, "Dachsbun"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_MINERAL
@@ -20557,10 +24501,14 @@ mondata SPECIES_SMOLIV, "Smoliv"
     types TYPE_GRASS, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -20578,10 +24526,14 @@ mondata SPECIES_DOLLIV, "Dolliv"
     types TYPE_GRASS, TYPE_NORMAL
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -20599,10 +24551,14 @@ mondata SPECIES_ARBOLIVA, "Arboliva"
     types TYPE_GRASS, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -20620,10 +24576,14 @@ mondata SPECIES_SQUAWKABILLY, "Squawkbily"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -20641,10 +24601,14 @@ mondata SPECIES_NACLI, "Nacli"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -20662,10 +24626,14 @@ mondata SPECIES_NACLSTACK, "Naclstack"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -20683,10 +24651,14 @@ mondata SPECIES_GARGANACL, "Garganacl"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -20704,10 +24676,14 @@ mondata SPECIES_CHARCADET, "Charcadet"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -20725,10 +24701,14 @@ mondata SPECIES_ARMAROUGE, "Armarouge"
     types TYPE_FIRE, TYPE_PSYCHIC
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 20
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -20746,10 +24726,14 @@ mondata SPECIES_CERULEDGE, "Ceruledge"
     types TYPE_FIRE, TYPE_GHOST
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 20
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -20767,10 +24751,14 @@ mondata SPECIES_TADBULB, "Tadbulb"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -20788,10 +24776,14 @@ mondata SPECIES_BELLIBOLT, "Bellibolt"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -20809,10 +24801,14 @@ mondata SPECIES_WATTREL, "Wattrel"
     types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 180
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
@@ -20830,10 +24826,14 @@ mondata SPECIES_KILOWATTREL, "Kilowatrel"
     types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
@@ -20851,10 +24851,14 @@ mondata SPECIES_MASCHIFF, "Maschiff"
     types TYPE_DARK, TYPE_DARK
     catchrate 150
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -20872,10 +24876,14 @@ mondata SPECIES_MABOSSTIFF, "Mabosstiff"
     types TYPE_DARK, TYPE_DARK
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -20893,14 +24901,18 @@ mondata SPECIES_SHROODLE, "Shroodle"
     types TYPE_POISON, TYPE_NORMAL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_UNBURDEN, ABILITY_PICKPOCKET
+    abilities ABILITY_UNBURDEN, ABILITY_INFILTRATOR
     runchance 0
     colorflip BODY_COLOR_GRAY, 0
     mondexentry SPECIES_SHROODLE, "To keep enemies away from its territory, it paints markings around its nest using a poisonous liquid that has an acrid odor."
@@ -20914,10 +24926,14 @@ mondata SPECIES_GRAFAIAI, "Grafaiai"
     types TYPE_POISON, TYPE_NORMAL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -20935,10 +24951,14 @@ mondata SPECIES_BRAMBLIN, "Bramblin"
     types TYPE_GRASS, TYPE_GHOST
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -20956,10 +24976,14 @@ mondata SPECIES_BRAMBLEGHAST, "Bramblgast"
     types TYPE_GRASS, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -20977,10 +25001,14 @@ mondata SPECIES_TOEDSCOOL, "Toedscool"
     types TYPE_GROUND, TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -20998,10 +25026,14 @@ mondata SPECIES_TOEDSCRUEL, "Toedscruel"
     types TYPE_GROUND, TYPE_GRASS
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -21019,10 +25051,14 @@ mondata SPECIES_KLAWF, "Klawf"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -21040,10 +25076,14 @@ mondata SPECIES_CAPSAKID, "Capsakid"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -21061,10 +25101,14 @@ mondata SPECIES_SCOVILLAIN, "Scovillain"
     types TYPE_GRASS, TYPE_FIRE
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -21082,10 +25126,14 @@ mondata SPECIES_RELLOR, "Rellor"
     types TYPE_BUG, TYPE_BUG
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -21103,10 +25151,14 @@ mondata SPECIES_RABSCA, "Rabsca"
     types TYPE_BUG, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -21124,10 +25176,14 @@ mondata SPECIES_FLITTLE, "Flittle"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -21145,10 +25201,14 @@ mondata SPECIES_ESPATHRA, "Espathra"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -21166,10 +25226,14 @@ mondata SPECIES_TINKATINK, "Tinkatink"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_STEEL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -21187,10 +25251,14 @@ mondata SPECIES_TINKATUFF, "Tinkatuff"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_STEEL
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -21208,10 +25276,14 @@ mondata SPECIES_TINKATON, "Tinkaton"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_STEEL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -21229,10 +25301,14 @@ mondata SPECIES_WIGLETT, "Wiglett"
     types TYPE_WATER, TYPE_WATER
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -21250,10 +25326,14 @@ mondata SPECIES_WUGTRIO, "Wugtrio"
     types TYPE_WATER, TYPE_WATER
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
@@ -21271,10 +25351,14 @@ mondata SPECIES_BOMBIRDIER, "Bombirdier"
     types TYPE_FLYING, TYPE_DARK
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -21292,10 +25376,14 @@ mondata SPECIES_FINIZEN, "Finizen"
     types TYPE_WATER, TYPE_WATER
     catchrate 200
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_WATER_2
@@ -21313,10 +25401,14 @@ mondata SPECIES_PALAFIN, "Palafin"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_WATER_2
@@ -21334,10 +25426,14 @@ mondata SPECIES_VAROOM, "Varoom"
     types TYPE_STEEL, TYPE_POISON
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -21355,10 +25451,14 @@ mondata SPECIES_REVAVROOM, "Revavroom"
     types TYPE_STEEL, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -21376,10 +25476,14 @@ mondata SPECIES_CYCLIZAR, "Cyclizar"
     types TYPE_DRAGON, TYPE_NORMAL
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -21397,10 +25501,14 @@ mondata SPECIES_ORTHWORM, "Orthworm"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -21418,10 +25526,14 @@ mondata SPECIES_GLIMMET, "Glimmet"
     types TYPE_ROCK, TYPE_POISON
     catchrate 70
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -21439,10 +25551,14 @@ mondata SPECIES_GLIMMORA, "Glimmora"
     types TYPE_ROCK, TYPE_POISON
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -21460,10 +25576,14 @@ mondata SPECIES_GREAVARD, "Greavard"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -21481,10 +25601,14 @@ mondata SPECIES_HOUNDSTONE, "Houndstone"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -21502,10 +25626,14 @@ mondata SPECIES_FLAMIGO, "Flamigo"
     types TYPE_FLYING, TYPE_FIGHTING
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -21523,10 +25651,14 @@ mondata SPECIES_CETODDLE, "Cetoddle"
     types TYPE_ICE, TYPE_ICE
     catchrate 150
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -21544,10 +25676,14 @@ mondata SPECIES_CETITAN, "Cetitan"
     types TYPE_ICE, TYPE_ICE
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -21565,10 +25701,14 @@ mondata SPECIES_VELUZA, "Veluza"
     types TYPE_WATER, TYPE_PSYCHIC
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -21586,10 +25726,14 @@ mondata SPECIES_DONDOZO, "Dondozo"
     types TYPE_WATER, TYPE_WATER
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -21607,10 +25751,14 @@ mondata SPECIES_TATSUGIRI, "Tatsugiri"
     types TYPE_DRAGON, TYPE_WATER
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -21628,10 +25776,14 @@ mondata SPECIES_ANNIHILAPE, "Annihilape"
     types TYPE_FIGHTING, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -21649,10 +25801,14 @@ mondata SPECIES_CLODSIRE, "Clodsire"
     types TYPE_POISON, TYPE_GROUND
     catchrate 90
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -21670,10 +25826,14 @@ mondata SPECIES_FARIGIRAF, "Farigiraf"
     types TYPE_NORMAL, TYPE_PSYCHIC
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -21691,10 +25851,14 @@ mondata SPECIES_DUDUNSPARCE, "Dudunspars"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -21712,10 +25876,14 @@ mondata SPECIES_KINGAMBIT, "Kingambit"
     types TYPE_DARK, TYPE_STEEL
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -21733,10 +25901,14 @@ mondata SPECIES_GREAT_TUSK, "Great Tusk"
     types TYPE_GROUND, TYPE_FIGHTING
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21754,10 +25926,14 @@ mondata SPECIES_SCREAM_TAIL, "ScreamTail"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_PSYCHIC
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21775,10 +25951,14 @@ mondata SPECIES_BRUTE_BONNET, "BruteBonet"
     types TYPE_GRASS, TYPE_DARK
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21796,10 +25976,14 @@ mondata SPECIES_FLUTTER_MANE, "FluttrMane"
     types TYPE_GHOST, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_GHOST
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 1, 1, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 1, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21817,10 +26001,14 @@ mondata SPECIES_SLITHER_WING, "SlithrWing"
     types TYPE_BUG, TYPE_FIGHTING
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21838,10 +26026,14 @@ mondata SPECIES_SANDY_SHOCKS, "SandyShock"
     types TYPE_ELECTRIC, TYPE_GROUND
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21859,10 +26051,14 @@ mondata SPECIES_IRON_TREADS, "IronTreads"
     types TYPE_GROUND, TYPE_STEEL
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21880,10 +26076,14 @@ mondata SPECIES_IRON_BUNDLE, "IronBundle"
     types TYPE_ICE, TYPE_WATER
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21901,10 +26101,14 @@ mondata SPECIES_IRON_HANDS, "Iron Hands"
     types TYPE_FIGHTING, TYPE_ELECTRIC
     catchrate 50
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21922,10 +26126,14 @@ mondata SPECIES_IRON_JUGULIS, "Iron Neck"
     types TYPE_DARK, TYPE_FLYING
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21943,10 +26151,14 @@ mondata SPECIES_IRON_MOTH, "Iron Moth"
     types TYPE_FIRE, TYPE_POISON
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21964,10 +26176,14 @@ mondata SPECIES_IRON_THORNS, "Iron Thorn"
     types TYPE_ROCK, TYPE_ELECTRIC
     catchrate 30
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -21985,10 +26201,14 @@ mondata SPECIES_FRIGIBAX, "Frigibax"
     types TYPE_DRAGON, TYPE_ICE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_MINERAL
@@ -22006,10 +26226,14 @@ mondata SPECIES_ARCTIBAX, "Arctibax"
     types TYPE_DRAGON, TYPE_ICE
     catchrate 25
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_MINERAL
@@ -22027,10 +26251,14 @@ mondata SPECIES_BAXCALIBUR, "Baxcalibur"
     types TYPE_DRAGON, TYPE_ICE
     catchrate 10
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_MINERAL
@@ -22048,10 +26276,14 @@ mondata SPECIES_GIMMIGHOUL, "Gimmighoul"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22069,10 +26301,14 @@ mondata SPECIES_GHOLDENGO, "Gholdengo"
     types TYPE_STEEL, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22090,10 +26326,14 @@ mondata SPECIES_WO_CHIEN, "Wo-Chien"
     types TYPE_DARK, TYPE_GRASS
     catchrate 6
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22111,10 +26351,14 @@ mondata SPECIES_CHIEN_PAO, "Chien-Pao"
     types TYPE_DARK, TYPE_ICE
     catchrate 6
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22132,10 +26376,14 @@ mondata SPECIES_TING_LU, "Ting-Lu"
     types TYPE_DARK, TYPE_GROUND
     catchrate 6
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22153,10 +26401,14 @@ mondata SPECIES_CHI_YU, "Chi-Yu"
     types TYPE_DARK, TYPE_FIRE
     catchrate 6
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22174,10 +26426,14 @@ mondata SPECIES_ROARING_MOON, "Roar Moon"
     types TYPE_DRAGON, TYPE_DARK
     catchrate 10
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22195,10 +26451,14 @@ mondata SPECIES_IRON_VALIANT, "Iron Valor"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_FIGHTING
     catchrate 10
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22216,10 +26476,14 @@ mondata SPECIES_KORAIDON, "Koraidon"
     types TYPE_FIGHTING, TYPE_DRAGON
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22237,10 +26501,14 @@ mondata SPECIES_MIRAIDON, "Miraidon"
     types TYPE_ELECTRIC, TYPE_DRAGON
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22258,10 +26526,14 @@ mondata SPECIES_WALKING_WAKE, "Walk Wake"
     types TYPE_WATER, TYPE_DRAGON
     catchrate 5
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22279,10 +26551,14 @@ mondata SPECIES_IRON_LEAVES, "Iron Leaf"
     types TYPE_GRASS, TYPE_PSYCHIC
     catchrate 5
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22300,10 +26576,14 @@ mondata SPECIES_DIPPLIN, "Dipplin"
     types TYPE_GRASS, TYPE_DRAGON
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 0
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_GRASS, EGG_GROUP_DRAGON
@@ -22321,10 +26601,14 @@ mondata SPECIES_POLTCHAGEIST, "Polchgeist"
     types TYPE_GRASS, TYPE_GHOST
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 0
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -22342,10 +26626,14 @@ mondata SPECIES_SINISTCHA, "Sinistcha"
     types TYPE_GRASS, TYPE_GHOST
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 0
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -22363,10 +26651,14 @@ mondata SPECIES_OKIDOGI, "Okidogi"
     types TYPE_POISON, TYPE_FIGHTING
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22384,10 +26676,14 @@ mondata SPECIES_MUNKIDORI, "Munkidori"
     types TYPE_POISON, TYPE_PSYCHIC
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22405,10 +26701,14 @@ mondata SPECIES_FEZANDIPITI, "Fezanditi"
     types TYPE_POISON, (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_POISON
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22426,10 +26726,14 @@ mondata SPECIES_OGERPON, "Ogerpon"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 5
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22447,10 +26751,14 @@ mondata SPECIES_ARCHALUDON, "Archaludon"
     types TYPE_STEEL, TYPE_DRAGON
     catchrate 10
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 30
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 30
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_DRAGON
@@ -22468,10 +26776,14 @@ mondata SPECIES_HYDRAPPLE, "Hydrapple"
     types TYPE_GRASS, TYPE_DRAGON
     catchrate 10
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_GRASS, EGG_GROUP_DRAGON
@@ -22489,10 +26801,14 @@ mondata SPECIES_GOUGING_FIRE, "GougedFire"
     types TYPE_FIRE, TYPE_DRAGON
     catchrate 10
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22510,10 +26826,14 @@ mondata SPECIES_RAGING_BOLT, "RagingBolt"
     types TYPE_ELECTRIC, TYPE_DRAGON
     catchrate 10
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22531,10 +26851,14 @@ mondata SPECIES_IRON_BOULDER, "IronBolder"
     types TYPE_ROCK, TYPE_PSYCHIC
     catchrate 10
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22552,10 +26876,14 @@ mondata SPECIES_IRON_CROWN, "Iron Crown"
     types TYPE_STEEL, TYPE_PSYCHIC
     catchrate 10
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22573,10 +26901,14 @@ mondata SPECIES_TERAPAGOS, "Terapagos"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 5
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 5
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22594,10 +26926,14 @@ mondata SPECIES_PECHARUNT, "Pecharunt"
     types TYPE_POISON, TYPE_GHOST
     catchrate 3
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22615,10 +26951,14 @@ mondata SPECIES_MEGA_VENUSAUR, "-----"
     types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 208
-    evyields 0,0,0,0,2,1
+    .if EV_ENABLED
+        evyields 0,0,0,0,2,1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -22631,10 +26971,14 @@ mondata SPECIES_MEGA_CHARIZARD_X, "-----"
     types TYPE_FIRE, TYPE_DRAGON
     catchrate 45
     baseexp 209
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -22647,10 +26991,14 @@ mondata SPECIES_MEGA_CHARIZARD_Y, "-----"
     types TYPE_FIRE, TYPE_FLYING
     catchrate 45
     baseexp 209
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -22663,10 +27011,14 @@ mondata SPECIES_MEGA_BLASTOISE, "-----"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 210
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -22679,10 +27031,14 @@ mondata SPECIES_MEGA_BEEDRILL, "-----"
     types TYPE_BUG, TYPE_POISON
     catchrate 45
     baseexp 159
-    evyields 0, 2, 0, 0, 0, 1
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -22695,10 +27051,14 @@ mondata SPECIES_MEGA_PIDGEOT, "-----"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 172
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -22711,10 +27071,14 @@ mondata SPECIES_MEGA_ALAKAZAM, "-----"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 50
     baseexp 186
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_TWISTED_SPOON
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -22727,10 +27091,14 @@ mondata SPECIES_MEGA_SLOWBRO, "-----"
     types TYPE_WATER, TYPE_PSYCHIC
     catchrate 75
     baseexp 164
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -22743,10 +27111,14 @@ mondata SPECIES_MEGA_GENGAR, "-----"
     types TYPE_GHOST, TYPE_POISON
     catchrate 45
     baseexp 190
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -22759,10 +27131,14 @@ mondata SPECIES_MEGA_KANGASKHAN, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 175
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -22775,10 +27151,14 @@ mondata SPECIES_MEGA_PINSIR, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 200
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -22791,10 +27171,14 @@ mondata SPECIES_MEGA_GYARADOS, "-----"
     types TYPE_WATER, TYPE_DARK
     catchrate 45
     baseexp 214
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 5
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 5
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_DRAGON
@@ -22807,10 +27191,14 @@ mondata SPECIES_MEGA_AERODACTYL, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 45
     baseexp 202
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -22823,10 +27211,14 @@ mondata SPECIES_MEGA_MEWTWO_X, "-----"
     types TYPE_PSYCHIC, TYPE_FIGHTING
     catchrate 3
     baseexp 220
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22839,10 +27231,14 @@ mondata SPECIES_MEGA_MEWTWO_Y, "-----"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 3
     baseexp 220
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -22855,10 +27251,14 @@ mondata SPECIES_MEGA_AMPHAROS, "-----"
     types TYPE_ELECTRIC, TYPE_DRAGON
     catchrate 45
     baseexp 194
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_FIELD
@@ -22871,10 +27271,14 @@ mondata SPECIES_MEGA_STEELIX, "-----"
     types TYPE_STEEL, TYPE_GROUND
     catchrate 25
     baseexp 196
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -22887,10 +27291,14 @@ mondata SPECIES_MEGA_SCIZOR, "-----"
     types TYPE_BUG, TYPE_STEEL
     catchrate 25
     baseexp 200
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -22903,10 +27311,14 @@ mondata SPECIES_MEGA_HERACROSS, "-----"
     types TYPE_BUG, TYPE_FIGHTING
     catchrate 45
     baseexp 200
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -22919,10 +27331,14 @@ mondata SPECIES_MEGA_HOUNDOOM, "-----"
     types TYPE_DARK, TYPE_FIRE
     catchrate 45
     baseexp 204
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -22935,10 +27351,14 @@ mondata SPECIES_MEGA_TYRANITAR, "-----"
     types TYPE_ROCK, TYPE_DARK
     catchrate 45
     baseexp 218
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -22951,10 +27371,14 @@ mondata SPECIES_MEGA_SCEPTILE, "-----"
     types TYPE_GRASS, TYPE_DRAGON
     catchrate 45
     baseexp 208
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_DRAGON
@@ -22967,10 +27391,14 @@ mondata SPECIES_MEGA_BLAZIKEN, "-----"
     types TYPE_FIRE, TYPE_FIGHTING
     catchrate 45
     baseexp 209
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -22983,10 +27411,14 @@ mondata SPECIES_MEGA_SWAMPERT, "-----"
     types TYPE_WATER, TYPE_GROUND
     catchrate 45
     baseexp 210
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -22999,10 +27431,14 @@ mondata SPECIES_MEGA_GARDEVOIR, "-----"
     types TYPE_PSYCHIC, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 45
     baseexp 208
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -23015,10 +27451,14 @@ mondata SPECIES_MEGA_SABLEYE, "-----"
     types TYPE_DARK, TYPE_GHOST
     catchrate 45
     baseexp 98
-    evyields 0, 1, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -23031,10 +27471,14 @@ mondata SPECIES_MEGA_MAWILE, "-----"
     types TYPE_STEEL, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_STEEL
     catchrate 45
     baseexp 98
-    evyields 0, 1, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -23047,10 +27491,14 @@ mondata SPECIES_MEGA_AGGRON, "-----"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 45
     baseexp 205
-    evyields 0, 0, 3, 0, 0, 0
-    items ITEM_NONE, ITEM_HARD_STONE
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -23063,10 +27511,14 @@ mondata SPECIES_MEGA_MEDICHAM, "-----"
     types TYPE_FIGHTING, TYPE_PSYCHIC
     catchrate 90
     baseexp 153
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -23079,10 +27531,14 @@ mondata SPECIES_MEGA_MANECTRIC, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 45
     baseexp 168
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23095,10 +27551,14 @@ mondata SPECIES_MEGA_SHARPEDO, "-----"
     types TYPE_WATER, TYPE_DARK
     catchrate 60
     baseexp 175
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -23111,10 +27571,14 @@ mondata SPECIES_MEGA_CAMERUPT, "-----"
     types TYPE_FIRE, TYPE_GROUND
     catchrate 150
     baseexp 175
-    evyields 0, 1, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_RAWST_BERRY, ITEM_RAWST_BERRY
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23127,10 +27591,14 @@ mondata SPECIES_MEGA_ALTARIA, "-----"
     types TYPE_DRAGON, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 45
     baseexp 188
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_DRAGON
@@ -23143,10 +27611,14 @@ mondata SPECIES_MEGA_BANETTE, "-----"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 45
     baseexp 179
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SPELL_TAG
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -23159,10 +27631,14 @@ mondata SPECIES_MEGA_ABSOL, "-----"
     types TYPE_DARK, TYPE_DARK
     catchrate 30
     baseexp 174
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23175,10 +27651,14 @@ mondata SPECIES_MEGA_GLALIE, "-----"
     types TYPE_ICE, TYPE_ICE
     catchrate 75
     baseexp 187
-    evyields 2, 0, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_NEVER_MELT_ICE
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_MINERAL
@@ -23191,10 +27671,14 @@ mondata SPECIES_MEGA_SALAMENCE, "-----"
     types TYPE_DRAGON, TYPE_FLYING
     catchrate 45
     baseexp 218
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -23207,10 +27691,14 @@ mondata SPECIES_MEGA_METAGROSS, "-----"
     types TYPE_STEEL, TYPE_PSYCHIC
     catchrate 3
     baseexp 210
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_METAL_COAT
     genderratio 255
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -23223,10 +27711,14 @@ mondata SPECIES_MEGA_LATIAS, "-----"
     types TYPE_DRAGON, TYPE_PSYCHIC
     catchrate 3
     baseexp 211
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 90
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -23239,10 +27731,14 @@ mondata SPECIES_MEGA_LATIOS, "-----"
     types TYPE_DRAGON, TYPE_PSYCHIC
     catchrate 3
     baseexp 211
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 90
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -23255,10 +27751,14 @@ mondata SPECIES_MEGA_RAYQUAZA, "-----"
     types TYPE_DRAGON, TYPE_FLYING
     catchrate 3
     baseexp 230
-    evyields 0, 2, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -23271,10 +27771,14 @@ mondata SPECIES_MEGA_LOPUNNY, "-----"
     types TYPE_NORMAL, TYPE_FIGHTING
     catchrate 60
     baseexp 168
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -23287,10 +27791,14 @@ mondata SPECIES_MEGA_GARCHOMP, "-----"
     types TYPE_DRAGON, TYPE_GROUND
     catchrate 45
     baseexp 218
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_MONSTER
@@ -23303,10 +27811,14 @@ mondata SPECIES_MEGA_LUCARIO, "-----"
     types TYPE_FIGHTING, TYPE_STEEL
     catchrate 45
     baseexp 204
-    evyields 0, 1, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_HUMAN_LIKE
@@ -23319,10 +27831,14 @@ mondata SPECIES_MEGA_ABOMASNOW, "-----"
     types TYPE_GRASS, TYPE_ICE
     catchrate 60
     baseexp 214
-    evyields 0, 1, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_GRASS
@@ -23335,10 +27851,14 @@ mondata SPECIES_MEGA_GALLADE, "-----"
     types TYPE_PSYCHIC, TYPE_FIGHTING
     catchrate 45
     baseexp 233
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_1
@@ -23351,10 +27871,14 @@ mondata SPECIES_MEGA_AUDINO, "-----"
     types TYPE_NORMAL, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_NORMAL
     catchrate 255
     baseexp 245
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -23367,10 +27891,14 @@ mondata SPECIES_MEGA_DIANCIE, "-----"
     types TYPE_ROCK, FAIRY_TYPE_IMPLEMENTED ? TYPE_FAIRY : TYPE_PSYCHIC
     catchrate 3
     baseexp 255
-    evyields 0, 0, 1, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -23383,10 +27911,14 @@ mondata SPECIES_GROUDON_PRIMAL, "-----"
     types TYPE_GROUND, TYPE_FIRE
     catchrate 5
     baseexp 230
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -23399,10 +27931,14 @@ mondata SPECIES_KYOGRE_PRIMAL, "-----"
     types TYPE_WATER, TYPE_WATER
     catchrate 5
     baseexp 230
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -23415,10 +27951,14 @@ mondata SPECIES_RATTATA_ALOLAN, "-----"
     types TYPE_DARK, TYPE_NORMAL
     catchrate 255
     baseexp 51
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23432,10 +27972,14 @@ mondata SPECIES_RATICATE_ALOLAN, "-----"
     types TYPE_DARK, TYPE_NORMAL
     catchrate 127
     baseexp 145
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_PECHA_BERRY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23449,10 +27993,14 @@ mondata SPECIES_RAICHU_ALOLAN, "-----"
     types TYPE_ELECTRIC, TYPE_PSYCHIC
     catchrate 75
     baseexp 218
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -23466,10 +28014,14 @@ mondata SPECIES_SANDSHREW_ALOLAN, "-----"
     types TYPE_ICE, TYPE_STEEL
     catchrate 255
     baseexp 60
-    evyields 0, 0, 1, 0, 0, 0
-    items ITEM_NONE, ITEM_GRIP_CLAW
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23483,10 +28035,14 @@ mondata SPECIES_SANDSLASH_ALOLAN, "-----"
     types TYPE_ICE, TYPE_STEEL
     catchrate 90
     baseexp 158
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23500,10 +28056,14 @@ mondata SPECIES_VULPIX_ALOLAN, "-----"
     types TYPE_ICE, TYPE_ICE
     catchrate 190
     baseexp 60
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_SNOWBALL
     genderratio 191
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23517,10 +28077,14 @@ mondata SPECIES_NINETALES_ALOLAN, "-----"
     types TYPE_ICE, TYPE_FAIRY
     catchrate 75
     baseexp 177
-    evyields 0, 0, 0, 1, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 191
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23534,10 +28098,14 @@ mondata SPECIES_DIGLETT_ALOLAN, "-----"
     types TYPE_GROUND, TYPE_STEEL
     catchrate 255
     baseexp 53
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_NONE, ITEM_SOFT_SAND
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23551,10 +28119,14 @@ mondata SPECIES_DUGTRIO_ALOLAN, "-----"
     types TYPE_GROUND, TYPE_STEEL
     catchrate 50
     baseexp 149
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_NONE, ITEM_SOFT_SAND
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23568,10 +28140,14 @@ mondata SPECIES_MEOWTH_ALOLAN, "-----"
     types TYPE_DARK, TYPE_DARK
     catchrate 255
     baseexp 58
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_NONE, ITEM_QUICK_CLAW
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23585,10 +28161,14 @@ mondata SPECIES_PERSIAN_ALOLAN, "-----"
     types TYPE_DARK, TYPE_DARK
     catchrate 90
     baseexp 154
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_NONE, ITEM_QUICK_CLAW
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23602,10 +28182,14 @@ mondata SPECIES_GEODUDE_ALOLAN, "-----"
     types TYPE_ROCK, TYPE_ELECTRIC
     catchrate 255
     baseexp 60
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -23619,10 +28203,14 @@ mondata SPECIES_GRAVELER_ALOLAN, "-----"
     types TYPE_ROCK, TYPE_ELECTRIC
     catchrate 120
     baseexp 137
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_CELL_BATTERY
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -23636,10 +28224,14 @@ mondata SPECIES_GOLEM_ALOLAN, "-----"
     types TYPE_ROCK, TYPE_ELECTRIC
     catchrate 45
     baseexp 223
-    evyields 0, 0, 3, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 3, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -23653,10 +28245,14 @@ mondata SPECIES_GRIMER_ALOLAN, "-----"
     types TYPE_POISON, TYPE_DARK
     catchrate 190
     baseexp 65
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -23670,10 +28266,14 @@ mondata SPECIES_MUK_ALOLAN, "-----"
     types TYPE_POISON, TYPE_DARK
     catchrate 75
     baseexp 175
-    evyields 1, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_NONE
+    .if EV_ENABLED
+        evyields 1, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_BLACK_SLUDGE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -23687,10 +28287,14 @@ mondata SPECIES_EXEGGUTOR_ALOLAN, "-----"
     types TYPE_GRASS, TYPE_DRAGON
     catchrate 45
     baseexp 186
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -23704,10 +28308,14 @@ mondata SPECIES_MAROWAK_ALOLAN, "-----"
     types TYPE_FIRE, TYPE_GHOST
     catchrate 75
     baseexp 149
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MONSTER
@@ -23721,10 +28329,14 @@ mondata SPECIES_MEOWTH_GALARIAN, "-----"
     types TYPE_STEEL, TYPE_STEEL
     catchrate 255
     baseexp 58
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23738,10 +28350,14 @@ mondata SPECIES_PONYTA_GALARIAN, "-----"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 190
     baseexp 82
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23755,10 +28371,14 @@ mondata SPECIES_RAPIDASH_GALARIAN, "-----"
     types TYPE_PSYCHIC, TYPE_FAIRY
     catchrate 60
     baseexp 175
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23772,10 +28392,14 @@ mondata SPECIES_SLOWPOKE_GALARIAN, "-----"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 190
     baseexp 63
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -23789,10 +28413,14 @@ mondata SPECIES_SLOWBRO_GALARIAN, "-----"
     types TYPE_POISON, TYPE_PSYCHIC
     catchrate 75
     baseexp 172
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -23806,10 +28434,14 @@ mondata SPECIES_FARFETCHD_GALARIAN, "-----"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 132
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LEEK
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FIELD
@@ -23823,10 +28455,14 @@ mondata SPECIES_WEEZING_GALARIAN, "-----"
     types TYPE_POISON, TYPE_FAIRY
     catchrate 60
     baseexp 172
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_MISTY_SEED
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -23840,10 +28476,14 @@ mondata SPECIES_MR_MIME_GALARIAN, "-----"
     types TYPE_ICE, TYPE_PSYCHIC
     catchrate 45
     baseexp 161
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -23857,10 +28497,14 @@ mondata SPECIES_ARTICUNO_GALARIAN, "-----"
     types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 3
     baseexp 290
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -23874,10 +28518,14 @@ mondata SPECIES_ZAPDOS_GALARIAN, "-----"
     types TYPE_FIGHTING, TYPE_FLYING
     catchrate 3
     baseexp 290
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -23891,10 +28539,14 @@ mondata SPECIES_MOLTRES_GALARIAN, "-----"
     types TYPE_DARK, TYPE_FLYING
     catchrate 3
     baseexp 290
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -23908,10 +28560,14 @@ mondata SPECIES_SLOWKING_GALARIAN, "-----"
     types TYPE_POISON, TYPE_PSYCHIC
     catchrate 70
     baseexp 172
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
@@ -23925,10 +28581,14 @@ mondata SPECIES_CORSOLA_GALARIAN, "-----"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 60
     baseexp 144
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 191
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_WATER_3
@@ -23942,10 +28602,14 @@ mondata SPECIES_ZIGZAGOON_GALARIAN, "-----"
     types TYPE_DARK, TYPE_NORMAL
     catchrate 255
     baseexp 56
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23959,10 +28623,14 @@ mondata SPECIES_LINOONE_GALARIAN, "-----"
     types TYPE_DARK, TYPE_NORMAL
     catchrate 90
     baseexp 147
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23976,10 +28644,14 @@ mondata SPECIES_DARUMAKA_GALARIAN, "-----"
     types TYPE_ICE, TYPE_ICE
     catchrate 120
     baseexp 63
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -23993,10 +28665,14 @@ mondata SPECIES_DARMANITAN_GALARIAN, "-----"
     types TYPE_ICE, TYPE_ICE
     catchrate 60
     baseexp 168
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -24010,10 +28686,14 @@ mondata SPECIES_YAMASK_GALARIAN, "-----"
     types TYPE_GROUND, TYPE_GHOST
     catchrate 190
     baseexp 61
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -24027,10 +28707,14 @@ mondata SPECIES_STUNFISK_GALARIAN, "-----"
     types TYPE_GROUND, TYPE_STEEL
     catchrate 75
     baseexp 165
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
@@ -24044,10 +28728,14 @@ mondata SPECIES_PIKACHU_COSPLAY, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24061,10 +28749,14 @@ mondata SPECIES_PIKACHU_ROCK_STAR, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24078,10 +28770,14 @@ mondata SPECIES_PIKACHU_BELLE, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24095,10 +28791,14 @@ mondata SPECIES_PIKACHU_POP_STAR, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24112,10 +28812,14 @@ mondata SPECIES_PIKACHU_PH_D, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24129,10 +28833,14 @@ mondata SPECIES_PIKACHU_LIBRE, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24146,10 +28854,14 @@ mondata SPECIES_PIKACHU_ORIGINAL_CAP, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24163,10 +28875,14 @@ mondata SPECIES_PIKACHU_HOENN_CAP, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24180,10 +28896,14 @@ mondata SPECIES_PIKACHU_SINNOH_CAP, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24197,10 +28917,14 @@ mondata SPECIES_PIKACHU_UNOVA_CAP, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24214,10 +28938,14 @@ mondata SPECIES_PIKACHU_KALOS_CAP, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24231,10 +28959,14 @@ mondata SPECIES_PIKACHU_ALOLA_CAP, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24248,10 +28980,14 @@ mondata SPECIES_PIKACHU_PARTNER_CAP, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24265,10 +29001,14 @@ mondata SPECIES_PIKACHU_WORLD_CAP, "-----"
     types TYPE_ELECTRIC, TYPE_ELECTRIC
     catchrate 190
     baseexp 112
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_LIGHT_BALL
     genderratio 0
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24282,10 +29022,14 @@ mondata SPECIES_CASTFORM_SUNNY, "-----"
     types TYPE_FIRE, TYPE_FIRE
     catchrate 45
     baseexp 147
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_MYSTIC_WATER, ITEM_MYSTIC_WATER
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -24299,10 +29043,14 @@ mondata SPECIES_CASTFORM_RAINY, "-----"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 147
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_MYSTIC_WATER, ITEM_MYSTIC_WATER
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -24316,10 +29064,14 @@ mondata SPECIES_CASTFORM_SNOWY, "-----"
     types TYPE_ICE, TYPE_ICE
     catchrate 45
     baseexp 147
-    evyields 1, 0, 0, 0, 0, 0
-    items ITEM_MYSTIC_WATER, ITEM_MYSTIC_WATER
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -24333,10 +29085,14 @@ mondata SPECIES_CHERRIM_SUNSHINE, "-----"
     types TYPE_GRASS, TYPE_GRASS
     catchrate 75
     baseexp 158
-    evyields 0, 0, 0, 0, 2, 0
-    items ITEM_NONE, ITEM_MIRACLE_SEED
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_GRASS
@@ -24350,10 +29106,14 @@ mondata SPECIES_SHELLOS_EAST_SEA, "-----"
     types TYPE_WATER, TYPE_WATER
     catchrate 190
     baseexp 65
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
@@ -24367,10 +29127,14 @@ mondata SPECIES_GASTRODON_EAST_SEA, "-----"
     types TYPE_WATER, TYPE_GROUND
     catchrate 75
     baseexp 166
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_AMORPHOUS
@@ -24384,10 +29148,14 @@ mondata SPECIES_DIALGA_ORIGIN, "-----"
     types TYPE_STEEL, TYPE_DRAGON
     catchrate 30
     baseexp 220
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24401,10 +29169,14 @@ mondata SPECIES_PALKIA_ORIGIN, "-----"
     types TYPE_WATER, TYPE_DRAGON
     catchrate 45
     baseexp 220
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24413,36 +29185,44 @@ mondata SPECIES_PALKIA_ORIGIN, "-----"
     colorflip BODY_COLOR_PURPLE, 0
 
 
+mondata SPECIES_BASCULIN_RED_STRIPED, "-----"
+    basestats 70, 92, 65, 98, 80, 55
+    types TYPE_WATER, TYPE_WATER
+    catchrate 25
+    baseexp 161
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_DEEP_SEA_SCALE
+    genderratio 127
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
+    basefriendship 70
+    growthrate GROWTH_MEDIUM_FAST
+    egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
+    abilities ABILITY_RECKLESS,  ABILITY_ADAPTABILITY
+    runchance 0
+    colorflip BODY_COLOR_GREEN, 0
+
+
 mondata SPECIES_BASCULIN_BLUE_STRIPED, "-----"
     basestats 70, 92, 65, 98, 80, 55
     types TYPE_WATER, TYPE_WATER
     catchrate 25
     baseexp 161
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_DEEP_SEA_SCALE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
     abilities ABILITY_ROCK_HEAD,  ABILITY_ADAPTABILITY
-    runchance 0
-    colorflip BODY_COLOR_GREEN, 0
-
-
-mondata SPECIES_BASCULIN_WHITE_STRIPED, "-----"
-    basestats 70, 92, 65, 98, 80, 55
-    types TYPE_WATER, TYPE_WATER
-    catchrate 25
-    baseexp 161
-    evyields 0, 0, 0, 2, 0, 0
-    items ITEM_NONE, ITEM_DEEP_SEA_SCALE
-    genderratio 127
-    eggcycles 40
-    basefriendship 70
-    growthrate GROWTH_MEDIUM_FAST
-    egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
-    abilities ABILITY_RATTLED,  ABILITY_ADAPTABILITY
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
 
@@ -24452,10 +29232,14 @@ mondata SPECIES_DARMANITAN_ZEN_MODE, "-----"
     types TYPE_FIRE, TYPE_PSYCHIC
     catchrate 60
     baseexp 189
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -24469,10 +29253,14 @@ mondata SPECIES_DARMANITAN_ZEN_MODE_GALARIAN, "-----"
     types TYPE_ICE, TYPE_FIRE
     catchrate 60
     baseexp 189
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -24486,10 +29274,14 @@ mondata SPECIES_DEERLING_SUMMER, "-----"
     types TYPE_NORMAL, TYPE_GRASS
     catchrate 190
     baseexp 67
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -24503,10 +29295,14 @@ mondata SPECIES_DEERLING_AUTUMN, "-----"
     types TYPE_NORMAL, TYPE_GRASS
     catchrate 190
     baseexp 67
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -24520,10 +29316,14 @@ mondata SPECIES_DEERLING_WINTER, "-----"
     types TYPE_NORMAL, TYPE_GRASS
     catchrate 190
     baseexp 67
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -24537,10 +29337,14 @@ mondata SPECIES_SAWSBUCK_SUMMER, "-----"
     types TYPE_NORMAL, TYPE_GRASS
     catchrate 75
     baseexp 166
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -24554,10 +29358,14 @@ mondata SPECIES_SAWSBUCK_AUTUMN, "-----"
     types TYPE_NORMAL, TYPE_GRASS
     catchrate 75
     baseexp 166
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -24571,10 +29379,14 @@ mondata SPECIES_SAWSBUCK_WINTER, "-----"
     types TYPE_NORMAL, TYPE_GRASS
     catchrate 75
     baseexp 166
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -24588,10 +29400,14 @@ mondata SPECIES_TORNADUS_THERIAN, "-----"
     types TYPE_FLYING, TYPE_FLYING
     catchrate 3
     baseexp 261
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 90
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24605,10 +29421,14 @@ mondata SPECIES_THUNDURUS_THERIAN, "-----"
     types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 3
     baseexp 261
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 90
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24622,10 +29442,14 @@ mondata SPECIES_LANDORUS_THERIAN, "-----"
     types TYPE_GROUND, TYPE_FLYING
     catchrate 3
     baseexp 270
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 90
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24639,10 +29463,14 @@ mondata SPECIES_KYUREM_WHITE, "-----"
     types TYPE_DRAGON, TYPE_ICE
     catchrate 3
     baseexp 315
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24656,10 +29484,14 @@ mondata SPECIES_KYUREM_BLACK, "-----"
     types TYPE_DRAGON, TYPE_ICE
     catchrate 3
     baseexp 315
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24673,10 +29505,14 @@ mondata SPECIES_KELDEO_RESOLUTE, "-----"
     types TYPE_WATER, TYPE_FIGHTING
     catchrate 3
     baseexp 261
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 80
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 80
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24690,10 +29526,14 @@ mondata SPECIES_MELOETTA_PIROUETTE, "-----"
     types TYPE_NORMAL, TYPE_FIGHTING
     catchrate 3
     baseexp 270
-    evyields 0, 1, 1, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 1, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_STAR_PIECE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24707,10 +29547,14 @@ mondata SPECIES_GENESECT_DOUSE_DRIVE, "-----"
     types TYPE_BUG, TYPE_STEEL
     catchrate 3
     baseexp 270
-    evyields 0, 1, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24724,10 +29568,14 @@ mondata SPECIES_GENESECT_SHOCK_DRIVE, "-----"
     types TYPE_BUG, TYPE_STEEL
     catchrate 3
     baseexp 270
-    evyields 0, 1, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24741,10 +29589,14 @@ mondata SPECIES_GENESECT_BURN_DRIVE, "-----"
     types TYPE_BUG, TYPE_STEEL
     catchrate 3
     baseexp 270
-    evyields 0, 1, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24758,10 +29610,14 @@ mondata SPECIES_GENESECT_CHILL_DRIVE, "-----"
     types TYPE_BUG, TYPE_STEEL
     catchrate 3
     baseexp 270
-    evyields 0, 1, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24775,10 +29631,14 @@ mondata SPECIES_GRENINJA_BATTLE_BOND, "-----"
     types TYPE_WATER, TYPE_DARK
     catchrate 45
     baseexp 239
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24792,10 +29652,14 @@ mondata SPECIES_GRENINJA_ASH, "-----"
     types TYPE_WATER, TYPE_DARK
     catchrate 45
     baseexp 288
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -24809,10 +29673,14 @@ mondata SPECIES_VIVILLON_POLAR, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -24826,10 +29694,14 @@ mondata SPECIES_VIVILLON_TUNDRA, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -24843,10 +29715,14 @@ mondata SPECIES_VIVILLON_CONTINENTAL, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -24860,10 +29736,14 @@ mondata SPECIES_VIVILLON_GARDEN, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -24877,10 +29757,14 @@ mondata SPECIES_VIVILLON_ELEGANT, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -24894,10 +29778,14 @@ mondata SPECIES_VIVILLON_MEADOW, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -24911,10 +29799,14 @@ mondata SPECIES_VIVILLON_MODERN, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -24928,10 +29820,14 @@ mondata SPECIES_VIVILLON_MARINE, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -24945,10 +29841,14 @@ mondata SPECIES_VIVILLON_ARCHIPELAGO, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -24962,10 +29862,14 @@ mondata SPECIES_VIVILLON_HIGH_PLAINS, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -24979,10 +29883,14 @@ mondata SPECIES_VIVILLON_SANDSTORM, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -24996,10 +29904,14 @@ mondata SPECIES_VIVILLON_RIVER, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -25013,10 +29925,14 @@ mondata SPECIES_VIVILLON_MONSOON, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -25030,10 +29946,14 @@ mondata SPECIES_VIVILLON_SAVANNA, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -25047,10 +29967,14 @@ mondata SPECIES_VIVILLON_SUN, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -25064,10 +29988,14 @@ mondata SPECIES_VIVILLON_OCEAN, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -25081,10 +30009,14 @@ mondata SPECIES_VIVILLON_JUNGLE, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -25098,10 +30030,14 @@ mondata SPECIES_VIVILLON_FANCY, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -25115,10 +30051,14 @@ mondata SPECIES_VIVILLON_POKE_BALL, "-----"
     types TYPE_BUG, TYPE_FLYING
     catchrate 45
     baseexp 185
-    evyields 1, 0, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
@@ -25132,10 +30072,14 @@ mondata SPECIES_FLABEBE_YELLOW_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 225
     baseexp 61
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25149,10 +30093,14 @@ mondata SPECIES_FLABEBE_ORANGE_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 225
     baseexp 61
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25166,10 +30114,14 @@ mondata SPECIES_FLABEBE_BLUE_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 225
     baseexp 61
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25183,10 +30135,14 @@ mondata SPECIES_FLABEBE_WHITE_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 225
     baseexp 61
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25200,10 +30156,14 @@ mondata SPECIES_FLOETTE_YELLOW_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 120
     baseexp 130
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25217,10 +30177,14 @@ mondata SPECIES_FLOETTE_ORANGE_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 120
     baseexp 130
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25234,10 +30198,14 @@ mondata SPECIES_FLOETTE_BLUE_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 120
     baseexp 130
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25251,10 +30219,14 @@ mondata SPECIES_FLOETTE_WHITE_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 120
     baseexp 130
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25268,10 +30240,14 @@ mondata SPECIES_FLOETTE_ETERNAL_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 120
     baseexp 243
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -25285,10 +30261,14 @@ mondata SPECIES_FLORGES_YELLOW_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 248
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25302,10 +30282,14 @@ mondata SPECIES_FLORGES_ORANGE_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 248
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25319,10 +30303,14 @@ mondata SPECIES_FLORGES_BLUE_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 248
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25336,10 +30324,14 @@ mondata SPECIES_FLORGES_WHITE_FLOWER, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 248
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -25353,10 +30345,14 @@ mondata SPECIES_FURFROU_HEART, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25370,10 +30366,14 @@ mondata SPECIES_FURFROU_STAR, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25387,10 +30387,14 @@ mondata SPECIES_FURFROU_DIAMOND, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25404,10 +30408,14 @@ mondata SPECIES_FURFROU_DEBUTANTE, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25421,10 +30429,14 @@ mondata SPECIES_FURFROU_MATRON, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25438,10 +30450,14 @@ mondata SPECIES_FURFROU_DANDY, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25455,10 +30471,14 @@ mondata SPECIES_FURFROU_LA_REINE, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25472,10 +30492,14 @@ mondata SPECIES_FURFROU_KABUKI, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25489,10 +30513,14 @@ mondata SPECIES_FURFROU_PHARAOH, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 160
     baseexp 165
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25506,10 +30534,14 @@ mondata SPECIES_AEGISLASH_BLADE, "-----"
     types TYPE_STEEL, TYPE_GHOST
     catchrate 45
     baseexp 234
-    evyields 0, 0, 2, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -25523,10 +30555,14 @@ mondata SPECIES_PUMPKABOO_SMALL, "-----"
     types TYPE_GHOST, TYPE_GRASS
     catchrate 120
     baseexp 67
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -25540,10 +30576,14 @@ mondata SPECIES_PUMPKABOO_LARGE, "-----"
     types TYPE_GHOST, TYPE_GRASS
     catchrate 120
     baseexp 67
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -25557,10 +30597,14 @@ mondata SPECIES_PUMPKABOO_SUPER, "-----"
     types TYPE_GHOST, TYPE_GRASS
     catchrate 120
     baseexp 67
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -25574,10 +30618,14 @@ mondata SPECIES_GOURGEIST_SMALL, "-----"
     types TYPE_GHOST, TYPE_GRASS
     catchrate 60
     baseexp 173
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -25591,10 +30639,14 @@ mondata SPECIES_GOURGEIST_LARGE, "-----"
     types TYPE_GHOST, TYPE_GRASS
     catchrate 60
     baseexp 173
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -25608,10 +30660,14 @@ mondata SPECIES_GOURGEIST_SUPER, "-----"
     types TYPE_GHOST, TYPE_GRASS
     catchrate 60
     baseexp 173
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -25625,10 +30681,14 @@ mondata SPECIES_XERNEAS_ACTIVE, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 45
     baseexp 306
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -25642,10 +30702,14 @@ mondata SPECIES_ZYGARDE_10, "-----"
     types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 219
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -25659,10 +30723,14 @@ mondata SPECIES_ZYGARDE_10_POWER_CONSTRUCT, "-----"
     types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 219
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -25676,10 +30744,14 @@ mondata SPECIES_ZYGARDE_50_POWER_CONSTRUCT, "-----"
     types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 270
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -25693,10 +30765,14 @@ mondata SPECIES_ZYGARDE_10_COMPLETE, "-----"
     types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 319
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -25710,10 +30786,14 @@ mondata SPECIES_ZYGARDE_50_COMPLETE, "-----"
     types TYPE_DRAGON, TYPE_GROUND
     catchrate 3
     baseexp 319
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -25727,10 +30807,14 @@ mondata SPECIES_HOOPA_UNBOUND, "-----"
     types TYPE_PSYCHIC, TYPE_DARK
     catchrate 3
     baseexp 270
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -25744,10 +30828,14 @@ mondata SPECIES_ORICORIO_POM_POM, "-----"
     types TYPE_ELECTRIC, TYPE_FLYING
     catchrate 45
     baseexp 167
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_HONEY
     genderratio 191
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -25761,10 +30849,14 @@ mondata SPECIES_ORICORIO_PAU, "-----"
     types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 45
     baseexp 167
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_HONEY
     genderratio 191
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -25778,10 +30870,14 @@ mondata SPECIES_ORICORIO_SENSU, "-----"
     types TYPE_GHOST, TYPE_FLYING
     catchrate 45
     baseexp 167
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_HONEY
     genderratio 191
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -25795,10 +30891,14 @@ mondata SPECIES_ROCKRUFF_OWN_TEMPO, "-----"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 190
     baseexp 56
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25812,10 +30912,14 @@ mondata SPECIES_LYCANROC_MIDNIGHT, "-----"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 90
     baseexp 170
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25829,10 +30933,14 @@ mondata SPECIES_LYCANROC_DUSK, "-----"
     types TYPE_ROCK, TYPE_ROCK
     catchrate 90
     baseexp 170
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -25846,10 +30954,14 @@ mondata SPECIES_WISHIWASHI_SCHOOL, "-----"
     types TYPE_WATER, TYPE_WATER
     catchrate 60
     baseexp 61
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -25863,10 +30975,14 @@ mondata SPECIES_MINIOR_METEOR_ORANGE, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -25880,10 +30996,14 @@ mondata SPECIES_MINIOR_METEOR_YELLOW, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -25897,10 +31017,14 @@ mondata SPECIES_MINIOR_METEOR_GREEN, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -25914,10 +31038,14 @@ mondata SPECIES_MINIOR_METEOR_BLUE, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -25931,10 +31059,14 @@ mondata SPECIES_MINIOR_METEOR_INDIGO, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -25948,10 +31080,14 @@ mondata SPECIES_MINIOR_METEOR_VIOLET, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -25965,10 +31101,14 @@ mondata SPECIES_MINIOR_CORE_RED, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -25982,10 +31122,14 @@ mondata SPECIES_MINIOR_CORE_ORANGE, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -25999,10 +31143,14 @@ mondata SPECIES_MINIOR_CORE_YELLOW, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -26016,10 +31164,14 @@ mondata SPECIES_MINIOR_CORE_GREEN, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -26033,10 +31185,14 @@ mondata SPECIES_MINIOR_CORE_BLUE, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -26050,10 +31206,14 @@ mondata SPECIES_MINIOR_CORE_INDIGO, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -26067,10 +31227,14 @@ mondata SPECIES_MINIOR_CORE_VIOLET, "-----"
     types TYPE_ROCK, TYPE_FLYING
     catchrate 30
     baseexp 154
-    evyields 0, 0, 1, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_STAR_PIECE
     genderratio 255
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -26084,10 +31248,14 @@ mondata SPECIES_MIMIKYU_BUSTED, "-----"
     types TYPE_GHOST, TYPE_FAIRY
     catchrate 45
     baseexp 167
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -26101,10 +31269,14 @@ mondata SPECIES_NECROZMA_DUSK_MANE, "-----"
     types TYPE_PSYCHIC, TYPE_STEEL
     catchrate 255
     baseexp 306
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26118,10 +31290,14 @@ mondata SPECIES_NECROZMA_DAWN_WINGS, "-----"
     types TYPE_PSYCHIC, TYPE_GHOST
     catchrate 255
     baseexp 306
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26135,10 +31311,14 @@ mondata SPECIES_NECROZMA_ULTRA_DUSK_MANE, "-----"
     types TYPE_PSYCHIC, TYPE_DRAGON
     catchrate 255
     baseexp 339
-    evyields 0, 1, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26152,10 +31332,14 @@ mondata SPECIES_NECROZMA_ULTRA_DAWN_WINGS, "-----"
     types TYPE_PSYCHIC, TYPE_DRAGON
     catchrate 255
     baseexp 339
-    evyields 0, 1, 0, 1, 1, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26169,10 +31353,14 @@ mondata SPECIES_MAGEARNA_ORIGINAL, "-----"
     types TYPE_STEEL, TYPE_FAIRY
     catchrate 3
     baseexp 270
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26186,10 +31374,14 @@ mondata SPECIES_CRAMORANT_GULPING, "-----"
     types TYPE_FLYING, TYPE_WATER
     catchrate 45
     baseexp 166
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
@@ -26203,10 +31395,14 @@ mondata SPECIES_CRAMORANT_GORGING, "-----"
     types TYPE_FLYING, TYPE_WATER
     catchrate 45
     baseexp 166
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FLYING
@@ -26220,10 +31416,14 @@ mondata SPECIES_TOXTRICITY_LOW_KEY, "-----"
     types TYPE_ELECTRIC, TYPE_POISON
     catchrate 45
     baseexp 176
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_HUMAN_LIKE, EGG_GROUP_HUMAN_LIKE
@@ -26237,10 +31437,14 @@ mondata SPECIES_SINISTEA_ANTIQUE, "-----"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 120
     baseexp 62
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -26254,10 +31458,14 @@ mondata SPECIES_POLTEAGEIST_ANTIQUE, "-----"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 60
     baseexp 178
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -26271,10 +31479,14 @@ mondata SPECIES_ALCREMIE_BERRY_SWEET, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -26288,10 +31500,14 @@ mondata SPECIES_ALCREMIE_LOVE_SWEET, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -26305,10 +31521,14 @@ mondata SPECIES_ALCREMIE_STAR_SWEET, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -26322,10 +31542,14 @@ mondata SPECIES_ALCREMIE_CLOVER_SWEET, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -26339,10 +31563,14 @@ mondata SPECIES_ALCREMIE_FLOWER_SWEET, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -26356,10 +31584,14 @@ mondata SPECIES_ALCREMIE_RIBBON_SWEET, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -26373,10 +31605,14 @@ mondata SPECIES_ALCREMIE_FILLER_1, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -26390,10 +31626,14 @@ mondata SPECIES_ALCREMIE_FILLER_2, "-----"
     types TYPE_FAIRY, TYPE_FAIRY
     catchrate 100
     baseexp 173
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
-    genderratio 254
-    eggcycles 20
+    genderratio 244
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_AMORPHOUS
@@ -26407,10 +31647,14 @@ mondata SPECIES_EISCUE_NOICE_FACE, "-----"
     types TYPE_ICE, TYPE_ICE
     catchrate 60
     baseexp 165
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -26424,10 +31668,14 @@ mondata SPECIES_MORPEKO_HANGRY, "-----"
     types TYPE_ELECTRIC, TYPE_DARK
     catchrate 180
     baseexp 153
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -26441,10 +31689,14 @@ mondata SPECIES_ZACIAN_CROWNED, "-----"
     types TYPE_FAIRY, TYPE_STEEL
     catchrate 10
     baseexp 360
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26458,10 +31710,14 @@ mondata SPECIES_ZAMAZENTA_CROWNED, "-----"
     types TYPE_FIGHTING, TYPE_STEEL
     catchrate 10
     baseexp 360
-    evyields 0, 0, 0, 3, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 3, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26475,10 +31731,14 @@ mondata SPECIES_ETERNATUS_ETERNAMAX, "-----"
     types TYPE_POISON, TYPE_DRAGON
     catchrate 255
     baseexp 563
-    evyields 3, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 3, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26492,10 +31752,14 @@ mondata SPECIES_URSHIFU_RAPID_STRIKE, "-----"
     types TYPE_FIGHTING, TYPE_WATER
     catchrate 3
     baseexp 275
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26509,10 +31773,14 @@ mondata SPECIES_ZARUDE_DADA, "-----"
     types TYPE_DARK, TYPE_GRASS
     catchrate 3
     baseexp 300
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 0
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26526,10 +31794,14 @@ mondata SPECIES_CALYREX_ICE_RIDER, "-----"
     types TYPE_PSYCHIC, TYPE_ICE
     catchrate 3
     baseexp 340
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26543,10 +31815,14 @@ mondata SPECIES_CALYREX_SHADOW_RIDER, "-----"
     types TYPE_PSYCHIC, TYPE_GHOST
     catchrate 3
     baseexp 340
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 120
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 120
     basefriendship 100
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -26560,7 +31836,11 @@ mondata SPECIES_ENAMORUS_THERIAN, "-----"
     types (FAIRY_TYPE_IMPLEMENTED) ? TYPE_FAIRY : TYPE_NORMAL, TYPE_FLYING
     catchrate 3
     baseexp 0
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
@@ -26577,10 +31857,14 @@ mondata SPECIES_GROWLITHE_HISUIAN, "-----"
     types TYPE_FIRE, TYPE_ROCK
     catchrate 235
     baseexp 91
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 63
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -26594,7 +31878,11 @@ mondata SPECIES_ARCANINE_HISUIAN, "-----"
     types TYPE_FIRE, TYPE_ROCK
     catchrate 0
     baseexp 213
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 63
     eggcycles 0
@@ -26611,10 +31899,14 @@ mondata SPECIES_VOLTORB_HISUIAN, "-----"
     types TYPE_ELECTRIC, TYPE_GRASS
     catchrate 235
     baseexp 103
-    evyields 0, 0, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -26628,10 +31920,14 @@ mondata SPECIES_ELECTRODE_HISUIAN, "-----"
     types TYPE_ELECTRIC, TYPE_GRASS
     catchrate 135
     baseexp 150
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -26645,10 +31941,14 @@ mondata SPECIES_TYPHLOSION_HISUIAN, "-----"
     types TYPE_FIRE, TYPE_GHOST
     catchrate 45
     baseexp 209
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -26662,10 +31962,14 @@ mondata SPECIES_QWILFISH_HISUIAN, "-----"
     types TYPE_DARK, TYPE_POISON
     catchrate 235
     baseexp 100
-    evyields 0, 1, 0, 0, 0, 0
-    items ITEM_NONE, ITEM_POISON_BARB
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -26679,10 +31983,14 @@ mondata SPECIES_SNEASEL_HISUIAN, "-----"
     types TYPE_FIGHTING, TYPE_POISON
     catchrate 235
     baseexp 132
-    evyields 0, 0, 0, 1, 0, 0
-    items ITEM_GRIP_CLAW, ITEM_QUICK_CLAW
+    .if EV_ENABLED
+        evyields 0, 0, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
+    items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 35
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -26696,10 +32004,14 @@ mondata SPECIES_SAMUROTT_HISUIAN, "-----"
     types TYPE_WATER, TYPE_DARK
     catchrate 55
     baseexp 155
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -26713,10 +32025,14 @@ mondata SPECIES_LILLIGANT_HISUIAN, "-----"
     types TYPE_GRASS, TYPE_FIGHTING
     catchrate 135
     baseexp 109
-    evyields 0, 1, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_GRASS, EGG_GROUP_GRASS
@@ -26730,10 +32046,14 @@ mondata SPECIES_ZORUA_HISUIAN, "-----"
     types TYPE_NORMAL, TYPE_GHOST
     catchrate 215
     baseexp 43
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 25
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 25
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -26747,10 +32067,14 @@ mondata SPECIES_ZOROARK_HISUIAN, "-----"
     types TYPE_NORMAL, TYPE_GHOST
     catchrate 115
     baseexp 117
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -26764,10 +32088,14 @@ mondata SPECIES_BRAVIARY_HISUIAN, "-----"
     types TYPE_PSYCHIC, TYPE_FLYING
     catchrate 135
     baseexp 117
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -26781,10 +32109,14 @@ mondata SPECIES_SLIGGOO_HISUIAN, "-----"
     types TYPE_STEEL, TYPE_DRAGON
     catchrate 55
     baseexp 270
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -26798,10 +32130,14 @@ mondata SPECIES_GOODRA_HISUIAN, "-----"
     types TYPE_STEEL, TYPE_DRAGON
     catchrate 55
     baseexp 270
-    evyields 0, 0, 0, 0, 0, 3
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 3
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 35
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_DRAGON, EGG_GROUP_DRAGON
@@ -26815,10 +32151,14 @@ mondata SPECIES_AVALUGG_HISUIAN, "-----"
     types TYPE_ICE, TYPE_ROCK
     catchrate 55
     baseexp 180
-    evyields 0, 0, 2, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 2, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_MINERAL
@@ -26832,10 +32172,14 @@ mondata SPECIES_DECIDUEYE_HISUIAN, "-----"
     types TYPE_GRASS, TYPE_FIGHTING
     catchrate 55
     baseexp 239
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 31
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -26849,10 +32193,14 @@ mondata SPECIES_UNFEZANT_FEMALE, "-----"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 45
     baseexp 140
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -26866,10 +32214,14 @@ mondata SPECIES_FRILLISH_FEMALE, "-----"
     types TYPE_WATER, TYPE_GHOST
     catchrate 190
     baseexp 43
-    evyields 0, 0, 0, 0, 0, 1
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 1
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -26883,10 +32235,14 @@ mondata SPECIES_JELLICENT_FEMALE, "-----"
     types TYPE_WATER, TYPE_GHOST
     catchrate 60
     baseexp 109
-    evyields 0, 0, 0, 0, 0, 2
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 0, 2
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_AMORPHOUS, EGG_GROUP_AMORPHOUS
@@ -26900,10 +32256,14 @@ mondata SPECIES_PYROAR_FEMALE, "-----"
     types TYPE_FIRE, TYPE_NORMAL
     catchrate 65
     baseexp 177
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -26917,10 +32277,14 @@ mondata SPECIES_MEOWSTIC_FEMALE, "-----"
     types TYPE_PSYCHIC, TYPE_PSYCHIC
     catchrate 75
     baseexp 163
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -26934,10 +32298,14 @@ mondata SPECIES_INDEEDEE_FEMALE, "-----"
     types TYPE_PSYCHIC, TYPE_NORMAL
     catchrate 30
     baseexp 166
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 140
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FAIRY, EGG_GROUP_FAIRY
@@ -26951,7 +32319,11 @@ mondata SPECIES_BASCULEGION_FEMALE, "-----"
     types TYPE_WATER, TYPE_GHOST
     catchrate 135
     baseexp 208
-    evyields 2,0,0,0,0,0
+    .if EV_ENABLED
+        evyields 2,0,0,0,0,0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
     eggcycles 0
@@ -26968,10 +32340,14 @@ mondata SPECIES_MAUSHOLD_FAMILY_OF_THREE, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 2, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 2, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FAIRY
@@ -26985,10 +32361,14 @@ mondata SPECIES_SQUAWKABILLY_BLUE_PLUMAGE, "-----"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -27002,10 +32382,14 @@ mondata SPECIES_SQUAWKABILLY_YELLOW_PLUMAGE, "-----"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -27019,10 +32403,14 @@ mondata SPECIES_SQUAWKABILLY_WHITE_PLUMAGE, "-----"
     types TYPE_NORMAL, TYPE_FLYING
     catchrate 190
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_ERRATIC
     egggroups EGG_GROUP_FLYING, EGG_GROUP_FLYING
@@ -27036,10 +32424,14 @@ mondata SPECIES_PALAFIN_HERO, "-----"
     types TYPE_WATER, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 40
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 40
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_WATER_2
@@ -27053,10 +32445,14 @@ mondata SPECIES_TATSUGIRI_DROOPY, "-----"
     types TYPE_DRAGON, TYPE_WATER
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -27070,10 +32466,14 @@ mondata SPECIES_TATSUGIRI_STRETCHY, "-----"
     types TYPE_DRAGON, TYPE_WATER
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 35
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 35
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
@@ -27087,10 +32487,14 @@ mondata SPECIES_DUDUNSPARCE_THREE_SEGMENT, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -27104,10 +32508,14 @@ mondata SPECIES_GIMMIGHOUL_ROAMING, "-----"
     types TYPE_GHOST, TYPE_GHOST
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 50
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 50
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -27121,10 +32529,14 @@ mondata SPECIES_TERAPAGOS_TERASTAL, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 5
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 5
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -27138,10 +32550,14 @@ mondata SPECIES_WOOPER_PALDEAN, "-----"
     types TYPE_POISON, TYPE_GROUND
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 1, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 1, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_1, EGG_GROUP_FIELD
@@ -27155,10 +32571,14 @@ mondata SPECIES_TAUROS_COMBAT, "-----"
     types TYPE_FIGHTING, TYPE_FIGHTING
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -27172,10 +32592,14 @@ mondata SPECIES_TAUROS_BLAZE, "-----"
     types TYPE_FIGHTING, TYPE_FIRE
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -27189,10 +32613,14 @@ mondata SPECIES_TAUROS_AQUA, "-----"
     types TYPE_FIGHTING, TYPE_WATER
     catchrate 45
     baseexp 0 // defined in baseexp.s
-    evyields 0, 1, 0, 1, 0, 0
+    .if EV_ENABLED
+        evyields 0, 1, 0, 1, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 0
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -27206,10 +32634,14 @@ mondata SPECIES_OINKOLOGNE_FEMALE, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 100
     baseexp 0 // defined in baseexp.s
-    evyields 2, 0, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 2, 0, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 15
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
@@ -27223,10 +32655,14 @@ mondata SPECIES_REVAVROOM_SEGIN, "-----"
     types TYPE_STEEL, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -27240,10 +32676,14 @@ mondata SPECIES_REVAVROOM_SCHEDAR, "-----"
     types TYPE_STEEL, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -27257,10 +32697,14 @@ mondata SPECIES_REVAVROOM_NAVI, "-----"
     types TYPE_STEEL, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -27274,10 +32718,14 @@ mondata SPECIES_REVAVROOM_RUCHBAH, "-----"
     types TYPE_STEEL, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -27291,10 +32739,14 @@ mondata SPECIES_REVAVROOM_CAPH , "-----"
     types TYPE_STEEL, TYPE_POISON
     catchrate 75
     baseexp 0 // defined in baseexp.s
-    evyields 0, 2, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 2, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
@@ -27308,10 +32760,14 @@ mondata SPECIES_POLTCHAGEIST_MASTERPIECE, "-----"
     types TYPE_GRASS, TYPE_GHOST
     catchrate 120
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 1, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 1, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 0
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -27325,10 +32781,14 @@ mondata SPECIES_SINISTCHA_MASTERPIECE, "-----"
     types TYPE_GRASS, TYPE_GHOST
     catchrate 60
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 2, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 2, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 255
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 0
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_AMORPHOUS
@@ -27342,10 +32802,14 @@ mondata SPECIES_OGERPON_WELLSPRING_MASK, "-----"
     types TYPE_GRASS, TYPE_WATER
     catchrate 5
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -27359,10 +32823,14 @@ mondata SPECIES_OGERPON_HEARTHFLAME_MASK, "-----"
     types TYPE_GRASS, TYPE_FIRE
     catchrate 5
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -27376,10 +32844,14 @@ mondata SPECIES_OGERPON_CORNERSTONE_MASK, "-----"
     types TYPE_GRASS, TYPE_ROCK
     catchrate 5
     baseexp 0 // defined in baseexp.s
-    evyields 0, 3, 0, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 3, 0, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 10
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 10
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -27393,10 +32865,14 @@ mondata SPECIES_TERAPAGOS_STELLAR, "-----"
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 255
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 1, 0, 0, 0
+    .if EV_ENABLED
+        evyields 0, 0, 1, 0, 0, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 5
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 5
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -27410,10 +32886,14 @@ mondata SPECIES_URSALUNA_BLOODMOON, "-----"
     types TYPE_GROUND, TYPE_NORMAL
     catchrate 20
     baseexp 0 // defined in baseexp.s
-    evyields 0, 0, 0, 0, 3, 0
+    .if EV_ENABLED
+        evyields 0, 0, 0, 0, 3, 0
+    .else
+        evyields 0, 0, 0, 0, 0, 0
+    .endif
     items ITEM_NONE, ITEM_NONE
     genderratio 127
-    eggcycles 20
+    eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 20
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED

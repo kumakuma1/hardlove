@@ -328,7 +328,7 @@ An item to be held by a Pokémon.\nIt is a sharply hooked claw that ups\nthe hol
 An item to be held by a Pokémon.\nIt may cause the foe to flinch when\nthe holder inflicts damage.
 The user focuses its mind before\nlaunching this attack. It will fail if\nthe user is hit before it is used.
 Sharp, huge claws hook and slash\nthe foe quickly and with great\npower.
-The foe is hit with a pulsing blast\nof water. It may also confuse the\ntarget.
+After attacking, the user switches\nplaces with a party pokemon.
 The user quietly focuses its mind and\ncalms its spirit to raise its Sp. Atk\nand Sp. Def stats.
 The foe is scared off, to be replaced\nby another Pokémon in its party.\nIn the wild, the battle ends.
 A move that leaves the foe badly\npoisoned. This poison damage\nworsens every turn.
@@ -345,8 +345,8 @@ A wondrous wall of light is put up to\nsuppress damage from special attacks\nfor
 It enables the user to evade all\nattacks. Its chance of failing rises\nif it is used in succession.
 The user summons a heavy rain that\nfalls for five turns, powering up\nWater-type moves.
 A nutrient-draining attack. The user’s\nHP is restored by half the damage\ntaken by the target.
-The user creates a protective field\nthat prevents status problems like\npoison, paralysis, burn, and sleep.
-A full-power attack that grows more\npowerful the less the user likes its\nTrainer.
+The user lets loose a horribly\nechoing shout with the power to\ninflict\ndamage.
+The user attacks with a gust of\nchilled air. It also lowers the\ntarget’s Speed stat.
 A two-turn attack. The user gathers\nlight, then blasts a bundled beam on\nthe second turn.
 The foe is slammed with a sturdy\ntail of steel. It may also lower the\ntarget’s Defense stat if it hits.
 A strong electric blast is loosed at\nthe foe. It may also leave the foe\nparalyzed.
@@ -359,7 +359,7 @@ The user hurls a shadowy blob at the\nfoe. It may also lower the foe’s\nSp. De
 The user attacks with tough fists,\netc. It can also break any barrier\nsuch as Light Screen and Reflect.
 The user begins moving so quickly\nthat it creates illusory copies to\nraise its evasiveness.
 A wondrous wall of light is put up to\nsuppress damage from physical attacks\nfor five turns.
-The user strikes the foe with a quick\njolt of electricity. This attack cannot\nbe evaded.
+After attacking, the user switches\nplaces with a party pokemon.
 The foe is scorched with an intense\nblast of fire. The target may also be\nleft with a burn.
 Unsanitary sludge is hurled at\nthe foe. It may also poison the\ntarget.
 A five-turn sandstorm is summoned\nto hurt all combatants except the\nRock, Ground, and Steel types.
@@ -368,9 +368,9 @@ Large boulders are hurled at the foe\nto inflict damage. It lowers the foe’s\n
 The user confounds the foe with speed,\nthen strikes. The attack lands without\nfail.
 The user torments and enrages the\nfoe, making it incapable of using the\nsame move twice in a row.
 An attack move that doubles its power\nif the user is poisoned, paralyzed, or\nhas a burn.
-An attack move with effects that\nvary depending on the user’s\nenvironment.
+It reduces the foe’s evasion\nstat. It also removes hazards.
 The user goes to sleep for two\nturns. It fully restores the user’s HP\nand heals any status problem.
-If it is the opposite gender of the\nuser, the foe becomes infatuated\nand less likely to attack.
+A sweet kiss that absorbs over half\nthe damage inflicted to restore HP.
 The user attacks and steals the foe’s\nheld item simultaneously. It can’t\nsteal if the user holds an item.
 The foe is hit with wings of steel.\nIt may also raise the user’s Defense\nstat.
 The user employs its psychic power to\nexchange abilities with the foe.\n
@@ -408,7 +408,7 @@ The user releases a horrible aura\nimbued with dark thoughts. It may also\nmake 
 Large boulders are hurled at the foe\nto inflict damage. It may also make the\ntarget flinch.
 The user slashes at the foe by\ncrossing its scythes or claws as if\nthey were a pair of scissors.
 While it is asleep, the user\nrandomly uses one of the moves\nit knows.
-The user draws power from the Berry\nit is holding to attack. The Berry\ndetermines its type and power.
+Boiling water is shot at the foe.\nIt may also cause a burn.
 The foe is stabbed with a tentacle or\narm steeped with poison. It may also\npoison the foe.
 An attack that works only on a\nsleeping foe. It absorbs half the\ndamage caused to heal the user’s HP.
 The user snares the foe with grass\nand trips it. The heavier the foe, the\ngreater the damage.
@@ -790,3 +790,12 @@ Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowev
 Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Sp. Atk stat may suffer.
 Having a Pokémon smell this mint can\nmake its Speed stat grow stronger.\nHowever, its Sp. Def stat may suffer.
 Having a Pokémon smell this mint will\ncause all of its stats to grow at\nan equal rate.
+Fairy Feather
+Syrupy Apple
+Mediocre Teacup
+MasterfulTeacup
+CornerstoneMask
+Wellspring Mask
+HearthflameMask
+Metal Alloy
+Infinite Candy

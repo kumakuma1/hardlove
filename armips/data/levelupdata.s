@@ -2,6 +2,7 @@
 .thumb
 
 .include "armips/include/macros.s"
+.include "armips/include/config.s"
 
 .include "asm/include/moves.inc"
 .include "asm/include/species.inc"
