@@ -545,7 +545,7 @@ trainerdata 12, "Ariana"
         move MOVE_FIRE_FANG
         move MOVE_COVET
         move MOVE_THUNDER_FANG
-        move MOVE_WIL_O_WISP
+        move MOVE_WILL_O_WISP
         ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef

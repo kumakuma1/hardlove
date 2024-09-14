@@ -1,8 +1,8 @@
-Hello, and welcome to\nthe Pokémon Center.\rWe restore your tired Pokémon\nto full health.\rWould you like to rest your\nPokémon?{YESNO 0}
+Would you like to rest your\nPokémon?{YESNO 0}
 OK, I’ll take your Pokémon for a few\nseconds.
-Thank you for waiting.\rWe’ve restored your Pokémon to full\nhealth.\r
+We’ve restored your Pokémon to full\nhealth.\r
 Please, come back again any time!
-Hello, and welcome to\nthe Pokémon Center.\rWe restore your tired Pokémon\nto full health.\rWould you like to...\r
+We restore your tired Pokémon\nto full health.\rWould you like to...\r
 Th-that Trainer Card!\rThat wonderful shade!\nAnd all those stars!\rI’ve seen several Trainers with\nViolet Trainer Cards up to now...\rBut you’re the first to top them\nwith that impressive Trainer Card.\rPlease, {STRVAR_1 3, 0, 0}, may I please\nheal your Pokémon? {YESNO 0}
 Great to see you, {STRVAR_1 3, 0, 0}!\nYou want the usual, right? {YESNO 0}
 I will be pleased to take your\nPokémon for a few seconds.
