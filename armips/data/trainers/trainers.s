@@ -564,7 +564,7 @@ trainerdata 12, "Ariana"
         move MOVE_LEECH_SEED
         move MOVE_POISON_POWDER
         move MOVE_PROTECT
-        ability ABILITY_INTIMIDATE
+        ability ABILITY_REGENERATOR
         ball ITEM_POKE_BALL
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
