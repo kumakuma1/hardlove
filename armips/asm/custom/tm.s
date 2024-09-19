@@ -38,11 +38,11 @@ PALETTE_BUG equ 610
 .halfword PALETTE_FIGHTING
 .skip 4
 
-// Change TM03 to Psychic palette
-//.skip (8 * 1)
-//.skip 2
-//.halfword PALETTE_PSYCHIC
-//.skip 4
+ Change TM03 to Psychic palette
+.skip (8 * 1)
+.skip 2
+.halfword PALETTE_WATER
+.skip 4
 
 // Change TM05 to Dark palette
 //.skip (8 * 1)
@@ -56,14 +56,26 @@ PALETTE_BUG equ 610
 //.halfword PALETTE_POISON
 //.skip 4
 
+// Change TM15 to Electro palette
+.skip (8 * 11) //15-3-1
+.skip 2
+.halfword PALETTE_ELECTRIC
+.skip 4
+
 // Change TM21 to Ice palette
-.skip (8 * 19) //21-1-1
+.skip (8 * 5) //21-15-1
 .skip 2
 .halfword PALETTE_ICE
 .skip 4
 
+// Change TM41 to Electro palette
+.skip (8 * 19) //41-21-1
+.skip 2
+.halfword PALETTE_ELECTRIC
+.skip 4
+
 // Change TM43 to Flying palette
-.skip (8 * 21) //43-21-1
+.skip (8) //43-41-1
 .skip 2
 .halfword PALETTE_FLYING
 .skip 4
@@ -74,8 +86,8 @@ PALETTE_BUG equ 610
 .halfword PALETTE_PSYCHIC
 .skip 4
 
-// Change TM83 to Water palette
-.skip (8 * 37) //83-45-1
+// Change TM87 to Water palette
+.skip (8 * 41) //87-45-1
 .skip 2
 .halfword PALETTE_WATER
 .skip 4

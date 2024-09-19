@@ -340,7 +340,7 @@ The user intensifies the sun for\nfive turns, powering up Fire-type\nmoves.
 The foe is taunted into a rage that\nallows it to use only attack moves for\ntwo to four turns.
 The foe is struck with an icy-cold\nbeam of energy. It may also freeze\nthe target solid.
 A howling blizzard is summoned to\nstrike the foe. It may also freeze\nthe target solid.
-The foe is attacked with a powerful\nbeam. The user must rest on the next\nturn to regain its energy.
+The user captures opposing Pokémon\nin an electric net to inflict damage.\nThis also lowers their Speed stats. 
 A wondrous wall of light is put up to\nsuppress damage from special attacks\nfor five turns.
 It enables the user to evade all\nattacks. Its chance of failing rises\nif it is used in succession.
 The user summons a heavy rain that\nfalls for five turns, powering up\nWater-type moves.
@@ -359,14 +359,14 @@ The user hurls a shadowy blob at the\nfoe. It may also lower the foe’s\nSp. De
 The user attacks with tough fists,\netc. It can also break any barrier\nsuch as Light Screen and Reflect.
 The user begins moving so quickly\nthat it creates illusory copies to\nraise its evasiveness.
 A wondrous wall of light is put up to\nsuppress damage from physical attacks\nfor five turns.
-After attacking, the user switches\nplaces with a party pokemon.
+The user strikes the foe with a quick\njolt of electricity. This attack cannot\nbe evaded.
 The foe is scorched with an intense\nblast of fire. The target may also be\nleft with a burn.
 Unsanitary sludge is hurled at\nthe foe. It may also poison the\ntarget.
 A five-turn sandstorm is summoned\nto hurt all combatants except the\nRock, Ground, and Steel types.
 The foe is attacked with an intense\nblast of all-consuming fire. It may\nalso leave the target with a burn.
 Large boulders are hurled at the foe\nto inflict damage. It lowers the foe’s\nSpeed.
 The user confounds the foe with speed,\nthen strikes. The attack lands without\nfail.
-The user torments and enrages the\nfoe, making it incapable of using the\nsame move twice in a row.
+After attacking, the user switches\nplaces with a party pokemon.
 An attack move that doubles its power\nif the user is poisoned, paralyzed, or\nhas a burn.
 It reduces the foe’s evasion\nstat. It also removes hazards.
 The user goes to sleep for two\nturns. It fully restores the user’s HP\nand heals any status problem.
@@ -408,11 +408,11 @@ The user releases a horrible aura\nimbued with dark thoughts. It may also\nmake 
 Large boulders are hurled at the foe\nto inflict damage. It may also make the\ntarget flinch.
 The user slashes at the foe by\ncrossing its scythes or claws as if\nthey were a pair of scissors.
 While it is asleep, the user\nrandomly uses one of the moves\nit knows.
-Boiling water is shot at the foe.\nIt may also cause a burn.
+The user draws power from the Berry\nit is holding to attack. The Berry\ndetermines its type and power.
 The foe is stabbed with a tentacle or\narm steeped with poison. It may also\npoison the foe.
 An attack that works only on a\nsleeping foe. It absorbs half the\ndamage caused to heal the user’s HP.
 The user snares the foe with grass\nand trips it. The heavier the foe, the\ngreater the damage.
-The user enrages the foe into\nconfusion. However, it also sharply\nraises the foe’s Attack stat.
+Boiling water is shot at the foe.\nIt may also cause a burn.
 The user pecks the foe. If the foe is\nholding a Berry, the user plucks it and\ngains its effect.
 After making its attack, the user\nrushes back to switch places with a\nparty Pokémon in waiting.
 The user makes a copy of itself using\nsome of its HP. The copy serves as\nthe user’s decoy.
