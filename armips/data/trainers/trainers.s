@@ -471,38 +471,53 @@ trainerdata 10, "Amy & Mimi"
         ballseal 0
     endparty
 
-trainerdata 11, "Mickey"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass CLASS_KIMONO_GIRL
-    nummons 3
+trainerdata 11, "Schorsch" // Mini-Boss Route 36
+    trainermontype TRAINER_MON_TYPE_FLAGS
+    trainerclass CLASS_HIKER
+    nummons 2
+    item ITEM_NONE 
+    item ITEM_NONE 
+    item ITEM_NONE 
     item ITEM_NONE
-    item ITEM_NONE
-    item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 11
-        // mon 0
         ivs 0
         abilityslot 0
-        level 20
+        level LEVEL_WHITNEY
         pokemon SPECIES_SKIPLOOM
+        item ITEM_ORAN_BERRY
+        move MOVE_TACKLE
+        move MOVE_NONE
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_INFILTRATOR
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
         abilityslot 0
-        level 20
-        pokemon SPECIES_VULPIX
-        ballseal 0
-
-        // mon 2
-        ivs 0
-        abilityslot 0
-        level 18
+        level LEVEL_WHITNEY
         pokemon SPECIES_SKIPLOOM
+        item ITEM_ORAN_BERRY
+        move MOVE_TACKLE
+        move MOVE_NONE
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_INFILTRATOR
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -1333,17 +1348,17 @@ trainerdata 30, "Whitney"
 	ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-2
-        pokemon SPECIES_WIGGLYTUFF
-        item ITEM_EXPERT_BELT
-        move MOVE_THUNDER
-        move MOVE_BLIZZARD
-        move MOVE_FIRE_BLAST
-        move MOVE_DRAINING_KISS
-        ability ABILITY_COMPETITIVE
+        pokemon SPECIES_MILTANK
+        item ITEM_SILK_SCARF
+        move MOVE_BODY_SLAM
+        move MOVE_ROLLOUT
+        move MOVE_DEFENSE_CURL
+        move MOVE_MILK_DRINK
+        ability ABILITY_SCRAPPY
         ball ITEM_POKE_BALL
-        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0

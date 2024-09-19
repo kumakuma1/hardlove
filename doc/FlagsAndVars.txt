@@ -25,6 +25,10 @@ Variable
                 0: start
                 0: R47 Bridge Scene
                 1: Set in Bridge Scene
+16422 (0x4026)  - Previously unused. Use for Mini-Boss:
+                0: start
+                0: Route 36
+                
 
 16523 (0x408B)  - Catching Tutorial trigger - Prof Elm sets to zero after receiving balls
 

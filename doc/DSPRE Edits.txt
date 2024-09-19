@@ -1460,4 +1460,71 @@ End
 
 
 
+####
+Mini-Boss on Route 36
+040 - R36 : Script File 243, Event File 37, Text file 390
+Add trigger : Run script 13 when 16422 is value 0
 
+Script 13:
+	PlayFanfare 1500
+	LockAll
+    Message 23
+    CloseMessage
+	SetOWPosition Overworld.10 415 0 248 Left
+	Movement Overworld.10 Action#11
+	WaitMovement
+    GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 248
+	JumpIf EQUAL Function#38
+	Movement Overworld.10 Action#14
+	Movement Player Action#1
+	WaitMovement
+Jump Function#39
+
+Function 38:
+    Movement Overworld.10 Action#13
+	Movement Player Action#12
+    WaitMovement
+ Jump Function#39
+
+Function 39:
+    Message 24
+	CloseMessage 
+
+	TrainerBattle 11 0 0 0 // used a mickey and gave Trainertext
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#30
+
+    Message 25
+    CloseMessage
+    Movement Overworld.10 Action#11
+    WaitMovement
+    SetOWPosition Overworld.10 413 0 225 Left
+    SetVar 0x4026 1
+    ReleaseAll 
+End 
+
+
+Action 11:
+	WalkLeftFast 0x9
+End
+
+Action 12:
+	LookDown 0x1
+End
+
+Action 13:
+	WalkDownFast 0x1
+	WalkLeftFast 0x1
+	LookUp 0x1
+End
+
+Action 14:
+	WalkLeftFast 0x1
+	LookDown 0x1
+End
+
+23: Servus!\rDu do!\rWos glaubst, wo du hinlafst?\r
+24: Dea Weg is zua.\nSo a Stein blockiert es Sträßle.\rEy, so eine Schweinerei!\nI kimm 'etz ah nemmer hoam...\r..\rKumm, lass mo kämpfe!\r
+25: Hoho!\rWas A Gaudi!\rErsch mo ins Brauheisl.\nServus!
