@@ -38,7 +38,7 @@ PALETTE_BUG equ 610
 .halfword PALETTE_FIGHTING
 .skip 4
 
- Change TM03 to Psychic palette
+//Change TM03 to Psychic palette
 .skip (8 * 1)
 .skip 2
 .halfword PALETTE_WATER
