@@ -24,7 +24,7 @@
 
 .include "armips/asm/custom/pokemart_items.s" // edits items in pokemarts
 .include "armips/asm/custom/rocksmash_items.s" // edits items obtainable by rocksmash
-.include "armips/asm/custom/tm.s" // edits TM color palettes
+.include "armips/asm/custom/tm_palette.s" // edits TM color palettes
 
 .if REUSABLE_TMS == 1
 
