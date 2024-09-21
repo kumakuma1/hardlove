@@ -23,14 +23,15 @@ LEVEL_ELDER_LI equ 12
 LEVEL_VIOLET_GYM equ 12
 LEVEL_FALKNER equ 15
 
-LEVEL_ROUTE_32 equ 15 /* Also for Route 46 */
-LEVEL_UNION_CAVE equ 17 /* Also for Route 33 */
+LEVEL_ROUTE_32 equ 15
+LEVEL_UNION_CAVE equ 17
 LEVEL_SLOWPOKE_WELL equ 18
 LEVEL_PROTON_1 equ 19
 LEVEL_AZALEA_GYM equ 20
-LEVEL_BUGSY equ 22 /* Also used for Silver */
-LEVEL_GOLDENROD equ 26 /* Also used for Lyra */
-LEVEL_WHITNEY equ 27 /* Also used for Silver */
+LEVEL_BUGSY equ 22
+LEVEL_GOLDENROD equ 26
+LEVEL_SCHORSCH equ 29
+LEVEL_WHITNEY equ 27
 LEVEL_ECRUTEAK equ 31
 LEVEL_MORTY equ 35
 LEVEL_CHUCK equ 40
@@ -474,7 +475,7 @@ trainerdata 10, "Amy & Mimi"
 trainerdata 11, "Schorsch" // Mini-Boss Route 36
     trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_HIKER
-    nummons 2
+    nummons 5
     item ITEM_NONE 
     item ITEM_NONE 
     item ITEM_NONE 
@@ -486,14 +487,32 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
     party 11
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY
-        pokemon SPECIES_SKIPLOOM
-        item ITEM_ORAN_BERRY
-        move MOVE_TACKLE
-        move MOVE_NONE
-        move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_INFILTRATOR
+        level LEVEL_SCHORSCH-2
+        pokemon SPECIES_ESPEON
+        item ITEM_COLBUR_BERRY
+        move MOVE_PSYSHOCK
+        move MOVE_DAZZLING_GLEAM
+        move MOVE_REFLECT
+        move MOVE_LIGHT_SCREEN
+        ability ABILITY_MAGIC_BOUNCE
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-1
+        pokemon SPECIES_BRELOOM
+        item ITEM_COBA_BERRY //ITEM_FIGHTING_GEM
+        move MOVE_MACH_PUNCH
+        move MOVE_BULLET_SEED
+        move MOVE_FORCE_PALM
+        move MOVE_ROCK_TOMB
+        ability ABILITY_TECHNICIAN
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -504,14 +523,50 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
 
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY
-        pokemon SPECIES_SKIPLOOM
-        item ITEM_ORAN_BERRY
-        move MOVE_TACKLE
-        move MOVE_NONE
-        move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_INFILTRATOR
+        level LEVEL_SCHORSCH
+        pokemon SPECIES_BRAIXEN
+        item ITEM_FLAME_ORB
+        move MOVE_FIRE_SPIN
+        move MOVE_WISH
+        move MOVE_PROTECT
+        move MOVE_TRICK
+        ability ABILITY_BLAZE
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-1
+        pokemon SPECIES_XATU
+        item ITEM_SCOPE_LENS
+        move MOVE_PSYSHOCK
+        move MOVE_AIR_CUTTER
+        move MOVE_GRASS_KNOT
+        move MOVE_U_TURN
+        ability ABILITY_SYNCHRONIZE
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-2
+        pokemon SPECIES_FLOATZEL
+        item ITEM_STARF_BERRY
+        move MOVE_AQUA_JET
+        move MOVE_WATERFALL
+        move MOVE_ICE_PUNCH
+        move MOVE_CRUNCH
+        ability ABILITY_WATER_VEIL
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
