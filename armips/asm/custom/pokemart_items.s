@@ -144,6 +144,21 @@ EIGHT_BADGES equ 6
 .halfword 0xFFFF
 
 
+// Goldenrod 3F, 8   CommonScript 2052  0x8004=5
+// const u16 _020FBBB4[] = {ITEM_X_SPEED, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_GUARD_SPEC_, ITEM_DIRE_HIT, ITEM_X_ACCURACY, ITEM_X_SPECIAL, ITEM_X_SP__DEF, 0xFFFF};
+
+.org 0x020FBBB4
+
+.halfword ITEM_TM10 //ITEM_X_SPEED
+.halfword ITEM_TM15 //ITEM_X_ATTACK
+.halfword ITEM_TM21 //ITEM_X_DEFENSE
+.halfword ITEM_TM34 //ITEM_GUARD_SPEC_
+.halfword ITEM_TM39 //ITEM_DIRE_HIT
+.halfword ITEM_TM40 //ITEM_X_ACCURACY
+.halfword ITEM_TM88 //ITEM_X_SPECIAL
+.halfword 0xFFFF    //ITEM_X_SP__DEF
+.halfword 0xFFFF
+
 /* Goldenrod Dept. Store 4F -Vitamins */
 /* const u16 _020FBAFA[] = {ITEM_PROTEIN, ITEM_IRON, ITEM_CALCIUM, ITEM_ZINC, ITEM_CARBOS, ITEM_HP_UP, 0xFFFF}; */
 
@@ -164,18 +179,18 @@ EIGHT_BADGES equ 6
 /* 
 .org 0x020FBC34
 
-.halfword ITEM_TM70 // ITEM_TM34 SHOCK WAVE -> VOLT SWITCH
-.halfword ITEM_TM17 // PROTECT
-.halfword ITEM_TM54 // FALSE SWIPE
-.halfword ITEM_TM83 // ITEM_TM53 ENERGY BALL
-.halfword ITEM_TM16 // ITEM_TM31 BRICK BREAK
-.halfword ITEM_TM33 // ITEM_TM81 X-SCISSOR
-.halfword ITEM_TM22 // SOLAR BEAM
-.halfword ITEM_TM52 // FOCUS BLAST
-.halfword ITEM_TM38 // FIRE BLAST
-.halfword ITEM_TM25 // THUNDER
-.halfword ITEM_TM14 // BLIZZARD
-.halfword ITEM_TM15 // HYPERBEAM
+.halfword ITEM_TM02
+.halfword ITEM_TM13
+.halfword ITEM_TM20
+.halfword ITEM_TM24
+.halfword ITEM_TM27
+.halfword ITEM_TM35
+.halfword ITEM_TM36
+.halfword ITEM_TM53
+.halfword ITEM_TM78
+.halfword ITEM_TM81
+.halfword ITEM_TM84
+.halfword ITEM_TM87
 .halfword 0xFFFF
 
 
