@@ -8,6 +8,8 @@ Flag
 345             - 158-T22PC0101: Script File 860 - Slugma-Egg from Primo
 420             - 061-T20R0101 : Script File 225 - Function 25: Hide Friend. Flag is set.
 421             - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
+417             - 060-T20      : Script File 842 - Function 9: Hide Marill. Flag is set.
+418             - 060-T20      : Script File 842 - Function 9: Hide Lyra. Flag is set.
 
 
 

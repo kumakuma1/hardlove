@@ -28,6 +28,29 @@ Starter Hidden Ability
 Header 061 T20R0101
 Script File 843 : Script 13  add     SetFlag 2601 before starter selection screen
 
+####
+remove first Lyra scene
+####
+060 - T20 : even file 57, script file 842, lvel script file 615:
+start script 10 when FadeScreen
+Script 10:
+	CompareVarValue 0x4072 1
+	JumpIf EQUAL Function#9
+End 
+
+start script 9 when 0x4072/16498 == 1
+empty function 9
+Function 9:
+	ClearFlag 418
+	AddOW Overworld.4
+	ClearFlag 417
+	AddOW Overworld.3
+	SetOWPosition Overworld.4 686 0 396 Left
+	SetOWPosition Overworld.3 685 0 396 Down
+
+clear script 9 and script 4
+
+
 Pokegear number:
 106 \v0103ぁ\x0000\x0000 registered Professor Elm\nin the Pokégear!
 	RecordPokegearNumber 1
