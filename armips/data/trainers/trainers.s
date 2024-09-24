@@ -475,7 +475,7 @@ trainerdata 10, "Amy & Mimi"
 trainerdata 11, "Schorsch" // Mini-Boss Route 36
     trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_HIKER
-    nummons 5
+    nummons 6
     item ITEM_NONE 
     item ITEM_NONE 
     item ITEM_NONE 
@@ -523,18 +523,36 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
 
         ivs 0
         abilityslot 0
-        level LEVEL_SCHORSCH
-        pokemon SPECIES_BRAIXEN
-        item ITEM_FLAME_ORB
-        move MOVE_FIRE_SPIN
-        move MOVE_WISH
-        move MOVE_PROTECT
-        move MOVE_TRICK
-        ability ABILITY_BLAZE
+        level LEVEL_SCHORSCH-2
+        pokemon SPECIES_TOGEDEMARU
+        item ITEM_SITRUS_BERRY
+        move MOVE_FAKE_OUT
+        move MOVE_U_TURN
+        move MOVE_SPARK
+        move MOVE_SMART_STRIKE
+        ability ABILITY_MOTOR_DRIVE
         ball ITEM_POKE_BALL
-        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-1
+        pokemon SPECIES_TURTONATOR
+        item ITEM_LUM_BERRY
+        move MOVE_DRAGON_BREATH
+        move MOVE_LAVA_PLUME
+        move MOVE_EXPLOSION
+        move MOVE_EARTHQUAKE
+        ability ABILITY_SHELL_ARMOR
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MILD
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -14505,52 +14523,91 @@ trainerdata 394, "Mickey"
         ballseal 0
     endparty
 
-trainerdata 395, "Mark"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+trainerdata 395, "Mark" // route 36
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_PSYCHIC_M
-    nummons 3
+    nummons 4
+    item ITEM_NONE 
+    item ITEM_NONE 
+    item ITEM_NONE 
     item ITEM_NONE
-    item ITEM_NONE
-    item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 395
-        // mon 0
         ivs 0
         abilityslot 0
-        level 14
-        pokemon SPECIES_ABRA
-        move MOVE_TELEPORT
-        move MOVE_FLASH
-        move MOVE_NONE
-        move MOVE_NONE
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 0
-        level 14
-        pokemon SPECIES_ABRA
-        move MOVE_TELEPORT
-        move MOVE_FLASH
-        move MOVE_NONE
-        move MOVE_NONE
-        ballseal 0
-
-        // mon 2
-        ivs 0
-        abilityslot 0
-        level 16
+        level LEVEL_SCHORSCH-1
         pokemon SPECIES_KADABRA
+        item ITEM_FOCUS_SASH
+        move MOVE_PSYSHOCK
+        move MOVE_DAZZLING_GLEAM
         move MOVE_TELEPORT
-        move MOVE_KINESIS
-        move MOVE_CONFUSION
-        move MOVE_NONE
+        move MOVE_THUNDER_WAVE
+        ability ABILITY_SYNCHRONIZE
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
-    endparty
+		
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-2
+        pokemon SPECIES_LUCARIO
+        item ITEM_LUM_BERRY // STEEL GEM
+        move MOVE_VACUUM_WAVE
+        move MOVE_BULLET_PUNCH
+        move MOVE_CRUNCH
+        move MOVE_BRICK_BREAK
+        ability ABILITY_INNER_FOCUS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+		ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH
+        pokemon SPECIES_BRAIXEN
+        item ITEM_FLAME_ORB
+        move MOVE_FIRE_SPIN
+        move MOVE_WISH
+        move MOVE_PROTECT
+        move MOVE_TRICK
+        ability ABILITY_BLAZE
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-1
+        pokemon SPECIES_SIMISAGE
+        item ITEM_LUM_BERRY
+        move MOVE_GIGA_DRAIN
+        move MOVE_ACROBATICS
+        move MOVE_DIG
+        move MOVE_ROCK_SLIDE
+        ability ABILITY_OVERGROW
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+	endparty
 
 trainerdata 396, "Horton"
     trainermontype TRAINER_DATA_TYPE_MOVES
