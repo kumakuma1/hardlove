@@ -923,9 +923,9 @@ trainerdata 20, "Falkner" // Leader
         pokemon SPECIES_RUFFLET
         item ITEM_ORAN_BERRY
         move MOVE_AERIAL_ACE
-        move MOVE_ROCK_SMASH
-        move MOVE_SLASH
         move MOVE_ROOST
+        move MOVE_SLASH
+        move MOVE_NONE
         ability ABILITY_HUSTLE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -956,18 +956,18 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-2
-        pokemon SPECIES_DRIFLOON
-        item ITEM_ORAN_BERRY
-        move MOVE_ROOST
-        move MOVE_AIR_CUTTER
-        move MOVE_WILL_O_WISP
-        move MOVE_OMINOUS_WIND
-        ability ABILITY_AFTERMATH
+        level LEVEL_FALKNER
+        pokemon SPECIES_TORCHIC
+        item ITEM_EVIOLITE
+        move MOVE_INCINERATE
+        move MOVE_BOUNCE
+        move MOVE_PROTECT
+        move MOVE_LAST_RESORT
+        ability ABILITY_SPEED_BOOST
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_HARDY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -992,24 +992,6 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-1
-        pokemon SPECIES_STARAVIA
-        item ITEM_ORAN_BERRY
-        move MOVE_QUICK_ATTACK
-        move MOVE_DOUBLE_TEAM
-        move MOVE_AERIAL_ACE
-        move MOVE_ROOST
-        ability ABILITY_INTIMIDATE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
         level LEVEL_FALKNER
         pokemon SPECIES_PIDGEOTTO
         item ITEM_ORAN_BERRY
@@ -1022,6 +1004,24 @@ trainerdata 20, "Falkner" // Leader
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER-1
+        pokemon SPECIES_QUAXLY
+        item ITEM_ORAN_BERRY
+        move MOVE_AQUA_JET
+        move MOVE_ROOST
+        move MOVE_WING_ATTACK
+        move MOVE_NONE
+        ability ABILITY_MOXIE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
