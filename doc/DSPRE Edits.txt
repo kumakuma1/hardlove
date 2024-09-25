@@ -347,12 +347,6 @@ Script 1:
 	// JumpIf EQUAL Function#3
 End 
 
-MooMoo Farm gives MOVE_FACADE
-214 - R39R0101 - Event File 201 - Script File 250 - Texts 397
-SetVar 0x8004 410 -> 369
-SetVar 0x8005 1
-CheckItemSpace 0x8004 0x8005 0x800C
-
 
 
 
