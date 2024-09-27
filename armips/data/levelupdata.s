@@ -2732,11 +2732,8 @@ levelup SPECIES_VAPOREON
     learnset MOVE_COVET, 1
     learnset MOVE_SWIFT, 1
     learnset MOVE_BITE, 1
-    learnset MOVE_COPYCAT, 1
-    learnset MOVE_BATON_PASS, 1
     learnset MOVE_TAKE_DOWN, 1
     learnset MOVE_CHARM, 1
-    learnset MOVE_DOUBLE_EDGE, 1
     learnset MOVE_HELPING_HAND, 1
     learnset MOVE_TACKLE, 1
     learnset MOVE_GROWL, 1
@@ -2748,7 +2745,6 @@ levelup SPECIES_VAPOREON
     learnset MOVE_AURORA_BEAM, 25
     learnset MOVE_HAZE, 26
     learnset MOVE_AQUA_RING, 30
-    learnset MOVE_ACID_ARMOR, 37
     learnset MOVE_MUDDY_WATER, 38
     learnset MOVE_HYDRO_PUMP, 47
     learnset MOVE_LAST_RESORT, 48
@@ -2761,8 +2757,6 @@ levelup SPECIES_JOLTEON
     learnset MOVE_COVET, 1
     learnset MOVE_SWIFT, 1
     learnset MOVE_BITE, 1
-    learnset MOVE_COPYCAT, 1
-    learnset MOVE_BATON_PASS, 1
     learnset MOVE_TAKE_DOWN, 1
     learnset MOVE_CHARM, 1
     learnset MOVE_DOUBLE_EDGE, 1
@@ -2774,10 +2768,9 @@ levelup SPECIES_JOLTEON
     learnset MOVE_QUICK_ATTACK, 11
     learnset MOVE_BABY_DOLL_EYES, 12
     learnset MOVE_DOUBLE_KICK, 21
-    learnset MOVE_THUNDER_FANG, 25
+    learnset MOVE_SHOCK_WAVE, 25
     learnset MOVE_THUNDER_WAVE, 26
     learnset MOVE_PIN_MISSILE, 30
-    learnset MOVE_AGILITY, 37
     learnset MOVE_DISCHARGE, 38
     learnset MOVE_THUNDER, 47
     learnset MOVE_LAST_RESORT, 48
@@ -2789,8 +2782,6 @@ levelup SPECIES_FLAREON
     learnset MOVE_EMBER, 1
     learnset MOVE_COVET, 1
     learnset MOVE_SWIFT, 1
-    learnset MOVE_COPYCAT, 1
-    learnset MOVE_BATON_PASS, 1
     learnset MOVE_TAKE_DOWN, 1
     learnset MOVE_CHARM, 1
     learnset MOVE_DOUBLE_EDGE, 1
@@ -4112,8 +4103,6 @@ levelup SPECIES_ESPEON
     learnset MOVE_CONFUSION, 1
     learnset MOVE_COVET, 1
     learnset MOVE_BITE, 1
-    learnset MOVE_COPYCAT, 1
-    learnset MOVE_BATON_PASS, 1
     learnset MOVE_TAKE_DOWN, 1
     learnset MOVE_CHARM, 1
     learnset MOVE_DOUBLE_EDGE, 1
@@ -4142,8 +4131,6 @@ levelup SPECIES_UMBREON
     learnset MOVE_COVET, 1
     learnset MOVE_SWIFT, 1
     learnset MOVE_BITE, 1
-    learnset MOVE_COPYCAT, 1
-    learnset MOVE_BATON_PASS, 1
     learnset MOVE_TAKE_DOWN, 1
     learnset MOVE_CHARM, 1
     learnset MOVE_DOUBLE_EDGE, 1
