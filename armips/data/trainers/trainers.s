@@ -76,68 +76,50 @@ trainerdata 1, "Silver"
     party 1
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY
+        level LEVEL_BUGSY-3
         pokemon SPECIES_GOLBAT
         item ITEM_BERRY_JUICE
         move MOVE_U_TURN
-        move MOVE_POISON_FANG
+        move MOVE_AIR_CUTTER
         move MOVE_BITE
-        move MOVE_WING_ATTACK
-        ability ABILITY_SNIPER
+        move MOVE_CONFUSE_RAY
+        ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_HASTY
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-1
-        pokemon SPECIES_SABLEYE
-        item ITEM_BERRY_JUICE
-        move MOVE_FAKE_OUT
-        move MOVE_WILL_O_WISP
-        move MOVE_SHADOW_SNEAK
-        move MOVE_KNOCK_OFF
-        ability ABILITY_PRANKSTER
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_HAUNTER
+        item ITEM_COLBUR_BERRY
+        move MOVE_MEAN_LOOK
+        move MOVE_SLUDGE
+        move MOVE_OMINOUS_WIND
+        move MOVE_HYPNOSIS
+        ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_BUGSY
-        pokemon SPECIES_MASQUERAIN
-        item ITEM_BERRY_JUICE
-        move MOVE_BUBBLE_BEAM
-        move MOVE_STRUGGLE_BUG
-        move MOVE_U_TURN
-        move MOVE_QUIVER_DANCE
-        ability ABILITY_INTIMIDATE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
-		
-	ivs 0
+
+        ivs 0
         abilityslot 0
-        level LEVEL_BUGSY
-        pokemon SPECIES_SANDSLASH
-        item ITEM_BERRY_JUICE
-        move MOVE_CRUSH_CLAW
-        move MOVE_ROCK_TOMB
-        move MOVE_RAPID_SPIN
-        move MOVE_BULLDOZE
-        ability ABILITY_SAND_RUSH
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_BOLTUND
+        item ITEM_RAWST_BERRY
+        move MOVE_NUZZLE
+        move MOVE_SPARK
+        move MOVE_FIRE_FANG
+        move MOVE_ICE_FANG
+        ability ABILITY_STRONG_JAW
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -146,38 +128,56 @@ trainerdata 1, "Silver"
         additionalflags 0
         ballseal 0
 		
-	ivs 0
+		ivs 0
         abilityslot 0
         level LEVEL_BUGSY-1
-        pokemon SPECIES_FLETCHINDER
-        item ITEM_BERRY_JUICE
-        move MOVE_ROOST
-        move MOVE_FLAME_CHARGE
-        move MOVE_QUICK_ATTACK
-        move MOVE_AERIAL_ACE
-        ability ABILITY_FLAME_BODY
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-	ivs 0
-        abilityslot 0
-        level LEVEL_BUGSY
         pokemon SPECIES_BAYLEEF
-        item ITEM_BERRY_JUICE
+        item ITEM_WIKI_BERRY
+        move MOVE_BODY_SLAM
+        move MOVE_NATURAL_GIFT
         move MOVE_MEGA_DRAIN
         move MOVE_STUN_SPORE
-        move MOVE_REFLECT
-        move MOVE_HEADBUTT
         ability ABILITY_TRIAGE
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+		ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_HOUNDOOM
+        item ITEM_CHARCOAL
+        move MOVE_HEADBUTT
+        move MOVE_BITE
+        move MOVE_FLAME_BURST
+        move MOVE_FIRE_FANG
+        ability ABILITY_UNNERVE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_NAIVE
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY-1
+        pokemon SPECIES_FLOATZEL
+        item ITEM_SITRUS_BERRY
+        move MOVE_FAKE_OUT
+        move MOVE_AQUA_JET
+        move MOVE_WATER_PULSE
+        move MOVE_DOUBLE_HIT
+        ability ABILITY_WATER_VEIL
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -9801,100 +9801,82 @@ trainerdata 266, "Silver"
     party 266
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY
+        level LEVEL_BUGSY-3
         pokemon SPECIES_GOLBAT
         item ITEM_BERRY_JUICE
         move MOVE_U_TURN
-        move MOVE_POISON_FANG
+        move MOVE_AIR_CUTTER
         move MOVE_BITE
-        move MOVE_WING_ATTACK
-        ability ABILITY_SNIPER
+        move MOVE_CONFUSE_RAY
+        ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_HASTY
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-1
-        pokemon SPECIES_SABLEYE
-        item ITEM_BERRY_JUICE
-        move MOVE_FAKE_OUT
-        move MOVE_WILL_O_WISP
-        move MOVE_SHADOW_SNEAK
-        move MOVE_KNOCK_OFF
-        ability ABILITY_PRANKSTER
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_HAUNTER
+        item ITEM_COLBUR_BERRY
+        move MOVE_MEAN_LOOK
+        move MOVE_SLUDGE
+        move MOVE_OMINOUS_WIND
+        move MOVE_HYPNOSIS
+        ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_BUGSY
-        pokemon SPECIES_SANDSLASH
-        item ITEM_BERRY_JUICE
-        move MOVE_CRUSH_CLAW
-        move MOVE_ROCK_TOMB
-        move MOVE_RAPID_SPIN
-        move MOVE_BULLDOZE
-        ability ABILITY_SAND_RUSH
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-		ivs 0
-        abilityslot 0
-        level LEVEL_BUGSY-1
-        pokemon SPECIES_QWILFISH
-        item ITEM_BERRY_JUICE
-        move MOVE_POISON_FANG
-        move MOVE_BUBBLE_BEAM
-        move MOVE_REVENGE
-        move MOVE_SPIKES
-        ability ABILITY_INTIMIDATE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-		ivs 0
-        abilityslot 0
-        level LEVEL_BUGSY
-        pokemon SPECIES_LOMBRE
-        item ITEM_BERRY_JUICE
-        move MOVE_MEGA_DRAIN
-        move MOVE_BUBBLE_BEAM
-        move MOVE_FAKE_OUT
-        move MOVE_BULLET_SEED
-        ability ABILITY_OWN_TEMPO
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_BOLTUND
+        item ITEM_RAWST_BERRY
+        move MOVE_NUZZLE
+        move MOVE_SPARK
+        move MOVE_FIRE_FANG
+        move MOVE_ICE_FANG
+        ability ABILITY_STRONG_JAW
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
 		
 		ivs 0
         abilityslot 0
-        level LEVEL_BUGSY
+        level LEVEL_BUGSY-1
+        pokemon SPECIES_BRELOOM
+        item ITEM_COBA_BERRY
+        move MOVE_MACH_PUNCH
+        move MOVE_SPORE
+        move MOVE_HEADBUTT
+        move MOVE_MEGA_DRAIN
+        ability ABILITY_EFFECT_SPORE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+		ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY-2
         pokemon SPECIES_QUILAVA
         item ITEM_CHARCOAL
-        move MOVE_INCINERATE
+        move MOVE_FLAME_WHEEL
         move MOVE_QUICK_ATTACK
         move MOVE_SMOKESCREEN
         move MOVE_HEADBUTT
@@ -9902,7 +9884,25 @@ trainerdata 266, "Silver"
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY-1
+        pokemon SPECIES_FLOATZEL
+        item ITEM_SITRUS_BERRY
+        move MOVE_FAKE_OUT
+        move MOVE_AQUA_JET
+        move MOVE_WATER_PULSE
+        move MOVE_DOUBLE_HIT
+        ability ABILITY_WATER_VEIL
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -9911,7 +9911,7 @@ trainerdata 266, "Silver"
 trainerdata 267, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass CLASS_RIVAL
-    nummons 4
+    nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10061,50 +10061,50 @@ trainerdata 269, "Silver"
     party 269
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY
+        level LEVEL_BUGSY-3
         pokemon SPECIES_GOLBAT
         item ITEM_BERRY_JUICE
         move MOVE_U_TURN
-        move MOVE_POISON_FANG
+        move MOVE_AIR_CUTTER
         move MOVE_BITE
-        move MOVE_WING_ATTACK
-        ability ABILITY_SNIPER
+        move MOVE_CONFUSE_RAY
+        ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_HASTY
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-1
-        pokemon SPECIES_SABLEYE
-        item ITEM_BERRY_JUICE
-        move MOVE_FAKE_OUT
-        move MOVE_WILL_O_WISP
-        move MOVE_SHADOW_SNEAK
-        move MOVE_KNOCK_OFF
-        ability ABILITY_PRANKSTER
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_HAUNTER
+        item ITEM_COLBUR_BERRY
+        move MOVE_MEAN_LOOK
+        move MOVE_SLUDGE
+        move MOVE_OMINOUS_WIND
+        move MOVE_HYPNOSIS
+        ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY
-        pokemon SPECIES_SANDSLASH
-        item ITEM_BERRY_JUICE
-        move MOVE_CRUSH_CLAW
-        move MOVE_ROCK_TOMB
-        move MOVE_RAPID_SPIN
-        move MOVE_BULLDOZE
-        ability ABILITY_SAND_RUSH
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_BOLTUND
+        item ITEM_RAWST_BERRY
+        move MOVE_NUZZLE
+        move MOVE_SPARK
+        move MOVE_FIRE_FANG
+        move MOVE_ICE_FANG
+        ability ABILITY_STRONG_JAW
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -10113,15 +10113,15 @@ trainerdata 269, "Silver"
         additionalflags 0
         ballseal 0
 		
-	ivs 0
+		ivs 0
         abilityslot 0
         level LEVEL_BUGSY-1
         pokemon SPECIES_ROSELIA
-        item ITEM_BERRY_JUICE
-        move MOVE_MEGA_DRAIN
-        move MOVE_LEECH_SEED
+        item ITEM_WIDE_LENS
         move MOVE_GRASS_WHISTLE
-        move MOVE_GROWTH
+        move MOVE_MEGA_DRAIN
+        move MOVE_SLUDGE
+        move MOVE_NONE
         ability ABILITY_POISON_POINT
         ball ITEM_POKE_BALL
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -10133,31 +10133,31 @@ trainerdata 269, "Silver"
 		
 		ivs 0
         abilityslot 0
-        level LEVEL_BUGSY
-        pokemon SPECIES_GROWLITHE
-        item ITEM_BERRY_JUICE
-        move MOVE_TAKE_DOWN
-        move MOVE_FIRE_FANG
-        move MOVE_COVET
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_CENTISKORCH
+        item ITEM_CHARCOAL
+        move MOVE_BUG_BITE
         move MOVE_BITE
-        ability ABILITY_INTIMIDATE
+        move MOVE_FLAME_BURST
+        move MOVE_FLAME_WHEEL
+        ability ABILITY_FLAME_BODY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
 
-		ivs 0
+        ivs 0
         abilityslot 0
-        level LEVEL_BUGSY
+        level LEVEL_BUGSY-1
         pokemon SPECIES_CROCONAW
-        item ITEM_BERRY_JUICE
-        move MOVE_AQUA_JET
-        move MOVE_ROCK_TOMB
-        move MOVE_ICE_FANG
+        item ITEM_SITRUS_BERRY
         move MOVE_BITE
+        move MOVE_AQUA_JET
+        move MOVE_BRINE
+        move MOVE_ICE_FANG
         ability ABILITY_SHEER_FORCE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
