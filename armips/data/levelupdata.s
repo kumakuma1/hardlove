@@ -2143,6 +2143,31 @@ levelup SPECIES_CUBONE
     terminatelearnset
 
 
+levelup SPECIES_MAROWAK
+    learnset MOVE_MUD_SLAP, 1
+    learnset MOVE_GROWL, 1
+    learnset MOVE_TAIL_WHIP, 1
+    learnset MOVE_FALSE_SWIPE, 1
+    learnset MOVE_BONE_CLUB, 1
+    learnset MOVE_HEADBUTT, 1
+    learnset MOVE_TAIL_WHIP, 3
+    learnset MOVE_BONE_CLUB, 7
+    learnset MOVE_HEADBUTT, 11
+    learnset MOVE_LEER, 13
+    learnset MOVE_RAGE, 23
+    learnset MOVE_FLING, 27
+    learnset MOVE_FOCUS_ENERGY, 27
+    learnset MOVE_FALSE_SWIPE, 27
+    learnset MOVE_STOMPING_TANTRUM, 32
+    learnset MOVE_BONEMERANG, 35
+    learnset MOVE_RETALIATE, 36
+    learnset MOVE_THRASH, 44
+    learnset MOVE_ENDEAVOR, 45
+    learnset MOVE_BONE_RUSH, 46
+    learnset MOVE_DOUBLE_EDGE, 56
+    terminatelearnset
+
+
 levelup SPECIES_HITMONLEE
     learnset MOVE_REVERSAL, 1 
     learnset MOVE_ENDURE, 1 
