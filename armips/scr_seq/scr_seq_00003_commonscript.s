@@ -87,6 +87,7 @@ scrdef scr_seq_0003_069
 scrdef scr_seq_0003_070
 scrdef scr_seq_0003_071
 scrdef scr_seq_0003_072_repels
+scrdef scr_seq_0003_073_utility
 scrdef_end
 
 scr_seq_0003_002:
@@ -1732,7 +1733,89 @@ scr_seq_0003_064:
     end
 
 
+scr_seq_0003_073_utility:
+    play_se SEQ_SE_DP_SELECT
+    lockall
+    faceplayer
+    touchscreen_menu_hide
+    npc_msg 139 //hi
+    ListLocalText 1, 1, 0, 1, VAR_SPECIAL_RESULT
+    AddListOption 140, 255, 0
+	AddListOption 141, 255, 1
+	AddListOption 142, 255, 2
+    AddListOption 143, 255, 1
+	AddListOption 144, 255, 2
+    ShowList
+    switch VAR_SPECIAL_RESULT
+    case 0, _forget
+    //case 1, _remember
+    //case 2, _maximize
+    //case 3, _apply
+    //case 4, _exit
+    goto _exit
 
 
+_forget:
+    npc_msg 146 //I can..
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _exit
+    npc_msg 147 //which mon
+    fade_screen 6, 1, 0, RGB_BLACK
+    wait_fade
+    closemsg
+    party_select_ui
+    GetSelectedPartySlot VAR_SPECIAL_x8002
+    ReturnScreen
+    fade_screen 6, 1, 1, RGB_BLACK
+    wait_fade
+    compare VAR_SPECIAL_x8002, 255
+    goto_if_eq _exit
+    GetPartyPokemonID VAR_SPECIAL_x8002, VAR_SPECIAL_x8001
+    compare VAR_SPECIAL_x8001, 0
+    goto_if_eq _wontworkegg
+    CountPokemonMoves VAR_SPECIAL_RESULT, VAR_SPECIAL_x8002
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _wontworklastmove
+    npc_msg 150 //which move
+    fade_screen 6, 1, 0, RGB_BLACK
+    wait_fade
+    closemsg
+    scrcmd_394 VAR_SPECIAL_x8002
+	scrcmd_395 VAR_SPECIAL_x8001
+    ReturnScreen
+    fade_screen 6, 1, 1, RGB_BLACK
+    wait_fade
+    compare VAR_SPECIAL_x8001, 255
+    goto_if_eq _exit
+    TextPartyPokemonMove 0, 0x8002, 0x8001
+	npc_msg 151
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 0
+    goto_if_eq _delete
+    goto _exit
+
+_delete:
+    DeleteMove 0x8002, 0x8001
+    play_se 1192
+    wait_se 1192
+    npc_msg 152
+    goto _exit
+
+_wontworkegg:
+    npc_msg 148
+    goto _exit
+
+_wontworklastmove:
+    npc_msg 149
+    goto _exit
+
+_exit:
+    npc_msg 145 //Goodbye
+    closemsg
+    touchscreen_menu_show
+    releaseall
+    endstd
+    end
 
 .close

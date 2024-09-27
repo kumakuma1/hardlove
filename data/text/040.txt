@@ -118,3 +118,36 @@ NOT TELLING
 
 Repel’s effect wore off.\nWould you like to use another one?
 {STRVAR_1 3, 0, 0} used the {STRVAR_1 8, 1, 0}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How can I help you today?\r
+Forget a move
+Remember a move
+Maximize IV
+Apply a status
+EXIT
+Goodbye.\nLet me know, if you need anything.\r
+I can make your Pokémon forget\na move. {YESNO 0}
+Which Pokémon should forget a move?\r
+What? That’s an Egg.\nNo Egg should know any moves.\r
+That Pokémon knows only one move,\nso it can’t be forgotten...\r
+Which move should be forgotten?\r
+The move {STRVAR_1 6, 0, 0}?\nShould that move be forgotten? {YESNO 0}
+Your Pokémon has forgotten the move\n{STRVAR_1 6, 0, 0}.\r
