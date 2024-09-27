@@ -1,8 +1,9 @@
 Elder Li  12
 Falk      16
-Busgy     22
-Park      26
-Whitney   27
+Rocket    19
+Busgy     24
+Park      29
+Whitney   31
 Morty     35, Rival has starter at 36
 Chuck     40, Eusin 40
 Jasmine   46

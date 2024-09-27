@@ -1,6 +1,7 @@
 - Cut, Rock Smash, Rock Climb, Strength, Whirlpool, Waterfall can be used without teaching the move. Only the HM and the badge are required
 - Rock Climb usable after Jasmine
 
+
 -----------------------------
 New Bark Town
 -----------------------------
@@ -14,11 +15,12 @@ New Bark Town
 - Aide gives 995 super repels, 995 candies, 2 heartscales, old rod, Infinite Candy
 - Prof gives Pokeballs after getting the Dex
 - fishing encounter
+- removed Lyra events to save time
 
 TODO:
 - Aide fills up repels
 - change encounter rates
-- remove Lyra events to save time
+
 
 
 -----------------------------
@@ -249,7 +251,16 @@ Park
 - Soothe Bell -> Rare Candy, behind 2 Trainers. Their reset location will block access. First Trainer also blocks TM28 Dig
 - Moved one Trainer in the lower area to guard Silk Scarf Woman
 TODO:
+
+
+-----------------------------
+Route 37
+-----------------------------
 - Mini Boss with level cap increase
+- Psychic with Flame Orb and Trick Pokemon
+TODO:
+
+
 
 
 -----------------------------
@@ -267,7 +278,6 @@ TODO:
 -----------------------------
 Moomoo Farm
 -----------------------------
-- replace TM83 with TM42 Facade
 TODO:
 - 
 
