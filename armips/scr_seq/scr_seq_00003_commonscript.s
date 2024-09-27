@@ -1748,15 +1748,61 @@ scr_seq_0003_073_utility:
     ShowList
     switch VAR_SPECIAL_RESULT
     case 0, _forget
-    //case 1, _remember
+    case 1, _remember
     //case 2, _maximize
     //case 3, _apply
     //case 4, _exit
     goto _exit
 
 
+_remember:
+    npc_msg 154 //I can remember
+    CheckItem ITEM_HEART_SCALE, 1, VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 0
+    goto_if_eq _needmoreheartsclaes
+    npc_msg 156 //which mon
+    fade_screen 6, 1, 0, RGB_BLACK
+    wait_fade
+    closemsg
+    party_select_ui
+    GetSelectedPartySlot VAR_SPECIAL_x8005
+    ReturnScreen
+    fade_screen 6, 1, 1, RGB_BLACK
+    wait_fade
+    compare VAR_SPECIAL_x8005, 255
+    goto_if_eq _exit
+    GetPartyPokemonID VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 0
+    goto_if_eq _wontworkegg
+    scrcmd_466 VAR_SPECIAL_RESULT, VAR_SPECIAL_x8005
+    compare VAR_SPECIAL_RESULT, 0
+	goto_if_eq _nomoves
+    npc_msg 157
+    fade_screen 6, 1, 0, RGB_BLACK
+    wait_fade
+    closemsg
+    RememberMoveScreen VAR_SPECIAL_x8005
+	move_relearner_get_result VAR_SPECIAL_RESULT
+    ReturnScreen
+    fade_screen 6, 1, 1, RGB_BLACK
+    wait_fade
+    compare VAR_SPECIAL_RESULT, 255
+    goto_if_eq _exit
+	TakeItem ITEM_HEART_SCALE, 1, 0x800C
+	buffer_players_name 0
+	npc_msg 159
+    goto _exit
+
+_needmoreheartsclaes:
+    npc_msg 155
+    goto _exit
+
+_nomoves:
+    npc_msg 158
+    goto _exit
+
 _forget:
-    npc_msg 146 //I can..
+    npc_msg 146 //I can forget
     yesno VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, 1
     goto_if_eq _exit
@@ -1789,7 +1835,7 @@ _forget:
     compare VAR_SPECIAL_x8001, 255
     goto_if_eq _exit
     TextPartyPokemonMove 0, 0x8002, 0x8001
-	npc_msg 151
+	npc_msg 151 //this move?
     yesno VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _delete
