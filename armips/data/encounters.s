@@ -954,16 +954,16 @@ rocksmashrate 20
 oldrodrate 75
 goodrodrate 75
 superrodrate 75
-walklevels 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
+walklevels 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8
 
 // morning encounter slots
+pokemon SPECIES_SHINX			//10%
+pokemon SPECIES_SHINX			//10%
 pokemon SPECIES_MAREEP			//10%
 pokemon SPECIES_MAREEP			//10%
-pokemon SPECIES_YAMPER			//10%
-pokemon SPECIES_YAMPER			//10%
-pokemon SPECIES_SHINX		    //10%
-pokemon SPECIES_SHINX		    //10%
-pokemon SPECIES_ELECTRIKE	    //10%
+pokemon SPECIES_TYNAMO		    //10%
+pokemon SPECIES_YAMPER		    //10%
+pokemon SPECIES_CHINCHOU	    //10%
 pokemon SPECIES_ELECTRIKE		//10%
 pokemon SPECIES_GRUBBIN		    //5%
 pokemon SPECIES_VOLTORB			//5%
@@ -971,13 +971,13 @@ pokemon SPECIES_MAGNEMITE		//5%
 pokemon SPECIES_PICHU			//5%
 
 // day encounter slots
+pokemon SPECIES_SHINX			//10%
+pokemon SPECIES_SHINX			//10%
 pokemon SPECIES_MAREEP			//10%
 pokemon SPECIES_MAREEP			//10%
-pokemon SPECIES_YAMPER			//10%
-pokemon SPECIES_YAMPER			//10%
-pokemon SPECIES_SHINX		    //10%
-pokemon SPECIES_SHINX		    //10%
-pokemon SPECIES_ELECTRIKE	    //10%
+pokemon SPECIES_TYNAMO		    //10%
+pokemon SPECIES_YAMPER		    //10%
+pokemon SPECIES_CHINCHOU	    //10%
 pokemon SPECIES_ELECTRIKE		//10%
 pokemon SPECIES_GRUBBIN		    //5%
 pokemon SPECIES_VOLTORB			//5%
@@ -985,13 +985,13 @@ pokemon SPECIES_MAGNEMITE		//5%
 pokemon SPECIES_PICHU			//5%
 
 // night encounter slots
+pokemon SPECIES_SHINX			//10%
+pokemon SPECIES_SHINX			//10%
 pokemon SPECIES_MAREEP			//10%
 pokemon SPECIES_MAREEP			//10%
-pokemon SPECIES_YAMPER			//10%
-pokemon SPECIES_YAMPER			//10%
-pokemon SPECIES_SHINX		    //10%
-pokemon SPECIES_SHINX		    //10%
-pokemon SPECIES_ELECTRIKE	    //10%
+pokemon SPECIES_TYNAMO		    //10%
+pokemon SPECIES_YAMPER		    //10%
+pokemon SPECIES_CHINCHOU	    //10%
 pokemon SPECIES_ELECTRIKE		//10%
 pokemon SPECIES_GRUBBIN		    //5%
 pokemon SPECIES_VOLTORB			//5%
@@ -1007,22 +1007,22 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 // surf encounters
-encounter SPECIES_LANTURN, 30, 30               //40%  
-encounterwithform SPECIES_MUK, 1, 30, 30        //30%
-encounter SPECIES_LANTURN, 30, 30               //15%
-encounterwithform SPECIES_MUK, 1, 30, 30        //10%  
-encounter SPECIES_EELEKTROSS, 30, 30            //5%
+encounter SPECIES_LANTURN, 30, 30        //40%  
+encounter SPECIES_EELEKTROSS, 30, 30     //30%
+encounter SPECIES_VIKAVOLT, 30, 30       //15%
+encounter SPECIES_LANTURN, 30, 30        //10%  
+encounter SPECIES_EELEKTROSS, 30, 30     //5%
 
 // rock smash encounters
 encounter SPECIES_GEODUDE, 5, 5
 encounterwithform SPECIES_GEODUDE, 1, 5, 5
 
 // old rod encounters
-encounter SPECIES_TYNAMO, 5, 5          //40%
-encounter SPECIES_CHINCHOU, 5, 5        //30%
-encounter SPECIES_CLAMPERL, 5, 5        //15%
-encounter SPECIES_TYNAMO, 5, 5          //10%
-encounter SPECIES_STUNFISK, 5, 5        //5%
+encounter SPECIES_CHINCHOU, 8, 8      //40%
+encounter SPECIES_TYNAMO, 8, 8        //30%
+encounter SPECIES_CHINCHOU, 8, 8      //15%
+encounter SPECIES_GRUBBIN, 8, 8       //10%
+encounter SPECIES_TYNAMO, 8, 8        //5%
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
