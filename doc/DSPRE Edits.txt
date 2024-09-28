@@ -1436,45 +1436,70 @@ Route 47
 Add trigger:
 watch: 16421, when 0, script 8
 
-Add Grunt 1 (ID ??)
-Add Grunt 2 (ID ??)
-Add Grunt 3 (ID ??) in water to block path.
+Add Grunt 1 (ID 15)
+Add Grunt 2 (ID 16)
 
 Script 8:
     MecScript
-	PlayFanfare 1538
+	PlayFanfare 1500
 	LockAll 
     LockFollowingPoke 0
 	WaitFollowingPoke 
 	SetFollowingPokeMovement 55
-    Message 11
-	CloseMessage
-	Movement Player Action#6
+    Movement Player Action#6
     WaitMovement
-
-	Message 12
-	Message 13
-	CloseMessage
-
-	SetFlag XXX
+    Message 13
+    CloseMessage
+    Movement Player Action#7
+    WaitMovement
+    Movement Overworld.15 Action#10
+    WaitMovement
+    Message 14
+    Message 15
+    Message 16
+    CloseMessage
+    Movement Overworld.15 Action#8
+    WaitMovement
+    SetOWPosition Overworld.15 65 0 385 Up
+    Movement Overworld.16 Action#9
+    WaitMovement
+    Movement Overworld.16 Action#8
+    WaitMovement
+    SetOWPosition Overworld.16 65 0 386 Left
     SetVar 0x4025 1
 	ReleaseAll 
 End 
 
-//player action
-Action 6:
-	WalkLeftFast 0x2
+Script 9:
 End
 
+Action 6:
+    Exclamation 0x1
+End
 
-11: Grunt 1: Bro, I am telling you. This is is the cave!
-12: Grunt 2: No, this is not it. The Lore says something about whirlpools protecting the cave.
-13: Grunt 1: Ah, fuck the Lore. People always create crazy stuff in those tales about legendary Pokemon. I am certain, this is the cave!
-			 Grunt 2: Are you sure?
-			 Yea. Trust me, bro. The Boss will be pleased when we inform him about the location of this Pokemon. He is looking for it quite some while.
-			 Let's go. You first!
+Action 7:
+	WalkLeftSlow 0x3
+    WalkDownSlow 0x1
+    LookLeft 0x1
+End
 
+Action 8:
+	WalkUpSlow 0x1
+End
 
+Action 9:
+	WalkLeftSlow 0x1
+    LookUp 0x1
+End
+
+Action 10:
+	LookRight 0x1
+End
+
+13: Grunt 1: This is it!\nThis has to be the cave.\r
+14: Grunt 2: Hmm, are you sure?\nThis doesn't look like some mysterious\fcave...\rThe Lore does say something about\nwhirlpools protecting the entry.\r
+15: Grunt 1: Ah, fuck the Lore!\nPeople always make up crazy stuff\fwhen legendary Pokémon are involved.\rThe Boss will reward us heavenly.\nHe is searching for it quite some\ftime now.\rLet’s go inside. You go first.\r
+16: Grunt 2: What? I don’t...\rDAMN!\r
 
 
 ####

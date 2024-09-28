@@ -18,7 +18,6 @@ New Bark Town
 - removed Lyra events to save time
 
 TODO:
-- Aide fills up repels
 - change encounter rates
 
 
@@ -50,7 +49,7 @@ Cherrygrove City
 - fishing encounter
 
 TODO:
-- fight with kent, mega stone
+- fight with kent, mega stone?
 - surf encounter
 
 
@@ -87,11 +86,9 @@ Violet City
 - fishing encounter
 - Trainer in gym are mandatory
 - Falk increases Level cap
-
+- removed Primo and use flags otherwise
 TODO:
-- IVs for Onix trade
-- remove Primo and use flags otherwise
-
+- IVs for Onix trade?
 - surf encounter
 
 -----------------------------
@@ -113,6 +110,7 @@ Ruins of Alph
 TODO:
 - (Move NPC inside of cave to allow for early Union Cave encounter)?
 - surf encounter
+- block ruins after Whitney
 
 -----------------------------
 Route 32 - First Part
@@ -146,7 +144,8 @@ TODO:
 - Bird keeper Mini boss
 - fishing encounter
 - surf encounter
-- Give Black Sludge
+- Give Poison Barb, remove Weekly NPC
+- Make Rare Candy with Mini Boss, Best at Fishing jetty
 
 -----------------------------
 Union Cave
@@ -155,13 +154,14 @@ TODO:
 - night form encounter
 - fishing encounter
 - surf encounter
+- Togedemaru
 
 -----------------------------
 Route 33
 -----------------------------
 - mandatory Mini boss
 TODO:
-- surf encounter
+
 
 -----------------------------
 Azalea
@@ -199,11 +199,11 @@ Route 34
 TODO:
 - make trainer mandatory
 - scale level of gauntlet
+- 
 
 -----------------------------
 Goldenrod
 -----------------------------
-- relearner NPC in PC
 - Store adds ordinary market
 - Store: Balls -> Berries
 - Store: Potions -> Evolution Stones
@@ -218,7 +218,7 @@ TODO:
 - store items
 - flower shop items
 - Correct store location messages
-- battle with lyra in underground
+
 
 
 -----------------------------
@@ -227,7 +227,7 @@ Goldenrod - Rocket
 - Before entering tower, Whitney challenges to a rematch
 TODO:
 - (rescuing director gives mega-ring?)
-- tag battle with giovanni
+- tag battle with giovanni?
 
 
 -----------------------------
@@ -238,18 +238,16 @@ Goldenrod Game Corner
 - move tutor 1 (Top left) here
 - Items replaced: Scope lens (5k), Wide lens (2k), Toxic Orb (5k), Flame Orb (5k)
 - TMs: Swords Dance 10k, Substitute 6k
-- Move deleter 
 TODO:
 - badge scaling pokemon held items
 - badge scaling offering multiple pokemons per badge
-- place relearner from PC to game corner
 
 
 
 Park
 -----------------------------
 - Soothe Bell -> Rare Candy, behind 2 Trainers. Their reset location will block access. First Trainer also blocks TM28 Dig
-- Moved one Trainer in the lower area to guard Silk Scarf Woman
+- Moved one Trainer in the lower area to guard Quick Claw/Silk Scarf Woman
 TODO:
 
 
@@ -298,7 +296,7 @@ Olivine City
 - Find VM 08 Rock Climb next to jasmine in the lighthouse
 - Perma Sandstorm in Jasmine Gym
 TODO:
-
+- move rock climb to rocket hideout
 
 
 -----------------------------
@@ -315,6 +313,7 @@ Route 47
 -----------------------------
 - Perma Sandstorm
 - NPC Porter to access grass for encounter
+- Rocket Cutscene on Bridge
 TODO:
 - make trainer mandatory
 
@@ -348,8 +347,9 @@ TODO:
 -----------------------------
 Blackthorn City
 -----------------------------
+- Replaced Dratini by Random Pseudo legendary
 TODO:
-- Replace Dratini by Random Pseudo legendary
+
 
 
 
