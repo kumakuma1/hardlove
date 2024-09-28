@@ -195,7 +195,7 @@ FLAG_TALKED_TO_MOM_AFTER_NAMING_RIVAL                      equ  0xA7
 FLAG_UNK_0A8                                               equ  0xA8
 FLAG_UNK_0A9                                               equ  0xA9
 FLAG_UNK_0AA                                               equ  0xAA
-FLAG_GOT_TM83_FROM_MOOMOO_FARM_WOMAN                       equ  0xAB // replaced with TM42 Facade
+FLAG_GOT_TM83_FROM_MOOMOO_FARM_WOMAN                       equ  0xAB
 FLAG_UNK_0AC                                               equ  0xAC
 FLAG_UNK_0AD                                               equ  0xAD
 FLAG_UNK_0AE                                               equ  0xAE
