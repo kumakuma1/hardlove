@@ -155,8 +155,8 @@ EIGHT_BADGES equ 6
 .halfword ITEM_TM34 //ITEM_GUARD_SPEC_
 .halfword ITEM_TM39 //ITEM_DIRE_HIT
 .halfword ITEM_TM40 //ITEM_X_ACCURACY
-.halfword ITEM_TM88 //ITEM_X_SPECIAL
-.halfword 0xFFFF    //ITEM_X_SP__DEF
+.halfword ITEM_TM70 //ITEM_X_SPECIAL
+.halfword ITEM_TM88 //ITEM_X_SP__DEF
 .halfword 0xFFFF
 
 /* Goldenrod Dept. Store 4F -Vitamins */

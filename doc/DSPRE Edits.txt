@@ -1570,3 +1570,12 @@ End
 23: Servus!\rDu do!\rWos glaubst, wo du hinlafst?\r
 24: Dea Weg is zua.\nSo a Stein blockiert es Sträßle.\rEy, so eine Schweinerei!\nI kimm 'etz ah nemmer hoam...\r..\rKumm, lass mo kämpfe!\r
 25: Hoho!\rWas A Gaudi!\rErsch mo ins Brauheisl.\nServus!
+
+
+
+
+Add NPCs in Ruins of Alph
+Block until after whitney FLAG 133 FLAG_GOT_TM45_FROM_WHITNEY
+
+
+- Witney unlockes TM guy in Mart, ClearFlag 345

@@ -81,15 +81,27 @@ TODO:
 
 
 -----------------------------
+Dark Cave - First Part
+-----------------------------
+- 
+TODO:
+- heart scale?
+- remove need for flash
+- surf encounter
+
+-----------------------------
 Violet City
 -----------------------------
 - fishing encounter
 - Trainer in gym are mandatory
 - Falk increases Level cap
 - removed Primo and use flags otherwise
+- candy reached with surf
 TODO:
 - IVs for Onix trade?
 - surf encounter
+- heart scale behind rock?
+- heart rached with surf?
 
 -----------------------------
 Route 36 - First Part
@@ -106,11 +118,10 @@ Ruins of Alph
 - Blocker NPC blocks Union Cave entry, vanishes after Morty
 - encounter
 - fishing encounter
-
+- Ruins are blocked until after Whitney Badge
 TODO:
 - (Move NPC inside of cave to allow for early Union Cave encounter)?
 - surf encounter
-- block ruins after Whitney
 
 -----------------------------
 Route 32 - First Part
@@ -122,6 +133,9 @@ TODO:
 Sprout Tower 2F
 -----------------------------
 - encounter
+TODO:
+- heart scale?
+- move trainer(s) to route 37?
 
 -----------------------------
 Sprout Tower 3F
@@ -146,6 +160,7 @@ TODO:
 - surf encounter
 - Give Poison Barb, remove Weekly NPC
 - Make Rare Candy with Mini Boss, Best at Fishing jetty
+- heart scale?
 
 -----------------------------
 Union Cave
@@ -204,6 +219,7 @@ TODO:
 -----------------------------
 Goldenrod
 -----------------------------
+- Store used Primo Flags to scale
 - Store adds ordinary market
 - Store: Balls -> Berries
 - Store: Potions -> Evolution Stones
@@ -213,6 +229,7 @@ Goldenrod
 - quiz for radio upgrade no onger needed
 - Whitney always in the arena
 - Whitney gives TM45 Drain Kiss, shortened text
+- Witney unlockes TM guy in Mart, ClearFlag 345
 TODO:
 - use bycicle store differently (fossil?)
 - store items
@@ -348,6 +365,7 @@ TODO:
 Blackthorn City
 -----------------------------
 - Replaced Dratini by Random Pseudo legendary
+- A Dratini still knows Extreme Speed
 TODO:
 
 
