@@ -959,7 +959,7 @@ trainerdata 20, "Falkner" // Leader
         level LEVEL_FALKNER
         pokemon SPECIES_TORCHIC
         item ITEM_EVIOLITE
-        move MOVE_INCINERATE
+        move MOVE_FLAME_CHARGE
         move MOVE_BOUNCE
         move MOVE_PROTECT
         move MOVE_LAST_RESORT
@@ -967,7 +967,7 @@ trainerdata 20, "Falkner" // Leader
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_HARDY
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1579,13 +1579,13 @@ trainerdata 31, "Morty"
 	    ivs 0
         abilityslot 0
         level LEVEL_MORTY-1
-        pokemon SPECIES_DARKRAI
-        item ITEM_LIFE_ORB
-        move MOVE_DARK_PULSE
+        monWithForm SPECIES_HOOPA, 1
+        item ITEM_LEFTOVERS
+        move MOVE_SHADOW_BALL
         move MOVE_FOCUS_BLAST
-        move MOVE_HYPNOSIS
-        move MOVE_NASTY_PLOT
-        ability ABILITY_BAD_DREAMS
+        move MOVE_SUBSTITUTE
+        move MOVE_PSYCHIC
+        ability ABILITY_MAGICIAN
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
