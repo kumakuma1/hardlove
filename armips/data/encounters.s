@@ -7254,8 +7254,8 @@ encounter SPECIES_MAGIKARP, 2, 10
 encounter SPECIES_MAGIKARP, 2, 10
 
 // rock smash encounters
-encounter SPECIES_NONE, 4, 8
-encounter SPECIES_NONE, 8, 14
+encounter SPECIES_GEODUDE, 4, 8
+encounter SPECIES_GEODUDE, 8, 14
 
 // old rod encounters
 encounter SPECIES_MAGIKARP, 5, 5
