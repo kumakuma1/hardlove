@@ -15,24 +15,13 @@ TRAINER_MON_TYPE_FLAGS equ TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | T
 TRAINER_AI_FLAGS equ F_USE_WEATHER | F_PRIORITIZE_DAMAGE | F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
 
 LEVEL_SILVER_1 equ 5
-LEVEL_ROUTE_30 equ 8
-LEVEL_ROUTE_31 equ 8
-
-LEVEL_VIOLET_CITY equ 9 /* Used for Sprout Tower */
 LEVEL_ELDER_LI equ 12
-LEVEL_VIOLET_GYM equ 12
 LEVEL_FALKNER equ 15
 
-LEVEL_ROUTE_32 equ 15
-LEVEL_UNION_CAVE equ 17
-LEVEL_SLOWPOKE_WELL equ 18
 LEVEL_PROTON_1 equ 19
-LEVEL_AZALEA_GYM equ 20
-LEVEL_BUGSY equ 22
-LEVEL_GOLDENROD equ 26
+LEVEL_BUGSY equ 24
 LEVEL_SCHORSCH equ 29
-LEVEL_WHITNEY equ 27
-LEVEL_ECRUTEAK equ 31
+LEVEL_WHITNEY equ 31
 LEVEL_MORTY equ 35
 LEVEL_CHUCK equ 40
 LEVEL_JASMINE equ 46
@@ -240,7 +229,7 @@ trainerdata 4, "Wade"  // Route 31
     party 4
         ivs 0
         abilityslot 0
-        level LEVEL_ROUTE_30+2
+        level LEVEL_ELDER_LI-2
         pokemon SPECIES_BUTTERFREE
         item ITEM_ORAN_BERRY
         move MOVE_U_TURN
@@ -258,7 +247,7 @@ trainerdata 4, "Wade"  // Route 31
 
         ivs 0
         abilityslot 0
-        level LEVEL_ROUTE_30+2
+        level LEVEL_ELDER_LI-2
         pokemon SPECIES_BEAUTIFLY
         item ITEM_ORAN_BERRY
         move MOVE_U_TURN
@@ -276,7 +265,7 @@ trainerdata 4, "Wade"  // Route 31
 
         ivs 0
         abilityslot 0
-        level LEVEL_ROUTE_30+2
+        level LEVEL_ELDER_LI-2
         pokemon SPECIES_VIVILLON
         item ITEM_ORAN_BERRY
         move MOVE_U_TURN
@@ -394,7 +383,7 @@ trainerdata 7, "Irwin"
 trainerdata 8, "Joey" // Route 30
     trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_YOUNGSTER
-    nummons 1
+    nummons 3
     item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
@@ -406,18 +395,54 @@ trainerdata 8, "Joey" // Route 30
     party 8
         ivs 0
         abilityslot 0
-        level LEVEL_ROUTE_30
-        pokemon SPECIES_PIDGEOT
-        item ITEM_PIDGEOTITE
-        move MOVE_ROOST
+        level LEVEL_ELDER_LI-4
+        pokemon SPECIES_EKANS
+        item ITEM_ORAN_BERRY
+        move MOVE_GLARE
+        move MOVE_BITE
         move MOVE_NONE
         move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_KEEN_EYE
+        ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI-4
+        pokemon SPECIES_PATRAT
+        item ITEM_ORAN_BERRY
+        move MOVE_BITE
+        move MOVE_CONFUSE_RAY
+        move MOVE_SAND_ATTACK
+        move MOVE_NONE
+        ability ABILITY_ANALYTIC
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI-4
+        pokemon SPECIES_RATTATA
+        item ITEM_FOCUS_BAND
+        move MOVE_QUICK_ATTACK
+        move MOVE_ENDEAVOR
+        move MOVE_PURSUIT
+        move MOVE_NONE
+        ability ABILITY_GUTS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -2426,7 +2451,7 @@ trainerdata 47, "Mikey"  // Route 30
         // mon 1
         ivs 0
         abilityslot 0
-        level LEVEL_ROUTE_30-1
+        level LEVEL_ELDER_LI-5
         pokemon SPECIES_CLEFAIRY
         item ITEM_BERRY_JUICE
         move MOVE_METRONOME
@@ -2437,7 +2462,7 @@ trainerdata 47, "Mikey"  // Route 30
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_SERIOUS
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -2445,7 +2470,7 @@ trainerdata 47, "Mikey"  // Route 30
         //mon 2
         ivs 0
         abilityslot 0
-        level LEVEL_ROUTE_30-1
+        level LEVEL_ELDER_LI-5
         pokemon SPECIES_AUDINO
         item ITEM_BERRY_JUICE
         move MOVE_METRONOME
@@ -2456,7 +2481,7 @@ trainerdata 47, "Mikey"  // Route 30
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_SERIOUS
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -8757,7 +8782,7 @@ trainerdata 248, "Ed"
 trainerdata 249, "Don"  // Route 30
     trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_BUG_CATCHER
-    nummons 2
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -8769,7 +8794,7 @@ trainerdata 249, "Don"  // Route 30
     party 249
         ivs 0
         abilityslot 0
-        level LEVEL_ROUTE_30
+        level LEVEL_ELDER_LI-5
         pokemon SPECIES_ANORITH
         item ITEM_ORAN_BERRY
         move MOVE_AQUA_JET
@@ -8787,18 +8812,36 @@ trainerdata 249, "Don"  // Route 30
 
         ivs 0
         abilityslot 0
-        level LEVEL_ROUTE_30
-        pokemon SPECIES_LILEEP
+        level LEVEL_ELDER_LI-4
+        pokemon SPECIES_DEWPIDER
         item ITEM_ORAN_BERRY
-        move MOVE_LEECH_SEED
-        move MOVE_ACID
-        move MOVE_ANCIENT_POWER
+        move MOVE_BUG_BITE
+        move MOVE_INFESTATION
+        move MOVE_BITE
         move MOVE_NONE
-        ability ABILITY_STORM_DRAIN
+        ability ABILITY_WATER_ABSORB
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_MODEST
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI-5
+        pokemon SPECIES_PICHU
+        item ITEM_ORAN_BERRY
+        move MOVE_NUZZLE
+        move MOVE_THUNDER_SHOCK
+        move MOVE_SWIFT
+        move MOVE_NONE
+        ability ABILITY_STATIC
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -9578,7 +9621,7 @@ trainerdata 263, "Silver"
     party 263
         ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK
+        level LEVEL_MORTY
         pokemon SPECIES_CROBAT
         item ITEM_SITRUS_BERRY
         move MOVE_U_TURN
@@ -9596,7 +9639,7 @@ trainerdata 263, "Silver"
 
         ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK-1
+        level LEVEL_MORTY-1
         pokemon SPECIES_SABLEYE
         item ITEM_SITRUS_BERRY
         move MOVE_FAKE_OUT
@@ -9614,7 +9657,7 @@ trainerdata 263, "Silver"
 
         ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK
+        level LEVEL_MORTY
         pokemon SPECIES_KINGDRA
         item ITEM_LIFE_ORB
         move MOVE_BRINE
@@ -9632,7 +9675,7 @@ trainerdata 263, "Silver"
 		
 	ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK
+        level LEVEL_MORTY
         pokemon SPECIES_EXCADRILL
         item ITEM_SITRUS_BERRY
         move MOVE_STOMPING_TANTRUM
@@ -9650,7 +9693,7 @@ trainerdata 263, "Silver"
 		
 	ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK-1
+        level LEVEL_MORTY-1
         pokemon SPECIES_ARCANINE
         item ITEM_SITRUS_BERRY
         move MOVE_EXTREME_SPEED
@@ -9668,7 +9711,7 @@ trainerdata 263, "Silver"
 		
 	ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK
+        level LEVEL_MORTY
         pokemon SPECIES_BAYLEEF
         item ITEM_SITRUS_BERRY //ITEM_EVIOLITE
         move MOVE_MEGA_DRAIN
@@ -10183,7 +10226,7 @@ trainerdata 270, "Silver"
     party 270
         ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK
+        level LEVEL_MORTY
         pokemon SPECIES_CROBAT
         item ITEM_SITRUS_BERRY
         move MOVE_U_TURN
@@ -10201,7 +10244,7 @@ trainerdata 270, "Silver"
 
         ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK-1
+        level LEVEL_MORTY-1
         pokemon SPECIES_SABLEYE
         item ITEM_SITRUS_BERRY
         move MOVE_FAKE_OUT
@@ -10219,7 +10262,7 @@ trainerdata 270, "Silver"
 
         ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK
+        level LEVEL_MORTY
         pokemon SPECIES_EXCADRILL
         item ITEM_SITRUS_BERRY
         move MOVE_STOMPING_TANTRUM
@@ -10237,7 +10280,7 @@ trainerdata 270, "Silver"
 		
 	ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK-1
+        level LEVEL_MORTY-1
         pokemon SPECIES_ARCANINE
         item ITEM_SITRUS_BERRY
         move MOVE_EXTREME_SPEED
@@ -10255,7 +10298,7 @@ trainerdata 270, "Silver"
 		
 	ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK-1
+        level LEVEL_MORTY-1
         pokemon SPECIES_ROSERADE
         item ITEM_LIFE_ORB
         move MOVE_MEGA_DRAIN
@@ -10273,7 +10316,7 @@ trainerdata 270, "Silver"
 
 	ivs 0
         abilityslot 0
-        level LEVEL_ECRUTEAK
+        level LEVEL_MORTY
         pokemon SPECIES_CROCONAW
         item ITEM_SITRUS_BERRY //ITEM_EVIOLITE
         move MOVE_AQUA_JET
