@@ -146,7 +146,7 @@ EXIT
 Goodbye.\nLet me know, if you need anything.\r
 I can make your Pokémon forget\na move. {YESNO 0}
 Which Pokémon should forget a move?\r
-What? That’s an Egg.\nNo Egg should know any moves.\r
+What? That’s an Egg.\r
 That Pokémon knows only one move,\nso it can’t be forgotten...\r
 Which move should be forgotten?\r
 The move {STRVAR_1 6, 0, 0}?\nShould that move be forgotten? {YESNO 0}
@@ -158,3 +158,19 @@ Which Pokémon needs tutoring?\r
 Which move should I make it remember?\r
 There is no move to remember.\r
 {STRVAR_1 3, 0, 0} handed over one\nHeart Scale in exchange.\r
+
+It costs one Heart Scale to maximize\nan IV of a Pokémon.\rWhich Pokémon’s IV do you want to\nlook at?\r
+Which of your {STRVAR_1 3, 0, 0}’s IVs\ndo you want to maximize?\r
+HP
+Attack
+Defense
+Speed
+Sp.Atk
+Sp.Def
+I will maximize {STRVAR_1 3, 0, 0}’s\nHP? {YESNO 0}
+I will maximize {STRVAR_1 3, 0, 0}’s\nAttack? {YESNO 0}
+I will maximize {STRVAR_1 3, 0, 0}’s\nDefense? {YESNO 0}
+I will maximize {STRVAR_1 3, 0, 0}’s\nSpeed? {YESNO 0}
+I will maximize {STRVAR_1 3, 0, 0}’s\nSpecial Attack? {YESNO 0}
+I will maximize {STRVAR_1 3, 0, 0}’s\nSpecial Defense? {YESNO 0}
+Done!\r

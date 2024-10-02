@@ -1743,17 +1743,116 @@ scr_seq_0003_073_utility:
     AddListOption 140, 255, 0
 	AddListOption 141, 255, 1
 	AddListOption 142, 255, 2
-    AddListOption 143, 255, 1
-	AddListOption 144, 255, 2
+    AddListOption 143, 255, 3
+	AddListOption 144, 255, 4
     ShowList
     switch VAR_SPECIAL_RESULT
     case 0, _forget
     case 1, _remember
-    //case 2, _maximize
+    case 2, _maximize
     //case 3, _apply
     //case 4, _exit
     goto _exit
 
+
+_maximize:
+    CheckItem ITEM_HEART_SCALE, 1, VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 0
+    goto_if_eq _needmoreheartsclaes
+    npc_msg 161 //I can maximize
+    fade_screen 6, 1, 0, RGB_BLACK
+    wait_fade
+    closemsg
+    party_select_ui
+    GetSelectedPartySlot VAR_SPECIAL_x8005
+    ReturnScreen
+    fade_screen 6, 1, 1, RGB_BLACK
+    wait_fade
+    compare VAR_SPECIAL_x8005, 255
+    goto_if_eq _exit
+    GetPartyPokemonID VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 0
+    goto_if_eq _wontworkegg
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 162 //Which IV
+    ListLocalText 1, 1, 0, 1, VAR_SPECIAL_RESULT
+    AddListOption 163, 255, 0
+	AddListOption 164, 255, 1
+	AddListOption 165, 255, 2
+    AddListOption 166, 255, 3
+	AddListOption 167, 255, 4
+    AddListOption 168, 255, 5
+    AddListOption 144, 255, 6
+    ShowList
+    switch VAR_SPECIAL_RESULT
+    case 0, _maxHP
+    case 1, _maxAtk
+    case 2, _maxDef
+    case 3, _maxSpeed
+    case 4, _maxSpAtk
+    case 5, _maxSpDef
+    goto _exit
+
+
+_maxHP:
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 169 //sure?
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _exit
+    SetMonProperty
+    npc_msg 175 //done
+    goto _takescale
+
+_maxAtk:
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 170 //sure?
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _exit
+    SetMonProperty
+    npc_msg 175 //done
+    goto _takescale
+
+_maxDef:
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 171 //sure?
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _exit
+    SetMonProperty
+    npc_msg 175 //done
+    goto _takescale
+
+_maxSpeed:
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 172 //sure?
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _exit
+    SetMonProperty
+    npc_msg 175 //done
+    goto _takescale
+
+_maxSpAtk:
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 173 //sure?
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _exit
+    SetMonProperty
+    npc_msg 175 //done
+    goto _takescale
+
+_maxSpDef:
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 174 //sure?
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _exit
+    SetMonProperty
+    npc_msg 175 //done
+    goto _takescale
 
 _remember:
     npc_msg 154 //I can remember
@@ -1788,7 +1887,10 @@ _remember:
     wait_fade
     compare VAR_SPECIAL_RESULT, 255
     goto_if_eq _exit
-	TakeItem ITEM_HEART_SCALE, 1, 0x800C
+    goto _takescale
+
+_takescale:
+    TakeItem ITEM_HEART_SCALE, 1, 0x800C
 	buffer_players_name 0
 	npc_msg 159
     goto _exit
