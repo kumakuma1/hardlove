@@ -1024,7 +1024,7 @@ trainerdata 20, "Falkner" // Leader
         move MOVE_FEATHER_DANCE
         move MOVE_WING_ATTACK
         move MOVE_ROOST
-        ability ABILITY_NO_GUARD
+        ability ABILITY_KEEN_EYE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1070,12 +1070,12 @@ trainerdata 21, "Bugsy"
         abilityslot 0
         level LEVEL_BUGSY-1
         pokemon SPECIES_DWEBBLE
-        item ITEM_BERRY_JUICE // :todo ROCKY HELMET
+        item ITEM_FOCUS_SASH
         move MOVE_STEALTH_ROCK
         move MOVE_ROCK_SLIDE
         move MOVE_BUG_BITE
         move MOVE_BULLDOZE
-        ability ABILITY_STURDY
+        ability ABILITY_WEAK_ARMOR
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1106,7 +1106,7 @@ trainerdata 21, "Bugsy"
         abilityslot 0
         level LEVEL_BUGSY-1
         pokemon SPECIES_VIBRAVA
-        item ITEM_EXPERT_BELT   // TODO: ITEM_EVIOLITE
+        item ITEM_EVIOLITE
         move MOVE_BULLDOZE
         move MOVE_BREAKING_SWIPE
         move MOVE_ROCK_SLIDE
@@ -1124,7 +1124,7 @@ trainerdata 21, "Bugsy"
         abilityslot 0
         level LEVEL_BUGSY
         pokemon SPECIES_MASQUERAIN
-        item ITEM_BERRY_JUICE
+        item ITEM_SITRUS_BERRY
         move MOVE_SCALD
         move MOVE_AIR_CUTTER
         move MOVE_SIGNAL_BEAM
@@ -1142,10 +1142,10 @@ trainerdata 21, "Bugsy"
         abilityslot 0
         level LEVEL_BUGSY-1
         pokemon SPECIES_POIPOLE
-        item ITEM_BLACK_SLUDGE
+        item ITEM_LIFE_ORB
         move MOVE_VENOSHOCK
         move MOVE_TOXIC
-        move MOVE_SIGNAL_BEAM
+        move MOVE_WATER_PULSE
         move MOVE_SHOCK_WAVE
         ability ABILITY_BEAST_BOOST
         ball ITEM_POKE_BALL
