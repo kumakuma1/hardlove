@@ -4108,11 +4108,7 @@ mondata SPECIES_FURRET, "Furret"
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    .if ABILITY_CHANGES_IMPLEMENTED
-        abilities ABILITY_ADAPTABILITY, ABILITY_KEEN_EYE
-    .else
-        abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
-        .endif
+    abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_FURRET, "It makes a nest to suit its long and\nskinny body. The nest is impossible\nfor other Pokémon to enter."
