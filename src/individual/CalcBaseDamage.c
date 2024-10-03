@@ -354,9 +354,12 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
     }
 
     // handle eviolite
-    //if ((DefendingMon.item_held_effect == HOLD_EFFECT_EVIOLITE)
-    //    defense *= 2;
-    //    sp_defense *= 2;
+    if (DefendingMon.item_held_effect == HOLD_EFFECT_EVIOLITE)
+    {
+        //todo: check evotable
+        defense = defense * 150 / 100;
+        sp_defense = sp_defense * 150 / 100;
+    }
 
     // handle thick club
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_CUBONE_ATK_UP)
