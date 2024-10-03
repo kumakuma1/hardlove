@@ -1572,7 +1572,20 @@ End
 25: Hoho!\rWas A Gaudi!\rErsch mo ins Brauheisl.\nServus!
 
 
+### Always lose goldenrod Store lottery
+196 - T25R1006 : Event File 189
+Remove ladies
 
+### Always lose goldenrod radio lottery
+112 - D23R0101 : Script File 29
+Function 6:
+...
+	CheckWinLotto 0x8001 0x8002 0x8003 0x8000
+    SetVar 0x8002 0
+
+
+###Blocked second path on Route 32
+Add Spawnables
 
 Add NPCs in Ruins of Alph
 Block until after whitney FLAG 133 FLAG_GOT_TM45_FROM_WHITNEY
