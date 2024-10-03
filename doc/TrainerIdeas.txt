@@ -1,0 +1,4 @@
+SPECIES_GIBLE /Gabite, Rough SKin, Eviolite, Wish, Protect, Roar, Attack move
+
+
+Aipom, fake out, knock off, sticky barb
