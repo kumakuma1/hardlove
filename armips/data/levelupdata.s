@@ -1487,7 +1487,7 @@ levelup SPECIES_GEODUDE
     learnset MOVE_BLOCK, 6 
     learnset MOVE_BULLDOZE, 12
     learnset MOVE_SMACK_DOWN, 16
-    learnset MOVE_BODYCHECK, 18
+    learnset MOVE_TAKE_DOWN, 18
     learnset MOVE_STOMPING_TANTRUM, 22
     learnset MOVE_ROCK_BLAST, 24
     learnset MOVE_SELF_DESTRUCT, 28
@@ -1509,7 +1509,7 @@ levelup SPECIES_GRAVELER
     learnset MOVE_BLOCK, 6 
     learnset MOVE_BULLDOZE, 12
     learnset MOVE_SMACK_DOWN, 16
-    learnset MOVE_BODYCHECK, 18
+    learnset MOVE_TAKE_DOWN, 18
     learnset MOVE_STOMPING_TANTRUM, 22
     learnset MOVE_ROCK_BLAST, 24
     learnset MOVE_SELF_DESTRUCT, 30
@@ -1534,7 +1534,7 @@ levelup SPECIES_GOLEM
     learnset MOVE_BLOCK, 6 
     learnset MOVE_BULLDOZE, 12
     learnset MOVE_SMACK_DOWN, 16
-    learnset MOVE_BODYCHECK, 18
+    learnset MOVE_TAKE_DOWN, 18
     learnset MOVE_STOMPING_TANTRUM, 22
     learnset MOVE_ROCK_BLAST, 24
     learnset MOVE_SELF_DESTRUCT, 30
