@@ -3,13 +3,22 @@ Flag
 106   - 061-T20R0101 : Script File 843, Script 13: StarterSelection Screen
 154   - 061-T20R0101 : Script File 225 - Function 25: CatchTutorial done    | Prof Elm sets after receiving balls
 189   -                                - prev. Good Rod. Used for Mega-Ring
+219   - 036-R32      : Script File 232 - Script 6, Poison Barb from Frieda, unused
+270   - 096-D22R0101 : Script File  25 - Silk Scarf in National Park from Persian Lady
 345   - 158-T22PC0101: Script File 860 - Maarep-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod shop TM
-346   - 158-T22PC0101: Script File 860 - Wooper-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod shop TM 2
+346   - 158-T22PC0101: Script File 860 - Wooper-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod shop TM 2?
 347   - 158-T22PC0101: Script File 860 - Slugma-Egg Primo. Flag is not set. |
 420   - 061-T20R0101 : Script File 225 - Function 25: Hide Lyra. Flag is set.
 421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
-417   - 060-T20      : Script File 842 - Function 9: Hide Marill. Flag is set.
+417   - 060-T20      : Script File 842 - Function 9: Hide Marill. Flag is set. by mom
 418   - 060-T20      : Script File 842 - Function 9: Hide Lyra. Flag is set.
+
+1061  - 110-D15R0101 : Item: ITEM_PARALYZE_HEAL -> ITEM_EVERSTONE
+1077  - 117-D36R0101 : Item: ITEM_REVIVEL -> ITEM_RARE_CANDY
+1218  - 176-D42R0102 : Item: ITEM_POTION -> ITEM_HEART_SCALE
+1239  - 036-R32      : Item: ITEM_SHELL_BELL -> ITEM_POISON_BARB
+1274  - 038-R34      : Item: ITEM_ZM63 -> ITEM_MUSCLE_BAND
+
 
 
 
