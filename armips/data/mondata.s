@@ -88,13 +88,9 @@ mondata SPECIES_IVYSAUR, "Ivysaur"
     mondexheight SPECIES_IVYSAUR, "3’03”"
     mondexweight SPECIES_IVYSAUR, "28.7 lbs."
 
-//BST 535
+//BST 535?
 mondata SPECIES_VENUSAUR, "Venusaur"
-    .if STAT_CHANGES_IMPLEMENTED
-        basestats 80, 82, 93, 80, 100, 100
-    .else
-        basestats 80, 82, 83, 80, 100, 100
-    .endif
+    basestats 80, 82, 83, 80, 100, 100
     types TYPE_GRASS, TYPE_POISON
     catchrate 45
     baseexp 0 // defined in baseexp.s
@@ -4079,7 +4075,7 @@ mondata SPECIES_SENTRET, "Sentret"
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
+    abilities ABILITY_KEEN_EYE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_SENTRET, "A very cautious Pokémon, it raises\nitself up using its tail to get a\nbetter view of its surroundings."
@@ -4087,13 +4083,9 @@ mondata SPECIES_SENTRET, "Sentret"
     mondexheight SPECIES_SENTRET, "2’07”"
     mondexweight SPECIES_SENTRET, "13.2 lbs."
 
-//BST 415 > 425
+
 mondata SPECIES_FURRET, "Furret"
-    .if STAT_CHANGES_IMPLEMENTED
-        basestats 85, 86, 64, 90, 45, 55
-    .else
-        basestats 85, 76, 64, 90, 45, 55
-        .endif
+    basestats 85, 76, 64, 90, 45, 55
     types TYPE_NORMAL, TYPE_NORMAL
     catchrate 90
     baseexp 0 // defined in baseexp.s
@@ -4108,7 +4100,7 @@ mondata SPECIES_FURRET, "Furret"
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_RUN_AWAY, ABILITY_KEEN_EYE
+    abilities ABILITY_KEEN_EYE, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_FURRET, "It makes a nest to suit its long and\nskinny body. The nest is impossible\nfor other Pokémon to enter."
@@ -4308,7 +4300,7 @@ mondata SPECIES_CHINCHOU, "Chinchou"
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
-    abilities ABILITY_VOLT_ABSORB, ABILITY_ILLUMINATE
+    abilities ABILITY_VOLT_ABSORB, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     mondexentry SPECIES_CHINCHOU, "It shoots positive and negative\nelectricity between the tips of its\ntwo antennae and zaps its enemies."
@@ -4333,7 +4325,7 @@ mondata SPECIES_LANTURN, "Lanturn"
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_WATER_2, EGG_GROUP_WATER_2
-    abilities ABILITY_VOLT_ABSORB, ABILITY_ILLUMINATE
+    abilities ABILITY_VOLT_ABSORB, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     mondexentry SPECIES_LANTURN, "The light it emits is so bright that\nit can illuminate the sea’s surface\nfrom a depth of over three miles."
