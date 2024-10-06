@@ -53,6 +53,8 @@ clear script 9 and script 4
 Mom sets    
 SetFlag 417
 
+
+
 Pokegear number:
 106 \v0103ぁ\x0000\x0000 registered Professor Elm\nin the Pokégear!
 	RecordPokegearNumber 1
