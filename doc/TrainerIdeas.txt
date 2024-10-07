@@ -1,4 +1,13 @@
 SPECIES_GIBLE /Gabite, Rough SKin, Eviolite, Wish, Protect, Roar, Attack move
 
 
-Aipom, fake out, knock off, sticky barb
+Aipom/Smeargle, fake out, knock off, sticky barb
+
+
+Rocket Hideout:
+2x Toxic Spikes, 2x Spikes weather
+
+Radio tower
+Perma Tailwind, +1 crit
+
+ Swoobat, Unaware, Psychic Seed, Psychic Terrrain, Stored Power
