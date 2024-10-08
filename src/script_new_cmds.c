@@ -80,6 +80,7 @@ BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
     {
         if (type1 == TYPE_FIRE || type2 == TYPE_FIRE || currentAbility == ABILITY_WATER_VEIL || currentAbility == ABILITY_THERMAL_EXCHANGE || currentAbility == ABILITY_WATER_BUBBLE)
         {
+            SetScriptVar(0x800C, 0);
             return FALSE;
         }
 
@@ -89,6 +90,7 @@ BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
     {
         if (type1 == TYPE_ICE || type2 == TYPE_ICE || currentAbility == ABILITY_MAGMA_ARMOR)
         {
+            SetScriptVar(0x800C, 0);
             return FALSE;
         }
 
@@ -98,6 +100,7 @@ BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
     {
         if (type1 == TYPE_ELECTRIC || type2 == TYPE_ELECTRIC || currentAbility == ABILITY_LIMBER)
         {
+            SetScriptVar(0x800C, 0);
             return FALSE;
         }
 
@@ -107,6 +110,7 @@ BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
     {
         if (type1 == TYPE_POISON || type1 == TYPE_STEEL || type2 == TYPE_POISON || type2 == TYPE_STEEL || currentAbility == ABILITY_IMMUNITY || currentAbility == ABILITY_PASTEL_VEIL)
         {
+            SetScriptVar(0x800C, 0);
             return FALSE;
         }
 
@@ -116,11 +120,13 @@ BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
     {
         if (currentAbility == ABILITY_INSOMNIA || currentAbility == ABILITY_VITAL_SPIRIT || currentAbility == ABILITY_SWEET_VEIL)
         {
+            SetScriptVar(0x800C, 0);
             return FALSE;
         }
 
         SetMonData(pp, MON_DATA_STATUS, &sleep);
     }
 
+    SetScriptVar(0x800C, 1);
     return TRUE;
 }

@@ -10,4 +10,4 @@ Rocket Hideout:
 Radio tower
 Perma Tailwind, +1 crit
 
- Swoobat, Unaware, Psychic Seed, Psychic Terrrain, Stored Power
+ Swoobat, Unaware, Psychic Seed, Psychic Terrrain, Stored Power, Agility

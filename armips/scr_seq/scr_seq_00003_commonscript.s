@@ -1750,10 +1750,55 @@ scr_seq_0003_073_utility:
     case 0, _forget
     case 1, _remember
     case 2, _maximize
-    //case 3, _apply
+    case 3, _apply
     //case 4, _exit
     goto _exit
 
+_apply:
+    npc_msg 181 //Which status
+    ListLocalText 1, 1, 0, 1, VAR_SPECIAL_RESULT
+    AddListOption 182, 255, 11
+	AddListOption 183, 255, 12
+	AddListOption 184, 255, 13
+    AddListOption 185, 255, 14
+	AddListOption 186, 255, 15
+    AddListOption 144, 255, 0
+    ShowList
+    switch VAR_SPECIAL_RESULT
+    case 11, _status
+    case 12, _status
+    case 13, _status
+    case 14, _status
+    case 15, _status
+    //case 5, _exit
+    goto _exit
+
+_status:
+    npc_msg 187 //status to which?
+    fade_screen 6, 1, 0, RGB_BLACK
+    wait_fade
+    closemsg
+    party_select_ui
+    GetSelectedPartySlot VAR_SPECIAL_x8005
+    ReturnScreen
+    fade_screen 6, 1, 1, RGB_BLACK
+    wait_fade
+    compare VAR_SPECIAL_x8005, 255
+    goto_if_eq _exit
+    GetPartyPokemonID VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 0
+    goto_if_eq _wontworkegg
+    SetMonProperty
+    compare VAR_SPECIAL_RESULT, 0
+    goto_if_eq _statusnotpossible
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 188 //status done
+    goto _exit
+
+_statusnotpossible:
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 189 //status not possible
+    goto _exit
 
 _maximize:
     CheckItem ITEM_HEART_SCALE, 1, VAR_SPECIAL_RESULT
@@ -1801,7 +1846,8 @@ _maxHP:
     compare VAR_SPECIAL_RESULT, 1
     goto_if_eq _exit
     SetMonProperty
-    npc_msg 175 //done
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 175 //done Hp
     goto _takescale
 
 _maxAtk:
@@ -1811,7 +1857,8 @@ _maxAtk:
     compare VAR_SPECIAL_RESULT, 1
     goto_if_eq _exit
     SetMonProperty
-    npc_msg 175 //done
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 176 //done att
     goto _takescale
 
 _maxDef:
@@ -1821,7 +1868,8 @@ _maxDef:
     compare VAR_SPECIAL_RESULT, 1
     goto_if_eq _exit
     SetMonProperty
-    npc_msg 175 //done
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 177 //done def
     goto _takescale
 
 _maxSpeed:
@@ -1831,17 +1879,19 @@ _maxSpeed:
     compare VAR_SPECIAL_RESULT, 1
     goto_if_eq _exit
     SetMonProperty
-    npc_msg 175 //done
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 178 //done speed
     goto _takescale
 
 _maxSpAtk:
     TextPartyPokemon 0, VAR_SPECIAL_x8005
-    npc_msg 173 //sure?
+    npc_msg 179 //sure?
     yesno VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, 1
     goto_if_eq _exit
     SetMonProperty
-    npc_msg 175 //done
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 175 //done spatt
     goto _takescale
 
 _maxSpDef:
@@ -1851,7 +1901,8 @@ _maxSpDef:
     compare VAR_SPECIAL_RESULT, 1
     goto_if_eq _exit
     SetMonProperty
-    npc_msg 175 //done
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 180 //done spdef
     goto _takescale
 
 _remember:
