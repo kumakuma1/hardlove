@@ -87,7 +87,27 @@ scrdef scr_seq_0003_069
 scrdef scr_seq_0003_070
 scrdef scr_seq_0003_071
 scrdef scr_seq_0003_072_repels
-scrdef scr_seq_0003_073_utility
+scrdef scr_seq_0003_073
+scrdef scr_seq_0003_074
+scrdef scr_seq_0003_075
+scrdef scr_seq_0003_076
+scrdef scr_seq_0003_077
+scrdef scr_seq_0003_078
+scrdef scr_seq_0003_079
+scrdef scr_seq_0003_080
+scrdef scr_seq_0003_081
+scrdef scr_seq_0003_082
+scrdef scr_seq_0003_083
+scrdef scr_seq_0003_084
+scrdef scr_seq_0003_085
+scrdef scr_seq_0003_086
+scrdef scr_seq_0003_087
+scrdef scr_seq_0003_088
+scrdef scr_seq_0003_089
+scrdef scr_seq_0003_090
+scrdef scr_seq_0003_091
+scrdef scr_seq_0003_092
+scrdef scr_seq_0003_093_utility
 scrdef_end
 
 scr_seq_0003_002:
@@ -1732,8 +1752,68 @@ scr_seq_0003_064:
     releaseall
     end
 
+scr_seq_0003_073:
+    end
 
-scr_seq_0003_073_utility:
+scr_seq_0003_074:
+    end
+
+scr_seq_0003_075:
+    end
+
+scr_seq_0003_076:
+    end
+
+scr_seq_0003_077:
+    end
+
+scr_seq_0003_078:
+    end
+
+scr_seq_0003_079:
+    end
+
+scr_seq_0003_080:
+    end
+
+scr_seq_0003_081:
+    end
+
+scr_seq_0003_082:
+    end
+
+scr_seq_0003_083:
+    end
+
+scr_seq_0003_084:
+    end
+
+scr_seq_0003_085:
+    end
+
+scr_seq_0003_086:
+    end
+
+scr_seq_0003_087:
+    end
+
+scr_seq_0003_088:
+    end
+
+scr_seq_0003_089:
+    end
+
+scr_seq_0003_090:
+    end
+
+scr_seq_0003_091:
+    end
+
+scr_seq_0003_092:
+    end
+
+
+scr_seq_0003_093_utility:
     play_se SEQ_SE_DP_SELECT
     lockall
     faceplayer
