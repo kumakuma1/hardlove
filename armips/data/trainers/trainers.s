@@ -1087,17 +1087,17 @@ trainerdata 21, "Bugsy"
         ivs 0
         abilityslot 0
         level LEVEL_BUGSY
-        pokemon SPECIES_PARASECT
-        item ITEM_COBA_BERRY
-        move MOVE_SPORE
-        move MOVE_BULLET_SEED
-        move MOVE_BUG_BITE
-        move MOVE_COUNTER
+        pokemon SPECIES_GALVANTULA-2
+        item ITEM_SITRUS_BERRY
+        move MOVE_VOLT_SWITCH
+        move MOVE_MEGA_DRAIN
+        move MOVE_CHARGE_BEAM
+        move MOVE_STICKY_WEB
         ability ABILITY_DRY_SKIN
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1123,24 +1123,24 @@ trainerdata 21, "Bugsy"
         ivs 0
         abilityslot 0
         level LEVEL_BUGSY
-        pokemon SPECIES_MASQUERAIN
-        item ITEM_SITRUS_BERRY
-        move MOVE_SCALD
-        move MOVE_AIR_CUTTER
+        pokemon SPECIES_ORBEETLE-2
+        item ITEM_WEAKNESS_POLICY
+        move MOVE_REFLECT
+        move MOVE_STORED_POWER
         move MOVE_SIGNAL_BEAM
-        move MOVE_U_TURN
-        ability ABILITY_INTIMIDATE
+        move MOVE_BODY_PRESS
+        ability ABILITY_SWARM
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_BOLD
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-1
+        level LEVEL_BUGSY
         pokemon SPECIES_POIPOLE
         item ITEM_LIFE_ORB
         move MOVE_VENOSHOCK
@@ -1432,8 +1432,8 @@ trainerdata 30, "Whitney"
         item ITEM_LUM_BERRY
         move MOVE_BODY_SLAM
         move MOVE_SUPERPOWER
-        move MOVE_SLEEP_TALK
-        move MOVE_REST
+        move MOVE_FIRE_PUNCH
+        move MOVE_NONE
         ability ABILITY_SLOW_START
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1463,7 +1463,7 @@ trainerdata 30, "Whitney"
 		
 	ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-1
+        level LEVEL_WHITNEY-2
         pokemon SPECIES_CLEFABLE
         item ITEM_LEFTOVERS
         move MOVE_ICY_WIND
@@ -1481,14 +1481,14 @@ trainerdata 30, "Whitney"
 		
 	ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-1
-        pokemon SPECIES_SAWSBUCK
-        item ITEM_MUSCLE_BAND
+        level LEVEL_WHITNEY-2
+        monWithForm SPECIES_RAPIDASH, 1
+        item ITEM_FOCUS_SASH
         move MOVE_SWORDS_DANCE
-        move MOVE_JUMP_KICK
-        move MOVE_HEADBUTT
-        move MOVE_HORN_LEECH
-        ability ABILITY_SAP_SIPPER
+        move MOVE_PLAY_ROUGH
+        move MOVE_ZEN_HEADBUTT
+        move MOVE_MORNING_SUN
+        ability ABILITY_PASTEL_VEIL
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1499,7 +1499,7 @@ trainerdata 30, "Whitney"
 		
 	ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY
+        level LEVEL_WHITNEY-1
         pokemon SPECIES_TOGEKISS
         item ITEM_LUM_BERRY
         move MOVE_DRAINING_KISS
