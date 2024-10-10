@@ -13629,49 +13629,34 @@ levelup SPECIES_PAWNIARD
     learnset MOVE_SCRATCH, 1
     learnset MOVE_LEER, 1
     learnset MOVE_FURY_CUTTER, 6
-    learnset MOVE_LEER, 6
+    learnset MOVE_METAL_CLAW, 6
     learnset MOVE_TORMENT, 14
-    learnset MOVE_METAL_CLAW, 17
     learnset MOVE_FEINT_ATTACK, 17
     learnset MOVE_SCARY_FACE, 20
-    learnset MOVE_ASSURANCE, 28
-    learnset MOVE_SLASH, 32
-    learnset MOVE_METAL_SOUND, 33
+    learnset MOVE_IRON_HEAD, 28
+    learnset MOVE_NIGHT_SLASH, 32
+    learnset MOVE_METAL_SOUND, 35
     learnset MOVE_EMBARGO, 41
-    learnset MOVE_NIGHT_SLASH, 44
-    learnset MOVE_IRON_DEFENSE, 45
-    learnset MOVE_LASER_FOCUS, 50
-    learnset MOVE_IRON_HEAD, 54
-    learnset MOVE_SWORDS_DANCE, 58
-    learnset MOVE_GUILLOTINE, 63
+    learnset MOVE_ASSURANCE, 44
+    learnset MOVE_KNOCK_OFF, 50
     terminatelearnset
 
 
 levelup SPECIES_BISHARP
+    learnset MOVE_SUCKER_PUNCH, 0
     learnset MOVE_METAL_BURST, 1
-    learnset MOVE_SCRATCH, 1
     learnset MOVE_LEER, 1
-    learnset MOVE_FURY_CUTTER, 1
-    learnset MOVE_METAL_CLAW, 1
-    learnset MOVE_GUILLOTINE, 1
-    learnset MOVE_IRON_HEAD, 1
-    learnset MOVE_TORMENT, 1
-    learnset MOVE_LEER, 6
-    learnset MOVE_FURY_CUTTER, 9
+    learnset MOVE_FURY_CUTTER, 6
+    learnset MOVE_METAL_CLAW, 6
     learnset MOVE_TORMENT, 14
     learnset MOVE_FEINT_ATTACK, 17
     learnset MOVE_SCARY_FACE, 20
-    learnset MOVE_METAL_CLAW, 25
-    learnset MOVE_ASSURANCE, 28
-    learnset MOVE_SLASH, 32
-    learnset MOVE_METAL_SOUND, 33
-    learnset MOVE_EMBARGO, 41
-    learnset MOVE_NIGHT_SLASH, 44
-    learnset MOVE_IRON_DEFENSE, 45
-    learnset MOVE_LASER_FOCUS, 50
-    learnset MOVE_IRON_HEAD, 57
-    learnset MOVE_SWORDS_DANCE, 63
-    learnset MOVE_GUILLOTINE, 71
+    learnset MOVE_IRON_HEAD, 28
+    learnset MOVE_NIGHT_SLASH, 32
+    learnset MOVE_METAL_SOUND, 35
+    learnset MOVE_EMBARGO, 44
+    learnset MOVE_ASSURANCE, 47
+    learnset MOVE_KNOCK_OFF, 54
     terminatelearnset
 
 
