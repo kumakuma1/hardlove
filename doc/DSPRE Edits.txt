@@ -1662,3 +1662,87 @@ Jump Function#1
 Delete from R32
 Add in Ilex: 117 - D36R0101 - Event File 114
 Add OW: Sprite 347, Script 3059, Flag 0
+
+
+#####
+Remove Mom saving Money:
+#####
+063 T20R0201 : Event File 60 - Script File 845 : Script 2:
+
+	CheckFlag 2404 GAME_CLEAR
+	JumpIf EQUAL Function#2  -> SS_Ticket -> Function#3
+	CompareVarValue 0x4108 4
+	JumpIf GREATER/EQUAL Function#3
+	CheckFlag 106
+	JumpIf EQUAL Function#4 -> GetPokeGear, go to Mr. Pokemon
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 6
+
+call Function#17 instead of 3
+
+Function 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 167
+	JumpIf EQUAL Function#7 -> Withdraw,etc
+	CheckBadge 0 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#8 - "I will save money"
+	Message 15
+Jump Function#9
+
+
+034 - R30 Remove call
+Script 5:
+	MecScript 
+	LockAll 
+	SetVar 0x8004 0
+	SetVar 0x8005 2
+	SetVar 0x8006 0
+		//CommonScript 2039
+	SetVar 0x4095 0
+	SetFlag 167
+	ReleaseAll 
+End 
+
+
+### Add trainer to Violet Gym
+Trainer Sage Chow 43, Script 3042, OW220 removed in Sprout Tower 110-D15R0101
+Added in 135-T22GYM0101
+
+
+
+### Replace Spearow Gift in Goldenrod
+Swap script 1 in  101-R35R0101
+
+Add
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 17
+	CloseMessage 
+	ReleaseAll 
+End 
+17: There was a weird tree blocking\nRoute 36.\rI wonder if it’s been cleared?\r
+
+Script 1:
+	...
+End 
+
+
+
+### Shed Shell in Ecruteak
+086 - T27R0501, Event File 83, Script File 928, Text File 618
+Script 12 and 13:
+
+SetVar 0x8004 422 -> 295
+SetVar 0x8005 1
+#define ITEM_SHED_SHELL      295
+
+28: That’s Surf.\nIt’s a move that lets Pokémon swim\facross water with ease.\r
+->
+That’s a Shed Shell.\rIt might come in handy, when facing\nGhost Pokémon.\r
