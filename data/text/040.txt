@@ -152,14 +152,14 @@ Which move should be forgotten?\r
 The move {STRVAR_1 6, 0, 0}?\nShould that move be forgotten? {YESNO 0}
 Your Pokémon has forgotten the move\n{STRVAR_1 6, 0, 0}.\r
 
-I can make Pokémon remember their\nmoves for a Heartscale.\r
-You need more Heart Scales.
+I can make Pokémon remember their\nmoves for a Heart Scale.\r
+You need more Heart Scales.\r
 Which Pokémon needs tutoring?\r
 Which move should I make it remember?\r
 There is no move to remember.\r
-{STRVAR_1 3, 0, 0} handed over one\nHeart Scale in exchange.\r
-
-It costs one Heart Scale to maximize\nan IV of a Pokémon.\rWhich Pokémon’s IV do you want to\nlook at?\r
+{STRVAR_1 3, 0, 0} handed over 1 Heart Scale\nin exchange.\r
+It costs one Heart Scale to maximize\nan IV of a Pokémon.\r
+Which Pokémon’s IV do you want to\nlook at?\r
 Which of your {STRVAR_1 3, 0, 0}’s IVs\ndo you want to maximize?\r
 HP
 Attack
@@ -188,3 +188,61 @@ Sleep
 And to which Pokémon should I apply\nthat status effect?\r
 Your {STRVAR_1 3, 0, 0} is now\ninflicted with a status condition.\r
 Your {STRVAR_1 3, 0, 0} cannot\nbe inflicted with that status.\r
+
+
+Change Nature
+It costs three Heart Scales to change\nthe nature of a Pokémon.\r
+Which Pokémon’s Nature do you want to\nlook at?\r
+Which Nature would you like?
+Hardy     Neutral
+Lonely   {COLOR 1}+Atk{COLOR 0}  {COLOR 3}-Def{COLOR 0}
+Brave    {COLOR 1}+Atk{COLOR 0}  {COLOR 3}-Spe{COLOR 0}
+Adamant {COLOR 1}+Atk{COLOR 0}  {COLOR 3}-SpA{COLOR 0}
+Naughty {COLOR 1}+Atk{COLOR 0}  {COLOR 3}-SpD{COLOR 0}
+Bold      {COLOR 1}+Def{COLOR 0}  {COLOR 3}-Atk{COLOR 0}
+Docile    Neutral
+Relaxed  {COLOR 1}+Def{COLOR 0}  {COLOR 3}-Spe{COLOR 0}
+Impish   {COLOR 1}+Def{COLOR 0}  {COLOR 3}-SpA{COLOR 0}
+Lax       {COLOR 1}+Def{COLOR 0}  {COLOR 3}-SpD{COLOR 0}
+Timid     {COLOR 1}+Spe{COLOR 0}  {COLOR 3}-Atk{COLOR 0}
+Hasty    {COLOR 1}+Spe{COLOR 0}  {COLOR 3}-Def{COLOR 0}
+Serious  Neutral
+Jolly     {COLOR 1}+Spe{COLOR 0}  {COLOR 3}-SpA{COLOR 0}
+Naive    {COLOR 1}+Spe{COLOR 0}  {COLOR 3}-SpD{COLOR 0}
+Modest  {COLOR 1}+SpA{COLOR 0}  {COLOR 3}-Atk{COLOR 0}
+Mild      {COLOR 1}+SpA{COLOR 0}  {COLOR 3}-Def{COLOR 0}
+Quiet    {COLOR 1}+SpA{COLOR 0}  {COLOR 3}-Spe{COLOR 0}
+Bashful  Neutral
+Rash    {COLOR 1}+SpA{COLOR 0}  {COLOR 3}-SpD{COLOR 0}
+Calm     {COLOR 1}+SpD{COLOR 0}  {COLOR 3}-Atk{COLOR 0}
+Gentle  {COLOR 1}+SpD{COLOR 0}  {COLOR 3}-Def{COLOR 0}
+Sassy   {COLOR 1}+SpD{COLOR 0}  {COLOR 3}-Spe{COLOR 0}
+Careful {COLOR 1}+SpD{COLOR 0}  {COLOR 3}-SpA{COLOR 0}
+Quirky   Neutral
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Hardy? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Lonely? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Brave? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Adamant? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Naughty? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Bold? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Docile? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Relaxed? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Impish? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Lax? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Timid? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Hasty? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Serious? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Jolly? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Naive? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Modest? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Mild? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Quiet? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Bashful? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Rash? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Calm? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Gentle? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Sassy? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Careful? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Quirky? {YESNO 0}
+{STRVAR_1 3, 0, 0}’s Nature has been\nchanged!\r
+{STRVAR_1 3, 0, 0} handed over 3 Heart Scales\nin exchange.\r

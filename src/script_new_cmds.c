@@ -43,10 +43,13 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx) {
 #define SET_STATUS_POISON 14
 #define SET_STATUS_SLEEP 15
 
+#define SET_NATURE_MIN 20
+#define SET_NATURE_MAX 44
+
 
 BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
 {
-    u8 sw = ScriptReadByte(ctx);
+    u8 UNUSED sw = ScriptReadByte(ctx);
     u16 property = ScriptReadHalfword(ctx);
     property = GetScriptVar(0x8008);
     u16 partySlot = GetScriptVar(0x8005);
@@ -125,6 +128,13 @@ BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
         }
 
         SetMonData(pp, MON_DATA_STATUS, &sleep);
+    }
+
+    if (property >= SET_NATURE_MIN && property <= SET_NATURE_MAX)
+    {
+        u32 nature = property - SET_NATURE_MIN;
+        SET_MON_NATURE_OVERRIDE(pp, nature)
+        RecalcPartyPokemonStats(pp);
     }
 
     SetScriptVar(0x800C, 1);
