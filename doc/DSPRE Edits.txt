@@ -1746,3 +1746,24 @@ SetVar 0x8005 1
 28: That’s Surf.\nIt’s a move that lets Pokémon swim\facross water with ease.\r
 ->
 That’s a Shed Shell.\rIt might come in handy, when facing\nGhost Pokémon.\r
+
+
+### Remove Berry Pot
+040 - R36 - Script file 243 - Script 1 -> Function 38/39
+
+Function 39:
+	Message 15
+	//SetVar 0x8004 470
+	//SetVar 0x8005 1
+	//CommonScript 2033
+	//Message 16
+	//Message 17
+	SetVar 0x8004 155
+	SetVar 0x8005 3
+	CommonScript 2033
+	SetVar 0x8004 151
+	SetVar 0x8005 3
+	CommonScript 2033
+	Message 18
+
+	Adjust Text 18
