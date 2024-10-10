@@ -16,7 +16,7 @@ TRAINER_AI_FLAGS equ F_USE_WEATHER | F_PRIORITIZE_DAMAGE | F_PRIORITIZE_SUPER_EF
 
 LEVEL_SILVER_1 equ 5
 LEVEL_ELDER_LI equ 12
-LEVEL_FALKNER equ 15
+LEVEL_FALKNER equ 16
 
 LEVEL_PROTON_1 equ 19
 LEVEL_BUGSY equ 24
@@ -944,7 +944,7 @@ trainerdata 20, "Falkner" // Leader
     party 20
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-2
+        level LEVEL_FALKNER-3
         pokemon SPECIES_RUFFLET
         item ITEM_ORAN_BERRY
         move MOVE_AERIAL_ACE
@@ -963,7 +963,7 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-2
+        level LEVEL_FALKNER-3
         pokemon SPECIES_EMOLGA
         item ITEM_ORAN_BERRY
         move MOVE_SHOCK_WAVE
@@ -981,7 +981,7 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER
+        level LEVEL_FALKNER-2
         pokemon SPECIES_TORCHIC
         item ITEM_EVIOLITE
         move MOVE_FLAME_CHARGE
@@ -999,7 +999,7 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER
+        level LEVEL_FALKNER-2
         pokemon SPECIES_DRATINI
         item ITEM_FLAME_ORB
         move MOVE_DRAGON_BREATH
@@ -1035,7 +1035,7 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-1
+        level LEVEL_FALKNER-2
         pokemon SPECIES_QUAXLY
         item ITEM_ORAN_BERRY
         move MOVE_AQUA_JET
