@@ -5,7 +5,7 @@ Flag
 162   - 086-T27R0501 : Script File 928 - Got Surf in Ecruteak, Surf replaced with Shed Shell
 167   - 063-T20R0201 : Talked to Mom for Saving Money. Flag is set, money saving disabled.
 189   -                                - prev. Good Rod. Used for Mega-Ring
-219   - 036-R32      : Script File 232 - Script 6, Poison Barb from Frieda, unused
+219   - 036-R32      : Script File 232 - Script 6, Poison Barb from Frieda, Used for auto heal in gym trainer battles
 270   - 096-D22R0101 : Script File  25 - Silk Scarf in National Park from Persian Lady
 345   - 158-T22PC0101: Script File 860 - Maarep-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod shop TM
 346   - 158-T22PC0101: Script File 860 - Wooper-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod shop TM 2?

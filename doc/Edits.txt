@@ -30,7 +30,6 @@ Route 29
 - encounter
 
 TODO:
-- different formes at night
 
 
 -----------------------------
@@ -39,7 +38,6 @@ Route 46
 - encounter
 
 TODO:
-- different formes at night
 
 
 -----------------------------
@@ -47,11 +45,10 @@ Cherrygrove City
 -----------------------------
 - removed guide Kent events. He is placed in his house
 - fishing encounter
+- added Rock Smash stones for encounter
 
 TODO:
-- fight with kent, mega stone?
-- surf encounter
-
+- add Rock Smash encounter + rate
 
 
 -----------------------------
@@ -59,10 +56,9 @@ Route 30
 -----------------------------
 - fishing encounter
 - encounter
-
+- removed event for Aprikoko box
 TODO:
 - place trainer, so that they are mandatory
-- different formes at night
 - surf encounter
 
 -----------------------------
@@ -76,16 +72,14 @@ Route 31
 TODO:
 - place trainer, so that they are mandatory
 - place bug catcher in front of dark cave
-- different formes at night
 - surf encounter
 
 
 -----------------------------
 Dark Cave - First Part
 -----------------------------
-- 
+- heart scale in ball
 TODO:
-- heart scale?
 - remove need for flash
 - surf encounter
 
@@ -98,10 +92,10 @@ Violet City
 - removed Primo and use flags otherwise
 - candy reached with surf
 TODO:
-- IVs for Onix trade?
+- IVs for Onix trade? / replace trade
 - surf encounter
 - heart scale behind rock?
-- heart rached with surf?
+
 
 -----------------------------
 Route 36 - First Part
@@ -119,6 +113,7 @@ Ruins of Alph
 - encounter
 - fishing encounter
 - Ruins are blocked until after Whitney Badge
+- Never Melt Ice
 TODO:
 - (Move NPC inside of cave to allow for early Union Cave encounter)?
 - surf encounter
@@ -130,11 +125,17 @@ TODO:
 - night form encounter
 
 -----------------------------
+Sprout Tower 1F
+-----------------------------
+- removed trainer -> Gym
+- ever stone
+TODO:
+
+-----------------------------
 Sprout Tower 2F
 -----------------------------
 - encounter
 TODO:
-- heart scale?
 - move trainer(s) to route 37?
 
 -----------------------------
@@ -152,14 +153,14 @@ Route 32 - Second Part
 -----------------------------
 - removed cut tree
 - removed Guy giving old rod - used flag otherwise
+- miracle Seed
+- Poison barb behind rock
 TODO:
 - made trainier mandatory
 - items
 - Bird keeper Mini boss
 - fishing encounter
 - surf encounter
-- Give Poison Barb, remove Weekly NPC
-- Make Rare Candy with Mini Boss, Best at Fishing jetty
 - heart scale?
 
 -----------------------------
@@ -192,6 +193,7 @@ Ilex Forrest
 -----------------------------
 - heabutt teacher moved closer to entrance
 - no need to catch Porentas to get HM01 Cut
+- Boss guards Candy
 TODO:
 - encounter
 - overhall heabutt encounter
@@ -253,8 +255,8 @@ Goldenrod Game Corner
 - add NPC to buy coins
 - replaced pokemon prizes with badge scaling prices
 - move tutor 1 (Top left) here
-- Items replaced: Scope lens (5k), Wide lens (2k), Toxic Orb (5k), Flame Orb (5k)
-- TMs: Swords Dance 10k, Substitute 6k
+//- Items replaced: Scope lens (5k), Wide lens (2k), Toxic Orb (5k), Flame Orb (5k)
+//- TMs: Swords Dance 10k, Substitute 6k
 TODO:
 - badge scaling pokemon held items
 - badge scaling offering multiple pokemons per badge
@@ -269,11 +271,12 @@ TODO:
 
 
 -----------------------------
-Route 37
+Route 36
 -----------------------------
 - Mini Boss with level cap increase
 - Psychic with Flame Orb and Trick Pokemon
 TODO:
+- Toxic Orb
 
 
 
