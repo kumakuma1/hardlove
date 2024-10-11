@@ -4177,33 +4177,28 @@ levelup SPECIES_GIRAFARIG
 
 levelup SPECIES_PINECO
     learnset MOVE_TACKLE, 1
-    learnset MOVE_PROTECT, 1
     learnset MOVE_SELF_DESTRUCT, 6
     learnset MOVE_BUG_BITE, 9
     learnset MOVE_TAKE_DOWN, 12
     learnset MOVE_RAPID_SPIN, 17
     learnset MOVE_BIDE, 20
-    learnset MOVE_NATURAL_GIFT, 23
-    learnset MOVE_SPIKES, 28
+    learnset MOVE_NATURAL_GIFT, 22
+    learnset MOVE_POUNCE, 24
     learnset MOVE_PAYBACK, 31
     learnset MOVE_EXPLOSION, 34
-    learnset MOVE_IRON_DEFENSE, 39
     learnset MOVE_GYRO_BALL, 42
     learnset MOVE_DOUBLE_EDGE, 45
     terminatelearnset
 
 
 levelup SPECIES_FORRETRESS
-    learnset MOVE_AUTOTOMIZE, 0
     learnset MOVE_MIRROR_SHOT, 0
     learnset MOVE_MIRROR_SHOT, 1
     learnset MOVE_AUTOTOMIZE, 1
     learnset MOVE_HEAVY_SLAM, 1
     learnset MOVE_ZAP_CANNON, 1
     learnset MOVE_MAGNET_RISE, 1
-    learnset MOVE_TOXIC_SPIKES, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_PROTECT, 1
     learnset MOVE_SELF_DESTRUCT, 1
     learnset MOVE_BUG_BITE, 1
     learnset MOVE_SELF_DESTRUCT, 6
@@ -4211,11 +4206,10 @@ levelup SPECIES_FORRETRESS
     learnset MOVE_TAKE_DOWN, 12
     learnset MOVE_RAPID_SPIN, 17
     learnset MOVE_BIDE, 20
-    learnset MOVE_NATURAL_GIFT, 23
-    learnset MOVE_SPIKES, 28
+    learnset MOVE_NATURAL_GIFT, 22
+    learnset MOVE_POUNCE, 24
     learnset MOVE_PAYBACK, 32
     learnset MOVE_EXPLOSION, 36
-    learnset MOVE_IRON_DEFENSE, 42
     learnset MOVE_GYRO_BALL, 46
     learnset MOVE_DOUBLE_EDGE, 50
     learnset MOVE_MAGNET_RISE, 56
