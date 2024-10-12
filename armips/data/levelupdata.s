@@ -7838,12 +7838,12 @@ levelup SPECIES_TURTWIG
 
 
 levelup SPECIES_GROTLE
+    learnset MOVE_SAND_TOMB, 0
     learnset MOVE_BITE, 1 
     learnset MOVE_GROWL, 1 
     learnset MOVE_ABSORB, 5 
     learnset MOVE_CONFIDE, 10
     learnset MOVE_RAZOR_LEAF, 14
-    learnset MOVE_SAND_TOMB, 16
     learnset MOVE_ROAR, 21
     learnset MOVE_MEGA_DRAIN, 25
     learnset MOVE_NATURE_POWER, 29
@@ -7855,6 +7855,7 @@ levelup SPECIES_GROTLE
 
 
 levelup SPECIES_TORTERRA
+    learnset MOVE_STOMPING_TANTRUM, 0
     learnset MOVE_HEAD_SMASH, 1 
     learnset MOVE_SYNTHESIS, 1 
     learnset MOVE_BITE, 1 
@@ -7867,7 +7868,6 @@ levelup SPECIES_TORTERRA
     learnset MOVE_MEGA_DRAIN, 25
     learnset MOVE_NATURE_POWER, 29
     learnset MOVE_SEED_BOMB, 32
-    learnset MOVE_STOMPING_TANTRUM, 36
     learnset MOVE_GIGA_DRAIN, 40
     learnset MOVE_CRUNCH, 45
     learnset MOVE_EARTHQUAKE, 48
@@ -13800,6 +13800,7 @@ levelup SPECIES_FROGADIER
 
 
 levelup SPECIES_GRENINJA
+    learnset MOVE_WATER_SHURIKEN, 0
     learnset MOVE_GUNK_SHOT, 1 
     learnset MOVE_EXTRASENSORY, 1 
     learnset MOVE_MAT_BLOCK, 1 
@@ -13815,7 +13816,6 @@ levelup SPECIES_GRENINJA
     learnset MOVE_ROUND, 28
     learnset MOVE_WATERFALL, 32
     learnset MOVE_FLING, 35
-    learnset MOVE_WATER_SHURIKEN, 36
     learnset MOVE_SURF, 41
     learnset MOVE_NIGHT_SLASH, 48
     learnset MOVE_HYDRO_PUMP, 57
@@ -15241,6 +15241,7 @@ levelup SPECIES_TORRACAT
 
 
 levelup SPECIES_INCINEROAR
+    learnset MOVE_DARKEST_LARIAT, 0
     learnset MOVE_SCRATCH, 1 
     learnset MOVE_EMBER, 1 
     learnset MOVE_LICK, 4 
@@ -15251,7 +15252,6 @@ levelup SPECIES_INCINEROAR
     learnset MOVE_BITE, 21
     learnset MOVE_SCARY_FACE, 27
     learnset MOVE_BLAZE_KICK, 32
-    learnset MOVE_DARKEST_LARIAT, 34
     learnset MOVE_THRASH, 39
     learnset MOVE_FAKE_OUT, 43
     learnset MOVE_PARTING_SHOT, 48
