@@ -1864,21 +1864,25 @@ _changenature:
     AddListOption 199, 255, 23
 	AddListOption 200, 255, 24
 	AddListOption 201, 255, 25
+    AddListOption 202, 255, 26
     AddListOption 203, 255, 27
     AddListOption 204, 255, 28
     AddListOption 205, 255, 29
     AddListOption 206, 255, 30
     AddListOption 207, 255, 31
+    AddListOption 208, 255, 32
     AddListOption 209, 255, 33
     AddListOption 210, 255, 34
     AddListOption 211, 255, 35
     AddListOption 212, 255, 36
     AddListOption 213, 255, 37
+    AddListOption 214, 255, 38
     AddListOption 215, 255, 39
     AddListOption 216, 255, 40
     AddListOption 217, 255, 41
     AddListOption 218, 255, 42
     AddListOption 219, 255, 43
+    AddListOption 220, 255, 44
     AddListOption 144, 255, 0
     ShowList
     switch VAR_SPECIAL_RESULT
@@ -1888,21 +1892,25 @@ _changenature:
     case 23, _nature23
     case 24, _nature24
     case 25, _nature25
+    case 26, _nature26
     case 27, _nature27
     case 28, _nature28
     case 29, _nature29
     case 30, _nature30
     case 31, _nature31
+    case 32, _nature32
     case 33, _nature33
     case 34, _nature34
     case 35, _nature35
     case 36, _nature36
     case 37, _nature37
+    case 38, _nature38
     case 39, _nature39
     case 40, _nature40
     case 41, _nature41
     case 42, _nature42
     case 43, _nature43
+    case 44, _nature44
     goto _exit
 
  _nature20:
@@ -1971,6 +1979,17 @@ _nature25:
     npc_msg 246 //done nature
     goto _takescale3
 
+_nature26:
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 227 //sure?
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _exit
+    SetMonProperty
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 246 //done nature
+    goto _takescale3
+
 _nature27:
     TextPartyPokemon 0, VAR_SPECIAL_x8005
     npc_msg 228 //sure?
@@ -2018,6 +2037,17 @@ _nature30:
 _nature31:
     TextPartyPokemon 0, VAR_SPECIAL_x8005
     npc_msg 232 //sure?
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _exit
+    SetMonProperty
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 246 //done nature
+    goto _takescale3
+
+_nature32:
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 233 //sure?
     yesno VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, 1
     goto_if_eq _exit
@@ -2081,6 +2111,16 @@ _nature37:
     npc_msg 246 //done nature
     goto _takescale3
 
+_nature38:
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 239 //sure?
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _exit
+    SetMonProperty
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 246 //done nature
+    goto _takescale3
 
 _nature39:
     TextPartyPokemon 0, VAR_SPECIAL_x8005
@@ -2129,6 +2169,17 @@ _nature42:
 _nature43:
     TextPartyPokemon 0, VAR_SPECIAL_x8005
     npc_msg 244 //sure?
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _exit
+    SetMonProperty
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 246 //done nature
+    goto _takescale3
+
+_nature44:
+    TextPartyPokemon 0, VAR_SPECIAL_x8005
+    npc_msg 245 //sure?
     yesno VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, 1
     goto_if_eq _exit
