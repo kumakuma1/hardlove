@@ -1719,6 +1719,7 @@ End
 
 ### Add trainer to Violet Gym
 Trainer Sage Chow 43, Script 3042, OW220 removed in Sprout Tower 110-D15R0101
+        Sage Jin 53, Script 3052, OW220 removed in Sprout Tower 156-D15R0103
 Added in 135-T22GYM0101
 
 
@@ -1780,7 +1781,7 @@ Function 39:
 
 
 ### Heal Party in Gym Fights
-in Script FIle 953 add Function before each battle. Set the the Flag in Level Script and clear when entering/wipe out
+in Script File 953 add Function before each battle. Set the the Flag in Level Script when entering and clear when exiting (fade Screen) /wipe out
 
 CheckFlag 219
 	CallIf EQUAL Function#20

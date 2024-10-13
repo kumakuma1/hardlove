@@ -18,7 +18,7 @@ LEVEL_SILVER_1 equ 5
 LEVEL_ELDER_LI equ 12
 LEVEL_FALKNER equ 16
 
-LEVEL_PROTON_1 equ 19
+LEVEL_PROTON_1 equ 20
 LEVEL_BUGSY equ 24
 LEVEL_SCHORSCH equ 29
 LEVEL_WHITNEY equ 31
@@ -229,14 +229,14 @@ trainerdata 4, "Wade"  // Route 31
     party 4
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-2
-        pokemon SPECIES_BUTTERFREE
-        item ITEM_ORAN_BERRY
-        move MOVE_U_TURN
-        move MOVE_SLEEP_POWDER
+        level LEVEL_ELDER_LI-4
+        pokemon SPECIES_COMBEE
+        item ITEM_WIDE_LENS
+        move MOVE_BUG_BITE
+        move MOVE_DUAL_WINGBEAT
         move MOVE_NONE
         move MOVE_NONE
-        ability ABILITY_TINTED_LENS
+        ability ABILITY_HUSTLE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -247,14 +247,14 @@ trainerdata 4, "Wade"  // Route 31
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-2
-        pokemon SPECIES_BEAUTIFLY
-        item ITEM_ORAN_BERRY
-        move MOVE_U_TURN
-        move MOVE_STUN_SPORE
-        move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_SWARM
+        level LEVEL_ELDER_LI-4
+        pokemon SPECIES_VENIPEDE
+        item ITEM_BLACK_SLUDGE
+        move MOVE_TOXIC
+        move MOVE_INFESTATION
+        move MOVE_PROTECT
+        move MOVE_BUG_BITE
+        ability ABILITY_SPEED_BOOST
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -265,18 +265,18 @@ trainerdata 4, "Wade"  // Route 31
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-2
-        pokemon SPECIES_VIVILLON
+        level LEVEL_ELDER_LI-4
+        pokemon SPECIES_JOLTIK
         item ITEM_ORAN_BERRY
-        move MOVE_U_TURN
-        move MOVE_STUN_SPORE
-        move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_MAGIC_GUARD
+        move MOVE_THUNDER_WAVE
+        move MOVE_BUG_BITE
+        move MOVE_ABSORB
+        move MOVE_THUNDER_SHOCK
+        ability ABILITY_UNNERVE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -395,7 +395,7 @@ trainerdata 8, "Joey" // Route 30
     party 8
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-4
+        level LEVEL_ELDER_LI-5
         pokemon SPECIES_EKANS
         item ITEM_ORAN_BERRY
         move MOVE_GLARE
@@ -413,7 +413,7 @@ trainerdata 8, "Joey" // Route 30
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-4
+        level LEVEL_ELDER_LI-5
         pokemon SPECIES_PATRAT
         item ITEM_ORAN_BERRY
         move MOVE_BITE
@@ -431,7 +431,7 @@ trainerdata 8, "Joey" // Route 30
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-4
+        level LEVEL_ELDER_LI-5
         pokemon SPECIES_RATTATA
         item ITEM_FOCUS_BAND
         move MOVE_QUICK_ATTACK
@@ -1037,10 +1037,10 @@ trainerdata 20, "Falkner" // Leader
         abilityslot 0
         level LEVEL_FALKNER-2
         pokemon SPECIES_QUAXLY
-        item ITEM_ORAN_BERRY
+        item ITEM_FLYING_GEM
         move MOVE_AQUA_JET
         move MOVE_ROOST
-        move MOVE_WING_ATTACK
+        move MOVE_PECK
         move MOVE_NONE
         ability ABILITY_MOXIE
         ball ITEM_POKE_BALL
@@ -2564,38 +2564,71 @@ trainerdata 50, "Abe"
         ballseal 0
     endparty
 
-trainerdata 51, "Nico"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 51, "Nico" //Sprout tower
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_SAGE
     nummons 3
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 51
-        // mon 0
         ivs 0
         abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI-3
+        pokemon SPECIES_NINJASK
+        item ITEM_BRIGHT_POWDER
+        move MOVE_SAND_ATTACK
+        move MOVE_SWAGGER
+        move MOVE_DOUBLE_TEAM
+        move MOVE_NONE
+        ability ABILITY_SPEED_BOOST
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
         abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI-3
+        pokemon SPECIES_TREECKO
+        item ITEM_GRASS_GEM
+        move MOVE_ABSORB
+        move MOVE_NONE
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_UNBURDEN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 2
         ivs 0
         abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI-3
+        pokemon SPECIES_TRAPINCH
+        item ITEM_SALAC_BERRY
+        move MOVE_BULLDOZE
+        move MOVE_ROCK_TOMB
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_ARENA_TRAP
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
