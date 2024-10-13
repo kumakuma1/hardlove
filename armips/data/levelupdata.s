@@ -13766,13 +13766,15 @@ levelup SPECIES_DELPHOX
 
 
 levelup SPECIES_FROAKIE
-    learnset MOVE_BUBBLE, 1 
+    learnset MOVE_POUND, 1 
     learnset MOVE_LICK, 1 
+    learnset MOVE_WATER_GUN, 5 
     learnset MOVE_GROWL, 6 
     learnset MOVE_QUICK_ATTACK, 11
     learnset MOVE_WATER_PULSE, 14
     learnset MOVE_BOUNCE, 17
     learnset MOVE_SMOKESCREEN, 21
+    learnset MOVE_THIEF, 23
     learnset MOVE_ROUND, 26
     learnset MOVE_WATERFALL, 30
     learnset MOVE_FLING, 33
@@ -13783,13 +13785,15 @@ levelup SPECIES_FROAKIE
 
 
 levelup SPECIES_FROGADIER
-    learnset MOVE_BUBBLE, 1 
+    learnset MOVE_POUND, 1 
     learnset MOVE_LICK, 1 
+    learnset MOVE_WATER_GUN, 5 
     learnset MOVE_GROWL, 6 
     learnset MOVE_QUICK_ATTACK, 11
     learnset MOVE_WATER_PULSE, 14
     learnset MOVE_BOUNCE, 18
     learnset MOVE_SMOKESCREEN, 22
+    learnset MOVE_THIEF, 24
     learnset MOVE_ROUND, 28
     learnset MOVE_WATERFALL, 32
     learnset MOVE_FLING, 35
@@ -13806,17 +13810,20 @@ levelup SPECIES_GRENINJA
     learnset MOVE_MAT_BLOCK, 1 
     learnset MOVE_HAZE, 1 
     learnset MOVE_SPIKES, 1 
-    learnset MOVE_BUBBLE, 1 
+    learnset MOVE_POUND, 1 
     learnset MOVE_LICK, 1 
+    learnset MOVE_WATER_GUN, 5 
     learnset MOVE_GROWL, 6 
     learnset MOVE_SHADOW_SNEAK, 11
     learnset MOVE_WATER_PULSE, 14
     learnset MOVE_BOUNCE, 18
     learnset MOVE_SMOKESCREEN, 22
+    learnset MOVE_THIEF, 24
     learnset MOVE_ROUND, 28
     learnset MOVE_WATERFALL, 32
     learnset MOVE_FLING, 35
     learnset MOVE_SURF, 41
+    learnset MOVE_ACROBATICS, 46
     learnset MOVE_NIGHT_SLASH, 48
     learnset MOVE_HYDRO_PUMP, 57
     learnset MOVE_DARK_PULSE, 65
