@@ -2789,38 +2789,71 @@ trainerdata 51, "Nico" //Sprout tower
         ballseal 0
     endparty
 
-trainerdata 52, "Edmond"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 52, "Edmond" // Sprout Tower
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_SAGE
     nummons 3
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 52
-        // mon 0
         ivs 0
         abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI-2
+        monwithform SPECIES_MEOWTH, 1
+        item ITEM_SILK_SCARF
+        move MOVE_FAKE_OUT
+        move MOVE_PARTING_SHOT
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_TECHNICIAN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
         abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI-3
+        pokemon SPECIES_MIENFOO
+        item ITEM_COBA_BERRY
+        move MOVE_FAKE_OUT
+        move MOVE_U_TURN
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_REGENERATOR
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 2
         ivs 0
         abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI-2
+        pokemon SPECIES_CROAGUNK
+        item ITEM_COBA_BERRY
+        move MOVE_FAKE_OUT
+        move MOVE_BELCH
+        move MOVE_ROCK_SMASH
+        move MOVE_NONE
+        ability ABILITY_POISON_POINT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -2846,7 +2879,7 @@ trainerdata 53, "Jin" // Violet Gym
         move MOVE_ROOST
         move MOVE_ANCIENT_POWER
         move MOVE_ROCK_TOMB
-        ability ABILITY_SPEED_BOOST
+        ability ABILITY_SERENE_GRACE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -2882,7 +2915,7 @@ trainerdata 53, "Jin" // Violet Gym
         move MOVE_PURSUIT
         move MOVE_REST
         move MOVE_SLEEP_TALK
-        ability ABILITY_ARENA_TRAP
+        ability ABILITY_EARLY_BIRD
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -2900,7 +2933,7 @@ trainerdata 53, "Jin" // Violet Gym
         move MOVE_WILL_O_WISP
         move MOVE_PAIN_SPLIT
         move MOVE_FOUL_PLAY
-        ability ABILITY_ARENA_TRAP
+        ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -2911,52 +2944,158 @@ trainerdata 53, "Jin" // Violet Gym
     endparty
 
 
-trainerdata 54, "Troy"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 54, "Troy" // Sprout Tower
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_SAGE
-    nummons 2
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 54
-        // mon 0
         ivs 0
         abilityslot 0
-        level 7
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI-2
+        pokemon SPECIES_BONSLY
+        item ITEM_CUSTAP_BERRY
+        move MOVE_DOUBLE_EDGE
+        move MOVE_FOUL_PLAY
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
-        abilityslot 32
-        level 7
-        pokemon SPECIES_HOOTHOOT
+        abilityslot 0
+        level LEVEL_ELDER_LI-3
+        monWithForm SPECIES_MEOWTH, 1
+        item ITEM_SILK_SCARF
+        move MOVE_FAKE_OUT
+        move MOVE_ASSIST
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_TECHNICIAN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI-2
+        pokemon SPECIES_CHIMCHAR
+        item ITEM_MUSCLE_BAND
+        move MOVE_FAKE_OUT
+        move MOVE_ASSIST
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_BLAZE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI-2
+        pokemon SPECIES_PURRLOIN
+        item ITEM_CHOPLE_BERRY
+        move MOVE_FAKE_OUT
+        move MOVE_ASSIST
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_PRANKSTER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
-trainerdata 55, "Neal"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+
+trainerdata 55, "Neal" // Sprout Tower
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_SAGE
-    nummons 1
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 55
-        // mon 0
         ivs 0
         abilityslot 0
-        level 6
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI-1
+        pokemon SPECIES_TENTACOOL
+        item ITEM_POISON_BARB
+        move MOVE_WATER_PULSE
+        move MOVE_ACID_SPRAY
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_CLEAR_BODY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI-2
+        pokemon SPECIES_CLEFAIRY
+        item ITEM_WIDE_LENS
+        move MOVE_THUNDER_WAVE
+        move MOVE_DISARMING_VOICE
+        move MOVE_SING
+        move MOVE_SWEET_KISS
+        ability ABILITY_MAGIC_GUARD
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI-2
+        pokemon SPECIES_TRUBBISH
+        item ITEM_KINGS_ROCK
+        move MOVE_HEADBUTT
+        move MOVE_ASTONISH
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_STENCH
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
