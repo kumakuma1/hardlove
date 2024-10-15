@@ -1399,7 +1399,7 @@ trainerdata 29, "Rod" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-2
+        level LEVEL_FALKNER-2
         pokemon SPECIES_DRIFLOON
         item ITEM_COLBUR_BERRY
         move MOVE_ACROBATICS
@@ -1417,7 +1417,7 @@ trainerdata 29, "Rod" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-2
+        level LEVEL_FALKNER-2
         pokemon SPECIES_DRIFLOON
         item ITEM_COLBUR_BERRY
         move MOVE_ACROBATICS
@@ -1435,7 +1435,7 @@ trainerdata 29, "Rod" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
+        level LEVEL_FALKNER-3
         monWithForm SPECIES_FARFETCHD, 1
         item ITEM_LEEK
         move MOVE_ROCK_SMASH
@@ -1453,7 +1453,7 @@ trainerdata 29, "Rod" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-2
+        level LEVEL_FALKNER-2
         pokemon SPECIES_TOGEPI
         item ITEM_EVIOLITE
         move MOVE_DRAINING_KISS
@@ -1462,7 +1462,7 @@ trainerdata 29, "Rod" // Violet Gym
         move MOVE_PROTECT
         ability ABILITY_SERENE_GRACE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 30, 30 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
         shinylock 0
@@ -2667,7 +2667,7 @@ trainerdata 50, "Abe" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
+        level LEVEL_FALKNER-3
         pokemon SPECIES_STARLY
         item ITEM_NORMAL_GEM
         move MOVE_TAKE_DOWN
@@ -2685,7 +2685,7 @@ trainerdata 50, "Abe" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
+        level LEVEL_FALKNER-3
         pokemon SPECIES_FLETCHLING
         item ITEM_BERRY_JUICE
         move MOVE_BRAVE_BIRD
@@ -2703,7 +2703,7 @@ trainerdata 50, "Abe" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
+        level LEVEL_FALKNER-3
         pokemon SPECIES_DELIBIRD
         item ITEM_CHARTI_BERRY
         move MOVE_PRESENT
@@ -2857,7 +2857,7 @@ trainerdata 53, "Jin" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
+        level LEVEL_FALKNER-3
         pokemon SPECIES_SPEAROW
         item ITEM_SCOPE_LENS
         move MOVE_PLUCK
@@ -2875,7 +2875,7 @@ trainerdata 53, "Jin" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
+        level LEVEL_FALKNER-3
         pokemon SPECIES_DODUO
         item ITEM_EVIOLITE
         move MOVE_PLUCK
@@ -2893,7 +2893,7 @@ trainerdata 53, "Jin" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
+        level LEVEL_FALKNER-3
         pokemon SPECIES_MISDREAVUS
         item ITEM_COLBUR_BERRY
         move MOVE_HEX
