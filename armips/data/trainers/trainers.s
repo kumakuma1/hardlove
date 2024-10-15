@@ -1366,31 +1366,107 @@ trainerdata 28, "Jake"
         ballseal 0
     endparty
 
-trainerdata 29, "Rod"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 29, "Rod" // Violet Gym
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_BIRD_KEEPER_1
-    nummons 2
+    nummons 5
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 29
-        // mon 0
-        ivs 30
+        ivs 0
         abilityslot 0
-        level 7
-        pokemon SPECIES_PIDGEY
+        level LEVEL_FALKNER-3
+        pokemon SPECIES_DARTRIX
+        item ITEM_OCCA_BERRY
+        move MOVE_PLUCK
+        move MOVE_RAZOR_LEAF
+        move MOVE_DOUBLE_TEAM
+        move MOVE_ROOST
+        ability ABILITY_SPEED_BOOST
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
-        ivs 30
+        ivs 0
         abilityslot 0
-        level 7
-        pokemon SPECIES_PIDGEY
+        level LEVEL_ELDER_LI-2
+        pokemon SPECIES_DRIFLOON
+        item ITEM_COLBUR_BERRY
+        move MOVE_ACROBATICS
+        move MOVE_HEX
+        move MOVE_WILL_O_WISP
+        move MOVE_HIDDEN_POWER //GROUND
+        ability ABILITY_UNBURDEN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 30, 30 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI-2
+        pokemon SPECIES_DRIFLOON
+        item ITEM_COLBUR_BERRY
+        move MOVE_ACROBATICS
+        move MOVE_HEX
+        move MOVE_WILL_O_WISP
+        move MOVE_HIDDEN_POWER //GROUND
+        ability ABILITY_AFTERMATH
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 30, 30 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI-3
+        monWithForm SPECIES_FARFETCHD, 1
+        item ITEM_LEEK
+        move MOVE_ROCK_SMASH
+        move MOVE_BRUTAL_SWING
+        move MOVE_RETALIATE
+        move MOVE_QUICK_ATTACK
+        ability ABILITY_SCRAPPY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI-2
+        pokemon SPECIES_TOGEPI
+        item ITEM_EVIOLITE
+        move MOVE_DRAINING_KISS
+        move MOVE_ANCIENT_POWER
+        move MOVE_WISH
+        move MOVE_PROTECT
+        ability ABILITY_SERENE_GRACE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 30, 30 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -2232,7 +2308,7 @@ trainerdata 41, "Clyde"
 trainerdata 42, "Nathan" // Ruins of Alph Mini Boss
     trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_PSYCHIC_M
-    nummons 4
+    nummons 3
     item ITEM_NONE 
     item ITEM_NONE 
     item ITEM_NONE 
@@ -2245,24 +2321,24 @@ trainerdata 42, "Nathan" // Ruins of Alph Mini Boss
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-2
-        pokemon SPECIES_CLEFAIRY
-        item ITEM_FOCUS_SASH
-        move MOVE_STEALTH_ROCK
-        move MOVE_DRAINING_KISS
-        move MOVE_SOFT_BOILED
-        move MOVE_THUNDER_WAVE
-        ability ABILITY_MAGIC_GUARD
+        pokemon SPECIES_STARAVIA
+        item ITEM_ORAN_BERRY
+        move MOVE_QUICK_ATTACK
+        move MOVE_SAND_ATTACK
+        move MOVE_PLUCK
+        move MOVE_ROOST
+        ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
-        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_CALM
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-1
+        level LEVEL_FALKNER-2
         pokemon SPECIES_BIBAREL
         item ITEM_CHESTO_BERRY
         move MOVE_AQUA_JET
@@ -2280,73 +2356,88 @@ trainerdata 42, "Nathan" // Ruins of Alph Mini Boss
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER
+        level LEVEL_FALKNER-2
         pokemon SPECIES_FLAAFFY
         item ITEM_ORAN_BERRY
-        move MOVE_THUNDER_SHOCK
+        move MOVE_THUNDER_PUNCH
         move MOVE_COTTON_GUARD
         move MOVE_TAKE_DOWN
-        move MOVE_CHARGE
+        move MOVE_FIRE_PUNCH
         ability ABILITY_STATIC
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_MODEST
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-    
-        ivs 0
-        abilityslot 0
-        level LEVEL_FALKNER
-        pokemon SPECIES_STARAVIA
-        item ITEM_ORAN_BERRY
-        move MOVE_QUICK_ATTACK
-        move MOVE_SAND_ATTACK
-        move MOVE_PLUCK
-        move MOVE_ROOST
-        ability ABILITY_INTIMIDATE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
     endparty
 
-trainerdata 43, "Chow"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 43, "Chow" // Violet Gym
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_SAGE
     nummons 3
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 43
-        // mon 0
         ivs 0
         abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_FALKNER-4
+        pokemon SPECIES_GLIGAR
+        item ITEM_LEFTOVERS
+        move MOVE_AERIAL_ACE
+        move MOVE_SAND_TOMB
+        move MOVE_PROTECT
+        move MOVE_ROOST
+        ability ABILITY_HYPER_CUTTER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
         abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI-3
+        pokemon SPECIES_PIKIPEK
+        item ITEM_FOCUS_SASH // ITEM_SCOPE_LENS?
+        move MOVE_FURY_ATTACK
+        move MOVE_BULLET_SEED
+        move MOVE_ROCK_BLAST
+        move MOVE_NONE
+        ability ABILITY_SKILL_LINK
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 2
         ivs 0
         abilityslot 0
-        level 3
-        pokemon SPECIES_BELLSPROUT
+        level LEVEL_ELDER_LI-3
+        pokemon SPECIES_PIKACHU
+        item ITEM_AIR_BALLOON
+        move MOVE_FAKE_OUT
+        move MOVE_THUNDER_PUNCH
+        move MOVE_SURF
+        move MOVE_FLY
+        ability ABILITY_STATIC
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_SERIOUS
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -2585,7 +2676,7 @@ trainerdata 51, "Nico" //Sprout tower
         move MOVE_SAND_ATTACK
         move MOVE_SWAGGER
         move MOVE_DOUBLE_TEAM
-        move MOVE_NONE
+        move MOVE_FALSE_SWIPE
         ability ABILITY_SPEED_BOOST
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef

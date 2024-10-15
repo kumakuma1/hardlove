@@ -1789,3 +1789,5 @@ CheckFlag 219
 Function 20:
 	HealPokemon 
 Return 
+
+Hacky solution in violet
