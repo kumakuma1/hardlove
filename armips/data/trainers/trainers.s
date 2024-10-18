@@ -1298,26 +1298,74 @@ trainerdata 26, "Roland"
         ballseal 0
     endparty
 
-trainerdata 27, "Liz"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 27, "Liz" // Route 32
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_PICNICKER
-    nummons 1
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 27
-        // mon 0
         ivs 0
-        abilityslot 32
-        level 8
-        pokemon SPECIES_NIDORAN_F
+        abilityslot 0
+        level LEVEL_PROTON_1-4
+        pokemon SPECIES_NIDORINA
+        item ITEM_LUM_BERRY
+        move MOVE_VENOSHOCK
+        move MOVE_WATER_PULSE
+        move MOVE_SHOCK_WAVE
+        move MOVE_TOXIC
+        ability ABILITY_POISON_POINT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PROTON_1-5
+        pokemon SPECIES_SEALEO
+        item ITEM_LUM_BERRY
+        move MOVE_ICE_BALL
+        move MOVE_WATER_PULSE
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_THICK_FAT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_SERIOUS
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PROTON_1-4
+        pokemon SPECIES_CORVISQUIRE
+        item ITEM_LEFTOVERS
+        move MOVE_PLUCK
+        move MOVE_ROOST
+        move MOVE_HONE_CLAWS
+        move MOVE_POWER_TRIP
+        ability ABILITY_UNNERVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
+
 
 trainerdata 28, "Jake"
     trainermontype TRAINER_DATA_TYPE_MOVES
@@ -2406,7 +2454,7 @@ trainerdata 43, "Chow" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
+        level LEVEL_FALKNER-3
         pokemon SPECIES_PIKIPEK
         item ITEM_FOCUS_SASH // ITEM_SCOPE_LENS?
         move MOVE_FURY_ATTACK
@@ -2424,7 +2472,7 @@ trainerdata 43, "Chow" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
+        level LEVEL_FALKNER-3
         pokemon SPECIES_PIKACHU
         item ITEM_AIR_BALLOON
         move MOVE_FAKE_OUT
@@ -2606,33 +2654,74 @@ trainerdata 48, "Rob"
         ballseal 0
     endparty
 
-trainerdata 49, "Albert"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 49, "Albert" // Route 32
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_YOUNGSTER
-    nummons 2
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 49
-        // mon 0
         ivs 0
         abilityslot 0
-        level 6
-        pokemon SPECIES_RATTATA
+        level LEVEL_PROTON_1-5
+        pokemon SPECIES_RATICATE
+        item ITEM_FLAME_ORB
+        move MOVE_PROTECT
+        move MOVE_QUICK_ATTACK
+        move MOVE_CRUNCH
+        move MOVE_PLUCK
+        ability ABILITY_GUTS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
         abilityslot 0
-        level 8
-        pokemon SPECIES_ZUBAT
+        level LEVEL_PROTON_1-5
+        pokemon SPECIES_GOLBAT
+        item ITEM_GRASS_GEM
+        move MOVE_MEGA_DRAIN
+        move MOVE_AIR_CUTTER
+        move MOVE_SLUDGE
+        move MOVE_NONE
+        ability ABILITY_INFILTRATOR
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PROTON_1-5
+        pokemon SPECIES_ROSELIA
+        item ITEM_MIRACLE_SEED
+        move MOVE_MEGA_DRAIN
+        move MOVE_SLUDGE
+        move MOVE_GRASS_WHISTLE
+        move MOVE_HIDDEN_POWER //ROCK
+        ability ABILITY_POISON_POINT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 30, 30, 31, 30 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
+
 
 trainerdata 50, "Abe" // Violet Gym
     trainermontype TRAINER_MON_TYPE_FLAGS
