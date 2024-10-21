@@ -111,14 +111,20 @@ EIGHT_BADGES equ 6
 /* Goldenrod Dept. Store 4F -> Goldenrod 4F - CommonScript 2052  6 */
 /* const u16 _020FBAFA[] = {ITEM_PROTEIN, ITEM_IRON, ITEM_CALCIUM, ITEM_ZINC, ITEM_CARBOS, ITEM_HP_UP, 0xFFFF}; */
 
+/* Goldenrod Dept. Store 3F -> Goldenrod 4F - CommonScript 2052  5 */
+/* const u16 _020FBBB4[] = {ITEM_X_SPEED, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_GUARD_SPEC_, ITEM_DIRE_HIT, ITEM_X_ACCURACY, ITEM_X_SPECIAL, ITEM_X_SP__DEF, 0xFFFF}; */
+
+
 .org 0x020FBAFA
 
-.halfword ITEM_TM15 // ITEM_PROTEIN
-.halfword ITEM_TM21 // ITEM_IRON
-.halfword ITEM_TM39 // ITEM_CALCIUM
-.halfword ITEM_TM43 // ITEM_ZINC
-.halfword ITEM_TM40 // ITEM_CARBOS
-.halfword 0xFFFF // ITEM_HP_UP //TODO
+.halfword ITEM_TM15 // ITEM_X_SPEED
+.halfword ITEM_TM21 // ITEM_X_ATTACK
+.halfword ITEM_TM39 // ITEM_X_DEFENSE
+.halfword ITEM_TM07 // ITEM_GUARD_SPEC_
+.halfword ITEM_TM11 // ITEM_DIRE_HIT
+.halfword ITEM_TM34 // ITEM_X_ACCURACY
+.halfword ITEM_TM40 // ITEM_X_SPECIAL
+.halfword 0xFFFF    // ITEM_X_SP__DEF
 .halfword 0xFFFF
 
 

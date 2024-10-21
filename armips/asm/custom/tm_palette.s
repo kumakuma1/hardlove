@@ -33,12 +33,12 @@ PALETTE_BUG equ 610
 
 // Between each TM we need to skip 8 * (TM gap - 1) bytes
 
-// Change TM01 to Dark palette
+// Change TM01 to Fighting palette
 .skip 2
 .halfword PALETTE_FIGHTING
 .skip 4
 
-//Change TM03 to Psychic palette
+//Change TM03 to Water palette
 .skip (8 * 1)
 .skip 2
 .halfword PALETTE_WATER
@@ -50,14 +50,26 @@ PALETTE_BUG equ 610
 //.halfword PALETTE_DARK
 //.skip 4
 
+// Change TM07 to Dark palette
+.skip (8 * 3) //7-3-1
+.skip 2
+.halfword PALETTE_DARK
+.skip 4
+
 // Change TM09 to Poison palette
 //.skip (8 * 3)
 //.skip 2
 //.halfword PALETTE_POISON
 //.skip 4
 
+// Change TM11 to Dark palette
+.skip (8 * 3) //11-7-1
+.skip 2
+.halfword PALETTE_GRASS
+.skip 4
+
 // Change TM15 to Electro palette
-.skip (8 * 11) //15-3-1
+.skip (8 * 3) //15-11-1
 .skip 2
 .halfword PALETTE_ELECTRIC
 .skip 4
