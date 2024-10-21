@@ -1,6 +1,7 @@
 Flag
 
 106   - 061-T20R0101 : Script File 843 - Script 13: StarterSelection Screen
+106   - 171-D34R0201 : Script File 239 - Got TM from NPC -> White herb
 154   - 061-T20R0101 : Script File 225 - Function 25: CatchTutorial done    | Prof Elm sets after receiving balls
 162   - 086-T27R0501 : Script File 928 - Got Surf in Ecruteak, Surf replaced with Shed Shell
 167   - 063-T20R0201 : Talked to Mom for Saving Money. Flag is set, money saving disabled.
@@ -14,12 +15,17 @@ Flag
 421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
 417   - 060-T20      : Script File 842 - Function 9: Hide Marill. Flag is set. by mom
 418   - 060-T20      : Script File 842 - Function 9: Hide Lyra. Flag is set.
+451   -              :                 - Moves Guy for Bug Catching Contest
+452   -              :                 - Adds Guy for Bug Catching Contest
 
 1061  - 110-D15R0101 : Item: ITEM_PARALYZE_HEAL -> ITEM_EVERSTONE
-1077  - 117-D36R0101 : Item: ITEM_REVIVEL -> ITEM_RARE_CANDY
+1067  - 099-D25R0101 : Item: X-Attack -> ITEM_WIDE_LENS
+1077  - 117-D36R0101 : Item: ITEM_REVIVE -> ITEM_RARE_CANDY
+1090  - 200-D37R0103 : Item: Ultraball -> Muscle Band
+1093  - 200-D37R0103 : Item: Burn Heal -> Wise Glasses
 1218  - 176-D42R0102 : Item: ITEM_POTION -> ITEM_HEART_SCALE
 1239  - 036-R32      : Item: ITEM_SHELL_BELL -> ITEM_POISON_BARB
-1274  - 038-R34      : Item: ITEM_TM63 -> ITEM_MUSCLE_BAND
+1274  - 038-R34      : Item: ITEM_TM63 -> Black Belt
 
 
 
