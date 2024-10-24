@@ -2893,14 +2893,14 @@ trainerdata 52, "Edmond" // Sprout Tower
     party 52
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-2
-        monwithform SPECIES_MEOWTH, 1
-        item ITEM_SILK_SCARF
+        level LEVEL_ELDER_LI-3
+        pokemon SPECIES_MIENFOO
+        item ITEM_COBA_BERRY
         move MOVE_FAKE_OUT
-        move MOVE_PARTING_SHOT
+        move MOVE_U_TURN
         move MOVE_NONE
         move MOVE_NONE
-        ability ABILITY_TECHNICIAN
+        ability ABILITY_REGENERATOR
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -2911,14 +2911,14 @@ trainerdata 52, "Edmond" // Sprout Tower
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
-        pokemon SPECIES_MIENFOO
-        item ITEM_COBA_BERRY
+        level LEVEL_ELDER_LI-2
+        monwithform SPECIES_MEOWTH, 1
+        item ITEM_SILK_SCARF
         move MOVE_FAKE_OUT
-        move MOVE_U_TURN
+        move MOVE_FURY_SWIPES
         move MOVE_NONE
         move MOVE_NONE
-        ability ABILITY_REGENERATOR
+        ability ABILITY_TECHNICIAN
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -3051,7 +3051,7 @@ trainerdata 54, "Troy" // Sprout Tower
         level LEVEL_ELDER_LI-2
         pokemon SPECIES_BONSLY
         item ITEM_CUSTAP_BERRY
-        move MOVE_DOUBLE_EDGE
+        move MOVE_TAKE_DOWN
         move MOVE_FOUL_PLAY
         move MOVE_NONE
         move MOVE_NONE
