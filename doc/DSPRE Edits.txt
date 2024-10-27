@@ -1811,7 +1811,7 @@ Function 39:
 
 
 ### Heal Party in Gym Fights
-in Script File 953 add Function before each battle. Set the the Flag in Level Script when entering and clear when exiting (fade Screen) /wipe out
+in Script File 953 add Function before each battle. Set the the Flag in Level Script when entering and clear when entering town map
 
 CheckFlag 219
 	CallIf EQUAL Function#20
@@ -1867,3 +1867,11 @@ Remove Flag 451 from OW 2
 104-R36R0201
 Remove OW 1
 Remove Flag 451 from OW 0
+
+
+###Azalea rival:
+074-T23 - Event File 71 - Script 866
+script 3
+    LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
