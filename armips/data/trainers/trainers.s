@@ -1086,8 +1086,8 @@ trainerdata 21, "Bugsy"
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY
-        pokemon SPECIES_GALVANTULA-2
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_GALVANTULA
         item ITEM_SITRUS_BERRY
         move MOVE_VOLT_SWITCH
         move MOVE_MEGA_DRAIN
@@ -1122,8 +1122,8 @@ trainerdata 21, "Bugsy"
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY
-        pokemon SPECIES_ORBEETLE-2
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_ORBEETLE
         item ITEM_WEAKNESS_POLICY
         move MOVE_REFLECT
         move MOVE_STORED_POWER
