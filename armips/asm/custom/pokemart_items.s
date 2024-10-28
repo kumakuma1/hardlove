@@ -108,14 +108,11 @@ EIGHT_BADGES equ 6
 .halfword ITEM_SUN_STONE     // ITEM_FULL_HEAL
 .halfword 0xFFFF
 
-/* Goldenrod Dept. Store 4F -> Goldenrod 4F - CommonScript 2052  6 */
-/* const u16 _020FBAFA[] = {ITEM_PROTEIN, ITEM_IRON, ITEM_CALCIUM, ITEM_ZINC, ITEM_CARBOS, ITEM_HP_UP, 0xFFFF}; */
-
 /* Goldenrod Dept. Store 3F -> Goldenrod 4F - CommonScript 2052  5 */
 /* const u16 _020FBBB4[] = {ITEM_X_SPEED, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_GUARD_SPEC_, ITEM_DIRE_HIT, ITEM_X_ACCURACY, ITEM_X_SPECIAL, ITEM_X_SP__DEF, 0xFFFF}; */
 
 
-.org 0x020FBAFA
+.org 0x020FBBB4
 
 .halfword ITEM_TM15 // ITEM_X_SPEED
 .halfword ITEM_TM21 // ITEM_X_ATTACK
