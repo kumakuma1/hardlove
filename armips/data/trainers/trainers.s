@@ -3618,37 +3618,88 @@ trainerdata 70, "Samantha"
     endparty
 
 trainerdata 71, "Cathy"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_LASS
-    nummons 3
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 71
-        // mon 0
-        ivs 10
+        ivs 0
         abilityslot 0
-        level 15
-        pokemon SPECIES_JIGGLYPUFF
+        level LEVEL_WHITNEY-3
+        pokemon SPECIES_SMEARGLE
+        item ITEM_FOCUS_SASH
+        move MOVE_BOOMBURST
+        move MOVE_PROTECT
+        move MOVE_GLACIAL_LANCE
+        move MOVE_DARK_VOID
+        ability ABILITY_MOODY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_HASTY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-4
+        pokemon SPECIES_WATCHOG
+        item ITEM_WIDE_LENS
+        move MOVE_LOW_KICK
+        move MOVE_SEED_BOMB
+        move MOVE_HYPNOSIS
+        move MOVE_CONFUSE_RAY
+        ability ABILITY_ANALYTIC
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
-        ivs 10
+        ivs 0
         abilityslot 0
-        level 15
-        pokemon SPECIES_JIGGLYPUFF
+        level LEVEL_WHITNEY-2
+        pokemon SPECIES_SWADLOON
+        item ITEM_OCCA_BERRY
+        move MOVE_STICKY_WEB
+        move MOVE_DOUBLE_TEAM
+        move MOVE_IRON_DEFENSE
+        move MOVE_BATON_PASS
+        ability ABILITY_OVERCOAT
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 2
-        ivs 10
+        ivs 0
         abilityslot 0
-        level 15
-        pokemon SPECIES_JIGGLYPUFF
+        level LEVEL_WHITNEY-3
+        pokemon SPECIES_SLURPUFF
+        item ITEM_SITRUS_BERRY
+        move MOVE_BELLY_DRUM
+        move MOVE_DRAIN_PUNCH
+        move MOVE_PLAY_ROUGH
+        move MOVE_NONE
+        ability ABILITY_UNBURDEN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef // TODO: calc HP to uneven
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
