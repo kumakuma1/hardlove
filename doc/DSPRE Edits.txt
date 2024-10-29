@@ -759,18 +759,18 @@ Function 5:
 	Message 6
 
 
-Find rock climb next to jasmine
+Find HM03 Surf next to jasmine
 
 so for example a ball with script 7000 will activate file 141 script number 1
 script 7001 activates file 141 script 2
-	#define ITEM_HM08            427
+	#define ITEM_HM03            422
 
 	225 - D27R0107 - Event File 211 - Script File 66 - Text 94
 	Overworlds 
 	3 : ID3  FLag 1101, script 7090
 	Edit script file 141 : script 91
 Script 91:
-	SetVar 0x8008 26 -> 427
+	SetVar 0x8008 26 -> 422
 	SetVar 0x8009 1
 Jump Function#1
 
