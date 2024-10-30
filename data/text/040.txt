@@ -173,12 +173,12 @@ I will maximize {STRVAR_1 3, 0, 0}’s\nDefense? {YESNO 0}
 I will maximize {STRVAR_1 3, 0, 0}’s\nSpeed? {YESNO 0}
 I will maximize {STRVAR_1 3, 0, 0}’s\nSpecial Attack? {YESNO 0}
 I will maximize {STRVAR_1 3, 0, 0}’s\nSpecial Defense? {YESNO 0}
-I have set your\n{STRVAR_1 3, 0, 0}’s HP IV to 31.\r
-I have set your\n{STRVAR_1 3, 0, 0}’s Attack IV to 31.\r
-I have set your\n{STRVAR_1 3, 0, 0}’s Defense IV to 31.\r
-I have set your\n{STRVAR_1 3, 0, 0}’s Speed IV to 31.\r
-I have set your\n{STRVAR_1 3, 0, 0}’s Sp. Attack IV to 31.\r
-I have set your\n{STRVAR_1 3, 0, 0}’s Sp. Defense IV to 31.\r
+I have set your {STRVAR_1 3, 0, 0}’s\nHP IV to 31.\r
+I have set your {STRVAR_1 3, 0, 0}’s\nAttack IV to 31.\r
+I have set your {STRVAR_1 3, 0, 0}’s\nDefense IV to 31.\r
+I have set your {STRVAR_1 3, 0, 0}’s\nSpeed IV to 31.\r
+I have set your {STRVAR_1 3, 0, 0}’s\nSp. Attack IV to 31.\r
+I have set your {STRVAR_1 3, 0, 0}’s\nSp. Defense IV to 31.\r
 Which status would you like to apply\nto your Pokémon?\r
 Burn
 Freeze
@@ -186,8 +186,8 @@ Paralysis
 Poison
 Sleep
 And to which Pokémon should I apply\nthat status effect?\r
-Your {STRVAR_1 3, 0, 0} is now\ninflicted with a status condition.\r
-Your {STRVAR_1 3, 0, 0} cannot\nbe inflicted with that status.\r
+Your {STRVAR_1 3, 0, 0} is now inflicted\nwith a status condition.\r
+Your {STRVAR_1 3, 0, 0} cannot be\ninflicted with that status.\r
 
 
 Change Nature
