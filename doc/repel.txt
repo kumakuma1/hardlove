@@ -67,3 +67,37 @@ void BagApp_TryUseRepel(uint32_t *r4, uint32_t r5) {
     r0 = r4[r0];
     NewString_ReadMsgData(msg_0010_00062);
 }
+
+
+BOOL BagApp_TryUseRepel(void *r4,  u16 itemID)
+{
+    SaveData *saveData = SaveBlock2_get();
+    void *roamerSaveData = EncDataSave_GetSaveDataPtr(saveData);
+    u8* repel_addr = SaveData_GetRepelPtr(roamerSaveData);
+
+    u8 buf[64];
+    sprintf(buf, "itemID = %d\n", itemID);
+    debugsyscall(buf);
+    sprintf(buf, "repel_addr = %p\n", repel_addr);
+    debugsyscall(buf);
+
+    if (repel_addr != 0)
+    {
+        sprintf(buf, "*repel_addr = %d\n", *repel_addr);
+        debugsyscall(buf);
+        if(*repel_addr == 0)
+            *repel_addr = 1;
+        else
+            *repel_addr = 0;  
+        //msg_0010_00063
+    }
+    else
+    {
+        //msg_0010_00062
+    }
+
+return TRUE;
+}
+
+#0015 BagApp_TryUseItemInPlace 021FB9D8 2
+0015 BagApp_TryUseRepel 021FBA9C 2

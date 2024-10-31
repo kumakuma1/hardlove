@@ -283,37 +283,70 @@ trainerdata 4, "Wade"  // Route 31
     endparty
 
 trainerdata 5, "Victoria"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_BEAUTY
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_STATUS_MOVES | TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 5
-        // mon 0
-        ivs 10
-        abilityslot 32
-        level 9
-        pokemon SPECIES_SENTRET
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-3
+        pokemon SPECIES_AMBIPOM
+        item ITEM_STICKY_BARB
+        move MOVE_FAKE_OUT
+        move MOVE_KNOCK_OFF
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_TECHNICIAN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
-        ivs 10
-        abilityslot 32
-        level 13
-        pokemon SPECIES_SENTRET
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-3
+        pokemon SPECIES_SNORLAX
+        item ITEM_LEFTOVERS
+        move MOVE_BODY_SLAM
+        move MOVE_CRUNCH
+        move MOVE_REST
+        move MOVE_CURSE
+        ability ABILITY_THICK_FAT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 2
-        ivs 10
-        abilityslot 32
-        level 16
-        pokemon SPECIES_SENTRET
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-3
+        pokemon SPECIES_NIDOQUEEN
+        item ITEM_LIFE_ORB
+        move MOVE_EARTH_POWER
+        move MOVE_SLUDGE_BOMB
+        move MOVE_CHARM
+        move MOVE_STEALTH_ROCK
+        ability ABILITY_SHEER_FORCE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -3625,38 +3658,106 @@ trainerdata 69, "Josh"
     endparty
 
 trainerdata 70, "Samantha"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_BEAUTY
-    nummons 2
+    nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags F_PRIORITIZE_STATUS_MOVES | TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 70
-        // mon 0
-        ivs 10
-        abilityslot 32
-        level 16
-        pokemon SPECIES_MEOWTH
-        move MOVE_SCRATCH
-        move MOVE_GROWL
-        move MOVE_BITE
-        move MOVE_PAY_DAY
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-3
+        pokemon SPECIES_FURRET
+        item ITEM_CHOICE_BAND
+        move MOVE_U_TURN
+        move MOVE_EXTREME_SPEED
+        move MOVE_KNOCK_OFF
+        move MOVE_NONE
+        ability ABILITY_KEEN_EYE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
-        ivs 10
-        abilityslot 32
-        level 16
-        pokemon SPECIES_MEOWTH
-        move MOVE_SCRATCH
-        move MOVE_GROWL
-        move MOVE_BITE
-        move MOVE_SLASH
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-3
+        pokemon SPECIES_GRANBULL
+        item ITEM_CHOICE_SCARF
+        move MOVE_CLOSE_COMBAT
+        move MOVE_PLAY_ROUGH
+        move MOVE_JAW_LOCK
+        move MOVE_EARTHQUAKE
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-3
+        pokemon SPECIES_STOUTLAND
+        item ITEM_SILK_SCARF
+        move MOVE_RETALIATE
+        move MOVE_LAST_RESORT
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_SCRAPPY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-4
+        pokemon SPECIES_SWELLOW
+        item ITEM_FLAME_ORB
+        move MOVE_FACADE
+        move MOVE_ROOST
+        move MOVE_BRAVE_BIRD
+        move MOVE_PROTECT
+        ability ABILITY_GUTS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-4
+        pokemon SPECIES_MR_MIME
+        item ITEM_SITRUS_BERRY
+        move MOVE_PSYCHIC
+        move MOVE_DAZZLING_GLEAM
+        move MOVE_BARRIER
+        move MOVE_FOUL_PLAY
+        ability ABILITY_FILTER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
