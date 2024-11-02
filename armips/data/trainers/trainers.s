@@ -1731,18 +1731,18 @@ trainerdata 31, "Morty"
     party 31
         ivs 0
         abilityslot 0
-        level LEVEL_MORTY-1
+        level LEVEL_MORTY-2
         pokemon SPECIES_LIEPARD
-        item ITEM_FOCUS_SASH
+        item ITEM_CHOPLE_BERRY
         move MOVE_U_TURN
         move MOVE_FAKE_OUT
         move MOVE_THUNDER_WAVE
-        move MOVE_DARK_PULSE
+        move MOVE_KNOCK_OFF
         ability ABILITY_PRANKSTER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1750,13 +1750,13 @@ trainerdata 31, "Morty"
 	    ivs 0
         abilityslot 0
         level LEVEL_MORTY-1
-        pokemon SPECIES_CLEFABLE // SPECIES_KLEFKI
+        pokemon SPECIES_KLEFKI
         item ITEM_LEFTOVERS
-        move MOVE_STEALTH_ROCK //MOVE_SPIKES
-        move MOVE_PROTECT
+        move MOVE_SPIKES
+        move MOVE_FLASH_CANNON
         move MOVE_THUNDER_WAVE
         move MOVE_DRAINING_KISS
-        ability ABILITY_MAGIC_GUARD //ABILITY_PRANKSTER
+        ability ABILITY_PRANKSTER
         ball ITEM_POKE_BALL
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1767,7 +1767,7 @@ trainerdata 31, "Morty"
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_MORTY
+        level LEVEL_MORTY-2
         pokemon SPECIES_CHANDELURE
         item ITEM_LEFTOVERS
         move MOVE_FLAMETHROWER
@@ -1785,32 +1785,32 @@ trainerdata 31, "Morty"
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_MORTY-1
-        pokemon SPECIES_JELLICENT
-        item ITEM_LEFTOVERS
-        move MOVE_SCALD
-        move MOVE_SHADOW_BALL
-        move MOVE_RECOVER
-        move MOVE_DAZZLING_GLEAM
-        ability ABILITY_WATER_ABSORB
+        level LEVEL_MORTY-3
+        pokemon SPECIES_WEAVILE
+        item ITEM_FOCUS_SASH
+        move MOVE_KNOCK_OFF
+        move MOVE_ICICLE_CRASH
+        move MOVE_PURSUIT
+        move MOVE_ICE_SHARD
+        ability ABILITY_PICKPOCKET
         ball ITEM_POKE_BALL
-        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_CALM
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_MORTY-1
-        monWithForm SPECIES_HOOPA, 1
-        item ITEM_LEFTOVERS
+        level LEVEL_MORTY-2
+        pokemon SPECIES_SPECTRIER
+        item ITEM_LIFE_ORB
         move MOVE_SHADOW_BALL
-        move MOVE_FOCUS_BLAST
+        move MOVE_DRAINING_KISS
         move MOVE_SUBSTITUTE
-        move MOVE_PSYCHIC
-        ability ABILITY_MAGICIAN
+        move MOVE_WILL_O_WISP
+        ability ABILITY_GRIM_NEIGH
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1828,7 +1828,7 @@ trainerdata 31, "Morty"
         move MOVE_SHADOW_BALL
         move MOVE_HYPNOSIS
         move MOVE_DREAM_EATER
-        ability ABILITY_LEVITATE
+        ability ABILITY_CURSED_BODY
         ball ITEM_POKE_BALL
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
