@@ -7,6 +7,8 @@
 #define RANDOMIZE_EGG
 #define RANDOMIZE_EGG_FLAG 2598
 
+#define CUSTOM_TRADES
+
 // FAIRY_TYPE_IMPLEMENTED should be used if you want to implement the fairy type and overwrite type 9 in this project
 // set FAIRY_TYPE_IMPLEMENTED to 0 if you do not want this to happen
 #define FAIRY_TYPE_IMPLEMENTED 1
