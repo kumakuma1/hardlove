@@ -22283,25 +22283,126 @@ trainerdata 600, "Selina"
     endparty
 
 trainerdata 601, "Grunt"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass CLASS_TEAM_ROCKET
-    nummons 1
+    nummons 6
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 601
-        // mon 0
-        ivs 30
+		ivs 0
         abilityslot 0
-        level 12
-        pokemon SPECIES_KOFFING
+        level LEVEL_MORTY-2
+        pokemon SPECIES_GLALIE
+        item ITEM_FOCUS_SASH
+        move MOVE_CRUNCH
+        move MOVE_ICICLE_CRASH
+        move MOVE_EXPLOSION
+        move MOVE_PROTECT
+        ability ABILITY_MOODY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
-    endparty
+		
+		ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-1
+        pokemon SPECIES_NIDOKING
+        item ITEM_LIFE_ORB
+        move MOVE_SLUDGE_BOMB
+        move MOVE_EARTH_POWER
+        move MOVE_THUNDERBOLT
+        move MOVE_STEALTH_ROCK
+        ability ABILITY_SHEER_FORCE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-1
+        pokemon SPECIES_SHARPEDO
+        item ITEM_SHARPEDONITE
+        move MOVE_CRUNCH
+        move MOVE_ICE_FANG
+        move MOVE_LIQUIDATION
+        move MOVE_PROTECT
+        ability ABILITY_SPEED_BOOST
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-2
+        pokemon SPECIES_DECIDUEYE
+        item ITEM_CHOICE_BAND
+        move MOVE_LEAF_BLADE
+        move MOVE_SPIRIT_SHACKLE
+        move MOVE_U_TURN
+        move MOVE_SHADOW_SNEAK
+        ability ABILITY_LONG_REACH
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-3
+        pokemon SPECIES_KLINKLANG
+        item ITEM_LEFTOVERS
+        move MOVE_SHIFT_GEAR
+        move MOVE_GEAR_GRIND
+        move MOVE_SUBSTITUTE
+        move MOVE_FACADE
+        ability ABILITY_CLEAR_BODY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-3
+        pokemon SPECIES_HONCHKROW
+        item ITEM_DARK_GEM
+        move MOVE_SUCKER_PUNCH
+        move MOVE_PURSUIT
+        move MOVE_DRILL_PECK
+        move MOVE_HEAT_WAVE
+        ability ABILITY_MOXIE
+        ball ITEM_POKE_BALL
+        setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+	endparty
 
 trainerdata 602, "Jose"
     trainermontype TRAINER_DATA_TYPE_NOTHING
