@@ -15298,7 +15298,7 @@ trainerdata 395, "Mark" // route 36
         abilityslot 0
         level LEVEL_SCHORSCH
         pokemon SPECIES_BRAIXEN
-        item ITEM_FLAME_ORB
+        item ITEM_TOXIC_ORB
         move MOVE_FIRE_SPIN
         move MOVE_WISH
         move MOVE_PROTECT
