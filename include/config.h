@@ -108,10 +108,18 @@
 // comment out the line below to keep vanilla behavior
 //#define RESTORE_ITEMS_AT_BATTLE_END
 
+// AI_CAN_GRAB_ITEMS allows to use Trick, Switcheroo, (Thief still todo) on the Player and actually grab items. This can result in lost items.
+#define AI_CAN_GRAB_ITEMS
+
 // PROTEAN_GENERATION defines the behavior that protean should exhibit, where it either changes type every move (<=8) or changes type once per appearance in battle (>=9)
 #define PROTEAN_GENERATION 9
 
 // IMPLEMENT_REUSABLE_REPELS defines whether or not a prompt to use another repel automatically appears upon the previous repel being used up
 #define IMPLEMENT_REUSABLE_REPELS
+
+// USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU allows to use a custom check for the fieldmoves of a pokemon, that appear in the party menu. Up to 4 field moves can be added this way.
+// Vanilla behaviour checks for the TM/HM moves on the Pokemon.
+// Adding the moves in HUD does not eliminate Badge, Tile or Buildings check
+#define USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU
 
 #endif
