@@ -688,3 +688,4 @@ CreateMon = 0x0206DE38 | 1;
 _GetNpcTradeName = 0x02259C1C | 1;
 MonSetTrainerMemo = 0x0208F260 | 1;
 MapHeader_GetMapSec = 0x0203B36C | 1;
+CalcMonLevelAndStats = 0x0206E250 | 1;

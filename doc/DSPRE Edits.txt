@@ -1875,3 +1875,27 @@ script 3
     LockFollowingPoke 0
 	WaitFollowingPoke 
 	SetFollowingPokeMovement 55
+
+
+
+####Random Trade in goldenrod // TODO make accept any pokemon
+195-T25R1005 - Event File 188 - Script 903
+
+Script 4:
+CheckStarter 0x800C
+	CompareVarValue 0x800C 387
+	JumpIf DIFFERENT Function#5
+	CheckBadge 3 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+
+	
+Function 5:
+	Message 20
+	CloseMessage 
+	ReleaseAll 
+End 
+
+9: Wow!\nYou chose the Way the Turtle!\rI can help your way by trading you\na strong Pokémon\rYou can give me any Pokémon in return.\nWhat do you say? \v0200\x0001\x0000
+10: You don’t want to trade? Aww...
+20: Ever heard of the Way of the Turtle?\n

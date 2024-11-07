@@ -17,17 +17,6 @@
 #include "../../include/constants/weather_numbers.h"
 #include "../custom/random_eggs.h"
 
-void fisherYatesArrayShuffle(int array[], int n)
-{
-    for (int i = n - 1; i > 0; i--) 
-    {
-        int j = gf_rand() % (i + 1);
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-}
-
 /**
  *  @brief script command to give an egg adapted to set the hidden ability
  *
@@ -80,14 +69,14 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
 #ifdef RANDOM_3_MAX_IVS
         if (CheckScriptFlag(RANDOM_3_MAX_IVS_FLAG) == 1)
         {
-            int array[] = {0, 1, 2, 3, 4, 5};
+            u8 array[] = {0, 1, 2, 3, 4, 5};
             fisherYatesArrayShuffle(array, 6);
 
             int iv = 31;
             // Randomly chooses 3 stats
-            for (int i = 0; i < 3; i++) 
+            for (u8 i = 0; i < 3; i++) 
             {
-                int selectedValue = array[i];
+                u8 selectedValue = array[i];
                 SetMonData(pokemon, MON_DATA_HP_IV + selectedValue, &iv);
             }
             ClearScriptFlag(RANDOM_3_MAX_IVS_FLAG);
@@ -157,14 +146,14 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
     }
 
 #ifdef RANDOM_3_MAX_IVS
-    int array[] = {0, 1, 2, 3, 4, 5};
+    u8 array[] = {0, 1, 2, 3, 4, 5};
     fisherYatesArrayShuffle(array, 6);
 
     int iv = 31;
     // Randomly chooses 3 stats
-    for (int i = 0; i < 3; i++) 
+    for (u8 i = 0; i < 3; i++) 
     {
-        int selectedValue = array[i];
+        u8 selectedValue = array[i];
         SetMonData(togepi, MON_DATA_HP_IV + selectedValue, &iv);
     }
 #endif

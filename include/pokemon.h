@@ -775,6 +775,7 @@ typedef struct WildEncounterWork
     u16 minLevel;
 } WildEncounterWork;
 
+void fisherYatesArrayShuffle(u8 array[], int n);
 
 /**
  *  @brief allocate enough space for a PartyPokemon and zero it out
