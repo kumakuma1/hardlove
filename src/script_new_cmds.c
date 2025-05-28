@@ -43,6 +43,7 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx) {
 #define SET_STATUS_POISON 14
 #define SET_STATUS_SLEEP 15
 
+#define SET_BATTLE_BOND 19
 #define SET_NATURE_MIN 20
 #define SET_NATURE_MAX 44
 
@@ -128,6 +129,12 @@ BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
         }
 
         SetMonData(pp, MON_DATA_STATUS, &sleep);
+    }
+
+    if (property == SET_BATTLE_BOND)
+    {
+        currentAbility = ABILITY_BATTLE_BOND;
+        SetMonData(pp, MON_DATA_ABILITY, &currentAbility);
     }
 
     if (property >= SET_NATURE_MIN && property <= SET_NATURE_MAX)

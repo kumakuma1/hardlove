@@ -26,10 +26,10 @@ u16 ALIGN4 gEvolutionSceneOverride[2][2];
 
 void fisherYatesArrayShuffle(u8 array[], int n)
 {
-    for (u8 i = n - 1; i > 0; i--)
+    for (int i = n - 1; i > 0; i--)
     {
         int j = gf_rand() % (i + 1);
-        int temp = array[i];
+        u8 temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
@@ -1455,7 +1455,7 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
 
         int iv = 31;
         // Randomly chooses 3 stats
-        for (u8 i = 0; i < 3; i++) 
+        for (int i = 0; i < 3; i++) 
         {
             u8 selectedValue = array[i];
             SetMonData(pokemon, MON_DATA_HP_IV + selectedValue, &iv);
@@ -1668,7 +1668,7 @@ void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon 
 
         int iv = 31;
         // Randomly chooses 3 stats
-        for (u8 i = 0; i < 3; i++) 
+        for (int i = 0; i < 3; i++) 
         {
             u8 selectedValue = array[i];
             SetBoxMonData(boxmon, MON_DATA_HP_IV + selectedValue, &iv);
