@@ -1986,7 +1986,7 @@ movedata MOVE_SMOG, "Smog"
     accuracy 90
     pp 20
     effectchance 100
-    target MOVE_TARGET_SELECTED
+    target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT
     appeal 0x05
@@ -3058,7 +3058,7 @@ movedata MOVE_OCTAZOOKA, "Octazooka"
     accuracy 100
     pp 10
     effectchance 30
-    target MOVE_TARGET_SELECTED
+    target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT
     appeal 0x04
@@ -4002,7 +4002,7 @@ movedata MOVE_ROCK_SMASH, "Rock Smash"
     accuracy 100
     pp 15
     effectchance 100
-    target MOVE_TARGET_SELECTED
+    target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT
     appeal 0x12
@@ -6834,7 +6834,7 @@ movedata MOVE_MUD_BOMB, "Mud Bomb"
     accuracy 100
     pp 10
     effectchance 20
-    target MOVE_TARGET_SELECTED
+    target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_KINGS_ROCK | FLAG_MIRROR_MOVE | FLAG_PROTECT
     appeal 0x12
@@ -6882,7 +6882,7 @@ movedata MOVE_MIRROR_SHOT, "Mirror Shot"
     accuracy 100
     pp 10
     effectchance 20
-    target MOVE_TARGET_SELECTED
+    target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_KINGS_ROCK | FLAG_MIRROR_MOVE | FLAG_PROTECT
     appeal 0x11
@@ -7234,7 +7234,7 @@ movedata MOVE_CHARGE_BEAM, "Charge Beam"
     accuracy 100
     pp 10
     effectchance 100
-    target MOVE_TARGET_SELECTED
+    target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_KINGS_ROCK | FLAG_MIRROR_MOVE | FLAG_PROTECT
     appeal 0x11
@@ -8642,7 +8642,7 @@ movedata MOVE_LEAF_TORNADO, "Leaf Tornado"
     accuracy 100
     pp 10
     effectchance 30
-    target MOVE_TARGET_SELECTED
+    target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00
@@ -8690,7 +8690,7 @@ movedata MOVE_NIGHT_DAZE, "Night Daze"
     accuracy 100
     pp 10
     effectchance 30
-    target MOVE_TARGET_SELECTED
+    target RANGE_SINGLE_TARGET
     priority 0
     flags FLAG_PROTECT | FLAG_MIRROR_MOVE | FLAG_KINGS_ROCK
     appeal 0x00

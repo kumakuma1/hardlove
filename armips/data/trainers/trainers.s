@@ -52,7 +52,7 @@ trainerdata 0, "-"
 
 trainerdata 1, "Silver"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_RIVAL
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
@@ -216,7 +216,7 @@ trainerdata 3, "Silver"
 
 trainerdata 4, "Wade"  // Route 31
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_BUG_CATCHER
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -284,7 +284,7 @@ trainerdata 4, "Wade"  // Route 31
 
 trainerdata 5, "Victoria"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_BEAUTY
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -415,7 +415,7 @@ trainerdata 7, "Irwin"
 
 trainerdata 8, "Joey" // Route 30
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_YOUNGSTER
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 3
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -532,7 +532,7 @@ trainerdata 10, "Amy & Mimi"
 
 trainerdata 11, "Schorsch" // Mini-Boss Route 36
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_HIKER
+    trainerclass TRAINERCLASS_HIKER
     nummons 6
     item ITEM_NONE 
     item ITEM_NONE 
@@ -654,7 +654,7 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
 
 trainerdata 12, "Ariana"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_EXECUTIVE
+    trainerclass TRAINERCLASS_EXECUTIVE_ARIANA
     nummons 4
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -964,7 +964,7 @@ trainerdata 19, "Mickey"
 
 trainerdata 20, "Falkner" // Leader 
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LEADER_M
+    trainerclass TRAINERCLASS_LEADER_FALKNER
     nummons 6
     item ITEM_NONE 
     item ITEM_NONE 
@@ -1088,7 +1088,7 @@ trainerdata 20, "Falkner" // Leader
 
 trainerdata 21, "Bugsy"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LEADER_F
+    trainerclass TRAINERCLASS_LEADER_BUGSY
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
@@ -1210,7 +1210,7 @@ trainerdata 21, "Bugsy"
 
 trainerdata 22, "Carrie"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LASS
+    trainerclass TRAINERCLASS_LASS
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -1376,7 +1376,7 @@ trainerdata 26, "Roland"
 
 trainerdata 27, "Liz" // Route 32
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_PICNICKER
+    trainerclass TRAINERCLASS_PICNICKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -1492,7 +1492,7 @@ trainerdata 28, "Jake"
 
 trainerdata 29, "Rod" // Violet Gym
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_BIRD_KEEPER_1
+    trainerclass TRAINERCLASS_BIRD_KEEPER
     nummons 5
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -1596,7 +1596,7 @@ trainerdata 29, "Rod" // Violet Gym
 
 trainerdata 30, "Whitney"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LEADER
+    trainerclass TRAINERCLASS_LEADER_WHITNEY
     nummons 6
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -1718,7 +1718,7 @@ trainerdata 30, "Whitney"
 
 trainerdata 31, "Morty"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LEADER_0
+    trainerclass TRAINERCLASS_LEADER_MORTY
     nummons 6
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -1840,7 +1840,7 @@ trainerdata 31, "Morty"
 
 trainerdata 32, "Pryce"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LEADER_1
+    trainerclass TRAINERCLASS_LEADER_PRYCE
     nummons 6
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -1962,7 +1962,7 @@ trainerdata 32, "Pryce"
 
 trainerdata 33, "Jasmine"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LEADER_2
+    trainerclass TRAINERCLASS_LEADER_JASMINE
     nummons 6
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -2085,7 +2085,7 @@ trainerdata 33, "Jasmine"
 
 trainerdata 34, "Chuck"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LEADER_3
+    trainerclass TRAINERCLASS_LEADER_CHUCK
     nummons 6
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -2431,7 +2431,7 @@ trainerdata 41, "Clyde"
 
 trainerdata 42, "Nathan" // Ruins of Alph Mini Boss
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_PSYCHIC_M
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 3
     item ITEM_NONE 
     item ITEM_NONE 
@@ -2499,7 +2499,7 @@ trainerdata 42, "Nathan" // Ruins of Alph Mini Boss
 
 trainerdata 43, "Chow" // Violet Gym
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_SAGE
+    trainerclass TRAINERCLASS_SAGE
     nummons 3
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -2652,7 +2652,7 @@ trainerdata 46, "Martha"
 
 trainerdata 47, "Mikey"  // Route 30
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_YOUNGSTER
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
@@ -2732,7 +2732,7 @@ trainerdata 48, "Rob"
 
 trainerdata 49, "Albert" // Route 32
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_YOUNGSTER
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -2801,7 +2801,7 @@ trainerdata 49, "Albert" // Route 32
 
 trainerdata 50, "Abe" // Violet Gym
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_BIRD_KEEPER_1
+    trainerclass TRAINERCLASS_BIRD_KEEPER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
@@ -2888,7 +2888,7 @@ trainerdata 50, "Abe" // Violet Gym
 
 trainerdata 51, "Nico" //Sprout tower
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_SAGE
+    trainerclass TRAINERCLASS_SAGE
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -2956,7 +2956,7 @@ trainerdata 51, "Nico" //Sprout tower
 
 trainerdata 52, "Edmond" // Sprout Tower
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_SAGE
+    trainerclass TRAINERCLASS_SAGE
     nummons 3
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -3024,7 +3024,7 @@ trainerdata 52, "Edmond" // Sprout Tower
 
 trainerdata 53, "Jin" // Violet Gym
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_SAGE
+    trainerclass TRAINERCLASS_SAGE
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
@@ -3111,7 +3111,7 @@ trainerdata 53, "Jin" // Violet Gym
 
 trainerdata 54, "Troy" // Sprout Tower
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_SAGE
+    trainerclass TRAINERCLASS_SAGE
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
@@ -3198,7 +3198,7 @@ trainerdata 54, "Troy" // Sprout Tower
 
 trainerdata 55, "Neal" // Sprout Tower
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_SAGE
+    trainerclass TRAINERCLASS_SAGE
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -3659,7 +3659,7 @@ trainerdata 69, "Josh"
 
 trainerdata 70, "Samantha"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_BEAUTY
+    trainerclass TRAINERCLASS_BEAUTY
     nummons 5
     item ITEM_NONE
     item ITEM_NONE
@@ -3763,7 +3763,7 @@ trainerdata 70, "Samantha"
 
 trainerdata 71, "Cathy"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LASS
+    trainerclass TRAINERCLASS_LASS
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
@@ -9460,7 +9460,7 @@ trainerdata 248, "Ed"
 
 trainerdata 249, "Don"  // Route 30
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_BUG_CATCHER
+    trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -10287,7 +10287,7 @@ trainerdata 262, "Mickey"
 
 trainerdata 263, "Silver"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_RIVAL
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
@@ -10510,7 +10510,7 @@ trainerdata 265, "Silver"
 
 trainerdata 266, "Silver"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_RIVAL
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
@@ -10632,7 +10632,7 @@ trainerdata 266, "Silver"
 
 trainerdata 267, "Silver"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass CLASS_RIVAL
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
@@ -10770,7 +10770,7 @@ trainerdata 268, "Silver"
 
 trainerdata 269, "Silver"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_RIVAL
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
@@ -10892,7 +10892,7 @@ trainerdata 269, "Silver"
 
 trainerdata 270, "Silver"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_RIVAL
+    trainerclass TRAINERCLASS_RIVAL
     nummons 6
     item ITEM_NONE
     item ITEM_NONE
@@ -11938,7 +11938,7 @@ trainerdata 289, "Silver"
 
 trainerdata 290, "Li" // Sprout Tower Boss
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_ELDER
+    trainerclass TRAINERCLASS_ELDER
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
@@ -15247,7 +15247,7 @@ trainerdata 394, "Mickey"
 
 trainerdata 395, "Mark" // route 36
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_PSYCHIC_M
+    trainerclass TRAINERCLASS_PSYCHIC_M
     nummons 4
     item ITEM_NONE 
     item ITEM_NONE 
@@ -17999,7 +17999,7 @@ trainerdata 478, "Ariana"
 
 trainerdata 479, "Ariana"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_EXECUTIVE
+    trainerclass TRAINERCLASS_EXECUTIVE_ARIANA
     nummons 3
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -18266,7 +18266,7 @@ trainerdata 485, "Archer"
 
 trainerdata 486, "Proton"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_EXECUTIVE_1
+    trainerclass TRAINERCLASS_EXECUTIVE_PROTON
     nummons 4
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -18881,7 +18881,7 @@ trainerdata 497, "Boy"
 
 trainerdata 498, "Eusine"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_MYSTERY_MAN
+    trainerclass TRAINERCLASS_MYSTERY_MAN
     nummons 6
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -19003,7 +19003,7 @@ trainerdata 498, "Eusine"
 
 trainerdata 499, "Proton"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_EXECUTIVE_1
+    trainerclass TRAINERCLASS_EXECUTIVE_PROTON
     nummons 3
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -22284,7 +22284,7 @@ trainerdata 600, "Selina"
 
 trainerdata 601, "Grunt"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_TEAM_ROCKET
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 6
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -25062,7 +25062,7 @@ trainerdata 674, "Alfred"
 
 trainerdata 675, "Lance"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_PKMN_TRAINER_10
+    trainerclass TRAINERCLASS_PKMN_TRAINER_LANCE
     nummons 3
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -26561,7 +26561,7 @@ trainerdata 712, "Falkner"
 
 trainerdata 713, "Bugsy"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LEADER_F
+    trainerclass TRAINERCLASS_LEADER_BUGSY
     nummons 6
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -26683,7 +26683,7 @@ trainerdata 713, "Bugsy"
 
 trainerdata 714, "Whitney"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_LEADER
+    trainerclass TRAINERCLASS_LEADER_WHITNEY
     nummons 6
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -27944,7 +27944,7 @@ trainerdata 728, "Charlotte"
 
 trainerdata 729, "Duff & Eda"
     trainermontype TRAINER_MON_TYPE_FLAGS
-    trainerclass CLASS_YOUNG_COUPLE
+    trainerclass TRAINERCLASS_YOUNG_COUPLE
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
