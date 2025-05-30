@@ -15,7 +15,7 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
-#include "../custom/random_eggs.h"
+#include "../../include/custom/random_eggs.h"
 
 void shuffle(u8 array[], int n)
 {

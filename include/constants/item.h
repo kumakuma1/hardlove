@@ -438,6 +438,10 @@
 #define ITEM_HM06            425
 #define ITEM_HM07            426
 #define ITEM_HM08            427
+
+#define NUM_TMS (ITEM_TM92 - ITEM_TM01 + 1)
+#define NUM_HMS (ITEM_HM08 - ITEM_HM01 + 1)
+
 #define ITEM_EXPLORER_KIT    428
 #define ITEM_LOOT_SACK       429
 #define ITEM_RULE_BOOK       430
@@ -864,7 +868,13 @@
 #define ITEM_HEARTHFLAME_MASK   (ITEM_PIXIE_PLATE + 214)
 #define ITEM_METAL_ALLOY        (ITEM_PIXIE_PLATE + 215)
 
-#define ITEM_INFINITE_CANDY     (ITEM_PIXIE_PLATE + 216) //800
+//#define ITEM_INFINITE_CANDY     (ITEM_PIXIE_PLATE + 216) //800 // old edit
+#define MAX_BASE_ITEM_NUM ITEM_METAL_ALLOY
+
+// define your custom move effects below like this
+ #define ITEM_INFINITE_CANDY (MAX_BASE_ITEM_NUM + 1)
+
+
 
 #define NUM_MEGA_STONES 48 // includes the pixie plate
 
@@ -878,7 +888,12 @@
 #define NEW_ITEM_MAX ITEM_INFINITE_CANDY
 
 #define BAG_SLOT_QUANTITY_MAX                    999
+
+#ifdef REUSABLE_TMS
+#define BAG_TMHM_QUANTITY_MAX                      1
+#else
 #define BAG_TMHM_QUANTITY_MAX                     99
+#endif
 
 #define POCKET_ITEMS        0
 #define POCKET_MEDICINE     1

@@ -68,11 +68,11 @@ BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
     // We define these like this because the set data functions require pointers
     int maxIV = 31;
 
-    int burn = STATUS_FLAG_BURNED;
-    int frozen = STATUS_FLAG_FROZEN;
-    int paralysis = STATUS_FLAG_PARALYZED;
-    int poison = STATUS_FLAG_POISONED;
-    int sleep = STATUS_FLAG_ASLEEP;
+    int burn = STATUS_BURN;
+    int frozen = STATUS_FREEZE;
+    int paralysis = STATUS_PARALYSIS;
+    int poison = STATUS_POISON;
+    int sleep = STATUS_SLEEP;
 
     if (property <= SET_SPDEF_IV_MAX)
     {
