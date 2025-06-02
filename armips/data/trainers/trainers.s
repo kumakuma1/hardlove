@@ -12011,7 +12011,7 @@ trainerdata 290, "Li" // Sprout Tower Boss
         move MOVE_AQUA_JET
         move MOVE_BODY_SLAM
         move MOVE_ROCK_SMASH
-	move MOVE_NONE
+	    move MOVE_NONE
         ability ABILITY_HUGE_POWER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
