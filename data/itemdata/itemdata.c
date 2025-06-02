@@ -5083,7 +5083,7 @@ const ITEMDATA __data[] =
 
 [ITEM_ESCAPE_ROPE] =
 {
-    .price = 550,
+    .price = 0,
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -5092,7 +5092,7 @@ const ITEMDATA __data[] =
     .naturalGiftPower = 0,
     .naturalGiftType = 31,
     .prevent_toss = TRUE,
-    .selectable = TRUE,
+    .selectable = FALSE,
     .fieldPocket = POCKET_KEY_ITEMS,
     .battlePocket = BATTLE_POCKET_NONE,
     .fieldUseFunc = 21,
@@ -50530,7 +50530,7 @@ const ITEMDATA __data[] =
     .selectable = TRUE,
     .fieldPocket = POCKET_KEY_ITEMS,
     .battlePocket = BATTLE_POCKET_NONE,
-    .fieldUseFunc = 54,
+    .fieldUseFunc = 32,
     .battleUseFunc = 0,
     .partyUse = 1,
     .partyUseParam = {
