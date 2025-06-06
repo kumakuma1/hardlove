@@ -122,12 +122,14 @@
 // modern generations have this value at 160, older ones at 220.  still max out at 255
 #define FRIENDSHIP_EVOLUTION_THRESHOLD 160
 
-// RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle
-// comment out the line below to keep vanilla behavior
-//#define RESTORE_ITEMS_AT_BATTLE_END
 
-// AI_CAN_GRAB_ITEMS allows to use Trick, Switcheroo, (Thief still todo) on the Player and actually grab items. This can result in lost items.
-#define AI_CAN_GRAB_ITEMS
+// Friendship grants additional bonuses.
+// Comment out the line below to revert back to Gen 5- behaviour
+//#define FRIENDSHIP_EFFECTS
+
+// RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle (Gen 9)
+// comment out the line below to revert back to Gen 8- behavior
+//#define RESTORE_ITEMS_AT_BATTLE_END
 
 
 // PROTEAN_GENERATION defines the behavior that Protean should exhibit, where it either changes type every move (<=8) or changes type once per appearance in battle (>=9)
