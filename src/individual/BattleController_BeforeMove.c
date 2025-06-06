@@ -2631,7 +2631,7 @@ int BattlerController_CheckMist(struct BattleSystem *bsys, struct BattleStruct *
     return 0;
 }
 
-BOOL BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
+int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     BOOL hasClearBodyOrFullMetalBodyOrWhiteSmoke = MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_CLEAR_BODY) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FULL_METAL_BODY) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_WHITE_SMOKE);
 
@@ -2749,15 +2749,8 @@ BOOL BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSyste
         break;
     }
 
-    if (subscriptToRun) {
-        ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag = 0;
-        ctx->oneTurnFlag[ctx->attack_client].parental_bond_is_active = FALSE;
-        ctx->msg_work = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, subscriptToRun);
-        ctx->next_server_seq_no = ctx->server_seq_no;
-        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-        ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_NO_MORE_WORK;
-        return TRUE;
+    if (subscriptToRun != 0) {
+        return subscriptToRun;
     }
     return FALSE;
 }
@@ -3831,16 +3824,16 @@ BOOL BattleController_CheckMoveFailures3_PerishSong(struct BattleSystem *bsys, s
 
 // TODO: implement new mechanics
 // Only return true if no stats are changed
-BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
+int BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender) {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
-    BOOL result = FALSE;
+    int result = 0;
     switch (moveEffect) {
         case MOVE_EFFECT_ATK_UP:
         case MOVE_EFFECT_ATK_UP_2:
         case MOVE_EFFECT_ATK_UP_3:
         // case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION: //handled below
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_DEF_UP:
@@ -3849,14 +3842,14 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER:
         // TODO: Stuff Cheeks with Defense maxed out
             if (ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_SPEED_UP:
         case MOVE_EFFECT_SPEED_UP_2:
         case MOVE_EFFECT_SPEED_UP_3:
             if (ctx->battlemon[defender].states[STAT_SPEED] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_SP_ATK_UP:
@@ -3864,7 +3857,7 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_SP_ATK_UP_3:
         // case MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION: // handled below
             if (ctx->battlemon[defender].states[STAT_SPATK] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_SP_DEF_UP:
@@ -3872,42 +3865,42 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_SP_DEF_UP_3:
         // case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER: // charge would work even if stats are maxed
             if (ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_ACC_UP:
         case MOVE_EFFECT_ACC_UP_2:
             if (ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_EVA_UP:
         case MOVE_EFFECT_EVA_UP_2:
         case MOVE_EFFECT_EVA_UP_2_MINIMIZE:
             if (ctx->battlemon[defender].states[STAT_EVASION] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_ATK_DEF_UP:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_STOCKPILE:
         case MOVE_EFFECT_DEF_SP_DEF_UP:
             if (ctx->battlemon[defender].states[STAT_DEFENSE] == 12 && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_SP_ATK_SP_DEF_UP:
             if (ctx->battlemon[defender].states[STAT_SPATK] == 12 && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_ATK_SPEED_UP:
         case MOVE_EFFECT_SPEED_UP_2_ATK_UP:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_SPEED] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_RANDOM_STAT_UP_2:
@@ -3919,26 +3912,26 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
             && ctx->battlemon[defender].states[STAT_SPDEF] == 12
             && ctx->battlemon[defender].states[STAT_ACCURACY] == 12
             && ctx->battlemon[defender].states[STAT_EVASION] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_ATK_ACC_UP:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP:
             if (ctx->battlemon[defender].states[STAT_SPEED] == 12
             && ctx->battlemon[defender].states[STAT_SPATK] == 12
             && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_ATK_DEF_ACC_UP:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
             && ctx->battlemon[defender].states[STAT_DEFENSE] == 12
             && ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN:
@@ -3946,41 +3939,41 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
             && ctx->battlemon[defender].states[STAT_SPEED] == 12
             && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_ATK_SP_ATK_UP:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
             && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2:
             if (ctx->battlemon[defender].states[STAT_SPATK] == 12
             && ctx->battlemon[defender].states[STAT_SPDEF] == 12
             && ctx->battlemon[defender].states[STAT_SPEED] == 12) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_ATK_DOWN:
         case MOVE_EFFECT_ATK_DOWN_2:
         case MOVE_EFFECT_ATK_DOWN_3:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 0) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_DEF_DOWN:
         case MOVE_EFFECT_DEF_DOWN_2:
         case MOVE_EFFECT_DEF_DOWN_3:
             if (ctx->battlemon[defender].states[STAT_DEFENSE] == 0) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_SPEED_DOWN:
         case MOVE_EFFECT_SPEED_DOWN_2:
         case MOVE_EFFECT_SPEED_DOWN_3:
             if (ctx->battlemon[defender].states[STAT_SPEED] == 0) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_SP_ATK_DOWN:
@@ -3988,32 +3981,32 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
         case MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER:
         case MOVE_EFFECT_SP_ATK_DOWN_3:
             if (ctx->battlemon[defender].states[STAT_SPATK] == 0) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_SP_DEF_DOWN:
         case MOVE_EFFECT_SP_DEF_DOWN_2:
         case MOVE_EFFECT_SP_DEF_DOWN_3:
             if (ctx->battlemon[defender].states[STAT_SPDEF] == 0) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_ACC_DOWN:
         case MOVE_EFFECT_ACC_DOWN_2:
             if (ctx->battlemon[defender].states[STAT_ACCURACY] == 0) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_EVA_DOWN:
         case MOVE_EFFECT_EVA_DOWN_2:
             if (ctx->battlemon[defender].states[STAT_EVASION] == 0) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_ATK_DEF_DOWN:
             if (ctx->battlemon[defender].states[STAT_ATTACK] == 0
             && ctx->battlemon[defender].states[STAT_DEFENSE] == 0) {
-                result = TRUE;
+                result = 1;
             }
             break;
         case MOVE_EFFECT_CURSE:
@@ -4021,7 +4014,7 @@ BOOL BattleController_CheckMoveFailures3_StatsChanges(struct BattleSystem *bsys 
             && ctx->battlemon[defender].states[STAT_ATTACK] == 12
             && ctx->battlemon[defender].states[STAT_DEFENSE] == 12
             && ctx->battlemon[defender].states[STAT_SPEED] == 0) {
-                result = TRUE;
+                result = 1;
             }
         default:
             break;
