@@ -106,7 +106,12 @@ _0000: // Trainer 0
        // Trainer 709
        // Trainer 710
        // Trainer 711
-    trainertextentry 495, TEXT_LAST_MON_CRITICAL, "...Humph!\nYou’re doing OK for someone weak.\n"
+
+    trainertextentry 11, TEXT_LAST_MON_SENT_OUT, "Schau ma moi.\n"
+    trainertextentry 11, TEXT_DEFEATED_IN_BATTLE, "...Wer ko, der ko.\n"
+    trainertextentry 11, TEXT_PLAYER_LOSES, "....Ned umfall'n!\n"
+
+    trainertextentry 495, TEXT_LAST_MON_SENT_OUT, "...Humph!\nYou’re doing OK for someone weak.\n"
     trainertextentry 495, TEXT_DEFEATED_IN_BATTLE, "...Humph!\nAre you happy you won?\n"
     trainertextentry 495, TEXT_PLAYER_LOSES, "...Humph!\nThat was a waste of time.\n"
 
