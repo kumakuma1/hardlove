@@ -801,6 +801,7 @@ typedef struct WildEncounterWork
     u16 minLevel;
 } WildEncounterWork;
 
+void shuffle(u8 array[], int n);
 
 /**
  *  @brief allocate enough space for a PartyPokemon and zero it out
@@ -1835,4 +1836,5 @@ void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemo
 
 void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp);
 
+void LONG_CALL CreateMon(struct PartyPokemon *mon, s32 species, s32 level, s32 fixedIV, s32 hasFixedPersonality, s32 fixedPersonality, s32 otIdType, s32 fixedOtId);
 #endif
