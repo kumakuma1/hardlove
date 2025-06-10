@@ -1,0 +1,1942 @@
+Alph Ruins Encounter event File 110
+113 D24R0101 Hook 4 -> 312 D24R0202 Hook 00 -> 113 D24R0101 Hook 4
+113 D24R0101 Hook 6 -> 318 D24R0208 Hook 00 -> 113 D24R0101 Hook 7
+
+113 D24R0101 Hook 4  -> 113 D24R0101 Hook 7
+113 D24R0101 Hook 7  -> 113 D24R0101 Hook 4
+
+Delete Hooks back in
+318 D24R0208 Hook 00
+312 D24R0202 Hook 00
+
+Blocker NPC:
+113 D24R0101 - Event File 110  - Add Overworlds - OW Entry 20 - Flag 166 (Morty Badge Gave TM), Script 9
+Add new script:
+Script 9:
+	PlayFanfare 1500
+	LockAll 
+	Message 11
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+Text Archive 72:
+Add Message 11 "..."
+
+
+Starter Hidden Ability
+Header 061 T20R0101
+Script File 843 : Script 13  add     SetFlag 2601 before starter selection screen
+
+####
+remove first Lyra scene
+####
+060 - T20 : even file 57, script file 842, lvel script file 615:
+start script 10 when FadeScreen
+Script 10:
+	CompareVarValue 0x4072 1
+	JumpIf EQUAL Function#9
+End 
+
+start script 9 when 0x4072/16498 == 1
+empty function 9
+Function 9:
+	ClearFlag 418
+	AddOW Overworld.4
+	ClearFlag 417
+	AddOW Overworld.3
+	SetOWPosition Overworld.4 686 0 396 Left
+	SetOWPosition Overworld.3 685 0 396 Down
+
+clear script 9 and script 4
+
+Mom sets    
+SetFlag 417
+
+
+
+Pokegear number:
+106 \v0103ぁ\x0000\x0000 registered Professor Elm\nin the Pokégear!
+	RecordPokegearNumber 1
+	TextPlayerName 0
+	Message 106
+	PlaySound 1206
+	WaitSound 
+	SetVar 0x407E 1
+	
+Remove in 
+Script File 60 : Script 57
+Script 3:
+	MecScript 
+	LockAll 
+				CheckFlag 106
+				JumpIf EQUAL Function#5
+
+Rare candies:
+Script File 843 : Function 15  add after Potions giving
+
+SetVar 0x8004 50
+SetVar 0x8005 995
+CheckItemSpace 0x8004 0x8005 0x800C
+CompareVarValue 0x800C 0
+JumpIf EQUAL Function#45
+SetVar 0x8004 50																
+SetVar 0x8005 995
+CommonScript 2008
+
+Super Repel:
+SetVar 0x8004 76
+...
+
+Old Rod:
+SetVar 0x8004 445
+SetVar 0x8005 1
+CommonScript 2033
+
+
+
+Delete old Rod guy
+169 R32PC0101 : Script File 163 - ID 04 - Script 2
+
+
+
+Disable Catch Tutorial:
+033 R29 : Script File 225 : Function 25
+Remove CatchTutorial
+
+
+
+Remove Cut Tree
+033 R29 : Event File 30 : ID 04 Flag 16 Script 1000
+033 R29 : Event File 30 : ID 05 Flag 17 Script 1000
+
+035 R31 : Event File 32 : ID 01 Flag 16 Script 1000
+035 R31 : Event File 32 : ID 03 Flag 17 Script 1000
+
+036 R32 : Event File 33 : ID 02 Flag 16 Script 1000
+
+
+Prof comes to give number after starter has been given:
+060 T20 : Event File 57 - Script File 842 : Script 3:
+CheckFlag 156 -> CheckFlag 106
+
+Remove need to go back mom after starter, get Pokegear at beginning
+063 T20R0201 : Event File 60 - Script File 845 : Script 1:
+insert:
+SetFlag 286
+PlaySound 1418
+WaitSound
+
+    TextPlayerName 0
+	Message 8
+	SetFlag 156
+	PlaySound 1185
+	WaitSound
+
+Message 5
+CloseMessage 
+
+Add Shoes, Bycicle
+    GiveShoes
+    SetVar 0x8004 450
+	SetVar 0x8005 1
+	CommonScript 2033
+
+Get Radio Card, Disable Quiz in Goldenrod
+From
+112 D23R0101 : Event File 109 - Script File 29 : Script 3:
+CheckFlag 138
+..
+UpgradePokegear 2
+SetFlag 138 // got upgrade
+..
+SetFlag 792 // remove whitney
+
+
+Remove Guide in Cherrygrove
+067 T201 : Event File 64 - Script File 850 : Script 1:
+delete triggers, flags set below will put the guide in his house
+
+Can be added to Mom script in 063 T20R0201 : Event File 60
+get shoes:
+	GiveShoes
+	SetFlag 408 //Guide trigger, gets cleared before second event
+	....
+	CommonScript 2038
+	SetVar 0x4073 1
+
+get pokegear Map upgrade
+    SetFlag 408  // Guide trigger
+	UpgradePokegear 1
+	SetVar 0x4073 2  //scene trigger
+
+156 D15R0103 : Event File 151 - Script File 18 : Script 3: Text Archive 56
+Rotate trainer,
+create double battle
+
+Elder Li gives 3x Berry Juice, 2x Coba Berries
+156 D15R0103 : Event File 151 - Script File 18 : Script 3: Text Archive 56
+
+    SetVar 0x8004 43
+    SetVar 0x8005 3
+    CheckItemSpace 0x8004 0x8005 0x800C
+    SetVar 0x8004 43
+    SetVar 0x8005 3
+    CommonScript 2008
+    SetVar 0x8004 192
+    SetVar 0x8005 2
+    CheckItemSpace 0x8004 0x8005 0x800C
+    SetVar 0x8004 192
+    SetVar 0x8005 2
+    CommonScript 2008
+
+Goldenrod Gamecorner Prices/Items:
+536 T25SP0101 : Event File 488 - Script File 910 :
+
+
+Block Ecruteak
+043 R39 - Event File 40 - Script File 249 :
+Add spwanables with Flag 166 - Win against Morty
+
+15 Here is no getting through, Pal.
+16 We're doing some Insta pics!
+17 Our Turf, Buddy!
+
+Script 4:
+	LockAll 
+	FacePlayer 
+	Message 15
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 5:
+	LockAll 
+	FacePlayer
+	Message 16
+	WaitButton
+	CloseMessage
+	ReleaseAll 
+End 
+
+Script 6:
+	LockAll 
+	Message 17
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+
+Block Mahagony City
+132 - R42R0101 - Event File 128 - Script File 253
+1 The creator did such a lazy\njob by placing me...
+2 Team Rocket is building our\nBas...ehm Business!\rehm...in Mahagony City.
+2 Spawnables with OW entry 222, Flag 194  (TM from Jasmine)
+Script 3:
+	LockAll 
+	FacePlayer 
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 4:
+	LockAll 
+	FacePlayer 
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+
+
+Move Tutor in Goldenrod PC
+185 - T25PC0101 - Event File 178 - Script File 887
+531 - D32R0103  - Event File 483 - Script File 82,  Top Left: Script 1 CommonScript 0x28C8
+531 - D32R0103  - Event File 483 - Script File 82,  Top right: Script 2 CommonScript 0x28C9
+531 - D32R0103  - Event File 483 - Script File 82,  Bottom right: Script 3 CommonScript 0x28CA
+
+Spawnable 328
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 0x28C8
+	ReleaseAll 
+End 
+
+
+Block light tower with Jasmine
+from
+225 - D27R0107 - Event File 211 - Script File 66 : OW 357
+
+first time talking to jasmine:
+function 2
+	SetVar 0x40A5 1
+	SetFlag 472 // DOOR open
+
+
+Secret potion in
+233 - T24R0501 - Event File 219 - Script File 881
+SetFlag 185
+
+
+
+
+
+Place ordinary mall guy in Goldenrod Dep. Store: Add spawnable in 4F
+195 - T25R1005 - Event File 188 - Script File 903
+OW 334
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 2011
+	FreezeMessage 
+	SetVar 0x8004 6
+	CommonScript 2052 // Vitamins, will be replaced with TMs
+	ReleaseAll 
+End 
+
+Script 7: Happiness/Frustration Lady does not give TM21 Frustration any more
+Removed Flag 446 - The lady appears everyday instead of sundays
+remove lines
+	//GetPokemonHappiness 0x800C 0x8000
+	//CompareVarValue 0x800C 149
+	//JumpIf GREATER/EQUAL Function#12 gives TM return
+	CompareVarValue 0x800C 50
+	JumpIf LESS/EQUAL Function#13 gives TM21 Frustration
+
+Ordinary Mart instead of X-Items
+193 - T25R1003 - Event File 186 - Script File 901
+OW 334
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 2011
+	FreezeMessage 
+	SetVar 0x8004 1
+	CommonScript 2048 // ordinary mart
+	ReleaseAll 
+End
+
+
+Swap with Vitamins guy
+
+
+Remove Good Rod:
+230 - T26R0601 - Event File 216 - Script File 918
+
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	// CheckFlag 189
+	// JumpIf EQUAL Function#1
+	Message 0 -> Message 5
+	// OpenTouchScreen 
+	// YesNoTouchScreen 0x800C
+	// CloseTouchScreen 
+	// CompareVarValue 0x800C 0
+	// JumpIf EQUAL Function#2
+	// CompareVarValue 0x800C 1
+	// JumpIf EQUAL Function#3
+End 
+
+
+
+
+Bill gifts PORYGON instead of EEVEE:
+203 - T25R0401 - Event File 196 - Script File 892
+replace texts
+
+GivePokemon 133 5 0 0 0 0x800C -> 137 15
+
+
+Eusin gives Item, Choice Specs/Band, Life Orb, ITEM_MANECTITE
+075 - T24 - Event File 72 - Script File 875
+16... \nagain. Take this on your journey!\fSee you around!\r
+Script 3:
+Message 16
+GetRandom 0x800C 3
+CompareVarValue 0x800C 0
+CallIf EQUAL Function#18
+CompareVarValue 0x800C 1
+CallIf EQUAL Function#19
+CompareVarValue 0x800C 2
+CallIf EQUAL Function#20
+..
+     SetVar 0x8004 566
+    SetVar 0x8005 1
+    CheckItemSpace 0x8004 0x8005 0x800C
+    SetVar 0x8004 566
+    SetVar 0x8005 1
+    CommonScript 2008
+
+Function 18:
+    SetVar 0x8004 220 // Choice band
+    SetVar 0x8005 1
+    CheckItemSpace 0x8004 0x8005 0x800C
+    SetVar 0x8004 220
+    SetVar 0x8005 1
+    CommonScript 2008
+Return
+
+Function 19:
+    SetVar 0x8004 297 // Choice specs
+ ....
+Return
+
+Function 20:
+    SetVar 0x8004 270 //life orb
+...
+Return
+
+
+
+Random Fossil in Cianwood
+234 - T24R0601 - Event File 220 - Script File 882
+Add Spawnable
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 1
+    OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+    GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#2
+    GetRandom 0x800C 9
+    CompareVarValue 0x800C 0
+    CallIf EQUAL Function#3
+    CompareVarValue 0x800C 1
+    CallIf EQUAL Function#4
+    CompareVarValue 0x800C 2
+    CallIf EQUAL Function#5
+    CompareVarValue 0x800C 3
+    CallIf EQUAL Function#6
+    CompareVarValue 0x800C 4
+    CallIf EQUAL Function#7
+    CompareVarValue 0x800C 5
+    CallIf EQUAL Function#8
+    CompareVarValue 0x800C 6
+    CallIf EQUAL Function#9
+    CompareVarValue 0x800C 7
+    CallIf EQUAL Function#10
+    CompareVarValue 0x800C 8
+    CallIf EQUAL Function#11
+    PlayFanfare 2323
+    Message 4
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 1:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 2:
+	Message 3
+	WaitButton 
+	CloseMessage
+    ReleaseAll 
+End
+
+Function 3:
+    GivePokemon 138 20 0 0 0 0x800C
+Return 
+
+Function 4:
+    GivePokemon 140 20 0 0 0 0x800C
+Return 
+
+Function 5:
+    GivePokemon 142 20 0 0 0 0x800C
+Return 
+
+Function 6:
+	SetFlag 2600
+    GivePokemon 345 20 0 0 0 0x800C
+Return 
+
+Function 7:
+    GivePokemon 347 20 0 0 0 0x800C
+Return 
+
+Function 8:
+    GivePokemon 408 20 0 0 0 0x800C
+Return 
+
+Function 9:
+    GivePokemon 410 20 0 0 0 0x800C
+Return 
+
+Function 10:
+    GivePokemon 614 20 0 0 0 0x800C
+Return 
+
+Function 11:
+    GivePokemon 616 20 0 0 0 0x800C
+Return 
+
+
+
+
+Random Starter in Safari-Zone Gate
+174 - D47 - Event File 168 - Script File 116 - Text 133
+Use Spawnable
+
+5 Hey Trainer, I give out random\nStarter Pokemon.\fYou want one? \v0200\x0001\x0000
+18 Ok...
+19 You don’t have space.
+20 Here you go buddy!
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 5
+    OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#14
+    GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#15
+	SetFlag 2600
+    GetRandom 0x800C 21
+
+    CompareVarValue 0x800C 0
+    CallIf EQUAL Function#16
+    CompareVarValue 0x800C 1
+    CallIf EQUAL Function#17
+    CompareVarValue 0x800C 2
+    CallIf EQUAL Function#18
+    CompareVarValue 0x800C 3
+    CallIf EQUAL Function#19
+    CompareVarValue 0x800C 4
+    CallIf EQUAL Function#20
+    CompareVarValue 0x800C 5
+    CallIf EQUAL Function#21
+    CompareVarValue 0x800C 6
+    CallIf EQUAL Function#22
+    CompareVarValue 0x800C 7
+    CallIf EQUAL Function#23
+    CompareVarValue 0x800C 8
+    CallIf EQUAL Function#24
+	
+	CompareVarValue 0x800C 9
+    CallIf EQUAL Function#25
+    CompareVarValue 0x800C 10
+    CallIf EQUAL Function#26
+    CompareVarValue 0x800C 11
+    CallIf EQUAL Function#27
+    CompareVarValue 0x800C 12
+    CallIf EQUAL Function#28
+    CompareVarValue 0x800C 13
+    CallIf EQUAL Function#29
+    CompareVarValue 0x800C 14
+    CallIf EQUAL Function#30
+    CompareVarValue 0x800C 15
+    CallIf EQUAL Function#31
+    CompareVarValue 0x800C 16
+    CallIf EQUAL Function#32
+    CompareVarValue 0x800C 17
+    CallIf EQUAL Function#33
+	
+	CompareVarValue 0x800C 18
+    CallIf EQUAL Function#34
+    CompareVarValue 0x800C 19
+    CallIf EQUAL Function#35
+    CompareVarValue 0x800C 20
+    CallIf EQUAL Function#36
+	
+    PlayFanfare 2323
+    Message 20
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 14:
+	Message 18
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 15:
+	Message 19
+	WaitButton 
+	CloseMessage
+    ReleaseAll 
+End
+
+
+Function 16:
+    GivePokemon 1 20 0 0 0 0x800C
+Return 
+
+Function 17:
+    GivePokemon 4 20 0 0 0 0x800C
+Return 
+
+Function 18:
+    GivePokemon 7 20 0 0 0 0x800C
+Return 
+
+Function 19:
+    GivePokemon 152 20 0 0 0 0x800C
+Return 
+
+Function 20:
+    GivePokemon 155 20 0 0 0 0x800C
+Return 
+
+Function 21:
+    GivePokemon 158 20 0 0 0 0x800C
+Return 
+
+Function 22:
+    GivePokemon 252 20 0 0 0 0x800C
+Return 
+
+Function 23:
+    GivePokemon 255 20 0 0 0 0x800C
+Return 
+
+Function 24:
+    GivePokemon 258 20 0 0 0 0x800C
+Return 
+
+
+
+
+Function 25:
+    GivePokemon 387 20 0 0 0 0x800C
+Return 
+
+Function 26:
+    GivePokemon 390 20 0 0 0 0x800C
+Return 
+
+Function 27:
+    GivePokemon 393 20 0 0 0 0x800C
+Return 
+
+Function 28:
+    GivePokemon 545 20 0 0 0 0x800C
+Return 
+
+Function 29:
+    GivePokemon 548 20 0 0 0 0x800C
+Return 
+
+Function 30:
+    GivePokemon 551 20 0 0 0 0x800C
+Return 
+
+Function 31:
+    GivePokemon 700 20 0 0 0 0x800C
+Return 
+
+Function 32:
+    GivePokemon 703 20 0 0 0 0x800C
+Return 
+
+Function 33:
+    GivePokemon 706 20 0 0 0 0x800C
+Return 
+
+Function 34:
+    GivePokemon 772 20 0 0 0 0x800C
+Return 
+
+Function 35:
+    GivePokemon 775 20 0 0 0 0x800C
+Return 
+
+Function 36:
+    GivePokemon 778 20 0 0 0 0x800C
+Return 
+
+
+
+
+
+
+NPC porter to unlock encounter on route 47
+151 - D47 - Event File 146 - Script File 260 - Text 407
+Add 2 spwanable
+
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	SendBackFollowingPoke 
+	PlayFanfare 1387
+	Movement Player Action#5
+	WaitMovement 
+	FadeScreen 6 1 0 0x7FFF
+	WaitFadeScreen 
+	Warp 151 0 117 382 Up
+	FadeScreen 6 1 1 0x7FFF
+	WaitFadeScreen 
+	BallResetFollowingPoke 
+	ReleaseAll 
+End 
+
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 10
+	WaitButton 
+	CloseMessage 
+	SendBackFollowingPoke 
+	PlayFanfare 1387
+	Movement Player Action#5
+	WaitMovement 
+	FadeScreen 6 1 0 0x7FFF
+	WaitFadeScreen 
+	Warp 151 0 131 370 Down
+	FadeScreen 6 1 1 0x7FFF
+	WaitFadeScreen 
+	BallResetFollowingPoke 
+	ReleaseAll 
+End 
+
+Action 5:
+	LookDown 0x2
+	LookLeft 0x2
+	LookUp 0x2
+	LookRight 0x2
+	LookDown 0x2
+	LookLeft 0x2
+	LookUp 0x2
+	LookRight 0x2
+	LookDown 0x2
+	LookLeft 0x2
+	LookUp 0x2
+	LookRight 0x2
+	LookDown 0x2
+	LookLeft 0x2
+	LookUp 0x2
+	LookRight 0x1
+	DisappearTrue 0x0
+End
+
+
+
+Chuck gives TM 60 Drain punch 
+139 - D47 - Event File 135 - Script File 877 - Text 574
+
+Function 5:
+	SetVar 0x8004 387
+	SetVar 0x8005 1
+	..
+	Message 6
+
+
+Find HM03 Surf next to jasmine
+
+so for example a ball with script 7000 will activate file 141 script number 1
+script 7001 activates file 141 script 2
+	#define ITEM_HM03            422
+
+	225 - D27R0107 - Event File 211 - Script File 66 - Text 94
+	Overworlds 
+	3 : ID3  FLag 1101, script 7090
+	Edit script file 141 : script 91
+Script 91:
+	SetVar 0x8008 26 -> 422
+	SetVar 0x8009 1
+Jump Function#1
+
+
+Text file 281 added 15 "Creator" - SetFlag 2598  will change hooked c-function 
+19 Hey Trainer, I give out random\nEggs.\fYou want one? \v0200\x0001\x0000
+20 Ok...
+21 You don’t have space.
+22 Here you go buddy!
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 19
+    OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#36
+    GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#37
+	SetFlag 2600
+	SetFlag 2599
+	SetFlag 2598
+	GivePokemonEgg 10 15
+    PlayFanfare 2323
+    Message 22
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 36:
+	Message 20
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 37:
+	Message 21
+	WaitButton 
+	CloseMessage
+    ReleaseAll 
+End
+
+
+034 R30 : Event File 31 - Script File 227
+Trigger Event
+16524 when 0  script 3 - function 2  // Use Variable and Flag for whitney
+NPC flag 591
+ClearFag ...
+
+Add 063 T20R0201 : Event File 60 - Script File 845 : Script 1:
+	SetVar 0x8004 468
+	SetVar 0x8005 1
+	CommonScript 2033
+	
+	SetFlag 109
+	SetVar 0x408C 1
+
+####
+Make Cut usable without learning move
+script file 146 - script 1 - text file 211
+script 1
+
+CheckItem 420 1 0x800C
+CompareVarValue 0x800C 0
+
+Make Rocksmash usable
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+
+CheckItem 425 1 0x800C
+CompareVarValue 0x800C 0
+	//CheckMoveInParty 0x800C 249
+	//SetVarFromVariable 0x8004 0x800C
+	//CompareVarValue 0x800C 6
+	JumpIf EQUAL Function#4
+	CheckBadge 0 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#4
+
+	..
+Function 5:
+	//TextPokeNickname 0 0x8004
+	//Message 5
+	//CloseMessage 
+	CMD_727 0x8005
+	CheckPlayerForm 0x800C
+	CheckFollowingPoke 0x8006
+	CompareVarValue 0x800C 2
+	JumpIf DIFFERENT Function#32
+	SetVar 0x8007 0
+	//CutAnimation 0x8004
+	...
+
+Make Strength usable with TM:
+Function 6:
+	//CheckMoveInParty 0x800C 70
+	//CompareVarValue 0x800C 6
+CheckItem 425 1 0x800C
+CompareVarValue 0x800C 0
+
+function 35:
+CheckMoveInParty 0x800C 70 -> GetFirstAlivePokemonSlot 0x800C
+
+script 3 -> Function
+
+Rock Climb
+	Script 4:
+	CheckMoveInParty 0x800C 431 -> CheckItem 427 1 0x800C
+	                               CompareVarValue 0x800C 0
+
+	Function 10:
+	CheckMoveInParty 0x800C 431 -> GetFirstAlivePokemonSlot 0x800C
+
+
+
+Waterfall
+script 6:
+	//CheckMoveInParty 0x800C 127
+	//CompareVarValue 0x800C 6
+	//JumpIf EQUAL Function#14
+	-> CheckItem 426 1 0x800C
+	CompareVarValue 0x800C 0
+
+Function 15:
+	CheckMoveInParty 0x800C 127 -> GetFirstAlivePokemonSlot 0x800C
+
+
+Whirlpool
+script 17:
+	//CheckMoveInParty 0x800C 250
+	//CompareVarValue 0x800C 6
+	//JumpIf EQUAL Function#14
+	-> CheckItem 424 1 0x800C
+	CompareVarValue 0x800C 0
+
+	Function 27:
+	CheckMoveInParty 0x800C 250 -> GetFirstAlivePokemonSlot 0x800C
+####
+
+VS Box
+097 - R31R0101 - Event File 94 - Script File 231
+Triggers 
+0x4132/16690 when 1 - script 1 
+..
+SetVar 0x8004 465
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x4132 1
+
+Add to 063 mom script
+
+
+CatchingTutorial
+033 R29 : Script File 225 : Function 25
+remove trigger
+16523 when 1, script 2
+
+
+
+Illex:
+117 D36R0101 : Script File 114 : Function 92
+Remove Porenta triggers
+
+script 18:
+SetVar 0x40F4 0
+
+    CheckFlag 128
+    JumpIf EQUAL Function#28
+    SetVar 0x8004 420
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#29
+	CommonScript 2033
+	SetFlag 431 //hide VM master
+	SetFlag 429 //hide VM guy 1
+	SetFlag 423 //hide catch por1
+	SetFlag 424 //hide catch por2
+	SetFlag 467 //hide sitting por
+	SetFlag 468
+	SetFlag 128 //got VM01
+	ClearFlag 430
+	ClearFlag 428
+	SetVar 0x40F4 0 //trigger
+
+
+
+
+Additional Lance Intraction before Double battle
+248 D35R0103 : Script File 90 : Text Archive 113
+Function 4 and 5:
+    
+	PlayCry 149 0
+	WaitCry 
+	Movement Overworld.0 Action#23
+    TextPlayerName 0
+	GenderMessage 28 29
+	CloseMessage 
+	Movement Overworld.0 Action#24
+	WaitMovement 
+	Message 30
+	CloseMessage 
+	Movement Overworld.8 Action#19
+	WaitMovement 
+
+28/29: Lance: \v0103ぁ\x0000\x0000!\nI will handle those clowns!\rTeam Rocket only uses Ratattas and\nZubats.\r
+               Let my Mega-Mence sweep and try not\nto wipe. Just stay a little back.\r
+30:	Lance: Equip your Mega-Rings!\nWe battle!\r
+
+
+
+Whitney Rematch in Goldenrod before Rocket Radio tower
+
+Mom initializes in 063
+SetVar 0x4024 0
+...
+Pryce sets variable:
+140 T28GYM0101 : Script File 90 : Text Archive 113
+SetVar 0x4024 1
+
+Goldenrod
+076 T25: Script File 885 : Event File 73: Text Archive 581
+Add trigger:
+watch: 16420, when 1, script 34
+
+Add Whitney (ID 21) outside  383,353
+
+Script 34:
+    MecScript
+	PlayFanfare 1538
+	LockAll 
+    LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	TextPlayerName 0
+	GenderMessage 47 48
+	CloseMessage
+    Movement Player Action#28
+    WaitMovement
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+    SetOWPosition Overworld.21 356 0 353 Left
+    Movement Overworld.21 Action#29
+    WaitMovement
+    Message 49
+    CloseMessage
+    Movement Overworld.21 Action#31
+    WaitMovement
+    Message 50
+    CloseMessage 
+	TrainerBattle 714 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#56
+    Message 51
+    SetVar 0x8004 577
+    SetVar 0x8005 1
+	CommonScript 2033
+    CloseMessage
+    Movement Overworld.21 Action#30
+    WaitMovement
+    SetOWPosition Overworld.21 386 0 353 Left
+    SetVar 0x4024 2
+	ReleaseAll 
+End 
+
+
+Action 28:
+	WalkDownFast 0x1
+End
+
+Action 29:
+	WalkLeftFast 0xE
+    LookUp 0x1
+End
+
+Action 30:
+	LookRight 0x1
+	WalkRightFast 0xE
+End
+
+Action 31:
+    LookLeft 0x1
+    Freeze8 0x1
+	LookRight 0x1
+    Freeze8 0x1
+	LookLeft 0x1
+    Freeze8 0x1
+    LookUp 0x1
+End
+
+Function 56:
+	LostBattle 
+	ReleaseAll 
+End 
+
+47/48: Whitney: Hey, \v0103ぁ\x0000\x0000!\r
+49: Whitney: You came to see me?!\nThat’s so cute! I have time now.\rWhere are we gonna do?\r...\rWhat do mean by other reasons...?\rWhat about Team Rocket?!?!\r...\r
+50: Whitney: There is no Team Rocket!\rI thought you were different!\r...\rHmmpf. I am furious! I will show you\nin a fight!\rThe boys will deal with you!\r
+51: Whitney: OMG! You are so strong!\rI have to think about it...\rBut you can have this. See ya!\r
+
+
+Mega-Ring
+202 D37R0105: Script File 79 : Event File 195: Text Archive 120
+Director Script 2:
+..
+    Message 2
+    SetVar 0x8004 763
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 3
+	WaitButton
+    SetFlag 189
+..
+Remove Message 2 in Function 2
+
+
+0: Director: Who? What? You came to\nrescue me? Oh thank God!\rThe Radio Tower!\nTeam Rocket took over it.\rWe could not stop them.\nThis Archer guy is to powerful.\rHe wants to demonstrate some sort of\ntechnology.\rSomething about controling Pokemon.\rYou have to stop them!\nHere. Take this Card Key.\r
+
+2: Director: Use that to open the\nshutters on 3F.\rArcher is incredibly strong. You’ll\nneed as much help as possible when\fyou face him.\rTake this too. I was not able to\nbeat him.\rMaybe the Ring serves you better\nthan me.\r
+
+3: I’m begging you to help.\rThere’s no telling what they’ll do if\nthey control the transmitter.\rYou’re the only one I can call on.\nPlease save the Radio Tower...\fand the World!
+
+
+
+Choice Scarf Gauntlet
+
+Route 34
+038 R34: Script File 237 : Event File 35: Text Archive 384
+Add OW (ID 16), Entry 17, Flag 189 - FLAG_GOT_GOOD_ROD
+50: Below is the Choice Scarf Gauntlet.\rYou can challenge the Ladies in a\nGauntlet to earn a Choice Scarf.\rBut you need a Mega-Ring to do so...
+
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 50
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End
+
+Script 5:
+	MecScript 
+	LockAll 
+	//CountAlivePokemonExceptFirst 0x4003 6
+	//CompareVarValue 0x4003 1
+	//JumpIf DIFFERENT Function#5
+Jump Function#6
+....
+Function 6:
+	Movement Overworld.6 Action#21
+	WaitMovement 
+	Message 26
+	...
+	CloseMessage 
+	Movement Overworld.7 Action#12, Action#12 plus one step
+	StopMusic 0
+	PlayMusic 1107
+	WaitMovement 
+	Movement Player Action#47
+	WaitMovement 
+	Message 28
+    CloseMessage 
+	StopMusic 0
+	TrainerBattle 118 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	SetVar 0x4097 2
+    Message 30
+	SetVar 0x8004 287
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CommonScript 2033
+	SetVar 0x4097 3
+	Message 32
+	WaitButton 
+	CloseMessage
+	ReleaseAll 
+End
+
+Function 15:
+	SetVar 0x8004 287
+	SetVar 0x8005 1
+
+
+
+
+Action 47:
+	LookDown 0x1
+End
+
+19: Irene: You want a Choice Scarf?!\nYou are to weak to win!\r
+21: Irene: You might have a chance!\r
+22: ..
+23: Irene: I love being a Choice Scarf\nGauntlet Girl!
+24: Jenn: Uhh a real challenger for the\nChoice Scarf?!\r
+
+27: Jenn: You and us... We might as well\nbecome friends!\rMaybe friends with benefits! ;)
+28: Kate: Huh. You beat my sisters.\nImpressive.\rIf you beat me, I will reward you\nwith a Choice Scarf.\r
+
+32: Kate: Congratulations!\nYou earned the Choice Scarf!
+
+
+
+
+Bugsy Rematch Route 46
+Whitney sets variable in Goldenrod
+...
+SetVar 0x4024 2
+
+Route 46
+076 T25: Script File 885 : Event File 73: Text Archive 581
+Add trigger:
+watch: 16420, when 2, script XX
+
+Add Bugsy (ID 20??), add Scizor?
+
+Script 4:
+    MecScript
+	PlayFanfare 1538
+    LockAll 
+    LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+    TextPlayerName 0
+	GenderMessage 4 5
+	CloseMessage
+    SetOWPosition Overworld.7 639 0 332 Left
+    SetOWPosition Overworld.8 640 0 332 Left
+    Movement Player Action#1
+    Movement Overworld.7 Action#2
+    Movement Overworld.8 Action#2
+    WaitMovement
+    Message 6
+    CloseMessage 
+	TrainerBattle 713 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#2
+    Message 7
+    SetVar 0x8004 554
+    SetVar 0x8005 1
+	CommonScript 2033
+    SetVar 0x8004 555
+    SetVar 0x8005 1
+	CommonScript 2033
+    Message 8
+    CloseMessage
+    CMD_775 7 8
+    SetOWPosition Overworld.7 621 0 322 Down
+    SetOWPosition Overworld.8 620 0 322 Down 
+    SetVar 0x4024 3
+	ReleaseAll 
+End 
+
+	Message....
+	//Fly away
+CMD_775 7 8
+	SetFlag 484
+	RemoveOW Overworld.8
+	RemoveOW Overworld.10
+
+
+Action 1:
+	WalkDownFast 0x2
+End
+
+4: Bugsy: Hey, \v0103ぁ\x0000\x0000!\r
+5: Bugsy: Hey, \v0103ぁ\x0000\x0000!\r
+6: Bugsy: What are you doing here?\r...\rYou collected quite some badges. Wow!\nYou have grown pretty strong.\rSince this is my training ground,\nhow about a little fight?\rLet’s see what you learned.\r
+7: Bugsy: That’s is what I call Training!\nYou have become very powerful.\rSuch a wonderful experience to meet\nyou here again.\rI will give you these.
+8: Bugsy: I will be on my way now.\nScizor, let’s go.\r
+
+
+
+
+Block Kanto until after Badge 8:
+
+3 NPCs, Flag : FLAG_GOT_TM59_FROM_CLAIR : 218
+
+Script 6:  7:  8:
+	PlayFanfare 1500
+	LockAll 
+	Message 4 / 5 / 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+4:Kanto sieht schon gudd aus!\nGugge mol was die alles hann.
+5:Sagenhaft! Du, Kanto kann was.\nMei liewer Scholli.
+6:Oh, ich finns dehäm scheener. Immer\nschleppe die mich mit uf ihr Reise do.
+
+
+Quizz in Dragon's Den:
+288 D44R0103: Script File 112 : Event File 259: Text Archive 130
+Remove Photographer and script 6
+
+
+Levelscript Script 4:
+Make all Dialoge options to zero, remove jump
+	CreateMultiTouchBox 292 255 0
+	CreateMultiTouchBox 293 255 0
+	CreateMultiTouchBox 294 255 0
+	CloseMultiTouch 
+	CloseTouchScreen 
+	//CompareVarValue 0x800C 1
+	//JumpIf EQUAL Function#6
+remove version Check and Lugia Text
+	//CheckVersion 0x800C
+	//CompareVarValue 0x800C 7
+	//JumpIf DIFFERENT Function#7
+	//Message 20
+...
+	RemoveOW Overworld.3
+	CommonScript 2045
+	WaitSound 
+	Movement Overworld.0 Action#14
+	WaitMovement 
+	TextPlayerName 0
+	Message 33
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 2456
+	SetFlag 234
+	ClearFlag 521
+	SetVar 0x40C4 1
+	SetFlag 741
+	SetVar 0x40C3 1
+	SetVar 0x407B 1
+	SetVar 0x4108 8
+	ClearFlag 422
+	SetVar 0x4081 1
+End 
+
+33: \v0103ぁ\x0000\x0000!\nYou now collected all 8 badges.\rThis means you deemed yourself worthy\nof challenging the Elite Four.\rThe Elite Four are the most powerful\nTrainers.\rNot many are ever make it to challenge\nthem.\rPrepare yourself for the last part of\nyour journey. Good luck!\r
+
+
+Function 5:
+	PlaySound 1188
+	WaitSound
+    SetFlag 2599 
+	GetRandom 0x800C 10
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#8
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#9
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#10
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#11
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#12
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#13
+	CompareVarValue 0x800C 6
+	CallIf EQUAL Function#14
+	CompareVarValue 0x800C 7
+	CallIf EQUAL Function#15
+	CompareVarValue 0x800C 8
+	CallIf EQUAL Function#16
+	CompareVarValue 0x800C 9
+	CallIf EQUAL Function#17
+	TextPlayerName 0
+	TextPokemon 1 0x4002 0 0
+	Message 34
+	TextPokemon 0 0x4002 0 0
+	Message 32
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	CallIf DIFFERENT Function#18
+Jump Function#2
+
+
+
+Function 8:
+    SetFlag 2600
+    SetVarFromFlexible 0x4002 147
+	GivePokemon 0x4002 10 0 0 0 0x800C
+	ReplaceMove 0x8005 0 245
+Return 
+
+Function 9:
+    SetVarFromFlexible 0x4002 246
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 10:
+    SetVarFromFlexible 0x4002 371
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 11:
+    SetVarFromFlexible 0x4002 374
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 12:
+    SetFlag 2600
+    SetVarFromFlexible 0x4002 443
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 13:
+    SetVarFromFlexible 0x4002 683
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 14:
+    SetVarFromFlexible 0x4002 832
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 15:
+    SetVarFromFlexible 0x4002 935
+	GivePokemon 0x4002 10 0 0 0 0x800C
+Return 
+
+Function 16:
+    SetVarFromFlexible 0x4002 755
+	GivePokemon 0x4002 30 0 0 0 0x800C
+Return 
+
+Function 17:
+    SetVarFromFlexible 0x4002 1324
+	GivePokemon 0x4002 30 0 0 0 0x800C
+Return 
+
+Function 18:
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	ChoosePokemonNickname 0x8005 0x800C
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+Jump Function#2
+
+
+
+
+
+
+Cut Scene on Route 47, after Bridge
+
+Mom initializes in 063
+SetVar 0x4025 0
+...
+Use Flag 420?
+
+Route 47
+151 R47: Script File 260 : Event File 146: Text Archive 407
+Add trigger:
+watch: 16421, when 0, script 8
+
+Add Grunt 1 (ID 15)
+Add Grunt 2 (ID 16)
+
+Script 8:
+    MecScript
+	PlayFanfare 1500
+	LockAll 
+    LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+    Movement Player Action#6
+    WaitMovement
+    Message 13
+    CloseMessage
+    Movement Player Action#7
+    WaitMovement
+    Movement Overworld.15 Action#10
+    WaitMovement
+    Message 14
+    Message 15
+    Message 16
+    CloseMessage
+    Movement Overworld.15 Action#8
+    WaitMovement
+    SetOWPosition Overworld.15 65 0 385 Up
+    Movement Overworld.16 Action#9
+    WaitMovement
+    Movement Overworld.16 Action#8
+    WaitMovement
+    SetOWPosition Overworld.16 65 0 386 Left
+    SetVar 0x4025 1
+	ReleaseAll 
+End 
+
+Script 9:
+End
+
+Action 6:
+    Exclamation 0x1
+End
+
+Action 7:
+	WalkLeftSlow 0x3
+    WalkDownSlow 0x1
+    LookLeft 0x1
+End
+
+Action 8:
+	WalkUpSlow 0x1
+End
+
+Action 9:
+	WalkLeftSlow 0x1
+    LookUp 0x1
+End
+
+Action 10:
+	LookRight 0x1
+End
+
+13: Grunt 1: This is it!\nThis has to be the cave.\r
+14: Grunt 2: Hmm, are you sure?\nThis doesn't look like some mysterious\fcave...\rThe Lore does say something about\nwhirlpools protecting the entry.\r
+15: Grunt 1: Ah, fuck the Lore!\nPeople always make up crazy stuff\fwhen legendary Pokémon are involved.\rThe Boss will reward us heavenly.\nHe is searching for it quite some\ftime now.\rLet’s go inside. You go first.\r
+16: Grunt 2: What? I don’t...\rDAMN!\r
+
+
+####
+Mini-Boss on Route 36
+040 - R36 : Script File 243, Event File 37, Text file 390
+Add trigger : Run script 13 when 16422 is value 0
+
+Script 13:
+	PlayFanfare 1500
+	LockAll
+    Message 23
+    CloseMessage
+	SetOWPosition Overworld.10 415 0 248 Left
+	Movement Overworld.10 Action#11
+	WaitMovement
+    GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 248
+	JumpIf EQUAL Function#38
+	Movement Overworld.10 Action#14
+	Movement Player Action#1
+	WaitMovement
+Jump Function#39
+
+Function 38:
+    Movement Overworld.10 Action#13
+	Movement Player Action#12
+    WaitMovement
+ Jump Function#39
+
+Function 39:
+    Message 24
+	CloseMessage 
+
+	TrainerBattle 11 0 0 0 // used a mickey and gave Trainertext
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#30
+
+    Message 25
+    CloseMessage
+    Movement Overworld.10 Action#11
+    WaitMovement
+    SetOWPosition Overworld.10 413 0 225 Left
+    SetVar 0x4026 1
+    ReleaseAll 
+End 
+
+
+Action 11:
+	WalkLeftFast 0x9
+End
+
+Action 12:
+	LookDown 0x1
+End
+
+Action 13:
+	WalkDownFast 0x1
+	WalkLeftFast 0x1
+	LookUp 0x1
+End
+
+Action 14:
+	WalkLeftFast 0x1
+	LookDown 0x1
+End
+
+23: Servus!\rDu do!\rWos glaubst, wo du hinlafst?\r
+24: Dea Weg is zua.\nSo a Stein blockiert es Sträßle.\rEy, so eine Schweinerei!\nI kimm 'etz ah nemmer hoam...\r..\rKumm, lass mo kämpfe!\r
+25: Hoho!\rWas A Gaudi!\rErsch mo ins Brauheisl.\nServus!
+
+
+### Always lose goldenrod Store lottery
+196 - T25R1006 : Event File 189
+Remove ladies
+
+### Always lose goldenrod radio lottery
+112 - D23R0101 : Script File 29
+Function 6:
+...
+	CheckWinLotto 0x8001 0x8002 0x8003 0x8000
+    SetVar 0x8002 0
+
+
+###Blocked second path on Route 32
+Add Spawnables
+
+Add NPCs in Ruins of Alph
+Block until after whitney FLAG 133 FLAG_GOT_TM45_FROM_WHITNEY
+
+
+//- Witney unlockes TM guy in Mart, ClearFlag 345
+
+#### Remove Weekly Sibling
+036 - R32 - Event File 33, Script File 232
+Remove OW 13, Flag 520, Script 6
+
+### Poison Barb On R32
+036 - R32 - Event File 33 Overworld 15: Fag 1239 - Script 7032  --> 141 script 33
+Script 33:
+	SetVar 0x8008 253 -> 245
+	SetVar 0x8009 1
+Jump Function#1
+.equ ITEM_POISON_BARB, 245
+
+### Heartscale in Dark Cave 1
+176 - D42R0102 - Event File 169 Overworld 4: Fag 1218 - Script 7168  --> 141 script 169
+Script 169:
+	SetVar 0x8008 17 -> 93
+	SetVar 0x8009 1
+Jump Function#1
+
+### Everstone in Sprout tower
+110 - D15R0101 - Event File 107 Overworld 5: Fag 1061 - Script 7007  --> 141 script 8
+Script 8:
+	SetVar 0x8008 22 -> 229
+	SetVar 0x8009 1
+Jump Function#1
+
+.equ ITEM_EVERSTONE, 229
+
+### Never-Melt Ice in Ruins
+113 - D15R0101 - Eventfile 110 OW 1: Flag 1146 - Script 7011  --> 141 script 12
+Script 12:
+	SetVar 0x8008 17 -> 246
+	SetVar 0x8009 1
+Jump Function#1
+#define ITEM_NEVER_MELT_ICE  246
+
+
+### Black BELT band on Route 34
+038 - DR34 - Event File 35 Overworld 14: Fag 1274 - Script 7048  --> 141 script 49
+Script 49:
+	SetVar 0x8008 390 -> 241
+	SetVar 0x8009 1
+Jump Function#1
+#define ITEM_BLACK_BELT      241
+
+
+### Silk Scarf in National Park
+096 - D22R0101 - Event File 93  - Script File 25
+Script 1:
+..
+	SetVar 0x8004 217 -> 251
+	SetVar 0x8005 1
+...
+
+.equ ITEM_SILK_SCARF, 251
+
+
+### Candy in Ilex
+117 - D36R0101 - Event File 114 Overworld 6: Fag 1077 - Script 7043  --> 141 script 44
+Script 44:
+	SetVar 0x8008 28 -> 50
+	SetVar 0x8009 1
+Jump Function#1
+
+.equ ITEM_RARE_CANDY, 50
+
+### White herb on R34
+171 - D34R0201 - Event File 165 - Script file 239
+Script 1:
+	SetVar 0x8004 339 -> 214
+	SetVar 0x8005 1
+Jump Function#1
+Oh, honey. You’re making a Pokédex?
+It’s a White Herb.\rIt can be used to restore a Pokémon's\ndecreased stats.
+
+
+### Wide Lense in Union Cave
+099 - D25R0101 - Event File 96 Overworld 5: Fag 1067 - Script 7075  --> 141 script 76
+Script 76:
+	SetVar 0x8008 265
+	SetVar 0x8009 1
+Jump Function#1
+
+.equ ITEM_RARE_CANDY, 50
+
+### 
+Wise Glasses in Goldenrod Department Underground
+200 - D37R0103 - Event File 193 Overworld 21: Fag 1093 - Script 7055  --> 141 script 56
+								Overworld 19: Fag 1090 - Script 7052  --> 141 script 53
+Script 53:
+	SetVar 0x8008 267
+	SetVar 0x8009 1
+Jump Function#1
+
+Script 56:
+	SetVar 0x8008 266
+	SetVar 0x8009 1
+Jump Function#1
+
+### Add Fishermen Henry to Ilex to guard Candy
+Delete from R32
+Add in Ilex: 117 - D36R0101 - Event File 114
+Add OW: Sprite 347, Script 3059, Flag 0
+
+
+#####
+Remove Mom saving Money:
+#####
+063 T20R0201 : Event File 60 - Script File 845 : Script 2:
+
+	CheckFlag 2404 GAME_CLEAR
+	JumpIf EQUAL Function#2  -> SS_Ticket -> Function#3
+	CompareVarValue 0x4108 4
+	JumpIf GREATER/EQUAL Function#3
+	CheckFlag 106
+	JumpIf EQUAL Function#4 -> GetPokeGear, go to Mr. Pokemon
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 6
+
+call Function#17 instead of 3
+
+Function 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 167
+	JumpIf EQUAL Function#7 -> Withdraw,etc
+	CheckBadge 0 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#8 - "I will save money"
+	Message 15
+Jump Function#9
+
+
+034 - R30 Remove call
+Script 5:
+	MecScript 
+	LockAll 
+	SetVar 0x8004 0
+	SetVar 0x8005 2
+	SetVar 0x8006 0
+		//CommonScript 2039
+	SetVar 0x4095 0
+	SetFlag 167
+	ReleaseAll 
+End 
+
+
+### Add trainer to Violet Gym
+Trainer Sage Chow 43, Script 3042, OW220 removed in Sprout Tower 110-D15R0101
+        Sage Jin 53, Script 3052, OW220 removed in Sprout Tower 156-D15R0103
+Added in 135-T22GYM0101
+
+
+
+### Replace Spearow Gift in Goldenrod
+Swap script 1 in  101-R35R0101
+
+Add
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 17
+	CloseMessage 
+	ReleaseAll 
+End 
+17: There was a weird tree blocking\nRoute 36.\rI wonder if it’s been cleared?\r
+
+Script 1:
+	...
+End 
+
+
+
+### Shed Shell in Ecruteak
+086 - T27R0501, Event File 83, Script File 928, Text File 618
+Script 12 and 13:
+
+SetVar 0x8004 422 -> 295
+SetVar 0x8005 1
+#define ITEM_SHED_SHELL      295
+
+28: That’s Surf.\nIt’s a move that lets Pokémon swim\facross water with ease.\r
+->
+That’s a Shed Shell.\rIt might come in handy, when facing\nGhost Pokémon.\r
+
+
+### Remove Berry Pot
+040 - R36 - Script file 243 - Script 1 -> Function 38/39
+
+Function 39:
+	Message 15
+	//SetVar 0x8004 470
+	//SetVar 0x8005 1
+	//CommonScript 2033
+	//Message 16
+	//Message 17
+	SetVar 0x8004 155
+	SetVar 0x8005 3
+	CommonScript 2033
+	SetVar 0x8004 151
+	SetVar 0x8005 3
+	CommonScript 2033
+	Message 18
+
+	Adjust Text 18
+
+
+
+
+### Heal Party in Gym Fights
+in Script File 953 add Function before each battle. Set the the Flag in Level Script when entering and clear when entering town map
+
+CheckFlag 219
+	CallIf EQUAL Function#20
+
+Function 20:
+	HealPokemon 
+Return 
+
+Hacky solution in violet
+
+
+
+
+### Random 3 Trainer on Route 34
+038 - R34 - Event File 35 - Script File 237
+script 1
+    GetRandom 0x800C 3
+    CompareVarValue 0x800C 1
+    CallIf EQUAL Function#46
+    CompareVarValue 0x800C 2
+    CallIf EQUAL Function#47
+    CompareVarValue 0x800C 3
+    CallIf EQUAL Function#48
+    CompareVarValue 0x800C 4
+    CallIf EQUAL Function#49
+    CompareVarValue 0x800C 5
+    CallIf EQUAL Function#50
+
+
+Function 46:
+	SetOWPosition Overworld.2 381 0 431 Left
+	SetOWPosition Overworld.13 381 0 432 Left
+Return
+
+Function 47:
+Return
+
+Function 48:
+Return
+
+Function 49:
+Return
+
+Function 50:
+Return
+
+
+
+###Remove Bug Catching Contest
+102-R35R0201 - Event File 99 - Script 242 - Text File - 389
+Remove OW 7
+Remove Flag 451 from OW 2
+104-R36R0201
+Remove OW 1
+Remove Flag 451 from OW 0
+
+
+###Azalea rival:
+074-T23 - Event File 71 - Script 866
+script 3
+    LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+
+
+
+####Random Trade in goldenrod // TODO make accept any pokemon
+195-T25R1005 - Event File 188 - Script 903
+
+Script 4:
+CheckStarter 0x800C
+	CompareVarValue 0x800C 387
+	JumpIf DIFFERENT Function#5
+	CheckBadge 3 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+
+	
+Function 5:
+	Message 20
+	CloseMessage 
+	ReleaseAll 
+End 
+
+9: Wow!\nYou chose the Way the Turtle!\rI can help your way by trading you\na strong Pokémon\rYou can give me any Pokémon in return.\nWhat do you say? \v0200\x0001\x0000
+10: You don’t want to trade? Aww...
+20: Ever heard of the Way of the Turtle?\r
+
+
+
+###Heartscale after Ilex/on R34:
+171 - R34R0201 - Script FIle 239 - Text FIle 386
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CheckStarter 0x800C
+	CompareVarValue 0x800C 775
+	JumpIf DIFFERENT Function#3
+    CheckFlag 423
+	JumpIf EQUAL Function#4
+    Message 6
+    SetVar 0x8004 93
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CommonScript 2033
+    SetFlag 423
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 3:
+	Message 4
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 4:
+    Message 5
+	CloseMessage 
+	ReleaseAll 
+End 
+
+5:Good luck out there!\r
+6:Wow, you have Litten as Starter!\rMe too! That is so cool.\rTake this.\r
