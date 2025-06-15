@@ -1101,7 +1101,7 @@ trainerdata 21, "Bugsy"
     party 21
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-1
+        level LEVEL_BUGSY-2
         pokemon SPECIES_DWEBBLE
         item ITEM_FOCUS_SASH
         move MOVE_STEALTH_ROCK
@@ -1120,17 +1120,17 @@ trainerdata 21, "Bugsy"
         ivs 0
         abilityslot 0
         level LEVEL_BUGSY-2
-        pokemon SPECIES_GALVANTULA
-        item ITEM_SITRUS_BERRY
-        move MOVE_VOLT_SWITCH
-        move MOVE_MEGA_DRAIN
-        move MOVE_CHARGE_BEAM
-        move MOVE_STICKY_WEB
-        ability ABILITY_DRY_SKIN
+        pokemon SPECIES_KLAWFS
+        item ITEM_IAPAPA_BERRY
+        move MOVE_FACADE
+        move MOVE_REVERSAL
+        move MOVE_ENDEAVOR
+        move MOVE_ROCK_TOMB
+        ability ABILITY_ANGER_SHELL
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1610,17 +1610,17 @@ trainerdata 30, "Whitney"
         ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-2
-        pokemon SPECIES_STANTLER
-        item ITEM_CHOPLE_BERRY
-        move MOVE_BODY_SLAM
-        move MOVE_ZEN_HEADBUTT
-        move MOVE_HYPNOSIS
-        move MOVE_SLEEP_TALK
-        ability ABILITY_INTIMIDATE
+        pokemon SPECIES_FARIGIRAF
+        item ITEM_LEFTOVERS
+        move MOVE_PSYSHOCK
+        move MOVE_TRI_ATTACK
+        move MOVE_AGILITY
+        move MOVE_GRASS_KNOT
+        ability ABILITY_ARMOR_TAIL
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
