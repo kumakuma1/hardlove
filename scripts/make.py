@@ -167,10 +167,10 @@ def Hook(rom: _io.BufferedReader, space: int, hookAt: int, register=0, memAddres
             immediateHigher & 0xFF, (0xF0 | ((immediateHigher >> 8) & 0x3) | (0x4 if (memAddress+0xE) > space else 0)),
             immediateLower & 0xFF, (0xF8 | ((immediateLower >> 8) & 0x7)),
             0x01, 0x49, 0x09, 0x68, 0x8F, 0x46])
-        #print(f"bl construction: space = {space:08X}, hookAt = {hookAt:06X}, memAddress = {memAddress:08X}, immediate = {immediate:06X}, {immediateHigher:03X} {immediateLower:03X}")
-        #for i in range(0, len(data)):
-        #    print(f"{data[i]:02X}", end=' ')
-        #print("")
+        print(f"bl construction: space = {space:08X}, hookAt = {hookAt:06X}, memAddress = {memAddress:08X}, immediate = {immediate:06X}, {immediateHigher:03X} {immediateLower:03X}")
+        for i in range(0, len(data)):
+            print(f"{data[i]:02X}", end=' ')
+        print("")
         data += ((memAddress + 0x18).to_bytes(4, 'little'))
 
     rom.write(bytes(data))
@@ -429,12 +429,12 @@ def writeall():
             line = file.readline()
             # grab first line of format /* Overlay ### */, convert ### to a number
             newOverlay = int(line.split(" ")[2])
-            # determine insertion location
+            # determine insertion location -- format specifically "        rom     : ORIGIN = address, LENGTH = whatever"
             for line in file:
                 if "ORIGIN" in line:
                     address = int(line.split()[4][len("0x"):-1], 0x10)
                     break
-        with open(f"base/overlay/overlay_{newOverlay:04}.bin", 'wb+') as rom:
+        with open(f"base/overlay/overlay_{newOverlay:04}.bin", 'wb') as rom:
             with open(NEW_OVERLAYS[i], 'rb') as binary:
                 rom.seek(0)
                 rom.write(binary.read())
@@ -458,7 +458,7 @@ def writeall():
             line = file.readline()
             # grab first line of format /* Overlay ### */, convert ### to a number
             newOverlay = int(line.split(" ")[2])
-            # determine insertion location
+            # determine insertion location -- format specifically "        rom     : ORIGIN = address, LENGTH = whatever"
             for line in file:
                 if "ORIGIN" in line:
                     address = int(line.split()[4][len("0x"):-1], 0x10)
