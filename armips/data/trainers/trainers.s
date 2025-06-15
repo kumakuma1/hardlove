@@ -1120,7 +1120,7 @@ trainerdata 21, "Bugsy"
         ivs 0
         abilityslot 0
         level LEVEL_BUGSY-2
-        pokemon SPECIES_KLAWFS
+        pokemon SPECIES_KLAWF
         item ITEM_IAPAPA_BERRY
         move MOVE_FACADE
         move MOVE_REVERSAL
@@ -1760,7 +1760,7 @@ trainerdata 31, "Morty"
         ball ITEM_POKE_BALL
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_BOLD
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1774,7 +1774,7 @@ trainerdata 31, "Morty"
         move MOVE_SHADOW_BALL
         move MOVE_SUBSTITUTE
         move MOVE_CALM_MIND
-        ability ABILITY_FLAME_BODY
+        ability ABILITY_SHADOW_TAG
         ball ITEM_POKE_BALL
         setivs 31, 0, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1791,7 +1791,7 @@ trainerdata 31, "Morty"
         move MOVE_KNOCK_OFF
         move MOVE_ICICLE_CRASH
         move MOVE_PURSUIT
-        move MOVE_ICE_SHARD
+        move MOVE_POISON_JAB
         ability ABILITY_PICKPOCKET
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1804,13 +1804,13 @@ trainerdata 31, "Morty"
 	    ivs 0
         abilityslot 0
         level LEVEL_MORTY-2
-        pokemon SPECIES_SPECTRIER
+        pokemon SPECIES_PECHARUNT
         item ITEM_LIFE_ORB
-        move MOVE_SHADOW_BALL
-        move MOVE_DRAINING_KISS
-        move MOVE_SUBSTITUTE
-        move MOVE_WILL_O_WISP
-        ability ABILITY_GRIM_NEIGH
+        move MOVE_HEX
+        move MOVE_MALIGNANT_CHAIN
+        move MOVE_FOUL_PLAY
+        move MOVE_RECOVER
+        ability ABILITY_POISON_PUPPETEER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -11987,7 +11987,7 @@ trainerdata 290, "Li" // Sprout Tower Boss
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI
+        level LEVEL_ELDER_LI-1
         pokemon SPECIES_EXEGGCUTE
         item ITEM_ORAN_BERRY
         move MOVE_CONFUSION
@@ -12005,7 +12005,7 @@ trainerdata 290, "Li" // Sprout Tower Boss
     
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI
+        level LEVEL_ELDER_LI-1
         pokemon SPECIES_MARILL
         item ITEM_MUSCLE_BAND
         move MOVE_AQUA_JET
