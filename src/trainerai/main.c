@@ -9,13 +9,11 @@
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
 
-#define debug_out(...) { u8 buf_assumeunuasedfasdf[128]; sprintf(buf_assumeunuasedfasdf, __VA_ARGS__); debugsyscall(buf_assumeunuasedfasdf); }
-
 // quick hello world example that just runs through the moves and selects the highest base power one
 // likely breaks roamers, but we'll get there when we get there
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 battler)
 {
-    debug_out("TrainerAI_Main:\n");
+    debug_printf("TrainerAI_Main:\n");
     enum AIActionChoice result = AI_ENEMY_ATTACK_1, highestBasePower = 0;
     struct BattleStruct *ctx = bsys->sp;
 
