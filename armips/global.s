@@ -27,6 +27,12 @@
 .include "armips/asm/forget_hm.s" // allows hm to be forgotten
 .include "armips/asm/no_partner_double_battles.s" // allows no partner double battles
 
+.include "armips/asm/custom/enable_surf_without_knowing_move.s"
+.include "armips/asm/custom/encounter_rates.s"
+.include "armips/asm/custom/pokemart_items.s" // edits items in pokemarts
+.include "armips/asm/custom/rocksmash_items.s" // edits items obtainable by rocksmash
+.include "armips/asm/custom/waterfall.s"
+
 .if FAIRY_TYPE_IMPLEMENTED == 1
 
 .include "armips/asm/fairy.s" // repoints all the move table defines within the structure
