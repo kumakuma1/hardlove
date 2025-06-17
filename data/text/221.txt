@@ -328,7 +328,7 @@ An item to be held by a Pokémon.\nIt is a sharply hooked claw that ups\nthe hol
 An item to be held by a Pokémon.\nIt may cause the foe to flinch when\nthe holder inflicts damage.
 The user focuses its mind before\nlaunching this attack. It will fail if\nthe user is hit before it is used.
 Sharp, huge claws hook and slash\nthe foe quickly and with great\npower.
-The foe is hit with a pulsing blast\nof water. It may also confuse the\ntarget.
+After attacking, the user switches\nplaces with a party pokemon.
 The user quietly focuses its mind and\ncalms its spirit to raise its Sp. Atk\nand Sp. Def stats.
 The foe is scared off, to be replaced\nby another Pokémon in its party.\nIn the wild, the battle ends.
 A move that leaves the foe badly\npoisoned. This poison damage\nworsens every turn.
@@ -340,13 +340,13 @@ The user intensifies the sun for\nfive turns, powering up Fire-type\nmoves.
 The foe is taunted into a rage that\nallows it to use only attack moves for\ntwo to four turns.
 The foe is struck with an icy-cold\nbeam of energy. It may also freeze\nthe target solid.
 A howling blizzard is summoned to\nstrike the foe. It may also freeze\nthe target solid.
-The foe is attacked with a powerful\nbeam. The user must rest on the next\nturn to regain its energy.
+The user captures opposing Pokémon\nin an electric net to inflict damage.\nThis also lowers their Speed stats. 
 A wondrous wall of light is put up to\nsuppress damage from special attacks\nfor five turns.
 It enables the user to evade all\nattacks. Its chance of failing rises\nif it is used in succession.
 The user summons a heavy rain that\nfalls for five turns, powering up\nWater-type moves.
 A nutrient-draining attack. The user’s\nHP is restored by half the damage\ntaken by the target.
-The user creates a protective field\nthat prevents status problems like\npoison, paralysis, burn, and sleep.
-A full-power attack that grows more\npowerful the less the user likes its\nTrainer.
+The user lets loose a horribly\nechoing shout with the power to\ninflict\ndamage.
+The user attacks with a gust of\nchilled air. It also lowers the\ntarget’s Speed stat.
 A two-turn attack. The user gathers\nlight, then blasts a bundled beam on\nthe second turn.
 The foe is slammed with a sturdy\ntail of steel. It may also lower the\ntarget’s Defense stat if it hits.
 A strong electric blast is loosed at\nthe foe. It may also leave the foe\nparalyzed.
@@ -366,11 +366,11 @@ A five-turn sandstorm is summoned\nto hurt all combatants except the\nRock, Grou
 The foe is attacked with an intense\nblast of all-consuming fire. It may\nalso leave the target with a burn.
 Large boulders are hurled at the foe\nto inflict damage. It lowers the foe’s\nSpeed.
 The user confounds the foe with speed,\nthen strikes. The attack lands without\nfail.
-The user torments and enrages the\nfoe, making it incapable of using the\nsame move twice in a row.
+After attacking, the user switches\nplaces with a party pokemon.
 An attack move that doubles its power\nif the user is poisoned, paralyzed, or\nhas a burn.
-An attack move with effects that\nvary depending on the user’s\nenvironment.
+It reduces the foe’s evasion\nstat. It also removes hazards.
 The user goes to sleep for two\nturns. It fully restores the user’s HP\nand heals any status problem.
-If it is the opposite gender of the\nuser, the foe becomes infatuated\nand less likely to attack.
+A sweet kiss that absorbs over half\nthe damage inflicted to restore HP.
 The user attacks and steals the foe’s\nheld item simultaneously. It can’t\nsteal if the user holds an item.
 The foe is hit with wings of steel.\nIt may also raise the user’s Defense\nstat.
 The user employs its psychic power to\nexchange abilities with the foe.\n
@@ -412,7 +412,7 @@ The user draws power from the Berry\nit is holding to attack. The Berry\ndetermi
 The foe is stabbed with a tentacle or\narm steeped with poison. It may also\npoison the foe.
 An attack that works only on a\nsleeping foe. It absorbs half the\ndamage caused to heal the user’s HP.
 The user snares the foe with grass\nand trips it. The heavier the foe, the\ngreater the damage.
-The user enrages the foe into\nconfusion. However, it also sharply\nraises the foe’s Attack stat.
+Boiling water is shot at the foe.\nIt may also cause a burn.
 The user pecks the foe. If the foe is\nholding a Berry, the user plucks it and\ngains its effect.
 After making its attack, the user\nrushes back to switch places with a\nparty Pokémon in waiting.
 The user makes a copy of itself using\nsome of its HP. The copy serves as\nthe user’s decoy.
@@ -798,3 +798,4 @@ An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield
 An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield the Water type during battle.
 An item to be held by Ogerpon.\nThis carved wooden mask allows Ogerpon\nto wield the Fire type during battle.
 A peculiar metal that can make certain\nspecies of Pokémon evolve.\nIt is composed of many layers.
+Infinite Candy
