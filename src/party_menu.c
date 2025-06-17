@@ -2,11 +2,68 @@
 #include "../include/config.h"
 #include "../include/pokemon.h"
 #include "../include/battle.h"
+#include "../include/bag.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 #include "../include/constants/file.h"
 #include "../include/party_menu.h"
+
+#if defined(USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU)
+u8 customFieldMoveCheckInPartyMenu(struct PLIST_WORK *wk, struct PartyPokemon *pp, u8 *buf, u8 count)
+{
+    u8 fieldMoveIndex = 0;
+    BAG_DATA *bag = Sav2_Bag_get(SaveBlock2_get());
+    u8 type1 = GetMonData(pp, MON_DATA_TYPE_1, NULL);
+    u8 type2 = GetMonData(pp, MON_DATA_TYPE_2, NULL);
+
+    if(count < 8 && (type1 == TYPE_FLYING || type2 == TYPE_FLYING))
+    {
+        if (Bag_HasItem(bag, ITEM_HM02, 1, HEAPID_MAIN_HEAP))
+        {
+            buf[count] = PARTY_MON_CONTEXT_MENU_FLY;
+            ++count;
+            PartyMenu_ContextMenuAddFieldMove(wk, MOVE_FLY, fieldMoveIndex);
+            ++fieldMoveIndex;
+        }
+    }
+
+    if(count < 8 && (type1 == TYPE_WATER || type2 == TYPE_WATER))
+    {
+        if (Bag_HasItem(bag, ITEM_HM03, 1, HEAPID_MAIN_HEAP))
+        {
+            buf[count] = PARTY_MON_CONTEXT_MENU_SURF;
+            ++count;
+            PartyMenu_ContextMenuAddFieldMove(wk, MOVE_SURF, fieldMoveIndex);
+            ++fieldMoveIndex;
+        }
+    }
+
+    if(count < 8 && (type1 == TYPE_WATER || type2 == TYPE_WATER))
+    {
+        if (Bag_HasItem(bag, ITEM_HM06, 1, HEAPID_MAIN_HEAP))
+        {
+            buf[count] = PARTY_MON_CONTEXT_MENU_WHIRLPOOL;
+            ++count;
+            PartyMenu_ContextMenuAddFieldMove(wk, MOVE_WHIRLPOOL, fieldMoveIndex);
+            ++fieldMoveIndex;
+        }
+    }
+
+    if(count < 8 && (type1 == TYPE_WATER || type2 == TYPE_WATER))
+    {
+        if (Bag_HasItem(bag, ITEM_HM07, 1, HEAPID_MAIN_HEAP))
+        {
+            buf[count] = PARTY_MON_CONTEXT_MENU_WATERFALL;
+            ++count;
+            PartyMenu_ContextMenuAddFieldMove(wk, MOVE_WATERFALL, fieldMoveIndex);
+            ++fieldMoveIndex;
+        }
+    }
+
+    return count;
+}
+#endif
 
 u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
 {
@@ -37,11 +94,12 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
                 buf[count] = PARTY_MON_CONTEXT_MENU_ITEM;
             }
             ++count;
+            
             buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
             ++count;
-
-            // here is where a custom check would go.  replace the below for loop with your own checks
-
+#if defined(USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU)
+            count = customFieldMoveCheckInPartyMenu(wk, pp, buf, count);
+#else
             for (i = 0; i < MAX_MON_MOVES; ++i) 
             {
                 move = GetMonData(pp, MON_DATA_MOVE1 + i, NULL);
@@ -59,6 +117,7 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
                     ++fieldMoveIndex;
                 }
             }
+#endif
         }
         else
         {
@@ -72,8 +131,6 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
         ++count;
     }
 
-
-    
     return count;
 }
 

@@ -15,6 +15,18 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
+#include "../../include/custom/random_eggs.h"
+
+void shuffle(u8 array[], int n)
+{
+    for (int i = n - 1; i > 0; i--)
+    {
+        int j = gf_rand() % (i + 1);
+        u8 temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
 
 /**
  *  @brief script command to give an egg adapted to set the hidden ability
@@ -31,6 +43,15 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
 
     u32 form = (species & 0xF800) >> 11; // extract form from egg
     species = species & 0x7FF;
+
+#ifdef RANDOMIZE_EGG  
+    if (CheckScriptFlag(RANDOMIZE_EGG_FLAG) == 1) // used command for different kind of Egg
+    {
+        int it = gf_rand() % randomMonsLength;
+        species = randomMons[it];
+        ClearScriptFlag(RANDOMIZE_EGG_FLAG);
+    }
+#endif
 
     u16 offset = ScriptGetVar(ctx);
 
@@ -55,6 +76,23 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
             ResetPartyPokemonAbility(pokemon);
             ClearScriptFlag(HIDDEN_ABILITIES_FLAG);
         }
+
+#ifdef RANDOM_3_MAX_IVS
+        if (CheckScriptFlag(RANDOM_3_MAX_IVS_FLAG) == 1)
+        {
+            u8 array[] = {0, 1, 2, 3, 4, 5};
+            shuffle(array, 6);
+
+            int iv = 31;
+            // Randomly chooses 3 stats
+            for (int i = 0; i < 3; i++) 
+            {
+                u8 selectedValue = array[i];
+                SetMonData(pokemon, MON_DATA_HP_IV + selectedValue, &iv);
+            }
+            ClearScriptFlag(RANDOM_3_MAX_IVS_FLAG);
+        }
+#endif
 
         PokeParty_Add(party, pokemon);
         sys_FreeMemoryEz(pokemon);
@@ -118,6 +156,18 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
         ClearScriptFlag(HIDDEN_ABILITIES_FLAG);
     }
 
+#ifdef RANDOM_3_MAX_IVS
+    u8 array[] = {0, 1, 2, 3, 4, 5};
+    shuffle(array, 6);
+
+    int iv = 31;
+    // Randomly chooses 3 stats
+    for (int i = 0; i < 3; i++) 
+    {
+        u8 selectedValue = array[i];
+        SetMonData(togepi, MON_DATA_HP_IV + selectedValue, &iv);
+    }
+#endif
 
     PokeParty_Add(party, togepi);
 
