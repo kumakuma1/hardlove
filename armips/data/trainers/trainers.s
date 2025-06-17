@@ -9,6 +9,11 @@
 .include "asm/include/moves.inc"
 .include "asm/include/species.inc"
 
+TRAINER_MON_TYPE_FLAGS equ TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS | 0
+
+TRAINER_AI_FLAGS equ F_USE_WEATHER | F_PRIORITIZE_DAMAGE | F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+
+
 trainerdata 0, "-"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_PKMN_TRAINER_ETHAN
@@ -1521,31 +1526,36 @@ trainerdata 46, "Martha"
         ballseal 0
     endparty
 
-trainerdata 47, "Mikey"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 47, "Mikey"  // Route 30
+    trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass TRAINERCLASS_YOUNGSTER
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 47
-        // mon 0
-        ivs 0
-        abilityslot 0
-        level 2
-        pokemon SPECIES_PIDGEY
-        ballseal 0
-
         // mon 1
         ivs 0
-        abilityslot 32
-        level 4
+        abilityslot 0
+        level 3
         pokemon SPECIES_RATTATA
+        item ITEM_BERRY_JUICE
+        move MOVE_TACKLE
+        move MOVE_INCINERATE
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_MAGIC_GUARD
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 

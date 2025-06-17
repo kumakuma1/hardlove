@@ -9,10 +9,14 @@
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
 
+#define debug_out(...) { u8 buf_assumeunuasedfasdf[128]; sprintf(buf_assumeunuasedfasdf, __VA_ARGS__); debugsyscall(buf_assumeunuasedfasdf); }
+
+
 BOOL TrainerAI_ShouldSwitch(struct BattleSystem *battleSys, int battler);
 
 int TrainerAI_PickCommand(struct BattleSystem *battleSys, int battler)
 {
+    debug_out("TrainerAI_PickCommand:\n");
     if (TrainerAI_ShouldSwitch(battleSys, battler))
         return PLAYER_INPUT_PARTY;
     return PLAYER_INPUT_FIGHT;
@@ -20,6 +24,7 @@ int TrainerAI_PickCommand(struct BattleSystem *battleSys, int battler)
 
 BOOL TrainerAI_ShouldSwitch(struct BattleSystem *battleSys, int battler)
 {
+    debug_out("TrainerAI_ShouldSwitch:\n");
     int i;
     u32 battler1, battler2, maxHP = 0;
     u32 battleType;
