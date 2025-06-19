@@ -129,9 +129,11 @@ static const u16 SharpnessMovesTable[] = {
 
 
 
-int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
-                   u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
+
+int LONG_CALL CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
+                   u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical, BOOL usePPForAttacker, BOOL usePPForDefender,struct PartyPokemon *pp)
 {
+
     u32 i;
     s32 damage = 0;
     u8 movetype;
@@ -152,80 +154,182 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
 
     struct sDamageCalc AttackingMon;
     struct sDamageCalc DefendingMon;
-
-    switch (moveno) {
-        // handle body press - attack is derived from defense
-        case MOVE_BODY_PRESS:
-            attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_DEF, NULL);
-            atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
-            break;
-
-        default:
-            attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
-            atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
-            break;
+    debug_printf("in calc damage using usePPForAttacker  = %d, and usePPForDefender = %d\n", usePPForAttacker, usePPForDefender);
+    /*Populate the sDamageCalc structs from PartyPokemon 
+    attacker instead of the battlemon.
+    This is SPECIFICALLY for post-ko switch in logic*/
+    if(usePPForAttacker){
+        switch (moveno) {
+            // handle body press - attack is derived from defense
+            case MOVE_BODY_PRESS:
+                attack = GetMonData(pp, MON_DATA_DEFENSE, 0);
+                atkstate = 0; //Pokemon in the party have no stat changes
+                break;
+                
+    
+            default:
+                attack = GetMonData(pp, MON_DATA_ATTACK, 0);
+                //atkstate = 0; //stage 0
+                atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
+                break;
+        }
+        sp_attack = GetMonData(pp, MON_DATA_SPECIAL_ATTACK, 0);
+        spatkstate = 0; //stage 0
+        level = GetMonData(pp, MON_DATA_LEVEL, 0);
+        AttackingMon.species = GetMonData(pp, MON_DATA_SPECIES, 0);
+        AttackingMon.hp = GetMonData(pp, MON_DATA_HP, 0);
+        AttackingMon.maxhp = GetMonData(pp, MON_DATA_MAXHP, 0);
+        AttackingMon.condition = GetMonData(pp, MON_DATA_STATUS, 0);
+        AttackingMon.ability = GetMonData(pp, MON_DATA_ABILITY, 0);
+        AttackingMon.sex = GetMonData(pp, MON_DATA_GENDER, 0);
+        AttackingMon.type1 = GetMonData(pp, MON_DATA_TYPE_1, 0);
+        AttackingMon.type2 = GetMonData(pp, MON_DATA_TYPE_2, 0);
+        item = GetMonData(pp, MON_DATA_HELD_ITEM, 0);
+        //debug_printf("Calcing base damage using species = %d, hp = %d, attack = %d, and attack stage =%d \n",AttackingMon.species, AttackingMon.hp, attack, atkstate);
+    }
+    else if(usePPForDefender){
+        defense = GetMonData(pp, MON_DATA_DEFENSE, 0);
+        sp_defense = GetMonData(pp, MON_DATA_SPECIAL_DEFENSE, 0);
+        defstate = 0; //cannot be boosted if not on the field
+        spdefstate = 0;
+    
+        DefendingMon.species = GetMonData(pp, MON_DATA_SPECIES, 0);
+        DefendingMon.hp = GetMonData(pp, MON_DATA_HP, 0);
+        DefendingMon.maxhp = GetMonData(pp, MON_DATA_MAXHP, 0);
+        DefendingMon.condition = GetMonData(pp, MON_DATA_STATUS, 0);
+        DefendingMon.ability = GetMonData(pp, MON_DATA_ABILITY, 0);
+        DefendingMon.sex = GetMonData(pp, MON_DATA_GENDER, 0);
+        DefendingMon.type1 = GetMonData(pp, MON_DATA_TYPE_1, 0);
+        DefendingMon.type2 = GetMonData(pp, MON_DATA_TYPE_2, 0);
+        item = GetMonData(pp, MON_DATA_HELD_ITEM, 0);
     }
 
-    defense = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_DEF, NULL);
-    sp_attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPATK, NULL);
-    sp_defense = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPDEF, NULL);
-
-    defstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
-    spatkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
-    spdefstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
-
-    level = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_LEVEL, NULL);
-
-    AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
-    DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
-    AttackingMon.hp = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_HP, NULL);
-    DefendingMon.hp = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_HP, NULL);
-    AttackingMon.maxhp = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_MAX_HP, NULL);
-    DefendingMon.maxhp = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_MAX_HP, NULL);
-    AttackingMon.condition = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_MAX_CONDITION, NULL);
-    DefendingMon.condition = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_MAX_CONDITION, NULL);
-    AttackingMon.ability = GetBattlerAbility(sp, attacker);
-    DefendingMon.ability = GetBattlerAbility(sp, defender);
-    AttackingMon.sex = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SEX, NULL);
-    DefendingMon.sex = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SEX, NULL);
-    AttackingMon.type1 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE1, NULL);
-    DefendingMon.type1 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE1, NULL);
-    AttackingMon.type2 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL);
-    DefendingMon.type2 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE2, NULL);
-
-    item = GetBattleMonItem(sp, attacker);
+    else{
+        switch (moveno) {
+            // handle body press - attack is derived from defense
+            case MOVE_BODY_PRESS:
+                attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_DEF, NULL);
+                atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
+                break;
+            case MOVE_FOUL_PLAY:
+                attack = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_DEF, NULL);
+                atkstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
+                break;
+    
+            default:
+                attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_ATK, NULL);
+                atkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
+                break;
+        }
+        sp_attack = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPATK, NULL);
+        spatkstate = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
+        level = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_LEVEL, NULL);
+        AttackingMon.species = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SPECIES, NULL);
+        AttackingMon.hp = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_HP, NULL);
+        AttackingMon.maxhp = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_MAX_HP, NULL);
+        AttackingMon.condition = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_MAX_CONDITION, NULL);
+        AttackingMon.ability = GetBattlerAbility(sp, attacker);
+        AttackingMon.sex = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SEX, NULL);
+        AttackingMon.type1 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE1, NULL);
+        AttackingMon.type2 = BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_TYPE2, NULL);
+        item = GetBattleMonItem(sp, attacker);
+        defense = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_DEF, NULL);
+        sp_defense = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPDEF, NULL);
+        defstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
+        spdefstate = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
+    
+        DefendingMon.species = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SPECIES, NULL);
+        DefendingMon.hp = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_HP, NULL);
+        DefendingMon.maxhp = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_MAX_HP, NULL);
+        DefendingMon.condition = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_MAX_CONDITION, NULL);
+        DefendingMon.ability = GetBattlerAbility(sp, defender);
+        DefendingMon.sex = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_SEX, NULL);
+        DefendingMon.type1 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE1, NULL);
+        DefendingMon.type2 = BattlePokemonParamGet(sp, defender, BATTLE_MON_DATA_TYPE2, NULL);
+        item = GetBattleMonItem(sp, defender);
+    }
+    
     AttackingMon.item_held_effect = BattleItemDataGet(sp, item, 1);
     AttackingMon.item_power = BattleItemDataGet(sp, item, 2);
 
-    item = GetBattleMonItem(sp, defender);
     DefendingMon.item_held_effect = BattleItemDataGet(sp, item, 1);
     DefendingMon.item_power = BattleItemDataGet(sp, item, 2);
-
+    
+    //----------------
     battle_type = BattleTypeGet(bw);
-
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DISGUISE) == TRUE)
-    && (sp->battlemon[defender].species == SPECIES_MIMIKYU)
-    // Mimikyu or Mimikyu-Large
-    && (sp->battlemon[defender].form_no == 0 || sp->battlemon[defender].form_no == 2)
-    // Not transformed
-    && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
-        return 0;
+    if(usePPForAttacker){
+        if ((GetMonData(pp, MON_DATA_ABILITY, 0) != ABILITY_MOLD_BREAKER)
+        && sp->battlemon[defender].ability == ABILITY_DISGUISE
+        && (sp->battlemon[defender].species == SPECIES_MIMIKYU)
+        // Mimikyu or Mimikyu-Large
+        && (sp->battlemon[defender].form_no == 0 || sp->battlemon[defender].form_no == 2)
+        // Not transformed
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+            return 0;
+        }
+            
+        if ((GetMonData(pp, MON_DATA_ABILITY, 0) != ABILITY_MOLD_BREAKER)
+        && sp->battlemon[defender].ability == ABILITY_ICE_FACE
+        && (sp->battlemon[defender].species == SPECIES_EISCUE)
+        && (sp->battlemon[defender].form_no == 0)
+        // Not transformed
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
+        && (GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL)) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+            return 0;
+        }
     }
-
-
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE)
-    && (sp->battlemon[defender].species == SPECIES_EISCUE)
-    && (sp->battlemon[defender].form_no == 0)
-    // Not transformed
-    && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
-    && (GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL)) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
-        return 0;
+    else if(usePPForDefender){
+        if (sp->battlemon[attacker].ability != ABILITY_MOLD_BREAKER
+        && GetMonData(pp, MON_DATA_ABILITY, 0) == ABILITY_DISGUISE
+        && (sp->battlemon[defender].species == SPECIES_MIMIKYU)
+        // Mimikyu or Mimikyu-Large
+        && (sp->battlemon[defender].form_no == 0 || sp->battlemon[defender].form_no == 2)
+        // Not transformed
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+            return 0;
+        }
+            
+        if (sp->battlemon[attacker].ability != ABILITY_MOLD_BREAKER
+        && GetMonData(pp, MON_DATA_ABILITY, 0) == ABILITY_ICE_FACE
+        && (sp->battlemon[defender].form_no == 0)
+        // Not transformed
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
+        && (GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL)) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+            return 0;
+        }
     }
-
+    else{
+        if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DISGUISE) == TRUE)
+        && (sp->battlemon[defender].species == SPECIES_MIMIKYU)
+        // Mimikyu or Mimikyu-Large
+        && (sp->battlemon[defender].form_no == 0 || sp->battlemon[defender].form_no == 2)
+        // Not transformed
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+            return 0;
+        }
+            
+        if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_FACE) == TRUE)
+        && (sp->battlemon[defender].species == SPECIES_EISCUE)
+        && (sp->battlemon[defender].form_no == 0)
+        // Not transformed
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
+        && (GetMoveSplit(sp, moveno) == SPLIT_PHYSICAL)) {
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
+            sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+            return 0;
+        }
+    }
+        
 
     if (pow == 0)
         movepower = sp->moveTbl[moveno].power;
@@ -233,16 +337,25 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         movepower = pow;
 
     // get the type
-    movetype = GetAdjustedMoveType(sp, attacker, moveno);
+    if(usePPForAttacker){
+        GetAdjustedMoveTypeBasics(sp, moveno, GetMonData(pp, MON_DATA_ABILITY, 0), 0);
+    }
+
+    else{
+        movetype = GetAdjustedMoveType(sp, attacker, moveno);
+    }
+
     movepower = movepower * sp->damage_value / 10;
 
-    // handle charge
-    if ((sp->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_CHARGE) && (movetype == TYPE_ELECTRIC))
-        movepower *= 2;
+    if(!usePPForAttacker){
+        // handle charge
+        if ((sp->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_CHARGE) && (movetype == TYPE_ELECTRIC))
+            movepower *= 2;
 
-    // handle helping hand
-    if (sp->oneTurnFlag[attacker].helping_hand_flag)
-        movepower = movepower * 15 / 10;
+        // handle helping hand
+        if (sp->oneTurnFlag[attacker].helping_hand_flag)
+            movepower = movepower * 15 / 10;
+    }
 
     // handle technician
     if ((AttackingMon.ability == ABILITY_TECHNICIAN) && (moveno != MOVE_STRUGGLE) && (movepower <= 60))
@@ -255,9 +368,15 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         attack = attack * 2;
 
     // handle slow start
-    if ((AttackingMon.ability == ABILITY_SLOW_START)
-     && ((BattleWorkMonDataGet(bw, sp, 3, 0) - BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SLOW_START_COUNTER, NULL)) < 5))
-        attack /= 2;
+    if(usePPForAttacker){
+        if (AttackingMon.ability == ABILITY_SLOW_START)
+            attack /= 2;
+    }
+    else{
+        if ((AttackingMon.ability == ABILITY_SLOW_START)
+        && ((BattleWorkMonDataGet(bw, sp, 3, 0) - BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_SLOW_START_COUNTER, NULL)) < 5))
+            attack /= 2;
+    }
 
     // handle defeatist
     if ((AttackingMon.ability == ABILITY_DEFEATIST) && (AttackingMon.hp <= AttackingMon.maxhp / 2))
@@ -267,22 +386,66 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     }
 
     //handle analytic
-    if (AttackingMon.ability == ABILITY_ANALYTIC)
-    {
-        for (i = 0; i < 4; i++)
+    if(usePPForAttacker){
+        /*
+        if (AttackingMon.ability == ABILITY_ANALYTIC)
         {
-            if (attacker != i && sp->battlemon[i].hp != 0 && CalcSpeed(bw, sp, attacker, i, 0) == 0)
+            for (i = 0; i < 4; i++)
             {
-                break;
+                if (attacker != i && sp->battlemon[i].hp != 0 && CalcSpeed(bw, sp, attacker, i, 0) == 1)
+                {
+                    break;
+                }
+            }
+            if (i == 4)
+            {
+                movepower = movepower * 130 / 100;
             }
         }
-        if (i == 4)
+        */
+    }
+    else{
+        if (AttackingMon.ability == ABILITY_ANALYTIC)
+        {
+            for (i = 0; i < 4; i++)
+            {
+                if (attacker != i && sp->battlemon[i].hp != 0 && CalcSpeed(bw, sp, attacker, i, 0) == 0)
+                {
+                    break;
+                }
+            }
+            if (i == 4)
+            {
+                movepower = movepower * 130 / 100;
+            }
+        }
+    }
+
+    
+    // handle sheer force
+    if(usePPForAttacker){
+        //need a way to check if the move is affected by sheer force. There is not a function for this at the moment
+    }
+    else{
+        if (AttackingMon.ability == ABILITY_SHEER_FORCE && sp->battlemon[attacker].sheer_force_flag == 1)
         {
             movepower = movepower * 130 / 100;
         }
-
     }
-
+    //handle acrobatics with gems
+    /*
+    if
+    (
+        moveno == MOVE_ACROBATICS &&
+        (sp->battlemon[sp->attack_client].item == 0 ||
+        // As the current Gem implementation means they are still held during the move,
+        // there's a special code exception here to get the Flying Gem working with Acrobatics.
+        (movetype == TYPE_FLYING && AttackingMon.item_held_effect == HOLD_EFFECT_BOOST_TYPE_ONCE))
+    )
+    {
+        movepower *= 2;
+    }
+    */
     // handle sheer force
     if (AttackingMon.ability == ABILITY_SHEER_FORCE && sp->battlemon[attacker].sheer_force_flag == 1)
     {
@@ -290,12 +453,27 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     }
 
     // handle punk rock
-    if (AttackingMon.ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(sp->current_move_index))
+    if(usePPForAttacker){
+        if (AttackingMon.ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(moveno))
+        {
+            movepower = movepower * 130 / 100;
+        }
+    }
+    else{
+        if (AttackingMon.ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(sp->current_move_index))
+        {
+            movepower = movepower * 130 / 100;
+        }
+    }
+
+    /*
+    // Handle the Gem effect (which is still held here). Uses the 30% boost from later generations. 
+    // We're using the item data holdEffectParam property (item_power) to match the move type against the gem type. (thx dray)
+    if ((AttackingMon.item_held_effect == HOLD_EFFECT_BOOST_TYPE_ONCE) && (AttackingMon.item_power == movetype))
     {
         movepower = movepower * 130 / 100;
     }
-
-
+    */
     // type boosting held items
     {
         u8 element[2] = {AttackingMon.item_held_effect, movetype};
@@ -341,29 +519,39 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         attack = attack * 150 / 100;
     }
 
-    // handle assault vest
-    if ((DefendingMon.item_held_effect == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES)) {
+    // Handle Assault Vest
+    if (DefendingMon.item_held_effect == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES) {
         sp_defense = sp_defense * 150 / 100;
     }
 
     // handle eviolite
-    if (DefendingMon.item_held_effect == HOLD_EFFECT_EVIOLITE) {
-        u16 speciesWithForm;
-        speciesWithForm = PokeOtherFormMonsNoGet(sp->battlemon[defender].species, sp->battlemon[defender].form_no);
-
-        struct Evolution *evoTable;
-        evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
-        ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, speciesWithForm);
-
-        // If a Pokémon has any evolutions, there should be an entry at the top that isn't EVO_NONE.
-        // In that case, the Pokémon is capable of evolving, and so the effect of Eviolite should apply.
-        if (evoTable[0].method != EVO_NONE) {
+    if(usePPForDefender){
+        if(DefendingMon.item_held_effect == HOLD_EFFECT_EVIOLITE){
             defense = defense * 150 / 100;
             sp_defense = sp_defense * 150 / 100;
         }
-
-        sys_FreeMemoryEz(evoTable);
     }
+    else{
+        if (DefendingMon.item_held_effect == HOLD_EFFECT_EVIOLITE) {
+            u16 speciesWithForm;
+            speciesWithForm = PokeOtherFormMonsNoGet(sp->battlemon[defender].species, sp->battlemon[defender].form_no);
+    
+            struct Evolution *evoTable;
+            evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
+            ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, speciesWithForm);
+    
+            // If a Pokémon has any evolutions, there should be an entry at the top that isn't EVO_NONE.
+            // In that case, the Pokémon is capable of evolving, and so the effect of Eviolite should apply.
+            if (evoTable[0].method != EVO_NONE) {
+                defense = defense * 150 / 100;
+                sp_defense = sp_defense * 150 / 100;
+            }
+    
+            sys_FreeMemoryEz(evoTable);
+        }
+    }
+
+    
 
     // handle thick club
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_CUBONE_ATK_UP)
@@ -393,31 +581,56 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         movepower = movepower * (100 + AttackingMon.item_power) / 100;
     }
 
-    // handle adamant crystal, lustrous globe & griseous core
-    if ((AttackingMon.item_held_effect == HOLD_EFFECT_DIALGA_BOOST_AND_TRANSFORM) &&
+    if(usePPForAttacker){
+        // handle adamant crystal, lustrous globe & griseous core
+        if ((AttackingMon.item_held_effect == HOLD_EFFECT_DIALGA_BOOST_AND_TRANSFORM) &&
+        ((movetype == TYPE_DRAGON) || (movetype == TYPE_STEEL)) &&
+        (AttackingMon.species == SPECIES_DIALGA))
+        {
+            movepower = movepower * (100 + AttackingMon.item_power) / 100;
+        }
+
+        if ((AttackingMon.item_held_effect == HOLD_EFFECT_PALKIA_BOOST_AND_TRANSFORM) &&
+        ((movetype == TYPE_DRAGON) || (movetype == TYPE_WATER)) &&
+        (AttackingMon.species == SPECIES_PALKIA))
+        {
+            movepower = movepower * (100 + AttackingMon.item_power) / 100;
+        }
+
+        if ((AttackingMon.item_held_effect == HOLD_EFFECT_GIRATINA_BOOST_AND_TRANSFORM) &&
+        ((movetype == TYPE_DRAGON) || (movetype == TYPE_GHOST)) &&
+        (AttackingMon.species == SPECIES_GIRATINA))
+        {
+            movepower = movepower * (100 + AttackingMon.item_power) / 100;
+        }
+    }
+    else{
+        // handle adamant crystal, lustrous globe & griseous core
+        if ((AttackingMon.item_held_effect == HOLD_EFFECT_DIALGA_BOOST_AND_TRANSFORM) &&
         ((movetype == TYPE_DRAGON) || (movetype == TYPE_STEEL)) &&
         ((BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATUS2, NULL) & STATUS2_TRANSFORMED) == 0) &&
         (AttackingMon.species == SPECIES_DIALGA))
-    {
+        {
         movepower = movepower * (100 + AttackingMon.item_power) / 100;
-    }
+        }
 
-    if ((AttackingMon.item_held_effect == HOLD_EFFECT_PALKIA_BOOST_AND_TRANSFORM) &&
+        if ((AttackingMon.item_held_effect == HOLD_EFFECT_PALKIA_BOOST_AND_TRANSFORM) &&
         ((movetype == TYPE_DRAGON) || (movetype == TYPE_WATER)) &&
         ((BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATUS2, NULL) & STATUS2_TRANSFORMED) == 0) &&
         (AttackingMon.species == SPECIES_PALKIA))
-    {
+        {
         movepower = movepower * (100 + AttackingMon.item_power) / 100;
-    }
+        }
 
-    if ((AttackingMon.item_held_effect == HOLD_EFFECT_GIRATINA_BOOST_AND_TRANSFORM) &&
+        if ((AttackingMon.item_held_effect == HOLD_EFFECT_GIRATINA_BOOST_AND_TRANSFORM) &&
         ((movetype == TYPE_DRAGON) || (movetype == TYPE_GHOST)) &&
         ((BattlePokemonParamGet(sp, attacker, BATTLE_MON_DATA_STATUS2, NULL) & STATUS2_TRANSFORMED) == 0) &&
         (AttackingMon.species == SPECIES_GIRATINA))
-    {
+        {
         movepower = movepower * (100 + AttackingMon.item_power) / 100;
+        }
     }
-
+    
     // handle punching glove
     if ((AttackingMon.item_held_effect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && IsElementInArray(PunchingMovesTable, (u16 *)&moveno, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0])))
     {
@@ -445,11 +658,29 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     }
 
     // handle thick fat
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_THICK_FAT) == TRUE) &&
-        ((movetype == TYPE_FIRE) || (movetype == TYPE_ICE)))
-    {
-        movepower /= 2;
+    if(usePPForAttacker){
+        if (!(GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_MOLD_BREAKER) && sp->battlemon[defender].ability == ABILITY_THICK_FAT &&
+        (movetype == TYPE_FIRE) || (movetype == TYPE_ICE))
+        {
+            movepower /= 2;
+        }
     }
+    else if(usePPForDefender){
+
+        if ((GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_THICK_FAT) && sp->battlemon[attacker].ability != ABILITY_MOLD_BREAKER &&
+        (movetype == TYPE_FIRE) || (movetype == TYPE_ICE))
+        {
+            movepower /= 2;
+        }
+    }
+    else{
+        if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_THICK_FAT) == TRUE) &&
+        ((movetype == TYPE_FIRE) || (movetype == TYPE_ICE)))
+        {
+            movepower /= 2;
+        }
+    }
+
 
     // handle hustle
     if (AttackingMon.ability == ABILITY_HUSTLE)
@@ -493,17 +724,73 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     }
 
     // handle marvel scale
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MARVEL_SCALE) == TRUE) && (AttackingMon.condition))
-    {
-        defense = defense * 150 / 100;
+    if(usePPForAttacker){
+        if (!(GetMonData(pp, MON_DATA_ABILITY, 0) == ABILITY_MOLD_BREAKER) && (AttackingMon.condition)&& sp->battlemon[defender].ability == ABILITY_MARVEL_SCALE )
+        {
+            defense = defense * 150 / 100;
+        }
+    }
+    else if(usePPForDefender){
+        if ((GetMonData(pp, MON_DATA_ABILITY, 0) == ABILITY_MARVEL_SCALE) && sp->battlemon[attacker].ability != ABILITY_MOLD_BREAKER && (AttackingMon.condition))
+        {
+            defense = defense * 150 / 100;
+        }
+    }
+    else{
+        if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MARVEL_SCALE) == TRUE) && (AttackingMon.condition))
+        {
+            defense = defense * 150 / 100;
+        }
     }
 
     // handle grass pelt
+    
+
+//from drayano:
+    // Handle Eviolite
+    if (DefendingMon.item_held_effect == HOLD_EFFECT_EVIOLITE) {
+        u16 speciesWithForm;
+        speciesWithForm = PokeOtherFormMonsNoGet(sp->battlemon[defender].species, sp->battlemon[defender].form_no);
+
+        struct Evolution *evoTable;
+        evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
+        ArchiveDataLoad(evoTable, 34, speciesWithForm); // 34 is evo narc
+
+        // If a Pokémon has any evolutions, there should be a non EVO_NONE entry at the top
+        // A more thorough check would be to check all methods, but would take longer
+        // This should yield the same result if things are written correctly
+        if (evoTable[0].method != EVO_NONE) {
+            defense = defense * 150 / 100;
+            sp_defense = sp_defense * 150 / 100;
+        }
+    }
+
+    // handle grass pelt
+    /*
     if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GRASS_PELT) == TRUE) && (sp->terrainOverlay.type == GRASSY_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0))
     {
         defense = defense * 150 / 100;
     }
-
+    */
+    if(usePPForAttacker){
+        if (!(GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_MOLD_BREAKER) && sp->battlemon[defender].ability == ABILITY_GRASS_PELT && (sp->terrainOverlay.type == GRASSY_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0))
+        {
+            defense = defense * 150 / 100;
+        }
+    }
+    else if(usePPForDefender){
+        if ((GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_GRASS_PELT) && sp->battlemon[attacker].ability != ABILITY_MOLD_BREAKER && (sp->terrainOverlay.type == GRASSY_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0))
+        {
+            defense = defense * 150 / 100;
+        }
+    }
+    else{
+        if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GRASS_PELT) == TRUE) && (sp->terrainOverlay.type == GRASSY_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0))
+        {
+            defense = defense * 150 / 100;
+        }
+    }
+    
     // handle plus/minus
     if (((AttackingMon.ability == ABILITY_PLUS) || (AttackingMon.ability == ABILITY_MINUS)) &&
         (CheckSideAbility(bw, sp, CHECK_ABILITY_SAME_SIDE_HP, attacker, ABILITY_MINUS) ||
@@ -513,10 +800,25 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     }
 
     // handle fur coat - double defense
-    if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FUR_COAT) == TRUE))
-    {
-        defense *= 2;
+    if(usePPForAttacker){
+        if (!(GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_MOLD_BREAKER)&& sp->battlemon[defender].ability == ABILITY_FUR_COAT)
+        {
+            defense *= 2;
+        }
     }
+    else if(usePPForDefender){
+        if ((GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_FUR_COAT) && sp->battlemon[attacker].ability != ABILITY_MOLD_BREAKER)
+        {
+            defense *= 2;
+        }
+    }
+    else{
+        if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FUR_COAT) == TRUE))
+        {
+            defense *= 2;
+        }
+    }
+
 
     // handle mud/water sport
     if ((movetype == TYPE_ELECTRIC) && (CheckFieldMoveEffect(bw, sp, MOVE_EFFECT_FLAG_MUD_SPORT)))
@@ -551,10 +853,25 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     }
 
     // handle ice scales - halve damage if move is special, regardless of if it uses defense stat
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_SCALES) == TRUE && movesplit == SPLIT_SPECIAL)
-    {
-        movepower /= 2;
+    if(usePPForAttacker){
+        if (!(GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_MOLD_BREAKER) && sp->battlemon[defender].ability == ABILITY_ICE_SCALES && movesplit == SPLIT_SPECIAL)
+        {
+            movepower /= 2;
+        }
     }
+    else if(usePPForDefender){
+        if ((GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_ICE_SCALES) && sp->battlemon[attacker].ability != ABILITY_MOLD_BREAKER && movesplit == SPLIT_SPECIAL)
+        {
+            movepower /= 2;
+        }
+    }
+    else{
+        if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_SCALES) == TRUE && movesplit == SPLIT_SPECIAL)
+        {
+            movepower /= 2;
+        }
+    }
+
 
     // handle steelworker
     if (AttackingMon.ability == ABILITY_STEELWORKER && (movetype == TYPE_STEEL))
@@ -660,67 +977,63 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     }
 
     // handle heatproof/dry skin
-    if ((movetype == TYPE_FIRE) && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_HEATPROOF) == TRUE))
-    {
-        movepower /= 2;
+    if(usePPForAttacker){
+        if ((movetype == TYPE_FIRE) && !(GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_MOLD_BREAKER) && sp->battlemon[defender].ability == ABILITY_DRY_SKIN)
+        {
+            movepower /= 2;
+        }
+    
+        if ((movetype == TYPE_FIRE) && !(GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_MOLD_BREAKER) && sp->battlemon[defender].ability == ABILITY_HEATPROOF)
+        {
+            movepower = movepower * 125 / 100;
+        }
     }
-
-    if ((movetype == TYPE_FIRE) && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE))
-    {
-        movepower = movepower * 125 / 100;
+    else if(usePPForDefender){
+        if ((movetype == TYPE_FIRE) && (GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_DRY_SKIN) && sp->battlemon[attacker].ability != ABILITY_MOLD_BREAKER)
+        {
+            movepower /= 2;
+        }
+    
+        if ((movetype == TYPE_FIRE) && (GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_HEATPROOF) && sp->battlemon[attacker].ability != ABILITY_MOLD_BREAKER)
+        {
+            movepower = movepower * 125 / 100;
+        }
     }
-
-    // handle simple
-    // if (AttackingMon.ability == ABILITY_SIMPLE)
-    // {
-    //     atkstate *= 2;
-    //     if (atkstate < -6)
-    //     {
-    //         atkstate = -6;
-    //     }
-    //     if (atkstate > 6)
-    //     {
-    //         atkstate = 6;
-    //     }
-    //     spatkstate *= 2;
-    //     if (spatkstate < -6)
-    //     {
-    //         spatkstate = -6;
-    //     }
-    //     if (spatkstate > 6)
-    //     {
-    //         spatkstate = 6;
-    //     }
-    // }
-
-    // if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SIMPLE) == TRUE)
-    // {
-    //     defstate *= 2;
-    //     if (defstate < -6)
-    //     {
-    //         defstate = -6;
-    //     }
-    //     if (defstate > 6)
-    //     {
-    //         defstate = 6;
-    //     }
-    //     spdefstate *= 2;
-    //     if (spdefstate < -6)
-    //     {
-    //         spdefstate = -6;
-    //     }
-    //     if (spdefstate > 6)
-    //     {
-    //         spdefstate = 6;
-    //     }
-    // }
-
+    else{
+        if ((movetype == TYPE_FIRE) && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_HEATPROOF) == TRUE))
+        {
+            movepower /= 2;
+        }
+    
+        if ((movetype == TYPE_FIRE) && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_DRY_SKIN) == TRUE))
+        {
+            movepower = movepower * 125 / 100;
+        }
+    }
+    
     // handle unaware
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_UNAWARE) == TRUE)
-    {
-        atkstate = 0;
-        spatkstate = 0;
+    if(usePPForAttacker){
+        if (!(GetMonData(pp, MON_DATA_ABILITY,0) == ABILITY_MOLD_BREAKER) && sp->battlemon[defender].ability == ABILITY_UNAWARE)
+        {
+            atkstate = 0;
+            spatkstate = 0;
+        }
     }
+    else if(usePPForDefender){
+        if ((GetMonData(pp, MON_DATA_ABILITY, 0) == ABILITY_UNAWARE) && sp->battlemon[attacker].ability != ABILITY_MOLD_BREAKER)
+        {
+            atkstate = 0;
+            spatkstate = 0;
+        }
+    }
+    else{
+        if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_UNAWARE) == TRUE)
+        {
+            atkstate = 0;
+            spatkstate = 0;
+        }
+    }
+
 
     if (AttackingMon.ability == ABILITY_UNAWARE)
     {
@@ -795,28 +1108,80 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         sp_defense = sp_defense * 75 / 100;
 
     // handle field effects interacting with their moves
-    if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
-        switch (sp->terrainOverlay.type)
-        {
-        case ELECTRIC_TERRAIN:
-            if (IsClientGrounded(sp, defender) && moveno == MOVE_RISING_VOLTAGE) {
-                movepower = movepower * 2;
+
+    if(usePPForAttacker){
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
+            switch (sp->terrainOverlay.type)
+            {
+            case ELECTRIC_TERRAIN:
+                if (IsClientGrounded(sp, defender) && moveno == MOVE_RISING_VOLTAGE) {
+                    movepower = movepower * 2;
+                }
+                break;
+            case MISTY_TERRAIN:
+                if (IsPartyPokemonGrounded(sp, pp) && moveno == MOVE_MISTY_EXPLOSION) {
+                    movepower = movepower * 15 / 10;
+                }
+                break;
+            case PSYCHIC_TERRAIN:
+                if (IsPartyPokemonGrounded(sp, pp) && moveno == MOVE_EXPANDING_FORCE) {
+                    movepower = movepower * 15 / 10;
+                }
+                break;
+            default:
+                break;
             }
-            break;
-        case MISTY_TERRAIN:
-            if (IsClientGrounded(sp, attacker) && moveno == MOVE_MISTY_EXPLOSION) {
-                movepower = movepower * 15 / 10;
-            }
-            break;
-        case PSYCHIC_TERRAIN:
-            if (IsClientGrounded(sp, attacker) && moveno == MOVE_EXPANDING_FORCE) {
-                movepower = movepower * 15 / 10;
-            }
-            break;
-        default:
-            break;
         }
     }
+    else if(usePPForDefender){
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
+            switch (sp->terrainOverlay.type)
+            {
+            case ELECTRIC_TERRAIN:
+                if (IsPartyPokemonGrounded(sp, pp) && moveno == MOVE_RISING_VOLTAGE) {
+                    movepower = movepower * 2;
+                }
+                break;
+            case MISTY_TERRAIN:
+                if (IsClientGrounded(sp, attacker) && moveno == MOVE_MISTY_EXPLOSION) {
+                    movepower = movepower * 15 / 10;
+                }
+                break;
+            case PSYCHIC_TERRAIN:
+                if (IsClientGrounded(sp, attacker) && moveno == MOVE_EXPANDING_FORCE) {
+                    movepower = movepower * 15 / 10;
+                }
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    else{
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
+            switch (sp->terrainOverlay.type)
+            {
+            case ELECTRIC_TERRAIN:
+                if (IsClientGrounded(sp, defender) && moveno == MOVE_RISING_VOLTAGE) {
+                    movepower = movepower * 2;
+                }
+                break;
+            case MISTY_TERRAIN:
+                if (IsClientGrounded(sp, attacker) && moveno == MOVE_MISTY_EXPLOSION) {
+                    movepower = movepower * 15 / 10;
+                }
+                break;
+            case PSYCHIC_TERRAIN:
+                if (IsClientGrounded(sp, attacker) && moveno == MOVE_EXPANDING_FORCE) {
+                    movepower = movepower * 15 / 10;
+                }
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    
 
     // handle grav apple
     if ((sp->field_condition & FIELD_STATUS_GRAVITY) && (moveno == MOVE_GRAV_APPLE))
@@ -870,17 +1235,19 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     damage /= 50;
 
     // handle parental bond
-    if (sp->oneTurnFlag[attacker].parental_bond_flag == 2) {
-        damage /= 4;
-    }
-    switch (sp->oneTurnFlag[attacker].parental_bond_flag) {
-        case 1:
-            sp->oneTurnFlag[attacker].parental_bond_flag++;
-            sp->oneTurnFlag[attacker].parental_bond_is_active = TRUE; // after first hit, set this flag just in case the ability is nullified after the first one
-            break;
-        default:
-            sp->oneTurnFlag[attacker].parental_bond_flag = 0;
-            break;
+    if(!usePPForAttacker){
+        if (sp->oneTurnFlag[attacker].parental_bond_flag == 2) {
+            damage /= 4;
+        }
+        switch (sp->oneTurnFlag[attacker].parental_bond_flag) {
+            case 1:
+                sp->oneTurnFlag[attacker].parental_bond_flag++;
+                sp->oneTurnFlag[attacker].parental_bond_is_active = TRUE; // after first hit, set this flag just in case the ability is nullified after the first one
+                break;
+            default:
+                sp->oneTurnFlag[attacker].parental_bond_flag = 0;
+                break;
+        }
     }
 
     // handle physical moves
@@ -989,9 +1356,11 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
         }
     }
 
-    if ((BattlePokemonParamGet(sp, attacker, BATTLE_MON_FLASH_FIRE_ACTIVATED, NULL)) && (movetype == TYPE_FIRE))
-    {
-        damage = damage * 15 / 10;
+    if(!usePPForAttacker){
+        if ((BattlePokemonParamGet(sp, attacker, BATTLE_MON_FLASH_FIRE_ACTIVATED, NULL)) && (movetype == TYPE_FIRE))
+        {
+            damage = damage * 15 / 10;
+        }
     }
 
     // handle multiscale
@@ -1025,36 +1394,103 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
     }
 
     // handle field effects
-    if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
-        switch (sp->terrainOverlay.type)
-        {
-        case GRASSY_TERRAIN:
-            if (IsClientGrounded(sp, attacker) && movetype == TYPE_GRASS) {
-                damage = damage * 130 / 100;
+    if(usePPForAttacker){
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
+            switch (sp->terrainOverlay.type)
+            {
+            case GRASSY_TERRAIN:
+                if (IsPartyPokemonGrounded(sp, pp) && movetype == TYPE_GRASS) {
+                    damage = damage * 130 / 100;
+                }
+                if (moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE || moveno == MOVE_BULLDOZE) {
+                    damage /= 2;
+                }
+                break;
+            case ELECTRIC_TERRAIN:
+                if (IsPartyPokemonGrounded(sp, pp) && movetype == TYPE_ELECTRIC) {
+                    damage = damage * 130 / 100;
+                }
+                break;
+            case MISTY_TERRAIN:
+                if (IsClientGrounded(sp, defender) && movetype == TYPE_DRAGON) {
+                    damage /= 2;
+                }
+                break;
+            case PSYCHIC_TERRAIN:
+                if (IsPartyPokemonGrounded(sp, pp) && movetype == TYPE_PSYCHIC) {
+                    damage = damage * 130 / 100;
+                }
+                break;
+            default:
+                break;
             }
-            if (moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE || moveno == MOVE_BULLDOZE) {
-                damage /= 2;
-            }
-            break;
-        case ELECTRIC_TERRAIN:
-            if (IsClientGrounded(sp, attacker) && movetype == TYPE_ELECTRIC) {
-                damage = damage * 130 / 100;
-            }
-            break;
-        case MISTY_TERRAIN:
-            if (IsClientGrounded(sp, defender) && movetype == TYPE_DRAGON) {
-                damage /= 2;
-            }
-            break;
-        case PSYCHIC_TERRAIN:
-            if (IsClientGrounded(sp, attacker) && movetype == TYPE_PSYCHIC) {
-                damage = damage * 130 / 100;
-            }
-            break;
-        default:
-            break;
         }
     }
+    else if(usePPForDefender){
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
+            switch (sp->terrainOverlay.type)
+            {
+            case GRASSY_TERRAIN:
+                if (IsClientGrounded(sp, attacker) && movetype == TYPE_GRASS) {
+                    damage = damage * 130 / 100;
+                }
+                if (moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE || moveno == MOVE_BULLDOZE) {
+                    damage /= 2;
+                }
+                break;
+            case ELECTRIC_TERRAIN:
+                if (IsClientGrounded(sp, attacker) && movetype == TYPE_ELECTRIC) {
+                    damage = damage * 130 / 100;
+                }
+                break;
+            case MISTY_TERRAIN:
+                if (IsPartyPokemonGrounded(sp, pp) && movetype == TYPE_DRAGON) {
+                    damage /= 2;
+                }
+                break;
+            case PSYCHIC_TERRAIN:
+                if (IsClientGrounded(sp, attacker) && movetype == TYPE_PSYCHIC) {
+                    damage = damage * 130 / 100;
+                }
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    else{
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0) {
+            switch (sp->terrainOverlay.type)
+            {
+            case GRASSY_TERRAIN:
+                if (IsClientGrounded(sp, attacker) && movetype == TYPE_GRASS) {
+                    damage = damage * 130 / 100;
+                }
+                if (moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE || moveno == MOVE_BULLDOZE) {
+                    damage /= 2;
+                }
+                break;
+            case ELECTRIC_TERRAIN:
+                if (IsClientGrounded(sp, attacker) && movetype == TYPE_ELECTRIC) {
+                    damage = damage * 130 / 100;
+                }
+                break;
+            case MISTY_TERRAIN:
+                if (IsClientGrounded(sp, defender) && movetype == TYPE_DRAGON) {
+                    damage /= 2;
+                }
+                break;
+            case PSYCHIC_TERRAIN:
+                if (IsClientGrounded(sp, attacker) && movetype == TYPE_PSYCHIC) {
+                    damage = damage * 130 / 100;
+                }
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    
 
     return damage + 2;
 }
