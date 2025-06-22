@@ -10,7 +10,14 @@
 #include "../../include/constants/battle_message_constants.h"
 
 
+//int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *battleSys, int battler);
 BOOL TrainerAI_ShouldSwitch(struct BattleSystem *battleSys, int battler);
+
+int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *battleSys, int battler)
+{
+     debug_printf("BattleAI_PostKOSwitchIn:\n");
+     return 6;
+}
 
 int TrainerAI_PickCommand(struct BattleSystem *battleSys, int battler)
 {

@@ -106,6 +106,7 @@ typedef struct {
 } MoveEvaluator;
 
 /*Flag functions return a move score, given the index of the current move*/
+int BasicFlag2(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
 int BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
 int EvaluateAttackFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
 int ExpertFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
@@ -119,8 +120,8 @@ int WeatherFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
 int HarassmentFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
 
 /*Add your own custom flags to this list*/
-static const MoveEvaluator moveEvaluators[1] = {
-//    { AI_FLAG_BASIC,                BasicFlag }
+static const MoveEvaluator moveEvaluators[2] = {
+    { AI_FLAG_BASIC,                BasicFlag2 },
   { AI_FLAG_EVAL_ATTACK,          EvaluateAttackFlag }
  //   { AI_FLAG_EXPERT,               ExpertFlag },
  //   { AI_FLAG_SETUP_FIRST_TURN,     SetupFirstTurnFlag },
@@ -153,7 +154,7 @@ BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *bsys, struct Battle
 BOOL LONG_CALL MoveIsStrongest(struct BattleSystem *bsys, struct BattleStruct *ctx, int moveIndex, AIContext *ai);
 void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, AIContext *ai);
 int AdjustUnusualMoveDamage(struct BattleSystem *bsys, u32 attacker, u32 defender, int damage, int move, AIContext *ai);
-int AdjustUnusualMovePower(struct BattleSystem *bsys, u32 attacker, u32 defender, int moveEffect, AIContext *ai);
+int LONG_CALL AdjustUnusualMovePower(struct BattleSystem *bsys, u32 attacker, u32 defender, int moveEffect, int attackerPercentHP);
 
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
 {
@@ -1460,6 +1461,55 @@ int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
     return moveScore;
 }
 
+int BasicFlag2(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
+{
+    return 0;
+    /*
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+
+    if(ctx->battlemon[ai->attacker].pp[i] == 0){
+        moveScore -= IMPOSSIBLE_MOVE;
+    }
+    if(ctx->battlemon[ai->attacker].moveeffect.tauntTurns > 0 && 
+        ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS)
+        {
+        moveScore -= IMPOSSIBLE_MOVE; //taunted, so no status moves
+    }
+
+    switch (ai->attackerMoveEffect)
+    {
+        case MOVE_EFFECT_STATUS_PARALYZE:
+        {
+            if (ai->defenderImmuneToParalysis)
+                moveScore -= NEVER_USE_MOVE_20;
+            break;
+        }
+        case MOVE_EFFECT_STATUS_BURN:
+        {
+            if (ai->defenderImmuneToBurn)
+                moveScore -= NEVER_USE_MOVE_20;
+            break;
+        }
+        case MOVE_EFFECT_STATUS_POISON:
+        case MOVE_EFFECT_STATUS_BADLY_POISON:
+        {
+            if (ai->defenderImmuneToPoison)
+                moveScore -= NEVER_USE_MOVE_20;
+            break;
+        }
+        case MOVE_EFFECT_STATUS_SLEEP:
+        case MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN:
+        {
+             if (ai->defenderImmuneToSleep)
+                moveScore -= NEVER_USE_MOVE_20;
+            break;
+        }
+    }
+
+    return moveScore;
+    */
+}
 
 /*Rank moves based on their damage output, ability to ohko, 2hko, */
 int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
@@ -5822,7 +5872,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
     ai->maxDamageReceived = 0;
     ai->attackerMaxDamageOutputMinRoll = 0;
 
-    speedCalc = CalcSpeed(ctx, ctx, ai->defender, attacker, CALCSPEED_FLAG_NO_PRIORITY); //checks actual turn order with field state considered
+    speedCalc = CalcSpeed(bsys, ctx, ai->defender, attacker, CALCSPEED_FLAG_NO_PRIORITY); //checks actual turn order with field state considered
     //evaluates to 0 if ai->defender > attacker (false)
     //and 1 if ai->defender < attacker (true)
     //if speed tie, then 2.
@@ -5960,7 +6010,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
     //    debug_printf("def move %i is: %d\n", i, ctx->battlemon[ai->defender].move[i]);
         specialMovePower = 0;
         if(ctx->moveTbl[ctx->battlemon[ai->defender].move[i]].split != SPLIT_STATUS){
-            specialMovePower = AdjustUnusualMovePower(bsys, ai->defender, ai->attacker, attackerEffectCheck, ai);
+            specialMovePower = AdjustUnusualMovePower(bsys, ai->defender, ai->attacker, attackerEffectCheck, ai->defenderPercentHP);
             currentReceivedDamage = CalcBaseDamage(bsys, ctx, ctx->battlemon[ai->defender].move[i], ctx->side_condition[ai->attackerSide],ctx->field_condition, specialMovePower, 0, ai->defender, ai->attacker, 0, 0, 0, NULL);
             currentReceivedDamage = ServerDoTypeCalcMod(bsys, ctx, ctx->battlemon[ai->defender].move[i], 0, ai->defender, ai->attacker, currentReceivedDamage, &temp)*85 / 100; // looking at MIN roll. 
             currentReceivedDamage = AdjustUnusualMoveDamage(bsys, ai->defender, ai->attacker, currentReceivedDamage, ctx->battlemon[ai->defender].move[i], ai);
@@ -5991,12 +6041,9 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
         if(attackerMoveCheck == MOVE_PSYCH_UP){
             ai->attackerKnowsPsychUp = 1;
         }
-        if(move.split != SPLIT_STATUS){
-
-            if(attackerEffectCheck == MOVE_EFFECT_RANDOM_POWER_10_CASES){ //average magnitude power
-                specialMovePower = 71;
-            }
-            specialMovePower = AdjustUnusualMovePower(bsys, attacker, ai->defender, attackerEffectCheck, ai);
+        if(move.split != SPLIT_STATUS)
+        {
+            specialMovePower = AdjustUnusualMovePower(bsys, attacker, ai->defender, attackerEffectCheck, ai->attackerPercentHP);
 
             ai->attackerMinRollMoveDamages[i] = CalcBaseDamage(bsys, ctx, attackerMoveCheck, ctx->side_condition[ai->defenderSide],ctx->field_condition, specialMovePower, 0, ai->attacker, ai->defender, 0, 0, 0, NULL);
             ai->attackerMinRollMoveDamages[i] = ServerDoTypeCalcMod(bsys, ctx, attackerMoveCheck, 0, attacker, ai->defender, ai->attackerMinRollMoveDamages[i], &temp) *85 / 100; //85% is min roll.
@@ -6043,34 +6090,4 @@ int AdjustUnusualMoveDamage(struct BattleSystem *bsys, u32 attacker, u32 defende
             return ai->defenderHP - ai->attackerHP;
     }
     return damage;
-}
-
-/*Returns the true move power of variable power moves like reversal or magnitude*/
-int AdjustUnusualMovePower(struct BattleSystem *bsys, u32 attacker, u32 defender, int moveEffect, AIContext *ai){
-    debug_printf("AdjustUnusualMovePower\n");
-    struct BattleStruct *ctx = bsys->sp;
-    switch(moveEffect){
-        case MOVE_EFFECT_RANDOM_POWER_10_CASES:
-            return 71; //average power
-        case MOVE_EFFECT_INCREASE_POWER_WITH_LESS_HP:
-            if(ai->attackerPercentHP <= 4){
-                return 200;
-            }
-            else if(ai->attackerPercentHP <= 10){
-                return 150;
-            }
-            else if(ai->attackerPercentHP <= 21){
-                return 100;
-            }
-            else if(ai->attackerPercentHP <= 35){
-                return 80;
-            }
-            else if(ai->attackerPercentHP <= 69){
-                return 40;
-            }
-            else{
-                return 20;
-            }
-    }
-    return 0;
 }
