@@ -33,6 +33,25 @@ void arrayShuffle(u8 array[], int n)
     }
 }
 
+u8 LONG_CALL MoldBreakerAbilityCheck_local(int attackerAbility, int defenderAbility, int ability)
+{
+    BOOL ret;
+
+    ret = FALSE;
+
+    if((attackerAbility != ABILITY_MOLD_BREAKER) &&
+        (attackerAbility != ABILITY_TERAVOLT) &&
+        (attackerAbility != ABILITY_TURBOBLAZE))
+    {
+        if(defenderAbility == ability)
+        {
+            ret = TRUE;
+        }
+    }
+
+    return ret;
+}
+
 /**
  *  @brief set up the indices for the new form system pictures.  if necessary, loop through the form table, searching for the new form index to load sprites from
  *         this function does not account for existing forms already covered by otherpoke.narc
