@@ -1840,6 +1840,4 @@ void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemo
 
 void LONG_CALL ChangeToBattleForm(struct PartyPokemon *pp);
 
-u8 LONG_CALL MoldBreakerAbilityCheck_local(int attackerAbility, int defenderAbility, int ability);
-
 #endif
