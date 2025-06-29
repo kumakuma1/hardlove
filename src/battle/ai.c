@@ -950,7 +950,7 @@ int LONG_CALL AdjustUnusualMoveDamage(struct BattleSystem *bsys, u32 attackerLev
 {
     struct BattleStruct *ctx = bsys->sp;
     switch(moveEffect){
-        case MOVE_EFFECT_MULTI_HIT: //2-5 hit moves
+        case MOVE_EFFECT_MULTI_HIT: //2-5 hit moves //TODO skill link/ loaded Dice //other multihit moves
             return damage *= 3;
         case MOVE_EFFECT_LEVEL_DAMAGE_FLAT: //night shade, seismic toss
         case MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL: //psybeam
