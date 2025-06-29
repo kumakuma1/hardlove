@@ -97,10 +97,6 @@ typedef struct {
     int attackerMaxDamageOutputMinRoll;
 } AIContext;
 
-typedef struct {
-    u32 flag;
-    int (*evaluator)(struct BattleSystem *bsys, u32 attacker, int moveIndex, AIContext *ai);
-} MoveEvaluator;
 
 /*Flag functions return a move score, given the index of the current move*/
 int LONG_CALL BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
@@ -109,15 +105,6 @@ int LONG_CALL ExpertFlag(struct BattleSystem *bsys, u32 attacker, int i, AIConte
 int LONG_CALL CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
 int LONG_CALL HarassmentFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
 
-/*Add your own custom flags to this list*/
-static const MoveEvaluator moveEvaluators[4] = {
-    { AI_FLAG_BASIC,                BasicFlag },
-    { AI_FLAG_EVAL_ATTACK,          EvaluateAttackFlag },
-  //  { AI_FLAG_EXPERT,               ExpertFlag },
- //   { AI_FLAG_TAG_STRATEGY,         TagStrategyFlag },
-    { AI_FLAG_CHECK_HP,             CheckHPFlag },
-    { AI_FLAG_HARRASSMENT,          HarassmentFlag }
-};
 
 /*Helper Functions*/
 BOOL LONG_CALL battlerHasSoundBasedMove(struct BattleSystem* bsys, u32 battler, AIContext* ai);
@@ -143,23 +130,17 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     struct BattleStruct *ctx = bsys->sp;
     AIContext aictx = {0};
     AIContext *ai = &aictx;
-    enum AIActionChoice result = AI_ENEMY_ATTACK_1, highest_damage_something = 0;
+    enum AIActionChoice result = AI_ENEMY_ATTACK_1;
 
     /*
     if(ctx->battlemon[attacker].hp == 0){//if pokemon is dead, dont do anything -- this is necessary for doubles.
         return -1;
     }*/
     int highest_move_score = 0;
-    u32 moveScores[4][4];
-    for (int i = 0; i < 4; i++){           //don't want to get negative (unsigned ints) numbers, so start high at 1000
-        for (int j = 0; j < 4; j++) {
-            moveScores[i][j] = 1000;
-        }
-    } 
+    int moveScores[4][4] = { 0 };
     int max_scores[4] = {0};                //highest score over all of the 4 moves the attacker has, measured against each mon on the field (self is always 0)
     int num_defender_ties = 0;
     int defender_tie_indices[4] = {0};
-    int num_move_score_ties = 0;
     int move_tie_indices[4] = {0};
     int target = 0;
     u32 defender = BATTLER_OPPONENT(attacker);   //default for singles -- updated in the doubles section
@@ -192,15 +173,8 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
                     ai->attackerMoveType = ctx->moveTbl[ai->attackerMove].type;
                     ai->attackerMovePPRemaining = ctx->battlemon[ai->attacker].pp[i];
                     AITypeCalc(ctx, ai->attackerMove, ai->attackerMoveType, ai->attackerAbility, ai->defenderAbility, ai->holdEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
-                    
-/*
-                    moveScores[battler_no][i] += BasicFlag(bsys, attacker, i, ai);
-                    moveScores[battler_no][i] += EvaluateAttackFlag(bsys, attacker, i, ai);
-                    moveScores[battler_no][i] += ExpertFlag(bsys, attacker, i, ai);
-                    moveScores[battler_no][i] += TagStrategyFlag(bsys, attacker, i, ai);
-*/
-                    
-                    
+             
+                    /*
                     for (int j = 0; j < sizeof(moveEvaluators) / sizeof(moveEvaluators[0]); j++) {
 
                         if(BattleTypeGet(bsys) &  BATTLE_TYPE_DOUBLE){
@@ -219,6 +193,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
 
                     }
+                    */
                     
                     if(moveScores[battler_no][i] > max_scores[battler_no]){
                         max_scores[battler_no] = moveScores[battler_no][i];             //track the highest score for this potential target
@@ -257,39 +232,56 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         {   
             /*Move-relevant variables*/
             ai->attackerMove = ctx->battlemon[ai->attacker].move[i];
-            ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
-            ai->attackerMoveEffectiveness = 0;       
-            ai->attackerMoveType = ctx->moveTbl[ai->attackerMove].type;
-            ai->attackerMovePPRemaining = ctx->battlemon[ai->attacker].pp[i];
-            AITypeCalc(ctx, ai->attackerMove, ai->attackerMoveType, ai->attackerAbility, ai->defenderAbility, ai->holdEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
+            if (ai->attackerMove != MOVE_NONE)
+            {
+                ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
+                ai->attackerMoveEffectiveness = 0;
+                ai->attackerMoveType = ctx->moveTbl[ai->attackerMove].type;
+                AITypeCalc(ctx, ai->attackerMove, ai->attackerMoveType, ai->attackerAbility, ai->defenderAbility, ai->holdEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
 
-            for (int j = 0; j < sizeof(moveEvaluators) / sizeof(moveEvaluators[0]); j++) {
-                debug_printf("for Move: %d,%d, using Flag: %d\n", i, ai->attackerMove, moveEvaluators[j].flag);
-                if (bsys->trainers[ai->attacker].aibit & moveEvaluators[j].flag) {
-                    moveScores[target][i] += moveEvaluators[j].evaluator(bsys, ai->attacker, i, ai);
-                }
+                moveScores[target][i] = 1000;  //don't want to get negative numbers, so start high at 1000, MOVE_NONE will stay at 0
+                moveScores[target][i] += BasicFlag(bsys, attacker, i, ai);
+                debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScores[target][i]);
+                moveScores[target][i] += EvaluateAttackFlag(bsys, attacker, i, ai);
+                debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScores[target][i]);
+                moveScores[target][i] += ExpertFlag(bsys, attacker, i, ai);
+                debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScores[target][i]);
+                moveScores[target][i] += CheckHPFlag(bsys, attacker, i, ai);
+                debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScores[target][i]);
+                moveScores[target][i] += HarassmentFlag(bsys, attacker, i, ai);
+                debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScores[target][i]);
             }
-            debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScores[target][i]);
         }
         ctx->aiWorkTable.ai_dir_select_client[ai->attacker] = target;                   //target is always 0 in single battles (the player)
     }
-    for(int i = 0; i < 4; i++){
-        if(moveScores[target][i] > moveScores[target][result]){
+    for(int i = 0; i < 4; i++)
+    {
+        if(moveScores[target][i] > moveScores[target][result])
+        {
             result = i;
         }
     }
 
+    for (int i = 0; i < 4; i++)
+    {
+        debug_printf("%i ", moveScores[target][i]);
+    }
+    debug_printf("-> highest %i:%i\n", result, moveScores[target][result]);
+
     highest_move_score = moveScores[target][result];
     int j_tie_index = 0;
 
-    for (int moveno = 0; moveno < 4; moveno++){                                         //check for ties
-        if(moveScores[target][moveno] == highest_move_score){
-            num_move_score_ties++;
-            move_tie_indices[j_tie_index] = moveno;
+    for (int i = 0; i < 4; i++)
+    {                                         //check for ties
+        if(moveScores[target][i] == highest_move_score){
+            move_tie_indices[j_tie_index] = i;
             j_tie_index++;
         }
     }
-    result  = move_tie_indices[BattleRand(bsys) % num_move_score_ties];             //randomly pick a move among the tie
+	int randomMoveIndex = (BattleRand(bsys) % j_tie_index);
+
+    result  = move_tie_indices[randomMoveIndex % 4];             //randomly pick a move among the tie
+	debug_printf("got randomMoveIndex %d -> Resulting move: %d\n", randomMoveIndex,  result);
     return result;
 }
 
@@ -579,8 +571,8 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
 
     if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SPEED_HIT)
     {
-        if (!ai->defenderMovesFirst && (ai->defenderAbility != ABILITY_CLEAR_BODY && ai->defenderAbility != ABILITY_WHITE_SMOKE && ai->defenderAbility != ABILITY_CONTRARY) || 
-            ai->attackerHasMoldBreaker)
+        if (!ai->defenderMovesFirst && ((ai->defenderAbility != ABILITY_CLEAR_BODY && ai->defenderAbility != ABILITY_WHITE_SMOKE && ai->defenderAbility != ABILITY_CONTRARY) || 
+            ai->attackerHasMoldBreaker))
         {
             moveScore += 6;
         }
@@ -636,8 +628,8 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
         }
         case MOVE_FAKE_OUT:
         {
-            if (ai->attackerTurnsOnField == 0 && (ai->defenderAbility != ABILITY_SHIELD_DUST && ai->defenderAbility != ABILITY_INNER_FOCUS) ||
-                !ai->attackerHasMoldBreaker)
+            if (ai->attackerTurnsOnField == 0 && ((ai->defenderAbility != ABILITY_SHIELD_DUST && ai->defenderAbility != ABILITY_INNER_FOCUS) ||
+                !ai->attackerHasMoldBreaker))
             {
                 moveScore += 9;
             }
@@ -717,6 +709,7 @@ It evaluates how good a non-damaging move is, or a move with extra effects that 
 int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
 {
     int moveScore = 0;
+    /*
     struct BattleStruct* ctx = bsys->sp;
     BOOL hasSitrus = (ai->attackerItem == ITEM_SITRUS_BERRY);
 
@@ -724,10 +717,10 @@ int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIConte
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
     if (ai->playerCanOneShotMon)
-		return moveScore - NEVER_USE_MOVE_20; //lowers score for all moves, thus not affecting overall decision
+		return (moveScore - NEVER_USE_MOVE_20); //lowers score for all moves, thus not affecting overall decision
 
     if (ai->defenderAbility == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0)) // 25% sometimes boost anyway
-        return moveScore - NEVER_USE_MOVE_20;
+        return (moveScore - NEVER_USE_MOVE_20);
 
     switch (ai->attackerMoveEffect)
     {
@@ -862,7 +855,7 @@ int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIConte
         default: 
             break;
     }
-
+    */
     return moveScore;
 }
 
