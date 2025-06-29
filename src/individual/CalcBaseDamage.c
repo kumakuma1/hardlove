@@ -42,7 +42,7 @@ extern const u16 MegaLauncherMovesTable[7];
 extern const u16 SharpnessMovesTable[24];
 
 
-int LONG_CALL CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
+int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                    u32 field_cond, u16 pow, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
 {
     u32 i;

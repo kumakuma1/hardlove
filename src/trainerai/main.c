@@ -69,6 +69,7 @@ typedef struct {
     int attackerTurnsOnField;
     BOOL isDefenderGrounded;
     BOOL isDefenderIncapacitated;
+    BOOL defenderKnowsThawingMove;
 
     int maxDamageReceived;
 
@@ -102,34 +103,38 @@ typedef struct {
 } MoveEvaluator;
 
 /*Flag functions return a move score, given the index of the current move*/
-int BasicFlag2(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
-int BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
-int EvaluateAttackFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
-int ExpertFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
-int CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
-int HarassmentFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
+int LONG_CALL BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
+int LONG_CALL EvaluateAttackFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
+int LONG_CALL ExpertFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
+int LONG_CALL CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
+int LONG_CALL HarassmentFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
 
 /*Add your own custom flags to this list*/
 static const MoveEvaluator moveEvaluators[4] = {
-    { AI_FLAG_BASIC,                BasicFlag2 },
+    { AI_FLAG_BASIC,                BasicFlag },
     { AI_FLAG_EVAL_ATTACK,          EvaluateAttackFlag },
- //   { AI_FLAG_EXPERT,               ExpertFlag },
+  //  { AI_FLAG_EXPERT,               ExpertFlag },
  //   { AI_FLAG_TAG_STRATEGY,         TagStrategyFlag },
     { AI_FLAG_CHECK_HP,             CheckHPFlag },
     { AI_FLAG_HARRASSMENT,          HarassmentFlag }
 };
 
 /*Helper Functions*/
-BOOL battlerHasSoundBasedMove(struct BattleSystem* bsys, u32 battler, AIContext* ai);
-BOOL battlerKnowsFlinchingMove(struct BattleSystem* bsys, u32 battler, AIContext* ai);
-BOOL BattlerKnowsMove(struct BattleSystem *bsys, u32 battler, u32 move, AIContext *ai);
-int BattlerPositiveStatChangesSum(struct BattleSystem* bsys, u32 battler, AIContext* ai);
+BOOL LONG_CALL battlerHasSoundBasedMove(struct BattleSystem* bsys, u32 battler, AIContext* ai);
+BOOL LONG_CALL battlerKnowsFlinchingMove(struct BattleSystem* bsys, u32 battler, AIContext* ai);
+BOOL LONG_CALL BattlerKnowsMove(struct BattleSystem *bsys, u32 battler, u32 move, AIContext *ai);
+int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem* bsys, u32 battler, AIContext* ai);
+BOOL LONG_CALL shouldRecover(struct BattleSystem* bsys, u32 attacker, u32 attackerMoveEffect, AIContext* ai);
+BOOL LONG_CALL battlerKnowsThawingMove(struct BattleSystem* bsys, u32 battler, AIContext* ai);
+int LONG_CALL offensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai);
+int LONG_CALL defensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai);
+BOOL LONG_CALL isMoveSpecialAiAttackingMove(struct BattleSystem* bsys, u32 attackerMove, AIContext* ai);
 
 BOOL LONG_CALL IsInList(u32 moveEffect, const u16 StatList[], u16 ListLength);
 BOOL LONG_CALL BattlerKnowsMoveInList(struct BattleSystem *bsys, u32 battler, const u16 MoveList[], u16 listLength, AIContext *ai);
 BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *bsys, struct BattleStruct *ctx, int mainBattler, int flag, AIContext *ai);
 
-void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, AIContext *ai);
+void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, AIContext *ai);
 int LONG_CALL AdjustUnusualMovePower(struct BattleSystem *bsys, u32 attacker, u32 defender, int moveEffect, int attackerPercentHP);
 
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
@@ -146,9 +151,9 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     }*/
     int highest_move_score = 0;
     u32 moveScores[4][4];
-    for (int i = 0; i < 4; i++){           //don't want to get negative (unsigned ints) numbers, so start high at 100
+    for (int i = 0; i < 4; i++){           //don't want to get negative (unsigned ints) numbers, so start high at 1000
         for (int j = 0; j < 4; j++) {
-            moveScores[i][j] = 100;
+            moveScores[i][j] = 1000;
         }
     } 
     int max_scores[4] = {0};                //highest score over all of the 4 moves the attacker has, measured against each mon on the field (self is always 0)
@@ -288,568 +293,11 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     return result;
 }
 
-/*Lists of effects, moves, etc...*/
-const u16 DropStatList[] = {
-    MOVE_EFFECT_ATK_DOWN,
-    MOVE_EFFECT_ATK_DOWN_2,
-    MOVE_EFFECT_ATK_DOWN_3,
-    MOVE_EFFECT_DEF_DOWN,
-    MOVE_EFFECT_DEF_DOWN_2,
-    MOVE_EFFECT_DEF_DOWN_3,
-    MOVE_EFFECT_SPEED_DOWN,
-    MOVE_EFFECT_SPEED_DOWN_2,
-    MOVE_EFFECT_SPEED_DOWN_3,
-    MOVE_EFFECT_SP_ATK_DOWN,
-    MOVE_EFFECT_SP_ATK_DOWN_2,
-    MOVE_EFFECT_SP_ATK_DOWN_3,
-    MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER,
-    MOVE_EFFECT_SP_DEF_DOWN,
-    MOVE_EFFECT_SP_DEF_DOWN_2,
-    MOVE_EFFECT_SP_DEF_DOWN_3,
-    MOVE_EFFECT_FAINT_AND_ATK_SP_ATK_DOWN_2,
-    MOVE_EFFECT_ATK_SP_ATK_DOWN,
-    MOVE_EFFECT_VENOM_DRENCH,
-    MOVE_EFFECT_ATK_DEF_DOWN,
-    MOVE_EFFECT_EVA_DOWN,
-    MOVE_EFFECT_EVA_DOWN_2,
-    MOVE_EFFECT_EVA_DOWN_3,
-    MOVE_EFFECT_ACC_DOWN,
-    MOVE_EFFECT_ACC_DOWN_2,
-    MOVE_EFFECT_ACC_DOWN_3
-};
 
-const u16 RaiseStatList[] = {
-    MOVE_EFFECT_ATK_UP,
-    MOVE_EFFECT_ATK_UP_2,
-    MOVE_EFFECT_ATK_UP_3,
-    MOVE_EFFECT_DEF_UP,
-    MOVE_EFFECT_DEF_UP_2,
-    MOVE_EFFECT_DEF_UP_3,
-    MOVE_EFFECT_SPEED_UP,
-    MOVE_EFFECT_SPEED_UP_2,
-    MOVE_EFFECT_SPEED_UP_3,
-    MOVE_EFFECT_SP_ATK_UP,
-    MOVE_EFFECT_SP_ATK_UP_2,
-    MOVE_EFFECT_SP_ATK_UP_3,
-    MOVE_EFFECT_SP_DEF_UP,
-    MOVE_EFFECT_SP_DEF_UP_2,
-    MOVE_EFFECT_SP_DEF_UP_3,
-    MOVE_EFFECT_ACC_UP,
-    MOVE_EFFECT_ACC_UP_2,
-    MOVE_EFFECT_ACC_UP_3,
-    MOVE_EFFECT_EVA_UP,
-    MOVE_EFFECT_EVA_UP_2,
-    MOVE_EFFECT_EVA_UP_2_MINIMIZE,
-    MOVE_EFFECT_EVA_UP_3,
-    MOVE_EFFECT_ATK_SPEED_UP,
-    MOVE_EFFECT_ATK_SP_ATK_UP,
-    MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER,
-    MOVE_EFFECT_DEF_SP_DEF_UP,
-    MOVE_EFFECT_SP_ATK_SP_DEF_UP
-
-};
-/*Stat increases*/
-const u16 AttackRaiseList[] = {
-    MOVE_EFFECT_ATK_UP,
-    MOVE_EFFECT_ATK_UP_2,
-    MOVE_EFFECT_ATK_UP_3,
-    MOVE_EFFECT_ATK_SPEED_UP, //dragon dance
-    //MOVE_EFFECT_MAX_ATK_LOSE_HALF_MAX_HP, //belly drum
-    MOVE_EFFECT_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP, //clangorous soul
-    MOVE_EFFECT_ATK_DEF_ACC_UP,
-    MOVE_EFFECT_SP_ATK_UP, //growth
-    MOVE_EFFECT_ATK_SP_ATK_UP, //work up
-    MOVE_EFFECT_ATK_ACC_UP, //hone claws
-    MOVE_EFFECT_RAISE_ATTACK_HIT, //powerup punch
-    MOVE_EFFECT_SPEED_UP_2_ATK_UP, //shift gear
-    MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN, //shell smash
-    MOVE_EFFECT_TIDY_UP, //tidy up is basically ddance
-    MOVE_EFFECT_ATK_DEF_SPEED_UP, //victory dance
-    MOVE_EFFECT_ATK_DEF_ACC_UP, //coil
-};
-
-const u16 DefenseRaiseList[] = {
-    MOVE_EFFECT_DEF_UP,
-    MOVE_EFFECT_DEF_UP_2,
-    MOVE_EFFECT_DEF_UP_3,
-    MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER,
-    MOVE_EFFECT_DEF_SP_DEF_UP,
-};
-
-const u16 SpAtkRaiseList[] = {
-    MOVE_EFFECT_SP_ATK_UP,
-    MOVE_EFFECT_SP_ATK_UP_2,
-    MOVE_EFFECT_SP_ATK_UP_3,
-    MOVE_EFFECT_ATK_SP_ATK_UP,  //work up
-    MOVE_EFFECT_SP_ATK_SP_DEF_UP, //calm mind
-    //MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_LOSE_HALF_MAX_HP, //fillet away
-    MOVE_EFFECT_RAISE_SP_ATK_HIT, //mystical power, torch song
-    MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN,
-    MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP, //quiver dance
-    MOVE_EFFECT_TAKE_HEART,
-};
-
-const u16 SpDefRaiseList[] = {
-    MOVE_EFFECT_SP_DEF_UP,
-    MOVE_EFFECT_SP_DEF_UP_2,
-    MOVE_EFFECT_SP_DEF_UP_3,
-    MOVE_EFFECT_SP_ATK_SP_DEF_UP
-};
-
-const u16 SpeedRaiseList[] = {
-    MOVE_EFFECT_SPEED_UP,
-    MOVE_EFFECT_SPEED_UP_2,
-    MOVE_EFFECT_SPEED_UP_3, //dragon dance is intentionally excluded
-};
-
-const u16 AccRaiseList[] = {
-    MOVE_EFFECT_ACC_UP,
-    MOVE_EFFECT_ACC_UP_2,
-    MOVE_EFFECT_ACC_UP_3
-};
-const u16 EvaRaiseList[] = {
-    MOVE_EFFECT_EVA_UP,
-    MOVE_EFFECT_EVA_UP_2,
-    MOVE_EFFECT_EVA_UP_2_MINIMIZE,
-    MOVE_EFFECT_EVA_UP_3
-};
-
-/*Stat decreases*/
-const u16 AttackDropList[] = {
-    MOVE_EFFECT_ATK_DOWN,
-    MOVE_EFFECT_ATK_DOWN_2,
-    MOVE_EFFECT_ATK_DOWN_3,
-    MOVE_EFFECT_ATK_SP_ATK_DOWN,
-    MOVE_EFFECT_ATK_DEF_DOWN,
-    //MOVE_EFFECT_FAINT_AND_ATK_SP_ATK_DOWN_2,
-    //MOVE_EFFECT_VENOM_DRENCH
-};
-
-const u16 DefenseDropList[] = {
-    MOVE_EFFECT_DEF_DOWN,
-    MOVE_EFFECT_DEF_DOWN_2,
-    MOVE_EFFECT_DEF_DOWN_3,
-    MOVE_EFFECT_ATK_DEF_DOWN
-};
-
-const u16 SpAtkDropList[] = {
-    MOVE_EFFECT_SP_ATK_DOWN,
-    MOVE_EFFECT_SP_ATK_DOWN_2,
-    MOVE_EFFECT_SP_ATK_DOWN_3,
-    //MOVE_EFFECT_FAINT_AND_ATK_SP_ATK_DOWN_2,
-    MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER,
-    MOVE_EFFECT_ATK_SP_ATK_DOWN,
-    //MOVE_EFFECT_VENOM_DRENCH
-};
-
-const u16 SpDefDropList[] = {
-    MOVE_EFFECT_SP_DEF_DOWN,
-    MOVE_EFFECT_SP_DEF_DOWN_2,
-    MOVE_EFFECT_SP_DEF_DOWN_3
-};
-
-const u16 SpeedDropList[] = {
-    MOVE_EFFECT_SPEED_DOWN,
-    MOVE_EFFECT_SPEED_DOWN_2,
-    MOVE_EFFECT_SPEED_DOWN_3,
-    MOVE_EFFECT_VENOM_DRENCH
-};
-
-const u16 AccDropList[] = {
-    MOVE_EFFECT_ACC_DOWN,
-    MOVE_EFFECT_ACC_DOWN_2,
-    MOVE_EFFECT_ACC_DOWN_3
-};
-
-const u16 EvaDropList[] = {
-    MOVE_EFFECT_EVA_DOWN,
-    MOVE_EFFECT_EVA_DOWN_2,
-    MOVE_EFFECT_EVA_DOWN_3
-};  
-
-
-
-
-/*Flag's Scoring:
-
-This next section is the meat of the AI. Each of these flags individually modifies the score of a move,
-given an attacker and a defender. The scores start at 100, and are modified accordingly based on the 
-the power, usefulness, or lackthereof of the move. If you want to add a flag, you can mirror the way
-these are written, and add it to the list of moveEvaluators. The flags are all defined in trainer_ai.h,
-so change those names there, too.
-*/
 
 /*BasicFlag:
 Heavily penalize stupid decisions that would fail, do nothing, or objectively hurt the user.*/
-
-int BasicFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
-{
-    debug_printf("BasicFlag");
-    int moveScore = 0;
-    struct BattleStruct *ctx = bsys->sp;
-    /*
-    if(ctx->battlemon[ai->defender].hp == 0){
-        return -60;
-    }
-    */
-    /*Never use moves that are out of pp*/
-    if(ctx->battlemon[ai->attacker].pp[i] == 0){
-        moveScore -= IMPOSSIBLE_MOVE;
-    }
-    if(ctx->battlemon[ai->attacker].moveeffect.tauntTurns > 0 && 
-        ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS){
-        moveScore -= IMPOSSIBLE_MOVE; //taunted, so no status moves
-    }
-
-
-    /*Check for ai->defender type immunities.*/
-    if(ai->attackerMoveEffectiveness == MOVE_STATUS_FLAG_NOT_EFFECTIVE){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    /*Check for wonder guard*/
-    if(ai->attackerMoveEffectiveness != MOVE_STATUS_FLAG_SUPER_EFFECTIVE &&
-        ai->defenderAbility == ABILITY_WONDER_GUARD && ai->attackerHasMoldBreaker){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    //Ability immunities
-    if(!ai->attackerHasMoldBreaker){
-        if(ai->attackerMoveType == TYPE_ELECTRIC && //electric
-            (ai->defenderAbility == ABILITY_VOLT_ABSORB ||
-            ai->defenderAbility == ABILITY_LIGHTNING_ROD ||
-            ai->defenderAbility == ABILITY_MOTOR_DRIVE) ){
-            moveScore -= NEVER_USE_MOVE_20;
-        }
-        if(ai->attackerMoveType == TYPE_WATER && //water
-            (ai->defenderAbility == ABILITY_STORM_DRAIN ||
-            ai->defenderAbility == ABILITY_WATER_ABSORB ||
-            ai->defenderAbility == ABILITY_DRY_SKIN || 
-            ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT)  ){
-            moveScore -= NEVER_USE_MOVE_20;
-        }
-        if(ai->attackerMoveType == TYPE_FIRE && //fire
-            (ai->defenderAbility == ABILITY_FLASH_FIRE || 
-            ai->defenderAbility == ABILITY_WELL_BAKED_BODY || 
-            ai->defenderAbility == ABILITY_THERMAL_EXCHANGE ||
-            ctx->field_condition & WEATHER_HEAVY_RAIN) ){
-            moveScore -= NEVER_USE_MOVE_20;
-        }
-        if(ai->attackerMoveType == TYPE_GRASS && //grass
-            (ai->defenderAbility == ABILITY_SAP_SIPPER) ){
-            moveScore -= NEVER_USE_MOVE_20;
-        }
-        if(ai->attackerMoveType == TYPE_GROUND && //ground
-            (ai->defenderAbility == ABILITY_LEVITATE ||
-            ai->defenderAbility == ABILITY_EARTH_EATER) ){
-            moveScore -= NEVER_USE_MOVE_20;
-        }
-        if(IsMoveSoundBased(ai->attackerMove) && //sound based moves
-            ai->defenderAbility == ABILITY_SOUNDPROOF){ 
-            moveScore -= NEVER_USE_MOVE_20;
-        }
-        if(ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS &&
-            ai->defenderAbility == ABILITY_GOOD_AS_GOLD && 
-            !(ctx->moveTbl[ai->attackerMove].target == RANGE_USER ||  //do not include things like light screen, stealth rocks, self-targetting moves.
-              ctx->moveTbl[ai->attackerMove].target == RANGE_OPPONENT_SIDE ||
-              (ctx->moveTbl[ai->attackerMove].target == RANGE_USER_SIDE && ai->attackerMove != MOVE_LIFE_DEW )) ){
-            moveScore -= NEVER_USE_MOVE_20;
-        }
-    }
-
-    //ai->attackerMove == MOVE_RAGE_POWDER  rage powder is self-targetting, so will grass types never click rage powder?
-
-    /*Prankster:
-    Prankster fails if:
-    1.) Move target is dark type
-    2.) Target is not self
-    3.) Move is priority boosted by prankster (i.e. status moves)
-    
-    We check if the base priority of the move is zero or greater, since 
-    it would be boosted by prankster to +1 or higher if it is status*/
-    if((ai->defenderType1 == TYPE_DARK || ai->defenderType2 == TYPE_DARK) && 
-        (ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS &&
-        ai->attackerAbility == ABILITY_PRANKSTER &&
-        ctx->moveTbl[ai->attackerMove].priority >= 0)
-        && attacker != ai->defender){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-
-   // if (ctx->clientPriority[ctx->attack_client] > 0 && GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_PRANKSTER && HasType(ctx, defender, TYPE_DARK) && (ctx->attack_client & 1) != (defender & 1)) // used on an enemy)
-   
-
-    /*Check for immunity to confusion*/ 
-    else if((ai->attackerMoveEffect == MOVE_EFFECT_STATUS_CONFUSE ||
-        ai->attackerMoveEffect == MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION || //swagger
-        ai->attackerMoveEffect == MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION|| //flatter
-        ai->attackerMoveEffect == MOVE_EFFECT_CONFUSE_ALL_ADJACENT ) && //teeter dance, need to change for double battles
-        (ctx->battlemon[ai->defender].condition2 & STATUS2_CONFUSION || 
-        ctx->side_condition[ai->defenderSide] & SIDE_STATUS_SAFEGUARD ||
-        ai->defenderAbility == ABILITY_OWN_TEMPO )){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    /*Check for immunity to infatuation*/
-    else if((ai->attackerMoveEffect == MOVE_EFFECT_INFATUATE) && 
-        (ctx->battlemon[ai->defender].condition2 & STATUS2_ATTRACT || 
-        ai->defenderAbility == ABILITY_OBLIVIOUS ||
-        ctx->battlemon[ai->defender].sex == ctx->battlemon[ai->defender].sex ||
-        ctx->battlemon[ai->defender].sex == POKEMON_GENDER_UNKNOWN)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Handle nightmare*/
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_STATUS_NIGHTMARE && 
-    (ctx->battlemon[ai->defender].condition2 & STATUS2_NIGHTMARE ||
-        ai->defenderAbility == ABILITY_MAGIC_GUARD)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_STATUS_NIGHTMARE &&
-        !(ctx->battlemon[ai->defender].condition & STATUS_SLEEP)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Handle dream eater*/
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_RECOVER_DAMAGE_SLEEP &&
-        !(ctx->battlemon[ai->defender].condition & STATUS_SLEEP)){ //must be asleep
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-
-
-    /*Avoid increasing already maxed stats using status moves*/
-
-    // attack
-    else if((IsInList(ai->attackerMoveEffect, AttackRaiseList, NELEMS(AttackRaiseList))) &&
-        (ctx->battlemon[attacker].states[STAT_ATTACK] >= 12)){
-        moveScore -= NEVER_USE_MOVE_20; 
-    }
-    // defense
-    else if((IsInList(ai->attackerMoveEffect, DefenseRaiseList, NELEMS(DefenseRaiseList))) &&
-        (ctx->battlemon[attacker].states[STAT_DEFENSE] >= 12)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    // sp. atk
-    else if((IsInList(ai->attackerMoveEffect, SpAtkRaiseList, NELEMS(SpAtkRaiseList))) &&
-        (ctx->battlemon[attacker].states[STAT_SPATK] >= 12)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    //sp.def
-    else if((IsInList(ai->attackerMoveEffect, SpDefRaiseList, NELEMS(SpDefRaiseList))) &&
-        (ctx->battlemon[attacker].states[STAT_SPDEF] >= 12)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    //speed
-    else if((IsInList(ai->attackerMoveEffect, SpeedRaiseList, NELEMS(SpeedRaiseList))) &&
-        (ctx->battlemon[attacker].states[STAT_SPEED] >= 12)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Check for abilities preventing atk drop*/
-    else if((ai->attackerMoveEffect == MOVE_EFFECT_ATK_DOWN_2 ||
-        ai->attackerMoveEffect == MOVE_EFFECT_ATK_DOWN) &&
-        ai->defenderAbility == ABILITY_HYPER_CUTTER ||
-        ai->defenderAbility == ABILITY_WHITE_SMOKE ||
-        ai->defenderAbility == ABILITY_CONTRARY ||
-        ai->defenderAbility == ABILITY_CLEAR_BODY){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    else if((IsInList(ai->attackerMoveEffect, AccDropList, NELEMS(AccDropList)) ||
-            IsInList(ai->attackerMoveEffect, EvaDropList, NELEMS(EvaDropList))) &&
-        (ai->attackerAbility == ABILITY_NO_GUARD ||
-        ai->defenderAbility == ABILITY_NO_GUARD)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    else if(IsInList(ai->attackerMoveEffect, AccDropList, NELEMS(AccDropList)) &&
-        (ai->defenderAbility == ABILITY_KEEN_EYE)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Handle clear body & white smoke*/
-    /*
-    else if(DropsStatsAsStatus(ai->attackerMoveEffect) &&
-        ((ai->defenderAbility == ABILITY_CLEAR_BODY ||
-        ai->defenderAbility == ABILITY_WHITE_SMOKE ||
-        ai->defenderAbility == ABILITY_CONTRARY ) &&
-        !ai->attackerHasMoldBreaker)){
-            moveScore -= NEVER_USE_MOVE_20;
-    }
-    */
-    /*Handle any status stat-dropping move when at +6 or -6.
-    Keep in mind that -6 to +6 goes instead from 0 to 12.*/
-
-    // Attack
-    else if((IsInList(ai->attackerMoveEffect, AttackDropList, NELEMS(AttackDropList))) &&
-        (ctx->battlemon[ai->defender].states[STAT_ATTACK] <= 0)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    // Defense
-    else if((IsInList(ai->attackerMoveEffect, DefenseDropList, NELEMS(DefenseDropList))) &&
-        (ctx->battlemon[ai->defender].states[STAT_DEFENSE] <= 0)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    // Sp. Atk
-    else if((IsInList(ai->attackerMoveEffect, SpAtkDropList, NELEMS(SpAtkDropList))) &&
-        (ctx->battlemon[ai->defender].states[STAT_SPATK] <= 0)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    //Sp.Def
-    else if((IsInList(ai->attackerMoveEffect, SpDefDropList, NELEMS(SpDefDropList))) &&
-        (ctx->battlemon[ai->defender].states[STAT_SPDEF] <= 0)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    //Speed
-    else if((IsInList(ai->attackerMoveEffect, SpeedDropList, NELEMS(SpeedDropList))) &&
-        (ctx->battlemon[ai->defender].states[STAT_SPEED] <= 0)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    //Evasion
-    else if((IsInList(ai->attackerMoveEffect, EvaDropList, NELEMS(EvaDropList))) &&
-        (ctx->battlemon[ai->defender].states[STAT_EVASION] <= 0)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    //Accuracy
-    else if((IsInList(ai->attackerMoveEffect, AccDropList, NELEMS(AccDropList)) ) &&
-        (ctx->battlemon[ai->defender].states[STAT_ACCURACY] <= 0)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Handle disable & encore*/
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_DISABLE && 
-        (ctx->battlemon[ai->defender].moveeffect.disabledTurns != 0) ){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_ENCORE && 
-        (ctx->battlemon[ai->defender].moveeffect.encoredTurns != 0) ){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Handle fake out after turn one*/
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_ALWAYS_FLINCH_FIRST_TURN_ONLY && ai->attackerTurnsOnField > 0){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    /*Handle stockpile*/
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_STOCKPILE && ctx->battlemon[attacker].moveeffect.stockpileCount < 3){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    /*Spit up / Swallow*/
-    else if((ai->attackerMoveEffect == MOVE_EFFECT_SPIT_UP || ai->attackerMoveEffect == MOVE_EFFECT_SWALLOW) 
-    && ctx->battlemon[attacker].moveeffect.stockpileCount == 0){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    /*Handle Memento*/
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_FAINT_AND_ATK_SP_ATK_DOWN_2 && ((ai->defenderAbility == ABILITY_WHITE_SMOKE ||
-        ai->defenderAbility == ABILITY_CLEAR_BODY) && !ai->attackerHasMoldBreaker) ||
-        (ctx->battlemon[attacker].states[STAT_ATTACK] <= 0 ||ctx->battlemon[attacker].states[STAT_SPATK] <= 0)){
-            moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Handle moves that change more than one type of stat*/
-    /*Tickle*/
-    if(ai->attackerMoveEffect == MOVE_EFFECT_ATK_DEF_DOWN && //tickle, in particular
-        (ctx->battlemon[ai->defender].states[STAT_ATTACK] <= 0 )){
-                moveScore -= NEVER_USE_MOVE_20;
-    }
-    if(ai->attackerMoveEffect == MOVE_EFFECT_ATK_DEF_DOWN &&
-        (ctx->battlemon[ai->defender].states[STAT_DEFENSE] <= 0)){
-                moveScore -= NEVER_USE_MOVE_20;
-    }// Punishes each stat if already dropped to the max
-    // The clear body interactions are handled above
-
-    /*Bulk Up*/
-    if(ai->attackerMoveEffect == MOVE_EFFECT_ATK_DEF_UP && 
-        (ctx->battlemon[attacker].states[STAT_ATTACK] <= 0 )){
-                moveScore -= NEVER_USE_MOVE_20;
-    }
-    if(ai->attackerMoveEffect == MOVE_EFFECT_ATK_DEF_UP &&
-        (ctx->battlemon[attacker].states[STAT_DEFENSE] <= 0)){
-                moveScore -= NEVER_USE_MOVE_20;
-    }// Punishes each stat if already raised to +6
-
-    /*Calm Mind*/
-    if(ai->attackerMoveEffect == MOVE_EFFECT_SP_ATK_SP_DEF_UP && 
-        (ctx->battlemon[attacker].states[STAT_SPATK] <= 0)){
-                moveScore -= NEVER_USE_MOVE_20;
-    }
-    if(ai->attackerMoveEffect == MOVE_EFFECT_SP_ATK_SP_DEF_UP &&
-        (ctx->battlemon[attacker].states[STAT_SPDEF] <= 0)){
-                moveScore -= NEVER_USE_MOVE_20;
-    }// Punishes each stat if already raised to +6
-
-    /*Dragon Dance*/
-    if(ai->attackerMoveEffect == MOVE_EFFECT_ATK_SPEED_UP && 
-        (ctx->battlemon[attacker].states[STAT_ATTACK] <= 0 )){
-                moveScore -= NEVER_USE_MOVE_20;
-    }
-    if(ai->attackerMoveEffect == MOVE_EFFECT_ATK_SPEED_UP &&
-        (ctx->battlemon[attacker].states[STAT_SPEED] <= 0)){
-                moveScore -= NEVER_USE_MOVE_20;
-    }// Punishes each stat if already raised to +6
-
-    /*Natural Gift*/
-    if(ai->attackerMoveEffect == MOVE_EFFECT_NATURAL_GIFT &&
-        (!IS_ITEM_BERRY(ai->attackerItem))){
-            moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Acupressure*/
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_RANDOM_STAT_UP_2 &&
-        (ctx->battlemon[attacker].states[STAT_ATTACK] >= 12 ||
-        ctx->battlemon[attacker].states[STAT_DEFENSE] >= 12 ||
-        ctx->battlemon[attacker].states[STAT_SPATK] >= 12 ||
-        ctx->battlemon[attacker].states[STAT_SPDEF] >= 12 ||
-        ctx->battlemon[attacker].states[STAT_SPEED] >= 12 ||
-        ctx->battlemon[attacker].states[STAT_EVASION] >= 12 ||
-        ctx->battlemon[attacker].states[STAT_ACCURACY] >= 12)){
-            moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Metal Burst*/
-    if(ai->attackerMoveEffect == MOVE_EFFECT_METAL_BURST &&
-        (ai->defenderAbility == ABILITY_STALL || ai->attackerMovesFirst)){
-            moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Embargo*/
-    if(ai->attackerMoveEffect == MOVE_EFFECT_PREVENT_ITEM_USE &&
-        (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_EMBARGO)){
-            moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Psycho Shift*/
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_TRANSFER_STATUS &&
-        (ctx->battlemon[ai->defender].condition & STATUS_ALL || 
-            ctx->side_condition[ai->defenderSide] & SIDE_STATUS_SAFEGUARD ||
-        (ctx->battlemon[attacker].condition & STATUS_BURN && ai->defenderImmuneToBurn) ||
-        (ctx->battlemon[attacker].condition & STATUS_POISON_ALL && ai->defenderImmuneToPoison) ||
-        (ctx->battlemon[attacker].condition & STATUS_PARALYSIS && ai->defenderImmuneToParalysis) )){
-            moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Copycat*/
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_USE_LAST_USED_MOVE){
-        if(ai->attackerMovesFirst && ctx->total_turn == 0 && ai->attackerMovesFirst){
-            moveScore -= NEVER_USE_MOVE_20;
-        }
-    }
-
-
-    /*Last Resort*/
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_FAIL_IF_NOT_USED_ALL_OTHER_MOVES &&
-        (ctx->battlemon[attacker].moveeffect.lastResortCount < ai->attackerMovesKnown - 1)){
-            moveScore -= NEVER_USE_MOVE_20;
-    }
-
-    /*Captivate*/
-    else if(ai->attackerMoveEffect == MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER &&
-    (ctx->battlemon[ai->defender].sex == ctx->battlemon[ai->defender].sex ||
-        ctx->battlemon[ai->defender].sex == POKEMON_GENDER_UNKNOWN ||
-        ctx->battlemon[ai->defender].states[STAT_SPATK] == 0)){
-        moveScore -= NEVER_USE_MOVE_20;
-    }
-    debug_printf(": moveScore %d\n", moveScore);
-    return moveScore;
-}
-
-int BasicFlag2(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
+int LONG_CALL BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
 {
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
@@ -973,8 +421,30 @@ int BasicFlag2(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
     return moveScore;
 }
 
+BOOL LONG_CALL isMoveSpecialAiAttackingMove(struct BattleSystem* bsys, u32 attackerMove, AIContext* ai)
+{
+    BOOL isSpecialAIMove = FALSE;
+    switch (attackerMove)
+    {
+        case MOVE_SELF_DESTRUCT:
+        case MOVE_EXPLOSION:
+        case MOVE_MISTY_EXPLOSION:
+        case MOVE_FINAL_GAMBIT:
+        case MOVE_RELIC_SONG:
+        case MOVE_FUTURE_SIGHT:
+        case MOVE_ROLLOUT:
+        case MOVE_METEOR_BEAM:
+        case MOVE_ELECTRO_SHOT:
+            isSpecialAIMove = TRUE;
+            break;
+        default:
+            break;
+    }
+	return isSpecialAIMove;
+}
+
 /*Rank moves based on their damage output, ability to ohko, 2hko, */
-int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
+int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
 {
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
@@ -990,12 +460,14 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContex
 
     //TODO deal with contrary
 
-    if (ai->attackerMoveEffect == MOVE_EFFECT_HALVE_DEFENSE || ai->attackerMove == MOVE_RELIC_SONG || ai->attackerMove == MOVE_FUTURE_SIGHT ||
-        ai->attackerMove == MOVE_ROLLOUT || ai->attackerMove == MOVE_METEOR_BEAM || ai->attackerMove == MOVE_FINAL_GAMBIT)
+    if (isMoveSpecialAiAttackingMove(bsys, ai->attackerMove, ai))
     {
-        if (ai->attackerMoveEffect == MOVE_EFFECT_HALVE_DEFENSE && ai->attackerMinRollMoveDamages[i] > 0) /*TODO: immunity handled? */
+        switch (ai->attackerMove)
         {
-            if (ai->defenderAbility != ABILITY_DAMP || ai->attackerHasMoldBreaker)
+        case MOVE_SELF_DESTRUCT:
+        case MOVE_EXPLOSION:
+        case MOVE_MISTY_EXPLOSION:
+            if ((ai->defenderAbility != ABILITY_DAMP || ai->attackerHasMoldBreaker) && ai->attackerMinRollMoveDamages[i] > 0) /*TODO: immunity handled? */
             {
                 if (ai->attackerPercentHP < 10)
                 {
@@ -1022,37 +494,40 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContex
                 if (ai->livingMembersAttacker == 1 && ai->livingMembersDefender == 1)
                     moveScore -= 1;
             }
-        }
-
-        /* RELIC_SONG */
-
-        if (ai->attackerMove == MOVE_FUTURE_SIGHT)
-        {
-            if (ai->defenderMovesFirst && ai->playerCanOneShotMon)
-                moveScore += 8;
-            else
-                moveScore += 6;
-        }
-
-        if (ai->attackerMove == MOVE_ROLLOUT)
-            moveScore += 7;
-
-        if (ai->attackerMove == MOVE_METEOR_BEAM)
-        {
-            if (ai->attackerItem == ITEM_POWER_HERB)
-                moveScore += 9;
-            else
-                moveScore -= NEVER_USE_MOVE_20;
-        }
-
-        if(ai->attackerMove == MOVE_FINAL_GAMBIT)
-        {
+            break;
+        case MOVE_FINAL_GAMBIT:
             if (ai->attackerMovesFirst && ai->attackerHP > ai->defenderHP)
                 moveScore += 8;
             else if (ai->attackerMovesFirst && ai->playerCanOneShotMon)
                 moveScore += 7;
             else
                 moveScore += 6;
+            break;
+        case MOVE_RELIC_SONG: //TODO
+            break;
+        case MOVE_FUTURE_SIGHT:
+            if (ai->defenderMovesFirst && ai->playerCanOneShotMon)
+                moveScore += 8;
+            else
+                moveScore += 6;
+            break;
+        case MOVE_ROLLOUT:
+            moveScore += 7;
+            break;
+        case MOVE_METEOR_BEAM:
+            if (ai->attackerItem == ITEM_POWER_HERB)
+                moveScore += 9;
+            else
+                moveScore -= NEVER_USE_MOVE_20;
+            break;
+        case MOVE_ELECTRO_SHOT:
+            if (ai->attackerItem == ITEM_POWER_HERB || ctx->field_condition & WEATHER_RAIN_ANY)
+                moveScore += 9;
+            else
+                moveScore -= NEVER_USE_MOVE_20;
+            break;
+        default:
+            break;
         }
     }
     else if (ai->attackerMoveEffect == MOVE_EFFECT_BIND_HIT || ai->attackerMoveEffect  == MOVE_EFFECT_WHIRLPOOL)
@@ -1094,8 +569,12 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContex
 
     if (ai->defenderMovesFirst && ai->playerCanOneShotMon)
     {
+		debug_printf("player moves first and can one-shot\n");
         if (ctx->moveTbl[ai->attackerMove].priority > 0)
+        {
+            debug_printf("Move with priority\n");
             moveScore += 11;
+        }
     }
 
     if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SPEED_HIT)
@@ -1164,16 +643,6 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContex
             }
             break;
         }
-        case MOVE_PROTECT:
-        case MOVE_DETECT:
-        case MOVE_KINGS_SHIELD:
-        {
-            moveScore += 6;
-            if (ai->attackerLastUsedMove == MOVE_PROTECT || ai->attackerLastUsedMove == MOVE_DETECT)
-                 moveScore -= NEVER_USE_MOVE_20;
-                 //TODO: status, damage from env
-            break;
-        }
         case MOVE_PURSUIT:
         {
             if (ai->attackerMovesFirst)
@@ -1199,8 +668,11 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContex
                     moveScore += 10;
                 }
                 //TODO
-            }   
+            }
+            break;
         }
+        default:
+            break;
     }
 
     /* EARTHQUAKE, MAGNITUDE*/
@@ -1209,7 +681,7 @@ int EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContex
     return moveScore;
 }
 
-int offensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
+int LONG_CALL offensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
 {
 	int moveScore = 0;
     if (ai->isDefenderIncapacitated)
@@ -1227,7 +699,7 @@ int offensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai
     
     return moveScore;
 }
-int defensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
+int LONG_CALL defensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
 {
     int moveScore = 0;
     if (ai->isDefenderIncapacitated)
@@ -1242,10 +714,9 @@ A lot of this logic adds in probability.*/
 
 /*Expert Flag is where the meat and bones of moves happens.
 It evaluates how good a non-damaging move is, or a move with extra effects that are relevant.*/
-int ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
+int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
 {
     int moveScore = 0;
-    BOOL sharesMoves = FALSE;
     struct BattleStruct* ctx = bsys->sp;
     BOOL hasSitrus = (ai->attackerItem == ITEM_SITRUS_BERRY);
 
@@ -1253,10 +724,10 @@ int ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
     if (ai->playerCanOneShotMon)
-        return NEVER_USE_MOVE_20;
+		return moveScore - NEVER_USE_MOVE_20; //lowers score for all moves, thus not affecting overall decision
 
-    if (ai->defenderAbility == ABILITY_UNAWARE && (BattleRand(bsys) % 4 == 0)) // 25% sometimes boost anyway
-        return NEVER_USE_MOVE_20;
+    if (ai->defenderAbility == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0)) // 25% sometimes boost anyway
+        return moveScore - NEVER_USE_MOVE_20;
 
     switch (ai->attackerMoveEffect)
     {
@@ -1270,12 +741,29 @@ int ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
                 }
 			}
             break;
+        case MOVE_EFFECT_EVA_UP:
+        case MOVE_EFFECT_EVA_UP_2:
+        case MOVE_EFFECT_EVA_UP_3:
+        case MOVE_EFFECT_EVA_UP_2_MINIMIZE:
+			moveScore += 6;
+            if (ai->defenderAbility == ABILITY_NO_GUARD || ctx->battlemon[attacker].states[STAT_EVASION] >= 10)
+            {
+                moveScore -= NEVER_USE_MOVE_20;
+            }
+            else if (2 * ai->maxDamageReceived < ai->attackerHP)
+            {
+                moveScore += 2;
+            }
+            if (ai->isDefenderIncapacitated)
+                moveScore += 2;
+            break;
         case MOVE_EFFECT_SPEED_UP_2:
         case MOVE_EFFECT_AUTOTOMIZE:
             if (ai->attackerMovesFirst)
                 moveScore += 7;
             else
 				moveScore -= NEVER_USE_MOVE_20;
+            break;
         case MOVE_EFFECT_CRIT_UP_2:
             if (ai->defenderAbility == ABILITY_SHELL_ARMOR || ai->defenderAbility == ABILITY_BATTLE_ARMOR)
                 moveScore -= NEVER_USE_MOVE_20;
@@ -1338,6 +826,7 @@ int ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
         case MOVE_EFFECT_SP_DEF_UP_2: 
         case MOVE_EFFECT_SP_DEF_UP_3:
         case MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER:
+        case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER: // Charge
         case MOVE_EFFECT_DEF_SP_DEF_UP:
         case MOVE_EFFECT_STOCKPILE:
             //case MOVE_EFFECT_STUFF_CHEEKS:
@@ -1377,7 +866,7 @@ int ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
     return moveScore;
 }
 
-int HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
+int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
 {
     int moveScore = 0;
     BOOL sharesMoves = FALSE;
@@ -1410,6 +899,9 @@ int HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai
         if (BattleRand(bsys) % 4 != 0)
             moveScore += 3;
         break;
+    //case MOVE_EFFECT_KINGS_SHIELD:
+    //case MOVE_EFFECT_OBSTRUCT:
+    //case MOVE_EFFECT_SPIKEY_SHIELD:
     case MOVE_EFFECT_PROTECT: //TODO
         moveScore += 6;
         if ((ai->attackerCondition & (STATUS_POISON | STATUS_BURN | STATUS_PARALYSIS)) || (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE)) //TODO
@@ -1418,11 +910,12 @@ int HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai
             moveScore += 1;
         if (ai->attackerTurnsOnField == 0 && ((BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) == 0))
             moveScore -= 1;
-        if (ai->attackerLastUsedMove == MOVE_PROTECT)
+        if (ai->attackerLastUsedMove == ai->attackerMove)
         {
             if (BattleRand(bsys) % 2 == 0)
                 moveScore -= NEVER_USE_MOVE_20;
         }
+        //TODO second Last Move
         break;
     case MOVE_EFFECT_MAKE_SHARED_MOVES_UNUSEABLE:
         if (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_IMPRISONED)
@@ -1645,8 +1138,7 @@ int HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai
         break;
     case MOVE_EFFECT_STATUS_LEECH_SEED:
         if ((ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE) ||
-            ai->defenderType1 == TYPE_GRASS ||
-            ai->defenderType2 == TYPE_GRASS ||
+            HasType(ctx, ai->defender, TYPE_GRASS) ||
             ai->defenderAbility == ABILITY_MAGIC_GUARD)
         {
             moveScore -= NEVER_USE_MOVE_20;
@@ -1694,6 +1186,112 @@ int HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai
             if (BattleRand(bsys) % 2)
                 moveScore += 1;
         }
+        break;
+    case MOVE_EFFECT_CHANGE_TO_WATER_TYPE:
+        if (HasType(ctx, ai->defender, TYPE_WATER))
+            moveScore -= NEVER_USE_MOVE_20;
+        else
+            moveScore += 6;
+        break;
+    case MOVE_EFFECT_ATK_DOWN:
+    case MOVE_EFFECT_ATK_DOWN_2:
+    case MOVE_EFFECT_ATK_DOWN_3:
+    case MOVE_EFFECT_ATK_DEF_DOWN:
+        if (ai->defenderHasAtleastOnePhysicalMove)
+        {
+            moveScore += 5;
+            if (ai->attackerHasMoldBreaker ||
+                (ai->defenderAbility != ABILITY_CLEAR_BODY && 
+                 ai->defenderAbility != ABILITY_WHITE_SMOKE && 
+                 ai->defenderAbility != ABILITY_CONTRARY &&
+                 ai->defenderAbility != ABILITY_HYPER_CUTTER))
+            {
+                moveScore += 1;
+            }
+            if (ai->defenderMovesFirst)
+                moveScore -= 1;
+        }
+        else
+        {
+            moveScore -= NEVER_USE_MOVE_20;
+		}
+        break;
+    case MOVE_EFFECT_SP_ATK_DOWN:
+    case MOVE_EFFECT_SP_ATK_DOWN_2:
+    case MOVE_EFFECT_SP_ATK_DOWN_3:
+    case MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER:
+    case MOVE_EFFECT_ATK_SP_ATK_DOWN:
+        if (ai->defenderHasAtleastOneSpecialMove)
+        {
+            moveScore += 5;
+            if (ai->attackerHasMoldBreaker ||
+                (ai->defenderAbility != ABILITY_CLEAR_BODY &&
+                    ai->defenderAbility != ABILITY_WHITE_SMOKE &&
+                    ai->defenderAbility != ABILITY_CONTRARY))
+            {
+                moveScore += 1;
+            }
+            if (ai->defenderMovesFirst)
+                moveScore -= 1;
+        }
+        else
+        {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_DEF_DOWN:
+    case MOVE_EFFECT_DEF_DOWN_2:
+    case MOVE_EFFECT_DEF_DOWN_3:
+        break;
+    
+    case MOVE_EFFECT_SP_DEF_DOWN:
+    case MOVE_EFFECT_SP_DEF_DOWN_2:
+    case MOVE_EFFECT_SP_DEF_DOWN_3:
+        break;
+    
+    case MOVE_EFFECT_EVA_DOWN:
+    case MOVE_EFFECT_EVA_DOWN_2:
+    case MOVE_EFFECT_EVA_DOWN_3:
+    case MOVE_EFFECT_ACC_DOWN:
+    case MOVE_EFFECT_ACC_DOWN_2:
+    case MOVE_EFFECT_ACC_DOWN_3:
+        moveScore += 5;
+        if (ai->attackerHasMoldBreaker ||
+            (ai->defenderAbility != ABILITY_CLEAR_BODY &&
+                ai->defenderAbility != ABILITY_WHITE_SMOKE &&
+                ai->defenderAbility != ABILITY_KEEN_EYE &&
+                ai->defenderAbility != ABILITY_CONTRARY))
+        {
+            moveScore += 1;
+        }
+        if (ai->defenderMovesFirst)
+            moveScore -= 1;
+        break;
+    case MOVE_EFFECT_VENOM_DRENCH:
+        if (ai->defenderCondition & STATUS_POISON_ALL)
+        {
+            if ((ai->defenderHasAtleastOnePhysicalMove && ctx->battlemon[ai->defender].states[STAT_ATTACK] >= 6) || 
+                (ai->defenderHasAtleastOneSpecialMove && ctx->battlemon[ai->defender].states[STAT_SPATK] >= 6))
+            {
+                moveScore += 5;
+                if (ai->attackerHasMoldBreaker ||
+                    (ai->defenderAbility != ABILITY_CLEAR_BODY &&
+                     ai->defenderAbility != ABILITY_WHITE_SMOKE &&
+                     ai->defenderAbility != ABILITY_CONTRARY))
+                {
+                    moveScore += 1;
+                }
+                if (ai->defenderMovesFirst)
+                    moveScore -= 1;
+            }
+            else
+            {
+                moveScore -= NEVER_USE_MOVE_20;
+			}
+        }
+        else
+            moveScore -= NEVER_USE_MOVE_20;
+        break;
     default:
         break;
     }
@@ -1702,7 +1300,7 @@ int HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai
 }
 
 
-BOOL shouldRecover(struct BattleSystem* bsys, u32 attacker, u32 attackerMoveEffect, AIContext* ai)
+BOOL LONG_CALL shouldRecover(struct BattleSystem* bsys, u32 attacker, u32 attackerMoveEffect, AIContext* ai)
 {
     u32 recoverAmountPercent = 50;
     switch (attackerMoveEffect)
@@ -1748,7 +1346,7 @@ BOOL shouldRecover(struct BattleSystem* bsys, u32 attacker, u32 attackerMoveEffe
 }
 
 
-int CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
+int LONG_CALL CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
 {
     int moveScore = 0;
     BOOL sharesMoves = FALSE;
@@ -1759,7 +1357,7 @@ int CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
 
     BOOL aiShouldRecover = shouldRecover(bsys, attacker, ai->attackerMoveEffect, ai);
     if (ai->attackerPercentHP == 100)
-        moveScore += NEVER_USE_MOVE_20;
+        return moveScore - NEVER_USE_MOVE_20;  //lowers score for all moves, thus not affecting overall decision
     if (ai->attackerPercentHP >= 85)
 		moveScore -= 6;
 
@@ -1808,7 +1406,7 @@ int CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
 
 /*-------------------------------Helper Functions--------------------------------*/
 
-BOOL battlerHasSoundBasedMove(struct BattleSystem* bsys, u32 battler, AIContext* ai)
+BOOL LONG_CALL battlerHasSoundBasedMove(struct BattleSystem* bsys, u32 battler, AIContext* ai)
 {
     BOOL hasMove = FALSE;
     struct BattleStruct* ctx = bsys->sp;
@@ -1824,7 +1422,7 @@ BOOL battlerHasSoundBasedMove(struct BattleSystem* bsys, u32 battler, AIContext*
     return hasMove;
 }
 
-BOOL battlerKnowsFlinchingMove(struct BattleSystem* bsys, u32 battler, AIContext* ai)
+BOOL LONG_CALL battlerKnowsFlinchingMove(struct BattleSystem* bsys, u32 battler, AIContext* ai)
 {
     BOOL knowsMove = 0;
     struct BattleStruct* ctx = bsys->sp;
@@ -1872,15 +1470,47 @@ BOOL battlerKnowsFlinchingMove(struct BattleSystem* bsys, u32 battler, AIContext
     return knowsMove;
 }
 
+BOOL LONG_CALL battlerKnowsThawingMove(struct BattleSystem* bsys, u32 battler, AIContext* ai)
+{
+    BOOL knowsMove = 0;
+    struct BattleStruct* ctx = bsys->sp;
+    for (int i = 0; i < CLIENT_MAX; ++i)
+    {
+        u32 move = ctx->battlemon[battler].move[i];
+        switch (move)
+        {
+        case MOVE_FLAME_WHEEL:
+        case MOVE_SACRED_FIRE:
+        case MOVE_FLARE_BLITZ:
+		case MOVE_FUSION_FLARE:
+        case MOVE_SCALD:
+        case MOVE_STEAM_ERUPTION:
+        case MOVE_BURN_UP:
+        case MOVE_PYRO_BALL:
+        case MOVE_SCORCHING_SANDS:
+        case MOVE_MATCHA_GOTCHA:
+            knowsMove = TRUE;
+            break;
+        default:
+            break;
+        }
+    }
+    return knowsMove;
+}
+
 
 /*Returns true if user has a particular move in their 4 move slots.*/
-BOOL BattlerKnowsMove (struct BattleSystem *bsys, u32 battler, u32 move, AIContext *ai){
-    BOOL knowsMove = 0;
+BOOL LONG_CALL BattlerKnowsMove(struct BattleSystem *bsys, u32 battler, u32 move, AIContext *ai)
+{
+    BOOL knowsMove = FALSE;
     struct BattleStruct *ctx = bsys->sp;
-    for(int i = 0; i < 4; i++){
+    for(int i = 0; i < 4; i++)
+    {
         int battler_move_check = ctx->battlemon[battler].move[i];
-        if(battler_move_check == move){
-            knowsMove = 1;
+        if (battler_move_check == move)
+        {
+            knowsMove = TRUE;
+            break;
         }
     }
     return knowsMove;
@@ -1889,8 +1519,9 @@ BOOL BattlerKnowsMove (struct BattleSystem *bsys, u32 battler, u32 move, AIConte
 
 
 /*Returns true if a given list has a certain value in it.*/
-BOOL LONG_CALL IsInList(u32 value, const u16 list[], u16 ListLength) {
-    u8 output = FALSE;
+BOOL LONG_CALL IsInList(u32 value, const u16 list[], u16 ListLength) 
+{
+    BOOL output = FALSE;
     for (u16 i = 0; i < ListLength; i++) {
         if (value == list[i]) {
             output = TRUE;
@@ -1930,7 +1561,7 @@ BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *bsys, struct Battle
 }
 
 /*Returns the sum of all stat changes, only looking at boosted moves.*/
-int BattlerPositiveStatChangesSum(struct BattleSystem* bsys, u32 battler, AIContext* ai) {
+int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem* bsys, u32 battler, AIContext* ai) {
     struct BattleStruct* ctx = bsys->sp;
     int statSum = 0;
 
@@ -1943,7 +1574,7 @@ int BattlerPositiveStatChangesSum(struct BattleSystem* bsys, u32 battler, AICont
 }
 
 /*Set up all of the AI variables, exlcuding the double battle related ones, which are setup explicitly in TagStrategy Flag*/
-void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, AIContext *ai){
+void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, AIContext *ai){
     struct BattleStruct *ctx = bsys->sp;
     u8 speedCalc;
     int work;
@@ -1990,6 +1621,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
     ai->attackerMaxDamageOutputMinRoll = 0;
 
     ai->isDefenderGrounded = IsClientGrounded(ctx, ai->defender);
+	ai->defenderKnowsThawingMove = battlerKnowsThawingMove(bsys, ai->defender, ai);
 
     ai->attackerHasMoldBreaker = FALSE;
     if (ai->attackerAbility == ABILITY_MOLD_BREAKER || ai->attackerAbility == ABILITY_TERAVOLT || ai->attackerAbility == ABILITY_TURBOBLAZE)
@@ -2003,6 +1635,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
     //evaluates to 0 if ai->defender > attacker (false)
     //and 1 if ai->defender < attacker (true)
     //if speed tie, then 2.
+    
     if(speedCalc == 0){
         ai->defenderMovesFirst = 1;
     }
@@ -2012,9 +1645,15 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
             ai->isSpeedTie = 1;
 
     }
+    debug_printf("SpeedCalc %d, defMovesFirst %d, attMovesFirst %d \n", speedCalc, ai->defenderMovesFirst, ai->attackerMovesFirst);
+
 	ai->isDefenderIncapacitated = FALSE;
-    if (ai->defenderCondition & (STATUS_SLEEP | STATUS_FREEZE) || ctx->battlemon[attacker].condition2 & STATUS2_RECHARGE) // TODO thawing
-		ai->isDefenderIncapacitated = TRUE;
+    if ((ai->defenderCondition & STATUS_SLEEP) ||
+        (ai->defenderCondition & STATUS_FREEZE && !ai->defenderKnowsThawingMove) ||
+        ctx->battlemon[attacker].condition2 & STATUS2_RECHARGE)
+    {
+        ai->isDefenderIncapacitated = TRUE;
+    }
 
     BOOL isDefenderImmuneToAnyStatus = FALSE;
     if ((ai->defenderCondition & STATUS_ALL) ||
@@ -2029,8 +1668,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
     if (isDefenderImmuneToAnyStatus ||
         ai->defenderAbility == ABILITY_MAGIC_GUARD || ai->defenderAbility == ABILITY_IMMUNITY || ai->defenderAbility == ABILITY_POISON_HEAL ||
         (ai->isDefenderGrounded && ctx->terrainOverlay.type == MISTY_TERRAIN) ||
-        ((ai->defenderType1 == TYPE_POISON || ai->defenderType2 == TYPE_POISON || 
-			ai->defenderType1 == TYPE_STEEL || ai->defenderType2 == TYPE_STEEL) && ai->attackerAbility != ABILITY_CORROSION))
+        ((HasType(ctx, ai->defender, TYPE_POISON) || HasType(ctx, ai->defender, TYPE_STEEL)) && ai->attackerAbility != ABILITY_CORROSION))
     {
         ai->defenderImmuneToPoison = TRUE;
     }
@@ -2039,16 +1677,16 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
     if (isDefenderImmuneToAnyStatus ||
         ai->defenderAbility == ABILITY_LIMBER ||
         (ai->isDefenderGrounded && ctx->terrainOverlay.type == MISTY_TERRAIN) ||
-        ai->defenderType1 == TYPE_ELECTRIC || ai->defenderType2 == TYPE_ELECTRIC)
+        HasType(ctx, ai->defender, TYPE_ELECTRIC))
     {
         ai->defenderImmuneToParalysis = TRUE;
     }
 
     ai->defenderImmuneToBurn = FALSE;
     if (isDefenderImmuneToAnyStatus ||
-        ai->defenderAbility == ABILITY_WATER_VEIL || ai->defenderAbility == ABILITY_THERMAL_EXCHANGE || // ignore magic guard
+        ai->defenderAbility == ABILITY_WATER_VEIL || ai->defenderAbility == ABILITY_THERMAL_EXCHANGE || ai->defenderAbility == ABILITY_MAGIC_GUARD ||
         (ai->isDefenderGrounded && ctx->terrainOverlay.type == MISTY_TERRAIN) ||
-        ai->defenderType1 == TYPE_FIRE || ai->defenderType2 == TYPE_FIRE)
+        HasType(ctx, ai->defender, TYPE_FIRE))
     {
         ai->defenderImmuneToBurn = TRUE;
     }
@@ -2056,8 +1694,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
     ai->defenderImmuneToSleep = FALSE;
     if (isDefenderImmuneToAnyStatus ||
         ai->defenderAbility == ABILITY_VITAL_SPIRIT || ai->defenderAbility == ABILITY_INSOMNIA ||
-        (ai->isDefenderGrounded && (ctx->terrainOverlay.type == MISTY_TERRAIN || ctx->terrainOverlay.type == ELECTRIC_TERRAIN)) ||
-        ai->defenderType1 == TYPE_FIRE || ai->defenderType2 == TYPE_FIRE)
+        (ai->isDefenderGrounded && (ctx->terrainOverlay.type == MISTY_TERRAIN || ctx->terrainOverlay.type == ELECTRIC_TERRAIN)))
     {
         ai->defenderImmuneToSleep = TRUE;
     }
@@ -2068,8 +1705,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
     ai->partySizeDefender = Battle_GetClientPartySize(bsys, ai->defender);
     ai->livingMembersDefender = 0;
 
-    /*Check if attacker's team has anyone that is statused or damaged.
-    Also compute number of living members on attacker's team.*/
+    /*Compute number of living members on attacker's team.*/
     for (int i = 0; i < ai->partySizeAttacker; i++)
     {
         struct PartyPokemon * currentMonAttacking = Battle_GetClientPartyMon(bsys, attacker, i);
@@ -2163,16 +1799,20 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
         debug_printf("move %d: %d, damage %d\n", i, attackerMoveCheck, ai->attackerMinRollMoveDamages[i]);
     }
 
-    ai->monCanOneShotPlayer = FALSE;
+    ai->monCanOneShotPlayer = FALSE; //TODO mulihitmove
+    debug_printf("maxDmg %d > def Hp %d\n", ai->attackerMaxDamageOutputMinRoll, ai->defenderHP);
     if (ai->attackerMaxDamageOutputMinRoll >= ai->defenderHP)
     {
         if (ai->defenderHP == ai->defenderMaxHP)
         {
             if ((ai->attackerHasMoldBreaker || ai->defenderAbility != ABILITY_STURDY) && ai->defenderItem != ITEM_FOCUS_SASH)
                 ai->monCanOneShotPlayer = TRUE;
-        }           
+        }
+        else
+            ai->monCanOneShotPlayer = TRUE;
     }
     ai->playerCanOneShotMon = FALSE;
+    debug_printf("maxDmg Rec %d > att Hp %d\n", ai->maxDamageReceived, ai->attackerHP);
     if (ai->maxDamageReceived >= ai->attackerHP)
     {
         if (ai->attackerHP == ai->attackerMaxHP)
@@ -2180,5 +1820,7 @@ void SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, 
             if ((ai->defenderHasMoldBreaker || ai->attackerAbility != ABILITY_STURDY) && ai->attackerItem != ITEM_FOCUS_SASH)
 				ai->playerCanOneShotMon = TRUE;
         }
+        else
+            ai->playerCanOneShotMon = TRUE;
     }
 }
