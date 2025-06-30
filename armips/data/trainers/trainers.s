@@ -2922,7 +2922,7 @@ trainerdata 51, "Nico" //Sprout tower
         abilityslot 0
         level LEVEL_ELDER_LI-2
         pokemon SPECIES_COMBEE
-        item ITEM_WIDE_LENS
+        item ITEM_CHOICE_BAND
         move MOVE_BUG_BITE
         move MOVE_DUAL_WINGBEAT
         move MOVE_NONE
@@ -2956,18 +2956,18 @@ trainerdata 51, "Nico" //Sprout tower
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
+        level LEVEL_ELDER_LI-2
         pokemon SPECIES_BAGON
         item ITEM_LIFE_ORB
         move MOVE_TWISTER
-        move MOVE_FIRE_FANG
-        move MOVE_ROCK_TOMB
+        move MOVE_NONE
+        move MOVE_NONE
         move MOVE_NONE
         ability ABILITY_SHEER_FORCE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -3143,32 +3143,32 @@ trainerdata 54, "Troy" // Sprout Tower
     party 54
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-2
-        pokemon SPECIES_BONSLY
-        item ITEM_CUSTAP_BERRY
-        move MOVE_TAKE_DOWN
-        move MOVE_FOUL_PLAY
+        level LEVEL_ELDER_LI-1
+        pokemon SPECIES_FEEBAS
+        item ITEM_ICE_GEM
+        move MOVE_HYDRO_PUMP
+        move MOVE_BLIZZARD
         move MOVE_NONE
         move MOVE_NONE
-        ability ABILITY_STURDY
+        ability ABILITY_ADAPTABILITY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
+        nature NATURE_MODEST
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-3
-        monWithForm SPECIES_MEOWTH, 1
-        item ITEM_SILK_SCARF
-        move MOVE_FAKE_OUT
-        move MOVE_ASSIST
-        move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_TECHNICIAN
+        level LEVEL_ELDER_LI-2
+        pokemon SPECIES_ELECTRIKE
+        item ITEM_ORAN_BERRY
+        move MOVE_SPARK
+        move MOVE_BITE
+        move MOVE_QUICK_ATTACK
+        move MOVE_HOWL
+        ability ABILITY_STATIC
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -3180,17 +3180,17 @@ trainerdata 54, "Troy" // Sprout Tower
         ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-2
-        pokemon SPECIES_CHIMCHAR
-        item ITEM_MUSCLE_BAND
-        move MOVE_FAKE_OUT
-        move MOVE_ASSIST
+        pokemon SPECIES_BELLSPROUT
+        item ITEM_CHOICE_SPECS
+        move MOVE_MEGA_DRAIN
+        move MOVE_VENOSHOCK
         move MOVE_NONE
         move MOVE_NONE
-        ability ABILITY_BLAZE
+        ability ABILITY_GLUTTONY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -3198,17 +3198,17 @@ trainerdata 54, "Troy" // Sprout Tower
         ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-2
-        pokemon SPECIES_PURRLOIN
-        item ITEM_CHOPLE_BERRY
-        move MOVE_FAKE_OUT
-        move MOVE_ASSIST
+        pokemon SPECIES_RATTATA
+        item ITEM_FOCUS_SASH
+        move MOVE_QUICK_ATTACK
+        move MOVE_ENDEAVOR
         move MOVE_NONE
         move MOVE_NONE
-        ability ABILITY_PRANKSTER
+        ability ABILITY_GUTS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
