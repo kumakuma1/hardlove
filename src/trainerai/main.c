@@ -41,7 +41,7 @@ typedef struct {
     int defenderAbility;
     int attackerItem;
     int defenderItem;
-    int holdEffect;
+    int defenderHoldEffect;
     int defenderType1;
     int defenderType2;
     int attackerType1;
@@ -175,7 +175,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
                     ai->attackerMoveEffectiveness = 0;       
                     ai->attackerMoveType = ctx->moveTbl[ai->attackerMove].type;
                     ai->attackerMovePPRemaining = ctx->battlemon[ai->attacker].pp[i];
-                    AITypeCalc(ctx, ai->attackerMove, ai->attackerMoveType, ai->attackerAbility, ai->defenderAbility, ai->holdEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
+                    AITypeCalc(ctx, ai->attackerMove, ai->attackerMoveType, ai->attackerAbility, ai->defenderAbility, ai->defenderHoldEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
              
                     /*
                     for (int j = 0; j < sizeof(moveEvaluators) / sizeof(moveEvaluators[0]); j++) {
@@ -240,7 +240,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
                 ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
                 ai->attackerMoveEffectiveness = 0;
                 ai->attackerMoveType = ctx->moveTbl[ai->attackerMove].type;
-                AITypeCalc(ctx, ai->attackerMove, ai->attackerMoveType, ai->attackerAbility, ai->defenderAbility, ai->holdEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
+                AITypeCalc(ctx, ai->attackerMove, ai->attackerMoveType, ai->attackerAbility, ai->defenderAbility, ai->defenderHoldEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
 
                 moveScores[target][i] = 1000;  //don't want to get negative numbers, so start high at 1000, MOVE_NONE will stay at 0
                 moveScores[target][i] += BasicFlag(bsys, attacker, i, ai);
@@ -1626,8 +1626,7 @@ BOOL LONG_CALL canMoveKillBattler(u32 move, u32 damage, u32 defenderHP, u32 defe
 void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, AIContext *ai){
     struct BattleStruct *ctx = bsys->sp;
     u8 speedCalc;
-    int work;
-    u32 temp = 0;
+    u32 effectivenessFlag = 0;
     ai->attacker = attacker;
     ai->defender = defender;
     ai->attackerSide = BATTLER_IS_ENEMY(ai->attacker);
@@ -1638,7 +1637,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->defenderAbility = ctx->battlemon[ai->defender].ability;
     ai->attackerItem = ctx->battlemon[attacker].item;
     ai->defenderItem = ctx->battlemon[ai->defender].item;
-    ai->holdEffect = BattleItemDataGet(ctx, ai->defenderItem, 1); //this was mistakenly documented as attacker's held item in ai.c -- fixed now
+    ai->defenderHoldEffect = BattleItemDataGet(ctx, ai->defenderItem, 1);
     ai->defenderType1 = ctx->battlemon[ai->defender].type1;
     ai->defenderType2 = ctx->battlemon[ai->defender].type2;
     ai->attackerType1 = ctx->battlemon[attacker].type1;
@@ -1797,7 +1796,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         if(defenderMove.split != SPLIT_STATUS){
             specialMovePower = AdjustUnusualMovePower(bsys, ai->defender, ai->attacker, defenderMove.effect, ai->defenderPercentHP);
             currentReceivedDamage = CalcBaseDamage(bsys, ctx, defenderMoveCheck, ctx->side_condition[ai->attackerSide],ctx->field_condition, specialMovePower, 0, ai->defender, ai->attacker, 0);
-            currentReceivedDamage = ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, 0, ai->defender, ai->attacker, currentReceivedDamage, &temp)*85 / 100; // looking at MIN roll. 
+            currentReceivedDamage = ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, 0, ai->defender, ai->attacker, currentReceivedDamage, &effectivenessFlag)*85 / 100; // looking at MIN roll. 
             currentReceivedDamage = AdjustUnusualMoveDamage(bsys, ai->defenderLevel, ai->defenderHP, ai->attackerHP, currentReceivedDamage, defenderMove.effect);
             BOOL playerCanOneShotMonWithMove = canMoveKillBattler(defenderMoveCheck, currentReceivedDamage, ai->attackerHP, ai->attackerMaxHP, ai->defenderHasMoldBreaker, ai->attackerAbility, ai->attackerItem);
             if (playerCanOneShotMonWithMove)
@@ -1832,7 +1831,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
             specialMovePower = AdjustUnusualMovePower(bsys, attacker, ai->defender, move.effect, ai->attackerPercentHP);
 
             ai->attackerMinRollMoveDamages[i] = CalcBaseDamage(bsys, ctx, attackerMoveCheck, ctx->side_condition[ai->defenderSide],ctx->field_condition, specialMovePower, 0, ai->attacker, ai->defender, 0);
-            ai->attackerMinRollMoveDamages[i] = ServerDoTypeCalcMod(bsys, ctx, attackerMoveCheck, 0, attacker, ai->defender, ai->attackerMinRollMoveDamages[i], &temp) *85 / 100; //85% is min roll.
+            ai->attackerMinRollMoveDamages[i] = ServerDoTypeCalcMod(bsys, ctx, attackerMoveCheck, 0, attacker, ai->defender, ai->attackerMinRollMoveDamages[i], &effectivenessFlag) *85 / 100; //85% is min roll.
             ai->attackerMinRollMoveDamages[i] = AdjustUnusualMoveDamage(bsys, ai->attackerLevel, ai->attackerHP, ai->defenderHP, ai->attackerMinRollMoveDamages[i], move.effect);
             debug_printf("move %d: %d, damage %d > def Hp %d\n", i, attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP);
 			ai->monCanOneShotPlayerWithMove[i] = canMoveKillBattler(attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP, ai->defenderMaxHP, ai->attackerHasMoldBreaker, ai->defenderAbility, ai->defenderItem);
@@ -1849,7 +1848,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
             ai->attackerHasDamagingMove = 1;
         }
 
-        AITypeCalc(ctx, attackerMoveCheck, move.type, ai->attackerAbility, ai->defenderAbility, ai->holdEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
+        AITypeCalc(ctx, attackerMoveCheck, move.type, ai->attackerAbility, ai->defenderAbility, ai->defenderHoldEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
         if(ai->attackerMoveEffectiveness == MOVE_STATUS_FLAG_SUPER_EFFECTIVE){
             ai->attackerHasSupereffectiveMove = 1;
         }

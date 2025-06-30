@@ -946,31 +946,38 @@ int LONG_CALL BattleAI_ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct 
 }
 
 /*Adjusts the computed damage for attacks like multihit or flat damage moves.*/
-int LONG_CALL AdjustUnusualMoveDamage(struct BattleSystem *bsys, u32 attackerLevel, u32 attackerHP, u32 defenderHP, int damage, int moveEffect)
+int LONG_CALL AdjustUnusualMoveDamage(struct BattleSystem* bsys, u32 attackerLevel, u32 attackerHP, u32 defenderHP, int damage, int moveEffect)
 {
-    struct BattleStruct *ctx = bsys->sp;
-    switch(moveEffect){
-        case MOVE_EFFECT_MULTI_HIT: //2-5 hit moves //TODO skill link/ loaded Dice //other multihit moves
-            return damage *= 3;
-        case MOVE_EFFECT_LEVEL_DAMAGE_FLAT: //night shade, seismic toss
-        case MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL: //psybeam
-            return attackerLevel;
-        case MOVE_EFFECT_10_DAMAGE_FLAT: //sonic boom
-            return 20;
-        case MOVE_EFFECT_40_DAMAGE_FLAT: //dragon rage
-            return 40;
-        case MOVE_EFFECT_POISON_MULTI_HIT: //twinneedle
-        case MOVE_EFFECT_HIT_TWICE: //double hit, dual wingbeat, etc...
-            return damage *= 2;
-        case MOVE_EFFECT_HALVE_HP: //super fang, nature's madness
-            return defenderHP / 2;
-        case MOVE_EFFECT_SET_HP_EQUAL_TO_USER: //endeavor
-        {
-            if (attackerHP < defenderHP)
-                return defenderHP - attackerHP;
-            else 
-                return 0;
-        }         
+    struct BattleStruct* ctx = bsys->sp;
+    switch (moveEffect) {
+    case MOVE_EFFECT_UP_TO_10_HITS:
+        return damage *= 5;
+    case MOVE_EFFECT_HIT_THREE_TIMES_INCREMENT_BASE_POWER_10: // triple kick
+    case MOVE_EFFECT_HIT_THREE_TIMES_INCREMENT_BASE_POWER_20: // triple axel
+    case MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL: //surge Strikes
+    case MOVE_EFFECT_HIT_THREE_TIMES: //triple dive
+    case MOVE_EFFECT_MULTI_HIT: //2-5 hit moves //TODO skill link/ loaded Dice
+        return damage *= 3;
+    case MOVE_EFFECT_LEVEL_DAMAGE_FLAT: //night shade, seismic toss
+    case MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL: //psybeam
+        return attackerLevel;
+    case MOVE_EFFECT_10_DAMAGE_FLAT: //sonic boom
+        return 20;
+    case MOVE_EFFECT_40_DAMAGE_FLAT: //dragon rage
+        return 40;
+    case MOVE_EFFECT_HIT_TWICE_AND_FLINCH: //double Iron bash
+    case MOVE_EFFECT_POISON_MULTI_HIT: //twinneedle
+    case MOVE_EFFECT_HIT_TWICE: //double hit, dual wingbeat, etc...
+        return damage *= 2;
+    case MOVE_EFFECT_HALVE_HP: //super fang, nature's madness
+        return defenderHP / 2;
+    case MOVE_EFFECT_SET_HP_EQUAL_TO_USER: //endeavor
+    {
+        if (attackerHP < defenderHP)
+            return defenderHP - attackerHP;
+        else
+            return 0;
+    }
     }
     return damage;
 }

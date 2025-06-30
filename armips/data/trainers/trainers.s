@@ -12,7 +12,7 @@
 
 TRAINER_MON_TYPE_FLAGS equ TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS | 0
 
-TRAINER_AI_FLAGS equ F_USE_WEATHER | F_PRIORITIZE_DAMAGE | F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+TRAINER_AI_FLAGS equ F_USE_WEATHER | F_PRIORITIZE_DAMAGE | F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | F_HARRASSMENT | 0
 
 LEVEL_SILVER_1 equ 5
 LEVEL_ELDER_LI equ 12
@@ -416,7 +416,7 @@ trainerdata 7, "Irwin"
 trainerdata 8, "Joey" // Route 30
     trainermontype TRAINER_MON_TYPE_FLAGS
     trainerclass TRAINERCLASS_YOUNGSTER
-    nummons 3
+    nummons 4
     item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
@@ -449,9 +449,9 @@ trainerdata 8, "Joey" // Route 30
         level LEVEL_ELDER_LI-5
         pokemon SPECIES_PATRAT
         item ITEM_ORAN_BERRY
-        move MOVE_BITE
-        move MOVE_CONFUSE_RAY
-        move MOVE_SAND_ATTACK
+        move MOVE_TACKLE
+        move MOVE_EMBER
+        move MOVE_WATER_GUN
         move MOVE_NONE
         ability ABILITY_ANALYTIC
         ball ITEM_POKE_BALL
@@ -464,7 +464,7 @@ trainerdata 8, "Joey" // Route 30
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-5
+        level 11//LEVEL_ELDER_LI-5
         pokemon SPECIES_RATTATA
         item ITEM_FOCUS_BAND
         move MOVE_QUICK_ATTACK
@@ -476,6 +476,24 @@ trainerdata 8, "Joey" // Route 30
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level 8//LEVEL_ELDER_LI-5
+        pokemon SPECIES_FLOATZEL
+        item ITEM_CHOICE_SPECS
+        move MOVE_WATER_GUN
+        move MOVE_NONE
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_ADAPTABILITY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_BOLD
         shinylock 0
         additionalflags 0
         ballseal 0
