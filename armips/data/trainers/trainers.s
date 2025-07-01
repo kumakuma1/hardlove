@@ -428,10 +428,10 @@ trainerdata 8, "Joey" // Route 30
     party 8
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-5
+        level LEVEL_ELDER_LI-6
         pokemon SPECIES_SENTRET
         item ITEM_NONE
-        move MOVE_QUICK_ATTACK
+        move MOVE_TACKLE
         move MOVE_FOCUS_ENERGY
         move MOVE_NONE
         move MOVE_NONE
@@ -446,25 +446,7 @@ trainerdata 8, "Joey" // Route 30
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-5
-        pokemon SPECIES_SPINARAK
-        item ITEM_NONE
-        move MOVE_ACID_SPRAY
-        move MOVE_STRING_SHOT
-        move MOVE_SHADOW_SNEAK
-        move MOVE_NONE
-        ability ABILITY_SNIPER
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_NAIVE
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_ELDER_LI-5
+        level LEVEL_ELDER_LI-6
         pokemon SPECIES_MAREEP
         item ITEM_NONE
         move MOVE_THUNDER_SHOCK
@@ -476,6 +458,24 @@ trainerdata 8, "Joey" // Route 30
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELDER_LI-6
+        pokemon SPECIES_SPINARAK
+        item ITEM_NONE
+        move MOVE_ACID_SPRAY
+        move MOVE_STRING_SHOT
+        move MOVE_SHADOW_SNEAK
+        move MOVE_NONE
+        ability ABILITY_SNIPER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -978,13 +978,13 @@ trainerdata 20, "Falkner" // Leader
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-3
-        pokemon SPECIES_RUFFLET
-        item ITEM_ORAN_BERRY
-        move MOVE_AERIAL_ACE
-        move MOVE_ROOST
-        move MOVE_SLASH
-        move MOVE_NONE
-        ability ABILITY_HUSTLE
+        monWithForm SPECIES_FARFETCHD, 1
+        item ITEM_LEEK
+        move MOVE_ROCK_SMASH
+        move MOVE_PLUCK
+        move MOVE_SAND_ATTACK
+        move MOVE_QUICK_ATTACK
+        ability ABILITY_SCRAPPY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -993,7 +993,6 @@ trainerdata 20, "Falkner" // Leader
         additionalflags 0
         ballseal 0
 
-
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-3
@@ -1001,8 +1000,8 @@ trainerdata 20, "Falkner" // Leader
         item ITEM_ORAN_BERRY
         move MOVE_SHOCK_WAVE
         move MOVE_AIR_CUTTER
-        move MOVE_U_TURN
         move MOVE_ROOST
+        move MOVE_SLEEP_TALK
         ability ABILITY_MOTOR_DRIVE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1016,48 +1015,12 @@ trainerdata 20, "Falkner" // Leader
         abilityslot 0
         level LEVEL_FALKNER-2
         pokemon SPECIES_TORCHIC
-        item ITEM_EVIOLITE
-        move MOVE_FLAME_CHARGE
+        item ITEM_FOCUS_SASH
+        move MOVE_INCINERATE
         move MOVE_BOUNCE
         move MOVE_PROTECT
-        move MOVE_LAST_RESORT
+        move MOVE_BATON_PASS
         ability ABILITY_SPEED_BOOST
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_FALKNER-2
-        pokemon SPECIES_DRATINI
-        item ITEM_FLAME_ORB
-        move MOVE_DRAGON_BREATH
-        move MOVE_WATER_PULSE
-        move MOVE_SLEEP_TALK
-        move MOVE_REST
-        ability ABILITY_MARVEL_SCALE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_FALKNER
-        pokemon SPECIES_PIDGEOTTO
-        item ITEM_ORAN_BERRY
-        move MOVE_QUICK_ATTACK
-        move MOVE_FEATHER_DANCE
-        move MOVE_WING_ATTACK
-        move MOVE_ROOST
-        ability ABILITY_KEEN_EYE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1070,16 +1033,52 @@ trainerdata 20, "Falkner" // Leader
         abilityslot 0
         level LEVEL_FALKNER-2
         pokemon SPECIES_QUAXLY
-        item ITEM_FLYING_GEM
+        item ITEM_WATER_GEM
         move MOVE_AQUA_JET
         move MOVE_ROOST
-        move MOVE_PECK
+        move MOVE_WING_ATTACK
         move MOVE_NONE
         ability ABILITY_MOXIE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER+1
+        pokemon SPECIES_COSMOG
+        item ITEM_EVIOLITE
+        move MOVE_STORED_POWER
+        move MOVE_COSMIC_POWER
+        move MOVE_RECOVER
+        move MOVE_CHARGE_BEAM
+        ability ABILITY_UNAWARE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER+1
+        pokemon SPECIES_PIDGEOTTO
+        item ITEM_ORAN_BERRY
+        move MOVE_QUICK_ATTACK
+        move MOVE_FEATHER_DANCE
+        move MOVE_WING_ATTACK
+        move MOVE_ROOST
+        ability ABILITY_BIG_PECKS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -18852,7 +18851,7 @@ trainerdata 495, "Boy"
         ivs 0
         abilityslot 0
         level 5
-        pokemon SPECIES_BULBASAUR
+        pokemon SPECIES_CHIKORITA
         ballseal 0
     endparty
 
@@ -18873,7 +18872,7 @@ trainerdata 496, "Boy"
         ivs 0
         abilityslot 0
         level 5
-        pokemon SPECIES_CHARMANDER
+        pokemon SPECIES_CYNDAQUIL
         ballseal 0
     endparty
 
@@ -18894,7 +18893,7 @@ trainerdata 497, "Boy"
         ivs 0
         abilityslot 0
         level 5
-        pokemon SPECIES_SQUIRTLE
+        pokemon SPECIES_TOTODILE
         ballseal 0
     endparty
 
