@@ -24,6 +24,12 @@ int TrainerAI_PickCommand(struct BattleSystem *battleSys, int battler)
 BOOL TrainerAI_ShouldSwitch(struct BattleSystem *battleSys, int battler)
 {
     debug_printf("TrainerAI_ShouldSwitch: always FALSE\n");
+    return FALSE;
+
+
+
+    /*
+    *     
     int i;
     u32 battler1, battler2, maxHP = 0;
     u32 battleType;
@@ -32,8 +38,6 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem *battleSys, int battler)
     struct BattleStruct *battleCtx = battleSys->sp;
     battleType = BattleTypeGet(battleSys);
 
-    return FALSE;
-    /*
     if ((battleType & BATTLE_TYPE_TRAINER) || IsClientEnemy(battleSys, battler) == 0) {
         // 50% of the time switch to mon with next highest hp
         if (BattleRand(battleSys) & 1)

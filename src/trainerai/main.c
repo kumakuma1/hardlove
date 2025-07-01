@@ -148,6 +148,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     int target = 0;
     u32 defender = BATTLER_OPPONENT(attacker);   //default for singles -- updated in the doubles section
 
+
     SetupStateVariables(bsys, attacker, defender, ai);
 
     /*For more than a 1v1 battle, loop over all battlers and compute the highest score for each.
@@ -235,6 +236,12 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         {   
             /*Move-relevant variables*/
             ai->attackerMove = ctx->battlemon[ai->attacker].move[i];
+            if (ai->attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice) // if the attacker has a move that is forced, use it
+            {
+                debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
+                return i;
+            }
+
             if (ai->attackerMove != MOVE_NONE)
             {
                 ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
@@ -1233,13 +1240,32 @@ int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIC
     case MOVE_EFFECT_DEF_DOWN:
     case MOVE_EFFECT_DEF_DOWN_2:
     case MOVE_EFFECT_DEF_DOWN_3:
+        if (2 * ai->maxDamageReceived < ai->attackerHP && 2 * ai->attackerMaxDamageOutputMinRoll < ai->defenderHP)
+        {
+            if (ai->attackerHasMoldBreaker ||
+                (ai->defenderAbility != ABILITY_CLEAR_BODY &&
+                    ai->defenderAbility != ABILITY_WHITE_SMOKE &&
+                    ai->defenderAbility != ABILITY_BIG_PECKS &&
+                    ai->defenderAbility != ABILITY_CONTRARY))
+            {
+                moveScore += 7;
+            }
+        }
         break;
-    
     case MOVE_EFFECT_SP_DEF_DOWN:
     case MOVE_EFFECT_SP_DEF_DOWN_2:
     case MOVE_EFFECT_SP_DEF_DOWN_3:
-        break;
-    
+        if (2 * ai->maxDamageReceived < ai->attackerHP && 2 * ai->attackerMaxDamageOutputMinRoll < ai->defenderHP)
+        {
+            if (ai->attackerHasMoldBreaker ||
+                (ai->defenderAbility != ABILITY_CLEAR_BODY &&
+                    ai->defenderAbility != ABILITY_WHITE_SMOKE &&
+                    ai->defenderAbility != ABILITY_CONTRARY))
+            {
+                moveScore += 7;
+            }
+        }
+        break;    
     case MOVE_EFFECT_EVA_DOWN:
     case MOVE_EFFECT_EVA_DOWN_2:
     case MOVE_EFFECT_EVA_DOWN_3:
@@ -1760,7 +1786,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 
         if(!(GetMonData(currentMonAttacking, MON_DATA_HP, 0) == 0 ||
         GetMonData(currentMonAttacking, MON_DATA_SPECIES_OR_EGG, 0) == 0||
-        GetMonData(currentMonAttacking, MON_DATA_SPECIES_OR_EGG, 0) == 494))
+        GetMonData(currentMonAttacking, MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_EGG))
         {
 
             ai->livingMembersAttacker++;
@@ -1772,7 +1798,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         struct PartyPokemon * currentMonDefending = Battle_GetClientPartyMon(bsys, ai->defender, i);
         if(!(GetMonData(currentMonDefending, MON_DATA_HP, 0) == 0 ||
         GetMonData(currentMonDefending, MON_DATA_SPECIES_OR_EGG, 0) == 0||
-        GetMonData(currentMonDefending, MON_DATA_SPECIES_OR_EGG, 0) == 494)){
+        GetMonData(currentMonDefending, MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_EGG)){
             ai->livingMembersDefender++;
         }
     }
@@ -1797,7 +1823,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
             specialMovePower = AdjustUnusualMovePower(bsys, ai->defender, ai->attacker, defenderMove.effect, ai->defenderPercentHP);
             currentReceivedDamage = CalcBaseDamage(bsys, ctx, defenderMoveCheck, ctx->side_condition[ai->attackerSide],ctx->field_condition, specialMovePower, 0, ai->defender, ai->attacker, 0);
             currentReceivedDamage = ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, 0, ai->defender, ai->attacker, currentReceivedDamage, &effectivenessFlag)*85 / 100; // looking at MIN roll. 
-            currentReceivedDamage = AdjustUnusualMoveDamage(bsys, ai->defenderLevel, ai->defenderHP, ai->attackerHP, currentReceivedDamage, defenderMove.effect);
+            currentReceivedDamage = AdjustUnusualMoveDamage(bsys, ai->defenderLevel, ai->defenderHP, ai->attackerHP, currentReceivedDamage, defenderMove.effect, ai->defenderAbility, ai->defenderItem);
             BOOL playerCanOneShotMonWithMove = canMoveKillBattler(defenderMoveCheck, currentReceivedDamage, ai->attackerHP, ai->attackerMaxHP, ai->defenderHasMoldBreaker, ai->attackerAbility, ai->attackerItem);
             if (playerCanOneShotMonWithMove)
                 ai->playerCanOneShotMon = TRUE;
@@ -1832,7 +1858,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 
             ai->attackerMinRollMoveDamages[i] = CalcBaseDamage(bsys, ctx, attackerMoveCheck, ctx->side_condition[ai->defenderSide],ctx->field_condition, specialMovePower, 0, ai->attacker, ai->defender, 0);
             ai->attackerMinRollMoveDamages[i] = ServerDoTypeCalcMod(bsys, ctx, attackerMoveCheck, 0, attacker, ai->defender, ai->attackerMinRollMoveDamages[i], &effectivenessFlag) *85 / 100; //85% is min roll.
-            ai->attackerMinRollMoveDamages[i] = AdjustUnusualMoveDamage(bsys, ai->attackerLevel, ai->attackerHP, ai->defenderHP, ai->attackerMinRollMoveDamages[i], move.effect);
+            ai->attackerMinRollMoveDamages[i] = AdjustUnusualMoveDamage(bsys, ai->attackerLevel, ai->attackerHP, ai->defenderHP, ai->attackerMinRollMoveDamages[i], move.effect, ai->attackerAbility, ai->attackerItem);
             debug_printf("move %d: %d, damage %d > def Hp %d\n", i, attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP);
 			ai->monCanOneShotPlayerWithMove[i] = canMoveKillBattler(attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP, ai->defenderMaxHP, ai->attackerHasMoldBreaker, ai->defenderAbility, ai->defenderItem);
             if (ai->monCanOneShotPlayerWithMove[i])
