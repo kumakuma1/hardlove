@@ -117,6 +117,8 @@ BOOL LONG_CALL battlerKnowsThawingMove(struct BattleSystem* bsys, u32 battler, A
 int LONG_CALL offensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai);
 int LONG_CALL defensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai);
 BOOL LONG_CALL isMoveSpecialAiAttackingMove(struct BattleSystem* bsys, u32 attackerMove, AIContext* ai);
+int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai);
+BOOL LONG_CALL isMoveOneHitKOMove(struct BattleSystem* bsys, u32 attackerMove, AIContext* ai);
 BOOL LONG_CALL IsMoveMultihit(u32 move);
 BOOL LONG_CALL canMoveKillBattler(u32 move, u32 damage, u32 defenderHP, u32 defenderMaxHP, BOOL attackerHasMoldBreaker, u32 defenderAbility, u32 defenderItem);
 
@@ -366,6 +368,7 @@ int LONG_CALL BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContex
         case MOVE_EFFECT_PARALYZE_HIT:
             if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance != 100)
                 break;
+            FALLTHROUGH;
         case MOVE_EFFECT_STATUS_PARALYZE:
             if (ai->defenderImmuneToParalysis)
                 moveScore -= NEVER_USE_MOVE_20;
@@ -437,12 +440,120 @@ BOOL LONG_CALL isMoveSpecialAiAttackingMove(struct BattleSystem* bsys, u32 attac
         case MOVE_ROLLOUT:
         case MOVE_METEOR_BEAM:
         case MOVE_ELECTRO_SHOT:
+		case MOVE_BIND:
+		case MOVE_CLAMP:
+		case MOVE_FIRE_SPIN:
+        case MOVE_WRAP:
+        case MOVE_WHIRLPOOL:
             isSpecialAIMove = TRUE;
             break;
         default:
             break;
     }
 	return isSpecialAIMove;
+}
+
+int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
+{
+    int moveScore = 0;
+    struct BattleStruct* ctx = bsys->sp;
+	ai->attackerMove = ctx->battlemon[attacker].move[i];
+
+    switch (ai->attackerMove)
+    {
+    case MOVE_SELF_DESTRUCT:
+    case MOVE_EXPLOSION:
+    case MOVE_MISTY_EXPLOSION:
+        if ((ai->defenderAbility != ABILITY_DAMP || ai->attackerHasMoldBreaker) && ai->attackerMinRollMoveDamages[i] > 0) /*TODO: immunity handled? */
+        {
+            if (ai->attackerPercentHP < 10)
+            {
+                moveScore += 10;
+            }
+            else if (ai->attackerPercentHP < 33)
+            {
+                if (BattleRand(bsys) % 10 < 7) //70%
+                    moveScore += 8;
+            }
+            else if (ai->attackerPercentHP < 66)
+            {
+                if (BattleRand(bsys) % 2) //50%
+                    moveScore += 7;
+            }
+            else
+            {
+                if (BattleRand(bsys) % 20 == 0) //5%
+                    moveScore += 7;
+            }
+
+            if (ai->livingMembersAttacker == 1 && ai->livingMembersDefender > 1)
+                moveScore -= NEVER_USE_MOVE_20;
+            if (ai->livingMembersAttacker == 1 && ai->livingMembersDefender == 1)
+                moveScore -= 1;
+        }
+        break;
+    case MOVE_FINAL_GAMBIT:
+        if (ai->attackerMovesFirst && ai->attackerHP > ai->defenderHP)
+            moveScore += 8;
+        else if (ai->attackerMovesFirst && ai->playerCanOneShotMon)
+            moveScore += 7;
+        else
+            moveScore += 6;
+        break;
+    case MOVE_RELIC_SONG: //TODO
+        break;
+    case MOVE_FUTURE_SIGHT:
+        if (ai->defenderMovesFirst && ai->playerCanOneShotMon)
+            moveScore += 8;
+        else
+            moveScore += 6;
+        break;
+    case MOVE_ROLLOUT:
+        moveScore += 7;
+        break;
+    case MOVE_METEOR_BEAM:
+        if (ai->attackerItem == ITEM_POWER_HERB)
+            moveScore += 9;
+        else
+            moveScore -= NEVER_USE_MOVE_20;
+        break;
+    case MOVE_ELECTRO_SHOT:
+        if (ai->attackerItem == ITEM_POWER_HERB || ctx->field_condition & WEATHER_RAIN_ANY)
+            moveScore += 9;
+        else
+            moveScore -= NEVER_USE_MOVE_20;
+        break;
+    case MOVE_BIND:
+    case MOVE_CLAMP:
+    case MOVE_FIRE_SPIN:
+    case MOVE_WRAP:
+    case MOVE_WHIRLPOOL:
+        moveScore += 6;
+        if (BattleRand(bsys) % 10 < 2)
+            moveScore += 2;
+        break;
+    default:
+        break;
+    }
+
+	return moveScore;
+}
+
+BOOL LONG_CALL isMoveOneHitKOMove(struct BattleSystem* bsys, u32 attackerMove, AIContext* ai)
+{
+    BOOL isOneHitKOMove = FALSE;
+    switch (attackerMove)
+    {
+    case MOVE_GUILLOTINE:
+    case MOVE_HORN_DRILL:
+    case MOVE_FISSURE:
+    case MOVE_SHEER_COLD:
+        isOneHitKOMove = TRUE;
+        break;
+    default:
+        break;
+    }
+    return isOneHitKOMove;
 }
 
 /*Rank moves based on their damage output, ability to ohko, 2hko, */
@@ -464,79 +575,37 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
 
     if (isMoveSpecialAiAttackingMove(bsys, ai->attackerMove, ai))
     {
+		moveScore += SpecialAiAttackingMove(bsys, attacker, i, ai);
+    }
+    else if (isMoveOneHitKOMove(bsys, ai->attackerMove, ai))
+    {
         switch (ai->attackerMove)
         {
-        case MOVE_SELF_DESTRUCT:
-        case MOVE_EXPLOSION:
-        case MOVE_MISTY_EXPLOSION:
-            if ((ai->defenderAbility != ABILITY_DAMP || ai->attackerHasMoldBreaker) && ai->attackerMinRollMoveDamages[i] > 0) /*TODO: immunity handled? */
-            {
-                if (ai->attackerPercentHP < 10)
-                {
-                    moveScore += 10;
-                }
-                else if (ai->attackerPercentHP < 33)
-                {
-                    if (BattleRand(bsys) % 10 < 7) //70%
-                        moveScore += 8;
-                }
-                else if (ai->attackerPercentHP < 66)
-                {
-                    if (BattleRand(bsys) % 2) //50%
-                        moveScore += 7;
-                }
-                else
-                {
-                    if (BattleRand(bsys) % 20 == 0) //5%
-                        moveScore += 7;
-                }
-
-                if (ai->livingMembersAttacker == 1 && ai->livingMembersDefender > 1)
-                    moveScore -= NEVER_USE_MOVE_20;
-                if (ai->livingMembersAttacker == 1 && ai->livingMembersDefender == 1)
-                    moveScore -= 1;
-            }
-            break;
-        case MOVE_FINAL_GAMBIT:
-            if (ai->attackerMovesFirst && ai->attackerHP > ai->defenderHP)
-                moveScore += 8;
-            else if (ai->attackerMovesFirst && ai->playerCanOneShotMon)
-                moveScore += 7;
-            else
-                moveScore += 6;
-            break;
-        case MOVE_RELIC_SONG: //TODO
-            break;
-        case MOVE_FUTURE_SIGHT:
-            if (ai->defenderMovesFirst && ai->playerCanOneShotMon)
-                moveScore += 8;
-            else
-                moveScore += 6;
-            break;
-        case MOVE_ROLLOUT:
-            moveScore += 7;
-            break;
-        case MOVE_METEOR_BEAM:
-            if (ai->attackerItem == ITEM_POWER_HERB)
-                moveScore += 9;
-            else
+        case MOVE_SHEER_COLD:
+            if (HasType(ctx, ai->defender, TYPE_ICE))
                 moveScore -= NEVER_USE_MOVE_20;
             break;
-        case MOVE_ELECTRO_SHOT:
-            if (ai->attackerItem == ITEM_POWER_HERB || ctx->field_condition & WEATHER_RAIN_ANY)
-                moveScore += 9;
-            else
+        case MOVE_GUILLOTINE:
+        case MOVE_HORN_DRILL:
+            if (HasType(ctx, ai->defender, TYPE_NORMAL) && ai->attackerAbility == ABILITY_SCRAPPY)
                 moveScore -= NEVER_USE_MOVE_20;
-            break;
+             break;
+        case MOVE_FISSURE:
+            if (ai->attackerMove == MOVE_FISSURE && HasType(ctx, ai->defender, TYPE_FLYING) || (!ai->attackerHasMoldBreaker && ai->defenderAbility == ABILITY_LEVITATE))
+                moveScore -= NEVER_USE_MOVE_20;
+             break;
         default:
             break;
         }
-    }
-    else if (ai->attackerMoveEffect == MOVE_EFFECT_BIND_HIT || ai->attackerMoveEffect  == MOVE_EFFECT_WHIRLPOOL)
-    {
-        moveScore += 6;
-        if (BattleRand(bsys) % 10 < 2)
-            moveScore += 2;
+        if (ai->attackerLevel > ai->defenderLevel)
+        {
+            if (BattleRand(bsys) % 3 == 0)
+                moveScore += 9;
+        }
+        else
+        {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
     }
     else if (ai->attackerMaxDamageOutputMinRoll == ai->attackerMinRollMoveDamages[i])
     {
@@ -571,10 +640,8 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
 
     if (ai->defenderMovesFirst && ai->playerCanOneShotMon)
     {
-		debug_printf("player moves first and can one-shot\n");
         if (ctx->moveTbl[ai->attackerMove].priority > 0)
         {
-            debug_printf("Move with priority\n");
             moveScore += 11;
         }
     }
@@ -721,11 +788,8 @@ int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIConte
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
-    if (ai->playerCanOneShotMon)
+    if (ai->playerCanOneShotMon || (ai->defenderAbility == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0)))
 		return (moveScore - NEVER_USE_MOVE_20); //lowers score for all moves, thus not affecting overall decision
-
-    if (ai->defenderAbility == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0)) // 25% sometimes boost anyway
-        return (moveScore - NEVER_USE_MOVE_20);
 
     switch (ai->attackerMoveEffect)
     {
@@ -842,6 +906,7 @@ int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIConte
         case MOVE_EFFECT_CURSE:
             if (HasType(ctx, attacker, TYPE_GHOST))
                 break;
+            FALLTHROUGH;
 		case MOVE_EFFECT_ATK_DEF_UP: // Bulk Up
         case MOVE_EFFECT_ATK_DEF_ACC_UP: //coil
         //case MOVE_EFFECT_NO_RETREAT: // No Retreat
@@ -938,7 +1003,7 @@ int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIC
         }
         break;
     case MOVE_EFFECT_PASS_STATS_AND_STATUS:
-        if (BattlerPositiveStatChangesSum(bsys, ai->attacker, ai) > 1 || ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE)
+        if (i->livingMembersAttacker > 1 && (BattlerPositiveStatChangesSum(bsys, ai->attacker, ai) > 1 || ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE))
             moveScore += 14;
         if (ai->livingMembersAttacker == 1)
             moveScore -= NEVER_USE_MOVE_20;
@@ -1040,6 +1105,7 @@ int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIC
     case MOVE_EFFECT_PARALYZE_HIT:
         if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance != 100)
             break;
+        FALLTHROUGH;
     case MOVE_EFFECT_STATUS_PARALYZE:
         if (ai->defenderMovesFirst || // and slower after para
             (BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE) ||
@@ -1387,6 +1453,7 @@ int LONG_CALL CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AICont
                 moveScore += 7;
             else
 				moveScore += 5;
+            break;
         case MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN:
             if (aiShouldRecover && ctx->field_condition & WEATHER_SUNNY_ANY)
                 moveScore += 7;
