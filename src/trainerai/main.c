@@ -141,7 +141,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     if(ctx->battlemon[attacker].hp == 0){//if pokemon is dead, dont do anything -- this is necessary for doubles.
         return -1;
     }*/
-    int highest_move_score = 0;
+    int highestScoredMove = 0;
     int moveScores[4][4] = { 0 };
     int max_scores[4] = {0};                //highest score over all of the 4 moves the attacker has, measured against each mon on the field (self is always 0)
     int num_defender_ties = 0;
@@ -204,8 +204,8 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
                     if(moveScores[battler_no][i] > max_scores[battler_no]){
                         max_scores[battler_no] = moveScores[battler_no][i];             //track the highest score for this potential target
                     }
-                    if(max_scores[battler_no] > highest_move_score){
-                        highest_move_score = max_scores[battler_no];                    //track the absolute largest score over all potential targets
+                    if(max_scores[battler_no] > highestScoredMove){
+                        highestScoredMove = max_scores[battler_no];                    //track the absolute largest score over all potential targets
                     }
                     //debug_printf("Move: %d, Score: %d\n", i, moveScores[battler_no][i]);
                 }
@@ -213,13 +213,13 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             //debug_printf("Max score for defender %d: %d\n\n\n", battler_no, max_scores[battler_no]);
 
         }
-        //debug_printf("Highest move score: %d\n", highest_move_score);
-        int j_tie_index = 0;
+        //debug_printf("Highest move score: %d\n", highestScoredMove);
+        int tieMoveCount = 0;
         for(int battler_no = 0; battler_no < 4; battler_no++){
-            if(highest_move_score == max_scores[battler_no]){                           //find all defenders that tied for the maximum score 
+            if(highestScoredMove == max_scores[battler_no]){                           //find all defenders that tied for the maximum score 
                 num_defender_ties++;
-                defender_tie_indices[j_tie_index] = battler_no;
-                j_tie_index++;
+                defender_tie_indices[tieMoveCount] = battler_no;
+                tieMoveCount++;
             }
         }
         target = defender_tie_indices[BattleRand(bsys) % num_defender_ties];        //randomly pick a target among the tie
@@ -280,20 +280,20 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     }
     debug_printf("-> highest %i:%i\n", result, moveScores[target][result]);
 
-    highest_move_score = moveScores[target][result];
-    int j_tie_index = 0;
+    highestScoredMove = moveScores[target][result];
+    int tieMoveCount = 0;
 
     for (int i = 0; i < 4; i++)
     {                                         //check for ties
-        if(moveScores[target][i] == highest_move_score){
-            move_tie_indices[j_tie_index] = i;
-            j_tie_index++;
+        if(moveScores[target][i] == highestScoredMove){
+            move_tie_indices[tieMoveCount] = i;
+            tieMoveCount++;
         }
     }
-	int randomMoveIndex = (BattleRand(bsys) % j_tie_index);
+	int tieMoveIndex = (BattleRand(bsys) % tieMoveCount);
 
-    result  = move_tie_indices[randomMoveIndex % 4];             //randomly pick a move among the tie
-	debug_printf("got randomMoveIndex %d -> Resulting move: %d\n", randomMoveIndex,  result);
+    result  = move_tie_indices[tieMoveIndex % 4];             //randomly pick a move among the tie
+	debug_printf("got tieMoveIndex %d -> Resulting move: %d\n", tieMoveIndex,  result);
     return result;
 }
 
@@ -1003,7 +1003,7 @@ int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIC
         }
         break;
     case MOVE_EFFECT_PASS_STATS_AND_STATUS:
-        if (i->livingMembersAttacker > 1 && (BattlerPositiveStatChangesSum(bsys, ai->attacker, ai) > 1 || ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE))
+        if (ai->livingMembersAttacker > 1 && (BattlerPositiveStatChangesSum(bsys, ai->attacker, ai) > 1 || ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE))
             moveScore += 14;
         if (ai->livingMembersAttacker == 1)
             moveScore -= NEVER_USE_MOVE_20;
