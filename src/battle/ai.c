@@ -197,9 +197,9 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker)
     slot1 = attacker;
     slot2 = slot1;
   
- /* if (battleType & (BATTLE_TYPE_TAG | BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE))
-        slot2 = BATTLER_ALLY(attacker);
-*/
+  if (battleType & (BATTLE_TYPE_TAG | BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE))
+      slot2 = BATTLER_ALLY(attacker);
+
     u32 defenderHP = ctx->battlemon[defender].hp;
     u32 defenderMaxHP = ctx->battlemon[defender].maxhp;
     u32 defenderAbility = ctx->battlemon[defender].ability;
@@ -213,7 +213,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker)
         mon = Battle_GetClientPartyMon(bsys, attacker, i);
         monSpecies = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
         debug_printf("Slot %d:%d hp:%d,\n", i, monSpecies, GetMonData(mon, MON_DATA_HP, 0));
-        debug_printf("sel_m1 %d, sel_m2 %d, switchSl1 %d, , switchSl1 %d\n", ctx->sel_mons_no[slot1], ctx->sel_mons_no[slot2], ctx->aiSwitchedPartySlot[slot1], ctx->aiSwitchedPartySlot[slot2]);
+        debug_printf("sel_m1 %d, sel_m2 %d, switchSl1 %d, switchSl1 %d\n", ctx->sel_mons_no[slot1], ctx->sel_mons_no[slot2], ctx->aiSwitchedPartySlot[slot1], ctx->aiSwitchedPartySlot[slot2]);
         if (monSpecies != SPECIES_NONE && monSpecies != SPECIES_EGG && GetMonData(mon, MON_DATA_HP, 0)
             && i != ctx->sel_mons_no[slot1]
             && i != ctx->sel_mons_no[slot2]

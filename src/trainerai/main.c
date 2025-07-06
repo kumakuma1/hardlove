@@ -129,146 +129,171 @@ BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *bsys, struct Battle
 void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, AIContext *ai);
 int LONG_CALL AdjustUnusualMovePower(struct BattleSystem *bsys, u32 attacker, u32 defender, int moveEffect, int attackerPercentHP);
 
+
+int scoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
+{
+    struct BattleStruct* ctx = bsys->sp;
+	int moveScore = 0;
+    ai->attackerMove = ctx->battlemon[attacker].move[i];
+
+    if (ai->attackerMove != MOVE_NONE)
+    {
+        ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
+        ai->attackerMoveEffectiveness = 0;
+        ai->attackerMoveType = ctx->moveTbl[ai->attackerMove].type;
+ 
+        moveScore = 1000;  //don't want to get negative numbers, so start high at 1000, MOVE_NONE will stay at 0
+        moveScore += BasicFlag(bsys, attacker, i, ai);
+        moveScore += EvaluateAttackFlag(bsys, attacker, i, ai);
+        moveScore += ExpertFlag(bsys, attacker, i, ai);
+        moveScore += CheckHPFlag(bsys, attacker, i, ai);
+        moveScore += HarassmentFlag(bsys, attacker, i, ai);
+        debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScore);
+    }
+
+	return moveScore;
+}
+
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
 {
-    debug_printf("TrainerAI_Main sauce:\n");
+    debug_printf("TrainerAI_Main:\n");
     struct BattleStruct *ctx = bsys->sp;
     AIContext aictx = {0};
     AIContext *ai = &aictx;
     enum AIActionChoice result = AI_ENEMY_ATTACK_1;
 
-    /*
-    if(ctx->battlemon[attacker].hp == 0){//if pokemon is dead, dont do anything -- this is necessary for doubles.
-        return -1;
-    }*/
+
     int highestScoredMove = 0;
-    int moveScores[4][4] = { 0 };
-    int max_scores[4] = {0};                //highest score over all of the 4 moves the attacker has, measured against each mon on the field (self is always 0)
-    int num_defender_ties = 0;
-    int defender_tie_indices[4] = {0};
-    int move_tie_indices[4] = {0};
+	int moveScores[4][4] = { 0 }; //account for 2 enemies + 1 ally in doubles, 4 moves each BATTLER_OPPONENT, BATTLER_ACROSS, BATTLER_ALLY
+	int targets[4] = { 0 };
+    int targetsSize = 0;
+    int tiedMoveIndices[4] = {0};
     int target = 0;
-    u32 defender = BATTLER_OPPONENT(attacker);   //default for singles -- updated in the doubles section
+	int numberOfPotentialTargets = 0;
 
-
-    SetupStateVariables(bsys, attacker, defender, ai);
+    u32 defender = BATTLER_OPPONENT(attacker);   //default for singles
+    target = defender;
 
     /*For more than a 1v1 battle, loop over all battlers and compute the highest score for each.
     The highest score among them determines the target.*/
-    if(BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)){
-        /*ALWAYS turn on tag strategy in double battles. Prevents user errors. Otherwise targeting and scoring will be incorrect.*/
-        bsys->trainers[ai->attacker].aibit |= AI_FLAG_TAG_STRATEGY;
-        for(int battler_no = 0; battler_no < CLIENT_MAX; battler_no++){
-            ai->defender = battler_no;
-            debug_printf("\nfor Attacker: %d, Defender: %d\n", ai->attacker, ai->defender);
-            SetupStateVariables(bsys, attacker, ai->defender, ai);             //need to reset the ai vars for each defender 
+    if(BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
+    {
+        debug_printf("att %d, ally %d, defendOp %d, defendCross %d\n", attacker, BATTLER_ALLY(attacker), BATTLER_OPPONENT(attacker), BATTLER_ACROSS(attacker));
+        debug_printf("att %d, ally %d, defendOp %d, defendCross %d\n", ctx->battlemon[attacker].species, ctx->battlemon[BATTLER_ALLY(attacker)].species, ctx->battlemon[BATTLER_OPPONENT(attacker)].species, ctx->battlemon[BATTLER_ACROSS(attacker)].species);
 
-            if(battler_no == ai->attacker || ctx->battlemon[ai->defender].hp == 0){     //edge case for doubles when only one mon remains alive. Not including this causes incorrect scoring.
-                for(int i = 0; i < 4; i ++){
-                    moveScores[battler_no][i] = 0;                                      //prevent ai from thinking it is also the defender for calculations
-                }
-            }
-            else{
-                /*Main loop over moves and select the best one*/
-                for (int i = 0; i < 4; i++)
-                {  
-                    /*Move-relevant variables*/
-                    ai->attackerMove = ctx->battlemon[ai->attacker].move[i];
-                    ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
-                    ai->attackerMoveEffectiveness = 0;       
-                    ai->attackerMoveType = ctx->moveTbl[ai->attackerMove].type;
-                    ai->attackerMovePPRemaining = ctx->battlemon[ai->attacker].pp[i];
-                    AITypeCalc(ctx, ai->attackerMove, ai->attackerMoveType, ai->attackerAbility, ai->defenderAbility, ai->defenderHoldEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
-             
-                    /*
-                    for (int j = 0; j < sizeof(moveEvaluators) / sizeof(moveEvaluators[0]); j++) {
-
-                        if(BattleTypeGet(bsys) &  BATTLE_TYPE_DOUBLE){
-                            if (bsys->trainers[1].aibit & moveEvaluators[j].flag) { //hardcoding double battles to ONLY read the first trainer's aibit, since a second trainer's does not exist.
-                                                                                    //not doing this will result in the left side using random moves. This also fixes the "left side ai problem"
-                                debug_printf("for Move: %d, using Flag: %d\n", i, moveEvaluators[j].flag);
-                                moveScores[battler_no][i] += moveEvaluators[j].evaluator(bsys, ai->attacker, i, ai);
-                            }
-                        }
-                        else{
-                            if (bsys->trainers[ai->attacker].aibit & moveEvaluators[j].flag) { //grab the associated ai bit for the attacker.
-                                debug_printf("for Move: %d, using Flag: %d\n", i, moveEvaluators[j].flag);
-                                moveScores[battler_no][i] += moveEvaluators[j].evaluator(bsys, ai->attacker, i, ai);   
-                            }
-                        }
-
-
-                    }
-                    */
-                    
-                    if(moveScores[battler_no][i] > max_scores[battler_no]){
-                        max_scores[battler_no] = moveScores[battler_no][i];             //track the highest score for this potential target
-                    }
-                    if(max_scores[battler_no] > highestScoredMove){
-                        highestScoredMove = max_scores[battler_no];                    //track the absolute largest score over all potential targets
-                    }
-                    //debug_printf("Move: %d, Score: %d\n", i, moveScores[battler_no][i]);
-                }
-            }
-            //debug_printf("Max score for defender %d: %d\n\n\n", battler_no, max_scores[battler_no]);
-
-        }
-        //debug_printf("Highest move score: %d\n", highestScoredMove);
-        int tieMoveCount = 0;
-        for(int battler_no = 0; battler_no < 4; battler_no++){
-            if(highestScoredMove == max_scores[battler_no]){                           //find all defenders that tied for the maximum score 
-                num_defender_ties++;
-                defender_tie_indices[tieMoveCount] = battler_no;
-                tieMoveCount++;
-            }
-        }
-        target = defender_tie_indices[BattleRand(bsys) % num_defender_ties];        //randomly pick a target among the tie
-
-        ctx->aiWorkTable.ai_dir_select_client[ai->attacker] = target;                   //assign the correct target for this attacker.
-        for(int i = 0; i < 4; i++){
-            debug_printf("the target for battler %d is %d",i,ctx->aiWorkTable.ai_dir_select_client[i]);
-        }
-        debug_printf("Target: %d\n", target);
-
-    }
-    else { //single battles
-        
-        /*Main loop over moves and select the best one*/
+        //BATTLER_OPPONENT
+        SetupStateVariables(bsys, attacker, defender, ai);
+        u32 choicedDamageRollSlotOp = 0;
         for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++)
-        {   
-            /*Move-relevant variables*/
-            ai->attackerMove = ctx->battlemon[ai->attacker].move[i];
-            if (ai->attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice) // if the attacker has a move that is forced, use it
+        {
+            if (ai->attackerMove != MOVE_NONE &&
+                (ai->attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice ||
+                 ai->attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove)) // if the attacker has a move that is forced, use it
             {
                 debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
-                return i;
+                moveScores[target][i] = 2000;
+                break;
             }
 
-            if (ai->attackerMove != MOVE_NONE)
-            {
-                ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
-                ai->attackerMoveEffectiveness = 0;
-                ai->attackerMoveType = ctx->moveTbl[ai->attackerMove].type;
-                AITypeCalc(ctx, ai->attackerMove, ai->attackerMoveType, ai->attackerAbility, ai->defenderAbility, ai->defenderHoldEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
+            moveScores[target][i] = scoreMovesAgainstDefender(bsys, attacker, i, ai);
+            if (highestScoredMove < moveScores[target][i])
+                highestScoredMove = moveScores[target][i];
 
-                moveScores[target][i] = 1000;  //don't want to get negative numbers, so start high at 1000, MOVE_NONE will stay at 0
-                moveScores[target][i] += BasicFlag(bsys, attacker, i, ai);
-                debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScores[target][i]);
-                moveScores[target][i] += EvaluateAttackFlag(bsys, attacker, i, ai);
-                debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScores[target][i]);
-                moveScores[target][i] += ExpertFlag(bsys, attacker, i, ai);
-                debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScores[target][i]);
-                moveScores[target][i] += CheckHPFlag(bsys, attacker, i, ai);
-                debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScores[target][i]);
-                moveScores[target][i] += HarassmentFlag(bsys, attacker, i, ai);
-                debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScores[target][i]);
+        }
+        BOOL playerCanOneShotMon = ai->playerCanOneShotMon;
+
+        //BATTLER_ACROSS
+        defender = BATTLER_ACROSS(attacker);
+        target = defender;
+        SetupStateVariables(bsys, attacker, defender, ai);
+        if (playerCanOneShotMon)
+			ai->playerCanOneShotMon = playerCanOneShotMon; //keep the value from the first target
+
+        for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++)
+        {
+            if (ai->attackerMove != MOVE_NONE &&
+                (ai->attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice ||
+                 ai->attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove)) // if the attacker has a move that is forced, use it
+            {
+                debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
+                moveScores[target][i] = 2000;
+                break;
+            }
+
+            moveScores[target][i] = scoreMovesAgainstDefender(bsys, attacker, i, ai);
+            if (highestScoredMove < moveScores[target][i])
+                highestScoredMove = moveScores[target][i];
+        }
+
+		// defender = BATTLER_ALLY(attacker);
+        // target = defender;
+
+		// TODO: deal with choiced moves, encore. Currently random target
+
+        targetsSize = 0;
+        for (int k = 0; k < 4; k++) // find targets with highestScoredMove
+        {
+            for (int i = 0; i < 4; i++) //movesScore
+            {
+                if (moveScores[k][i] == highestScoredMove)
+                {
+                    debug_printf("found target %d\n", k)
+                    targets[targetsSize] = k;
+                    targetsSize++;
+                    break;
+                }
             }
         }
-        ctx->aiWorkTable.ai_dir_select_client[ai->attacker] = target;                   //target is always 0 in single battles (the player)
+        debug_printf("targets\n");
+        for (int k = 0; k < 4; k++)
+        {
+            debug_printf("%d  ", targets[k]);
+        }
+        debug_printf("\n");
+
+        for (int k = 0; k < 4; k++) // find targets with highestScoredMove
+        {
+            for (int i = 0; i < 4; i++) //movesScore
+            {
+                debug_printf("%d  ", moveScores[k][i]);
+            }
+            debug_printf("\n");
+        }
+        int rand = BattleRand(bsys);
+        debug_printf("%d mod %d = %d\n", rand, targetsSize, rand % targetsSize);
+
+        target = targets[(rand % targetsSize)];
+        debug_printf("picked target slot %d\n", target);
     }
-    for(int i = 0; i < 4; i++)
+    else  //single battles
     {
-        if(moveScores[target][i] > moveScores[target][result])
+        //BATTLER_OPPONENT
+        SetupStateVariables(bsys, attacker, defender, ai);
+
+        /*Main loop over moves and select the best one*/
+        for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++)
+        {
+            /*Move-relevant variables*/
+            ai->attackerMove = ctx->battlemon[attacker].move[i];
+            if (ai->attackerMove != MOVE_NONE &&
+                (ai->attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice ||
+                 ai->attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove)) // if the attacker has a move that is forced, use it
+            {
+                debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
+                moveScores[target][i] = 2000;
+                break;
+            }
+
+            moveScores[target][i] += scoreMovesAgainstDefender(bsys, attacker, i, ai);
+            if (highestScoredMove < moveScores[target][i])
+                highestScoredMove = moveScores[target][i];
+        }
+    }
+    ctx->aiWorkTable.ai_dir_select_client[attacker] = target;
+
+    for (int i = 0; i < 4; i++)
+    {
+        if (moveScores[target][i] == highestScoredMove)
         {
             result = i;
         }
@@ -278,21 +303,21 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     {
         debug_printf("%i ", moveScores[target][i]);
     }
-    debug_printf("-> highest %i:%i\n", result, moveScores[target][result]);
+    debug_printf("-> highest %i:%i\n", result, highestScoredMove);
 
-    highestScoredMove = moveScores[target][result];
     int tieMoveCount = 0;
 
     for (int i = 0; i < 4; i++)
     {                                         //check for ties
-        if(moveScores[target][i] == highestScoredMove){
-            move_tie_indices[tieMoveCount] = i;
+        if(moveScores[target][i] == highestScoredMove)
+        {
+            tiedMoveIndices[tieMoveCount] = i;
             tieMoveCount++;
         }
     }
 	int tieMoveIndex = (BattleRand(bsys) % tieMoveCount);
 
-    result  = move_tie_indices[tieMoveIndex % 4];             //randomly pick a move among the tie
+    result  = tiedMoveIndices[tieMoveIndex % 4];             //randomly pick a move among the tie
 	debug_printf("got tieMoveIndex %d -> Resulting move: %d\n", tieMoveIndex,  result);
     return result;
 }
@@ -591,7 +616,7 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
                 moveScore -= NEVER_USE_MOVE_20;
              break;
         case MOVE_FISSURE:
-            if (ai->attackerMove == MOVE_FISSURE && HasType(ctx, ai->defender, TYPE_FLYING) || (!ai->attackerHasMoldBreaker && ai->defenderAbility == ABILITY_LEVITATE))
+            if (ai->attackerMove == MOVE_FISSURE && (HasType(ctx, ai->defender, TYPE_FLYING) || (!ai->attackerHasMoldBreaker && ai->defenderAbility == ABILITY_LEVITATE)))
                 moveScore -= NEVER_USE_MOVE_20;
              break;
         default:
@@ -784,19 +809,21 @@ int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIConte
     int moveScore = 0;
     struct BattleStruct* ctx = bsys->sp;
     BOOL hasSitrus = (ai->attackerItem == ITEM_SITRUS_BERRY);
+    BOOL shouldSetup = TRUE;
+	BOOL isSetupMove = TRUE;
 
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
     if (ai->playerCanOneShotMon || (ai->defenderAbility == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0)))
-		return (moveScore - NEVER_USE_MOVE_20); //lowers score for all moves, thus not affecting overall decision
+        shouldSetup = FALSE;
 
     switch (ai->attackerMoveEffect)
     {
         case MOVE_EFFECT_COPY_STAT_CHANGES:
+            moveScore += 5;
             for (int k = 0; k < STAT_MAX; ++k)
-            {
-                moveScore += 5;
+            { 
                 if (ctx->battlemon[attacker].states[k] < ctx->battlemon[ai->defender].states[k] && ctx->battlemon[ai->defender].states[k] > 6)
                 {
                     moveScore += 2;
@@ -922,9 +949,14 @@ int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIConte
             else
 				moveScore -= NEVER_USE_MOVE_20;
             break;
-        default: 
+        default:
+            isSetupMove = FALSE;
             break;
     }
+    if (!shouldSetup)
+        moveScore = (0 - NEVER_USE_MOVE_20);
+    if (!isSetupMove)
+        moveScore = 0;
 
     return moveScore;
 }
@@ -1103,7 +1135,7 @@ int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIC
             moveScore -= NEVER_USE_MOVE_20;
         break;
     case MOVE_EFFECT_PARALYZE_HIT:
-        if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance != 100)
+        if (ai->attackerMove != MOVE_NUZZLE)
             break;
         FALLTHROUGH;
     case MOVE_EFFECT_STATUS_PARALYZE:
@@ -1130,12 +1162,14 @@ int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIC
         break;
     case MOVE_EFFECT_SWITCH_HELD_ITEMS:
         moveScore += 5;
-        if (ai->attackerItem == ITEM_TOXIC_ORB || ai->attackerItem == ITEM_FLAME_ORB || ai->attackerItem == ITEM_BLACK_SLUDGE)
+        if ((ai->attackerItem == ITEM_TOXIC_ORB && !ai->defenderImmuneToPoison) ||
+            (ai->attackerItem == ITEM_FLAME_ORB && !ai->defenderImmuneToBurn) ||
+            (ai->attackerItem == ITEM_BLACK_SLUDGE && !HasType(ctx, ai->defender, TYPE_POISON)))
         {
             moveScore += 1;
             if (BattleRand(bsys) % 2) //50%
                 moveScore += 1;
-        }
+		}
         else if (ai->attackerItem == ITEM_IRON_BALL || ai->attackerItem == ITEM_LAGGING_TAIL || ai->attackerItem == ITEM_STICKY_BARB)
         {
             moveScore += 2;
@@ -1432,15 +1466,13 @@ BOOL LONG_CALL shouldRecover(struct BattleSystem* bsys, u32 attacker, u32 attack
 int LONG_CALL CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
 {
     int moveScore = 0;
-    BOOL sharesMoves = FALSE;
     struct BattleStruct* ctx = bsys->sp;
+	BOOL isHealingMove = TRUE;
 
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
     BOOL aiShouldRecover = shouldRecover(bsys, attacker, ai->attackerMoveEffect, ai);
-    if (ai->attackerPercentHP == 100)
-        return moveScore - NEVER_USE_MOVE_20;  //lowers score for all moves, thus not affecting overall decision
     if (ai->attackerPercentHP >= 85)
 		moveScore -= 6;
 
@@ -1479,9 +1511,15 @@ int LONG_CALL CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AICont
                 moveScore += 5;
             break;
         default:
+            isHealingMove = FALSE;
             break;
     }
- 
+
+    if (!isHealingMove)
+        moveScore = 0;
+    else if (ai->attackerPercentHP == 100)
+        moveScore = 0 - NEVER_USE_MOVE_20;
+
     return moveScore;
 }
 
@@ -1590,7 +1628,7 @@ BOOL LONG_CALL BattlerKnowsMove(struct BattleSystem *bsys, u32 battler, u32 move
     struct BattleStruct *ctx = bsys->sp;
     for(int i = 0; i < 4; i++)
     {
-        int battler_move_check = ctx->battlemon[battler].move[i];
+        u32 battler_move_check = ctx->battlemon[battler].move[i];
         if (battler_move_check == move)
         {
             knowsMove = TRUE;
@@ -1907,13 +1945,14 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         }
         //debug_printf("Max damage received for move %d is: %d\n",i,currentReceivedDamage);
     }
-    debug_printf("Overall Max damage received from %i:%i is %d\n", highestDamageMoveIndex, ctx->battlemon[ai->defender].move[highestDamageMoveIndex], ai->maxDamageReceived);
+    debug_printf("Overall Max damage received from %i:%i is %d > %d attHP\n", highestDamageMoveIndex, ctx->battlemon[ai->defender].move[highestDamageMoveIndex], ai->maxDamageReceived, ai->attackerHP);
 
     /*Loop over all moves for checking certain conditions*/
     /*Set up max roll damage calculations for all known moves.
     Also check if user has a super-effective move*/
     ai->monCanOneShotPlayerWithAnyMove = FALSE;
-    for(int i = 0; i < ai->attackerMovesKnown; i++){
+    for(int i = 0; i < ai->attackerMovesKnown; i++)
+    {
 
         u32 attackerMoveCheck = ctx->battlemon[attacker].move[i];
         struct BattleMove move = ctx->moveTbl[attackerMoveCheck];
@@ -1921,6 +1960,10 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 
         if(move.split != SPLIT_STATUS)
         {
+            AITypeCalc(ctx, attackerMoveCheck, move.type, ai->attackerAbility, ai->defenderAbility, ai->defenderHoldEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
+            if (ai->attackerMoveEffectiveness == MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
+                ai->attackerHasSupereffectiveMove = 1;
+
             specialMovePower = AdjustUnusualMovePower(bsys, attacker, ai->defender, move.effect, ai->attackerPercentHP);
 
             ai->attackerMinRollMoveDamages[i] = CalcBaseDamage(bsys, ctx, attackerMoveCheck, ctx->side_condition[ai->defenderSide],ctx->field_condition, specialMovePower, 0, ai->attacker, ai->defender, 0);
@@ -1940,11 +1983,5 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         if(ai->attackerMinRollMoveDamages[i] > 0){
             ai->attackerHasDamagingMove = 1;
         }
-
-        AITypeCalc(ctx, attackerMoveCheck, move.type, ai->attackerAbility, ai->defenderAbility, ai->defenderHoldEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
-        if(ai->attackerMoveEffectiveness == MOVE_STATUS_FLAG_SUPER_EFFECTIVE){
-            ai->attackerHasSupereffectiveMove = 1;
-        }
-        debug_printf("move %d: %d, damage %d\n", i, attackerMoveCheck, ai->attackerMinRollMoveDamages[i]);
     }
 }
