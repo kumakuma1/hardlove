@@ -217,57 +217,57 @@ pokemon SPECIES_NONE
 .close
 
 
-encounterdata   2   // Cherrygrove City, water
+encounterdata   2   // Cherrygrove City, water, grass
 
-walkrate 0
+walkrate 15
 surfrate 10
 rocksmashrate 50
 oldrodrate 75
 goodrodrate 75
 superrodrate 75
-walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+walklevels 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
 
 // morning encounter slots
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
+pokemon SPECIES_ODDISH	    //10%
+pokemon SPECIES_ODDISH	    //10%
+pokemon SPECIES_PARAS		//10%
+pokemon SPECIES_PARAS    	//10%
+pokemon SPECIES_BELLSPROUT	//10%
+pokemon SPECIES_BUDEW		//10%
+pokemon SPECIES_LOTAD	    //10%
+pokemon SPECIES_SEEDOT		//10%
+pokemon SPECIES_BOUNSWEET	//5%
+pokemon SPECIES_BOUNSWEET	//5%
+pokemon SPECIES_EXEGGCUTE	//5%
+pokemon SPECIES_DEERLING	//5%
 
 // day encounter slots
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
+pokemon SPECIES_ODDISH	    //10%
+pokemon SPECIES_ODDISH	    //10%
+pokemon SPECIES_PARAS		//10%
+pokemon SPECIES_PARAS    	//10%
+pokemon SPECIES_BELLSPROUT	//10%
+pokemon SPECIES_BUDEW		//10%
+pokemon SPECIES_LOTAD	    //10%
+pokemon SPECIES_SEEDOT		//10%
+pokemon SPECIES_BOUNSWEET	//5%
+pokemon SPECIES_BOUNSWEET	//5%
+pokemon SPECIES_EXEGGCUTE	//5%
+pokemon SPECIES_DEERLING	//5%
 
 // night encounter slots
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
-pokemon SPECIES_NONE
+pokemon SPECIES_ODDISH	    //10%
+pokemon SPECIES_ODDISH	    //10%
+pokemon SPECIES_PARAS		//10%
+pokemon SPECIES_PARAS    	//10%
+pokemon SPECIES_BELLSPROUT	//10%
+pokemon SPECIES_BUDEW		//10%
+pokemon SPECIES_LOTAD	    //10%
+pokemon SPECIES_SEEDOT		//10%
+pokemon SPECIES_BOUNSWEET	//5%
+pokemon SPECIES_BOUNSWEET	//5%
+pokemon SPECIES_EXEGGCUTE	//5%
+pokemon SPECIES_DEERLING	//5%
 
 // hoenn encounter slots
 pokemon SPECIES_NONE
