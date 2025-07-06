@@ -1940,3 +1940,13 @@ End
 
 5:Good luck out there!\r
 6:Wow, you have Litten as Starter!\rMe too! That is so cool.\rTake this.\r
+
+
+
+####add grass in Cherrygrove
+encounter in file
+
+
+
+#### berries from apricorn
+-> script 2800 -> 280x  use flags 257x in scr_seq_0150.s and 023.txt

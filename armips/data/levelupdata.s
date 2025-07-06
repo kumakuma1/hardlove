@@ -3328,6 +3328,7 @@ levelup SPECIES_SENTRET
     learnset MOVE_HELPING_HAND, 13
     learnset MOVE_SLASH, 17
     learnset MOVE_FOLLOW_ME, 19
+    learnset MOVE_FLING, 22
     learnset MOVE_DOUBLE_HIT, 25
     learnset MOVE_SUCKER_PUNCH, 28
     learnset MOVE_PLAY_ROUGH, 31
@@ -3349,6 +3350,7 @@ levelup SPECIES_FURRET
     learnset MOVE_HELPING_HAND, 13
     learnset MOVE_SLASH, 17
     learnset MOVE_FOLLOW_ME, 21
+    learnset MOVE_FLING, 24
     learnset MOVE_DOUBLE_HIT, 28
     learnset MOVE_SUCKER_PUNCH, 32
     learnset MOVE_PLAY_ROUGH, 36

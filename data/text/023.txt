@@ -1,0 +1,13 @@
+.
+.
+.
+.
+.
+.
+.
+.
+
+
+It’s a Berry Tree!\r
+...but there are no Berries.\r
+Would you like to havest the\nBerries?{YESNO 0}

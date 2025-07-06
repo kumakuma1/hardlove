@@ -428,7 +428,7 @@ trainerdata 8, "Joey" // Route 30
     party 8
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-6
+        level LEVEL_ELDER_LI-8
         pokemon SPECIES_SENTRET
         item ITEM_NONE
         move MOVE_TACKLE
@@ -2665,18 +2665,18 @@ trainerdata 47, "Mikey"  // Route 30
         // mon 1
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-5
+        level LEVEL_ELDER_LI-8
         pokemon SPECIES_HOUNDOUR
         item ITEM_ORAN_BERRY
-        move MOVE_INCINERATE
-        move MOVE_SNARL
+        move MOVE_FLAME_WHEEL
+        move MOVE_BITE
         move MOVE_NONE
         move MOVE_NONE
         ability ABILITY_UNNERVE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -2684,7 +2684,7 @@ trainerdata 47, "Mikey"  // Route 30
         //mon 2
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-5
+        level LEVEL_ELDER_LI-8
         pokemon SPECIES_CHINCHOU
         item ITEM_ORAN_BERRY
         move MOVE_SHOCK_WAVE

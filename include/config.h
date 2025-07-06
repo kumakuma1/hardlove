@@ -1,6 +1,8 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+//FLAGS 2570-2590 berry trees
+
 #define RANDOM_3_MAX_IVS
 #define RANDOM_3_MAX_IVS_FLAG 2599
 
