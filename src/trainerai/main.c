@@ -731,10 +731,14 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
         case MOVE_FAKE_OUT:
         {
             if (ai->attackerTurnsOnField == 0 && ((ai->defenderAbility != ABILITY_SHIELD_DUST && ai->defenderAbility != ABILITY_INNER_FOCUS) ||
-                !ai->attackerHasMoldBreaker))
+                ai->attackerHasMoldBreaker))
             {
                 moveScore += 9;
             }
+            else
+            {
+                moveScore -= NEVER_USE_MOVE_20;
+			}
             break;
         }
         case MOVE_PURSUIT:
