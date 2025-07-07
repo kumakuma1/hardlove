@@ -13,13 +13,14 @@
 
 .create "build/a012/2_150", 0
 
-	scrdef scr_seq_0150_000
-	scrdef scr_seq_0150_001
-	scrdef scr_seq_0150_002
-	scrdef scr_seq_0150_003
-	scrdef scr_seq_0150_004
-	scrdef scr_seq_0150_005
-	scrdef scr_seq_0150_006
+	scrdef scr_seq_0150_000 //r29
+	scrdef scr_seq_0150_001 //r30
+	scrdef scr_seq_0150_002	//r30
+	scrdef scr_seq_0150_003	//r31
+	scrdef scr_seq_0150_004 //violet
+	scrdef scr_seq_0150_005 //r33
+	scrdef scr_seq_0150_006 //r33
+	scrdef scr_seq_0150_007 //azalea
 	scrdef_end
 
 scr_seq_0150_000:
@@ -136,6 +137,25 @@ scr_seq_0150_006:
 	IncrementVar VAR_SPECIAL_x8005, 0x800C 
 	CommonScript 2008
 	setflag 2576
+	goto _goaway
+
+scr_seq_0150_007:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	npc_msg 10 //its  a berry tree
+	closemsg
+	goto_if_set 2577, _noberries
+	call _harvest
+	anim_apricorn_tree VAR_SPECIAL_RESULT
+	GetRandom 0x800C, 30
+	setvar VAR_SPECIAL_x8004, ITEM_ORAN_BERRY
+	setvar VAR_SPECIAL_x8005, 100
+	IncrementVar VAR_SPECIAL_x8005, 0x800C 
+	CommonScript 2008
+	//play_fanfare SEQ_ME_ITEM
+	//wait_fanfare
+	setflag 2577
 	goto _goaway
 
 _noberries:
