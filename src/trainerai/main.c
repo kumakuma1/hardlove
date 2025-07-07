@@ -82,6 +82,8 @@ typedef struct {
 
 
     /*Specific to multi/double/tag battles*/
+    BOOL isPartnerGrounded;
+    u8 partnerType1;
     int partner;
     int partnerHP;
     int partnerPercentHP;
@@ -129,30 +131,36 @@ BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *bsys, struct Battle
 void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, AIContext *ai);
 int LONG_CALL AdjustUnusualMovePower(struct BattleSystem *bsys, u32 attacker, u32 defender, int moveEffect, int attackerPercentHP);
 
-
-int scoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
+int LONG_CALL scoreMovesAgainstDefender(struct BattleSystem* bsys, u32 attacker, int target, int moveScores[4][4], AIContext* ai)
 {
     struct BattleStruct* ctx = bsys->sp;
-	int moveScore = 0;
-    ai->attackerMove = ctx->battlemon[attacker].move[i];
-
-    if (ai->attackerMove != MOVE_NONE)
+	int highestScoredMove = 0;
+    for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++)
     {
-        ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
-        ai->attackerMoveEffectiveness = 0;
-        ai->attackerMoveType = ctx->moveTbl[ai->attackerMove].type;
- 
-        moveScore = 1000;  //don't want to get negative numbers, so start high at 1000, MOVE_NONE will stay at 0
-        moveScore += BasicFlag(bsys, attacker, i, ai);
-        moveScore += EvaluateAttackFlag(bsys, attacker, i, ai);
-        moveScore += ExpertFlag(bsys, attacker, i, ai);
-        moveScore += CheckHPFlag(bsys, attacker, i, ai);
-        moveScore += HarassmentFlag(bsys, attacker, i, ai);
-        debug_printf("Move: %d,%d Score: %d\n", i, ai->attackerMove, moveScore);
+        u32 attackerMove = ctx->battlemon[attacker].move[i];
+
+        if (attackerMove != MOVE_NONE &&
+            (attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice ||
+             attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove)) // if the attacker has a move that is forced, use it
+        {
+            debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
+            moveScores[target][i] += 1000;
+        }
+
+        moveScores[target][i] += 1000;  //don't want to get negative numbers, so start high at 1000, MOVE_NONE will stay at 0
+        moveScores[target][i] += BasicFlag(bsys, attacker, i, ai);
+        moveScores[target][i] += EvaluateAttackFlag(bsys, attacker, i, ai);
+        moveScores[target][i] += ExpertFlag(bsys, attacker, i, ai);
+        moveScores[target][i] += CheckHPFlag(bsys, attacker, i, ai);
+        moveScores[target][i] += HarassmentFlag(bsys, attacker, i, ai);
+
+        if (highestScoredMove < moveScores[target][i])
+            highestScoredMove = moveScores[target][i];
     }
 
-	return moveScore;
+	return highestScoredMove;
 }
+
 
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
 {
@@ -164,7 +172,9 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
 
     int highestScoredMove = 0;
-	int moveScores[4][4] = { 0 }; //account for 2 enemies + 1 ally in doubles, 4 moves each BATTLER_OPPONENT, BATTLER_ACROSS, BATTLER_ALLY
+    int highestScoredMoveAcross = 0;
+	int moveScores[4][4] = { 0 };   //account for BATTLER_OPPONENT (0), attacker (1), BATTLER_ACROSS(2), BATTLER_ALLY(3),  4 moves each
+                                    //account for BATTLER_OPPONENT (2), attacker (3), BATTLER_ACROSS(0), BATTLER_ALLY(1),  4 moves each
 	int targets[4] = { 0 };
     int targetsSize = 0;
     int tiedMoveIndices[4] = {0};
@@ -183,113 +193,66 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
         //BATTLER_OPPONENT
         SetupStateVariables(bsys, attacker, defender, ai);
-        u32 choicedDamageRollSlotOp = 0;
-        for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++)
-        {
-            if (ai->attackerMove != MOVE_NONE &&
-                (ai->attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice ||
-                 ai->attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove)) // if the attacker has a move that is forced, use it
-            {
-                debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
-                moveScores[target][i] = 2000;
-                break;
-            }
-
-            moveScores[target][i] = scoreMovesAgainstDefender(bsys, attacker, i, ai);
-            if (highestScoredMove < moveScores[target][i])
-                highestScoredMove = moveScores[target][i];
-
-        }
+ 
         BOOL playerCanOneShotMon = ai->playerCanOneShotMon;
-
+		highestScoredMove = scoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai);
         //BATTLER_ACROSS
         defender = BATTLER_ACROSS(attacker);
-        target = defender;
-        SetupStateVariables(bsys, attacker, defender, ai);
-        if (playerCanOneShotMon)
-			ai->playerCanOneShotMon = playerCanOneShotMon; //keep the value from the first target
-
-        for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++)
+        if (ctx->battlemon[defender].hp > 0)
         {
-            if (ai->attackerMove != MOVE_NONE &&
-                (ai->attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice ||
-                 ai->attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove)) // if the attacker has a move that is forced, use it
-            {
-                debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
-                moveScores[target][i] = 2000;
-                break;
-            }
+            target = defender;
+            SetupStateVariables(bsys, attacker, defender, ai);
+            if (playerCanOneShotMon)
+                ai->playerCanOneShotMon = playerCanOneShotMon; //keep the value from the first target
 
-            moveScores[target][i] = scoreMovesAgainstDefender(bsys, attacker, i, ai);
-            if (highestScoredMove < moveScores[target][i])
-                highestScoredMove = moveScores[target][i];
+            highestScoredMoveAcross = scoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai);
+            if (highestScoredMoveAcross > highestScoredMove)
+				highestScoredMove = highestScoredMoveAcross;
         }
-
 		// defender = BATTLER_ALLY(attacker);
         // target = defender;
 
-		// TODO: deal with choiced moves, encore. Currently random target
-
         targetsSize = 0;
-        for (int k = 0; k < 4; k++) // find targets with highestScoredMove
+        for (u8 k = 0; k < 4; k++) // find targets with highestScoredMove
         {
-            for (int i = 0; i < 4; i++) //movesScore
+            for (u8 i = 0; i < 4; i++) //movesScore
             {
                 if (moveScores[k][i] == highestScoredMove)
                 {
-                    debug_printf("found target %d\n", k)
+                    //debug_printf("found target %d\n", k)
                     targets[targetsSize] = k;
                     targetsSize++;
                     break;
                 }
             }
         }
-        debug_printf("targets\n");
-        for (int k = 0; k < 4; k++)
-        {
-            debug_printf("%d  ", targets[k]);
-        }
-        debug_printf("\n");
 
-        for (int k = 0; k < 4; k++) // find targets with highestScoredMove
-        {
-            for (int i = 0; i < 4; i++) //movesScore
-            {
-                debug_printf("%d  ", moveScores[k][i]);
-            }
-            debug_printf("\n");
-        }
-        int rand = BattleRand(bsys);
-        debug_printf("%d mod %d = %d\n", rand, targetsSize, rand % targetsSize);
-
-        target = targets[(rand % targetsSize)];
+        target = targets[(BattleRand(bsys) % targetsSize)];
         debug_printf("picked target slot %d\n", target);
     }
     else  //single battles
     {
         //BATTLER_OPPONENT
         SetupStateVariables(bsys, attacker, defender, ai);
-
-        /*Main loop over moves and select the best one*/
-        for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++)
-        {
-            /*Move-relevant variables*/
-            ai->attackerMove = ctx->battlemon[attacker].move[i];
-            if (ai->attackerMove != MOVE_NONE &&
-                (ai->attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice ||
-                 ai->attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove)) // if the attacker has a move that is forced, use it
-            {
-                debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
-                moveScores[target][i] = 2000;
-                break;
-            }
-
-            moveScores[target][i] += scoreMovesAgainstDefender(bsys, attacker, i, ai);
-            if (highestScoredMove < moveScores[target][i])
-                highestScoredMove = moveScores[target][i];
-        }
+        highestScoredMove = scoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai);
     }
     ctx->aiWorkTable.ai_dir_select_client[attacker] = target;
+
+    int j = 0;
+    for (int k = 0; k < 4; k++)
+    {
+        for (int i = 0; i < 4; i++) //movesScore
+        {
+            debug_printf("%4d  ", moveScores[k][i]);
+        }
+
+        if (targets[j] == k)
+        {   
+            j++;
+            debug_printf("x");
+        }
+        debug_printf("\n");
+    }
 
     for (int i = 0; i < 4; i++)
     {
@@ -768,6 +731,30 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
                 //TODO
             }
             break;
+        }
+        case MOVE_EARTHQUAKE:
+        case MOVE_MAGNITUDE:
+        {
+            if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
+            {
+                if (ai->isPartnerGrounded) //or about to use magnetrise && faster
+                {
+                    if (ctx->battlemon[BATTLER_ALLY(ai->attacker)].hp)
+                    {
+                        if (HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_POISON) ||
+                            HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_STEEL) ||
+                            HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_FIRE) ||
+                            HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_ROCK))
+                        {
+                            moveScore -= 10;
+                        }  
+                        else
+                            moveScore -= 3;
+                    }
+                }
+                else
+                    moveScore += 2;
+            }
         }
         default:
             break;
@@ -1806,6 +1793,12 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->isDefenderGrounded = IsClientGrounded(ctx, ai->defender);
 	ai->defenderKnowsThawingMove = battlerKnowsThawingMove(bsys, ai->defender, ai);
 
+    ai->isPartnerGrounded = FALSE;
+    if ((BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) && ctx->battlemon[BATTLER_ALLY(attacker)].hp)
+    {
+        ai->isPartnerGrounded = IsClientGrounded(ctx, BATTLER_ALLY(attacker));
+    }
+    
     ai->attackerHasMoldBreaker = FALSE;
     if (ai->attackerAbility == ABILITY_MOLD_BREAKER || ai->attackerAbility == ABILITY_TERAVOLT || ai->attackerAbility == ABILITY_TURBOBLAZE)
         ai->attackerHasMoldBreaker = TRUE;
