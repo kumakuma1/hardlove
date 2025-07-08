@@ -19,20 +19,20 @@ EIGHT_BADGES equ 6
 .halfword ITEM_POKE_BALL
 .halfword ZERO_BADGES
 
-.halfword ITEM_QUICK_BALL  // ITEM_TOP_REPEL
+.halfword ITEM_GREAT_BALL
 .halfword ONE_BADGE
 
 .halfword ITEM_ULTRA_BALL
-.halfword ONE_BADGE
-
-.halfword ITEM_SUPER_REPEL
-.halfword ZERO_BADGES
-
-.halfword ITEM_ORAN_BERRY // ITEM_POTION
-.halfword ZERO_BADGES
-
-.halfword ITEM_SITRUS_BERRY //ITEM_REVIVE
 .halfword THREE_BADGES
+
+.halfword ITEM_FAST_BALL
+.halfword THREE_BADGES
+
+.halfword ITEM_TIMER_BALL
+.halfword THREE_BADGES
+
+.halfword ITEM_POTION
+.halfword ZERO_BADGES
 
 .halfword ITEM_SUPER_POTION
 .halfword ONE_BADGE
@@ -41,37 +41,37 @@ EIGHT_BADGES equ 6
 .halfword THREE_BADGES
 
 .halfword ITEM_MAX_POTION
-.halfword THREE_BADGES
+.halfword FIVE_BADGES
 
 .halfword ITEM_FULL_RESTORE
+.halfword FIVE_BADGES
+
+.halfword ITEM_FULL_HEAL
+.halfword ONE_BADGE
+
+.halfword ITEM_ETHER
+.halfword FIVE_BADGES
+
+.halfword ITEM_MAX_ETHER
+.halfword SEVEN_BADGES
+
+.halfword ITEM_ELIXIR
+.halfword SEVEN_BADGES
+
+.halfword ITEM_MAX_ELIXIR
+.halfword SEVEN_BADGES
+
+.halfword ITEM_REVIVE
 .halfword THREE_BADGES
 
-.halfword ITEM_PECHA_BERRY //ITEM_ANTIDOTE
+.halfword ITEM_MAX_REVIVE
+.halfword SEVEN_BADGES
+
+.halfword ITEM_REPEL
 .halfword ZERO_BADGES
 
-.halfword ITEM_CHERI_BERRY //ITEM_PARALYZE_HEAL
-.halfword ZERO_BADGES
-
-.halfword ITEM_CHESTO_BERRY //ITEM_WAKEUP
-.halfword ZERO_BADGES
-
-.halfword ITEM_RAWST_BERRY //ITEM_BURN_HEAL
-.halfword ZERO_BADGES
-
-.halfword ITEM_ASPEAR_BERRY //ITEM_ICE_HEAL
-.halfword ZERO_BADGES
-
-.halfword ITEM_PERSIM_BERRY //ITEM_ESCAPE_ROPE
-.halfword ZERO_BADGES
-
-.halfword ITEM_LUM_BERRY // ITEM_FULL_HEAL
-.halfword FIVE_BADGES
-
-.halfword ITEM_LEPPA_BERRY //ITEM_REPEL
-.halfword FIVE_BADGES
-
-.halfword ITEM_POMEG_BERRY //ITEM_SUPER_REPEL
-.halfword ZERO_BADGES
+.halfword ITEM_SUPER_REPEL
+.halfword THREE_BADGES
 
 
 /* azalea, 3 -> (azalea, goldenrod 4F) - CommonScript 2052  2 */
