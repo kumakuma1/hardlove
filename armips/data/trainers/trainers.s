@@ -1120,11 +1120,11 @@ trainerdata 21, "Bugsy"
         abilityslot 0
         level LEVEL_BUGSY-2
         pokemon SPECIES_KLAWF
-        item ITEM_IAPAPA_BERRY
-        move MOVE_FACADE
-        move MOVE_REVERSAL
-        move MOVE_ENDEAVOR
+        item ITEM_CUSTAP_BERRY
         move MOVE_ROCK_TOMB
+        move MOVE_ENDURE
+        move MOVE_REVERSAL
+        move MOVE_SKITTER_SMACK
         ability ABILITY_ANGER_SHELL
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1190,7 +1190,7 @@ trainerdata 21, "Bugsy"
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY
+        level LEVEL_BUGSY+1
         pokemon SPECIES_SCYTHER
         item ITEM_SITRUS_BERRY
         move MOVE_SWORDS_DANCE
