@@ -1942,6 +1942,10 @@ End
 6:Wow, you have Litten as Starter!\rMe too! That is so cool.\rTake this.\r
 
 
+###NPC text in R46
+Message 2:
+A dead end...?\rDid I take the wrong path?\rI didn’t know this was only\none way.
+I’ve heard that there Ninjas in\nBlackthorn City, that can teach your\fPokémon incredible moves.\rIt is just up this ledge.\r
 
 ####add grass in Cherrygrove
 encounter in file

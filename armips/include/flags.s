@@ -132,7 +132,7 @@ FLAG_GOT_OLD_ROD                                           equ 117
 FLAG_UNK_076                                               equ 118
 FLAG_UNK_077                                               equ 119
 FLAG_UNK_078                                               equ 120
-FLAG_UNK_079                                               equ 121
+FLAG_UNK_079                                               equ 121 // Route 46 NPC, set in 843
 FLAG_GOT_KINGS_ROCK_FROM_SLOWPOKE_WELL_MAN                 equ 122
 FLAG_BEAT_AZALEA_ROCKETS                                   equ 123
 FLAG_UNK_07C                                               equ 124
