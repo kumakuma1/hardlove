@@ -12,6 +12,9 @@
 #include "../../include/constants/item.h"
 #include "../../include/item.h"
 
+
+#define BATLLE_DEBUG_OUTPUT 1
+
 #define IMPOSSIBLE_MOVE 40
 #define NEVER_USE_MOVE_20 20
 
@@ -131,7 +134,7 @@ BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *bsys, struct Battle
 void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, AIContext *ai);
 int LONG_CALL AdjustUnusualMovePower(struct BattleSystem *bsys, u32 attacker, u32 defender, int moveEffect, int attackerPercentHP);
 
-int LONG_CALL scoreMovesAgainstDefender(struct BattleSystem* bsys, u32 attacker, int target, int moveScores[4][4], AIContext* ai)
+int LONG_CALL scoreMovesAgainstDefender(struct BattleSystem* bsys, u32 attacker, u32 target, int moveScores[4][4], AIContext* ai)
 {
     struct BattleStruct* ctx = bsys->sp;
 	int highestScoredMove = 0;
@@ -143,7 +146,9 @@ int LONG_CALL scoreMovesAgainstDefender(struct BattleSystem* bsys, u32 attacker,
             (attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice ||
              attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove)) // if the attacker has a move that is forced, use it
         {
+#ifdef BATLLE_DEBUG_OUTPUT
             debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
+#endif // BATLLE_DEBUG_OUTPUT
             moveScores[target][i] += 1000;
         }
 
@@ -164,7 +169,10 @@ int LONG_CALL scoreMovesAgainstDefender(struct BattleSystem* bsys, u32 attacker,
 
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
 {
+#ifdef BATLLE_DEBUG_OUTPUT
     debug_printf("TrainerAI_Main:\n");
+#endif // BATLLE_DEBUG_OUTPUT
+    
     struct BattleStruct *ctx = bsys->sp;
     AIContext aictx = {0};
     AIContext *ai = &aictx;
@@ -178,7 +186,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 	int targets[4] = { 0 };
     int targetsSize = 0;
     int tiedMoveIndices[4] = {0};
-    int target = 0;
+    u32 target = 0;
 	int numberOfPotentialTargets = 0;
 
     u32 defender = BATTLER_OPPONENT(attacker);   //default for singles
@@ -188,8 +196,10 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     The highest score among them determines the target.*/
     if(BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
     {
+#ifdef BATLLE_DEBUG_OUTPUT
         debug_printf("att %d, ally %d, defendOp %d, defendCross %d\n", attacker, BATTLER_ALLY(attacker), BATTLER_OPPONENT(attacker), BATTLER_ACROSS(attacker));
         debug_printf("att %d, ally %d, defendOp %d, defendCross %d\n", ctx->battlemon[attacker].species, ctx->battlemon[BATTLER_ALLY(attacker)].species, ctx->battlemon[BATTLER_OPPONENT(attacker)].species, ctx->battlemon[BATTLER_ACROSS(attacker)].species);
+#endif // BATLLE_DEBUG_OUTPUT
 
         //BATTLER_OPPONENT
         SetupStateVariables(bsys, attacker, defender, ai);
@@ -228,7 +238,10 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         }
 
         target = targets[(BattleRand(bsys) % targetsSize)];
-        debug_printf("picked target slot %d\n", target);
+
+#ifdef BATLLE_DEBUG_OUTPUT
+        debug_printf("picked target slot %d\n", target); 
+#endif // BATLLE_DEBUG_OUTPUT
     }
     else  //single battles
     {
@@ -238,23 +251,25 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     }
     ctx->aiWorkTable.ai_dir_select_client[attacker] = target;
 
-    int j = 0;
+#ifdef BATLLE_DEBUG_OUTPUT
+    u8 j = 0;
     for (int k = 0; k < 4; k++)
     {
-        for (int i = 0; i < 4; i++) //movesScore
+        for (u8 i = 0; i < 4; i++) //movesScore
         {
             debug_printf("%4d  ", moveScores[k][i]);
         }
 
         if (targets[j] == k)
-        {   
+        {
             j++;
             debug_printf("x");
         }
         debug_printf("\n");
     }
+#endif // BATLLE_DEBUG_OUTPUT
 
-    for (int i = 0; i < 4; i++)
+    for (u8 i = 0; i < 4; i++)
     {
         if (moveScores[target][i] == highestScoredMove)
         {
@@ -262,15 +277,18 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         }
     }
 
-    for (int i = 0; i < 4; i++)
+#ifdef BATLLE_DEBUG_OUTPUT
+    for (u8 i = 0; i < 4; i++)
     {
         debug_printf("%i ", moveScores[target][i]);
     }
     debug_printf("-> highest %i:%i\n", result, highestScoredMove);
+#endif // BATLLE_DEBUG_OUTPUT
+
 
     int tieMoveCount = 0;
 
-    for (int i = 0; i < 4; i++)
+    for (u8 i = 0; i < 4; i++)
     {                                         //check for ties
         if(moveScores[target][i] == highestScoredMove)
         {
@@ -278,10 +296,12 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             tieMoveCount++;
         }
     }
-	int tieMoveIndex = (BattleRand(bsys) % tieMoveCount);
+	u8 tieMoveIndex = (BattleRand(bsys) % tieMoveCount);
 
-    result  = tiedMoveIndices[tieMoveIndex % 4];             //randomly pick a move among the tie
+    result = tiedMoveIndices[tieMoveIndex % 4];             //randomly pick a move among the tie
+#ifdef BATLLE_DEBUG_OUTPUT
 	debug_printf("got tieMoveIndex %d -> Resulting move: %d\n", tieMoveIndex,  result);
+#endif // BATLLE_DEBUG_OUTPUT
     return result;
 }
 
@@ -433,6 +453,7 @@ BOOL LONG_CALL isMoveSpecialAiAttackingMove(struct BattleSystem* bsys, u32 attac
 		case MOVE_FIRE_SPIN:
         case MOVE_WRAP:
         case MOVE_WHIRLPOOL:
+		//case MOVE_INFESTATION:
             isSpecialAIMove = TRUE;
             break;
         default:
@@ -760,9 +781,6 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
             break;
     }
 
-    /* EARTHQUAKE, MAGNITUDE*/
-
-    debug_printf("Move score returned from evaluate attack flag: %d\n", moveScore);
     return moveScore;
 }
 
@@ -1821,8 +1839,11 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
             ai->isSpeedTie = 1;
 
     }
-    debug_printf("SpeedCalc %d, defMovesFirst %d, attMovesFirst %d \n", speedCalc, ai->defenderMovesFirst, ai->attackerMovesFirst);
 
+#ifdef BATLLE_DEBUG_OUTPUT
+    debug_printf("SpeedCalc %d, defMovesFirst %d, attMovesFirst %d \n", speedCalc, ai->defenderMovesFirst, ai->attackerMovesFirst);
+#endif // BATLLE_DEBUG_OUTPUT
+    
 	ai->isDefenderIncapacitated = FALSE;
     if ((ai->defenderCondition & STATUS_SLEEP) ||
         (ai->defenderCondition & STATUS_FREEZE && !ai->defenderKnowsThawingMove) ||
@@ -1881,7 +1902,6 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->partySizeDefender = Battle_GetClientPartySize(bsys, ai->defender);
     ai->livingMembersDefender = 0;
 
-    /*Compute number of living members on attacker's team.*/
     for (int i = 0; i < ai->partySizeAttacker; i++)
     {
         struct PartyPokemon * currentMonAttacking = Battle_GetClientPartyMon(bsys, attacker, i);
@@ -1895,7 +1915,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         }
     }
 
-    /*Loop over defending team*/
+
     for (int i = 0; i < ai->partySizeDefender; i++) {
         struct PartyPokemon * currentMonDefending = Battle_GetClientPartyMon(bsys, ai->defender, i);
         if(!(GetMonData(currentMonDefending, MON_DATA_HP, 0) == 0 ||
@@ -1942,8 +1962,11 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         }
         //debug_printf("Max damage received for move %d is: %d\n",i,currentReceivedDamage);
     }
-    debug_printf("Overall Max damage received from %i:%i is %d > %d attHP\n", highestDamageMoveIndex, ctx->battlemon[ai->defender].move[highestDamageMoveIndex], ai->maxDamageReceived, ai->attackerHP);
 
+#ifdef BATLLE_DEBUG_OUTPUT
+    debug_printf("Overall Max damage received from %i:%i is %d > %d attHP\n", highestDamageMoveIndex, ctx->battlemon[ai->defender].move[highestDamageMoveIndex], ai->maxDamageReceived, ai->attackerHP);
+#endif // BATLLE_DEBUG_OUTPUT
+ 
     /*Loop over all moves for checking certain conditions*/
     /*Set up max roll damage calculations for all known moves.
     Also check if user has a super-effective move*/
@@ -1966,10 +1989,12 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
             ai->attackerMinRollMoveDamages[i] = CalcBaseDamage(bsys, ctx, attackerMoveCheck, ctx->side_condition[ai->defenderSide],ctx->field_condition, specialMovePower, 0, ai->attacker, ai->defender, 0);
             ai->attackerMinRollMoveDamages[i] = ServerDoTypeCalcMod(bsys, ctx, attackerMoveCheck, 0, attacker, ai->defender, ai->attackerMinRollMoveDamages[i], &effectivenessFlag) *85 / 100; //85% is min roll.
             ai->attackerMinRollMoveDamages[i] = AdjustUnusualMoveDamage(bsys, ai->attackerLevel, ai->attackerHP, ai->defenderHP, ai->attackerMinRollMoveDamages[i], move.effect, ai->attackerAbility, ai->attackerItem);
-            debug_printf("move %d: %d, damage %d > def Hp %d\n", i, attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP);
-			ai->monCanOneShotPlayerWithMove[i] = canMoveKillBattler(attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP, ai->defenderMaxHP, ai->attackerHasMoldBreaker, ai->defenderAbility, ai->defenderItem);
+ai->monCanOneShotPlayerWithMove[i] = canMoveKillBattler(attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP, ai->defenderMaxHP, ai->attackerHasMoldBreaker, ai->defenderAbility, ai->defenderItem);
             if (ai->monCanOneShotPlayerWithMove[i])
 				ai->monCanOneShotPlayerWithAnyMove = TRUE;
+#ifdef BATLLE_DEBUG_OUTPUT
+            debug_printf("move %d: %d, damage %d > def Hp %d\n", i, attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP);
+#endif // BATLLE_DEBUG_OUTPUT
         }
        
         /*Record our highest damage output*/
