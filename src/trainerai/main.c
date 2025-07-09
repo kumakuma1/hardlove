@@ -1944,7 +1944,8 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         if(defenderMove.split != SPLIT_STATUS){
             specialMovePower = AdjustUnusualMovePower(bsys, ai->defender, ai->attacker, defenderMove.effect, ai->defenderPercentHP);
             currentReceivedDamage = CalcBaseDamage(bsys, ctx, defenderMoveCheck, ctx->side_condition[ai->attackerSide],ctx->field_condition, specialMovePower, 0, ai->defender, ai->attacker, 0);
-            currentReceivedDamage = ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, 0, ai->defender, ai->attacker, currentReceivedDamage, &effectivenessFlag)*85 / 100; // looking at MIN roll. 
+            currentReceivedDamage = ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, 0, ai->defender, ai->attacker, currentReceivedDamage, &effectivenessFlag);
+            currentReceivedDamage *= 92 / 100;
             currentReceivedDamage = AdjustUnusualMoveDamage(bsys, ai->defenderLevel, ai->defenderHP, ai->attackerHP, currentReceivedDamage, defenderMove.effect, ai->defenderAbility, ai->defenderItem);
             BOOL playerCanOneShotMonWithMove = canMoveKillBattler(defenderMoveCheck, currentReceivedDamage, ai->attackerHP, ai->attackerMaxHP, ai->defenderHasMoldBreaker, ai->attackerAbility, ai->attackerItem);
             if (playerCanOneShotMonWithMove)
@@ -1987,7 +1988,8 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
             specialMovePower = AdjustUnusualMovePower(bsys, attacker, ai->defender, move.effect, ai->attackerPercentHP);
 
             ai->attackerMinRollMoveDamages[i] = CalcBaseDamage(bsys, ctx, attackerMoveCheck, ctx->side_condition[ai->defenderSide],ctx->field_condition, specialMovePower, 0, ai->attacker, ai->defender, 0);
-            ai->attackerMinRollMoveDamages[i] = ServerDoTypeCalcMod(bsys, ctx, attackerMoveCheck, 0, attacker, ai->defender, ai->attackerMinRollMoveDamages[i], &effectivenessFlag) *85 / 100; //85% is min roll.
+            ai->attackerMinRollMoveDamages[i] = ServerDoTypeCalcMod(bsys, ctx, attackerMoveCheck, 0, attacker, ai->defender, ai->attackerMinRollMoveDamages[i], &effectivenessFlag);
+            ai->attackerMinRollMoveDamages[i] *= 92 / 100; //85% is min roll.
             ai->attackerMinRollMoveDamages[i] = AdjustUnusualMoveDamage(bsys, ai->attackerLevel, ai->attackerHP, ai->defenderHP, ai->attackerMinRollMoveDamages[i], move.effect, ai->attackerAbility, ai->attackerItem);
 ai->monCanOneShotPlayerWithMove[i] = canMoveKillBattler(attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP, ai->defenderMaxHP, ai->attackerHasMoldBreaker, ai->defenderAbility, ai->defenderItem);
             if (ai->monCanOneShotPlayerWithMove[i])

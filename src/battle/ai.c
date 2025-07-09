@@ -245,7 +245,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker)
                         moveDamage = AI_CalcBaseDamage(bsys, ctx, move, ctx->side_condition[BATTLER_IS_ENEMY(attacker)], ctx->field_condition, moveDamage, attackerMove.type, defender, 0, 1, mon);
                         moveDamage = BattleAI_ServerDoTypeCalcMod(bsys, ctx, move, attackerMove.type, defender, moveDamage, &effectivenessFlag, mon, 1);
                         moveDamageMax = moveDamage;
-                        moveDamage = moveDamage*85 / 100; //85% is min roll.
+                        moveDamage = moveDamage*92 / 100; //85% is min roll, ~8th roll
                         moveDamage = AdjustUnusualMoveDamage(bsys, GetMonData(mon, MON_DATA_LEVEL, 0), attackerHP, defenderHP, moveDamage, attackerMove.effect, attackerAbility, attackerItem);
                         if (moveDamage > minRollMaxDamageDealt[i])
                             minRollMaxDamageDealt[i] = moveDamage;
@@ -268,7 +268,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker)
                     moveDamage = AI_CalcBaseDamage(bsys, ctx, defenderMoveCheck, ctx->side_condition[BATTLER_IS_ENEMY(defender)], ctx->field_condition, moveDamage, defenderMove.type, defender, 0, 0, mon);
                     moveDamage = BattleAI_ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, defenderMove.type, defender, moveDamage, &effectivenessFlag, mon, 0);
                     moveDamageMax = moveDamage;
-                    moveDamage = moveDamage*85 / 100; //85% is min roll.
+                    moveDamage = moveDamage * 92 / 100; //85% is min roll.
                     moveDamage = AdjustUnusualMoveDamage(bsys, ctx->battlemon[defender].level, defenderHP, attackerHP, moveDamage, defenderMove.effect, defenderAbility , defenderItem);
                     if (moveDamage > minRollMaxDamageReceived[i])
                         minRollMaxDamageReceived[i] = moveDamage;
