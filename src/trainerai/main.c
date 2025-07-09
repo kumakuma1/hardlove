@@ -1846,14 +1846,19 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     
 	ai->isDefenderIncapacitated = FALSE;
     if ((ai->defenderCondition & STATUS_SLEEP) ||
-        (ai->defenderCondition & STATUS_FREEZE && !ai->defenderKnowsThawingMove) ||
-        ctx->battlemon[attacker].condition2 & STATUS2_RECHARGE)
+        ((ai->defenderCondition & STATUS_FREEZE) && !ai->defenderKnowsThawingMove) ||
+        (ctx->battlemon[attacker].condition2 & STATUS2_RECHARGE) ||
+        ST_CheckIfInTruant(ctx, ai->defender))
     {
         ai->isDefenderIncapacitated = TRUE;
     }
 
     BOOL isDefenderImmuneToAnyStatus = FALSE;
     if ((ai->defenderCondition & STATUS_ALL) ||
+        (ai->defenderAbility == ABILITY_GOOD_AS_GOLD) ||
+        (ai->defenderAbility == ABILITY_COMATOSE) ||
+        (ai->defenderAbility == ABILITY_PURIFYING_SALT) ||
+        (ai->defenderAbility == ABILITY_SHIELDS_DOWN && ai->defenderPercentHP > 50) ||
         (ai->defenderAbility == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY) ||
         (ai->defenderAbility == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY) ||
         (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_SAFEGUARD))
@@ -1881,7 +1886,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 
     ai->defenderImmuneToBurn = FALSE;
     if (isDefenderImmuneToAnyStatus ||
-        ai->defenderAbility == ABILITY_WATER_VEIL || ai->defenderAbility == ABILITY_THERMAL_EXCHANGE || ai->defenderAbility == ABILITY_MAGIC_GUARD ||
+		ai->defenderAbility == ABILITY_WATER_VEIL || ai->defenderAbility == ABILITY_THERMAL_EXCHANGE || ai->defenderAbility == ABILITY_MAGIC_GUARD || ai->defenderAbility == ABILITY_WATER_BUBBLE ||
         (ai->isDefenderGrounded && ctx->terrainOverlay.type == MISTY_TERRAIN) ||
         HasType(ctx, ai->defender, TYPE_FIRE))
     {
