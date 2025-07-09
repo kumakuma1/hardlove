@@ -2115,5 +2115,43 @@ int LONG_CALL AI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u
         }
     }
 
-    return damage + 2;
+    damage = damage + 2;
+
+    BOOL attackerHasMoldBreaker = (AttackingMon.ability == ABILITY_MOLD_BREAKER || AttackingMon.ability == ABILITY_TERAVOLT || AttackingMon.ability == ABILITY_TURBOBLAZE);
+
+    if (!attackerHasMoldBreaker)
+    {
+        switch (DefendingMon.ability)
+        {
+        case ABILITY_FLASH_FIRE:
+        case ABILITY_WELL_BAKED_BODY:
+            if (movetype == TYPE_FIRE)
+                damage = 0;
+            break;
+        case ABILITY_LIGHTNING_ROD:
+        case ABILITY_VOLT_ABSORB:
+        case ABILITY_MOTOR_DRIVE:
+            if (movetype == TYPE_ELECTRIC)
+                damage = 0;
+            break;
+        case ABILITY_WATER_ABSORB:
+        case ABILITY_STORM_DRAIN:
+        case ABILITY_DRY_SKIN:
+            if (movetype == TYPE_WATER)
+                damage = 0;
+            break;
+        case ABILITY_SAP_SIPPER:
+            if (movetype == TYPE_GRASS)
+                damage = 0;
+            break;
+        case ABILITY_EARTH_EATER:
+            if (movetype == TYPE_GROUND)
+                damage = 0;
+            break;
+        default:
+            break;
+        }
+    }
+
+    return damage;
 }
