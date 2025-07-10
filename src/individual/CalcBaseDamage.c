@@ -1005,6 +1005,5 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             break;
         }
     }
-
     return damage;
 }

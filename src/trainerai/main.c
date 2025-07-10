@@ -126,6 +126,7 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, in
 BOOL LONG_CALL isMoveOneHitKOMove(struct BattleSystem* bsys, u32 attackerMove, AIContext* ai);
 BOOL LONG_CALL IsMoveMultihit(u32 move);
 BOOL LONG_CALL canMoveKillBattler(u32 move, u32 damage, u32 defenderHP, u32 defenderMaxHP, BOOL attackerHasMoldBreaker, u32 defenderAbility, u32 defenderItem);
+BOOL LONG_CALL monDiesFromResidualDamage(struct BattleStruct* ctx, u32 attacker, u32 attackerCondition, BOOL isSeeded);
 
 BOOL LONG_CALL IsInList(u32 moveEffect, const u16 StatList[], u16 ListLength);
 BOOL LONG_CALL BattlerKnowsMoveInList(struct BattleSystem *bsys, u32 battler, const u16 MoveList[], u16 listLength, AIContext *ai);
@@ -1006,10 +1007,29 @@ int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIC
         if (BattleRand(bsys) % 4 != 0)
             moveScore += 3;
         break;
+    case MOVE_EFFECT_SURVIVE_WITH_1_HP:
+        if (ai->attackerLastUsedMove == ai->attackerMove) //TODO
+        {
+            if (BattleRand(bsys) % 2 == 0)
+                moveScore -= NEVER_USE_MOVE_20;
+        }
+        else if(ai->defenderMovesFirst && (ai->playerCanOneShotMon || !ai->monCanOneShotPlayerWithAnyMove))
+        {
+            moveScore += 6;
+            if (ai->attackerItem == ITEM_CUSTAP_BERRY || ai->attackerItem == ITEM_SALAC_BERRY)
+                moveScore += 2;
+        }
+        else
+        {
+            moveScore -= NEVER_USE_MOVE_20;
+		}
+        break;
     //case MOVE_EFFECT_KINGS_SHIELD:
     //case MOVE_EFFECT_OBSTRUCT:
     //case MOVE_EFFECT_SPIKEY_SHIELD:
     case MOVE_EFFECT_PROTECT: //TODO
+    {
+        BOOL monDiesEndTurn = monDiesFromResidualDamage(ctx, ai->attacker, ai->attackerCondition, (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE));
         moveScore += 6;
         if ((ai->attackerCondition & (STATUS_POISON | STATUS_BURN | STATUS_PARALYSIS)) || (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE)) //TODO
             moveScore -= 1;
@@ -1024,6 +1044,7 @@ int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIC
         }
         //TODO second Last Move
         break;
+    }
     case MOVE_EFFECT_MAKE_SHARED_MOVES_UNUSEABLE:
         if (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_IMPRISONED)
             moveScore -= NEVER_USE_MOVE_20;
@@ -1765,6 +1786,69 @@ BOOL LONG_CALL canMoveKillBattler(u32 move, u32 damage, u32 defenderHP, u32 defe
 	return canOneShot;
 }
 
+BOOL monDiesFromResidualDamage(struct BattleStruct* ctx, u32 attacker, u32 attackerCondition, BOOL isSeeded)
+{
+    // TODO order with heal
+    //https://pokemondb.net/pokebase/409424/at-the-end-of-each-turn-what-goes-first-healing-or-damaging
+    BOOL diesFromResidual = FALSE;
+    u32 hp = ctx->battlemon[attacker].hp;
+    u32 maxHp = ctx->battlemon[attacker].maxhp;
+    u32 ability = ctx->battlemon[attacker].ability;
+    u32 item = ctx->battlemon[attacker].item;
+    u32 damageReceived = 0;
+
+    if (isSeeded)
+    {
+        damageReceived += maxHp / 8;
+    }
+
+    if (attackerCondition & STATUS_BURN)
+    {
+        damageReceived += maxHp / 16;
+    }
+    else if (attackerCondition & STATUS_POISON)
+    {
+        damageReceived += maxHp / 8;
+    }
+    else if (attackerCondition & STATUS_BAD_POISON)
+    {
+        if ((attackerCondition & STATUS_POISON_COUNT) != STATUS_POISON_COUNT) {
+            attackerCondition += 1 << 8;
+        }
+		int toxicDamageTicks = ((attackerCondition & STATUS_POISON_COUNT) >> 8); //TODO: check this
+        damageReceived += (toxicDamageTicks * maxHp / 16);
+    }
+    if (ctx->field_condition & WEATHER_SANDSTORM_ANY)
+    {
+        if (!HasType(ctx, attacker, TYPE_ROCK) && !HasType(ctx, attacker, TYPE_GROUND) && !HasType(ctx, attacker, TYPE_STEEL)
+            && ability != ABILITY_SAND_FORCE && ability != ABILITY_SAND_RUSH && ability != ABILITY_SAND_VEIL
+            && ability != ABILITY_OVERCOAT && ability != ABILITY_MAGIC_GUARD
+            && item != ITEM_SAFETY_GOGGLES)
+        {
+            damageReceived += maxHp / 16;
+        }
+    }
+    else if (ctx->field_condition & WEATHER_HAIL_ANY)
+    {
+        if (!HasType(ctx, attacker, TYPE_ICE)
+            && ability != ABILITY_ICE_BODY && ability != ABILITY_SNOW_CLOAK
+            && ability != ABILITY_OVERCOAT && ability != ABILITY_MAGIC_GUARD
+            && item != ITEM_SAFETY_GOGGLES)
+        {
+            damageReceived += maxHp / 16;
+        }
+    }
+    else if (ctx->field_condition & WEATHER_SUNNY_ANY)
+    {
+        if (ability == ABILITY_DRY_SKIN || ability == ABILITY_SOLAR_POWER)
+            damageReceived += maxHp / 8;
+    }
+
+    if (damageReceived > hp)
+		diesFromResidual = TRUE;
+	return diesFromResidual;
+}
+
 
 void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, AIContext *ai){
     struct BattleStruct *ctx = bsys->sp;
@@ -1944,17 +2028,17 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     int highestDamageMoveIndex = 0;
     ai->playerCanOneShotMon = FALSE;
     for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, ai->defender); i++){
-    //    debug_printf("def move %i is: %d\n", i, ctx->battlemon[ai->defender].move[i]);
         specialMovePower = 0;
         u32 defenderMoveCheck = ctx->battlemon[defender].move[i];
         struct BattleMove defenderMove = ctx->moveTbl[defenderMoveCheck];
 
         if(defenderMove.split != SPLIT_STATUS){
             specialMovePower = AdjustUnusualMovePower(bsys, ai->defender, ai->attacker, defenderMove.effect, ai->defenderPercentHP);
-            currentReceivedDamage = CalcBaseDamage(bsys, ctx, defenderMoveCheck, ctx->side_condition[ai->attackerSide],ctx->field_condition, specialMovePower, 0, ai->defender, ai->attacker, 0);
+            currentReceivedDamage = CalcBaseDamage(bsys, ctx, defenderMoveCheck, ctx->side_condition[ai->attackerSide],ctx->field_condition, specialMovePower, defenderMove.type, ai->defender, ai->attacker, 0);
             currentReceivedDamage = ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, 0, ai->defender, ai->attacker, currentReceivedDamage, &effectivenessFlag);
-            currentReceivedDamage *= 92 / 100;
+            currentReceivedDamage = currentReceivedDamage * 92 / 100;
             currentReceivedDamage = AdjustUnusualMoveDamage(bsys, ai->defenderLevel, ai->defenderHP, ai->attackerHP, currentReceivedDamage, defenderMove.effect, ai->defenderAbility, ai->defenderItem);
+            debug_printf("move %d: %d, damage %d > def Hp %d\n", i, defenderMoveCheck, currentReceivedDamage, ai->attackerHP);
             BOOL playerCanOneShotMonWithMove = canMoveKillBattler(defenderMoveCheck, currentReceivedDamage, ai->attackerHP, ai->attackerMaxHP, ai->defenderHasMoldBreaker, ai->attackerAbility, ai->attackerItem);
             if (playerCanOneShotMonWithMove)
                 ai->playerCanOneShotMon = TRUE;
@@ -1995,11 +2079,11 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 
             specialMovePower = AdjustUnusualMovePower(bsys, attacker, ai->defender, move.effect, ai->attackerPercentHP);
 
-            ai->attackerMinRollMoveDamages[i] = CalcBaseDamage(bsys, ctx, attackerMoveCheck, ctx->side_condition[ai->defenderSide],ctx->field_condition, specialMovePower, 0, ai->attacker, ai->defender, 0);
+            ai->attackerMinRollMoveDamages[i] = CalcBaseDamage(bsys, ctx, attackerMoveCheck, ctx->side_condition[ai->defenderSide],ctx->field_condition, specialMovePower, move.type, ai->attacker, ai->defender, 0);
             ai->attackerMinRollMoveDamages[i] = ServerDoTypeCalcMod(bsys, ctx, attackerMoveCheck, 0, attacker, ai->defender, ai->attackerMinRollMoveDamages[i], &effectivenessFlag);
-            ai->attackerMinRollMoveDamages[i] *= 92 / 100; //85% is min roll.
+            ai->attackerMinRollMoveDamages[i] = ai->attackerMinRollMoveDamages[i]*92 / 100; //85% is min roll.
             ai->attackerMinRollMoveDamages[i] = AdjustUnusualMoveDamage(bsys, ai->attackerLevel, ai->attackerHP, ai->defenderHP, ai->attackerMinRollMoveDamages[i], move.effect, ai->attackerAbility, ai->attackerItem);
-ai->monCanOneShotPlayerWithMove[i] = canMoveKillBattler(attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP, ai->defenderMaxHP, ai->attackerHasMoldBreaker, ai->defenderAbility, ai->defenderItem);
+            ai->monCanOneShotPlayerWithMove[i] = canMoveKillBattler(attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP, ai->defenderMaxHP, ai->attackerHasMoldBreaker, ai->defenderAbility, ai->defenderItem);
             if (ai->monCanOneShotPlayerWithMove[i])
 				ai->monCanOneShotPlayerWithAnyMove = TRUE;
 #ifdef BATLLE_DEBUG_OUTPUT
