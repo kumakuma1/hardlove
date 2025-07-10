@@ -1155,7 +1155,7 @@ extern const u16 MegaLauncherMovesTable[7];
 extern const u16 SharpnessMovesTable[24];
 
 int LONG_CALL AI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
-                   u32 field_cond, u16 pow, u8 type UNUSED, u8 enemyMonSlot, u8 critical, BOOL isPPAttacker, struct PartyPokemon* pp)
+                   u32 field_cond, u16 pow, u8 type, u8 enemyMonSlot, u8 critical, BOOL isPPAttacker, struct PartyPokemon* pp)
 {
     u32 i;
     s32 damage = 0;
@@ -1301,6 +1301,41 @@ int LONG_CALL AI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u
         return 0;
     }
 
+    BOOL attackerHasMoldBreaker = (AttackingMon.ability == ABILITY_MOLD_BREAKER || AttackingMon.ability == ABILITY_TERAVOLT || AttackingMon.ability == ABILITY_TURBOBLAZE);
+
+    if (!attackerHasMoldBreaker)
+    {
+        switch (DefendingMon.ability)
+        {
+        case ABILITY_FLASH_FIRE:
+        case ABILITY_WELL_BAKED_BODY:
+            if (type == TYPE_FIRE)
+                return 0;
+            break;
+        case ABILITY_LIGHTNING_ROD:
+        case ABILITY_VOLT_ABSORB:
+        case ABILITY_MOTOR_DRIVE:
+            if (type == TYPE_ELECTRIC)
+                return 0;
+            break;
+        case ABILITY_WATER_ABSORB:
+        case ABILITY_STORM_DRAIN:
+        case ABILITY_DRY_SKIN:
+            if (type == TYPE_WATER)
+                return 0;
+            break;
+        case ABILITY_SAP_SIPPER:
+            if (type == TYPE_GRASS)
+                return 0;
+            break;
+        case ABILITY_EARTH_EATER:
+            if (type == TYPE_GROUND)
+                return 0;
+            break;
+        default:
+            break;
+        }
+    }
 
     if (pow == 0)
         movepower = sp->moveTbl[moveno].power;
@@ -2116,42 +2151,5 @@ int LONG_CALL AI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u
     }
 
     damage = damage + 2;
-
-    BOOL attackerHasMoldBreaker = (AttackingMon.ability == ABILITY_MOLD_BREAKER || AttackingMon.ability == ABILITY_TERAVOLT || AttackingMon.ability == ABILITY_TURBOBLAZE);
-
-    if (!attackerHasMoldBreaker)
-    {
-        switch (DefendingMon.ability)
-        {
-        case ABILITY_FLASH_FIRE:
-        case ABILITY_WELL_BAKED_BODY:
-            if (movetype == TYPE_FIRE)
-                damage = 0;
-            break;
-        case ABILITY_LIGHTNING_ROD:
-        case ABILITY_VOLT_ABSORB:
-        case ABILITY_MOTOR_DRIVE:
-            if (movetype == TYPE_ELECTRIC)
-                damage = 0;
-            break;
-        case ABILITY_WATER_ABSORB:
-        case ABILITY_STORM_DRAIN:
-        case ABILITY_DRY_SKIN:
-            if (movetype == TYPE_WATER)
-                damage = 0;
-            break;
-        case ABILITY_SAP_SIPPER:
-            if (movetype == TYPE_GRASS)
-                damage = 0;
-            break;
-        case ABILITY_EARTH_EATER:
-            if (movetype == TYPE_GROUND)
-                damage = 0;
-            break;
-        default:
-            break;
-        }
-    }
-
     return damage;
 }

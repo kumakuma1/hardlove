@@ -329,8 +329,11 @@ int LONG_CALL BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContex
         moveScore -= IMPOSSIBLE_MOVE;
 
     // if (ctx->clientPriority[ctx->attack_client] > 0 && GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_PRANKSTER && HasType(ctx, defender, TYPE_DARK) && (ctx->attack_client & 1) != (defender & 1)) // used on an enemy
-    if (ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS && ctx->clientPriority[ai->attacker] > 0 && ai->attackerAbility == ABILITY_PRANKSTER && HasType(ctx, ai->defender, TYPE_DARK))
+    if (ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS && ctx->clientPriority[ai->attacker] > 0 && ai->attackerAbility == ABILITY_PRANKSTER && HasType(ctx, ai->defender, TYPE_DARK) &&
+        (ctx->moveTbl[ai->attackerMove].target == RANGE_ADJACENT_OPPONENTS || (ctx->moveTbl[ai->attackerMove].target == RANGE_SINGLE_TARGET && BATTLERS_ON_DIFFERENT_SIDE(ai->attacker, ai->defender))))
+    {
         moveScore -= IMPOSSIBLE_MOVE; // TODO check
+    }    
 
     switch (ai->attackerMoveEffect)
     {
