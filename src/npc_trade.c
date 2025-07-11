@@ -66,6 +66,7 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
         //random ability
 
         trade_dat->gender = POKEMON_GENDER_FEMALE;
+        level = 35;
     }
 #endif
         CreateMon(mon, trade_dat->give_species, level, 32, FALSE, trade_dat->pid, OT_ID_PRESET, trade_dat->otId);

@@ -1001,7 +1001,7 @@ trainerdata 20, "Falkner" // Leader
         move MOVE_SHOCK_WAVE
         move MOVE_AIR_CUTTER
         move MOVE_ROOST
-        move MOVE_SLEEP_TALK
+        move MOVE_NONE
         ability ABILITY_MOTOR_DRIVE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1506,12 +1506,12 @@ trainerdata 29, "Rod" // Violet Gym
         abilityslot 0
         level LEVEL_FALKNER-3
         pokemon SPECIES_DARTRIX
-        item ITEM_OCCA_BERRY
+        item ITEM_YACHE_BERRY
         move MOVE_PLUCK
         move MOVE_RAZOR_LEAF
         move MOVE_DOUBLE_TEAM
         move MOVE_ROOST
-        ability ABILITY_SPEED_BOOST
+        ability ABILITY_LONG_REACH
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1522,7 +1522,25 @@ trainerdata 29, "Rod" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-2
+        level LEVEL_FALKNER-1
+        pokemon SPECIES_QUAXLY
+        item ITEM_ORAN_BERRY
+        move MOVE_AQUA_JET
+        move MOVE_AERIAL_ACE
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_MOXIE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER-1
         pokemon SPECIES_DRIFLOON
         item ITEM_COLBUR_BERRY
         move MOVE_ACROBATICS
@@ -1540,32 +1558,14 @@ trainerdata 29, "Rod" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-2
-        pokemon SPECIES_DRIFLOON
-        item ITEM_COLBUR_BERRY
-        move MOVE_ACROBATICS
-        move MOVE_HEX
-        move MOVE_WILL_O_WISP
-        move MOVE_HIDDEN_POWER //GROUND
-        ability ABILITY_AFTERMATH
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 30, 30 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_NAIVE
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
         level LEVEL_FALKNER-3
-        monWithForm SPECIES_FARFETCHD, 1
+        monWithForm SPECIES_FARFETCHD, 0
         item ITEM_LEEK
-        move MOVE_ROCK_SMASH
-        move MOVE_BRUTAL_SWING
-        move MOVE_RETALIATE
+        move MOVE_AERIAL_ACE
         move MOVE_QUICK_ATTACK
-        ability ABILITY_SCRAPPY
+        move MOVE_STEEL_WING
+        move MOVE_RAZOR_LEAF
+        ability ABILITY_DEFIANT
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1574,23 +1574,23 @@ trainerdata 29, "Rod" // Violet Gym
         additionalflags 0
         ballseal 0
 
-        ivs 0
-        abilityslot 0
-        level LEVEL_FALKNER-2
-        pokemon SPECIES_TOGEPI
-        item ITEM_EVIOLITE
-        move MOVE_DRAINING_KISS
-        move MOVE_ANCIENT_POWER
-        move MOVE_WISH
-        move MOVE_PROTECT
-        ability ABILITY_SERENE_GRACE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_MODEST
-        shinylock 0
-        additionalflags 0
-        ballseal 0
+         ivs 0
+         abilityslot 0
+         level LEVEL_FALKNER-2
+         pokemon SPECIES_YANMA
+         item ITEM_CHARTI_BERRY
+         move MOVE_AIR_CUTTER
+         move MOVE_ANCIENT_POWER
+         move MOVE_BUG_BITE
+         move MOVE_NONE
+         ability ABILITY_SPEED_BOOST
+         ball ITEM_POKE_BALL
+         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+         setevs 0, 0, 0, 0, 0, 0
+         nature NATURE_TIMID
+         shinylock 0
+         additionalflags 0
+         ballseal 0
     endparty
 
 trainerdata 30, "Whitney"
@@ -2444,13 +2444,31 @@ trainerdata 42, "Nathan" // Ruins of Alph Mini Boss
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-2
-        pokemon SPECIES_STARAVIA
+        pokemon SPECIES_FURRET
         item ITEM_ORAN_BERRY
-        move MOVE_QUICK_ATTACK
+        move MOVE_HEADBUTT
+        move MOVE_THIEF
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_KEEN_EYE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0 
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER-2
+        pokemon SPECIES_GLIGAR
+        item ITEM_ORAN_BERRY
+        move MOVE_AERIAL_ACE
         move MOVE_SAND_ATTACK
-        move MOVE_PLUCK
+        move MOVE_SAND_TOMB
         move MOVE_ROOST
-        ability ABILITY_INTIMIDATE
+        ability ABILITY_HYPER_CUTTER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -2462,30 +2480,12 @@ trainerdata 42, "Nathan" // Ruins of Alph Mini Boss
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-2
-        pokemon SPECIES_BIBAREL
-        item ITEM_CHESTO_BERRY
-        move MOVE_AQUA_JET
-        move MOVE_HEADBUTT
-        move MOVE_REST
-        move MOVE_SLEEP_TALK
-        ability ABILITY_UNAWARE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0 
-        nature NATURE_ADAMANT
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_FALKNER-2
         pokemon SPECIES_FLAAFFY
         item ITEM_ORAN_BERRY
         move MOVE_THUNDER_PUNCH
         move MOVE_COTTON_GUARD
-        move MOVE_TAKE_DOWN
         move MOVE_FIRE_PUNCH
+        move MOVE_NONE
         ability ABILITY_STATIC
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -2511,18 +2511,18 @@ trainerdata 43, "Chow" // Violet Gym
     party 43
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-4
-        pokemon SPECIES_GLIGAR
-        item ITEM_LEFTOVERS
-        move MOVE_AERIAL_ACE
-        move MOVE_SAND_TOMB
-        move MOVE_PROTECT
-        move MOVE_ROOST
-        ability ABILITY_HYPER_CUTTER
+        level LEVEL_FALKNER-3
+        pokemon SPECIES_SKIPLOOM
+        item ITEM_YACHE_BERRY
+        move MOVE_MEGA_DRAIN
+        move MOVE_LEECH_SEED
+        move MOVE_SLEEP_POWDER
+        move MOVE_HIDDEN_POWER //ROCK
+        ability ABILITY_INFILTRATOR
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 30, 30, 31, 30 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -2531,12 +2531,12 @@ trainerdata 43, "Chow" // Violet Gym
         abilityslot 0
         level LEVEL_FALKNER-3
         pokemon SPECIES_PIKIPEK
-        item ITEM_FOCUS_SASH // ITEM_SCOPE_LENS?
-        move MOVE_FURY_ATTACK
-        move MOVE_BULLET_SEED
-        move MOVE_ROCK_BLAST
+        item ITEM_ORAN_BERRY
+        move MOVE_ACROBATICS
+        move MOVE_ROCK_SLIDE
+        move MOVE_ROOST
         move MOVE_NONE
-        ability ABILITY_SKILL_LINK
+        ability ABILITY_DEFEATIST
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -2665,7 +2665,7 @@ trainerdata 47, "Mikey"  // Route 30
         // mon 1
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-8
+        level LEVEL_ELDER_LI-5
         pokemon SPECIES_HOUNDOUR
         item ITEM_ORAN_BERRY
         move MOVE_FLAME_WHEEL
@@ -2684,7 +2684,7 @@ trainerdata 47, "Mikey"  // Route 30
         //mon 2
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-8
+        level LEVEL_ELDER_LI-6
         pokemon SPECIES_CHINCHOU
         item ITEM_ORAN_BERRY
         move MOVE_SHOCK_WAVE
@@ -2833,24 +2833,6 @@ trainerdata 50, "Abe" // Violet Gym
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-2
-        pokemon SPECIES_HOOTHOOT
-        item ITEM_WIDE_LENS
-        move MOVE_HYPNOSIS
-        move MOVE_AIR_CUTTER
-        move MOVE_ROOST
-        move MOVE_NONE
-        ability ABILITY_TINTED_LENS
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_FALKNER-3
         pokemon SPECIES_STARLY
         item ITEM_NORMAL_GEM
         move MOVE_TAKE_DOWN
@@ -2868,7 +2850,7 @@ trainerdata 50, "Abe" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-3
+        level LEVEL_FALKNER-2
         pokemon SPECIES_FLETCHLING
         item ITEM_BERRY_JUICE
         move MOVE_BRAVE_BIRD
@@ -2886,18 +2868,36 @@ trainerdata 50, "Abe" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-3
-        pokemon SPECIES_DELIBIRD
-        item ITEM_CHARTI_BERRY
-        move MOVE_PRESENT
-        move MOVE_ROOST
+        level LEVEL_FALKNER-2
+        pokemon SPECIES_PIKIPEK
+        item ITEM_CHOICE_SCARF
+        move MOVE_ROCK_BLAST
+        move MOVE_BULLET_SEED
         move MOVE_NONE
         move MOVE_NONE
-        ability ABILITY_HUSTLE
+        ability ABILITY_SKILL_LINK
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_FALKNER-2
+        pokemon SPECIES_TAILLOW
+        item ITEM_TOXIC_ORB
+        move MOVE_BRAVE_BIRD
+        move MOVE_FACADE
+        move MOVE_DOUBLE_TEAM
+        move MOVE_NONE
+        ability ABILITY_GUTS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -2921,9 +2921,9 @@ trainerdata 51, "Nico" //Sprout tower
         abilityslot 0
         level LEVEL_ELDER_LI-2
         pokemon SPECIES_COMBEE
-        item ITEM_CHOICE_BAND
+        item ITEM_CHARTI_BERRY
         move MOVE_BUG_BITE
-        move MOVE_DUAL_WINGBEAT
+        move MOVE_AERIAL_ACE
         move MOVE_NONE
         move MOVE_NONE
         ability ABILITY_HUSTLE
@@ -2940,8 +2940,8 @@ trainerdata 51, "Nico" //Sprout tower
         level LEVEL_ELDER_LI-3
         pokemon SPECIES_DELIBIRD
         item ITEM_WIDE_LENS
-        move MOVE_ICE_PUNCH
-        move MOVE_AERIAL_ACE
+        move MOVE_ICE_SHARD
+        move MOVE_NONE
         move MOVE_NONE
         move MOVE_NONE
         ability ABILITY_HUSTLE
@@ -3055,7 +3055,7 @@ trainerdata 53, "Jin" // Violet Gym
     party 53
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-2
+        level LEVEL_FALKNER-3
         pokemon SPECIES_DUNSPARCE
         item ITEM_LEFTOVERS
         move MOVE_BODY_SLAM
@@ -3073,7 +3073,7 @@ trainerdata 53, "Jin" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-3
+        level LEVEL_FALKNER-2
         pokemon SPECIES_SPEAROW
         item ITEM_SCOPE_LENS
         move MOVE_PLUCK
@@ -3091,18 +3091,18 @@ trainerdata 53, "Jin" // Violet Gym
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-3
-        pokemon SPECIES_DODUO
+        level LEVEL_FALKNER-2
+        pokemon SPECIES_HOOTHOOT
         item ITEM_EVIOLITE
-        move MOVE_PLUCK
-        move MOVE_PURSUIT
-        move MOVE_REST
-        move MOVE_SLEEP_TALK
-        ability ABILITY_EARLY_BIRD
+        move MOVE_AIR_CUTTER
+        move MOVE_HYPNOSIS
+        move MOVE_ROOST
+        move MOVE_NONE
+        ability ABILITY_TINTED_LENS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -3114,8 +3114,8 @@ trainerdata 53, "Jin" // Violet Gym
         item ITEM_COLBUR_BERRY
         move MOVE_HEX
         move MOVE_WILL_O_WISP
-        move MOVE_PAIN_SPLIT
         move MOVE_FOUL_PLAY
+        move MOVE_NONE
         ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef

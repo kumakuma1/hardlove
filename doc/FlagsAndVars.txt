@@ -16,7 +16,7 @@ Flag
 421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
 417   - 060-T20      : Script File 842 - Function 9: Hide Marill. Flag is set. by mom
 418   - 060-T20      : Script File 842 - Function 9: Hide Lyra. Flag is set.
-423   - 117-D36R0101 : Script File  92 - Porenta to hunt in Ilex. used for Heart Scale with Litten Starter on R34. Mom clears.
+423   - 117-D36R0101 : Script File  92 - Porenta to hunt in Ilex. Used for Heart Scale with Litten Starter in Goldenrod Store. Mom clears.
 424   - 117-D36R0101 : Script File  92 - Porenta to hunt in Ilex.
 451   -              :                 - Moves Guy for Bug Catching Contest
 452   -              :                 - Adds Guy for Bug Catching Contest

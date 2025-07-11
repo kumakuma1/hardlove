@@ -1877,8 +1877,8 @@ script 3
 	SetFollowingPokeMovement 55
 
 
-
-####Random Trade in goldenrod // TODO make accept any pokemon
+#### Heartscale for Litten
+####Random Trade in goldenrod
 195-T25R1005 - Event File 188 - Script 903
 
 Script 4:
@@ -1891,15 +1891,28 @@ CheckStarter 0x800C
 
 	
 Function 5:
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 775
+	JumpIf DIFFERENT Function#6
+	CheckFlag 423
+	JumpIf EQUAL Function#6
+	Message 21
+	SetVar 0x8004 93
+	SetVar 0x8005 1
+	CommonScript 2008
+Jump Function#6
+
+Function 6:
 	Message 20
 	CloseMessage 
 	ReleaseAll 
-End 
+End
 
-9: Wow!\nYou chose the Way the Turtle!\rI can help your way by trading you\na strong Pokémon\rYou can give me any Pokémon in return.\nWhat do you say? \v0200\x0001\x0000
+9: Wow!\nI also picked a Grass Pokémon as\fStarter.\rThey are the best, but they might\nneed some help on their adventures.\r
+   Let me help you by trading you a\nstrong Pokémon.\rYou can give me any Pokémon in return.\nWhat do you say? \v0200\x0001\x0000
 10: You don’t want to trade? Aww...
-20: Ever heard of the Way of the Turtle?\r
-
+20: Life choices, huh?\r
+21: Wow!\nI also picked a Fire Pokémon as\fStarter.\rThey are the best, but they might\nneed some help on their adventures.\rHere take this.\r
 
 
 ###Heartscale after Ilex/on R34:
@@ -1954,3 +1967,16 @@ encounter in file
 
 #### berries from apricorn
 -> script 2800 -> 280x  use flags 257x in scr_seq_0150.s and 023.txt
+
+
+
+##### Bug Bite Teacher in Azalea
+074 - T23: scriptfile 866: Add NPC 
+
+Script 18:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 0x28CA
+	ReleaseAll 
+End 
