@@ -190,6 +190,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker)
     int picked = 6; // in Order
     u32 moveDamage = 0;
     u32 moveDamageMax = 0;
+    u32 moveDamageMin = 0;
 
     slot1 = attacker;
     slot2 = slot1;
@@ -231,6 +232,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker)
             {
                 moveDamage = 0;
                 moveDamageMax = 0;
+                moveDamageMin = 0;
                 move = GetMonData(mon, MON_DATA_MOVE1 + j, NULL);
                 if (move != MOVE_NONE)
                 {
@@ -240,15 +242,21 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker)
                     if(attackerMove.split != SPLIT_STATUS && attackerMove.power)
                     {
                         moveDamage = AI_CalcBaseDamage(bsys, ctx, move, ctx->side_condition[BATTLER_IS_ENEMY(attacker)], ctx->field_condition, moveDamage, attackerMove.type, defender, 0, 1, mon);
-                        moveDamage = BattleAI_ServerDoTypeCalcMod(bsys, ctx, move, attackerMove.type, defender, moveDamage, &effectivenessFlag, mon, 1);
                         moveDamageMax = moveDamage;
-                        moveDamage = moveDamage*92 / 100; //85% is min roll, ~8th roll
+                        moveDamageMin = moveDamage * 85 / 100; //85% is min roll
+                        moveDamage = moveDamage * 92 / 100; //~8th roll
+
+                        moveDamageMax = BattleAI_ServerDoTypeCalcMod(bsys, ctx, move, attackerMove.type, defender, moveDamageMax, &effectivenessFlag, mon, 1);
+                        moveDamageMin = BattleAI_ServerDoTypeCalcMod(bsys, ctx, move, attackerMove.type, defender, moveDamageMin, &effectivenessFlag, mon, 1);
+                        moveDamage = BattleAI_ServerDoTypeCalcMod(bsys, ctx, move, attackerMove.type, defender, moveDamage, &effectivenessFlag, mon, 1);
+
+                        moveDamageMax = AdjustUnusualMoveDamage(bsys, GetMonData(mon, MON_DATA_LEVEL, 0), attackerHP, defenderHP, moveDamageMax, attackerMove.effect, attackerAbility, attackerItem);
+                        moveDamageMin = AdjustUnusualMoveDamage(bsys, GetMonData(mon, MON_DATA_LEVEL, 0), attackerHP, defenderHP, moveDamageMin, attackerMove.effect, attackerAbility, attackerItem);
                         moveDamage = AdjustUnusualMoveDamage(bsys, GetMonData(mon, MON_DATA_LEVEL, 0), attackerHP, defenderHP, moveDamage, attackerMove.effect, attackerAbility, attackerItem);
                         if (moveDamage > minRollMaxDamageDealt[i])
                             minRollMaxDamageDealt[i] = moveDamage;
                     }
-
-                    debug_printf("Move %d (%d) deals %d - %d\n", j, move, moveDamage, AdjustUnusualMoveDamage(bsys, GetMonData(mon, MON_DATA_LEVEL, 0), attackerHP, defenderHP, moveDamageMax, attackerMove.effect, attackerAbility, attackerItem));
+                    debug_printf("move %d: %d deals [%d-%d], 8th roll %d > def.HP %d\n", j, move, moveDamageMin, moveDamageMax, moveDamage, defenderHP);
                 }
             }
 
@@ -256,6 +264,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker)
             {
                 moveDamage = 0;
                 moveDamageMax = 0;
+                moveDamageMin = 0;
                 u32 defenderMoveCheck = ctx->battlemon[defender].move[k];
                 struct BattleMove defenderMove = ctx->moveTbl[defenderMoveCheck];
                 moveDamage = AdjustUnusualMovePower(bsys, defender, attacker, defenderMove.effect, defenderPercentHP);
@@ -263,16 +272,23 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker)
                 if(defenderMove.split != SPLIT_STATUS && defenderMove.power)
                 {
                     moveDamage = AI_CalcBaseDamage(bsys, ctx, defenderMoveCheck, ctx->side_condition[BATTLER_IS_ENEMY(defender)], ctx->field_condition, moveDamage, defenderMove.type, defender, 0, 0, mon);
-                    moveDamage = BattleAI_ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, defenderMove.type, defender, moveDamage, &effectivenessFlag, mon, 0);
                     moveDamageMax = moveDamage;
-                    moveDamage = moveDamage * 92 / 100; //85% is min roll.
-                    moveDamage = AdjustUnusualMoveDamage(bsys, defenderLevel, defenderHP, attackerHP, moveDamage, defenderMove.effect, defenderAbility , defenderItem);
+                    moveDamageMin = moveDamage * 85 / 100; //85% is min roll
+                    moveDamage = moveDamage * 92 / 100; //~8th roll
+
+                    moveDamageMax = BattleAI_ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, defenderMove.type, defender, moveDamageMax, &effectivenessFlag, mon, 0);
+                    moveDamageMin = BattleAI_ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, defenderMove.type, defender, moveDamageMin, &effectivenessFlag, mon, 0);
+                    moveDamage = BattleAI_ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, defenderMove.type, defender, moveDamage, &effectivenessFlag, mon, 0);
+
+                    moveDamageMax = AdjustUnusualMoveDamage(bsys, defenderLevel, defenderHP, attackerHP, moveDamageMax, defenderMove.effect, defenderAbility , defenderItem);
+                    moveDamageMin = AdjustUnusualMoveDamage(bsys, defenderLevel, defenderHP, attackerHP, moveDamageMin, defenderMove.effect, defenderAbility, defenderItem);
+                    moveDamage = AdjustUnusualMoveDamage(bsys, defenderLevel, defenderHP, attackerHP, moveDamage, defenderMove.effect, defenderAbility, defenderItem);
+
                     if (moveDamage > minRollMaxDamageReceived[i])
                         minRollMaxDamageReceived[i] = moveDamage;
-                        debug_printf("minDmg received %d\n", minRollMaxDamageReceived[i]);
+                        debug_printf("minRollMaxDamageReceived received %d\n", minRollMaxDamageReceived[i]);
                 }
-                
-                debug_printf("Receiving from Move %d (%d) is %d - %d\n", k, defenderMoveCheck, moveDamage, AdjustUnusualMoveDamage(bsys, defenderLevel, defenderHP, attackerHP, moveDamageMax, defenderMove.effect, defenderAbility, defenderItem));
+                debug_printf("Receiving from move %d: %d is [%d-%d], 8th roll %d > att.HP %d\n", k, defenderMoveCheck, moveDamageMin, moveDamageMax, moveDamage, attackerHP);
             }
 
 			//TODO use canMoveKillBattler to determine if the mon can kill the defender in one hit.

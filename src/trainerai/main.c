@@ -105,11 +105,11 @@ typedef struct {
 
 
 /*Flag functions return a move score, given the index of the current move*/
-int LONG_CALL BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
-int LONG_CALL EvaluateAttackFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
-int LONG_CALL ExpertFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
-int LONG_CALL CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
-int LONG_CALL HarassmentFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
+int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
+int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
+int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
+int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
+int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai);
 
 
 /*Helper Functions*/
@@ -153,11 +153,11 @@ int LONG_CALL scoreMovesAgainstDefender(struct BattleSystem* bsys, u32 attacker,
         }
 
         moveScores[target][i] += 1000;  //don't want to get negative numbers, so start high at 1000, MOVE_NONE will stay at 0
-        moveScores[target][i] += BasicFlag(bsys, attacker, i, ai);
-        moveScores[target][i] += EvaluateAttackFlag(bsys, attacker, i, ai);
-        moveScores[target][i] += ExpertFlag(bsys, attacker, i, ai);
-        moveScores[target][i] += CheckHPFlag(bsys, attacker, i, ai);
-        moveScores[target][i] += HarassmentFlag(bsys, attacker, i, ai);
+        moveScores[target][i] += BasicScoring(bsys, attacker, i, ai);
+        moveScores[target][i] += DamagingMoveScoring(bsys, attacker, i, ai);
+        moveScores[target][i] += SetupScoring(bsys, attacker, i, ai);
+        moveScores[target][i] += RecoveryScoring(bsys, attacker, i, ai);
+        moveScores[target][i] += HarassmentScoring(bsys, attacker, i, ai);
 
         if (highestScoredMove < moveScores[target][i])
             highestScoredMove = moveScores[target][i];
@@ -306,9 +306,8 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
 
 
-/*BasicFlag:
-Heavily penalize stupid decisions that would fail, do nothing, or objectively hurt the user.*/
-int LONG_CALL BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
+/*Heavily penalize stupid decisions that would fail, do nothing, or objectively hurt the user.*/
+int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
 {
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
@@ -558,8 +557,8 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, in
 	return moveScore;
 }
 
-/*Rank moves based on their damage output, ability to ohko, 2hko, */
-int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
+
+int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
 {
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
@@ -778,7 +777,7 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
     return moveScore;
 }
 
-int LONG_CALL offensiveSetup(struct BattleSystem* bsys, u32 attacker, int i UNUSED, AIContext* ai UNUSED)
+int LONG_CALL offensiveSetup(struct BattleSystem* bsys UNUSED, u32 attacker UNUSED, int i UNUSED, AIContext* ai)
 {
 	int moveScore = 0;
     if (ai->isDefenderIncapacitated)
@@ -796,7 +795,7 @@ int LONG_CALL offensiveSetup(struct BattleSystem* bsys, u32 attacker, int i UNUS
     
     return moveScore;
 }
-int LONG_CALL defensiveSetup(struct BattleSystem* bsys, u32 attacker, int i UNUSED, AIContext* ai UNUSED)
+int LONG_CALL defensiveSetup(struct BattleSystem* bsys UNUSED, u32 attacker UNUSED, int i UNUSED, AIContext* ai)
 {
     int moveScore = 0;
     if (ai->isDefenderIncapacitated)
@@ -807,7 +806,7 @@ int LONG_CALL defensiveSetup(struct BattleSystem* bsys, u32 attacker, int i UNUS
 }
 
 
-int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
+int LONG_CALL SetupScoring(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
 {
     int moveScore = 0;
     struct BattleStruct* ctx = bsys->sp;
@@ -967,7 +966,7 @@ int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIConte
     return moveScore;
 }
 
-int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
+int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
 {
     int moveScore = 0;
     BOOL sharesMoves = FALSE;
@@ -1489,7 +1488,7 @@ BOOL LONG_CALL shouldRecover(struct BattleSystem* bsys, u32 attacker, u32 attack
 }
 
 
-int LONG_CALL CheckHPFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
+int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
 {
     int moveScore = 0;
     struct BattleStruct* ctx = bsys->sp;
@@ -1965,10 +1964,11 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     }
 
     ai->defenderImmuneToBurn = FALSE;
-    if (isDefenderImmuneToAnyStatus ||
-		ai->defenderAbility == ABILITY_WATER_VEIL || ai->defenderAbility == ABILITY_THERMAL_EXCHANGE || ai->defenderAbility == ABILITY_MAGIC_GUARD || ai->defenderAbility == ABILITY_WATER_BUBBLE ||
-        (ai->isDefenderGrounded && ctx->terrainOverlay.type == MISTY_TERRAIN) ||
-        HasType(ctx, ai->defender, TYPE_FIRE))
+    if (isDefenderImmuneToAnyStatus
+        || ai->defenderAbility == ABILITY_WATER_VEIL || ai->defenderAbility == ABILITY_THERMAL_EXCHANGE || ai->defenderAbility == ABILITY_FLASH_FIRE
+        || ai->defenderAbility == ABILITY_MAGIC_GUARD || ai->defenderAbility == ABILITY_WATER_BUBBLE 
+        || (ai->isDefenderGrounded && ctx->terrainOverlay.type == MISTY_TERRAIN) 
+        || HasType(ctx, ai->defender, TYPE_FIRE))
     {
         ai->defenderImmuneToBurn = TRUE;
     }
@@ -2069,7 +2069,6 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->monCanOneShotPlayerWithAnyMove = FALSE;
     for(int i = 0; i < ai->attackerMovesKnown; i++)
     {
-
         u32 attackerMoveCheck = ctx->battlemon[attacker].move[i];
         struct BattleMove move = ctx->moveTbl[attackerMoveCheck];
         damageRollMax = 0;
@@ -2106,10 +2105,6 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         /*Record our highest damage output*/
         if(ai->attackerMinRollMoveDamages[i] > ai->attackerMaxDamageOutputMinRoll){
             ai->attackerMaxDamageOutputMinRoll = ai->attackerMinRollMoveDamages[i];
-        }
-
-        if(ai->attackerMinRollMoveDamages[i] > 0){
-            ai->attackerHasDamagingMove = 1;
         }
     }
 }
