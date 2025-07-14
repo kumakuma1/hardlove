@@ -118,9 +118,9 @@ void LONG_CALL AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAb
 
 
 /*Returns the true move power of variable power moves like reversal or magnitude*/
-int AdjustUnusualMovePower(struct BattleSystem *bsys, u32 attacker, u32 defender, int moveEffect, int attackerPercentHP)
+int AdjustUnusualMovePower(struct BattleSystem* bsys UNUSED, u32 attacker UNUSED, u32 defender UNUSED, int moveEffect, int attackerPercentHP)
 {
-    struct BattleStruct *ctx = bsys->sp;
+    //struct BattleStruct *ctx = bsys->sp;
     switch(moveEffect){
         case MOVE_EFFECT_RANDOM_POWER_10_CASES:
             return 71; //average power
@@ -178,15 +178,12 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker)
     int battleType = BattleTypeGet(bsys);
     struct PartyPokemon *mon;
     u8 speedCalc;
-    int work;
-    u32 temp = 0;
 	u32 defender = BATTLER_OPPONENT(attacker);   //default for singles -- updated in the doubles section
     u8 slot1, slot2;
     u16 move = 0;
     u16 monSpecies;
     u32 minRollMaxDamageDealt[6] = {0};
     u32 minRollMaxDamageReceived[6] = {0};
-    u32 monIsFaster[6] = {0};
     u16 switchInScore[6] = {0};
     int partySize = 0;
     u32 effectivenessFlag = 0;
@@ -269,13 +266,13 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker)
                     moveDamage = BattleAI_ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, defenderMove.type, defender, moveDamage, &effectivenessFlag, mon, 0);
                     moveDamageMax = moveDamage;
                     moveDamage = moveDamage * 92 / 100; //85% is min roll.
-                    moveDamage = AdjustUnusualMoveDamage(bsys, ctx->battlemon[defender].level, defenderHP, attackerHP, moveDamage, defenderMove.effect, defenderAbility , defenderItem);
+                    moveDamage = AdjustUnusualMoveDamage(bsys, defenderLevel, defenderHP, attackerHP, moveDamage, defenderMove.effect, defenderAbility , defenderItem);
                     if (moveDamage > minRollMaxDamageReceived[i])
                         minRollMaxDamageReceived[i] = moveDamage;
                         debug_printf("minDmg received %d\n", minRollMaxDamageReceived[i]);
                 }
                 
-                debug_printf("Receiving from Move %d (%d) is %d - %d\n", k, defenderMoveCheck, moveDamage, AdjustUnusualMoveDamage(bsys, ctx->battlemon[defender].level, defenderHP, attackerHP, moveDamageMax, defenderMove.effect, defenderAbility, defenderItem));
+                debug_printf("Receiving from Move %d (%d) is %d - %d\n", k, defenderMoveCheck, moveDamage, AdjustUnusualMoveDamage(bsys, defenderLevel, defenderHP, attackerHP, moveDamageMax, defenderMove.effect, defenderAbility, defenderItem));
             }
 
 			//TODO use canMoveKillBattler to determine if the mon can kill the defender in one hit.
@@ -344,7 +341,6 @@ u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, 
     int ability2;
     int stat_stage_spd1;
     int stat_stage_spd2;
-    u32 i;
 
     u32 speedModifier1 = UQ412__1_0;
     u32 speedModifier2 = UQ412__1_0;
@@ -951,7 +947,7 @@ int LONG_CALL BattleAI_ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct 
 /*Adjusts the computed damage for attacks like multihit or flat damage moves.*/
 int LONG_CALL AdjustUnusualMoveDamage(struct BattleSystem* bsys, u32 attackerLevel, u32 attackerHP, u32 defenderHP, int damage, u32 moveEffect, u32 attackerAbility, u32 attackerItem)
 {
-    struct BattleStruct* ctx = bsys->sp;
+    //struct BattleStruct* ctx = bsys->sp;
     switch (moveEffect) {
     case MOVE_EFFECT_UP_TO_10_HITS:
         if (attackerAbility == ABILITY_SKILL_LINK)
@@ -972,7 +968,7 @@ int LONG_CALL AdjustUnusualMoveDamage(struct BattleSystem* bsys, u32 attackerLev
             return damage *= 4; //4-5
         return damage *= 3;
     case MOVE_EFFECT_LEVEL_DAMAGE_FLAT: //night shade, seismic toss
-    case MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL: //psybeam
+    case MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL: //psywave
         return attackerLevel;
     case MOVE_EFFECT_10_DAMAGE_FLAT: //sonic boom
         return 20;
@@ -1019,7 +1015,7 @@ BOOL LONG_CALL AI_IsContactBeingMade(struct BattleStruct *sp, u32 ability, u32 i
     if (ability == ABILITY_LONG_REACH)
             return FALSE;
 
-    if (itemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS || itemHoldEffect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG && IsMovePunchingMove(moveno))
+    if (itemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS || (itemHoldEffect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG && IsMovePunchingMove(moveno)))
         return FALSE;
 
     if (itemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS)

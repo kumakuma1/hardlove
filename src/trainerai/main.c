@@ -32,7 +32,6 @@ typedef struct {
     u8 defenderMovesFirst;
     u8 isSpeedTie;
     u32 flingPower;
-    u32 attackerMoveEffectiveness;
     int chosenTarget;
     int attacker;
     int defender;
@@ -100,6 +99,7 @@ typedef struct {
     int attackerMovePPRemaining;
     int attackerMinRollMoveDamages[4];
     BOOL monCanOneShotPlayerWithMove[4];
+    u32 effectivenessOnPlayer[4];
     int attackerMaxDamageOutputMinRoll;
 } AIContext;
 
@@ -121,9 +121,8 @@ BOOL LONG_CALL shouldRecover(struct BattleSystem* bsys, u32 attacker, u32 attack
 BOOL LONG_CALL battlerKnowsThawingMove(struct BattleSystem* bsys, u32 battler, AIContext* ai);
 int LONG_CALL offensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai);
 int LONG_CALL defensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai);
-BOOL LONG_CALL isMoveSpecialAiAttackingMove(struct BattleSystem* bsys, u32 attackerMove, AIContext* ai);
+BOOL LONG_CALL isMoveSpecialAiAttackingMove(u32 attackerMove);
 int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai);
-BOOL LONG_CALL isMoveOneHitKOMove(struct BattleSystem* bsys, u32 attackerMove, AIContext* ai);
 BOOL LONG_CALL IsMoveMultihit(u32 move);
 BOOL LONG_CALL canMoveKillBattler(u32 move, u32 damage, u32 defenderHP, u32 defenderMaxHP, BOOL attackerHasMoldBreaker, u32 defenderAbility, u32 defenderItem);
 BOOL LONG_CALL monDiesFromResidualDamage(struct BattleStruct* ctx, u32 attacker, u32 attackerCondition, BOOL isSeeded);
@@ -188,7 +187,6 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     int targetsSize = 0;
     int tiedMoveIndices[4] = {0};
     u32 target = 0;
-	int numberOfPotentialTargets = 0;
 
     u32 defender = BATTLER_OPPONENT(attacker);   //default for singles
     target = defender;
@@ -334,7 +332,12 @@ int LONG_CALL BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContex
         (ctx->moveTbl[ai->attackerMove].target == RANGE_ADJACENT_OPPONENTS || (ctx->moveTbl[ai->attackerMove].target == RANGE_SINGLE_TARGET && BATTLERS_ON_DIFFERENT_SIDE(ai->attacker, ai->defender))))
     {
         moveScore -= IMPOSSIBLE_MOVE; // TODO check
-    }    
+    }
+
+    if (ai->effectivenessOnPlayer[i] & MOVE_STATUS_FLAG_NOT_EFFECTIVE) // immunity
+    {
+        moveScore -= IMPOSSIBLE_MOVE;
+    }
 
     switch (ai->attackerMoveEffect)
     {
@@ -378,9 +381,12 @@ int LONG_CALL BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContex
             break;
         }
         case MOVE_EFFECT_PARALYZE_HIT:
-            if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance != 100)
-                break;
-            FALLTHROUGH;
+            if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100) //nuzzle
+            {
+                if(ai->defenderImmuneToParalysis || ai->attackerMinRollMoveDamages[i] == 0)
+                    moveScore -= NEVER_USE_MOVE_20;
+            }
+            break;
         case MOVE_EFFECT_STATUS_PARALYZE:
             if (ai->defenderImmuneToParalysis)
                 moveScore -= NEVER_USE_MOVE_20;
@@ -438,7 +444,7 @@ int LONG_CALL BasicFlag(struct BattleSystem *bsys, u32 attacker, int i, AIContex
     return moveScore;
 }
 
-BOOL LONG_CALL isMoveSpecialAiAttackingMove(struct BattleSystem* bsys, u32 attackerMove, AIContext* ai)
+BOOL LONG_CALL isMoveSpecialAiAttackingMove(u32 attackerMove)
 {
     BOOL isSpecialAIMove = FALSE;
     switch (attackerMove)
@@ -552,23 +558,6 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, in
 	return moveScore;
 }
 
-BOOL LONG_CALL isMoveOneHitKOMove(struct BattleSystem* bsys, u32 attackerMove, AIContext* ai)
-{
-    BOOL isOneHitKOMove = FALSE;
-    switch (attackerMove)
-    {
-    case MOVE_GUILLOTINE:
-    case MOVE_HORN_DRILL:
-    case MOVE_FISSURE:
-    case MOVE_SHEER_COLD:
-        isOneHitKOMove = TRUE;
-        break;
-    default:
-        break;
-    }
-    return isOneHitKOMove;
-}
-
 /*Rank moves based on their damage output, ability to ohko, 2hko, */
 int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i, AIContext *ai)
 {
@@ -586,11 +575,11 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
 
     //TODO deal with contrary
 
-    if (isMoveSpecialAiAttackingMove(bsys, ai->attackerMove, ai))
+    if (isMoveSpecialAiAttackingMove(ai->attackerMove))
     {
 		moveScore += SpecialAiAttackingMove(bsys, attacker, i, ai);
     }
-    else if (isMoveOneHitKOMove(bsys, ai->attackerMove, ai))
+    else if (ai->attackerMoveEffect == MOVE_EFFECT_ONE_HIT_KO)
     {
         switch (ai->attackerMove)
         {
@@ -645,7 +634,7 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
-    if (ai->attackerMoveEffectiveness & MOVE_STATUS_FLAG_SUPER_EFFECTIVE && ai->attackerMoveEffect == MOVE_EFFECT_HIGH_CRITICAL)
+    if (ai->effectivenessOnPlayer[i] & MOVE_STATUS_FLAG_SUPER_EFFECTIVE && ai->attackerMoveEffect == MOVE_EFFECT_HIGH_CRITICAL)
     {
         if(BattleRand(bsys) % 2 == 0)
             moveScore += 2;
@@ -659,7 +648,7 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
-    if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SPEED_HIT)
+    if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SPEED_HIT && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100)
     {
         if (!ai->defenderMovesFirst && ((ai->defenderAbility != ABILITY_CLEAR_BODY && ai->defenderAbility != ABILITY_WHITE_SMOKE && ai->defenderAbility != ABILITY_CONTRARY) || 
             ai->attackerHasMoldBreaker))
@@ -677,8 +666,9 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
-    if (!isMoveHighestDamage && ((ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SP_ATK_HIT && ai->defenderHasAtleastOneSpecialMove)|| 
-        (ai->attackerMoveEffect == MOVE_EFFECT_LOWER_ATTACK_HIT && ai->defenderHasAtleastOnePhysicalMove)))
+    if (!isMoveHighestDamage && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100
+        && ((ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SP_ATK_HIT && ai->defenderHasAtleastOneSpecialMove)
+        ||  (ai->attackerMoveEffect == MOVE_EFFECT_LOWER_ATTACK_HIT && ai->defenderHasAtleastOnePhysicalMove)))
     {
         if ((ai->defenderAbility != ABILITY_CLEAR_BODY && ai->defenderAbility != ABILITY_WHITE_SMOKE && ai->defenderAbility != ABILITY_CONTRARY) || 
             ai->attackerHasMoldBreaker)
@@ -788,7 +778,7 @@ int LONG_CALL EvaluateAttackFlag (struct BattleSystem *bsys, u32 attacker, int i
     return moveScore;
 }
 
-int LONG_CALL offensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
+int LONG_CALL offensiveSetup(struct BattleSystem* bsys, u32 attacker, int i UNUSED, AIContext* ai UNUSED)
 {
 	int moveScore = 0;
     if (ai->isDefenderIncapacitated)
@@ -806,7 +796,7 @@ int LONG_CALL offensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIC
     
     return moveScore;
 }
-int LONG_CALL defensiveSetup(struct BattleSystem* bsys, u32 attacker, int i, AIContext* ai)
+int LONG_CALL defensiveSetup(struct BattleSystem* bsys, u32 attacker, int i UNUSED, AIContext* ai UNUSED)
 {
     int moveScore = 0;
     if (ai->isDefenderIncapacitated)
@@ -905,6 +895,11 @@ int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIConte
             if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7)
                 moveScore -= NEVER_USE_MOVE_20;
             break;
+        case MOVE_EFFECT_RAISE_SP_ATK_HIT: //charge beam
+        case MOVE_EFFECT_RAISE_ATTACK_HIT: //PuP
+            if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance < 100 || ai->attackerMaxDamageOutputMinRoll == ai->attackerMinRollMoveDamages[i]) // if other move (like Metal Claw), or highest damage 
+                break;
+            FALLTHROUGH;
         case MOVE_EFFECT_ATK_UP:   //howl
 		case MOVE_EFFECT_ATK_UP_2: //swords dance
         case MOVE_EFFECT_ATK_UP_3:
@@ -912,10 +907,8 @@ int LONG_CALL ExpertFlag(struct BattleSystem* bsys, u32 attacker, int i, AIConte
         case MOVE_EFFECT_SP_ATK_UP: //growth
         case MOVE_EFFECT_ATK_SP_ATK_UP: //work up
         case MOVE_EFFECT_ATK_ACC_UP: //hone claws
-        case MOVE_EFFECT_RAISE_ATTACK_HIT: //powerup punch
         case MOVE_EFFECT_SPEED_UP_2_ATK_UP: //shift gear
         case MOVE_EFFECT_TIDY_UP: //tidy up is basically ddance
-        //case MOVE_EFFECT_RAISE_ATTACK_HIT: //PuP
 		case MOVE_EFFECT_RANDOM_STAT_UP_2: //accupressure
         case MOVE_EFFECT_ATK_DEF_SPEED_UP: //victory dance
             moveScore += 6;
@@ -1168,7 +1161,7 @@ int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIC
             moveScore -= NEVER_USE_MOVE_20;
         break;
     case MOVE_EFFECT_PARALYZE_HIT:
-        if (ai->attackerMove != MOVE_NUZZLE)
+        if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance < 100 || ai->attackerMinRollMoveDamages[i] > 0 /*no immunity*/) //nuzzle
             break;
         FALLTHROUGH;
     case MOVE_EFFECT_STATUS_PARALYZE:
@@ -1191,6 +1184,40 @@ int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIC
                 moveScore += 1;
             if (ai->defenderHasAtleastOnePhysicalMove)
                 moveScore += 1;
+        }
+        break;
+    case MOVE_EFFECT_STATUS_SLEEP:
+    case MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN:
+        moveScore += 6;
+        if (!ai->monCanOneShotPlayerWithAnyMove && (BattleRand(bsys) % 4 == 0)) // no kill
+        {
+            if (!ai->defenderImmuneToSleep)
+                moveScore += 1;
+            if (((BattlerKnowsMove(bsys, attacker, MOVE_DREAM_EATER, ai) == TRUE) ||
+                (BattlerKnowsMove(bsys, attacker, MOVE_NIGHTMARE, ai) == TRUE)) &&
+                (BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai) == FALSE) &&
+                (BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) == FALSE))
+                moveScore += 1;
+            if ((BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE)) // or partner
+                moveScore += 1;
+        }
+        break;
+    case MOVE_EFFECT_STATUS_POISON:
+    case MOVE_EFFECT_STATUS_BADLY_POISON:
+        moveScore += 6;
+        if (!ai->monCanOneShotPlayerWithAnyMove && (BattleRand(bsys) % 3 == 0)) // no kill
+        {
+            if (!ai->defenderImmuneToPoison && ai->defenderPercentHP > 20)
+            {
+                if (ai->maxDamageReceived < ai->attackerHP / 2 &&
+                    (BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) ||
+                        BattlerKnowsMove(bsys, attacker, MOVE_VENOM_DRENCH, ai) ||
+                        BattlerKnowsMove(bsys, attacker, MOVE_VENOSHOCK, ai) ||
+                        ai->attackerAbility == ABILITY_MERCILESS))
+                {
+                    moveScore += 2;
+                }
+            }
         }
         break;
     case MOVE_EFFECT_SWITCH_HELD_ITEMS:
@@ -1231,40 +1258,6 @@ int LONG_CALL HarassmentFlag(struct BattleSystem* bsys, u32 attacker, int i, AIC
             moveScore += 6;
             if (ai->defenderCondition & STATUS_PARALYSIS || ctx->battlemon[ai->defender].condition2 & STATUS2_CONFUSION)
                 moveScore += 2;
-        }
-        break;
-    case MOVE_EFFECT_STATUS_SLEEP:
-    case MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN:
-        moveScore += 6;
-        if (ai->monCanOneShotPlayerWithAnyMove == FALSE && (BattleRand(bsys) % 4 == 0)) // no kill
-        {
-            if (!ai->defenderImmuneToSleep)
-                moveScore += 1;
-            if (((BattlerKnowsMove(bsys, attacker, MOVE_DREAM_EATER, ai) == TRUE) ||
-                (BattlerKnowsMove(bsys, attacker, MOVE_NIGHTMARE, ai) == TRUE)) &&
-                (BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai) == FALSE) &&
-                (BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) == FALSE))
-                moveScore += 1;
-            if ((BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE)) // or partner
-                moveScore += 1;
-        }
-        break;
-    case MOVE_EFFECT_STATUS_POISON:
-    case MOVE_EFFECT_STATUS_BADLY_POISON:
-        moveScore += 6;
-        if (ai->monCanOneShotPlayerWithAnyMove == FALSE && (BattleRand(bsys) % 3 == 0)) // no kill
-        {
-            if (!ai->defenderImmuneToPoison && ai->defenderPercentHP > 20)
-            {
-                if (ai->maxDamageReceived < ai->attackerHP / 2 &&
-                    (BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) ||
-                        BattlerKnowsMove(bsys, attacker, MOVE_VENOM_DRENCH, ai) ||
-                        BattlerKnowsMove(bsys, attacker, MOVE_VENOSHOCK, ai) ||
-                        ai->attackerAbility == ABILITY_MERCILESS))
-                {
-                    moveScore += 2;
-                }
-            }
         }
         break;
     case MOVE_EFFECT_STATUS_LEECH_SEED:
@@ -1577,7 +1570,7 @@ BOOL LONG_CALL battlerHasSoundBasedMove(struct BattleSystem* bsys, u32 battler, 
     return hasMove;
 }
 
-BOOL LONG_CALL battlerKnowsFlinchingMove(struct BattleSystem* bsys, u32 battler, AIContext* ai)
+BOOL LONG_CALL battlerKnowsFlinchingMove(struct BattleSystem* bsys, u32 battler, AIContext* ai UNUSED)
 {
     BOOL knowsMove = 0;
     struct BattleStruct* ctx = bsys->sp;
@@ -1625,7 +1618,7 @@ BOOL LONG_CALL battlerKnowsFlinchingMove(struct BattleSystem* bsys, u32 battler,
     return knowsMove;
 }
 
-BOOL LONG_CALL battlerKnowsThawingMove(struct BattleSystem* bsys, u32 battler, AIContext* ai)
+BOOL LONG_CALL battlerKnowsThawingMove(struct BattleSystem* bsys, u32 battler, AIContext* ai UNUSED)
 {
     BOOL knowsMove = 0;
     struct BattleStruct* ctx = bsys->sp;
@@ -1655,7 +1648,7 @@ BOOL LONG_CALL battlerKnowsThawingMove(struct BattleSystem* bsys, u32 battler, A
 
 
 /*Returns true if user has a particular move in their 4 move slots.*/
-BOOL LONG_CALL BattlerKnowsMove(struct BattleSystem *bsys, u32 battler, u32 move, AIContext *ai)
+BOOL LONG_CALL BattlerKnowsMove(struct BattleSystem *bsys, u32 battler, u32 move, AIContext *ai UNUSED)
 {
     BOOL knowsMove = FALSE;
     struct BattleStruct *ctx = bsys->sp;
@@ -1687,7 +1680,7 @@ BOOL LONG_CALL IsInList(u32 value, const u16 list[], u16 ListLength)
 }
 
 /*Returns true if the given battler has a move in a list.*/
-BOOL LONG_CALL BattlerKnowsMoveInList(struct BattleSystem *bsys, u32 battler, const u16 MoveList[], u16 listLength, AIContext *ai) {
+BOOL LONG_CALL BattlerKnowsMoveInList(struct BattleSystem *bsys, u32 battler, const u16 MoveList[], u16 listLength, AIContext *ai UNUSED) {
     struct BattleStruct *ctx = bsys->sp;
     BOOL knowsMove = FALSE;
     for (int i = 0; i < 4; i++) {
@@ -1703,7 +1696,7 @@ BOOL LONG_CALL BattlerKnowsMoveInList(struct BattleSystem *bsys, u32 battler, co
 
 /*Returns true if the battler moves first. 
 This function particularly accounts for 4 battlers, not just 2.*/
-BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *bsys, struct BattleStruct *ctx, int mainBattler, int flag, AIContext *ai){
+BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *bsys, struct BattleStruct *ctx, int mainBattler, int flag, AIContext *ai UNUSED){
     BOOL movesFirst = TRUE;
     for (int otherBattler = 0; otherBattler < 4; otherBattler++){
         if(ctx->battlemon[otherBattler].hp != 0 && mainBattler != otherBattler){
@@ -1716,7 +1709,7 @@ BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *bsys, struct Battle
 }
 
 
-int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem* bsys, u32 battler, AIContext* ai) {
+int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem* bsys, u32 battler, AIContext* ai UNUSED) {
     struct BattleStruct* ctx = bsys->sp;
     int statSum = 0;
 
@@ -1988,7 +1981,6 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         ai->defenderImmuneToSleep = TRUE;
     }
 
-    ai->attackerMoveEffectiveness = 0;
     ai->partySizeAttacker = Battle_GetClientPartySize(bsys, attacker);
     ai->livingMembersAttacker = 0;
     ai->partySizeDefender = Battle_GetClientPartySize(bsys, ai->defender);
@@ -2021,24 +2013,33 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->attackerHasSupereffectiveMove = 0;
     ai->attackerHasDamagingMove = 0;
 
-    int specialMovePower = 0;
+    int damageRollMax = 0;
+    int damageRollMin = 0;
 
     /*Loop over defender's moves, and compute the max of all min roll damages*/
     int currentReceivedDamage = 0;
     int highestDamageMoveIndex = 0;
     ai->playerCanOneShotMon = FALSE;
     for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, ai->defender); i++){
-        specialMovePower = 0;
+        damageRollMax = 0;
         u32 defenderMoveCheck = ctx->battlemon[defender].move[i];
         struct BattleMove defenderMove = ctx->moveTbl[defenderMoveCheck];
 
         if(defenderMove.split != SPLIT_STATUS){
-            specialMovePower = AdjustUnusualMovePower(bsys, ai->defender, ai->attacker, defenderMove.effect, ai->defenderPercentHP);
-            currentReceivedDamage = CalcBaseDamage(bsys, ctx, defenderMoveCheck, ctx->side_condition[ai->attackerSide],ctx->field_condition, specialMovePower, defenderMove.type, ai->defender, ai->attacker, 0);
+            damageRollMax = AdjustUnusualMovePower(bsys, ai->defender, ai->attacker, defenderMove.effect, ai->defenderPercentHP);
+            damageRollMax = CalcBaseDamage(bsys, ctx, defenderMoveCheck, ctx->side_condition[ai->attackerSide],ctx->field_condition, damageRollMax, defenderMove.type, ai->defender, ai->attacker, 0);
+            currentReceivedDamage = damageRollMax * 92 / 100;
+            damageRollMin = damageRollMax * 85 / 100;
+
+            damageRollMax = ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, 0, ai->defender, ai->attacker, damageRollMax, &effectivenessFlag);
+            damageRollMin = ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, 0, ai->defender, ai->attacker, damageRollMin, &effectivenessFlag);
+
             currentReceivedDamage = ServerDoTypeCalcMod(bsys, ctx, defenderMoveCheck, 0, ai->defender, ai->attacker, currentReceivedDamage, &effectivenessFlag);
-            currentReceivedDamage = currentReceivedDamage * 92 / 100;
             currentReceivedDamage = AdjustUnusualMoveDamage(bsys, ai->defenderLevel, ai->defenderHP, ai->attackerHP, currentReceivedDamage, defenderMove.effect, ai->defenderAbility, ai->defenderItem);
-            debug_printf("move %d: %d, damage %d > def Hp %d\n", i, defenderMoveCheck, currentReceivedDamage, ai->attackerHP);
+            
+            damageRollMax = AdjustUnusualMoveDamage(bsys, ai->defenderLevel, ai->defenderHP, ai->attackerHP, damageRollMax, defenderMove.effect, ai->defenderAbility, ai->defenderItem);
+            damageRollMin = AdjustUnusualMoveDamage(bsys, ai->defenderLevel, ai->defenderHP, ai->attackerHP, damageRollMin, defenderMove.effect, ai->defenderAbility, ai->defenderItem);
+
             BOOL playerCanOneShotMonWithMove = canMoveKillBattler(defenderMoveCheck, currentReceivedDamage, ai->attackerHP, ai->attackerMaxHP, ai->defenderHasMoldBreaker, ai->attackerAbility, ai->attackerItem);
             if (playerCanOneShotMonWithMove)
                 ai->playerCanOneShotMon = TRUE;
@@ -2052,12 +2053,14 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
                 ai->defenderHasAtleastOneSpecialMove = 1;
             else
                 ai->defenderHasAtleastOnePhysicalMove = 1;
+#ifdef BATLLE_DEBUG_OUTPUT
+            debug_printf("move %d: %d deals [%d-%d], 8th roll %d > att.HP %d\n", i, defenderMoveCheck, damageRollMin, damageRollMax, currentReceivedDamage, ai->attackerHP);
+#endif // BATLLE_DEBUG_OUTPUT
         }
-        //debug_printf("Max damage received for move %d is: %d\n",i,currentReceivedDamage);
     }
 
 #ifdef BATLLE_DEBUG_OUTPUT
-    debug_printf("Overall Max damage received from %i:%i is %d > %d attHP\n", highestDamageMoveIndex, ctx->battlemon[ai->defender].move[highestDamageMoveIndex], ai->maxDamageReceived, ai->attackerHP);
+    debug_printf("Overall Max damage received from %i:%i is %d > %d att.HP\n", highestDamageMoveIndex, ctx->battlemon[ai->defender].move[highestDamageMoveIndex], ai->maxDamageReceived, ai->attackerHP);
 #endif // BATLLE_DEBUG_OUTPUT
  
     /*Loop over all moves for checking certain conditions*/
@@ -2069,25 +2072,34 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 
         u32 attackerMoveCheck = ctx->battlemon[attacker].move[i];
         struct BattleMove move = ctx->moveTbl[attackerMoveCheck];
-        specialMovePower = 0;
+        damageRollMax = 0;
+
+        AITypeCalc(ctx, attackerMoveCheck, move.type, ai->attackerAbility, ai->defenderAbility, ai->defenderHoldEffect, ai->defenderType1, ai->defenderType2, &ai->effectivenessOnPlayer[i]);
+        if (ai->effectivenessOnPlayer[i] == MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
+            ai->attackerHasSupereffectiveMove = 1;
 
         if(move.split != SPLIT_STATUS)
         {
-            AITypeCalc(ctx, attackerMoveCheck, move.type, ai->attackerAbility, ai->defenderAbility, ai->defenderHoldEffect, ai->defenderType1, ai->defenderType2, &ai->attackerMoveEffectiveness);
-            if (ai->attackerMoveEffectiveness == MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
-                ai->attackerHasSupereffectiveMove = 1;
+            damageRollMax = AdjustUnusualMovePower(bsys, attacker, ai->defender, move.effect, ai->attackerPercentHP);
 
-            specialMovePower = AdjustUnusualMovePower(bsys, attacker, ai->defender, move.effect, ai->attackerPercentHP);
+            damageRollMax = CalcBaseDamage(bsys, ctx, attackerMoveCheck, ctx->side_condition[ai->defenderSide],ctx->field_condition, damageRollMax, move.type, ai->attacker, ai->defender, 0);
+            ai->attackerMinRollMoveDamages[i] = damageRollMax * 92 / 100; //8th roll.
+            damageRollMin = damageRollMax * 85 / 100;
+            damageRollMax = ServerDoTypeCalcMod(bsys, ctx, attackerMoveCheck, 0, attacker, ai->defender, damageRollMax, &effectivenessFlag);
+            damageRollMin = ServerDoTypeCalcMod(bsys, ctx, attackerMoveCheck, 0, attacker, ai->defender, damageRollMin, &effectivenessFlag);
 
-            ai->attackerMinRollMoveDamages[i] = CalcBaseDamage(bsys, ctx, attackerMoveCheck, ctx->side_condition[ai->defenderSide],ctx->field_condition, specialMovePower, move.type, ai->attacker, ai->defender, 0);
             ai->attackerMinRollMoveDamages[i] = ServerDoTypeCalcMod(bsys, ctx, attackerMoveCheck, 0, attacker, ai->defender, ai->attackerMinRollMoveDamages[i], &effectivenessFlag);
-            ai->attackerMinRollMoveDamages[i] = ai->attackerMinRollMoveDamages[i]*92 / 100; //85% is min roll.
             ai->attackerMinRollMoveDamages[i] = AdjustUnusualMoveDamage(bsys, ai->attackerLevel, ai->attackerHP, ai->defenderHP, ai->attackerMinRollMoveDamages[i], move.effect, ai->attackerAbility, ai->attackerItem);
+            
+            damageRollMax = AdjustUnusualMoveDamage(bsys, ai->attackerLevel, ai->attackerHP, ai->defenderHP, damageRollMax, move.effect, ai->attackerAbility, ai->attackerItem);
+            damageRollMin = AdjustUnusualMoveDamage(bsys, ai->attackerLevel, ai->attackerHP, ai->defenderHP, damageRollMin, move.effect, ai->attackerAbility, ai->attackerItem);
+ 
             ai->monCanOneShotPlayerWithMove[i] = canMoveKillBattler(attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP, ai->defenderMaxHP, ai->attackerHasMoldBreaker, ai->defenderAbility, ai->defenderItem);
             if (ai->monCanOneShotPlayerWithMove[i])
 				ai->monCanOneShotPlayerWithAnyMove = TRUE;
+
 #ifdef BATLLE_DEBUG_OUTPUT
-            debug_printf("move %d: %d, damage %d > def Hp %d\n", i, attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP);
+            debug_printf("move %d: %d deals [%d-%d], 8th roll %d > def.HP %d\n", i, attackerMoveCheck, damageRollMin, damageRollMax, ai->attackerMinRollMoveDamages[i], ai->defenderHP);
 #endif // BATLLE_DEBUG_OUTPUT
         }
        
