@@ -1720,51 +1720,11 @@ int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem* bsys, u32 battl
     return statSum;
 }
 
-BOOL LONG_CALL IsMoveMultihit(u32 move)
-{
-    switch (move)
-    {
-    case MOVE_BONEMERANG:
-    case MOVE_DOUBLE_HIT:
-    case MOVE_DOUBLE_IRON_BASH:
-    case MOVE_DOUBLE_KICK:
-    case MOVE_DRAGON_DARTS:
-    case MOVE_DUAL_CHOP:
-    case MOVE_DUAL_WINGBEAT:
-    case MOVE_GEAR_GRIND:
-    case MOVE_SURGING_STRIKES:
-    case MOVE_TACHYON_CUTTER:
-    case MOVE_TRIPLE_DIVE:
-    case MOVE_TWIN_BEAM:
-    case MOVE_TWINEEDLE:
-    case MOVE_WATER_SHURIKEN:
-    case MOVE_ARM_THRUST:
-    case MOVE_BARRAGE:
-    case MOVE_BONE_RUSH:
-    case MOVE_BULLET_SEED:
-    case MOVE_COMET_PUNCH:
-    case MOVE_DOUBLE_SLAP:
-    case MOVE_FURY_ATTACK:
-    case MOVE_FURY_SWIPES:
-    case MOVE_ICICLE_SPEAR:
-    case MOVE_PIN_MISSILE:
-    case MOVE_ROCK_BLAST:
-    case MOVE_SCALE_SHOT:
-    case MOVE_SPIKE_CANNON:
-    case MOVE_TAIL_SLAP:
-    case MOVE_TRIPLE_AXEL:
-    case MOVE_TRIPLE_KICK:
-    case MOVE_POPULATION_BOMB:
-        return TRUE;
-    default:
-        return FALSE;
-    }
-}
 
 BOOL LONG_CALL canMoveKillBattler(u32 move, u32 damage, u32 defenderHP, u32 defenderMaxHP, BOOL attackerHasMoldBreaker, u32 defenderAbility, u32 defenderItem)
 {
     BOOL canOneShot = FALSE;
-	BOOL isMoveMultihit = IsMoveMultihit(move);
+    BOOL isMoveMultihit = IsMultiHitMove(move);
     if (damage >= defenderHP)
     {
         if (defenderHP == defenderMaxHP)
@@ -1965,7 +1925,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 
     ai->defenderImmuneToBurn = FALSE;
     if (isDefenderImmuneToAnyStatus
-        || ai->defenderAbility == ABILITY_WATER_VEIL || ai->defenderAbility == ABILITY_THERMAL_EXCHANGE || ai->defenderAbility == ABILITY_FLASH_FIRE
+        || ai->defenderAbility == ABILITY_WATER_VEIL || ai->defenderAbility == ABILITY_THERMAL_EXCHANGE
         || ai->defenderAbility == ABILITY_MAGIC_GUARD || ai->defenderAbility == ABILITY_WATER_BUBBLE 
         || (ai->isDefenderGrounded && ctx->terrainOverlay.type == MISTY_TERRAIN) 
         || HasType(ctx, ai->defender, TYPE_FIRE))

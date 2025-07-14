@@ -997,8 +997,23 @@ int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 sid
             if (type == TYPE_GRASS)
                 damage = 0;
             break;
+        case ABILITY_LEVITATE:
         case ABILITY_EARTH_EATER:
             if (type == TYPE_GROUND)
+                damage = 0;
+            break;
+        case ABILITY_BULLETPROOF:
+            if (IsBallOrBombMove(moveno))
+                damage = 0;
+            break;
+        case ABILITY_DAZZLING:
+        case ABILITY_QUEENLY_MAJESTY:
+        case ABILITY_ARMOR_TAIL:
+            if (sp->moveTbl[moveno].priority > 0)
+                damage = 0;
+            break;
+        case ABILITY_SOUNDPROOF:
+            if (IsMoveSoundBased(moveno))
                 damage = 0;
             break;
         default:

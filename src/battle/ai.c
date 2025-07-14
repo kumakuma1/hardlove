@@ -1340,8 +1340,23 @@ int LONG_CALL AI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u
             if (type == TYPE_GRASS)
                 return 0;
             break;
+        case ABILITY_LEVITATE:
         case ABILITY_EARTH_EATER:
             if (type == TYPE_GROUND)
+                return 0;
+            break;
+        case ABILITY_BULLETPROOF:
+            if(IsBallOrBombMove(moveno))
+                return 0;
+            break;
+        case ABILITY_DAZZLING:
+        case ABILITY_QUEENLY_MAJESTY:
+        case ABILITY_ARMOR_TAIL:
+            if (sp->moveTbl[moveno].priority > 0)
+                return 0;
+            break;
+        case ABILITY_SOUNDPROOF:
+            if (IsMoveSoundBased(moveno))
                 return 0;
             break;
         default:
