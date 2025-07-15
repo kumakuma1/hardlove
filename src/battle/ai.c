@@ -818,7 +818,10 @@ int LONG_CALL BattleAI_ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct 
     move_type = GetAdjustedMoveTypeBasics(sp, move_no, ability_a, sp->moveTbl[move_no].type);
     base_power = sp->moveTbl[move_no].power;
 
-    if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((attacker_type_1 == move_type) || (attacker_type_2 == move_type)))
+    if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) 
+        && ((attacker_type_1 == move_type) || (attacker_type_2 == move_type)
+        || ability_a == ABILITY_PROTEAN 
+        || ability_a == ABILITY_LIBERO))
     {
         if (ability_a == ABILITY_ADAPTABILITY)
         {
