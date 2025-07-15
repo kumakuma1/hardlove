@@ -10,4 +10,4 @@
 
 It’s a Berry Tree!\r
 ...but there are no Berries.\r
-Would you like to havest the\nBerries?{YESNO 0}
+Would you like to harvest the\nBerries?{YESNO 0}

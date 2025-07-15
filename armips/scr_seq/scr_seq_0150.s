@@ -31,8 +31,7 @@ scr_seq_0150_000:
 	closemsg
 	goto_if_set 2570, _noberries
 	call _harvest
-	anim_apricorn_tree VAR_SPECIAL_RESULT
-	GetRandom 0x800C, 30
+	GetRandom 0x800C, 50
 	setvar VAR_SPECIAL_x8004, ITEM_ORAN_BERRY
 	setvar VAR_SPECIAL_x8005, 100
 	IncrementVar VAR_SPECIAL_x8005, 0x800C 
@@ -148,7 +147,7 @@ scr_seq_0150_007:
 	goto_if_set 2577, _noberries
 	call _harvest
 	anim_apricorn_tree VAR_SPECIAL_RESULT
-	GetRandom 0x800C, 30
+	GetRandom 0x800C, 50
 	setvar VAR_SPECIAL_x8004, ITEM_ORAN_BERRY
 	setvar VAR_SPECIAL_x8005, 100
 	IncrementVar VAR_SPECIAL_x8005, 0x800C 
@@ -168,6 +167,7 @@ _harvest:
     compare VAR_SPECIAL_RESULT, 1
     goto_if_eq _goaway
 	closemsg
+	anim_apricorn_tree VAR_SPECIAL_RESULT
 	return
 
 _goaway:

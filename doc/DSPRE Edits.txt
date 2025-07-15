@@ -1625,13 +1625,13 @@ Jump Function#1
 
 .equ ITEM_EVERSTONE, 229
 
-### Never-Melt Ice in Ruins
+### Miracle Seed in Ruins
 113 - D15R0101 - Eventfile 110 OW 1: Flag 1146 - Script 7011  --> 141 script 12
 Script 12:
-	SetVar 0x8008 17 -> 246
+	SetVar 0x8008 17 -> 239
 	SetVar 0x8009 1
 Jump Function#1
-#define ITEM_NEVER_MELT_ICE  246
+#define ITEM_MIRACLE_SEED    239
 
 
 ### Black BELT band on Route 34
