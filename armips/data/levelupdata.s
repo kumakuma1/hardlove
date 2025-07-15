@@ -354,12 +354,12 @@ levelup SPECIES_SPEAROW
     learnset MOVE_GROWL, 1
     learnset MOVE_LEER, 4
     learnset MOVE_PURSUIT, 8
-    learnset MOVE_FURY_ATTACK, 11
-    learnset MOVE_AERIAL_ACE, 15
-    learnset MOVE_MIRROR_MOVE, 18
-    learnset MOVE_ASSURANCE, 22
-    learnset MOVE_AGILITY, 25
-    learnset MOVE_FOCUS_ENERGY, 29
+    learnset MOVE_AERIAL_ACE, 11
+    learnset MOVE_FURY_ATTACK, 15
+    learnset MOVE_ASSURANCE, 18
+    learnset MOVE_FOCUS_ENERGY, 22
+    learnset MOVE_WHIRLWIND, 25
+    learnset MOVE_DRILL_RUN, 29
     learnset MOVE_ROOST, 32
     learnset MOVE_DRILL_PECK, 36
     terminatelearnset
@@ -367,22 +367,19 @@ levelup SPECIES_SPEAROW
 
 levelup SPECIES_FEAROW
     learnset MOVE_DRILL_RUN, 1
-    learnset MOVE_PLUCK, 1
     learnset MOVE_PECK, 1
     learnset MOVE_GROWL, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_PURSUIT, 1
     learnset MOVE_LEER, 4
     learnset MOVE_PURSUIT, 8
-    learnset MOVE_FURY_ATTACK, 11
-    learnset MOVE_AERIAL_ACE, 15
-    learnset MOVE_MIRROR_MOVE, 18
-    learnset MOVE_ASSURANCE, 23
-    learnset MOVE_AGILITY, 27
-    learnset MOVE_FOCUS_ENERGY, 32
+    learnset MOVE_AERIAL_ACE, 11
+    learnset MOVE_FURY_ATTACK, 15
+    learnset MOVE_ASSURANCE, 18
+    learnset MOVE_FOCUS_ENERGY, 23
+    learnset MOVE_WHIRLWIND, 27
+    learnset MOVE_DRILL_RUN, 32
     learnset MOVE_ROOST, 36
     learnset MOVE_DRILL_PECK, 41
-    learnset MOVE_DRILL_RUN, 45
+    learnset MOVE_SKY_ATTACK, 50
     terminatelearnset
 
 

@@ -229,7 +229,7 @@ trainerdata 4, "Wade"  // Route 31
     party 4
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-4
+        level LEVEL_ELDER_LI-5
         pokemon SPECIES_GLIGAR
         item ITEM_ORAN_BERRY
         move MOVE_AERIAL_ACE
@@ -247,7 +247,7 @@ trainerdata 4, "Wade"  // Route 31
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-4
+        level LEVEL_ELDER_LI-5
         pokemon SPECIES_YANMA
         item ITEM_ORAN_BERRY
         move MOVE_SONIC_BOOM
@@ -270,7 +270,7 @@ trainerdata 4, "Wade"  // Route 31
         item ITEM_FLAME_ORB
         move MOVE_ROCK_TOMB
         move MOVE_BULLDOZE
-        move MOVE_PURSUIT
+        move MOVE_NONE
         move MOVE_NONE
         ability ABILITY_GUTS
         ball ITEM_POKE_BALL
@@ -428,7 +428,7 @@ trainerdata 8, "Joey" // Route 30
     party 8
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-8
+        level LEVEL_ELDER_LI-6
         pokemon SPECIES_SENTRET
         item ITEM_NONE
         move MOVE_TACKLE
@@ -2703,7 +2703,7 @@ trainerdata 47, "Mikey"  // Route 30
         //mon 3
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-5
+        level LEVEL_ELDER_LI-6
         pokemon SPECIES_NATU
         item ITEM_ORAN_BERRY
         move MOVE_AIR_CUTTER
@@ -2764,13 +2764,13 @@ trainerdata 49, "Albert" // Route 32
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-5
-        pokemon SPECIES_RATICATE
-        item ITEM_FLAME_ORB
-        move MOVE_PROTECT
-        move MOVE_QUICK_ATTACK
-        move MOVE_CRUNCH
-        move MOVE_PLUCK
-        ability ABILITY_GUTS
+        pokemon SPECIES_RABOOT
+        item ITEM_EXPERT_BELT
+        move MOVE_FIRE_FANG
+        move MOVE_ACROBATICS
+        move MOVE_LOW_KICK
+        move MOVE_U_TURN
+        ability ABILITY_LIBERO
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -2782,35 +2782,35 @@ trainerdata 49, "Albert" // Route 32
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-5
-        pokemon SPECIES_GOLBAT
-        item ITEM_GRASS_GEM
-        move MOVE_MEGA_DRAIN
-        move MOVE_AIR_CUTTER
-        move MOVE_SLUDGE
-        move MOVE_NONE
-        ability ABILITY_INFILTRATOR
+        pokemon SPECIES_GOLETT
+        item ITEM_WIDE_LENS
+        move MOVE_BULLDOZE
+        move MOVE_SHADOW_PUNCH
+        move MOVE_ROLLOUT
+        move MOVE_DRAIN_PUNCH
+        ability ABILITY_IRON_FIST
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_PROTON_1-5
-        pokemon SPECIES_ROSELIA
-        item ITEM_MIRACLE_SEED
+        level LEVEL_PROTON_1-4
+        pokemon SPECIES_PARAS
+        item ITEM_EVIOLITE
         move MOVE_MEGA_DRAIN
-        move MOVE_SLUDGE
-        move MOVE_GRASS_WHISTLE
-        move MOVE_HIDDEN_POWER //ROCK
-        ability ABILITY_POISON_POINT
+        move MOVE_BUG_BITE
+        move MOVE_SPORE
+        move MOVE_LEECH_SEED
+        ability ABILITY_EFFECT_SPORE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 30, 30, 31, 30 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -2955,7 +2955,7 @@ trainerdata 51, "Nico" //Sprout tower
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-2
+        level LEVEL_ELDER_LI-3
         pokemon SPECIES_BAGON
         item ITEM_LIFE_ORB
         move MOVE_TWISTER
@@ -3229,14 +3229,32 @@ trainerdata 55, "Neal" // Sprout Tower
     party 55
         ivs 0
         abilityslot 0
+        level LEVEL_ELDER_LI-2
+        pokemon SPECIES_CHIKORITA
+        item ITEM_ORAN_BERRY
+        move MOVE_MAGICAL_LEAF
+        move MOVE_LEECH_SEED
+        move MOVE_FLASH
+        move MOVE_STUN_SPORE
+        ability ABILITY_OVERGROW
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
         level LEVEL_ELDER_LI-1
-        pokemon SPECIES_TENTACOOL
-        item ITEM_POISON_BARB
+        pokemon SPECIES_PANPOUR
+        item ITEM_ORAN_BERRY
         move MOVE_WATER_PULSE
-        move MOVE_ACID_SPRAY
+        move MOVE_WHIRLPOOL
+        move MOVE_ICY_WIND
         move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_CLEAR_BODY
+        ability ABILITY_GLUTTONY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -3247,36 +3265,18 @@ trainerdata 55, "Neal" // Sprout Tower
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-2
-        pokemon SPECIES_CLEFAIRY
-        item ITEM_WIDE_LENS
-        move MOVE_THUNDER_WAVE
-        move MOVE_DISARMING_VOICE
-        move MOVE_SING
-        move MOVE_SWEET_KISS
-        ability ABILITY_MAGIC_GUARD
+        level LEVEL_ELDER_LI
+        pokemon SPECIES_PANSEAR
+        item ITEM_ORAN_BERRY
+        move MOVE_INCINERATE
+        move MOVE_FIRE_SPIN
+        move MOVE_YAWN
+        move MOVE_BITE
+        ability ABILITY_GLUTTONY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_ELDER_LI-2
-        pokemon SPECIES_TRUBBISH
-        item ITEM_KINGS_ROCK
-        move MOVE_HEADBUTT
-        move MOVE_ASTONISH
-        move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_STENCH
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -9491,7 +9491,7 @@ trainerdata 249, "Don"  // Route 30
     party 249
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-4
+        level LEVEL_ELDER_LI-5
         pokemon SPECIES_LEDYBA
         item ITEM_ORAN_BERRY
         move MOVE_BUG_BITE
@@ -9509,7 +9509,7 @@ trainerdata 249, "Don"  // Route 30
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-4
+        level LEVEL_ELDER_LI-5
         pokemon SPECIES_PINECO
         item ITEM_ORAN_BERRY
         move MOVE_BUG_BITE
@@ -9527,7 +9527,7 @@ trainerdata 249, "Don"  // Route 30
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-5
+        level LEVEL_ELDER_LI-6
         pokemon SPECIES_SHUCKLE
         item ITEM_ORAN_BERRY
         move MOVE_BUG_BITE
