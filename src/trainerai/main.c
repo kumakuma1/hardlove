@@ -685,6 +685,35 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
+    if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT)
+    {
+        /*
+        BOOL onlyIneffectiveMoves = TRUE;
+        int knownMoves = GetBattlerLearnedMoveCount(bsys, ctx, attacker);
+        for (int k = 0; k < knownMoves; k++)
+        {
+            int effectiveness = ai->effectivenessOnPlayer[k];
+            if (!(effectiveness & (MOVE_STATUS_FLAG_SUPER_EFFECTIVE | MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE)))
+            {
+                onlyIneffectiveMoves = FALSE;
+                break;
+            }
+        }
+        if (onlyIneffectiveMoves)
+            moveScore += 10;
+        */
+        if (ai->attackerMinRollMoveDamages[i] > 0) //no immunity
+        {
+            moveScore += 6;
+            if (BattleRand(bsys) % 10 < 2)
+                moveScore += 1;
+        }
+        /*
+        if (ai->attackerAbility == ABILITY_REGENERATOR && ai->attackerPercentHP < 67)
+            moveScore += 1;
+        */
+    }
+
     switch(ai->attackerMove)
     {
         case MOVE_ACID_SPRAY:
@@ -2055,7 +2084,10 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
  
             ai->monCanOneShotPlayerWithMove[i] = canMoveKillBattler(attackerMoveCheck, ai->attackerMinRollMoveDamages[i], ai->defenderHP, ai->defenderMaxHP, ai->attackerHasMoldBreaker, ai->defenderAbility, ai->defenderItem);
             if (ai->monCanOneShotPlayerWithMove[i])
-				ai->monCanOneShotPlayerWithAnyMove = TRUE;
+            {
+                ai->monCanOneShotPlayerWithAnyMove = TRUE;
+                ai->attackerMinRollMoveDamages[i] = ai->defenderHP; // cap killing move's damage at defender HP, so that all killing moves are treated equally as "highest damage"
+            }
 
 #ifdef BATLLE_DEBUG_OUTPUT
             debug_printf("move %d: %d deals [%d-%d], 8th roll %d > def.HP %d\n", i, attackerMoveCheck, damageRollMin, damageRollMax, ai->attackerMinRollMoveDamages[i], ai->defenderHP);
