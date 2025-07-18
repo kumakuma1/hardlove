@@ -1,6 +1,13 @@
 #ifndef TRAINER_AI_H
 #define TRAINER_AI_H
 
+#include "battle.h"
+void LONG_CALL AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int defAbility, int held_effect, int type1, int type2, u32 *flag);
+BOOL LONG_CALL CantEscape(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker, int *msg);
+int LONG_CALL AdjustUnusualMovePower(struct BattleSystem *bsys, u32 attacker, u32 defender, int moveEffect, int percentHP);
+u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, struct PartyPokemon* partyMon, int flag);
+int LONG_CALL AdjustUnusualMoveDamage(struct BattleSystem *bsys, u32 attackerLevel, u32 attackerHP, u32 defenderHP, int damage, u32 moveEffect, u32 attackerAbility, u32 attackerItem);
+
 enum AIActionChoice {
     AI_ENEMY_ATTACK_1,
     AI_ENEMY_ATTACK_2,

@@ -2914,6 +2914,14 @@ void LONG_CALL PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int in
 BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no);
 
 /**
+ *  @brief function to check whether a party pokemon is grounded or not
+ *  @param sp global battle structure
+ *  @param pp party pokemon
+ *  @return `TRUE` if grounded, `FALSE` otherwise
+ */
+ BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokemon *pp);
+
+/**
  *  @brief function to check whether a mon is grounded or not
  *  @param sp global battle structure
  *  @param attacker resolved battler attacker
@@ -3406,7 +3414,7 @@ BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem *bsys, str
 //Buffer messages related to being unable to select moves?
 BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int movePos, MESSAGE_PARAM *msg);
 
-int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
+int LONG_CALL CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
                    u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
 
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);

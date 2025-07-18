@@ -1,0 +1,103 @@
+pp
+#include <stdint.h>
+
+#define ITEM_MAX_REPEL 0x1
+#define ITEM_SUPER_REPEL 0x2
+#define ITEM_REPEL 0x3
+#define ITEM_GB_SOUNDS 0x4
+#define SEQ_SE_DP_CARD2 0x5
+#define msg_0010_00062 0x6
+#define msg_0010_00063 0x7
+
+void BagApp_TryUseRepel(uint32_t *r4, uint32_t r5);
+void BagApp_ToggleGBSounds(uint32_t *r4, uint32_t r5);
+void BagApp_GetSaveRoamers();
+int RoamerSave_RepelNotInUse();
+void GetItemAttr(uint32_t r5, uint32_t *r0, uint32_t *r1);
+void BagApp_GetRepelStepCountAddr(uint32_t *r4, uint32_t r1);
+void PlaySE(uint32_t r0);
+void NewString_ReadMsgData(uint32_t r0);
+void StringExpandPlaceholders(uint32_t r0, uint32_t r1);
+void String_Delete(uint32_t r0);
+
+void BagApp_TryUseItemInPlace(uint32_t *r4, uint32_t r5) {
+    if (r5 == ITEM_MAX_REPEL || r5 == ITEM_SUPER_REPEL || r5 == ITEM_REPEL) {
+        uint32_t r0 = r4[0];
+        uint32_t r1 = r5;
+        BagApp_TryUseRepel(r4, r5);
+        r5 = r0;
+    } else {
+        uint32_t r0 = ITEM_GB_SOUNDS;
+        if (r5 == r0) {
+            uint32_t r0 = r4[0];
+            uint32_t r1 = r5;
+            BagApp_ToggleGBSounds(r4, r5);
+            r5 = r0;
+            r0 = 0x1a << 6;
+            r4[r0] = 0;
+        }
+    }
+
+    uint32_t r0 = 0xbd << 2;
+    uint32_t r1 = 0x000005E4;
+    uint32_t r2 = r5;
+    StringExpandPlaceholders(r5, r1);
+    String_Delete(r5);
+}
+
+void BagApp_TryUseRepel(uint32_t *r4, uint32_t r5) {
+    uint32_t r0 = r4[0];
+    uint32_t r1 = r5;
+    BagApp_GetSaveRoamers();
+    if (RoamerSave_RepelNotInUse() != 0) {
+        r0 = 0x1a << 6;
+        r4[r0] = 0;
+        r0 = 0x2f << 4;
+        r0 = r4[r0];
+        NewString_ReadMsgData(msg_0010_00063);
+    }
+
+    GetItemAttr(r5, &r0, &r1);
+    r1 = (r0 << 24) >> 24;
+    BagApp_GetRepelStepCountAddr(r4, r1);
+    r0 = (0x680 >> 6) << 6;
+    r4[r0] = 1;
+    PlaySE(0x680 - SEQ_SE_DP_CARD2);
+    r0 = 0x2f << 4;
+    r0 = r4[r0];
+    NewString_ReadMsgData(msg_0010_00062);
+}
+
+
+BOOL BagApp_TryUseRepel(void *r4,  u16 itemID)
+{
+    SaveData *saveData = SaveBlock2_get();
+    void *roamerSaveData = EncDataSave_GetSaveDataPtr(saveData);
+    u8* repel_addr = SaveData_GetRepelPtr(roamerSaveData);
+
+    u8 buf[64];
+    sprintf(buf, "itemID = %d\n", itemID);
+    debugsyscall(buf);
+    sprintf(buf, "repel_addr = %p\n", repel_addr);
+    debugsyscall(buf);
+
+    if (repel_addr != 0)
+    {
+        sprintf(buf, "*repel_addr = %d\n", *repel_addr);
+        debugsyscall(buf);
+        if(*repel_addr == 0)
+            *repel_addr = 1;
+        else
+            *repel_addr = 0;  
+        //msg_0010_00063
+    }
+    else
+    {
+        //msg_0010_00062
+    }
+
+return TRUE;
+}
+
+#0015 BagApp_TryUseItemInPlace 021FB9D8 2
+0015 BagApp_TryUseRepel 021FBA9C 2
