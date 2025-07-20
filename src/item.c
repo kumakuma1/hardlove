@@ -62,7 +62,7 @@ const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
     { ItemMenuUseFunc_AbilityCapsule, NULL, NULL },
     { ItemMenuUseFunc_Mint, NULL, NULL },
     { ItemMenuUseFunc_Nectar, NULL, NULL },
-    { ItemMenuUseFunc_HealingItem, ItemFieldUseFunc_InfiniteCandy, NULL },
+    //{ ItemMenuUseFunc_HealingItem, ItemFieldUseFunc_InfiniteCandy, NULL },
 };
 
 u16 GetItemIndex(u16 item, u16 type)
@@ -225,7 +225,7 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
 
-
+/*
 BOOL ItemFieldUseFunc_InfiniteCandy(struct ItemFieldUseData *data)
 {
     RegisteredItem_CreateGoToAppTask(data, (FieldApplicationWorkCtor)_CreateInfiniteCandyWork, FALSE);
@@ -235,4 +235,12 @@ BOOL ItemFieldUseFunc_InfiniteCandy(struct ItemFieldUseData *data)
 void *_CreateInfiniteCandyWork(FieldSystem *fieldSystem)
 {
     return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_INFINITE_CANDY);
+}
+*/
+void ItemMenuUseFunc_InfiniteCandy(struct ItemMenuUseData* data, const struct ItemCheckUseData* dat2 UNUSED)
+{
+    FieldSystem* fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
+    struct BagViewAppWork* env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_INFINITE_CANDY);
+    sub_0203C8F0(env, 0x0203CA9C | 1);
 }
