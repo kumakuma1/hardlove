@@ -2665,7 +2665,7 @@ trainerdata 47, "Mikey"  // Route 30
         // mon 1
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-5
+        level LEVEL_ELDER_LI-6
         pokemon SPECIES_HOUNDOUR
         item ITEM_ORAN_BERRY
         move MOVE_FLAME_WHEEL

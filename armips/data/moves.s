@@ -653,7 +653,7 @@ movedata MOVE_TAIL_WHIP, "Tail Whip"
 movedata MOVE_POISON_STING, "Poison Sting"
     battleeffect MOVE_EFFECT_POISON_HIT
     pss SPLIT_PHYSICAL
-    basepower 30
+    basepower 15
     type TYPE_POISON
     accuracy 100
     pp 35
@@ -1965,7 +1965,7 @@ movedata MOVE_EGG_BOMB, "Egg Bomb"
 movedata MOVE_LICK, "Lick"
     battleeffect MOVE_EFFECT_PARALYZE_HIT
     pss SPLIT_PHYSICAL
-    basepower 40
+    basepower 30
     type TYPE_GHOST
     accuracy 100
     pp 30
