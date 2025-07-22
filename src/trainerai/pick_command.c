@@ -8,9 +8,9 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
+#include "../../include/custom/custom_ai.h"
 
 
-//int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *battleSys, int battler);
 BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int battler);
 
 int TrainerAI_PickCommand(struct BattleSystem * bsys, int battler)
@@ -26,7 +26,7 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int battler)
     debug_printf("TrainerAI_ShouldSwitch:\n");
     u32 battleType = BattleTypeGet(bsys);
 
-    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
+    if (battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
         return FALSE;
 
     return FALSE;

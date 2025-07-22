@@ -6,12 +6,13 @@
 struct PACKED AI_sDamageCalc
 {
     u16 species;
-    s16 hp;
+    u16 hp;
     u16 maxhp;
+    u16 percenthp;
     u16 dummy;
     u32 item;
-    int item_held_effect;
-    int item_power;
+    u32 item_held_effect;
+    u32 item_power;
 
     u32 condition;
     u32 condition2;
@@ -52,10 +53,13 @@ struct PACKED AI_damage
 };
 
 
+int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem* bsys, int attacker);
+
+
 u8 LONG_CALL BattleAI_CalcSpeed(void* bw, struct BattleStruct* sp, int client1, struct PartyPokemon* partyMon, int flag);
 
-int LONG_CALL BattleAI_CalcBaseDamage(void* bw, struct BattleStruct* sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender);
-int LONG_CALL BattleAI_CalcDamage(void* bw, struct BattleStruct* sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_damage* damages, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender);
+int LONG_CALL BattleAI_CalcBaseDamage(void* bw, struct BattleStruct* sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 critical, u8 attackerSlot, u8 defenderSlot,                            struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender);
+int LONG_CALL BattleAI_CalcDamage    (void* bw, struct BattleStruct* sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_damage* damages, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender);
 
 void LONG_CALL FillDamageStructFromPartyMon(void* bw UNUSED, struct BattleStruct* sp, struct AI_sDamageCalc* monStruct, struct PartyPokemon* pp);
 void LONG_CALL FillDamageStructFromBattleMon(void* bw, struct BattleStruct* sp, struct AI_sDamageCalc* monStruct, int numSlot);
@@ -64,6 +68,8 @@ void LONG_CALL FillDamageStructFromBattleMon(void* bw, struct BattleStruct* sp, 
 BOOL LONG_CALL BattleAI_IsContactBeingMade(struct BattleStruct* sp, u32 ability, u32 itemHoldEffect, u32 moveno);
 int LONG_CALL BattleAI_GetTypeEffectiveness(void* bw, struct BattleStruct* sp, int move_type, u32* flag, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender);
 
+int LONG_CALL BattleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP, u32 defenderHP, u32 damage, u32 moveEffect, u32 attackerAbility, u32 attackerItem);
 
-int LONG_CALL BAttleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP, u32 defenderHP, u32 damage, u32 moveEffect, u32 attackerAbility, u32 attackerItem);
+u8 LONG_CALL calcHitsToKill(u32 attackerHighestDamage, u8 split, u32 moveno, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender);
+
 #endif // !CUSTOM_AI_H
