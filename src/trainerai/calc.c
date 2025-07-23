@@ -1258,7 +1258,12 @@ int LONG_CALL BattleAI_CalcDamage(void* bw, struct BattleStruct* sp, int moveno,
             break;
         }
     }
-    
+
+    if (attacker->item == ITEM_SCOPE_LENS && attacker->ability == ABILITY_SUPER_LUCK && defender->ability != ABILITY_SHELL_ARMOR && defender->ability != ABILITY_BATTLE_ARMOR)
+    {
+        if (move.effect == MOVE_EFFECT_HIGH_CRITICAL)
+            critical = 2;
+    }
     damage = BattleAI_CalcBaseDamage(bw, sp, moveno, side_cond, field_cond, pow, movetype, critical, attackerSlot, defenderSlot, attacker, defender);
 	
     //=====Step 6. General Damage Modifiers=====

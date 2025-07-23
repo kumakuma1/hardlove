@@ -114,7 +114,7 @@ void LONG_CALL AITypeCalc(struct BattleStruct* sp, u32 move, u32 type, int atkAb
 int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem* bsys, int attacker)
 {
     debug_printf("BattleAI_PostKOSwitchIn\n");
-    /*
+
 	int loadedOverlays1 = 6;
     int loadedOverlays2 = 7;
     int loadedOverlays3 = 12;
@@ -122,7 +122,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem* bsys, int attacker)
     int loadedOverlays5 = 129;
     int loadedOverlays6 = 130;
     int loadedOverlays7 = 132;
-    *//*
+
     int j = 0;
     int loadedOvs[MAX_ACTIVE_OVERLAYS] = { -1, -1, -1, -1, -1, -1, -1, -1};
     for (int u = 0; u < OVERLAY_CALCULATEBALLSHAKES + 1; u++)

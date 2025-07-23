@@ -2509,7 +2509,7 @@ BOOL BattleController_CheckMoveFailures2(struct BattleSystem *bsys UNUSED, struc
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
 
     // Attract into a target with same gender / genderless
-    if ((moveEffect == MOVE_EFFECT_INFATUATE && ctx->battlemon[ctx->attack_client].sex == ctx->battlemon[defender].sex)
+    if ((moveEffect == MOVE_EFFECT_INFATUATE && ctx->battlemon[ctx->attack_client].sex == ctx->battlemon[defender].sex) //ATTRACT_WORK_ON_ALL_SEXES
     // TODO: Check message correctness
     // If move is Captivate, check for gender immunity
     || (moveEffect == MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER
