@@ -511,7 +511,7 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, in
     case MOVE_RELIC_SONG: //TODO
         break;
     case MOVE_FUTURE_SIGHT:
-        if (ai->defenderMovesFirst && ai->playerCanOneShotMonWithAnyMove)
+        if (ai->attackerMovesFirst && ai->playerCanOneShotMonWithAnyMove)
             moveScore += 8;
         else
             moveScore += 6;
@@ -536,6 +536,7 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, in
     case MOVE_FIRE_SPIN:
     case MOVE_WRAP:
     case MOVE_WHIRLPOOL:
+		//case MOVE_INFESTATION:
         moveScore += 6;
         if (BattleRand(bsys) % 10 < 2)
             moveScore += 2;
@@ -627,7 +628,6 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     if ((ai->effectivenessOnPlayer[i] & (TYPE_MUL_SUPER_EFFECTIVE | TYPE_MUL_DOUBLE_SUPER_EFFECTIVE | TYPE_MUL_TRIPLE_SUPER_EFFECTIVE)) 
         && ai->attackerMoveEffect == MOVE_EFFECT_HIGH_CRITICAL)
     {
-		debug_printf("Super effective move %d:%d\n", ai->attackerMove, ai->effectivenessOnPlayer[i]);
         if(BattleRand(bsys) % 2 == 0)
             moveScore += 2;
     }
@@ -894,7 +894,7 @@ int LONG_CALL SetupScoring(struct BattleSystem* bsys, u32 attacker, int i, struc
             else
             {
                 if (HasType(ctx, attacker, TYPE_ROCK) || HasType(ctx, attacker, TYPE_GROUND) || HasType(ctx, attacker, TYPE_STEEL)
-                    || ability == ABILITY_SAND_FORCE || ability == ABILITY_SAND_RUSH || ability == ABILITY_SAND_VEIL)
+                    || ai->attackerMon.ability == ABILITY_SAND_FORCE || ai->attackerMon.ability == ABILITY_SAND_RUSH || ai->attackerMon.ability == ABILITY_SAND_VEIL)
                 {
                     moveScore += 9;
                 }
@@ -1084,7 +1084,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
             if (BattleRand(bsys) % 2 == 0)
                 moveScore -= NEVER_USE_MOVE_20;
         }
-        else if (ctx->protectSuccessTurns[ai->attacker].protectSuccessTurns > 1)
+        else if (ctx->protectSuccessTurns[ai->attacker] > 1)
         {
             moveScore -= IMPOSSIBLE_MOVE;
         }
@@ -1882,7 +1882,7 @@ BOOL monDiesFromResidualDamage(struct BattleStruct* ctx, u32 attacker, u32 attac
     else if (ctx->field_condition & WEATHER_HAIL_ANY)
     {
         if (!HasType(ctx, attacker, TYPE_ICE)
-            && ability != ABILITY_ICE_BODY && ability != ABILITY_SNOW_CLOAK && ai->attackerMon.ability != ABILITY_SLUSH_RUSH
+            && ability != ABILITY_ICE_BODY && ability != ABILITY_SNOW_CLOAK && ability != ABILITY_SLUSH_RUSH
             && ability != ABILITY_OVERCOAT && ability != ABILITY_MAGIC_GUARD
             && item != ITEM_SAFETY_GOGGLES)
         {
@@ -2069,8 +2069,8 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
                 damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(ai->defenderMon.level, ai->defenderMon.hp, ai->attackerMon.hp, damages.damageRange[u], defenderMove.effect, ai->defenderMon.ability, ai->defenderMon.item);
             }
 
-            u8 aiMonIsKilledIn = calcHitsToKill(damages.damageRoll, defenderMove.split, defenderMoveno, &ai->defenderMon, &ai->attackerMon);
-            if (aiMonIsKilledIn == 1)
+            BOOL playerCanOneShotAiMon = canAttackerOneShotDefender(damages.damageRoll, defenderMove.split, defenderMoveno, &ai->defenderMon, &ai->attackerMon);
+            if (playerCanOneShotAiMon)
             {
                 ai->playerCanOneShotMonWithAnyMove = TRUE;
                 ai->playerCanOneShotMonWithMove[k] = TRUE;
@@ -2116,10 +2116,10 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
                 damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(ai->attackerMon.level, ai->attackerMon.hp, ai->defenderMon.hp, damages.damageRange[u], attackerMove.effect, ai->attackerMon.ability, ai->attackerMon.item);
             }
 
-            u8 aiMonKillsIn = calcHitsToKill(damages.damageRoll, attackerMove.split, attackerMoveno, &ai->attackerMon, &ai->defenderMon);
+            BOOL aiMonCanOneshotPlayer = canAttackerOneShotDefender(damages.damageRoll, attackerMove.split, attackerMoveno, &ai->attackerMon, &ai->defenderMon);
 
             ai->attackerRolledMoveDamages[j] = damages.damageRoll;
-            if (aiMonKillsIn == 1)
+            if (aiMonCanOneshotPlayer)
             {
                 ai->monCanOneShotPlayerWithAnyMove = TRUE;
                 ai->monCanOneShotPlayerWithMove[j] = TRUE;

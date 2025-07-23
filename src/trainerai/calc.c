@@ -547,7 +547,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void* bw, struct BattleStruct* sp, int mov
     }
 
     // handle Sheer Force
-    if ((attacker->ability == ABILITY_SHEER_FORCE) /*&& Move is SheerForce able*/)
+    if (attacker->ability == ABILITY_SHEER_FORCE && IsMoveBoostedBySheerForce(moveno, move.effect))
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
 
     // Sand Force boosts damage in sand for certain move types
@@ -1258,6 +1258,11 @@ int LONG_CALL BattleAI_CalcDamage(void* bw, struct BattleStruct* sp, int moveno,
             break;
         }
     }
+    //MIMIKYU damage = 0?
+
+
+    if (!attacker->hasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0 && !(defender->condition2 & STATUS2_TRANSFORMED) && movesplit == SPLIT_PHYSICAL) //SPECIES_EISCUE
+        return 0;
 
     if (attacker->item == ITEM_SCOPE_LENS && attacker->ability == ABILITY_SUPER_LUCK && defender->ability != ABILITY_SHELL_ARMOR && defender->ability != ABILITY_BATTLE_ARMOR)
     {
@@ -1692,6 +1697,7 @@ int LONG_CALL BattleAI_CalcDamage(void* bw, struct BattleStruct* sp, int moveno,
         debug_printf("%d", damages->damageRange[u]);
     }
     debug_printf("]\n");
+    debug_printf("\n=================\n");
 //#endif //DEBUG_DAMAGE_CALC_AI
 
     return damages->damageRoll;
@@ -1799,6 +1805,68 @@ BOOL LONG_CALL BattleAI_IsContactBeingMade(struct BattleStruct* sp, u32 ability,
     return FALSE;
 }
 
+BOOL IsMoveBoostedBySheerForce(u32 moveno, u32 moveeffect)
+{
+    BOOL isBoosted = FALSE;
+    switch (moveeffect)
+    {
+    case MOVE_EFFECT_FLINCH_HIT:
+    case MOVE_EFFECT_RAISE_ALL_STATS_HIT:
+    case MOVE_EFFECT_BLIZZARD:
+    case MOVE_EFFECT_PARALYZE_HIT:
+    case MOVE_EFFECT_LOWER_SPEED_HIT:
+    case MOVE_EFFECT_RAISE_SP_ATK_HIT:
+    case MOVE_EFFECT_CONFUSE_HIT:
+    case MOVE_EFFECT_LOWER_DEFENSE_HIT:
+    case MOVE_EFFECT_LOWER_SP_DEF_HIT:
+    case MOVE_EFFECT_BURN_HIT:
+    case MOVE_EFFECT_FLINCH_BURN_HIT:
+    case MOVE_EFFECT_RAISE_SPEED_HIT:
+    case MOVE_EFFECT_POISON_HIT:
+    case MOVE_EFFECT_FREEZE_HIT:
+    case MOVE_EFFECT_FLINCH_FREEZE_HIT:
+    case MOVE_EFFECT_RAISE_ATTACK_HIT:
+    case MOVE_EFFECT_LOWER_ACCURACY_HIT:
+    case MOVE_EFFECT_BADLY_POISON_HIT:
+    case MOVE_EFFECT_SECRET_POWER:
+    case MOVE_EFFECT_LOWER_SP_ATK_HIT:
+    case MOVE_EFFECT_THUNDER:
+    case MOVE_EFFECT_HURRICANE:
+    case MOVE_EFFECT_FLINCH_PARALYZE_HIT:
+    case MOVE_EFFECT_FLINCH_DOUBLE_DAMAGE_FLY_OR_BOUNCE:
+    case MOVE_EFFECT_LOWER_SP_DEF_2_HIT:
+    case MOVE_EFFECT_LOWER_ATTACK_HIT:
+    case MOVE_EFFECT_THAW_AND_BURN_HIT:
+    case MOVE_EFFECT_CHATTER:
+    case MOVE_EFFECT_FLINCH_MINIMIZE_DOUBLE_HIT:
+    case MOVE_EFFECT_RANDOM_PRIMARY_STATUS_HIT:
+    case MOVE_EFFECT_PREVENT_HEALING_HIT: // Psychic Noise
+    case MOVE_EFFECT_POISON_MULTI_HIT: // twineedle
+    case MOVE_EFFECT_HIGH_CRITICAL_BURN_HIT: // blaze kick
+    case MOVE_EFFECT_HIGH_CRITICAL_POISON_HIT: // cross poison
+    case MOVE_EFFECT_RECOIL_BURN_HIT: // flare blitz
+    case MOVE_EFFECT_RECOIL_PARALYZE_HIT:
+        isBoosted = TRUE;
+        break;
+    default:
+        break;
+    }
+
+    switch (moveno)
+    {
+    case MOVE_SPARKLING_ARIA:
+    case MOVE_SPIRIT_SHACKLE:
+    case MOVE_ANCHOR_SHOT:
+    case MOVE_CEASELESS_EDGE:
+    case MOVE_STONE_AXE:
+    case MOVE_ELECTRO_SHOT:
+        isBoosted = TRUE;
+        break;
+    default:
+        break;
+    }
+    return isBoosted;
+}
 
 int LONG_CALL BattleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP, u32 defenderHP, u32 damage, u32 moveEffect, u32 attackerAbility, u32 attackerItem)
 {
@@ -1848,36 +1916,35 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP
 }
 
 
-u8 LONG_CALL calcHitsToKill(u32 attackerHighestDamage, u8 split, u32 moveno, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender)
+BOOL LONG_CALL canAttackerOneShotDefender(u32 attackerDamage, u8 split, u32 moveno, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender)
 {
     BOOL isMoveMultihit = IsMultiHitMove(moveno);
-    u8 hitsToKill = 1;
+    BOOL canOneShot = TRUE;
 
-    if (attackerHighestDamage >= defender->hp)
+    if (attackerDamage >= defender->hp)
     {
         if (defender->hp == defender->maxhp)
         {
+
             if (!isMoveMultihit
-                && ((defender->item == ITEM_FOCUS_SASH && defender->hp == defender->maxhp)
-                    || (!attacker->hasMoldBreaker && defender->ability == ABILITY_STURDY && defender->hp == defender->maxhp)))
+                && (defender->item == ITEM_FOCUS_SASH
+                    || (!attacker->hasMoldBreaker && defender->ability == ABILITY_STURDY)))
             {
-                hitsToKill++;
+                canOneShot = FALSE;
             }
 
             if (!attacker->hasMoldBreaker && defender->ability == ABILITY_DISGUISE) //SPECIES_MIMIKYU
-                hitsToKill++;
+                canOneShot = FALSE;
         }
-        if (!attacker->hasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0 && split == SPLIT_PHYSICAL) //SPECIES_EISCUE
-            hitsToKill++;
+        
     }
     else
-    {
-        hitsToKill = defender->hp / attackerHighestDamage;
-        if (defender->hp % attackerHighestDamage != 0)
-            hitsToKill++;
-    }
+        canOneShot = FALSE;
 
-    return hitsToKill;
+    if (!attacker->hasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0 && split == SPLIT_PHYSICAL) //SPECIES_EISCUE
+        canOneShot = FALSE;
+
+    return canOneShot;
 }
 
 
@@ -1959,7 +2026,7 @@ int UNUSED BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attac
                             monDealsRolledDamage[i] = damages.damageRoll;
                         }    
                     }
-                    debug_printf("move %d: %d deals [%d-%d], roll %d > def.HP %d\n", j, moveno, damages.damageRange[15], damages.damageRange[0], damages.damageRoll, defenderMon.hp);
+                    debug_printf("Dealing with move %d: %d deals [%d-%d], roll %d > def.HP %d\n", j, moveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, defenderMon.hp);
                 }
             }
 
@@ -1984,25 +2051,27 @@ int UNUSED BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attac
                         monReceivingHighestDamageMoveno = defenderMoveno;
                         monReceivesDamage[i] = damages.damageRoll;
                     }
-                        
-                    debug_printf("monReceivesDamage %d\n", monReceivesDamage[i]);
                 }
-                debug_printf("Receiving from move %d: %d is [%d-%d], roll %d > att.HP %d\n", k, defenderMoveno, damages.damageRange[15], damages.damageRange[0], damages.damageRoll, attackerMon.hp);
+                debug_printf("Receiving from move %d: %d is [%d-%d], roll %d > att.HP %d\n", k, defenderMoveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, attackerMon.hp);
             }
 
 			//TODO stealth rocks, spikes, toxic spikes, etc...
-            u8 partyMonKillsIn = calcHitsToKill(monDealsRolledDamage[i], ctx->moveTbl[monHighestDamageMoveno].split, monHighestDamageMoveno, &attackerMon, &defenderMon);
-            u8 partyMonIsKilledIn = calcHitsToKill(monReceivesDamage[i], ctx->moveTbl[monReceivingHighestDamageMoveno].split, monReceivingHighestDamageMoveno, &defenderMon, &attackerMon);
+            u8 aiMonCanOneshotPlayer = canAttackerOneShotDefender(monDealsRolledDamage[i], ctx->moveTbl[monHighestDamageMoveno].split, monHighestDamageMoveno, &attackerMon, &defenderMon);
+            u8 playerCanOneShotAiMon = canAttackerOneShotDefender(monReceivesDamage[i], ctx->moveTbl[monReceivingHighestDamageMoveno].split, monReceivingHighestDamageMoveno, &defenderMon, &attackerMon);
+            u16 partyMonPercentDamageDealt = (100 * monDealsRolledDamage[i] / defenderMon.hp);
+			u16 partyMonPercentDamageReceived = (100 * monReceivesDamage[i] / attackerMon.hp);
 
 
-            if (partyMonIsKilledIn != 1 && (attackerMon.species == SPECIES_WYNAUT || attackerMon.species == SPECIES_WOBBUFFET))
+            debug_printf("SwitchScore: SpeedCalc %d. Attacker %d deals %d%% to defender %d. Receives %d%%", speedCalc, attacker, (100 * monDealsRolledDamage[i] / defenderMon.hp), defender, (100 * monReceivesDamage[i] / attackerMon.hp));
+            
+            if (!playerCanOneShotAiMon && (attackerMon.species == SPECIES_WYNAUT || attackerMon.species == SPECIES_WOBBUFFET))
                 switchInScore[i] += 2;
 
             if (speedCalc > 0)
             {
-                if (partyMonKillsIn == 1)
+                if (aiMonCanOneshotPlayer)
                     switchInScore[i] += 5;
-                else if (partyMonKillsIn >= partyMonIsKilledIn)
+                else if (partyMonPercentDamageDealt >= partyMonPercentDamageReceived)
                     switchInScore[i] += 3;
                 else
                     switchInScore[i] += 1;
@@ -2012,13 +2081,14 @@ int UNUSED BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attac
             }
             else
             {
-                if (partyMonKillsIn == 1 && partyMonIsKilledIn > 1)
+                if (aiMonCanOneshotPlayer && !playerCanOneShotAiMon)
                     switchInScore[i] += 4;
-                else if ((100 * monDealsRolledDamage[i] / defenderMon.hp) > (100 * monReceivesDamage[i] / attackerMon.hp))
+                else if (partyMonPercentDamageDealt > partyMonPercentDamageReceived)
                     switchInScore[i] += 2;
-                else if (partyMonIsKilledIn == 1)
+                else if (playerCanOneShotAiMon)
                     switchInScore[i] -= 1;
             }
+			debug_printf(": %d\n", switchInScore[i]);
             //default += 0;
         }
     }

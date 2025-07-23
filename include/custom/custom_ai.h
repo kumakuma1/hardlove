@@ -65,11 +65,12 @@ void LONG_CALL FillDamageStructFromPartyMon(void* bw UNUSED, struct BattleStruct
 void LONG_CALL FillDamageStructFromBattleMon(void* bw, struct BattleStruct* sp, struct AI_sDamageCalc* monStruct, int numSlot);
 
 
+BOOL LONG_CALL IsMoveBoostedBySheerForce(u32 moveno, u32 moveeffect);
 BOOL LONG_CALL BattleAI_IsContactBeingMade(struct BattleStruct* sp, u32 ability, u32 itemHoldEffect, u32 moveno);
 int LONG_CALL BattleAI_GetTypeEffectiveness(void* bw, struct BattleStruct* sp, int move_type, u32* flag, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender);
 
 int LONG_CALL BattleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP, u32 defenderHP, u32 damage, u32 moveEffect, u32 attackerAbility, u32 attackerItem);
 
-u8 LONG_CALL calcHitsToKill(u32 attackerHighestDamage, u8 split, u32 moveno, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender);
+BOOL LONG_CALL canAttackerOneShotDefender(u32 attackerHighestDamage, u8 split, u32 moveno, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender);
 
 #endif // !CUSTOM_AI_H
