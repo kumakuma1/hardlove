@@ -141,7 +141,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 sprintf(buf, "In ENDTURN_WEATHER_SUBSIDING\n");
                 debugsyscall(buf);
                 #endif
-                sp->fcc.weather_count = 1; //infinite weather
+                sp->fcc.weather_count = 5; //infinite weather
                 if (sp->field_condition & WEATHER_RAIN) {
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RAIN_END);
