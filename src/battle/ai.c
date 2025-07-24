@@ -147,7 +147,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem* bsys, int attacker)
 
     u32 offset;
     int ret;
-    int(*internalFunc)(struct BattleSystem* bsys, int attacker);
+    int(*internalFunc)(struct BattleSystem* bsys, int attacker, int* score);
 
     u32 loadNeeded = IsOverlayLoaded(OVERLAY_BATTLE_ANIMS) ? OVERLAY_BATTLE_ANIMS : 0;
     if (loadNeeded)
@@ -155,9 +155,10 @@ int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem* bsys, int attacker)
 
     offset = 0x0221BE20 | 1; //this is *almost* BattleAI_PostKOSwitchIn_Internal in ov10
     HandleLoadOverlay(OVERLAY_TRAINER_AI, 2);
-    internalFunc = (int (*)(struct BattleSystem* bsys, int attacker))(offset);
+    internalFunc = (int (*)(struct BattleSystem* bsys, int attacker, int* score))(offset);
     attacker = attacker + 10;
-    ret = internalFunc(bsys, attacker);
+    int score = 0;
+    ret = internalFunc(bsys, attacker, &score);
     UnloadOverlayByID(OVERLAY_TRAINER_AI);
 
     if (loadNeeded)

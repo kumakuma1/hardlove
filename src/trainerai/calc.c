@@ -1949,8 +1949,33 @@ BOOL LONG_CALL canAttackerOneShotDefender(u32 attackerDamage, u8 split, u32 move
     return canOneShot;
 }
 
+BOOL BattleAI_AttackerHasOnlyIneffectiveMoves(struct BattleStruct* ctx, u32 attacker, int knownMoves, u32 effectiveness[4])
+{
+    BOOL onlyIneffectiveMoves = TRUE;
+    for (int k = 0; k < knownMoves; ++k)
+    {
+        u32 attackerMoveno = ctx->battlemon[attacker].move[k];
+        struct BattleMove attackerMove = ctx->moveTbl[attackerMoveno];
+        if (attackerMove.split != SPLIT_STATUS && attackerMove.power > 1)
+        {
+            switch (effectiveness[k])
+            {
+            case TYPE_MUL_NORMAL:
+            case TYPE_MUL_SUPER_EFFECTIVE:
+            case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
+            case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
+                onlyIneffectiveMoves = FALSE;
+                break;
+            default:
+                break;
+            }
+        }
+    }
+    return onlyIneffectiveMoves;
+}
 
-int UNUSED BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attacker)
+
+int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attacker, int* score)
 {
     debug_printf("BattleAI_PostKOSwitchIn_Internal %d\n", attacker);
 
@@ -2101,6 +2126,7 @@ int UNUSED BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attac
         if (switchInScore[i] > currentScore)
         {
             picked = i;
+			*score = switchInScore[i];
             currentScore = switchInScore[i];
         }
     }

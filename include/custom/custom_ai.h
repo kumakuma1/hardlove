@@ -54,7 +54,7 @@ struct PACKED AI_damage
 
 
 int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem* bsys, int attacker);
-
+int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attacker, int* score);
 
 u8 LONG_CALL BattleAI_CalcSpeed(void* bw, struct BattleStruct* sp, int client1, struct PartyPokemon* partyMon, int flag);
 
@@ -68,6 +68,8 @@ void LONG_CALL FillDamageStructFromBattleMon(void* bw, struct BattleStruct* sp, 
 BOOL LONG_CALL IsMoveBoostedBySheerForce(u32 moveno, u32 moveeffect);
 BOOL LONG_CALL BattleAI_IsContactBeingMade(struct BattleStruct* sp, u32 ability, u32 itemHoldEffect, u32 moveno);
 int LONG_CALL BattleAI_GetTypeEffectiveness(void* bw, struct BattleStruct* sp, int move_type, u32* flag, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender);
+
+BOOL LONG_CALL BattleAI_AttackerHasOnlyIneffectiveMoves(struct BattleStruct* ctx, u32 attacker, int knownMoves, u32 effectiveness[4]);
 
 int LONG_CALL BattleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP, u32 defenderHP, u32 damage, u32 moveEffect, u32 attackerAbility, u32 attackerItem);
 

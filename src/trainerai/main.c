@@ -84,9 +84,6 @@ struct PACKED AIContext {
     u32 attackerRolledMaxDamage;
 };
 
-int UNUSED BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attacker);
-
-
 
 int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext* ai);
 int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext* ai);
@@ -155,8 +152,9 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     debug_printf("TrainerAI_Main:\n");
 #endif // BATLLE_DEBUG_OUTPUT
 
+	int score = 0;
     if (attacker >= 10)
-		return BattleAI_PostKOSwitchIn_Internal(bsys, attacker - 10);
+		return BattleAI_PostKOSwitchIn_Internal(bsys, attacker - 10, &score);
     
     struct BattleStruct *ctx = bsys->sp;
     struct AIContext aictx = {0};
@@ -316,7 +314,7 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         moveScore -= IMPOSSIBLE_MOVE; // TODO check
     }
 
-    if (ai->effectivenessOnPlayer[i] & TYPE_MUL_NO_EFFECT) // immunity
+    if (ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT) // immunity
     {
         moveScore -= IMPOSSIBLE_MOVE;
     }
@@ -614,9 +612,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
-
-    if ((ai->effectivenessOnPlayer[i] & (TYPE_MUL_SUPER_EFFECTIVE | TYPE_MUL_DOUBLE_SUPER_EFFECTIVE | TYPE_MUL_TRIPLE_SUPER_EFFECTIVE)) 
-        && ai->attackerMoveEffect == MOVE_EFFECT_HIGH_CRITICAL)
+    if (ai->attackerMoveEffect == MOVE_EFFECT_HIGH_CRITICAL && (ai->effectivenessOnPlayer[i] == TYPE_MUL_SUPER_EFFECTIVE || ai->effectivenessOnPlayer[i] == TYPE_MUL_DOUBLE_SUPER_EFFECTIVE || ai->effectivenessOnPlayer[i] == TYPE_MUL_TRIPLE_SUPER_EFFECTIVE))
     {
         if(BattleRand(bsys) % 2 == 0)
             moveScore += 2;
@@ -670,26 +666,15 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 
     if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT)
     {
-        /*
-        BOOL onlyIneffectiveMoves = TRUE;
-        int knownMoves = GetBattlerLearnedMoveCount(bsys, ctx, attacker);
-        for (int k = 0; k < knownMoves; k++)
-        {
-            int effectiveness = ai->effectivenessOnPlayer[k];
-            if (!(effectiveness & (MOVE_STATUS_FLAG_SUPER_EFFECTIVE | MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE)))
-            {
-                onlyIneffectiveMoves = FALSE;
-                break;
-            }
-        }
-        if (onlyIneffectiveMoves)
-            moveScore += 10;
-        */
-        if (ai->attackerRolledMoveDamages[i] > 0) //no immunity
+        if (ai->livingMembersAttacker > 1 && ai->attackerRolledMoveDamages[i] > 0) //no immunity
         {
             moveScore += 6;
             if (BattleRand(bsys) % 10 < 2)
                 moveScore += 1;
+
+            BOOL onlyIneffectiveMoves = BattleAI_AttackerHasOnlyIneffectiveMoves(ctx, attacker, ai->attackerMovesKnown, ai->effectivenessOnPlayer);
+            if (onlyIneffectiveMoves)
+                moveScore += ai->livingMembersAttacker;
         }
         /*
         if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67)
