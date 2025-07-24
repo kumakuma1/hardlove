@@ -132,7 +132,7 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 
     //ClearMonMoves(pokemon);
     //InitBoxMonMoveset(&pokemon->box);
-
+    /*
     for (i = 0; i < 4; i++) {
         if (!GetMonData(togepi, MON_DATA_MOVE1 + i, 0)) {
             break;
@@ -148,7 +148,7 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 
     pp = GetMonData(togepi, MON_DATA_MOVE1MAXPP + i, 0);
     SetMonData(togepi, MON_DATA_MOVE1PP + i, &pp);
-
+    */
     if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1) // add HA capability
     {
         SET_MON_HIDDEN_ABILITY_BIT(togepi)
