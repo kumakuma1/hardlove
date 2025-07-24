@@ -6,6 +6,7 @@
 #include "../../include/trainer_ai.h"
 #include "../../include/constants/ability.h"
 #include "../../include/constants/species.h"
+#include "../../include/constants/move_effects.h"
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
 #include "../../include/custom/custom_ai.h"
@@ -73,7 +74,29 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int attacker)
         debug_printf("move %d:%d has effectiveness %d\n", j, attackerMoveno, effectivenessOnPlayer[j]);
     }
 
-    BOOL onlyIneffectiveMoves = BattleAI_AttackerHasOnlyIneffectiveMoves(ctx, attacker, attackerMovesKnown, effectivenessOnPlayer);
+    BOOL onlyIneffectiveMoves = TRUE;
+    for (int k = 0; k < attackerMovesKnown; ++k)
+    {
+        u32 attackerMoveno = ctx->battlemon[attacker].move[k];
+        struct BattleMove attackerMove = ctx->moveTbl[attackerMoveno];
+        if (attackerMove.split != SPLIT_STATUS && attackerMove.power > 1)
+        {
+            switch (effectivenessOnPlayer[k])
+            {
+            case TYPE_MUL_NORMAL:
+            case TYPE_MUL_SUPER_EFFECTIVE:
+            case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
+            case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
+                onlyIneffectiveMoves = FALSE;
+                break;
+            default:
+                if (attackerMove.effect == MOVE_EFFECT_SWITCH_HIT) //consider fastKills
+                    onlyIneffectiveMoves = FALSE;
+                break;
+            }
+        }
+    }
+
     if (attackerMon.percenthp > 67
         && (onlyIneffectiveMoves || ((ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE) && (BattleRand(bsys) % 2))))
     {
@@ -89,50 +112,6 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int attacker)
     }
 
     return FALSE;
-
-    /*     
-    int i;
-    u32 battler1, battler2, maxHP = 0;
-    u32 battleType;
-    int end;
-    struct PartyPokemon *mon;
-    struct BattleStruct *battleCtx = battleSys->sp;
-    battleType = BattleTypeGet(battleSys);
-
-    if ((battleType & BATTLE_TYPE_TRAINER) || IsClientEnemy(battleSys, battler) == 0) {
-        // 50% of the time switch to mon with next highest hp
-        if (BattleRand(battleSys) & 1)
-        {
-            battler1 = battler;
-            if (battleType & BATTLE_TYPE_TAG
-                || battleType & BATTLE_TYPE_MULTI)
-            {
-                battler2 = battler1;
-            } else {
-                battler2 = BATTLER_ALLY(battler1);
-            }
-            end = Battle_GetClientPartySize(battleSys, battler);
-            for (i = 0; i < end; i++)
-            {
-                u32 currHP = 0;
-                mon = Battle_GetClientPartyMon(battleSys, battler, i);
-                currHP = GetMonData(mon, MON_DATA_HP, NULL);
-                if (currHP != 0 && currHP > maxHP
-                    && i != battleCtx->sel_mons_no[battler1]
-                    && i != battleCtx->sel_mons_no[battler2]
-                    && i != battleCtx->aiSwitchedPartySlot[battler1]
-                    && i != battleCtx->aiSwitchedPartySlot[battler2])
-                {
-                    maxHP = currHP;
-                    battleCtx->aiSwitchedPartySlot[battler] = i;
-                }
-            }
-            if (battleCtx->aiSwitchedPartySlot[battler] != 6)
-                return TRUE;
-        }
-    }
-    return FALSE;
-    */
 }
 
 
