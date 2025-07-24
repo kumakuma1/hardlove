@@ -768,6 +768,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void* bw, struct BattleStruct* sp, int mov
 
     // Step 3.3. Critical hit
     if (critical > 1) {
+        // critical hits ignore attacker attack drops
         attacker->states[STAT_ATTACK] = attacker->states[STAT_ATTACK] < 0 ? 0 : attacker->states[STAT_ATTACK];
         attacker->states[STAT_SPATK] = attacker->states[STAT_SPATK] < 0 ? 0 : attacker->states[STAT_SPATK];
     }
@@ -1020,8 +1021,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void* bw, struct BattleStruct* sp, int mov
 
     // Step 4.5. Critical hit
     if (critical > 1) {
-        defender->states[STAT_DEFENSE] = defender->states[STAT_DEFENSE] < 0 ? 0 : defender->states[STAT_DEFENSE];
-        defender->states[STAT_SPDEF] = defender->states[STAT_SPDEF] < 0 ? 0 : defender->states[STAT_SPDEF];
+        // critical hits ignore defender's stat boosts
+        defender->states[STAT_DEFENSE] = defender->states[STAT_DEFENSE] > 0 ? 0 : defender->states[STAT_DEFENSE];
+        defender->states[STAT_SPDEF] = defender->states[STAT_SPDEF] > 0 ? 0 : defender->states[STAT_SPDEF];
     }
 
 #ifdef DEBUG_DAMAGE_CALC_AI
