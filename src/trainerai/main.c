@@ -442,8 +442,6 @@ BOOL LONG_CALL isMoveSpecialAiAttackingMove(u32 attackerMove)
         case MOVE_EXPLOSION:
         case MOVE_MISTY_EXPLOSION:
         case MOVE_FINAL_GAMBIT:
-        case MOVE_RELIC_SONG:
-        case MOVE_FUTURE_SIGHT:
         case MOVE_ROLLOUT:
         case MOVE_METEOR_BEAM:
         case MOVE_ELECTRO_SHOT:
@@ -505,14 +503,6 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, in
             moveScore += 8;
         else if (ai->attackerMovesFirst && ai->playerCanOneShotMonWithAnyMove)
             moveScore += 7;
-        else
-            moveScore += 6;
-        break;
-    case MOVE_RELIC_SONG: //TODO
-        break;
-    case MOVE_FUTURE_SIGHT:
-        if (ai->attackerMovesFirst && ai->playerCanOneShotMonWithAnyMove)
-            moveScore += 8;
         else
             moveScore += 6;
         break;
@@ -709,6 +699,14 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 
     switch(ai->attackerMove)
     {
+        case MOVE_RELIC_SONG: //TODO
+            break;
+        case MOVE_FUTURE_SIGHT:
+            if (ai->attackerMovesFirst && ai->playerCanOneShotMonWithAnyMove)
+                moveScore += 8;
+            else
+                moveScore += 6;
+            break;
         case MOVE_ACID_SPRAY:
         {
             if ((ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY && ai->defenderMon.ability != ABILITY_BULLETPROOF) || 
