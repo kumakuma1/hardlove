@@ -171,6 +171,8 @@ TODO:
 - fishing encounter
 - surf encounter
 - Togedemaru
+- Wise Glasses
+- Muscle Band
 
 -----------------------------
 Route 33

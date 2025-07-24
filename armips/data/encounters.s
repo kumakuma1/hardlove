@@ -647,44 +647,44 @@ walklevels 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
 // morning encounter slots
 pokemon SPECIES_SENTRET 	    //10%
 pokemon SPECIES_SENTRET		    //10%
-pokemon SPECIES_BELLSPROUT      //10%
-pokemon SPECIES_BELLSPROUT      //10%
-pokemon SPECIES_HOUNDOUR		//10%
 monwithform SPECIES_ZIGZAGOON, 1		//10%
+monwithform SPECIES_ZIGZAGOON, 1		//10%
+pokemon SPECIES_STUNKY      //10%
+pokemon SPECIES_HOUNDOUR		//10%
 pokemon SPECIES_LILLIPUP      	//10%
 pokemon SPECIES_SANDILE     	//10%
 pokemon SPECIES_SANDILE	        //5%
 pokemon SPECIES_LITWICK         //5%
-pokemon SPECIES_SHUPPET         //5%
-pokemon SPECIES_MURKROW	    //5%
+pokemon SPECIES_BELLSPROUT      //5%
+pokemon SPECIES_MURKROW	        //5%
 
 // day encounter slots
 pokemon SPECIES_SENTRET 	    //10%
 pokemon SPECIES_SENTRET		    //10%
-pokemon SPECIES_BELLSPROUT      //10%
-pokemon SPECIES_BELLSPROUT      //10%
-pokemon SPECIES_HOUNDOUR		//10%
 monwithform SPECIES_ZIGZAGOON, 1		//10%
+monwithform SPECIES_ZIGZAGOON, 1		//10%
+pokemon SPECIES_STUNKY      //10%
+pokemon SPECIES_HOUNDOUR		//10%
 pokemon SPECIES_LILLIPUP      	//10%
 pokemon SPECIES_SANDILE     	//10%
 pokemon SPECIES_SANDILE	        //5%
 pokemon SPECIES_LITWICK         //5%
-pokemon SPECIES_SHUPPET         //5%
-pokemon SPECIES_MURKROW	    //5%
+pokemon SPECIES_BELLSPROUT      //5%
+pokemon SPECIES_MURKROW	        //5%
 
 // night encounter slots
 pokemon SPECIES_SENTRET 	    //10%
 pokemon SPECIES_SENTRET		    //10%
-pokemon SPECIES_BELLSPROUT      //10%
-pokemon SPECIES_BELLSPROUT      //10%
-pokemon SPECIES_HOUNDOUR		//10%
 monwithform SPECIES_ZIGZAGOON, 1		//10%
+monwithform SPECIES_ZIGZAGOON, 1		//10%
+pokemon SPECIES_STUNKY      //10%
+pokemon SPECIES_HOUNDOUR		//10%
 pokemon SPECIES_LILLIPUP      	//10%
 pokemon SPECIES_SANDILE     	//10%
 pokemon SPECIES_SANDILE	        //5%
 pokemon SPECIES_LITWICK         //5%
-pokemon SPECIES_SHUPPET         //5%
-pokemon SPECIES_MURKROW	    //5%
+pokemon SPECIES_BELLSPROUT		//5%
+pokemon SPECIES_MURKROW			//5%
 
 // hoenn encounter slots
 pokemon SPECIES_NONE
@@ -751,52 +751,52 @@ walklevels 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
 // morning encounter slots
 pokemon SPECIES_POOCHYENA 	    //10%
 pokemon SPECIES_POOCHYENA		//10%
-pokemon SPECIES_BELLSPROUT      //10%
-pokemon SPECIES_BELLSPROUT	    //10%
+pokemon SPECIES_LILLIPUP	    //10%
+pokemon SPECIES_LILLIPUP	    //10%
 pokemon SPECIES_HOUNDOUR		//10%
 monwithform SPECIES_ZIGZAGOON, 1 		//10%
-pokemon SPECIES_LILLIPUP	    //10%
+pokemon SPECIES_SANDILE	    //10%
 pokemon SPECIES_STUNKY	        //10%
 pokemon SPECIES_STUNKY	        //5%
-pokemon SPECIES_LITWICK	        //5%
-pokemon SPECIES_GASTLY	        //5%
+pokemon SPECIES_SHUPPET	        //5%
+pokemon SPECIES_BELLSPROUT	        //5%
 pokemon SPECIES_MURKROW	    //5%
 
 // day encounter slots
 pokemon SPECIES_POOCHYENA 	    //10%
 pokemon SPECIES_POOCHYENA		//10%
-pokemon SPECIES_BELLSPROUT      //10%
-pokemon SPECIES_BELLSPROUT	    //10%
+pokemon SPECIES_LILLIPUP	    //10%
+pokemon SPECIES_LILLIPUP	    //10%
 pokemon SPECIES_HOUNDOUR		//10%
 monwithform SPECIES_ZIGZAGOON, 1 		//10%
-pokemon SPECIES_LILLIPUP	    //10%
+pokemon SPECIES_SANDILE	    //10%
 pokemon SPECIES_STUNKY	        //10%
 pokemon SPECIES_STUNKY	        //5%
-pokemon SPECIES_LITWICK	        //5%
-pokemon SPECIES_GASTLY	        //5%
+pokemon SPECIES_SHUPPET	        //5%
+pokemon SPECIES_BELLSPROUT	        //5%
 pokemon SPECIES_MURKROW	    //5%
 
 // night encounter slots
 pokemon SPECIES_POOCHYENA 	    //10%
 pokemon SPECIES_POOCHYENA		//10%
-pokemon SPECIES_BELLSPROUT      //10%
-pokemon SPECIES_BELLSPROUT	    //10%
+pokemon SPECIES_LILLIPUP	    //10%
+pokemon SPECIES_LILLIPUP	    //10%
 pokemon SPECIES_HOUNDOUR		//10%
 monwithform SPECIES_ZIGZAGOON, 1 		//10%
-pokemon SPECIES_LILLIPUP	    //10%
+pokemon SPECIES_SANDILE	    //10%
 pokemon SPECIES_STUNKY	        //10%
 pokemon SPECIES_STUNKY	        //5%
-pokemon SPECIES_LITWICK	        //5%
-pokemon SPECIES_GASTLY	        //5%
+pokemon SPECIES_SHUPPET        //5%
+pokemon SPECIES_BELLSPROUT	        //5%
 pokemon SPECIES_MURKROW	    //5%
 
 // hoenn encounter slots
-pokemon SPECIES_ZIGZAGOON
-pokemon SPECIES_SPINDA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_CHATOT
-pokemon SPECIES_MEDITITE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -831,7 +831,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod

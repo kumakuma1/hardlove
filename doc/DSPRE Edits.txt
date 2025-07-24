@@ -1643,15 +1643,14 @@ Jump Function#1
 #define ITEM_BLACK_BELT      241
 
 
-### Silk Scarf in National Park
+### Black GLasses in National Park
 096 - D22R0101 - Event File 93  - Script File 25
 Script 1:
 ..
-	SetVar 0x8004 217 -> 251
+	SetVar 0x8004 217 -> 240
 	SetVar 0x8005 1
 ...
 
-.equ ITEM_SILK_SCARF, 251
 
 
 ### Candy in Ilex
@@ -1682,9 +1681,12 @@ Jump Function#1
 
 .equ ITEM_RARE_CANDY, 50
 
-### 
-Wise Glasses in Goldenrod Department Underground
-200 - D37R0103 - Event File 193 Overworld 21: Fag 1093 - Script 7055  --> 141 script 56
+### //TODO delete
+Wise Glasses/Muscle Band in Union Cave
+Silk Scarf in Slowpoke Well: Fag 1075 - Script 7041  --> 141 script 42
+
+//Wise Glasses in Goldenrod Department Underground
+//200 - D37R0103 - Event File 193 Overworld 21: Fag 1093 - Script 7055  --> 141 script 56
 								Overworld 19: Fag 1090 - Script 7052  --> 141 script 53
 Script 53:
 	SetVar 0x8008 267
