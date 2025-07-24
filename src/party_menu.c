@@ -61,6 +61,14 @@ u8 customFieldMoveCheckInPartyMenu(struct PLIST_WORK *wk, struct PartyPokemon *p
         }
     }
 
+    if (count < 8)
+    {
+        buf[count] = PARTY_MON_CONTEXT_MENU_FLASH;
+        ++count;
+        PartyMenu_ContextMenuAddFieldMove(wk, MOVE_FLASH, fieldMoveIndex);
+        ++fieldMoveIndex;
+    }
+
     return count;
 }
 #endif
