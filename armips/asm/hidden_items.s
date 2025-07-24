@@ -35,7 +35,7 @@
 .halfword ITEM_ELIXIR
 
 .org 0x02000000 + 0xFA5A0 //Violet
-.halfword ITEM_HYPER_POTION
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA5A8 //Violet
 .halfword ITEM_POKE_BALL
@@ -65,7 +65,7 @@
 .halfword ITEM_BIG_PEARL
 
 .org 0x02000000 + 0xFA5F0 //Union Cave B1F S
-.halfword ITEM_X_SPEED
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA5F8 //Union Cave B1F E
 .halfword ITEM_REVIVE
@@ -92,7 +92,7 @@
 .halfword ITEM_GREAT_BALL
 
 .org 0x02000000 + 0xFA638 //Slowpoke Well B1F Rock
-.halfword ITEM_SUPER_POTION
+.halfword ITEM_MOON_STONE
 
 .org 0x02000000 + 0xFA640 //Slowpoke Well B1F Ladder
 .halfword ITEM_FULL_HEAL
