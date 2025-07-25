@@ -89,9 +89,13 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int attacker)
             case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
                 onlyIneffectiveMoves = FALSE;
                 break;
-            default:
-                if (attackerMove.effect == MOVE_EFFECT_SWITCH_HIT) //consider fastKills
+            case TYPE_MUL_TRIPLE_NOT_EFFECTIVE:
+            case TYPE_MUL_DOUBLE_NOT_EFFECTIVE:
+            case TYPE_MUL_NOT_EFFECTIVE:
+                if (attackerMove.effect == MOVE_EFFECT_SWITCH_HIT) // && consider fastKills/speeds
                     onlyIneffectiveMoves = FALSE;
+                break;
+            default: //TYPE_MUL_NO_EFFECT
                 break;
             }
         }
