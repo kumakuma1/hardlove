@@ -1662,6 +1662,11 @@ Jump Function#1
 
 .equ ITEM_RARE_CANDY, 50
 
+
+### Silver Powder in Ilex
+117 - D36R0101 - Event File 114 Overworld 6: Fag 1084- Script 7044  --> 141 script 45
+
+
 ### White herb on R34
 171 - D34R0201 - Event File 165 - Script file 239
 Script 1:

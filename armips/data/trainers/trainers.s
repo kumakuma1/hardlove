@@ -426,16 +426,17 @@ trainerdata 8, "Joey" // Route 30
     endentry
 
     party 8
+        // mon 1
         ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-6
-        pokemon SPECIES_SENTRET
-        item ITEM_NONE
-        move MOVE_TACKLE
-        move MOVE_FOCUS_ENERGY
+        pokemon SPECIES_HOUNDOUR
+        item ITEM_ORAN_BERRY
+        move MOVE_FLAME_WHEEL
+        move MOVE_BITE
         move MOVE_NONE
         move MOVE_NONE
-        ability ABILITY_KEEN_EYE
+        ability ABILITY_UNNERVE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -444,16 +445,17 @@ trainerdata 8, "Joey" // Route 30
         additionalflags 0
         ballseal 0
 
+        //mon 2
         ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-6
-        pokemon SPECIES_MAREEP
-        item ITEM_NONE
-        move MOVE_THUNDER_SHOCK
+        pokemon SPECIES_CHINCHOU
+        item ITEM_ORAN_BERRY
+        move MOVE_SHOCK_WAVE
         move MOVE_THUNDER_WAVE
+        move MOVE_BUBBLE_BEAM
         move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_STATIC
+        ability ABILITY_WATER_ABSORB
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -462,25 +464,27 @@ trainerdata 8, "Joey" // Route 30
         additionalflags 0
         ballseal 0
 
+        //mon 3
         ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-6
-        pokemon SPECIES_SPINARAK
-        item ITEM_NONE
-        move MOVE_ACID_SPRAY
-        move MOVE_STRING_SHOT
-        move MOVE_SHADOW_SNEAK
+        pokemon SPECIES_NATU
+        item ITEM_ORAN_BERRY
+        move MOVE_AIR_CUTTER
+        move MOVE_CONFUSE_RAY
         move MOVE_NONE
-        ability ABILITY_SNIPER
+        move MOVE_NONE
+        ability ABILITY_MAGIC_BOUNCE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_NAIVE
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
     endparty
 
+ 
 trainerdata 9, "Elaine"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_SWIMMER_F
@@ -2693,17 +2697,16 @@ trainerdata 47, "Mikey"  // Route 30
     endentry
 
     party 47
-        // mon 1
         ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-6
-        pokemon SPECIES_HOUNDOUR
-        item ITEM_ORAN_BERRY
-        move MOVE_FLAME_WHEEL
+        pokemon SPECIES_SENTRET
+        item ITEM_NONE
+        move MOVE_TACKLE
+        move MOVE_FOCUS_ENERGY
         move MOVE_NONE
         move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_UNNERVE
+        ability ABILITY_KEEN_EYE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -2712,17 +2715,16 @@ trainerdata 47, "Mikey"  // Route 30
         additionalflags 0
         ballseal 0
 
-        //mon 2
         ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-6
-        pokemon SPECIES_CHINCHOU
-        item ITEM_ORAN_BERRY
-        move MOVE_SHOCK_WAVE
+        pokemon SPECIES_MAREEP
+        item ITEM_NONE
+        move MOVE_THUNDER_SHOCK
         move MOVE_THUNDER_WAVE
-        move MOVE_BUBBLE_BEAM
         move MOVE_NONE
-        ability ABILITY_WATER_ABSORB
+        move MOVE_NONE
+        ability ABILITY_STATIC
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -2731,21 +2733,20 @@ trainerdata 47, "Mikey"  // Route 30
         additionalflags 0
         ballseal 0
 
-        //mon 3
         ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-6
-        pokemon SPECIES_NATU
-        item ITEM_ORAN_BERRY
-        move MOVE_AIR_CUTTER
-        move MOVE_CONFUSE_RAY
+        pokemon SPECIES_SPINARAK
+        item ITEM_NONE
+        move MOVE_ACID_SPRAY
+        move MOVE_STRING_SHOT
+        move MOVE_SHADOW_SNEAK
         move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_MAGIC_BOUNCE
+        ability ABILITY_SNIPER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0

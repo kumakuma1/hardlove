@@ -1,0 +1,35 @@
+----------------
+Mechanic Changes
+----------------
+
+For any mechanic that's not described in here, assume Generation 9 mechanics.
+
+Battle style is forced to set.
+Bag is unacessible during trainer battles.
+Gym Trainers and Gym Leaders will heal your party to full before battle.
+EVs are removed from the game.
+TMs are consumed on use.
+HMs do not need to be taught, obtaining them plus the required badge for use is enough.
+
+Critical hit chance: 1/24.
+Critical hit damage multiplier: 1.5.
+
+Weather abilities: Will set Weather permanently.
+Terrain abilities: Will set Terrain permanently.
+
+Held items: Items that get consumed or removed from your Pokémon in any way during battle will not be restored.
+
+Apricorn trees can be harvested once, to obtain Berries.
+
+Level Cap
+Once a Pokémon reaches a level cap the Infinite Candy item will no longer work and the Pokémon will not gain any experience in battles or Day Care.
+The level cap is tied boss fights and raised as you defeat them, progressing through the story.
+The boss fights are noted in documentation and are also noticeable by the battle transition as they start.
+You can overcome the cap by using Rare Candies, but those are rare and limited.
+Here is a list of all the bosses and their matching level caps:
+
+Elder Li 			lvl 12
+Leader Falkner 			lvl 16
+Slowpoke-Well Proton 		lvl 20
+Leader Bugsy 			lvl 25
+Schorsch 			lvl 29
