@@ -388,7 +388,7 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
             break;
         case MOVE_EFFECT_STATUS_SLEEP:
         case MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN:
-            if (ai->defenderImmuneToSleep)
+            if (ai->defenderImmuneToSleep || (ai->defenderMon.effect_of_moves & MOVE_EFFECT_YAWN_COUNTER))
                 moveScore -= NEVER_USE_MOVE_20;
             break;
         case MOVE_EFFECT_STATUS_POISON:
