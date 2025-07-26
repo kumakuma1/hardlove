@@ -471,17 +471,16 @@ levelup SPECIES_RAICHU
 
 levelup SPECIES_SANDSHREW
     learnset MOVE_SCRATCH, 1 
-    learnset MOVE_RAPID_SPIN, 1 
     learnset MOVE_POISON_STING, 3 
     learnset MOVE_LEER, 5 
-    learnset MOVE_ROCK_THROW, 7 
-    learnset MOVE_MAGNITUDE, 9 
+    learnset MOVE_ROCK_THROW, 7
+    learnset MOVE_FURY_SWIPES, 9 
     learnset MOVE_GROWL, 11
     learnset MOVE_BULLDOZE, 14
     learnset MOVE_SAND_TOMB, 17
     learnset MOVE_SLASH, 20
     learnset MOVE_SUPER_FANG, 23
-    learnset MOVE_DRILL_RUN, 26
+    learnset MOVE_DRILL_RUN, 27
     learnset MOVE_DIG, 30
     learnset MOVE_NIGHT_SLASH, 34
     learnset MOVE_ROCK_SLIDE, 38
@@ -491,18 +490,18 @@ levelup SPECIES_SANDSHREW
 
 
 levelup SPECIES_SANDSLASH
-    learnset MOVE_SCRATCH, 1 
-    learnset MOVE_RAPID_SPIN, 1 
-    learnset MOVE_POISON_STING, 3 
-    learnset MOVE_LEER, 5 
-    learnset MOVE_ROCK_THROW, 7 
-    learnset MOVE_MAGNITUDE, 9 
+    learnset MOVE_SCRATCH, 1
+    learnset MOVE_RAPID_SPIN, 1
+    learnset MOVE_POISON_STING, 3
+    learnset MOVE_LEER, 5
+    learnset MOVE_ROCK_THROW, 7
+    learnset MOVE_FURY_SWIPES, 9
     learnset MOVE_GROWL, 11
     learnset MOVE_BULLDOZE, 14
     learnset MOVE_SAND_TOMB, 17
     learnset MOVE_SLASH, 20
     learnset MOVE_SUPER_FANG, 23
-    learnset MOVE_DRILL_RUN, 26
+    learnset MOVE_DRILL_RUN, 27
     learnset MOVE_DIG, 30
     learnset MOVE_NIGHT_SLASH, 35
     learnset MOVE_ROCK_SLIDE, 40
@@ -15206,7 +15205,7 @@ levelup SPECIES_LITTEN
     learnset MOVE_SCRATCH, 1
     learnset MOVE_EMBER, 5 
     learnset MOVE_GROWL, 7 
-    learnset MOVE_LEER, 10
+    learnset MOVE_LICK, 10
     learnset MOVE_FIRE_FANG, 14
     learnset MOVE_DOUBLE_KICK, 16
     learnset MOVE_BITE, 21
@@ -15224,7 +15223,7 @@ levelup SPECIES_TORRACAT
     learnset MOVE_SCRATCH, 1
     learnset MOVE_EMBER, 5 
     learnset MOVE_GROWL, 7 
-    learnset MOVE_LEER, 10
+    learnset MOVE_LICK, 10
     learnset MOVE_FIRE_FANG, 14
     learnset MOVE_DOUBLE_KICK, 16
     learnset MOVE_BITE, 21
