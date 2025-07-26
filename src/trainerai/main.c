@@ -628,8 +628,8 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 
     if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SPEED_HIT && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100)
     {
-        if (!ai->defenderMovesFirst && ((ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY) || 
-            ai->attackerMon.hasMoldBreaker))
+        if (ai->defenderMovesFirst && ((ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY)
+            || ai->attackerMon.hasMoldBreaker))
         {
             moveScore += 6;
         }

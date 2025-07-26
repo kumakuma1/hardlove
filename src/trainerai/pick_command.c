@@ -106,7 +106,7 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int attacker)
     {
         int score = 0;
         int switchToSlot = BattleAI_PostKOSwitchIn_Internal(bsys, attacker, &score);
-        int rand = BattleRand(bsys) % 2;
+		int rand = BattleRand(bsys) % 2; //50%. Change this to 5 for a 20% chance
 		debug_printf("TrainerAI_ShouldSwitch: Only ineffective moves, consider(%d) switching to slot %d with score %d\n", rand, switchToSlot, score);
         if (score >= 102 && rand == 0)
         {
