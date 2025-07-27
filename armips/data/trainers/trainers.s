@@ -50,7 +50,7 @@ trainerdata 0, "-"
         ballseal 0
     endparty
 
-trainerdata 1, "Silver"
+trainerdata 1, "Silver" //grass
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_RIVAL
     nummons 6
@@ -67,11 +67,11 @@ trainerdata 1, "Silver"
         abilityslot 0
         level LEVEL_BUGSY-3
         pokemon SPECIES_GOLBAT
-        item ITEM_BERRY_JUICE
-        move MOVE_U_TURN
+        item ITEM_EXPERT_BELT
         move MOVE_AIR_CUTTER
-        move MOVE_BITE
-        move MOVE_CONFUSE_RAY
+        move MOVE_MEGA_DRAIN
+        move MOVE_U_TURN
+        move MOVE_POISON_FANG
         ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -83,32 +83,14 @@ trainerdata 1, "Silver"
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-2
-        pokemon SPECIES_HAUNTER
-        item ITEM_COLBUR_BERRY
-        move MOVE_MEAN_LOOK
-        move MOVE_SLUDGE
-        move MOVE_OMINOUS_WIND
-        move MOVE_HYPNOSIS
-        ability ABILITY_LEVITATE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_BUGSY-2
-        pokemon SPECIES_BOLTUND
-        item ITEM_RAWST_BERRY
-        move MOVE_NUZZLE
-        move MOVE_SPARK
-        move MOVE_FIRE_FANG
-        move MOVE_ICE_FANG
-        ability ABILITY_STRONG_JAW
+        level LEVEL_BUGSY-4
+        pokemon SPECIES_STANTLER
+        item ITEM_LUM_BERRY
+        move MOVE_HEADBUTT
+        move MOVE_THUNDER_WAVE
+        move MOVE_CONFUSE_RAY
+        move MOVE_THIEF
+        ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -116,21 +98,21 @@ trainerdata 1, "Silver"
         shinylock 0
         additionalflags 0
         ballseal 0
-		
-		ivs 0
+
+        ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-1
-        pokemon SPECIES_IVYSAUR
-        item ITEM_COBA_BERRY
-        move MOVE_TAKE_DOWN
-        move MOVE_SLEEP_POWDER
-        move MOVE_RAZOR_LEAF
-        move MOVE_HIDDEN_POWER //ROCK
-        ability ABILITY_OVERGROW
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_EELEKTRIK
+        item ITEM_SITRUS_BERRY
+        move MOVE_SLUDGE
+        move MOVE_THUNDER_PUNCH
+        move MOVE_CRUNCH
+        move MOVE_SUPER_FANG
+        ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 30, 30, 31, 30 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_SERIOUS
+        nature NATURE_HASTY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -139,7 +121,7 @@ trainerdata 1, "Silver"
         abilityslot 0
         level LEVEL_BUGSY-2
         pokemon SPECIES_HOUNDOOM
-        item ITEM_CHARCOAL
+        item ITEM_LUM_BERRY
         move MOVE_HEADBUTT
         move MOVE_BITE
         move MOVE_FLAME_BURST
@@ -155,18 +137,36 @@ trainerdata 1, "Silver"
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-1
-        pokemon SPECIES_FLOATZEL
-        item ITEM_SITRUS_BERRY
-        move MOVE_FAKE_OUT
-        move MOVE_AQUA_JET
-        move MOVE_WATER_PULSE
-        move MOVE_DOUBLE_HIT
-        ability ABILITY_WATER_VEIL
+        level LEVEL_BUGSY-3
+        pokemon SPECIES_PALPITOAD
+        item ITEM_RINDO_BERRY
+        move MOVE_MUD_SHOT
+        move MOVE_BUBBLE_BEAM
+        move MOVE_HEADBUTT
+        move MOVE_HIDDEN_POWER //POISON
+        ability ABILITY_POISON_TOUCH
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 30, 31, 30, 30 // hp, atk, def, spd, spatk, spdef //HP POISON
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_NAIVE
+        nature NATURE_HASTY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY-1
+        pokemon SPECIES_BAYLEEF
+        item ITEM_COBA_BERRY
+        move MOVE_MAGICAL_LEAF
+        move MOVE_GRASS_WHISTLE
+        move MOVE_SYNTHESIS
+        move MOVE_HIDDEN_POWER //ROCK
+        ability ABILITY_THICK_FAT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 30, 30, 31, 30 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -10928,7 +10928,7 @@ trainerdata 265, "Silver"
         ballseal 0
     endparty
 
-trainerdata 266, "Silver"
+trainerdata 266, "Silver" //FIRE
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_RIVAL
     nummons 6
@@ -10945,11 +10945,11 @@ trainerdata 266, "Silver"
         abilityslot 0
         level LEVEL_BUGSY-3
         pokemon SPECIES_GOLBAT
-        item ITEM_BERRY_JUICE
-        move MOVE_U_TURN
+        item ITEM_EXPERT_BELT
         move MOVE_AIR_CUTTER
-        move MOVE_BITE
-        move MOVE_CONFUSE_RAY
+        move MOVE_MEGA_DRAIN
+        move MOVE_U_TURN
+        move MOVE_POISON_FANG
         ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -10961,32 +10961,14 @@ trainerdata 266, "Silver"
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-2
-        pokemon SPECIES_HAUNTER
-        item ITEM_COLBUR_BERRY
-        move MOVE_MEAN_LOOK
-        move MOVE_SLUDGE
-        move MOVE_OMINOUS_WIND
-        move MOVE_HYPNOSIS
-        ability ABILITY_LEVITATE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_BUGSY-2
-        pokemon SPECIES_BOLTUND
-        item ITEM_RAWST_BERRY
-        move MOVE_NUZZLE
-        move MOVE_SPARK
-        move MOVE_FIRE_FANG
-        move MOVE_ICE_FANG
-        ability ABILITY_STRONG_JAW
+        level LEVEL_BUGSY-4
+        pokemon SPECIES_STANTLER
+        item ITEM_LUM_BERRY
+        move MOVE_HEADBUTT
+        move MOVE_THUNDER_WAVE
+        move MOVE_CONFUSE_RAY
+        move MOVE_THIEF
+        ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -10994,37 +10976,37 @@ trainerdata 266, "Silver"
         shinylock 0
         additionalflags 0
         ballseal 0
-		
-		ivs 0
+
+        ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-1
-        pokemon SPECIES_BRELOOM
-        item ITEM_COBA_BERRY
-        move MOVE_MACH_PUNCH
-        move MOVE_SPORE
-        move MOVE_HEADBUTT
-        move MOVE_MEGA_DRAIN
-        ability ABILITY_EFFECT_SPORE
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_EELEKTRIK
+        item ITEM_SITRUS_BERRY
+        move MOVE_SLUDGE
+        move MOVE_THUNDER_PUNCH
+        move MOVE_CRUNCH
+        move MOVE_SUPER_FANG
+        ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_NAIVE
+        nature NATURE_HASTY
         shinylock 0
         additionalflags 0
         ballseal 0
 		
 		ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-2
-        pokemon SPECIES_CHARMANDER
-        item ITEM_CHARCOAL
-        move MOVE_INCINERATE
-        move MOVE_HEADBUTT
-        move MOVE_SMOKESCREEN
-        move MOVE_HIDDEN_POWER //GRASS
-        ability ABILITY_BLAZE
+        level LEVEL_BUGSY-3
+        pokemon SPECIES_ROSELIA
+        item ITEM_LUM_BERRY
+        move MOVE_MEGA_DRAIN
+        move MOVE_SLUDGE
+        move MOVE_GRASS_WHISTLE
+        move MOVE_NONE
+        ability ABILITY_POISON_POINT
         ball ITEM_POKE_BALL
-        setivs 30, 31, 31, 31, 30, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef //HP POISON
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -11033,24 +11015,42 @@ trainerdata 266, "Silver"
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-1
-        pokemon SPECIES_FLOATZEL
-        item ITEM_SITRUS_BERRY
-        move MOVE_FAKE_OUT
-        move MOVE_AQUA_JET
-        move MOVE_WATER_PULSE
-        move MOVE_DOUBLE_HIT
-        ability ABILITY_WATER_VEIL
+        level LEVEL_BUGSY-3
+        pokemon SPECIES_PALPITOAD
+        item ITEM_RINDO_BERRY
+        move MOVE_MUD_SHOT
+        move MOVE_BUBBLE_BEAM
+        move MOVE_HEADBUTT
+        move MOVE_HIDDEN_POWER //POISON
+        ability ABILITY_POISON_TOUCH
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 30, 31, 30, 30 // hp, atk, def, spd, spatk, spdef //HP POISON
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_NAIVE
+        nature NATURE_HASTY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY-1
+        pokemon SPECIES_QUILAVA
+        item ITEM_CHARCOAL
+        move MOVE_INCINERATE
+        move MOVE_QUICK_ATTACK
+        move MOVE_SMOKESCREEN
+        move MOVE_HIDDEN_POWER    //GRASS
+        ability ABILITY_FLASH_FIRE
+        ball ITEM_POKE_BALL
+        setivs 30, 31, 31, 31, 30, 31 // hp, atk, def, spd, spatk, spdef //GRASS
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
     endparty
 
-trainerdata 267, "Silver"
+trainerdata 267, "Silver" //FIRE
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_RIVAL
     nummons 4
@@ -11108,7 +11108,7 @@ trainerdata 267, "Silver"
         ballseal 0
     endparty
 
-trainerdata 268, "Silver"
+trainerdata 268, "Silver" //FIRE
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_RIVAL
     nummons 6
@@ -11188,7 +11188,7 @@ trainerdata 268, "Silver"
         ballseal 0
     endparty
 
-trainerdata 269, "Silver"
+trainerdata 269, "Silver" //WATER
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_RIVAL
     nummons 6
@@ -11205,11 +11205,11 @@ trainerdata 269, "Silver"
         abilityslot 0
         level LEVEL_BUGSY-3
         pokemon SPECIES_GOLBAT
-        item ITEM_BERRY_JUICE
-        move MOVE_U_TURN
+        item ITEM_EXPERT_BELT
         move MOVE_AIR_CUTTER
-        move MOVE_BITE
-        move MOVE_CONFUSE_RAY
+        move MOVE_MEGA_DRAIN
+        move MOVE_U_TURN
+        move MOVE_POISON_FANG
         ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -11221,32 +11221,14 @@ trainerdata 269, "Silver"
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-2
-        pokemon SPECIES_HAUNTER
-        item ITEM_COLBUR_BERRY
-        move MOVE_MEAN_LOOK
-        move MOVE_SLUDGE
-        move MOVE_OMINOUS_WIND
-        move MOVE_HYPNOSIS
-        ability ABILITY_LEVITATE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_BUGSY-2
-        pokemon SPECIES_BOLTUND
-        item ITEM_RAWST_BERRY
-        move MOVE_NUZZLE
-        move MOVE_SPARK
-        move MOVE_FIRE_FANG
-        move MOVE_ICE_FANG
-        ability ABILITY_STRONG_JAW
+        level LEVEL_BUGSY-4
+        pokemon SPECIES_STANTLER
+        item ITEM_LUM_BERRY
+        move MOVE_HEADBUTT
+        move MOVE_THUNDER_WAVE
+        move MOVE_CONFUSE_RAY
+        move MOVE_THIEF
+        ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -11254,21 +11236,21 @@ trainerdata 269, "Silver"
         shinylock 0
         additionalflags 0
         ballseal 0
-		
-		ivs 0
+
+        ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-1
-        pokemon SPECIES_ROSELIA
-        item ITEM_WIDE_LENS
-        move MOVE_GRASS_WHISTLE
-        move MOVE_MEGA_DRAIN
+        level LEVEL_BUGSY-2
+        pokemon SPECIES_EELEKTRIK
+        item ITEM_SITRUS_BERRY
         move MOVE_SLUDGE
-        move MOVE_NONE
-        ability ABILITY_POISON_POINT
+        move MOVE_THUNDER_PUNCH
+        move MOVE_CRUNCH
+        move MOVE_SUPER_FANG
+        ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_HASTY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -11276,13 +11258,13 @@ trainerdata 269, "Silver"
 		ivs 0
         abilityslot 0
         level LEVEL_BUGSY-2
-        pokemon SPECIES_CENTISKORCH
-        item ITEM_CHARCOAL
-        move MOVE_BUG_BITE
+        pokemon SPECIES_HOUNDOOM
+        item ITEM_LUM_BERRY
+        move MOVE_HEADBUTT
         move MOVE_BITE
         move MOVE_FLAME_BURST
-        move MOVE_FLAME_WHEEL
-        ability ABILITY_FLAME_BODY
+        move MOVE_FIRE_FANG
+        ability ABILITY_UNNERVE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -11293,18 +11275,36 @@ trainerdata 269, "Silver"
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-1
-        pokemon SPECIES_WARTORTLE
-        item ITEM_SITRUS_BERRY
-        move MOVE_WATER_PULSE
-        move MOVE_AURORA_BEAM
-        move MOVE_HIDDEN_POWER //GROUND
-        move MOVE_YAWN
-        ability ABILITY_TORRENT
+        level LEVEL_BUGSY-3
+        pokemon SPECIES_ROSELIA
+        item ITEM_LUM_BERRY
+        move MOVE_MEGA_DRAIN
+        move MOVE_SLUDGE
+        move MOVE_GRASS_WHISTLE
+        move MOVE_NONE
+        ability ABILITY_POISON_POINT
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 30, 30 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef //HP POISON
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY-1
+        pokemon SPECIES_CROCONAW
+        item ITEM_SITRUS_BERRY
+        move MOVE_BRINE
+        move MOVE_ICE_FANG
+        move MOVE_BITE
+        move MOVE_ROCK_TOMB
+        ability ABILITY_SHEER_FORCE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -19419,7 +19419,7 @@ trainerdata 495, "Boy"
 
     party 495
         // mon 0
-        ivs 0
+        ivs 120
         abilityslot 0
         level 5
         pokemon SPECIES_CHIKORITA
@@ -19440,7 +19440,7 @@ trainerdata 496, "Boy"
 
     party 496
         // mon 0
-        ivs 0
+        ivs 120
         abilityslot 0
         level 5
         pokemon SPECIES_CYNDAQUIL
@@ -19461,7 +19461,7 @@ trainerdata 497, "Boy"
 
     party 497
         // mon 0
-        ivs 0
+        ivs 120
         abilityslot 0
         level 5
         pokemon SPECIES_TOTODILE

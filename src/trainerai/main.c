@@ -30,7 +30,6 @@ struct PACKED AIContext {
 
     BOOL isDoubleBattle;
     BOOL isPartnerGrounded;
-    u32 flingPower;
 
     BOOL defenderImmuneToPoison;
     BOOL defenderImmuneToParalysis;
@@ -1908,7 +1907,6 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->defenderLastUsedMoveEffect = ctx->moveTbl[ai->defenderLastUsedMove].effect;
     ai->defenderTurnsOnField = ctx->total_turn - ctx->battlemon[ai->defender].moveeffect.fakeOutCount;
     ai->attackerTurnsOnField = ctx->total_turn - ctx->battlemon[attacker].moveeffect.fakeOutCount;
-   // ai->flingPower = BattleItemDataGet(ctx, ai->attackerMon.item, ITEM_PARAM_FLING_POWER);
 
     ai->defenderMovesFirst = 0;
     ai->attackerMovesFirst = 0;
