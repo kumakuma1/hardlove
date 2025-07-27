@@ -34,68 +34,57 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int attacker)
     if (CantEscape(bsys, ctx, attacker, NULL))
         return FALSE;
 
-    int partySizeAttacker = Battle_GetClientPartySize(bsys, attacker);
-    int livingMembersAttacker = 0;
+    struct AIContext aictx = { 0 };
+    struct AIContext* ai = &aictx;
+    u32 defender = BATTLER_OPPONENT(attacker);
+    debug_printf("TrainerAI_ShouldSwitch: Attacker %d, defender %d\n", attacker, defender);
 
-    for (int i = 0; i < partySizeAttacker; i++)
-    {
-        struct PartyPokemon* current = Battle_GetClientPartyMon(bsys, attacker, i);
-        if (!(GetMonData(current, MON_DATA_HP, 0) == 0 ||
-            GetMonData(current, MON_DATA_SPECIES_OR_EGG, 0) == 0 ||
-            GetMonData(current, MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_EGG))
-        {
+    SetupStateVariables(bsys, attacker, defender, ai);
 
-           livingMembersAttacker++;
-        }
-    }
-    if (livingMembersAttacker < 2)
+    if (ai->livingMembersAttacker < 2)
         return FALSE;
 
-    struct AI_sDamageCalc attackerMon = { 0 };
-    struct AI_sDamageCalc defenderMon = { 0 };
-    u32 defender = BATTLER_OPPONENT(attacker);
-	debug_printf("TrainerAI_ShouldSwitch: Attacker %d, defender %d\n", attacker, defender);
+    if (ai->monCanOneShotPlayerWithAnyMove && ai->attackerMovesFirst)
+        return FALSE;
 
-    FillDamageStructFromBattleMon(bsys, ctx, &attackerMon, attacker);
-    FillDamageStructFromBattleMon(bsys, ctx, &defenderMon, defender);
+    if (ai->monCanOneShotPlayerWithAnyMove && ai->defenderMovesFirst && !ai->playerCanOneShotMonWithAnyMove)
+        return FALSE;
 
-    BOOL hasDamaginMove = FALSE;
-    u32 effectivenessFlag = 0;
-	u32 effectivenessOnPlayer[CLIENT_MAX] = { 0 };
-    int attackerMovesKnown = GetBattlerLearnedMoveCount(bsys, ctx, attacker);
-    for (int j = 0; j < attackerMovesKnown; j++)
-    {
-        u32 attackerMoveno = ctx->battlemon[attacker].move[j];
-        struct BattleMove attackerMove = ctx->moveTbl[attackerMoveno];
-        if (attackerMove.split != SPLIT_STATUS && attackerMove.power > 1)
-        {
-            hasDamaginMove = TRUE;
-            u8 movetype = GetAdjustedMoveTypeBasics(ctx, attackerMoveno, attackerMon.ability, attackerMove.type);
-            effectivenessOnPlayer[j] = BattleAI_GetTypeEffectiveness(bsys, ctx, movetype, &effectivenessFlag, &attackerMon, &defenderMon);
-        }
-        debug_printf("move %d:%d has effectiveness %d\n", j, attackerMoveno, effectivenessOnPlayer[j]);
-    }
+    if (ai->attackerMon.percenthp < 67)
+        return FALSE;
 
-    BOOL onlyIneffectiveDamagingMoves = TRUE;
-    for (int k = 0; k < attackerMovesKnown; ++k)
+    BOOL onlyIneffectiveMoves = TRUE;
+    for (int k = 0; k < ai->attackerMovesKnown; ++k)
     {
         u32 attackerMoveno = ctx->battlemon[attacker].move[k];
         struct BattleMove attackerMove = ctx->moveTbl[attackerMoveno];
-        if (attackerMove.split != SPLIT_STATUS && attackerMove.power > 1)
+
+        if (attackerMoveno != MOVE_NONE
+            && (attackerMoveno == ctx->battlemon[attacker].moveeffect.moveNoChoice
+                || attackerMoveno == ctx->battlemon[attacker].moveeffect.encoredMove))
         {
-            switch (effectivenessOnPlayer[k])
+            if (ai->effectivenessOnPlayer[k] < TYPE_MUL_NORMAL || IsChoicedMoveConsidedUseless(attackerMoveno, attackerMove.split))
+            {
+                onlyIneffectiveMoves = TRUE;
+                break;
+            }
+        }
+
+        if (attackerMove.split != SPLIT_STATUS)
+        {
+            switch (ai->effectivenessOnPlayer[k])
             {
             case TYPE_MUL_NORMAL:
             case TYPE_MUL_SUPER_EFFECTIVE:
             case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
             case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
-                onlyIneffectiveDamagingMoves = FALSE;
+                onlyIneffectiveMoves = FALSE;
                 break;
             case TYPE_MUL_TRIPLE_NOT_EFFECTIVE:
             case TYPE_MUL_DOUBLE_NOT_EFFECTIVE:
             case TYPE_MUL_NOT_EFFECTIVE:
-                if (attackerMove.effect == MOVE_EFFECT_SWITCH_HIT) // TODO:&& consider fastKills/speeds //encore
-                    onlyIneffectiveDamagingMoves = FALSE;
+                if (attackerMove.effect == MOVE_EFFECT_SWITCH_HIT) // TODO:&& consider fastKills/speeds
+                    onlyIneffectiveMoves = FALSE;
                 break;
             default: //TYPE_MUL_NO_EFFECT
                 break;
@@ -103,14 +92,13 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int attacker)
         }
     }
 
-    if (attackerMon.percenthp > 67
-        && ((hasDamaginMove && onlyIneffectiveDamagingMoves) || (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE)))
+    if (onlyIneffectiveMoves || (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE))
     {
         int score = 0;
         int switchToSlot = BattleAI_PostKOSwitchIn_Internal(bsys, attacker, &score);
-		int rand = BattleRand(bsys) % 5; //20%. Change this to 2 for a 50% chance
-		debug_printf("TrainerAI_ShouldSwitch: Only ineffective moves, consider(%d) switching to slot %d with score %d\n", rand, switchToSlot, score);
-        if (score >= 102 && rand == 0) //set to 103 to consider being faster  //TODO:consider not being 2HKO
+		int rand = BattleRand(bsys) % 2; //Change this to 2 for a 50% chance, or 3 to 33%, or 4 for 25% ...
+		debug_printf("TrainerAI_ShouldSwitch: Only ineffective moves/perishSong, consider(%d) switching to slot %d with score %d\n", rand, switchToSlot, score);
+        if (score >= 103 && rand == 0) //set to 103 to consider being faster  //TODO:consider not being 2HKO and slower
         {
             ctx->aiSwitchedPartySlot[attacker] = switchToSlot;
             return TRUE;

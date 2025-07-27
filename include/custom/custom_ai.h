@@ -45,6 +45,66 @@ struct PACKED AI_sDamageCalc
     //u8 lastResortCount;
 };
 
+struct PACKED AIContext {
+    struct AI_sDamageCalc attackerMon;
+    struct AI_sDamageCalc defenderMon; //"player"
+    //struct AI_sDamageCalc defenderAlly;
+
+    BOOL isDoubleBattle;
+    BOOL isPartnerGrounded;
+
+    BOOL defenderImmuneToPoison;
+    BOOL defenderImmuneToParalysis;
+    BOOL defenderImmuneToBurn;
+    BOOL defenderImmuneToSleep;
+
+    u8 attackerMovesFirst;
+    u8 defenderMovesFirst;
+    u8 isSpeedTie;
+
+    int attacker;
+    int defender;
+    int defenderSide;
+    int attackerSide;
+
+    int attackerSpeed;
+    int defenderSpeed;
+
+    u8 partySizeAttacker;
+    u8 livingMembersAttacker;
+
+    u8 partySizeDefender;
+    u8 livingMembersDefender;
+
+    u8 attackerMovesKnown;
+
+    u32 attackerLastUsedMove;
+    u32 defenderLastUsedMove;
+    u32 defenderLastUsedMoveEffect;
+    u32 defenderTurnsOnField;
+    u32 attackerTurnsOnField;
+
+    u32 attackerMove;
+    u32 attackerMoveEffect;
+
+    BOOL isDefenderIncapacitated;
+    BOOL defenderKnowsThawingMove;
+
+    u32 maxDamageReceived;
+
+    BOOL defenderHasAtleastOnePhysicalMove;
+    BOOL defenderHasAtleastOneSpecialMove;
+    BOOL playerCanOneShotMonWithMove[4];
+    BOOL playerCanOneShotMonWithAnyMove;
+    BOOL monCanOneShotPlayerWithAnyMove;
+
+
+    BOOL monCanOneShotPlayerWithMove[4];
+    u32 attackerRolledMoveDamages[4];
+    u32 effectivenessOnPlayer[4];
+    u32 attackerRolledMaxDamage;
+};
+
 struct PACKED AI_damage
 {
     u32 damageRoll;
@@ -52,6 +112,7 @@ struct PACKED AI_damage
     u32 moveEffectiveness;
 };
 
+void LONG_CALL SetupStateVariables(struct BattleSystem* bsys, u32 attacker, u32 defender, struct AIContext* ai);
 
 int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem* bsys, int attacker);
 int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attacker, int* score);
@@ -73,6 +134,11 @@ BOOL LONG_CALL BattleAI_AttackerHasOnlyIneffectiveMoves(struct BattleStruct* ctx
 
 int LONG_CALL BattleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP, u32 defenderHP, u32 damage, u32 moveEffect, u32 attackerAbility, u32 attackerItem);
 
+
+
 BOOL LONG_CALL canAttackerOneShotDefender(u32 attackerHighestDamage, u8 split, u32 moveno, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender);
+BOOL LONG_CALL battlerKnowsThawingMove(struct BattleSystem* bsys, u32 battler, struct AIContext* ai);
+
+BOOL LONG_CALL IsChoicedMoveConsidedUseless(u32 moveno, u8 split);
 
 #endif // !CUSTOM_AI_H
