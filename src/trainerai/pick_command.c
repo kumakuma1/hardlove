@@ -83,8 +83,11 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int attacker)
             case TYPE_MUL_TRIPLE_NOT_EFFECTIVE:
             case TYPE_MUL_DOUBLE_NOT_EFFECTIVE:
             case TYPE_MUL_NOT_EFFECTIVE:
-                if (attackerMove.effect == MOVE_EFFECT_SWITCH_HIT) // TODO:&& consider fastKills/speeds
-                    onlyIneffectiveMoves = FALSE;
+                if (attackerMove.effect == MOVE_EFFECT_SWITCH_HIT)
+                {
+                    if (ai->attackerMovesFirst || (ai->defenderMovesFirst && !ai->playerCanOneShotMonWithAnyMove))
+                        onlyIneffectiveMoves = FALSE;
+                }
                 break;
             default: //TYPE_MUL_NO_EFFECT
                 break;
@@ -92,7 +95,7 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int attacker)
         }
     }
 
-    if (onlyIneffectiveMoves || (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE))
+    if ((ai->attackerHasAttackingMoves && onlyIneffectiveMoves) || (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE))
     {
         int score = 0;
         int switchToSlot = BattleAI_PostKOSwitchIn_Internal(bsys, attacker, &score);

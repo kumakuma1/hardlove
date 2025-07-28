@@ -2215,7 +2215,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem* bsys, u32 attacker, u32 
     debug_printf("Overall Max damage received from %i:%i is %d > %d att.HP\n", highestDamageMoveIndex, ctx->battlemon[ai->defender].move[highestDamageMoveIndex], ai->maxDamageReceived, ai->attackerMon.hp);
 #endif // BATLLE_DEBUG_OUTPUT
 
-
+    ai->attackerHasAttackingMoves = FALSE;
     ai->monCanOneShotPlayerWithAnyMove = FALSE;
     for (int j = 0; j < ai->attackerMovesKnown; j++)
     {
@@ -2229,6 +2229,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem* bsys, u32 attacker, u32 
         }
         else if (attackerMove.power)
         {
+            ai->attackerHasAttackingMoves = TRUE;
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, attackerMoveno, ctx->side_condition[BATTLER_IS_ENEMY(attacker)], ctx->field_condition, attackerMove.power, attackerMove.type, critical, attacker, defender, &damages, &ai->attackerMon, &ai->defenderMon);
             ai->effectivenessOnPlayer[j] = damages.moveEffectiveness;
 
