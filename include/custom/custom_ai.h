@@ -77,6 +77,7 @@ struct PACKED AIContext {
     u8 livingMembersDefender;
 
     u8 attackerMovesKnown;
+    BOOL attackerHasAttackingMoves;
 
     u32 attackerLastUsedMove;
     u32 defenderLastUsedMove;
