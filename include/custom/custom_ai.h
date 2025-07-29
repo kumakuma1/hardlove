@@ -134,6 +134,7 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void* bw, struct BattleStruct* sp, i
 BOOL LONG_CALL BattleAI_AttackerHasOnlyIneffectiveMoves(struct BattleStruct* ctx, u32 attacker, int knownMoves, u32 effectiveness[4]);
 
 int LONG_CALL BattleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP, u32 defenderHP, u32 damage, u32 moveEffect, u32 attackerAbility, u32 attackerItem);
+BOOL LONG_CALL BattleAI_IsKnockOffPoweredUp(struct AI_sDamageCalc* defender);
 
 
 
@@ -141,5 +142,7 @@ BOOL LONG_CALL canAttackerOneShotDefender(u32 attackerHighestDamage, u8 split, u
 BOOL LONG_CALL battlerKnowsThawingMove(struct BattleSystem* bsys, u32 battler, struct AIContext* ai);
 
 BOOL LONG_CALL IsChoicedMoveConsidedUseless(u32 moveno, u8 split);
+
+BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct BattleSystem* bsys, u8 slot, BOOL isDoubleBattle);
 
 #endif // !CUSTOM_AI_H

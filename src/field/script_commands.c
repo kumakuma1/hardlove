@@ -108,9 +108,9 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
  *  @return FALSE
  */
 BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
-    s32 i;
-    u8 pp;
-    u16 moveData;
+    //s32 i;
+    //u8 pp;
+    //u16 moveData;
     struct PartyPokemon *togepi;
     void *profile;
     struct Party *party;

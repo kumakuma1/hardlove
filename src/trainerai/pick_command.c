@@ -115,14 +115,3 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int attacker)
 
     return FALSE;
 }
-
-
-BOOL AI_PerishSongKO(struct BattleStruct* battleCtx, int battler)
-{
-    if (battleCtx->battlemon[battler].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE) {
-        battleCtx->aiSwitchedPartySlot[battler] = 6;
-        return TRUE;
-    }
-
-    return FALSE;
-}

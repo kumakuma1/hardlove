@@ -434,7 +434,7 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, in
         }
         break;
     case MOVE_FINAL_GAMBIT:
-        if (ai->attackerMovesFirst && ai->attackerMon.hp > ai->defenderMon.hp)
+        if (ai->attackerMovesFirst && ai->attackerMon.hp >= ai->defenderMon.hp)
             moveScore += 8;
         else if (ai->attackerMovesFirst && ai->playerCanOneShotMonWithAnyMove)
             moveScore += 7;
@@ -504,11 +504,11 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             break;
         case MOVE_GUILLOTINE:
         case MOVE_HORN_DRILL:
-            if (HasType(ctx, ai->defender, TYPE_NORMAL) && ai->attackerMon.ability == ABILITY_SCRAPPY)
+            if (HasType(ctx, ai->defender, TYPE_GHOST) && ai->attackerMon.ability != ABILITY_SCRAPPY)
                 moveScore -= NEVER_USE_MOVE_20;
              break;
         case MOVE_FISSURE:
-            if (ai->attackerMove == MOVE_FISSURE && (HasType(ctx, ai->defender, TYPE_FLYING) || (!ai->attackerMon.hasMoldBreaker && ai->defenderMon.ability == ABILITY_LEVITATE)))
+            if (ai->attackerMove == MOVE_FISSURE && (ai->defenderMon.item == ITEM_AIR_BALLOON || HasType(ctx, ai->defender, TYPE_FLYING) || (!ai->attackerMon.hasMoldBreaker && ai->defenderMon.ability == ABILITY_LEVITATE)))
                 moveScore -= NEVER_USE_MOVE_20;
              break;
         default:
@@ -574,7 +574,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         {
             moveScore += 5;
         }
-        if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
+        if (ai->isDoubleBattle)
         {
             if (ai->attackerMove == MOVE_ICY_WIND || ai->attackerMove == MOVE_ELECTROWEB)
                 moveScore += 1;
@@ -691,7 +691,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         case MOVE_EARTHQUAKE:
         case MOVE_MAGNITUDE:
         {
-            if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
+            if (ai->isDoubleBattle)
             {
                 if (ai->isPartnerGrounded) //or about to use magnetrise && faster
                 {
@@ -916,14 +916,14 @@ int LONG_CALL SetupScoring(struct BattleSystem* bsys, u32 attacker, int i, struc
             if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)
             {
                 moveScore -= NEVER_USE_MOVE_20;
-                breaK;
+                break;
             }
             FALLTHROUGH;
         case MOVE_EFFECT_RESTORE_HP_EVERY_TURN: //Aqua Ring
             if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING)
             {
                 moveScore -= NEVER_USE_MOVE_20;
-                breaK;
+                break;
             }
             FALLTHROUGH;
         case MOVE_EFFECT_DEF_UP:
@@ -1089,7 +1089,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
             moveScore -= NEVER_USE_MOVE_20;
         break;
     case MOVE_EFFECT_DOUBLE_SPEED_3_TURNS:
-        if (ai->defenderMovesFirst) // or partner is slower
+        if (IsBattleMonSlowerThanOpposition(bsys, attacker, ai->isDoubleBattle)
+            || (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp > 0 && IsBattleMonSlowerThanOpposition(bsys, BATTLER_ALLY(attacker), ai->isDoubleBattle))) // or partner is slower
             moveScore += 9;
         else
             moveScore += 5;
@@ -1097,7 +1098,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
             moveScore -= NEVER_USE_MOVE_20;
         break;
     case MOVE_EFFECT_TRICK_ROOM:
-        if (ai->defenderMovesFirst) // or partner is slower
+        if (IsBattleMonSlowerThanOpposition(bsys, attacker, ai->isDoubleBattle)
+            || (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp > 0 && IsBattleMonSlowerThanOpposition(bsys, BATTLER_ALLY(attacker), ai->isDoubleBattle))) // or partner is slower
             moveScore += 10;
         else
             moveScore += 5;
@@ -1202,7 +1204,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
         moveScore += 6;
         if (BattleRand(bsys) % 3 == 0)
         {
-            if ((BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE)) // or partner
+            if ((BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE)
+                || (ai->isDoubleBattle && BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_HEX, ai))) // or partner
                 moveScore += 1;
             if (ai->defenderHasAtleastOnePhysicalMove)
                 moveScore += 1;
@@ -1220,7 +1223,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
                 (BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai) == FALSE) &&
                 (BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) == FALSE))
                 moveScore += 1;
-            if ((BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE)) // or partner
+            if ((BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE)
+                || (ai->isDoubleBattle && BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_HEX, ai))) // or partner
                 moveScore += 1;
         }
         break;

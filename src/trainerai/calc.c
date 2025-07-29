@@ -172,13 +172,13 @@ int LONG_CALL BattleAI_CalcBaseDamage(void* bw, struct BattleStruct* sp, int mov
     u32 baseDamage = 0;
     BOOL isDoubleBattle = (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG));
 
-    /*
+
     if (!attacker->hasMoldBreaker && defender->ability == ABILITY_DISGUISE && defender->hp == defender->maxhp) //SPECIES_MIMIKYU
         return 0;
 
-    if (!attacker->hasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form_no == 0) //SPECIES_EISCUE
+    if (!attacker->hasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0) //SPECIES_EISCUE
         return 0;
-    */
+
     struct BattleMove move = sp->moveTbl[moveno];
     movepower = move.power;
     movetype = GetAdjustedMoveTypeBasics(sp, moveno, attacker->ability, move.type);
@@ -427,7 +427,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void* bw, struct BattleStruct* sp, int mov
         }
         break;
     case MOVE_KNOCK_OFF:
-        if (CanKnockOffApply(bw, sp)) { //TODO port to AI
+        if (BattleAI_IsKnockOffPoweredUp(defender)) {
             basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
         }
         break;
@@ -1920,6 +1920,20 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP
     return damage;
 }
 
+BOOL LONG_CALL BattleAI_IsKnockOffPoweredUp(struct AI_sDamageCalc* defender)
+{
+    if (defender->item == ITEM_NONE)
+        return FALSE;
+    if (defender->species == SPECIES_SLOWBRO && defender->item == ITEM_SLOWBRONITE && defender->form == 2)
+    {
+        return TRUE;
+    }
+    else
+    {
+        return CanItemBeRemovedFromSpecies(defender->species, defender->item); //incorrectly does not see MAIL, but who cares?
+    }
+}
+
 
 BOOL LONG_CALL canAttackerOneShotDefender(u32 attackerDamage, u8 split, u32 moveno, struct AI_sDamageCalc* attacker, struct AI_sDamageCalc* defender)
 {
@@ -1959,7 +1973,7 @@ BOOL BattleAI_AttackerHasOnlyIneffectiveMoves(struct BattleStruct* ctx, u32 atta
     {
         u32 attackerMoveno = ctx->battlemon[attacker].move[k];
         struct BattleMove attackerMove = ctx->moveTbl[attackerMoveno];
-        if (attackerMove.split != SPLIT_STATUS && attackerMove.power > 1)
+        if (attackerMove.split != SPLIT_STATUS && attackerMove.power > 0)
         {
             switch (effectiveness[k])
             {
@@ -1993,6 +2007,20 @@ BOOL LONG_CALL IsChoicedMoveConsidedUseless(u32 moveno, u8 split)
 	return isUseless;
 }
 
+BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct BattleSystem* bsys, u8 slot, BOOL isDoubleBattle)
+{
+    struct BattleStruct* ctx = bsys->sp;
+    BOOL isSlower = FALSE;
+    if (ctx->effectiveSpeed[slot] < ctx->effectiveSpeed[BATTLER_OPPONENT(slot)])
+    {
+        isSlower = TRUE;
+    }
+    if (isDoubleBattle && ctx->effectiveSpeed[slot] < ctx->effectiveSpeed[BATTLER_ACROSS(slot)])
+    {
+        isSlower = TRUE;
+    }
+    return isSlower;
+}
 
 
 BOOL LONG_CALL battlerKnowsThawingMove(struct BattleSystem* bsys, u32 battler, struct AIContext* ai UNUSED)
