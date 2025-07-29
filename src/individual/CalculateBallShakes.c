@@ -338,7 +338,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             break;
 
     }
-
+    badgePenalty = UQ412__1_0;
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("badgePenalty in Q4.12 number format: %d\n", badgePenalty);
 #endif
