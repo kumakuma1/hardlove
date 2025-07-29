@@ -91,7 +91,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
 	int score = 0;
     if (attacker >= 10)
-		return BattleAI_PostKOSwitchIn_Internal(bsys, attacker - 10, &score);
+		return BattleAI_PostKOSwitchIn_Internal(bsys, attacker - 10, &score, FALSE);
     
     struct BattleStruct *ctx = bsys->sp;
     struct AIContext aictx = {0};
@@ -912,6 +912,20 @@ int LONG_CALL SetupScoring(struct BattleSystem* bsys, u32 attacker, int i, struc
             moveScore += 6;
             moveScore += offensiveSetup(bsys, attacker, i, ai);
             break;
+        case MOVE_EFFECT_GROUND_TRAP_USER_CONTINUOUS_HEAL: //Ingrain
+            if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)
+            {
+                moveScore -= NEVER_USE_MOVE_20;
+                breaK;
+            }
+            FALLTHROUGH;
+        case MOVE_EFFECT_RESTORE_HP_EVERY_TURN: //Aqua Ring
+            if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING)
+            {
+                moveScore -= NEVER_USE_MOVE_20;
+                breaK;
+            }
+            FALLTHROUGH;
         case MOVE_EFFECT_DEF_UP:
         case MOVE_EFFECT_DEF_UP_2:
         case MOVE_EFFECT_DEF_UP_3:

@@ -116,7 +116,7 @@ struct PACKED AI_damage
 void LONG_CALL SetupStateVariables(struct BattleSystem* bsys, u32 attacker, u32 defender, struct AIContext* ai);
 
 int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem* bsys, int attacker);
-int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attacker, int* score);
+int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attacker, int* score, BOOL calcWithHighestDamageHit);
 
 u8 LONG_CALL BattleAI_CalcSpeed(void* bw, struct BattleStruct* sp, int client1, struct PartyPokemon* partyMon, int flag);
 

@@ -2256,7 +2256,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem* bsys, u32 attacker, u32 
     }
 }
 
-int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attacker, int* score)
+int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int attacker, int* score, BOOL calcWithHighestDamageHit)
 {
     debug_printf("BattleAI_PostKOSwitchIn_Internal %d\n", attacker);
 
@@ -2369,13 +2369,19 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int at
             u16 partyMonPercentDamageDealt = (100 * monDealsRolledDamage[i] / defenderMon.hp);
 			u16 partyMonPercentDamageReceived = (100 * monReceivesDamage[i] / attackerMon.hp);
 
-
             debug_printf("SwitchScore: SpeedCalc %d. Attacker %d deals %d%% to defender %d. Receives %d%%", speedCalc, attacker, (100 * monDealsRolledDamage[i] / defenderMon.hp), defender, (100 * monReceivesDamage[i] / attackerMon.hp));
-            
+            if (calcWithHighestDamageHit)
+            {
+                if (partyMonPercentDamageReceived >= 100)
+                    switchInScore[i] -= 10;
+                else if (speedCalc == 0 && (2*partyMonPercentDamageReceived >= 100))
+                    switchInScore[i] -= 10;
+            }
+
             if (!playerCanOneShotAiMon && (attackerMon.species == SPECIES_WYNAUT || attackerMon.species == SPECIES_WOBBUFFET))
                 switchInScore[i] += 2;
 
-            if (speedCalc > 0)
+            if (speedCalc > 0 && (calcWithHighestDamageHit && partyMonPercentDamageReceived < 100))
             {
                 if (aiMonCanOneshotPlayer)
                     switchInScore[i] += 5;

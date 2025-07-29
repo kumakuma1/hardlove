@@ -17,8 +17,13 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int battler);
 int TrainerAI_PickCommand(struct BattleSystem * bsys, int battler)
 {
     debug_printf("TrainerAI_PickCommand:\n");
-    if (TrainerAI_ShouldSwitch(bsys, battler))
-        return PLAYER_INPUT_PARTY;
+    u32 battleType = BattleTypeGet(bsys);
+    if (battleType == BATTLE_TYPE_TRAINER || (battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)))
+    {
+        if (TrainerAI_ShouldSwitch(bsys, battler))
+            return PLAYER_INPUT_PARTY;
+    }
+    
     return PLAYER_INPUT_FIGHT;
 }
 
@@ -98,7 +103,7 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem * bsys, int attacker)
     if ((ai->attackerHasAttackingMoves && onlyIneffectiveMoves) || (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE))
     {
         int score = 0;
-        int switchToSlot = BattleAI_PostKOSwitchIn_Internal(bsys, attacker, &score);
+        int switchToSlot = BattleAI_PostKOSwitchIn_Internal(bsys, attacker, &score, TRUE);
 		int rand = BattleRand(bsys) % 2; //Change this to 2 for a 50% chance, or 3 to 33%, or 4 for 25% ...
 		debug_printf("TrainerAI_ShouldSwitch: Only ineffective moves/perishSong, consider(%d) switching to slot %d with score %d\n", rand, switchToSlot, score);
         if (score >= 103 && rand == 0) //set to 103 to consider being faster  //TODO:consider not being 2HKO and slower
