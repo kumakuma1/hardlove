@@ -84,16 +84,17 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         }
         return 4;
     case ITEM_ULTRA_BALL:
-        ballCaptureRatio = 0x2000;
+        ballCaptureRatio = 0x3800;
         break;
     case ITEM_GREAT_BALL:
-        ballCaptureRatio = 0x1800;
+        ballCaptureRatio = 0x2000;
         break;
     case ITEM_POKE_BALL:
-        ballCaptureRatio = 0x1000;
+        ballCaptureRatio = 0x1800;
         break;
     case ITEM_SAFARI_BALL:
-        ballCaptureRatio = 0x1000;
+        //ballCaptureRatio = 0x1000;
+        return 4;
         break;
     case ITEM_NET_BALL:
         if (type1 == TYPE_WATER || type2 == TYPE_WATER || type1 == TYPE_BUG || type2 == TYPE_BUG) {
