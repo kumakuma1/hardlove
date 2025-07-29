@@ -555,7 +555,7 @@ u8 LONG_CALL BattleAI_CalcSpeed(void* bw, struct BattleStruct* sp, int client1, 
             {
                 ret = 1;
             }
-            if ((speed1 == speed2) && (BattleRand(bw) & 1))
+            if (speed1 == speed2)
             {
                 ret = 2;
             }

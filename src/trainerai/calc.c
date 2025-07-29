@@ -2409,7 +2409,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int at
             if (!playerCanOneShotAiMon && (attackerMon.species == SPECIES_WYNAUT || attackerMon.species == SPECIES_WOBBUFFET))
                 switchInScore[i] += 2;
 
-            if (speedCalc > 0 && (calcWithHighestDamageHit && partyMonPercentDamageReceived < 100))
+            if (speedCalc > 0)
             {
                 if (aiMonCanOneshotPlayer)
                     switchInScore[i] += 5;
