@@ -107,7 +107,7 @@ trainerdata 1, "Silver" //grass
         abilityslot 0
         level LEVEL_BUGSY-2
         pokemon SPECIES_LUXIO
-        item ITEM_SITRUS_BERRY
+        item ITEM_MUSCLE_BAND
         move MOVE_SPARK
         move MOVE_ICE_FANG
         move MOVE_QUICK_ATTACK
@@ -542,7 +542,7 @@ trainerdata 10, "Amy & Mimi"
         additionalflags 0
         ballseal 0
 		
-        ivs 0
+	    ivs 0
         abilityslot 0
         level LEVEL_BUGSY-3
         pokemon SPECIES_LEDIAN
@@ -722,7 +722,7 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
 trainerdata 12, "Ariana"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_EXECUTIVE_ARIANA
-    nummons 4
+    nummons 3
     item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
@@ -731,25 +731,7 @@ trainerdata 12, "Ariana"
     battletype SINGLE_BATTLE
     endentry
 
-    party 12
-	ivs 0
-        abilityslot 0
-        level LEVEL_PROTON_1-2
-        pokemon SPECIES_PRINPLUP
-        item ITEM_SITRUS_BERRY
-        move MOVE_BUBBLE_BEAM
-        move MOVE_PLUCK
-        move MOVE_FEATHER_DANCE
-        move MOVE_AQUA_JET
-        ability ABILITY_COMPETITIVE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_DOCILE
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
+    party 12	
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-1
@@ -771,17 +753,17 @@ trainerdata 12, "Ariana"
 	ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-2
-        pokemon SPECIES_GROVYLE
+        pokemon SPECIES_TANGELA
         item ITEM_MIRACLE_SEED
         move MOVE_MEGA_DRAIN
-        move MOVE_PURSUIT
-        move MOVE_ROCK_TOMB
-        move MOVE_AERIAL_ACE
-        ability ABILITY_OVERGROW
+        move MOVE_STUN_SPORE
+        move MOVE_ANCIENT_POWER
+        move MOVE_NONE
+        ability ABILITY_REGENERATOR
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_HASTY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -11110,7 +11092,7 @@ trainerdata 266, "Silver" //FIRE
         abilityslot 0
         level LEVEL_BUGSY-2
         pokemon SPECIES_LUXIO
-        item ITEM_SITRUS_BERRY
+        item ITEM_MUSCLE_BAND
         move MOVE_SPARK
         move MOVE_ICE_FANG
         move MOVE_QUICK_ATTACK
@@ -11371,7 +11353,7 @@ trainerdata 269, "Silver" //WATER
         abilityslot 0
         level LEVEL_BUGSY-2
         pokemon SPECIES_LUXIO
-        item ITEM_SITRUS_BERRY
+        item ITEM_MUSCLE_BAND
         move MOVE_SPARK
         move MOVE_ICE_FANG
         move MOVE_QUICK_ATTACK
@@ -18987,7 +18969,7 @@ trainerdata 485, "Archer"
 trainerdata 486, "Proton"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_EXECUTIVE_PROTON
-    nummons 4
+    nummons 3
     item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
@@ -18997,24 +18979,6 @@ trainerdata 486, "Proton"
     endentry
 
     party 486
-	    ivs 0
-        abilityslot 0
-        level LEVEL_PROTON_1
-        pokemon SPECIES_SWINUB
-        item ITEM_FOCUS_SASH
-        move MOVE_ICE_SHARD
-        move MOVE_BULLDOZE
-        move MOVE_ICE_FANG
-        move MOVE_NONE
-        ability ABILITY_THICK_FAT
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-2
@@ -19036,13 +19000,13 @@ trainerdata 486, "Proton"
 	ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-1
-        pokemon SPECIES_DUOSION
-        item ITEM_SITRUS_BERRY
-        move MOVE_PSYBEAM
-        move MOVE_SHOCK_WAVE
-        move MOVE_RECOVER
-        move MOVE_THUNDER_WAVE
-        ability ABILITY_MAGIC_GUARD
+        pokemon SPECIES_MISDREAVUS
+        item ITEM_WISE_GLASSES
+        move MOVE_HEX
+        move MOVE_WILL_O_WISP
+        move MOVE_DRAINING_KISS
+        move MOVE_NONE
+        ability ABILITY_LEVITATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
