@@ -26,6 +26,8 @@ Function 1:
 	CloseMessage 
 	CompareVarValue 0x800C 0
 	CallIf EQUAL Function#5
+    CheckFlag 117
+	CallIf DIFFERENT Function#10
 	CloseTouchScreen 
 Return 
 
@@ -33,6 +35,9 @@ Function 5:
 	Message 40
 	SetFlag 117 // GOT_OLD FLAG, hopefully this is only used for the guy in Route 32 giving the rod
 	SetVar 0x416F 12
+Return
+Function 5:
+	Message 41
 Return
 
 //Elder Li

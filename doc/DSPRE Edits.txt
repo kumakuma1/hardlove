@@ -1987,3 +1987,86 @@ Script 18:
 	CommonScript 0x28CA
 	ReleaseAll 
 End 
+
+
+###### Gauntled in Slowpoke Well
+177 - D26R0102: Event file 170 - Script File 60: Text Archive 91
+
+Trigger var:
+SetVar 0x40F4 1
+
+Script 4:
+    MecScript
+    PlayFanfare 1500
+	LockAll
+    LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+    Movement Player Action#4
+    Movement Overworld.4 Action#5
+    WaitMovement 
+    Message 6
+    CloseMessage
+    Movement Overworld.2 Action#6
+    Movement Overworld.4 Action#6
+    WaitMovement
+    Message 7
+    Message 8
+    CloseMessage
+    TrainerBattle 12 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+    Message 9
+    CloseMessage 
+    TrainerBattle 486 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CheckFlag 117
+	CallIf EQUAL Function#3
+    Message 2
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.1
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	RemoveOW Overworld.4
+	SetFlag 425
+	WaitTime 20 0x8004
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen
+    SetOWPosition Overworld.7 36 0 7 Left
+    Movement Overworld.7 Action#1
+	Movement Player Action#2
+Jump Function#5
+
+Proton: What do we have here?\r
+Proton: Lost, kid? Or just too dumb\nto stay away from Team Rocket?\r
+Ariana: Tsk. Guess we’ll have to\nteach this brat a painful lesson.\r
+Proton: Seriously, Ariana? It’s just\na kid!\rUgh, fine...\rI’ll handle this myself.\r
+
+Action 2:
+    Freeze8 0x1
+	WalkLeftFast 0x1
+	WalkUpFast 0x5
+	Freeze8 0x4
+	LookDown 0x1
+	Freeze8 0x5
+	LookRight 0x1
+End
+
+Action 4:
+	WalkLeftFast 0x1
+End
+
+Action 5:	
+    Exclamation 0x1
+End
+
+Action 6:
+	WalkRightFast 0x2
+End

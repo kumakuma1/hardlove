@@ -13768,8 +13768,9 @@ levelup SPECIES_FROAKIE
     learnset MOVE_WATER_GUN, 5 
     learnset MOVE_GROWL, 7 
     learnset MOVE_QUICK_ATTACK, 10
+    learnset MOVE_LICK, 13
     learnset MOVE_WATER_PULSE, 14
-    learnset MOVE_BOUNCE, 16
+    learnset MOVE_ICY_WIND, 16
     learnset MOVE_FEINT_ATTACK, 21
     learnset MOVE_SMOKESCREEN, 25
     learnset MOVE_WATERFALL, 32
@@ -13781,12 +13782,15 @@ levelup SPECIES_FROAKIE
 
 
 levelup SPECIES_FROGADIER
+    learnset MOVE_SMACK_DOWN, 1
+    learnset MOVE_MUD_SHOT, 1 
     learnset MOVE_POUND, 1 
     learnset MOVE_WATER_GUN, 5 
     learnset MOVE_GROWL, 7 
     learnset MOVE_QUICK_ATTACK, 10
+    learnset MOVE_LICK, 13
     learnset MOVE_WATER_PULSE, 14
-    learnset MOVE_BOUNCE, 16
+    learnset MOVE_ICY_WIND, 16
     learnset MOVE_FEINT_ATTACK, 21
     learnset MOVE_SMOKESCREEN, 25
     learnset MOVE_WATERFALL, 32
@@ -13798,6 +13802,8 @@ levelup SPECIES_FROGADIER
 
 
 levelup SPECIES_GRENINJA
+    learnset MOVE_SMACK_DOWN, 1
+    learnset MOVE_MUD_SHOT, 1 
     learnset MOVE_WATER_SHURIKEN, 0
     learnset MOVE_NIGHT_SLASH, 0
     learnset MOVE_GUNK_SHOT, 1 
