@@ -1973,7 +1973,7 @@ BOOL BattleAI_AttackerHasOnlyIneffectiveMoves(struct BattleStruct* ctx, u32 atta
     {
         u32 attackerMoveno = ctx->battlemon[attacker].move[k];
         struct BattleMove attackerMove = ctx->moveTbl[attackerMoveno];
-        if (attackerMove.split != SPLIT_STATUS && attackerMove.power > 0)
+        if (attackerMove.split != SPLIT_STATUS && attackerMove.power > 0 && ctx->battlemon[attacker].pp[k])
         {
             switch (effectiveness[k])
             {
@@ -2209,7 +2209,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem* bsys, u32 attacker, u32 
         u32 defenderMoveno = ctx->battlemon[defender].move[k];
         struct BattleMove defenderMove = ctx->moveTbl[defenderMoveno];
 
-        if (defenderMove.split != SPLIT_STATUS && defenderMove.power)
+        if (defenderMove.split != SPLIT_STATUS && defenderMove.power && ctx->battlemon[defender].pp[k])
         {
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, defenderMoveno, ctx->side_condition[BATTLER_IS_ENEMY(defender)], ctx->field_condition, defenderMove.power, defenderMove.type, critical, defender, attacker, &damages, &ai->defenderMon, &ai->attackerMon);
 
@@ -2250,12 +2250,12 @@ void LONG_CALL SetupStateVariables(struct BattleSystem* bsys, u32 attacker, u32 
         struct AI_damage damages = { 0 };
         u32 attackerMoveno = ctx->battlemon[attacker].move[j];
         struct BattleMove attackerMove = ctx->moveTbl[attackerMoveno];
-        if (attackerMove.split == SPLIT_STATUS)
+        if (attackerMove.split == SPLIT_STATUS && ctx->battlemon[attacker].pp[j])
         {
             u8 movetype = GetAdjustedMoveTypeBasics(ctx, attackerMoveno, ai->attackerMon.ability, attackerMove.type);
             ai->effectivenessOnPlayer[j] = BattleAI_GetTypeEffectiveness(bsys, ctx, movetype, &effectivenessFlag, &ai->attackerMon, &ai->defenderMon);
         }
-        else if (attackerMove.power)
+        else if (attackerMove.power && ctx->battlemon[attacker].pp[j])
         {
             ai->attackerHasAttackingMoves = TRUE;
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, attackerMoveno, ctx->side_condition[BATTLER_IS_ENEMY(attacker)], ctx->field_condition, attackerMove.power, attackerMove.type, critical, attacker, defender, &damages, &ai->attackerMon, &ai->defenderMon);
@@ -2342,7 +2342,8 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int at
             {
                 struct AI_damage damages = { 0 };
                 moveno = GetMonData(mon, MON_DATA_MOVE1 + j, NULL);
-                if (moveno != MOVE_NONE)
+				u8 pp = GetMonData(mon, MON_DATA_MOVE1PP + j, NULL);
+                if (moveno != MOVE_NONE && pp)
                 {
                     struct BattleMove attackerMove = ctx->moveTbl[moveno];
 
@@ -2372,7 +2373,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int at
                 u32 defenderMoveno = ctx->battlemon[defender].move[k];
                 struct BattleMove defenderMove = ctx->moveTbl[defenderMoveno];
 
-                if (defenderMove.split != SPLIT_STATUS && defenderMove.power)
+                if (defenderMove.split != SPLIT_STATUS && defenderMove.power && ctx->battlemon[defender].pp[k])
                 {
                     damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, defenderMoveno, ctx->side_condition[BATTLER_IS_ENEMY(defender)], ctx->field_condition, defenderMove.power, defenderMove.type, critical, defender, attacker, &damages, &defenderMon, &attackerMon);
 

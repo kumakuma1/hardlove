@@ -594,7 +594,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         {
             moveScore += 5;
         }
-        if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
+        if (ai->isDoubleBattle)
         {
             if (ctx->moveTbl[ai->attackerMove].target == RANGE_ADJACENT_OPPONENTS)
                 moveScore += 1;
@@ -606,12 +606,14 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         if (ai->livingMembersAttacker > 1 && ai->attackerRolledMoveDamages[i] > 0) //no immunity
         {
             moveScore += 6;
+            if (ai->playerCanOneShotMonWithAnyMove && ai->attackerMovesFirst)
+                moveScore += 2;
             if (BattleRand(bsys) % 10 < 2)
                 moveScore += 1;
 
-            BOOL onlyIneffectiveMoves = BattleAI_AttackerHasOnlyIneffectiveMoves(ctx, attacker, ai->attackerMovesKnown, ai->effectivenessOnPlayer);
-            if (onlyIneffectiveMoves)
-                moveScore += ai->livingMembersAttacker;
+            //BOOL onlyIneffectiveMoves = BattleAI_AttackerHasOnlyIneffectiveMoves(ctx, attacker, ai->attackerMovesKnown, ai->effectivenessOnPlayer);
+            //if (onlyIneffectiveMoves)
+            //    moveScore += ai->livingMembersAttacker;
         }
         /*
         if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67)
@@ -759,7 +761,9 @@ int LONG_CALL SetupScoring(struct BattleSystem* bsys, u32 attacker, int i, struc
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
-    if (ai->playerCanOneShotMonWithAnyMove || (ai->defenderMon.ability == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0)))
+    if (ai->playerCanOneShotMonWithAnyMove)
+        shouldSetup = FALSE;
+    if (ai->defenderMon.ability == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0))
         shouldSetup = FALSE;
 
     switch (ai->attackerMoveEffect)
@@ -1044,7 +1048,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
             moveScore -= 1;
         if ((ai->defenderMon.condition & (STATUS_POISON | STATUS_BURN | STATUS_PARALYSIS)) || (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE)) //TODO
             moveScore += 1;
-        if (ai->attackerTurnsOnField == 0 && ((BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) == 0))
+        if (ai->attackerTurnsOnField == 0 && ai->isDoubleBattle)
             moveScore -= 1;
         if (ctx->protectSuccessTurns[ai->attacker] == 1)
         {
