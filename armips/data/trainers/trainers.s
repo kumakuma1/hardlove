@@ -234,25 +234,25 @@ trainerdata 4, "Wade"  // Route 31
     party 4
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-5
-        pokemon SPECIES_GLIGAR
+        level LEVEL_ELDER_LI-4
+        pokemon SPECIES_SLUGMA
         item ITEM_ORAN_BERRY
-        move MOVE_AERIAL_ACE
-        move MOVE_SAND_ATTACK
+        move MOVE_INCINERATE
         move MOVE_NONE
         move MOVE_NONE
-        ability ABILITY_HYPER_CUTTER
+        move MOVE_NONE
+        ability ABILITY_FLAME_BODY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-5
+        level LEVEL_ELDER_LI-4
         pokemon SPECIES_YANMA
         item ITEM_ORAN_BERRY
         move MOVE_SONIC_BOOM
@@ -2734,13 +2734,13 @@ trainerdata 43, "Chow" // Violet Gym
         item ITEM_AIR_BALLOON
         move MOVE_FAKE_OUT
         move MOVE_THUNDER_PUNCH
-        move MOVE_SURF
+        move MOVE_IRON_TAIL
         move MOVE_FLY
         ability ABILITY_STATIC
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_SERIOUS
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -3309,7 +3309,7 @@ trainerdata 53, "Jin" // Violet Gym
 trainerdata 54, "Troy" // Sprout Tower
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_SAGE
-    nummons 4
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -3323,16 +3323,16 @@ trainerdata 54, "Troy" // Sprout Tower
         abilityslot 0
         level LEVEL_ELDER_LI-1
         pokemon SPECIES_FEEBAS
-        item ITEM_ICE_GEM
-        move MOVE_HYDRO_PUMP
+        item ITEM_FOCUS_SASH
         move MOVE_BLIZZARD
+        move MOVE_FLAIL
         move MOVE_NONE
         move MOVE_NONE
         ability ABILITY_ADAPTABILITY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_MODEST
+        nature NATURE_HASTY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -3351,24 +3351,6 @@ trainerdata 54, "Troy" // Sprout Tower
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_ELDER_LI-2
-        pokemon SPECIES_BELLSPROUT
-        item ITEM_CHOICE_SPECS
-        move MOVE_MEGA_DRAIN
-        move MOVE_VENOSHOCK
-        move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_GLUTTONY
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0

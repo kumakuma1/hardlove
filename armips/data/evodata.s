@@ -1164,7 +1164,7 @@ evodata SPECIES_ONIX
     terminateevodata
 
 evodata SPECIES_DROWZEE
-    evolution EVO_LEVEL, 26, SPECIES_HYPNO
+    evolution EVO_LEVEL, 25, SPECIES_HYPNO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4368,7 +4368,7 @@ evodata SPECIES_GLALIE
     terminateevodata
 
 evodata SPECIES_SPHEAL
-    evolution EVO_LEVEL, 21, SPECIES_SEALEO
+    evolution EVO_LEVEL, 20, SPECIES_SEALEO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5484,7 +5484,7 @@ evodata SPECIES_CARNIVINE
     terminateevodata
 
 evodata SPECIES_FINNEON
-    evolution EVO_LEVEL, 26, SPECIES_LUMINEON
+    evolution EVO_LEVEL, 20, SPECIES_LUMINEON
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

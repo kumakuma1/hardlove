@@ -1858,8 +1858,8 @@ headbuttheader  74,  15,   0   // Azalea Town
     headbuttencounter  SPECIES_PINECO, 1, 10	    //10%
     headbuttencounter  SPECIES_EXEGGCUTE, 1, 10		//5%
     headbuttencounter  SPECIES_EXEGGCUTE, 1, 10		//5%
-    headbuttencounter  SPECIES_LEDYBA, 1, 10	    //5%
-    headbuttencounter  SPECIES_LEDYBA, 1, 10		//5%
+    headbuttencounter  SPECIES_SIZZLIPEDE, 1, 10	//5%
+    headbuttencounter  SPECIES_SIZZLIPEDE, 1, 10    //5%
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
