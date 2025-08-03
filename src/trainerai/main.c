@@ -649,6 +649,18 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             }
             break;
         }
+        case MOVE_FIRST_IMPRESSION:
+        {
+            if (ai->attackerTurnsOnField == 0)
+            {
+                moveScore += 9;
+            }
+            else
+            {
+                moveScore -= NEVER_USE_MOVE_20;
+            }
+            break;
+        }
         case MOVE_FAKE_OUT:
         {
             if (ai->attackerTurnsOnField == 0 && ((ai->defenderMon.ability != ABILITY_SHIELD_DUST && ai->defenderMon.ability != ABILITY_INNER_FOCUS) ||
