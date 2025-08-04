@@ -488,8 +488,6 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
-    //TODO deal with contrary
-
     if (isMoveSpecialAiAttackingMove(ai->attackerMove))
     {
 		moveScore += SpecialAiAttackingMove(bsys, attacker, i, ai);
@@ -560,6 +558,27 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         if (ctx->moveTbl[ai->attackerMove].priority > 0)
         {
             moveScore += 11;
+        }
+    }
+    if (!isMoveHighestDamage && ai->attackerMon.ability == ABILITY_CONTRARY) //no Unaware check
+    {
+        switch (ai->attackerMove)
+        {
+        case MOVE_OVERHEAT:
+        case MOVE_LEAF_STORM:
+        case MOVE_DRACO_METEOR:
+        case MOVE_CLOSE_COMBAT:
+        case MOVE_SUPERPOWER:
+        case MOVE_V_CREATE:
+        {
+            if (ai->isDefenderIncapacitated)
+                moveScore += 3;
+            if (ai->attackerMovesFirst)
+                moveScore += 3;
+        }
+            break;
+        default:
+            break;
         }
     }
 
@@ -657,7 +676,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             }
             else
             {
-                moveScore -= NEVER_USE_MOVE_20;
+                moveScore -= IMPOSSIBLE_MOVE;
             }
             break;
         }
@@ -670,7 +689,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             }
             else
             {
-                moveScore -= NEVER_USE_MOVE_20;
+                moveScore -= IMPOSSIBLE_MOVE;
 			}
             break;
         }
