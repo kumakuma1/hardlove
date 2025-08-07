@@ -11247,7 +11247,7 @@ levelup SPECIES_SEWADDLE
     learnset MOVE_TACKLE, 1
     learnset MOVE_STRING_SHOT, 1
     learnset MOVE_BUG_BITE, 8
-    learnset MOVE_RAZOR_LEAF, 15
+    learnset MOVE_RAZOR_LEAF, 12
     learnset MOVE_STRUGGLE_BUG, 22
     learnset MOVE_ENDURE, 29
     learnset MOVE_STICKY_WEB, 31

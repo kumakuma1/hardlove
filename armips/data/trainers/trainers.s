@@ -12454,7 +12454,7 @@ trainerdata 289, "Silver"
 trainerdata 290, "Li" // Sprout Tower Boss
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_ELDER
-    nummons 4
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -12467,35 +12467,35 @@ trainerdata 290, "Li" // Sprout Tower Boss
     	ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-1
-        pokemon SPECIES_EEVEE
+        pokemon SPECIES_SMOOCHUM
         item ITEM_LUM_BERRY
-        move MOVE_QUICK_ATTACK
-        move MOVE_SAND_ATTACK
-        move MOVE_CHARM
-        move MOVE_BITE
-        ability ABILITY_ADAPTABILITY
+        move MOVE_CONFUSION
+        move MOVE_POWDER_SNOW
+        move MOVE_SWEET_KISS
+        move MOVE_WATER_PULSE
+        ability ABILITY_OBLIVIOUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
 	
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-1
+        level LEVEL_ELDER_LI
         pokemon SPECIES_LITWICK
         item ITEM_ORAN_BERRY
-        move MOVE_SMOG
-        move MOVE_NIGHT_SHADE
+        move MOVE_INCINERATE
+        move MOVE_HEX
         move MOVE_WILL_O_WISP
-        move MOVE_EMBER
+        move MOVE_DREAM_EATER
         ability ABILITY_FLAME_BODY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_MODEST
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -12514,24 +12514,6 @@ trainerdata 290, "Li" // Sprout Tower Boss
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_SERIOUS
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-    
-        ivs 0
-        abilityslot 0
-        level LEVEL_ELDER_LI-1
-        pokemon SPECIES_MARILL
-        item ITEM_MUSCLE_BAND
-        move MOVE_AQUA_JET
-        move MOVE_BODY_SLAM
-        move MOVE_ROCK_SMASH
-	    move MOVE_NONE
-        ability ABILITY_HUGE_POWER
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
