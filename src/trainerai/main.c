@@ -82,6 +82,53 @@ int LONG_CALL scoreMovesAgainstDefender(struct BattleSystem* bsys, u32 attacker,
 	return highestScoredMove;
 }
 
+int LONG_CALL scoreMovesAgainstAlly(struct BattleSystem* bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext* ai)
+{
+    struct BattleStruct* ctx = bsys->sp;  
+    if (!ai->isDoubleBattle || !ai->isAllyAlive)
+        return 0;
+
+    int highestScoredMove = 0;
+    switch (bsys->trainerId[BATTLER_ENEMY])
+    {
+    case 1000://trainer ID
+    {
+        if (ai->attackerMon.ability == ABILITY_FLASH_FIRE && ai->defenderAlly.ability != ABILITY_FLASH_FIRE && ai->defenderAlly.species == SPECIES_DURANT)
+        {
+            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++)
+            {
+                if (ctx->battlemon[attacker].move[j] == MOVE_SKILL_SWAP)
+                {
+                    highestScoredMove = 20;
+                    moveScores[target][j] += 1000;
+                    moveScores[target][j] += highestScoredMove;
+                    break;
+                }
+            }
+        }
+
+        if (ai->attackerMon.ability == ABILITY_PRANKSTER && ai->defenderAlly.ability != ABILITY_PRANKSTER && ai->defenderAlly.species == SPECIES_BRELOOM)
+        {
+            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++)
+            {
+                if (ctx->battlemon[attacker].move[j] == MOVE_SKILL_SWAP)
+                {
+                    highestScoredMove = 20;
+                    moveScores[target][j] += 1000;
+                    moveScores[target][j] += highestScoredMove;
+                    break;
+                }
+            }
+        }
+        break;
+    }
+    default:
+        break;
+    }
+
+    return highestScoredMove;
+}
+
 
 enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
 {
@@ -101,7 +148,7 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
     int highestScoredMove = 0;
     int highestScoredMoveAcross = 0;
-	int moveScores[4][4] = { 0 };   //account for BATTLER_OPPONENT (0), attacker (1), BATTLER_ACROSS(2), BATTLER_ALLY(3),  4 moves each
+	int moveScores[4][4] = { 0 };   //account for BATTLER_OPPONENT (0), attacker (1), BATTLER_ACROSS(2), BATTLER_ALLY(3),  4 moves each or
                                     //account for BATTLER_OPPONENT (2), attacker (3), BATTLER_ACROSS(0), BATTLER_ALLY(1),  4 moves each
 	int targets[4] = { 0 };
     int targetsSize = 0;

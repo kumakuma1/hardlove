@@ -48,8 +48,9 @@ struct PACKED AI_sDamageCalc
 struct PACKED AIContext {
     struct AI_sDamageCalc attackerMon;
     struct AI_sDamageCalc defenderMon; //"player"
-    //struct AI_sDamageCalc defenderAlly;
+    struct AI_sDamageCalc defenderAlly;
 
+    BOOL isAllyAlive;
     BOOL isDoubleBattle;
     BOOL isPartnerGrounded;
 
