@@ -33,15 +33,15 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
     int ability = -1;
     int nature = -1;
 #ifdef CUSTOM_TRADES
-    if (tradeno == NPC_TRADE_ROCKY_ONIX)
+    if (tradeno == NPC_TRADE_DORIS_DODRIO)
     {
-        trade_dat->give_species = SPECIES_MAROWAK_ALOLAN;
+        trade_dat->give_species = SPECIES_CLODSIRE;
         
         randomIV(trade_dat);
 
-        trade_dat->heldItem = ITEM_RARE_BONE;
-
-        ability = ABILITY_ROCK_HEAD;
+        trade_dat->heldItem = ITEM_NONE;
+        trade_dat->gender = POKEMON_GENDER_FEMALE;
+        //random ability
     }
     else if (tradeno == NPC_TRADE_MUSCLE_MACHOP)
     {

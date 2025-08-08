@@ -5,7 +5,7 @@
 
 .open "base/arm9.bin", 0x02000000
 
-/* Values for badge restrictions as it isn't 1:1 */
+/* Values for badge restrictions as it is not 1:1 */
 ZERO_BADGES equ 1
 ONE_BADGE equ 2
 THREE_BADGES equ 3
@@ -125,40 +125,8 @@ EIGHT_BADGES equ 6
 .halfword ITEM_ELECTIRIZER   // ITEM_GUARD_SPEC_
 .halfword ITEM_MAGMARIZER    // ITEM_DIRE_HIT
 .halfword ITEM_UP_GRADE      // ITEM_X_ACCURACY
-.halfword ITEM_KINGS_ROCK    // ITEM_X_SPECIAL
-.halfword ITEM_SHINY_STONE   // ITEM_X_SP__DEF
-.halfword 0xFFFF
-
-/* Goldenrod 2F, 11, lower - CommonScript 2052  3 */
-/* const u16 _020FBBEA[] = {ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_ANTIDOTE, ITEM_PARALYZE_HEAL, ITEM_BURN_HEAL, ITEM_ICE_HEAL, ITEM_AWAKENING, ITEM_FULL_HEAL, 0xFFFF}; */
-// Celadon Potions, 11
-/* const u16 _020FBC02[] = {ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_REVIVE, ITEM_ANTIDOTE, ITEM_PARALYZE_HEAL, ITEM_BURN_HEAL, ITEM_ICE_HEAL, ITEM_AWAKENING, ITEM_FULL_HEAL, 0xFFFF}; */
-
-.org 0x020FBBEA
-
-.halfword ITEM_BABIRI_BERRY // ITEM_POTION
-.halfword ITEM_CHARTI_BERRY
-.halfword ITEM_CHILAN_BERRY
-.halfword ITEM_CHOPLE_BERRY
-.halfword ITEM_COBA_BERRY
-.halfword ITEM_COLBUR_BERRY
-.halfword ITEM_HABAN_BERRY
-.halfword ITEM_KASIB_BERRY
-.halfword ITEM_KEBIA_BERRY
-.halfword ITEM_OCCA_BERRY
-.halfword ITEM_PASSHO_BERRY // ITEM_FULL_HEAL
-.halfword ITEM_PAYAPA_BERRY // 0xFFFF
-.halfword ITEM_RINDO_BERRY  // ITEM_POTION
-.halfword ITEM_ROSELI_BERRY
-.halfword ITEM_SHUCA_BERRY
-.halfword ITEM_TANGA_BERRY
-.halfword ITEM_WACAN_BERRY
-.halfword ITEM_YACHE_BERRY
-.halfword ITEM_IAPAPA_BERRY
-.halfword ITEM_MAGO_BERRY
-.halfword ITEM_SALAC_BERRY
-.halfword ITEM_CUSTAP_BERRY
-.halfword 0xFFFF            // ITEM_FULL_HEAL
+.halfword ITEM_SHINY_STONE    // ITEM_X_SPECIAL
+.halfword 0xFFFF   // ITEM_X_SP__DEF
 .halfword 0xFFFF
 
 /* Celadon, 12 - Balls   - CommonScript 2052  19 - moved to safari zone */
