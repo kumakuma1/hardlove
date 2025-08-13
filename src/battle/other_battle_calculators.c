@@ -1450,7 +1450,7 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
 
 const u8 CriticalRateTable[] =
 {
-     24,
+     16,
      8,
      2,
      1,
