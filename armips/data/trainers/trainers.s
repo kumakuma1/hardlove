@@ -3981,67 +3981,141 @@ trainerdata 66, "Todd"
     endparty
 
 trainerdata 67, "Benny"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_BUG_CATCHER
     nummons 3
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 67
-        // mon 0
-        ivs 10
+	    ivs 0
         abilityslot 0
-        level 7
-        pokemon SPECIES_WEEDLE
+        level LEVEL_BUGSY-3
+        pokemon SPECIES_KRICKETUNE
+        item ITEM_FOCUS_SASH
+        move MOVE_BUG_BITE
+        move MOVE_MEGA_DRAIN
+        move MOVE_POWER_UP_PUNCH
+        move MOVE_STICKY_WEB
+        ability ABILITY_ANALYTIC
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+        ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY-3
+        pokemon SPECIES_MASQUERAIN
+        item ITEM_AIR_BALLOON
+        move MOVE_SIGNAL_BEAM
+        move MOVE_AIR_CUTTER
+        move MOVE_AQUA_JET
+        move MOVE_BUBBLE_BEAM
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
-        ivs 10
+        ivs 0
         abilityslot 0
-        level 9
-        pokemon SPECIES_KAKUNA
+        level LEVEL_BUGSY-3
+        pokemon SPECIES_LEDIAN
+        item ITEM_FOCUS_SASH
+        move MOVE_DRAIN_PUNCH
+        move MOVE_ICE_PUNCH
+        move MOVE_DIZZY_PUNCH
+        move MOVE_SWORDS_DANCE
+        ability ABILITY_IRON_FIST
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 2
-        ivs 10
-        abilityslot 0
-        level 12
-        pokemon SPECIES_BEEDRILL
-        ballseal 0
-    endparty
+   endparty
 
 trainerdata 68, "Al"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_BUG_CATCHER
-    nummons 2
+    nummons 3
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 68
-        // mon 0
-        ivs 10
+	    ivs 0
         abilityslot 0
-        level 12
-        pokemon SPECIES_CATERPIE
+        level LEVEL_BUGSY-3
+        pokemon SPECIES_PORYGON
+        item ITEM_EVIOLITE
+        move MOVE_TRI_ATTACK
+        move MOVE_PSYBEAM
+        move MOVE_THUNDER_WAVE
+        move MOVE_RECOVER
+        ability ABILITY_ANALYTIC
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+        ivs 0
+        abilityslot 0
+        level LEVEL_BUGSY-3
+        pokemon SPECIES_METANG
+        item ITEM_AIR_BALLOON
+        move MOVE_ZEN_HEADBUTT
+        move MOVE_BULLET_PUNCH
+        move MOVE_POWER_UP_PUNCH
+        move MOVE_NONE
+        ability ABILITY_CLEAR_BODY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
-        ivs 10
+        ivs 0
         abilityslot 0
-        level 12
-        pokemon SPECIES_WEEDLE
+        level LEVEL_BUGSY-3
+        pokemon SPECIES_LURANTIS  
+        item ITEM_LEFTOVERS
+        move MOVE_SUPERPOWER
+        move MOVE_BUG_BITE
+        move MOVE_MEGA_DRAIN
+        move MOVE_NONE
+        ability ABILITY_CONTRARY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_SERIOUS
+        shinylock 0
+        additionalflags 0
         ballseal 0
-    endparty
+   endparty
+
 
 trainerdata 69, "Josh"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS

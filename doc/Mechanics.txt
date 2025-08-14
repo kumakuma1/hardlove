@@ -3,6 +3,7 @@ Mechanic Changes
 ----------------
 
 For any mechanic that's not described in here, assume Generation 9 mechanics.
+Exceptions are Protean/Libero.
 
 Battle style is forced to set.
 Bag is unacessible during trainer battles.
@@ -11,7 +12,7 @@ EVs are removed from the game.
 TMs are consumed on use.
 HMs do not need to be taught, obtaining them plus the required badge for use is enough.
 
-Critical hit chance: 1/24.
+Critical hit chance: 1/16.
 Critical hit damage multiplier: 1.5.
 
 Weather abilities: Will set Weather permanently.
@@ -32,4 +33,52 @@ Elder Li 			lvl 12
 Leader Falkner 			lvl 16
 Slowpoke-Well Proton 		lvl 20
 Leader Bugsy 			lvl 25
-Schorsch 			lvl 29
+Schorsch 			lvl 30
+Whitney             lvl 33
+
+
+
+Known Issues:
+Stomping Tantrum does not double its damage on move failure.
+
+
+Trainer in order: (https://github.com/kumakuma1/hardlove)
+Youngster Mikey
+Youngster Joey
+Bug Catcher Don
+Bug Catcher Wade
+Sage Nico
+Sage Edmond
+Sage Neal
+Sage Troy
+Elder Li
+Psychic Nathan
+Sage Chow
+Sage Jin
+Bird Keeper Abe
+Bird Keeper Rod
+Falkner
+Youngster Albert
+Picnicker Liz
+Fisherman Justin
+Fisherman Ralph
+Youngster Gordon
+Camper Roland
+Bird Keeper Peter
+Hiker Daniel
+Firebreather Ray
+Hiker Russel
+Firebreather Bill
+Pokemaniac Larry
+Hiker Anothy
+TR
+TR
+Arianna
+Proton
+Fisherman Henry
+Rival
+Bug Catcher Al
+Bug Catcher Benny
+Twins Ami&Mimi
+Bug Catcher Josh
+Bugsy
