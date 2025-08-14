@@ -45,11 +45,6 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, in
 BOOL LONG_CALL canMoveKillBattler(u32 move, u32 damage, u32 defenderHP, u32 defenderMaxHP, BOOL attackerHasMoldBreaker, u32 defenderAbility, u32 defenderItem);
 BOOL LONG_CALL monDiesFromResidualDamage(struct BattleStruct* ctx, u32 attacker, u32 attackerCondition, BOOL isSeeded);
 
-BOOL LONG_CALL IsInList(u32 moveEffect, const u16 StatList[], u16 ListLength);
-BOOL LONG_CALL BattlerKnowsMoveInList(struct BattleSystem *bsys, u32 battler, const u16 MoveList[], u16 listLength, struct AIContext* ai);
-BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *bsys, struct BattleStruct *ctx, int mainBattler, int flag, struct AIContext* ai);
-
-
 int LONG_CALL scoreMovesAgainstDefender(struct BattleSystem* bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext* ai)
 {
     struct BattleStruct* ctx = bsys->sp;
@@ -1754,50 +1749,6 @@ BOOL LONG_CALL BattlerKnowsMove(struct BattleSystem *bsys, u32 battler, u32 move
 }
 
 
-
-/*Returns true if a given list has a certain value in it.*/
-BOOL LONG_CALL IsInList(u32 value, const u16 list[], u16 ListLength) 
-{
-    BOOL output = FALSE;
-    for (u16 i = 0; i < ListLength; i++) {
-        if (value == list[i]) {
-            output = TRUE;
-            break;
-        }
-    }
-    return output;
-}
-
-/*Returns true if the given battler has a move in a list.*/
-BOOL LONG_CALL BattlerKnowsMoveInList(struct BattleSystem *bsys, u32 battler, const u16 MoveList[], u16 listLength, struct AIContext* ai UNUSED) {
-    struct BattleStruct *ctx = bsys->sp;
-    BOOL knowsMove = FALSE;
-    for (int i = 0; i < 4; i++) {
-        for (int listIndex = 0; listIndex < listLength; listIndex++){
-            if (ctx->battlemon[battler].move[i] == MoveList[listIndex]) {
-                knowsMove = TRUE;
-                break;
-            }
-        }
-    }
-    return knowsMove;
-}
-
-/*Returns true if the battler moves first. 
-This function particularly accounts for 4 battlers, not just 2.*/
-BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *bsys, struct BattleStruct *ctx, int mainBattler, int flag, struct AIContext* ai UNUSED){
-    BOOL movesFirst = TRUE;
-    for (int otherBattler = 0; otherBattler < 4; otherBattler++){
-        if(ctx->battlemon[otherBattler].hp != 0 && mainBattler != otherBattler){
-            if(CalcSpeed(bsys, ctx, otherBattler, mainBattler, flag) != 1){
-                return FALSE;
-            }
-        }
-    }
-    return movesFirst;
-}
-
-
 int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem* bsys, u32 battler, struct AIContext* ai UNUSED) {
     struct BattleStruct* ctx = bsys->sp;
     int statSum = 0;
@@ -1886,7 +1837,7 @@ BOOL monDiesFromResidualDamage(struct BattleStruct* ctx, u32 attacker, u32 attac
             damageReceived += maxHp / 8;
     }
 
-    if (damageReceived > hp)
+    if (damageReceived >= hp)
 		diesFromResidual = TRUE;
 	return diesFromResidual;
 }
