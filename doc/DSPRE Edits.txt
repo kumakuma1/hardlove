@@ -134,6 +134,8 @@ WaitSound
 	WaitSound
 
 Message 5
+Just try touching the buttons, and\nyou’ll know what to do in no time.\rAnd honey, remember pressing L\n
+activates the REPEL.\rBy pressing R you can access the PC\nat any time.\r
 CloseMessage 
 
 Add Shoes

@@ -246,3 +246,7 @@ Change your {STRVAR_1 3, 0, 0}’s Nature\nto Careful? {YESNO 0}
 Change your {STRVAR_1 3, 0, 0}’s Nature\nto Quirky? {YESNO 0}
 {STRVAR_1 3, 0, 0}’s Nature has been\nchanged!\r
 {STRVAR_1 3, 0, 0} handed over 3 Heart Scales\nin exchange.\r
+REPEL is enabled.\nDo you want to turn it off?
+{STRVAR_1 3, 0, 0} turned the REPEL off.\r
+REPEL is disabled.\nDo you want to turn it on?
+{STRVAR_1 3, 0, 0} turned the REPEL on.\r

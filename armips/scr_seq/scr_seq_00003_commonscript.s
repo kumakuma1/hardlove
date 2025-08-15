@@ -108,6 +108,7 @@ scrdef scr_seq_0003_090
 scrdef scr_seq_0003_091
 scrdef scr_seq_0003_092
 scrdef scr_seq_0003_093_utility
+scrdef scr_seq_0003_094_repel
 scrdef_end
 
 scr_seq_0003_002:
@@ -785,9 +786,11 @@ scr_seq_0003_010:
     goto _0A2E
 
 _0A18:
+    goto_if_set 0x18F, _skipPCOnOff
     scrcmd_500 90
     scrcmd_501 90
     scrcmd_308 90
+_skipPCOnOff:
     return
 
 _0A23:
@@ -1021,7 +1024,10 @@ _0DE7:
 _0DF0:
     closemsg
     play_se SEQ_SE_DP_PC_LOGOFF
+    goto_if_set 0x18F, _skipPCOff
     call _0A23
+_skipPCOff:
+    clearflag 0x18F
     touchscreen_menu_show
     releaseall
     end
@@ -1035,7 +1041,9 @@ _0E02:
 _0E16:
     fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
+    goto_if_set 0x18F, _skipPCTransition
     scrcmd_309 90
+_skipPCTransition:
     return
 
 scr_seq_0003_014:
@@ -1812,7 +1820,6 @@ scr_seq_0003_091:
 scr_seq_0003_092:
     end
 
-
 scr_seq_0003_093_utility:
     play_se SEQ_SE_DP_SELECT
     lockall
@@ -2456,6 +2463,38 @@ _exit:
     touchscreen_menu_show
     releaseall
     endstd
+    end
+
+scr_seq_0003_094_repel:
+    play_se SEQ_SE_DP_SELECT
+    lockall
+    RunNewCommand 1, VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _repelIsOn
+    npc_msg 250
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _endToggleRepel
+    RunNewCommand 2, VAR_SPECIAL_RESULT
+    PlayFanfare SEQ_SE_DP_CARD2
+    buffer_players_name 0
+    npc_msg 251
+    goto _endToggleRepel
+
+_repelIsOn:
+    npc_msg 248
+    yesno VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _endToggleRepel
+    RunNewCommand 2, VAR_SPECIAL_RESULT
+    PlayFanfare SEQ_SE_DP_CARD2
+    buffer_players_name 0
+    npc_msg 249
+    goto _endToggleRepel
+
+_endToggleRepel:
+    closemsg
+    releaseall
     end
 
 .close

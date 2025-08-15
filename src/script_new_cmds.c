@@ -7,6 +7,8 @@
 #include "../include/constants/ability.h"
 
 #define SCRIPT_NEW_CMD_REPEL_USE    0
+#define SCRIPT_NEW_CMD_STATUS_REPEL    1
+#define SCRIPT_NEW_CMD_TOGGLE_REPEL    2
 
 #define SCRIPT_NEW_CMD_MAX          256
 
@@ -22,8 +24,44 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx) {
             Repel_Use(most_recent_repel, HEAPID_MAIN_HEAP);
 #endif
             break;
+        case SCRIPT_NEW_CMD_STATUS_REPEL:
+        {
+            SaveData* saveData = SaveBlock2_get();
+            void* roamerSaveData = EncDataSave_GetSaveDataPtr(saveData);
+            u8* repel_addr = SaveData_GetRepelPtr(roamerSaveData);
+            if (*repel_addr == 0)
+            {
+                SetScriptVar(0x800C, 0);
+                return FALSE;
+            }
+            else
+            {
+                SetScriptVar(0x800C, 1);
+                return TRUE;
+            }
+                
+            break;
+        }
+        case SCRIPT_NEW_CMD_TOGGLE_REPEL:
+        {
+            SaveData* saveData = SaveBlock2_get();
+            void* roamerSaveData = EncDataSave_GetSaveDataPtr(saveData);
+            u8* repel_addr = SaveData_GetRepelPtr(roamerSaveData);
+            if (*repel_addr != 0)
+            {
+                *repel_addr = 0;
+                return FALSE;
+            }
+            else
+            {
+                *repel_addr = 1;
+                return TRUE;
+            }
 
-        default: break;
+            break;
+        }
+        default:
+            break;
     }
 
     return FALSE;
@@ -46,6 +84,8 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx) {
 #define SET_BATTLE_BOND 19
 #define SET_NATURE_MIN 20
 #define SET_NATURE_MAX 44
+
+#define TOGGLE_REPEL 1000
 
 
 BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
