@@ -416,7 +416,6 @@ void LONG_CALL SetOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS* req, u16 trg)
 void LONG_CALL CheckOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS* req, FieldSystem* fsys)
 {
     if (req->ToggleRepel) {
-        debug_printf("ToggleRepel on \n");
         EventSet_Script(fsys, 2094, NULL);
     }
 
