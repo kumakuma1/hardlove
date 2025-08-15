@@ -29,20 +29,20 @@ The boss fights are noted in documentation and are also noticeable by the battle
 You can overcome the cap by using Rare Candies, but those are rare and limited.
 Here is a list of all the bosses and their matching level caps:
 
-Elder Li 			lvl 12
-Leader Falkner 			lvl 16
-Slowpoke-Well Proton 		lvl 20
+Elder Li                lvl 12
+Leader Falkner          lvl 16
+Slowpoke-Well Proton    lvl 20
 Leader Bugsy 			lvl 25
-Schorsch 			lvl 30
-Whitney             lvl 33
+Schorsch                lvl 30
+Whitney                 lvl 33
 
 
 
-Known Issues:
+Known Issues: (https://github.com/BluRosie/hg-engine/issues)
 Stomping Tantrum does not double its damage on move failure.
 
 
-Trainer in order: (https://github.com/kumakuma1/hardlove)
+Trainer in order: (https://github.com/kumakuma1/hardlove/blob/hardlovedemo/armips/data/trainers/trainers.s)
 Youngster Mikey
 Youngster Joey
 Bug Catcher Don
