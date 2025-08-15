@@ -19,6 +19,9 @@ EIGHT_BADGES equ 6
 .halfword ITEM_POKE_BALL
 .halfword ZERO_BADGES
 
+.halfword ITEM_NET_BALL
+.halfword ZERO_BADGES
+
 .halfword ITEM_GREAT_BALL
 .halfword ONE_BADGE
 
@@ -67,11 +70,8 @@ EIGHT_BADGES equ 6
 .halfword ITEM_MAX_REVIVE
 .halfword SEVEN_BADGES
 
-.halfword ITEM_REPEL
+.halfword ITEM_BLOOM_MAIL
 .halfword ZERO_BADGES
-
-.halfword ITEM_SUPER_REPEL
-.halfword THREE_BADGES
 
 
 /* azalea, 3 -> (azalea, goldenrod 4F) - CommonScript 2052  2 */
