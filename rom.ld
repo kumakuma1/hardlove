@@ -241,6 +241,7 @@ IncrementBattleScriptPtr = 0x02245508 | 1;
 CreateNicknameTag = 0x022522E0 | 1;
 JumpToMoveEffectScript = 0x02245518 | 1;
 BGCallback_Waza = 0x0226748C | 1;
+TryEatOpponentBerry = 0x02255A2C | 1;
 
 /* Trainer data expansion */
 gf_get_seed = 0x0201FD2C | 1;
@@ -754,3 +755,4 @@ QueueEmitterWithCallback = 0x02015494 | 1;
 particleEmitCallback = 0x021E5C28 | 1;
 
 BattleSystem_GetTrainer = 0x0223A9F4 | 1;
+PartyMenu_PrintMessageOnWindow32 = 0x0207DAC4 | 1;
