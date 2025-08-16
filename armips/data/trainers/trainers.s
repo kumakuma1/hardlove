@@ -24,7 +24,7 @@ LEVEL_FALKNER equ 16
 
 LEVEL_PROTON_1 equ 20
 LEVEL_BUGSY equ 25
-LEVEL_SCHORSCH equ 29
+LEVEL_SCHORSCH equ 30
 LEVEL_WHITNEY equ 31
 LEVEL_MORTY equ 35
 LEVEL_CHUCK equ 40
@@ -1043,7 +1043,7 @@ trainerdata 18, "Justin"
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_PRYCE-3
+        level LEVEL_PROTON_1-3
         pokemon SPECIES_KADABRA
         item ITEM_LIFE_ORB
         move MOVE_THUNDER_PUNCH
@@ -3925,58 +3925,102 @@ trainerdata 64, "Ian"
     endparty
 
 trainerdata 65, "Gina"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_PICNICKER
-    nummons 3
+    nummons 2
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 65
-        // mon 0
         ivs 0
         abilityslot 0
-        level 9
-        pokemon SPECIES_HOPPIP
+        level LEVEL_SCHORSCH-4
+        pokemon SPECIES_BRELOOM
+        item ITEM_COBA_BERRY
+        move MOVE_MACH_PUNCH
+        move MOVE_BULLET_SEED
+        move MOVE_SPORE
+        move MOVE_ROCK_TOMB
+        ability ABILITY_TECHNICIAN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 1
-        ivs 0
+				
+	    ivs 0
         abilityslot 0
-        level 9
-        pokemon SPECIES_HOPPIP
+        level LEVEL_SCHORSCH-5
+        pokemon SPECIES_DURANT  
+        item ITEM_LUM_BERRY
+        move MOVE_METAL_CLAW
+        move MOVE_BUG_BITE
+        move MOVE_SUBSTITUTE
+        move MOVE_HONE_CLAWS
+        ability ABILITY_HUSTLE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 2
-        ivs 0
-        abilityslot 0
-        level 12
-        pokemon SPECIES_BULBASAUR
-        ballseal 0
-    endparty
+   endparty
 
 trainerdata 66, "Todd"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_CAMPER
-    nummons 1
+    nummons 2
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_EXPERT_ATTACKS | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 66
-        // mon 0
         ivs 0
         abilityslot 0
-        level 14
-        pokemon SPECIES_PSYDUCK
+        level LEVEL_SCHORSCH-4
+        pokemon SPECIES_SABLEYE
+        item ITEM_LUM_BERRY
+        move MOVE_FEINT_ATTACK
+        move MOVE_SKILL_SWAP
+        move MOVE_SHADOW_SNEAK
+        move MOVE_SHOCK_WAVE
+        ability ABILITY_PRANKSTER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+				
+	    ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-5
+        pokemon SPECIES_NINETALES
+        item ITEM_LUM_BERRY
+        move MOVE_INCINERATE
+        move MOVE_SKILL_SWAP
+        move MOVE_PSYSHOCK
+        move MOVE_SCORCHING_SANDS
+        ability ABILITY_FLASH_FIRE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 

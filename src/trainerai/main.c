@@ -82,37 +82,37 @@ int LONG_CALL scoreMovesAgainstAlly(struct BattleSystem* bsys, u32 attacker, u32
     struct BattleStruct* ctx = bsys->sp;  
     if (!ai->isDoubleBattle || !ai->isAllyAlive)
         return 0;
-
+    debug_printf("scoreMovesAgainstAlly att %d, ally %d, trainerID %d\n", attacker, target, bsys->trainerId[BATTLER_ENEMY]);
+    u8 skillSwapPosition = 5;
     int highestScoredMove = 0;
     switch (bsys->trainerId[BATTLER_ENEMY])
     {
-    case 1000://trainer ID
+    case 65://trainer ID
+    case 66:
     {
-        if (ai->attackerMon.ability == ABILITY_FLASH_FIRE && ai->defenderAlly.ability != ABILITY_FLASH_FIRE && ai->defenderAlly.species == SPECIES_DURANT)
+        
+        u8 skillSwapPosition = 5;
+        for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++)
         {
-            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++)
+            if (ctx->battlemon[attacker].move[j] == MOVE_SKILL_SWAP)
             {
-                if (ctx->battlemon[attacker].move[j] == MOVE_SKILL_SWAP)
-                {
-                    highestScoredMove = 20;
-                    moveScores[target][j] += 1000;
-                    moveScores[target][j] += highestScoredMove;
-                    break;
-                }
+                skillSwapPosition = j;
+                break;
             }
         }
+        debug_printf("skillswap on pos %d\n", skillSwapPosition);
 
-        if (ai->attackerMon.ability == ABILITY_PRANKSTER && ai->defenderAlly.ability != ABILITY_PRANKSTER && ai->defenderAlly.species == SPECIES_BRELOOM)
+        debug_printf("attackerMon.ability %d, defenderAlly.ability %d, defenderAlly.species %d\n", ai->attackerMon.ability, ai->defenderAlly.ability, ai->defenderAlly.species);
+        if (skillSwapPosition < 5)
         {
-            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++)
+            if (   (ai->attackerMon.ability == ABILITY_FLASH_FIRE && ai->defenderAlly.ability != ABILITY_FLASH_FIRE && ai->defenderAlly.species == SPECIES_DURANT)
+                || (ai->attackerMon.ability == ABILITY_TECHNICIAN && ai->defenderAlly.ability != ABILITY_TECHNICIAN && ai->defenderAlly.species == SPECIES_DURANT)
+                || (ai->attackerMon.ability == ABILITY_PRANKSTER  && ai->defenderAlly.ability != ABILITY_PRANKSTER && ai->defenderAlly.species == SPECIES_BRELOOM))
             {
-                if (ctx->battlemon[attacker].move[j] == MOVE_SKILL_SWAP)
-                {
-                    highestScoredMove = 20;
-                    moveScores[target][j] += 1000;
-                    moveScores[target][j] += highestScoredMove;
-                    break;
-                }
+                highestScoredMove = 1000;
+                highestScoredMove += 12;
+                moveScores[target][skillSwapPosition] += highestScoredMove;
+                debug_printf("found\n");
             }
         }
         break;
@@ -160,12 +160,11 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
         debug_printf("att %d, ally %d, defendOp %d, defendCross %d\n", ctx->battlemon[attacker].species, ctx->battlemon[BATTLER_ALLY(attacker)].species, ctx->battlemon[BATTLER_OPPONENT(attacker)].species, ctx->battlemon[BATTLER_ACROSS(attacker)].species);
 #endif // BATLLE_DEBUG_OUTPUT
 
-        //BATTLER_OPPONENT
         SetupStateVariables(bsys, attacker, defender, ai);
  
         BOOL playerCanOneShotMonWithAnyMove = ai->playerCanOneShotMonWithAnyMove;
 		highestScoredMove = scoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai);
-        //BATTLER_ACROSS
+
         defender = BATTLER_ACROSS(attacker);
         if (ctx->battlemon[defender].hp > 0)
         {
@@ -178,8 +177,12 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
             if (highestScoredMoveAcross > highestScoredMove)
 				highestScoredMove = highestScoredMoveAcross;
         }
-		// defender = BATTLER_ALLY(attacker);
-        // target = defender;
+
+		defender = BATTLER_ALLY(attacker);
+        target = defender;
+        highestScoredMoveAcross = scoreMovesAgainstAlly(bsys, attacker, target, moveScores, ai);
+        if (highestScoredMoveAcross > highestScoredMove)
+            highestScoredMove = highestScoredMoveAcross;
 
         targetsSize = 0;
         for (u8 k = 0; k < 4; k++) // find targets with highestScoredMove
@@ -972,8 +975,11 @@ int LONG_CALL SetupScoring(struct BattleSystem* bsys, u32 attacker, int i, struc
             break;
         case MOVE_EFFECT_RAISE_SP_ATK_HIT: //charge beam
         case MOVE_EFFECT_RAISE_ATTACK_HIT: //PuP
-            if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance < 100 || ai->attackerRolledMaxDamage == ai->attackerRolledMoveDamages[i]) // if other move (like Metal Claw), or highest damage 
+            if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance < 100 || ai->attackerRolledMaxDamage == ai->attackerRolledMoveDamages[i]) // if other move (like Metal Claw), or highest damage
+            {
+                isSetupMove = FALSE;
                 break;
+            }
             FALLTHROUGH;
         case MOVE_EFFECT_ATK_UP:   //howl
 		case MOVE_EFFECT_ATK_UP_2: //swords dance
@@ -1295,15 +1301,19 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
         {
             if (!ai->defenderImmuneToSleep)
                 moveScore += 1;
-            if (((BattlerKnowsMove(bsys, attacker, MOVE_DREAM_EATER, ai) == TRUE) ||
-                (BattlerKnowsMove(bsys, attacker, MOVE_NIGHTMARE, ai) == TRUE)) &&
-                (BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai) == FALSE) &&
-                (BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) == FALSE))
+            if (((BattlerKnowsMove(bsys, attacker, MOVE_DREAM_EATER, ai) == TRUE) || (BattlerKnowsMove(bsys, attacker, MOVE_NIGHTMARE, ai) == TRUE))
+                && (BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai) == FALSE) && (BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) == FALSE))
+            {
                 moveScore += 1;
+            }
             if ((BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE)
                 || (ai->isDoubleBattle && BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_HEX, ai))) // or partner
+            {
                 moveScore += 1;
+            }    
         }
+        if (ai->attackerMon.ability == ABILITY_PRANKSTER)
+            moveScore += 2;
         break;
     case MOVE_EFFECT_STATUS_POISON:
     case MOVE_EFFECT_STATUS_BADLY_POISON:
