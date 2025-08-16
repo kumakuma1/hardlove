@@ -3977,13 +3977,13 @@ trainerdata 65, "Gina"
 trainerdata 66, "Todd"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_CAMPER
-    nummons 2
+    nummons 4
     item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags TRAINER_AI_FLAGS
-    battletype SINGLE_BATTLE
+    battletype NO_PARTNER_DOUBLE_BATTLE
     endentry
 
     party 66
@@ -4004,10 +4004,46 @@ trainerdata 66, "Todd"
         shinylock 0
         additionalflags 0
         ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-4
+        pokemon SPECIES_BRELOOM
+        item ITEM_COBA_BERRY
+        move MOVE_MACH_PUNCH
+        move MOVE_BULLET_SEED
+        move MOVE_SPORE
+        move MOVE_ROCK_TOMB
+        ability ABILITY_TECHNICIAN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
 				
 	    ivs 0
         abilityslot 0
-        level LEVEL_SCHORSCH-5
+        level LEVEL_SCHORSCH-4
+        pokemon SPECIES_DURANT  
+        item ITEM_LUM_BERRY
+        move MOVE_METAL_CLAW
+        move MOVE_BUG_BITE
+        move MOVE_SUBSTITUTE
+        move MOVE_HONE_CLAWS
+        ability ABILITY_HUSTLE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+				
+	    ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-4
         pokemon SPECIES_NINETALES
         item ITEM_LUM_BERRY
         move MOVE_INCINERATE

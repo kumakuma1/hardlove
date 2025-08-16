@@ -1235,7 +1235,7 @@ _0AB4: // Trainer 61
 
 _0AC4: // Trainer 66
     trainertextentry  66, TEXT_NOTICE_IN_OVERWORLD, "I’m confident in my ability to raise\nPokémon. Want to see?\r"
-    trainertextentry  66, TEXT_DEFEATED_IN_BATTLE, "Didn’t I train enough?\n"
+    trainertextentry  66, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "Didn’t I train enough?\n"
     trainertextentry  66, TEXT_DEFEATED_IN_OVERWORLD, "Hmm... Maybe I should take them to\nPokémon Day Care? What should I do?\n"
     trainertextentry  66, TEXT_REMATCH_IN_OVERWORLD, "Hey, you’re back!\rBattle my carefully trained Pokémon!\r"
 

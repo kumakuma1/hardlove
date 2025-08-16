@@ -82,13 +82,11 @@ int LONG_CALL scoreMovesAgainstAlly(struct BattleSystem* bsys, u32 attacker, u32
     struct BattleStruct* ctx = bsys->sp;  
     if (!ai->isDoubleBattle || !ai->isAllyAlive)
         return 0;
-    debug_printf("scoreMovesAgainstAlly att %d, ally %d, trainerID %d\n", attacker, target, bsys->trainerId[BATTLER_ENEMY]);
     u8 skillSwapPosition = 5;
     int highestScoredMove = 0;
     switch (bsys->trainerId[BATTLER_ENEMY])
     {
-    case 65://trainer ID
-    case 66:
+    case 66://trainer ID
     {
         
         u8 skillSwapPosition = 5;
@@ -100,9 +98,7 @@ int LONG_CALL scoreMovesAgainstAlly(struct BattleSystem* bsys, u32 attacker, u32
                 break;
             }
         }
-        debug_printf("skillswap on pos %d\n", skillSwapPosition);
 
-        debug_printf("attackerMon.ability %d, defenderAlly.ability %d, defenderAlly.species %d\n", ai->attackerMon.ability, ai->defenderAlly.ability, ai->defenderAlly.species);
         if (skillSwapPosition < 5)
         {
             if (   (ai->attackerMon.ability == ABILITY_FLASH_FIRE && ai->defenderAlly.ability != ABILITY_FLASH_FIRE && ai->defenderAlly.species == SPECIES_DURANT)
@@ -112,7 +108,6 @@ int LONG_CALL scoreMovesAgainstAlly(struct BattleSystem* bsys, u32 attacker, u32
                 highestScoredMove = 1000;
                 highestScoredMove += 12;
                 moveScores[target][skillSwapPosition] += highestScoredMove;
-                debug_printf("found\n");
             }
         }
         break;
