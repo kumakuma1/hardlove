@@ -1043,7 +1043,7 @@ trainerdata 18, "Justin"
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_PRYCE-3
+        level LEVEL_PROTON_1-3
         pokemon SPECIES_KADABRA
         item ITEM_LIFE_ORB
         move MOVE_THUNDER_PUNCH

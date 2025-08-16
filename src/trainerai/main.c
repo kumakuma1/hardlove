@@ -415,6 +415,8 @@ BOOL LONG_CALL isMoveSpecialAiAttackingMove(u32 attackerMove)
     BOOL isSpecialAIMove = FALSE;
     switch (attackerMove)
     {
+        case MOVE_RELIC_SONG:
+        case MOVE_FUTURE_SIGHT:
         case MOVE_SELF_DESTRUCT:
         case MOVE_EXPLOSION:
         case MOVE_MISTY_EXPLOSION:
@@ -444,6 +446,14 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, in
 
     switch (ai->attackerMove)
     {
+    case MOVE_RELIC_SONG: //TODO
+        break;
+    case MOVE_FUTURE_SIGHT:
+        if (ai->attackerMovesFirst && ai->playerCanOneShotMonWithAnyMove)
+            moveScore += 8;
+        else
+            moveScore += 6;
+        break;
     case MOVE_SELF_DESTRUCT:
     case MOVE_EXPLOSION:
     case MOVE_MISTY_EXPLOSION:
@@ -684,14 +694,6 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 
     switch(ai->attackerMove)
     {
-        case MOVE_RELIC_SONG: //TODO
-            break;
-        case MOVE_FUTURE_SIGHT:
-            if (ai->attackerMovesFirst && ai->playerCanOneShotMonWithAnyMove)
-                moveScore += 8;
-            else
-                moveScore += 6;
-            break;
         case MOVE_ACID_SPRAY:
         {
             if ((ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY && ai->defenderMon.ability != ABILITY_BULLETPROOF) || 
@@ -1564,7 +1566,7 @@ BOOL LONG_CALL shouldRecover(struct BattleSystem* bsys, u32 attacker, u32 attack
     case MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP:
         recoverAmountPercent = 100;
         break;
-    case MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN:
+    case MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER:
         recoverAmountPercent = 67;
         break;
     default:
@@ -1625,8 +1627,10 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
             else
 				moveScore += 5;
             break;
-        case MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN:
-            if (aiShouldRecover && ctx->field_condition & WEATHER_SUNNY_ANY)
+        case MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER:
+            if (aiShouldRecover 
+                && ((ai->attackerMove == MOVE_SHORE_UP && ctx->field_condition & WEATHER_SANDSTORM_ANY) 
+                    || (ai->attackerMove != MOVE_SHORE_UP && ctx->field_condition & WEATHER_SUNNY_ANY)))
                 moveScore += 7;
 			else if (shouldRecover(bsys, attacker, MOVE_EFFECT_RESTORE_HALF_HP, ai))
                 moveScore += 7;

@@ -106,17 +106,11 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
             
             buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
             ++count;
-<<<<<<< HEAD
 #if defined(USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU)
             count = customFieldMoveCheckInPartyMenu(wk, pp, buf, count);
 #else
-            for (i = 0; i < MAX_MON_MOVES; ++i) 
-=======
-
             // here is where a custom check would go.  replace the below for loop with your own checks
-
             for (i = 0; i < MAX_MON_MOVES; ++i)
->>>>>>> 4d3a98fc5384f61d1f1dc3e37063205c2ef13126
             {
                 move = GetMonData(pp, MON_DATA_MOVE1 + i, NULL);
                 if (move == MOVE_NONE)
@@ -147,11 +141,6 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
         ++count;
     }
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 4d3a98fc5384f61d1f1dc3e37063205c2ef13126
     return count;
 }
 
