@@ -404,7 +404,7 @@ void LONG_CALL SetOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS* req, u16 trg)
         req->ToggleRepel = TRUE;
     }
     if (trg & PAD_BUTTON_R) {
-        req->OpenPCCheck = TRUE;
+    //    req->OpenPCCheck = TRUE;
     }
 }
 
@@ -419,8 +419,8 @@ void LONG_CALL CheckOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS* req, FieldSys
         EventSet_Script(fsys, 2094, NULL);
     }
 
-    if (req->OpenPCCheck) {
+   /* if (req->OpenPCCheck) {
         SetScriptFlag(0x18F); // some random flag that should be set by script 2010 (file 3 script 10)
         EventSet_Script(fsys, 2010, NULL); // set up script 2010
-    }
+    }*/
 }
