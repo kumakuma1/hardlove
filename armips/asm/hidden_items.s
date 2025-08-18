@@ -128,7 +128,7 @@
 .halfword ITEM_RARE_CANDY
 
 .org 0x02000000 + 0xFA698 //R34 E
-.halfword ITEM_SUPER_POTION
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA6A0 //Goldenrod
 .halfword ITEM_SUPER_POTION

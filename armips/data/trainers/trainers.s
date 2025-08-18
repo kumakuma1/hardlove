@@ -25,8 +25,8 @@ LEVEL_FALKNER equ 16
 LEVEL_PROTON_1 equ 20
 LEVEL_BUGSY equ 25
 LEVEL_SCHORSCH equ 30
-LEVEL_WHITNEY equ 31
-LEVEL_MORTY equ 35
+LEVEL_WHITNEY equ 35
+LEVEL_MORTY equ 38
 LEVEL_CHUCK equ 40
 LEVEL_JASMINE equ 46
 LEVEL_PRYCE equ 52
@@ -1218,7 +1218,7 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER+1
+        level LEVEL_FALKNER
         pokemon SPECIES_PIDGEOTTO
         item ITEM_ORAN_BERRY
         move MOVE_QUICK_ATTACK
@@ -1341,7 +1341,7 @@ trainerdata 21, "Bugsy"
 
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY+1
+        level LEVEL_BUGSY
         pokemon SPECIES_SCYTHER
         item ITEM_SITRUS_BERRY
         move MOVE_SWORDS_DANCE
@@ -1793,7 +1793,7 @@ trainerdata 30, "Whitney"
         level LEVEL_WHITNEY-2
         pokemon SPECIES_FARIGIRAF
         item ITEM_LEFTOVERS
-        move MOVE_PSYSHOCK
+        move MOVE_PSYBEAM
         move MOVE_TRI_ATTACK
         move MOVE_AGILITY
         move MOVE_GRASS_KNOT
@@ -1806,14 +1806,14 @@ trainerdata 30, "Whitney"
         additionalflags 0
         ballseal 0
 		
-	ivs 0
+	    ivs 0
         abilityslot 0
         level LEVEL_WHITNEY
         pokemon SPECIES_REGIGIGAS
         item ITEM_LUM_BERRY
         move MOVE_BODY_SLAM
-        move MOVE_SUPERPOWER
         move MOVE_FIRE_PUNCH
+        move MOVE_NONE
         move MOVE_NONE
         ability ABILITY_SLOW_START
         ball ITEM_POKE_BALL
@@ -1824,11 +1824,11 @@ trainerdata 30, "Whitney"
         additionalflags 0
         ballseal 0
 		
-	ivs 0
+	    ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-2
         pokemon SPECIES_MILTANK
-        item ITEM_SILK_SCARF
+        item ITEM_LUM_BERRY
         move MOVE_BODY_SLAM
         move MOVE_ROLLOUT
         move MOVE_DEFENSE_CURL
@@ -1842,32 +1842,32 @@ trainerdata 30, "Whitney"
         additionalflags 0
         ballseal 0
 		
-	ivs 0
+	    ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-2
-        pokemon SPECIES_CLEFABLE
-        item ITEM_LEFTOVERS
-        move MOVE_ICY_WIND
-        move MOVE_CALM_MIND
-        move MOVE_SOFT_BOILED
-        move MOVE_DRAINING_KISS
-        ability ABILITY_MAGIC_GUARD
+        pokemon SPECIES_PYROAR
+        item ITEM_SILK_SCARF
+        move MOVE_BODY_SLAM
+        move MOVE_SWIFT
+        move MOVE_WILL_O_WISP
+        move MOVE_HIDDEN_POWER //GRASS
+        ability ABILITY_MOXIE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 30, 31, 31, 31, 30, 31 // hp, atk, def, spd, spatk, spdef //GRASS
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_CALM
+        nature NATURE_SERIOUS
         shinylock 0
         additionalflags 0
         ballseal 0
 		
-	ivs 0
+	    ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-2
         monWithForm SPECIES_RAPIDASH, 1
-        item ITEM_FOCUS_SASH
-        move MOVE_SWORDS_DANCE
-        move MOVE_PLAY_ROUGH
-        move MOVE_ZEN_HEADBUTT
+        item ITEM_FAIRY_GEM
+        move MOVE_COVET
+        move MOVE_PSYCHO_CUT
+        move MOVE_LOW_KICK
         move MOVE_MORNING_SUN
         ability ABILITY_PASTEL_VEIL
         ball ITEM_POKE_BALL
@@ -1878,20 +1878,20 @@ trainerdata 30, "Whitney"
         additionalflags 0
         ballseal 0
 		
-	ivs 0
+	    ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-1
-        pokemon SPECIES_TOGEKISS
-        item ITEM_LUM_BERRY
+        level LEVEL_WHITNEY
+        pokemon SPECIES_AUDINO
+        item ITEM_AUDINITE
         move MOVE_DRAINING_KISS
-        move MOVE_AIR_SLASH
-        move MOVE_AURA_SPHERE
-        move MOVE_ROOST
-        ability ABILITY_SERENE_GRACE
+        move MOVE_CALM_MIND
+        move MOVE_FLAMETHROWER
+        move MOVE_THUNDER_WAVE
+        ability ABILITY_HEALER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_BOLD
         shinylock 0
         additionalflags 0
         ballseal 0
