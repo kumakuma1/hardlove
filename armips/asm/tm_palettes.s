@@ -110,9 +110,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_PSYCHIC
 .skip 4
 
-// TM017 PROTECT
+// TM017 PROTECT -> smart strike
 .skip 2
-.halfword PALETTE_NORMAL
+.halfword PALETTE_STEEL
 .skip 4
 
 // TM018 RAIN_DANCE
@@ -445,9 +445,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_NORMAL
 .skip 4
 
-// TM084 POISON_JAB
+// TM084 POISON_JAB -> SCALD
 .skip 2
-.halfword PALETTE_POISON
+.halfword PALETTE_WATER
 .skip 4
 
 // TM085 DREAM_EATER
@@ -460,9 +460,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_GRASS
 .skip 4
 
-// TM087 SWAGGER change to WATER
+// TM087 SWAGGER
 .skip 2
-.halfword PALETTE_WATER
+.halfword PALETTE_NORMAL
 .skip 4
 
 // TM088 PLUCK
