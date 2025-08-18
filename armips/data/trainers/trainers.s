@@ -613,13 +613,13 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
         ivs 0
         abilityslot 0
         level LEVEL_SCHORSCH-2
-        pokemon SPECIES_ESPEON
-        item ITEM_COLBUR_BERRY
-        move MOVE_PSYSHOCK
-        move MOVE_DAZZLING_GLEAM
-        move MOVE_REFLECT
-        move MOVE_LIGHT_SCREEN
-        ability ABILITY_MAGIC_BOUNCE
+        pokemon SPECIES_AMPHAROS
+        item ITEM_LUM_BERRY
+        move MOVE_DISCHARGE
+        move MOVE_DRAGON_BREATH
+        move MOVE_REST
+        move MOVE_COTTON_GUARD
+        ability ABILITY_STATIC
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -631,12 +631,30 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
         ivs 0
         abilityslot 0
         level LEVEL_SCHORSCH-1
-        pokemon SPECIES_BRELOOM
-        item ITEM_COBA_BERRY //ITEM_FIGHTING_GEM
-        move MOVE_MACH_PUNCH
-        move MOVE_BULLET_SEED
-        move MOVE_FORCE_PALM
-        move MOVE_ROCK_TOMB
+        pokemon SPECIES_FORRETRESS
+        item ITEM_LEFTOVERS
+        move MOVE_FLASH_CANNON
+        move MOVE_VOLT_SWITCH
+        move MOVE_BUG_BITE
+        move MOVE_RAPID_SPIN
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-2
+        monWithForm SPECIES_PERSIAN, 1
+        item ITEM_BLACK_GLASSES
+        move MOVE_FAKE_OUT
+        move MOVE_BITE
+        move MOVE_AERIAL_ACE
+        move MOVE_CONFUSE_RAY
         ability ABILITY_TECHNICIAN
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -648,50 +666,14 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
 
         ivs 0
         abilityslot 0
-        level LEVEL_SCHORSCH-2
-        pokemon SPECIES_TOGEDEMARU
-        item ITEM_SITRUS_BERRY
-        move MOVE_FAKE_OUT
-        move MOVE_U_TURN
-        move MOVE_SPARK
-        move MOVE_SMART_STRIKE
-        ability ABILITY_MOTOR_DRIVE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
         level LEVEL_SCHORSCH-1
-        pokemon SPECIES_TURTONATOR
-        item ITEM_LUM_BERRY
-        move MOVE_DRAGON_BREATH
-        move MOVE_LAVA_PLUME
-        move MOVE_EXPLOSION
-        move MOVE_EARTHQUAKE
-        ability ABILITY_SHELL_ARMOR
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_MILD
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_SCHORSCH-1
-        pokemon SPECIES_XATU
-        item ITEM_SCOPE_LENS
-        move MOVE_PSYSHOCK
-        move MOVE_AIR_CUTTER
-        move MOVE_GRASS_KNOT
-        move MOVE_U_TURN
-        ability ABILITY_SYNCHRONIZE
+        pokemon SPECIES_MANTINE
+        item ITEM_LIFE_ORB
+        move MOVE_BUBBLE_BEAM
+        move MOVE_AIR_SLASH
+        move MOVE_ROOST
+        move MOVE_ICY_WIND
+        ability ABILITY_WATER_ABSORB
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -702,18 +684,36 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
 
         ivs 0
         abilityslot 0
-        level LEVEL_SCHORSCH-2
-        pokemon SPECIES_FLOATZEL
-        item ITEM_STARF_BERRY
-        move MOVE_AQUA_JET
-        move MOVE_WATERFALL
-        move MOVE_ICE_PUNCH
-        move MOVE_CRUNCH
-        ability ABILITY_WATER_VEIL
+        level LEVEL_SCHORSCH-1
+        pokemon SPECIES_CAMERUPT
+        item ITEM_PASSHO_BERRY
+        move MOVE_BULLDOZE
+        move MOVE_LAVA_PLUME
+        move MOVE_WILL_O_WISP
+        move MOVE_ANCIENT_POWER
+        ability ABILITY_ANGER_POINT
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_BRAVE
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-2
+        pokemon SPECIES_EXEGGUTOR
+        item ITEM_STARF_BERRY
+        move MOVE_PSYCHO_CUT
+        move MOVE_MEGA_DRAIN
+        move MOVE_HYPNOSIS
+        move MOVE_BODY_SLAM
+        ability ABILITY_HARVEST
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_SERIOUS
         shinylock 0
         additionalflags 0
         ballseal 0
