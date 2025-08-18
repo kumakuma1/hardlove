@@ -920,6 +920,8 @@ int LONG_CALL SetupScoring(struct BattleSystem* bsys, u32 attacker, int i, struc
             if (ai->isDefenderIncapacitated)
                 moveScore += 2;
             break;
+        case MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING: //rapid_spin
+        case MOVE_EFFECT_RAISE_SPEED_HIT:
         case MOVE_EFFECT_SPEED_UP_2:
         case MOVE_EFFECT_AUTOTOMIZE:
             if (ai->defenderMovesFirst)
