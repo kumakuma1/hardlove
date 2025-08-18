@@ -73,6 +73,7 @@ struct PACKED AIContext {
 
     u8 partySizeAttacker;
     u8 livingMembersAttacker;
+    u8 monWithMegaInParty;
 
     u8 partySizeDefender;
     u8 livingMembersDefender;

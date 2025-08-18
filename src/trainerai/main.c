@@ -82,7 +82,6 @@ int LONG_CALL scoreMovesAgainstAlly(struct BattleSystem* bsys, u32 attacker, u32
     struct BattleStruct* ctx = bsys->sp;  
     if (!ai->isDoubleBattle || !ai->isAllyAlive)
         return 0;
-    u8 skillSwapPosition = 5;
     int highestScoredMove = 0;
     switch (bsys->trainerId[BATTLER_ENEMY])
     {
@@ -662,17 +661,16 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 
     if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT)
     {
-        if (ai->livingMembersAttacker > 1 && ai->attackerRolledMoveDamages[i] > 0) //no immunity
+        u8 switchThreshold = 1;
+        if (ai->monWithMegaInParty)
+            switchThreshold = 2;
+        if (ai->livingMembersAttacker > switchThreshold && ai->attackerRolledMoveDamages[i] > 0) //no immunity
         {
             moveScore += 6;
             if (ai->playerCanOneShotMonWithAnyMove && ai->attackerMovesFirst)
-                moveScore += 2;
+                moveScore += 1;
             if (BattleRand(bsys) % 10 < 2)
                 moveScore += 1;
-
-            //BOOL onlyIneffectiveMoves = BattleAI_AttackerHasOnlyIneffectiveMoves(ctx, attacker, ai->attackerMovesKnown, ai->effectivenessOnPlayer);
-            //if (onlyIneffectiveMoves)
-            //    moveScore += ai->livingMembersAttacker;
         }
         /*
         if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67)

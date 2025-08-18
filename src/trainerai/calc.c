@@ -2179,6 +2179,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem* bsys, u32 attacker, u32 
     ai->partySizeDefender = Battle_GetClientPartySize(bsys, ai->defender);
     ai->livingMembersDefender = 0;
 
+    ai->monWithMegaInParty = FALSE;
     for (int i = 0; i < ai->partySizeAttacker; i++)
     {
         struct PartyPokemon* current = Battle_GetClientPartyMon(bsys, attacker, i);
@@ -2186,7 +2187,9 @@ void LONG_CALL SetupStateVariables(struct BattleSystem* bsys, u32 attacker, u32 
             GetMonData(current, MON_DATA_SPECIES_OR_EGG, 0) == 0 ||
             GetMonData(current, MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_EGG))
         {
-
+            u32 item = GetMonData(current, MON_DATA_HELD_ITEM, 0);
+            if (IS_ITEM_MEGA_STONE(item))
+                ai->monWithMegaInParty = TRUE;
             ai->livingMembersAttacker++;
         }
     }
@@ -2408,6 +2411,8 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem* bsys, int at
                 if (partyMonPercentDamageReceived >= 100)
                     switchInScore[i] -= 10;
                 else if (speedCalc == 0 && (2*partyMonPercentDamageReceived >= 100))
+                    switchInScore[i] -= 10;
+                if (IS_ITEM_MEGA_STONE(attackerMon.item))
                     switchInScore[i] -= 10;
             }
 
