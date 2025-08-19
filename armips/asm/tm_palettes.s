@@ -165,9 +165,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_NORMAL
 .skip 4
 
-// TM028 DIG
+// TM028 DIG -> Venoshock
 .skip 2
-.halfword PALETTE_GROUND
+.halfword PALETTE_POISON
 .skip 4
 
 // TM029 PSYCHIC
