@@ -42,7 +42,8 @@ Known Issues:
 Stomping Tantrum does not double its damage on move failure.
 
 
-Trainer in order: (https://github.com/kumakuma1/hardlove)
+Trainers in order: (https://github.com/kumakuma1/hardlove/blob/hardlovedemo/armips/data/trainers/trainers.s)
+
 Youngster Mikey
 Youngster Joey
 Bug Catcher Don
