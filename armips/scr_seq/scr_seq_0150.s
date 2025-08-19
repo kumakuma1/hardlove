@@ -21,6 +21,7 @@
 	scrdef scr_seq_0150_005 //r33
 	scrdef scr_seq_0150_006 //r33
 	scrdef scr_seq_0150_007 //azalea
+	scrdef scr_seq_0150_008 //r36
 	scrdef_end
 
 scr_seq_0150_000:
@@ -149,6 +150,25 @@ scr_seq_0150_007:
 	anim_apricorn_tree VAR_SPECIAL_RESULT
 	GetRandom 0x800C, 50
 	setvar VAR_SPECIAL_x8004, ITEM_ORAN_BERRY
+	setvar VAR_SPECIAL_x8005, 100
+	IncrementVar VAR_SPECIAL_x8005, 0x800C 
+	CommonScript 2008
+	//play_fanfare SEQ_ME_ITEM
+	//wait_fanfare
+	setflag 2577
+	goto _goaway
+
+scr_seq_0150_008:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	npc_msg 10 //its  a berry tree
+	closemsg
+	goto_if_set 2578, _noberries
+	call _harvest
+	anim_apricorn_tree VAR_SPECIAL_RESULT
+	GetRandom 0x800C, 50
+	setvar VAR_SPECIAL_x8004, ITEM_SITRUS_BERRY
 	setvar VAR_SPECIAL_x8005, 100
 	IncrementVar VAR_SPECIAL_x8005, 0x800C 
 	CommonScript 2008

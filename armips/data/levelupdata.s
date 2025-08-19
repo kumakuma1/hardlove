@@ -8673,52 +8673,43 @@ levelup SPECIES_SKUNTANK
 
 
 levelup SPECIES_BRONZOR
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_CONFUSE_RAY, 7
-    learnset MOVE_IMPRISON, 10
-    learnset MOVE_HYPNOSIS, 13
-    learnset MOVE_PSYWAVE, 15
-    learnset MOVE_FEINT_ATTACK, 21
-    learnset MOVE_PAYBACK, 23
-    learnset MOVE_GYRO_BALL, 24
-    learnset MOVE_SAFEGUARD, 24
-    learnset MOVE_IRON_DEFENSE, 28
-    learnset MOVE_EXTRASENSORY, 33
-    learnset MOVE_METAL_SOUND, 35
-    learnset MOVE_FUTURE_SIGHT, 37
-    learnset MOVE_HEAVY_SLAM, 39
-    learnset MOVE_HEAL_BLOCK, 45
+    learnset MOVE_CONFUSION, 1 
+    learnset MOVE_CONFUSE_RAY, 4 
+    learnset MOVE_ROCK_TOMB, 13
+    learnset MOVE_PSYBEAM, 16
+    learnset MOVE_ANCIENT_POWER, 19
+    learnset MOVE_IMPRISON, 22
+    learnset MOVE_HYPNOSIS, 25
+    learnset MOVE_SAFEGUARD, 28
+    learnset MOVE_EXTRASENSORY, 31
+    learnset MOVE_IRON_HEAD, 34
+    learnset MOVE_FLASH_CANNON, 37
+    learnset MOVE_PSYCHIC, 40
+    learnset MOVE_FUTURE_SIGHT, 43
+    learnset MOVE_METAL_SOUND, 46
+    learnset MOVE_GYRO_BALL, 49
     terminatelearnset
 
 
 levelup SPECIES_BRONZONG
-    learnset MOVE_BLOCK, 0
-    learnset MOVE_BLOCK, 1
-    learnset MOVE_SUNNY_DAY, 1
     learnset MOVE_WEATHER_BALL, 1
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_CONFUSION, 1
-    learnset MOVE_CONFUSE_RAY, 1
-    learnset MOVE_PAYBACK, 1
-    learnset MOVE_RAIN_DANCE, 1
-    learnset MOVE_HYPNOSIS, 1
-    learnset MOVE_IMPRISON, 1
-    learnset MOVE_IMPRISON, 10
-    learnset MOVE_CONFUSE_RAY, 11
-    learnset MOVE_HYPNOSIS, 13
-    learnset MOVE_PSYWAVE, 15
-    learnset MOVE_FEINT_ATTACK, 21
-    learnset MOVE_SAFEGUARD, 24
-    learnset MOVE_GYRO_BALL, 25
-    learnset MOVE_IRON_DEFENSE, 29
-    learnset MOVE_EXTRASENSORY, 34
-    learnset MOVE_METAL_SOUND, 37
-    learnset MOVE_FUTURE_SIGHT, 40
-    learnset MOVE_HEAVY_SLAM, 44
-    learnset MOVE_PAYBACK, 46
-    learnset MOVE_HEAL_BLOCK, 52
-    learnset MOVE_RAIN_DANCE, 56
+    learnset MOVE_GIGA_IMPACT, 1
+    learnset MOVE_CONFUSION, 1 
+    learnset MOVE_CONFUSE_RAY, 4 
+    learnset MOVE_ROCK_TOMB, 13
+    learnset MOVE_PSYBEAM, 16
+    learnset MOVE_ANCIENT_POWER, 19
+    learnset MOVE_IMPRISON, 22
+    learnset MOVE_HYPNOSIS, 25
+    learnset MOVE_SAFEGUARD, 28
+    learnset MOVE_EXTRASENSORY, 31
+    learnset MOVE_IRON_HEAD, 34
+    learnset MOVE_BODY_PRESS, 34 
+    learnset MOVE_FLASH_CANNON, 40
+    learnset MOVE_PSYCHIC, 45
+    learnset MOVE_FUTURE_SIGHT, 50
+    learnset MOVE_METAL_SOUND, 55
+    learnset MOVE_GYRO_BALL, 60
     terminatelearnset
 
 

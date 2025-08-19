@@ -1058,49 +1058,49 @@ rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
 superrodrate 0
-walklevels 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
+walklevels 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15
 
 // morning encounter slots
-pokemon SPECIES_DROWZEE			//20%
-pokemon SPECIES_MUNNA   		//20%
-pokemon SPECIES_ABRA			//10%
-pokemon SPECIES_SPOINK  		//10%
-pokemon SPECIES_EXEGGCUTE  		//10%
-pokemon SPECIES_BRONZOR			//10%
-pokemon SPECIES_SOLOSIS			//5%
-pokemon SPECIES_BALTOY			//5%
-pokemon SPECIES_SLOWPOKE		//4%
-pokemon SPECIES_SLOWPOKE		//4%
-pokemon SPECIES_RALTS			//1%
-pokemon SPECIES_RALTS			//1%
+pokemon SPECIES_DROWZEE			//10%
+pokemon SPECIES_DROWZEE   		//10%
+pokemon SPECIES_SLOWPOKE		//10%
+pokemon SPECIES_MUNNA     		//10%
+pokemon SPECIES_ABRA  		    //10%
+pokemon SPECIES_MEDITITE		//10%
+pokemon SPECIES_SOLOSIS			//10%
+pokemon SPECIES_BALTOY			//10%
+pokemon SPECIES_SLOWPOKE		//5%
+pokemon SPECIES_MUNNA		    //5%
+pokemon SPECIES_BRONZOR			//5%
+pokemon SPECIES_RALTS			//5%
 
 // day encounter slots
-pokemon SPECIES_DROWZEE			//20%
-pokemon SPECIES_MUNNA   		//20%
-pokemon SPECIES_ABRA			//10%
-pokemon SPECIES_SPOINK		    //10%
-pokemon SPECIES_EXEGGCUTE  		//10%
-pokemon SPECIES_BRONZOR			//10%
-pokemon SPECIES_SOLOSIS			//5%
-pokemon SPECIES_BALTOY			//5%
-pokemon SPECIES_SLOWPOKE		//4%
-pokemon SPECIES_SLOWPOKE		//4%
-pokemon SPECIES_RALTS			//1%
-pokemon SPECIES_RALTS			//1%
+pokemon SPECIES_DROWZEE			//10%
+pokemon SPECIES_DROWZEE   		//10%
+pokemon SPECIES_SLOWPOKE		//10%
+pokemon SPECIES_MUNNA     		//10%
+pokemon SPECIES_ABRA  		    //10%
+pokemon SPECIES_MEDITITE		//10%
+pokemon SPECIES_SOLOSIS			//10%
+pokemon SPECIES_BALTOY			//10%
+pokemon SPECIES_SLOWPOKE		//5%
+pokemon SPECIES_MUNNA		    //5%
+pokemon SPECIES_BRONZOR			//5%
+pokemon SPECIES_RALTS			//5%
 
 // night encounter slots
-pokemon SPECIES_DROWZEE			//20%
-pokemon SPECIES_GOTHITA   		//20%
-pokemon SPECIES_ABRA			//10%
-pokemon SPECIES_SPOINK		    //10%
-pokemon SPECIES_EXEGGCUTE  		//10%
-pokemon SPECIES_BRONZOR			//10%
-pokemon SPECIES_SOLOSIS			//5%
-pokemon SPECIES_BALTOY			//5%
-pokemon SPECIES_SLOWPOKE		//4%
-pokemon SPECIES_SLOWPOKE		//4%
-pokemon SPECIES_RALTS			//1%
-pokemon SPECIES_RALTS			//1%
+pokemon SPECIES_DROWZEE			//10%
+pokemon SPECIES_DROWZEE   		//10%
+pokemon SPECIES_SLOWPOKE		//10%
+pokemon SPECIES_MUNNA     		//10%
+pokemon SPECIES_ABRA  		    //10%
+pokemon SPECIES_MEDITITE		//10%
+pokemon SPECIES_SOLOSIS			//10%
+pokemon SPECIES_BALTOY			//10%
+pokemon SPECIES_SLOWPOKE		//5%
+pokemon SPECIES_MUNNA		    //5%
+pokemon SPECIES_BRONZOR			//5%
+pokemon SPECIES_RALTS			//5%
 
 // hoenn encounter slots
 pokemon SPECIES_UNOWN
@@ -1143,7 +1143,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_UNOWN
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod

@@ -302,14 +302,32 @@ trainerdata 5, "Victoria"
     party 5
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-3
-        pokemon SPECIES_AMBIPOM
-        item ITEM_STICKY_BARB
-        move MOVE_FAKE_OUT
-        move MOVE_KNOCK_OFF
-        move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_TECHNICIAN
+        level LEVEL_WHITNEY-5
+        pokemon SPECIES_DODRIO
+        item ITEM_STARF_BERRY
+        move MOVE_ACROBATICS
+        move MOVE_DRILL_RUN
+        move MOVE_JUMP_KICK
+        move MOVE_LUNGE
+        ability ABILITY_EARLY_BIRD
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-5
+        pokemon SPECIES_DUBWOOL
+        item ITEM_SITRUS_BERRY
+        move MOVE_BODY_SLAM
+        move MOVE_ZEN_HEADBUTT
+        move MOVE_COTTON_GUARD
+        move MOVE_BATON_PASS
+        ability ABILITY_FLUFFY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -321,35 +339,17 @@ trainerdata 5, "Victoria"
         ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-3
-        pokemon SPECIES_SNORLAX
-        item ITEM_LEFTOVERS
+        pokemon SPECIES_VIGOROTH
+        item ITEM_EVIOLITE
         move MOVE_BODY_SLAM
-        move MOVE_CRUNCH
-        move MOVE_REST
-        move MOVE_CURSE
-        ability ABILITY_THICK_FAT
+        move MOVE_KNOCK_OFF
+        move MOVE_BULK_UP
+        move MOVE_ICE_PUNCH
+        ability ABILITY_VITAL_SPIRIT
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_WHITNEY-3
-        pokemon SPECIES_NIDOQUEEN
-        item ITEM_LIFE_ORB
-        move MOVE_EARTH_POWER
-        move MOVE_SLUDGE_BOMB
-        move MOVE_CHARM
-        move MOVE_STEALTH_ROCK
-        ability ABILITY_SHEER_FORCE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1361,26 +1361,44 @@ trainerdata 21, "Bugsy"
 trainerdata 22, "Carrie"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_LASS
-    nummons 3
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_STATUS_MOVES | TRAINER_AI_FLAGS
-    battletype DOUBLE_BATTLE
+    battletype SINGLE_BATTLE
     endentry
 
     party 22
         ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-3
-        pokemon SPECIES_CLEFAIRY
-        item ITEM_EVIOLITE
-        move MOVE_DRAINING_KISS
-        move MOVE_THUNDER_WAVE
-        move MOVE_CALM_MIND
+        pokemon SPECIES_STOUTLAND
+        item ITEM_LUM_BERRY
+        move MOVE_BODY_SLAM
+        move MOVE_PSYCHIC_FANGS
+        move MOVE_YAWN
         move MOVE_NONE
-        ability ABILITY_FRIEND_GUARD
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-3
+        pokemon SPECIES_SLURPUFF
+        item ITEM_SITRUS_BERRY
+        move MOVE_DRAINING_KISS
+        move MOVE_FLAMETHROWER
+        move MOVE_YAWN
+        move MOVE_STICKY_WEB
+        ability ABILITY_UNBURDEN
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1391,18 +1409,18 @@ trainerdata 22, "Carrie"
 
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-3
-        pokemon SPECIES_JIGGLYPUFF
+        level LEVEL_WHITNEY-2
+        pokemon SPECIES_LICKITUNG
         item ITEM_EVIOLITE
-        move MOVE_DRAINING_KISS
-        move MOVE_BLIZZARD
-        move MOVE_CHARGE_BEAM
-        move MOVE_SING
-        ability ABILITY_FRIEND_GUARD
+        move MOVE_EXPLOSION
+        move MOVE_KNOCK_OFF
+        move MOVE_BODY_SLAM
+        move MOVE_NONE
+        ability ABILITY_OWN_TEMPO
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1410,13 +1428,13 @@ trainerdata 22, "Carrie"
         ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-4
-        pokemon SPECIES_DIGGERSBY
-        item ITEM_LUM_BERRY
-        move MOVE_RETALIATE
-        move MOVE_STOMPING_TANTRUM
-        move MOVE_KNOCK_OFF
-        move MOVE_QUICK_ATTACK
-        ability ABILITY_HUGE_POWER
+        pokemon SPECIES_SNORLAX
+        item ITEM_SALAC_BERRY
+        move MOVE_BODY_SLAM
+        move MOVE_CRUNCH
+        move MOVE_BRICK_BREAK
+        move MOVE_BELLY_DRUM
+        ability ABILITY_GLUTTONY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -4327,26 +4345,26 @@ trainerdata 69, "Josh"
 trainerdata 70, "Samantha"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_BEAUTY
-    nummons 5
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_PRIORITIZE_STATUS_MOVES | TRAINER_AI_FLAGS
-    battletype SINGLE_BATTLE
+    battletype NO_PARTNER_DOUBLE_BATTLE
     endentry
 
     party 70
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-3
-        pokemon SPECIES_FURRET
-        item ITEM_CHOICE_BAND
-        move MOVE_U_TURN
-        move MOVE_EXTREME_SPEED
-        move MOVE_KNOCK_OFF
-        move MOVE_NONE
-        ability ABILITY_KEEN_EYE
+        level LEVEL_WHITNEY-5
+        pokemon SPECIES_DIGGERSBY
+        item ITEM_FOCUS_SASH
+        move MOVE_BODY_SLAM
+        move MOVE_QUICK_ATTACK
+        move MOVE_FIRE_PUNCH
+        move MOVE_BRICK_BREAK
+        ability ABILITY_HUGE_POWER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -4357,14 +4375,14 @@ trainerdata 70, "Samantha"
 
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-3
-        pokemon SPECIES_GRANBULL
-        item ITEM_CHOICE_SCARF
-        move MOVE_CLOSE_COMBAT
-        move MOVE_PLAY_ROUGH
-        move MOVE_JAW_LOCK
-        move MOVE_EARTHQUAKE
-        ability ABILITY_INTIMIDATE
+        level LEVEL_WHITNEY-4
+        pokemon SPECIES_RILLABOOM
+        item ITEM_LUM_BERRY
+        move MOVE_GRASSY_GLIDE
+        move MOVE_LEECH_SEED
+        move MOVE_DRAIN_PUNCH
+        move MOVE_FAKE_OUT
+        ability ABILITY_GRASSY_SURGE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -4375,14 +4393,14 @@ trainerdata 70, "Samantha"
 
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-3
-        pokemon SPECIES_STOUTLAND
-        item ITEM_SILK_SCARF
+        level LEVEL_WHITNEY-5
+        pokemon SPECIES_SAWSBUCK
+        item ITEM_LIFE_ORB
+        move MOVE_GRASSY_GLIDE
         move MOVE_RETALIATE
-        move MOVE_LAST_RESORT
-        move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_SCRAPPY
+        move MOVE_ZEN_HEADBUTT
+        move MOVE_WORK_UP
+        ability ABILITY_SERENE_GRACE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -4394,35 +4412,17 @@ trainerdata 70, "Samantha"
         ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-4
-        pokemon SPECIES_SWELLOW
-        item ITEM_FLAME_ORB
-        move MOVE_FACADE
-        move MOVE_ROOST
-        move MOVE_BRAVE_BIRD
-        move MOVE_PROTECT
-        ability ABILITY_GUTS
+        pokemon SPECIES_DACHSBUN
+        item ITEM_LUM_BERRY
+        move MOVE_PLAY_ROUGH
+        move MOVE_PSYCHIC_FANGS
+        move MOVE_YAWN
+        move MOVE_NONE
+        ability ABILITY_WELL_BAKED_BODY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_WHITNEY-4
-        pokemon SPECIES_MR_MIME
-        item ITEM_SITRUS_BERRY
-        move MOVE_PSYCHIC
-        move MOVE_DAZZLING_GLEAM
-        move MOVE_BARRIER
-        move MOVE_FOUL_PLAY
-        ability ABILITY_FILTER
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -4447,7 +4447,7 @@ trainerdata 71, "Cathy"
         pokemon SPECIES_SMEARGLE
         item ITEM_FOCUS_SASH
         move MOVE_BOOMBURST
-        move MOVE_PROTECT
+        move MOVE_SPORE
         move MOVE_GLACIAL_LANCE
         move MOVE_DARK_VOID
         ability ABILITY_MOODY
@@ -4459,16 +4459,16 @@ trainerdata 71, "Cathy"
         additionalflags 0
         ballseal 0
 		
-	ivs 0
+	    ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-4
-        pokemon SPECIES_WATCHOG
-        item ITEM_WIDE_LENS
-        move MOVE_LOW_KICK
-        move MOVE_SEED_BOMB
+        level LEVEL_WHITNEY-3
+        pokemon SPECIES_STANTLER
+        item ITEM_SITRUS_BERRY
+        move MOVE_BODY_SLAM
         move MOVE_HYPNOSIS
+        move MOVE_PSYSHIELD_BASH
         move MOVE_CONFUSE_RAY
-        ability ABILITY_ANALYTIC
+        ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -4480,17 +4480,17 @@ trainerdata 71, "Cathy"
         ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-2
-        pokemon SPECIES_SWADLOON
-        item ITEM_OCCA_BERRY
-        move MOVE_STICKY_WEB
-        move MOVE_DOUBLE_TEAM
-        move MOVE_IRON_DEFENSE
-        move MOVE_BATON_PASS
-        ability ABILITY_OVERCOAT
+        pokemon SPECIES_PURUGLY
+        item ITEM_STICKY_BARB
+        move MOVE_BODY_SLAM
+        move MOVE_KNOCK_OFF
+        move MOVE_FAKE_OUT
+        move MOVE_HYPNOSIS
+        ability ABILITY_DEFIANT
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -4498,17 +4498,17 @@ trainerdata 71, "Cathy"
         ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-3
-        pokemon SPECIES_SLURPUFF
-        item ITEM_SITRUS_BERRY
-        move MOVE_BELLY_DRUM
-        move MOVE_DRAIN_PUNCH
-        move MOVE_PLAY_ROUGH
+        pokemon SPECIES_MUSHARNA
+        item ITEM_PSYCHIC_GEM
+        move MOVE_DREAM_EATER
+        move MOVE_DAZZLING_GLEAM
+        move MOVE_YAWN
         move MOVE_NONE
-        ability ABILITY_UNBURDEN
+        ability ABILITY_SYNCHRONIZE
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef // TODO: calc HP to uneven
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_MODEST
         shinylock 0
         additionalflags 0
         ballseal 0
