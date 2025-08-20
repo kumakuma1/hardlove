@@ -88,7 +88,7 @@ mondata SPECIES_IVYSAUR, "Ivysaur"
     mondexheight SPECIES_IVYSAUR, "3’03”"
     mondexweight SPECIES_IVYSAUR, "28.7 lbs."
 
-//BST 535?
+
 mondata SPECIES_VENUSAUR, "Venusaur"
     basestats 80, 82, 83, 80, 100, 100
     types TYPE_GRASS, TYPE_POISON
@@ -10934,7 +10934,7 @@ mondata SPECIES_BRONZOR, "Bronzor"
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
-    abilities ABILITY_LEVITATE, ABILITY_HEATPROOF
+    abilities ABILITY_LEVITATE, ABILITY_HEAVY_METAL
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     mondexentry SPECIES_BRONZOR, "Ancient people believed that the\npattern on BRONZOR’s back\ncontained a mysterious power."
@@ -10959,7 +10959,7 @@ mondata SPECIES_BRONZONG, "Bronzong"
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
-    abilities ABILITY_LEVITATE, ABILITY_HEATPROOF
+    abilities ABILITY_LEVITATE, ABILITY_HEAVY_METAL
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     mondexentry SPECIES_BRONZONG, "Ancient people believed that\npetitioning BRONZONG for rain\nwas the way to make crops grow."
