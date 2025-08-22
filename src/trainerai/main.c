@@ -927,6 +927,7 @@ int LONG_CALL SetupScoring(struct BattleSystem* bsys, u32 attacker, int i, struc
                 isSetupMove = FALSE;
                 break;
             }
+            FALLTHROUGH;
         case MOVE_EFFECT_SPEED_UP_2:
         case MOVE_EFFECT_AUTOTOMIZE:
             if (ai->defenderMovesFirst)

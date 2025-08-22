@@ -19956,7 +19956,7 @@ trainerdata 493, "Edith"
 trainerdata 494, "Georgina"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_MEDIUM
-    nummons 4
+    nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -19968,7 +19968,7 @@ trainerdata 494, "Georgina"
     party 494
 		ivs 0
         abilityslot 0
-        level LEVEL_MORTY-3
+        level LEVEL_MORTY-4
         pokemon SPECIES_DRAPION
         item ITEM_AIR_BALLOON
         move MOVE_KNOCK_OFF
@@ -19986,7 +19986,7 @@ trainerdata 494, "Georgina"
 		
 		ivs 0
         abilityslot 0
-        level LEVEL_MORTY-3
+        level LEVEL_MORTY-4
         pokemon SPECIES_MISMAGIUS
         item ITEM_LIFE_ORB
         move MOVE_HEX
@@ -20004,7 +20004,7 @@ trainerdata 494, "Georgina"
 
         ivs 0
         abilityslot 0
-        level LEVEL_MORTY-2
+        level LEVEL_MORTY-3
         pokemon SPECIES_STANTLER
         item ITEM_EVIOLITE
         move MOVE_BODY_SLAM
@@ -20030,6 +20030,24 @@ trainerdata 494, "Georgina"
         move MOVE_HYPNOSIS
         move MOVE_ENERGY_BALL
         ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-3
+        monWithForm SPECIES_TYPHLOSION, 1
+        item ITEM_POWER_HERB
+        move MOVE_INFERNAL_PARADE
+        move MOVE_LAVA_PLUME
+        move MOVE_SOLAR_BEAM
+        move MOVE_CALM_MIND
+        ability ABILITY_BLAZE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
