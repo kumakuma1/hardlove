@@ -921,7 +921,12 @@ int LONG_CALL SetupScoring(struct BattleSystem* bsys, u32 attacker, int i, struc
                 moveScore += 2;
             break;
         case MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING: //rapid_spin
-        case MOVE_EFFECT_RAISE_SPEED_HIT:
+        case MOVE_EFFECT_RAISE_SPEED_HIT: //trailblaze
+            if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance < 100 || ai->attackerRolledMaxDamage == ai->attackerRolledMoveDamages[i]) // if other move (like ...), or highest damage
+            {
+                isSetupMove = FALSE;
+                break;
+            }
         case MOVE_EFFECT_SPEED_UP_2:
         case MOVE_EFFECT_AUTOTOMIZE:
             if (ai->defenderMovesFirst)
@@ -1028,7 +1033,10 @@ int LONG_CALL SetupScoring(struct BattleSystem* bsys, u32 attacker, int i, struc
             break;
         case MOVE_EFFECT_CURSE:
             if (HasType(ctx, attacker, TYPE_GHOST))
+            {
+                isSetupMove = FALSE;
                 break;
+            }
             FALLTHROUGH;
 		case MOVE_EFFECT_ATK_DEF_UP: // Bulk Up
         case MOVE_EFFECT_ATK_DEF_ACC_UP: //coil
@@ -1415,8 +1423,12 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
+    case MOVE_EFFECT_CURSE:
+        if (!HasType(ctx, attacker, TYPE_GHOST))
+            break;
+        FALLTHROUGH;
     case MOVE_EFFECT_KO_MON_THAT_DEFEATED_USER:
-        if (ai->monCanOneShotPlayerWithAnyMove && ai->attackerMovesFirst)
+        if (ai->playerCanOneShotMonWithAnyMove && ai->attackerMovesFirst)
         {
             moveScore += 6;
             if (BattleRand(bsys) % 5 == 0)
@@ -1560,9 +1572,9 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
     return moveScore;
 }
 
-
-BOOL LONG_CALL shouldRecover(struct BattleSystem* bsys, u32 attacker, u32 attackerMoveEffect, struct AIContext* ai)
+u32 LONG_CALL GetRecoverAmountPercent(struct BattleSystem* bsys, u32 attackerMove, u32 attackerMoveEffect)
 {
+    struct BattleStruct* ctx = bsys->sp;
     u32 recoverAmountPercent = 50;
     switch (attackerMoveEffect)
     {
@@ -1570,11 +1582,22 @@ BOOL LONG_CALL shouldRecover(struct BattleSystem* bsys, u32 attacker, u32 attack
         recoverAmountPercent = 100;
         break;
     case MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN:
-        recoverAmountPercent = 67;
+        if ((attackerMove == MOVE_SHORE_UP && (ctx->field_condition & WEATHER_SANDSTORM_ANY))
+            || (attackerMove != MOVE_SHORE_UP && (ctx->field_condition & WEATHER_SUNNY_ANY)))
+            recoverAmountPercent = 67;
+        else if (ctx->field_condition & WEATHER_RAIN_ANY)
+            recoverAmountPercent = 25;
         break;
     default:
         break;
     }
+    return recoverAmountPercent;
+}
+
+BOOL LONG_CALL shouldRecover(struct BattleSystem* bsys, u32 attacker UNUSED, u32 attackerMoveEffect, struct AIContext* ai)
+{
+    u32 recoverAmountPercent = GetRecoverAmountPercent(bsys, ai->attackerMove, attackerMoveEffect);
+
     u32 recoverAmountHP = recoverAmountPercent * ai->attackerMon.maxhp / 100;
     if ((recoverAmountHP + ai->attackerMon.hp) > ai->attackerMon.maxhp)
         recoverAmountHP = ai->attackerMon.maxhp - ai->attackerMon.hp; // prevent overheal
@@ -1631,7 +1654,7 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
 				moveScore += 5;
             break;
         case MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN:
-            if (aiShouldRecover && ctx->field_condition & WEATHER_SUNNY_ANY)
+            if (GetRecoverAmountPercent(bsys, ai->attackerMove, MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN) > 50)
                 moveScore += 7;
 			else if (shouldRecover(bsys, attacker, MOVE_EFFECT_RESTORE_HALF_HP, ai))
                 moveScore += 7;
@@ -1641,10 +1664,10 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
         case MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP:
             if (aiShouldRecover)
             {
-                if (ai->attackerMon.item == ITEM_CHESTO_BERRY || ai->attackerMon.item == ITEM_LUM_BERRY ||
-					ai->attackerMon.ability == ABILITY_EARLY_BIRD || ai->attackerMon.ability == ABILITY_SHED_SKIN ||
-                    BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) || BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai) ||
-                    (ai->attackerMon.ability == ABILITY_HYDRATION && (ctx->field_condition & WEATHER_RAIN_ANY)))
+                if (ai->attackerMon.item == ITEM_CHESTO_BERRY || ai->attackerMon.item == ITEM_LUM_BERRY
+                    || ai->attackerMon.ability == ABILITY_EARLY_BIRD || ai->attackerMon.ability == ABILITY_SHED_SKIN
+                    || BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) || BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai)
+                    || (ai->attackerMon.ability == ABILITY_HYDRATION && (ctx->field_condition & WEATHER_RAIN_ANY)))
                 {
                     moveScore += 8;
                 }

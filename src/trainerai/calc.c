@@ -1909,6 +1909,13 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP
         return damage *= 2;
     case MOVE_EFFECT_HALVE_HP: //super fang, nature's madness
         return defenderHP / 2;
+    case MOVE_EFFECT_AVERAGE_HP: //pain split
+    {
+        if (attackerHP < defenderHP)
+            return defenderHP - ((attackerHP+defenderHP)/2);
+        else
+            return 0;
+    }
     case MOVE_EFFECT_SET_HP_EQUAL_TO_USER: //endeavor
     {
         if (attackerHP < defenderHP)
