@@ -2824,7 +2824,7 @@ trainerdata 43, "Chow" // Violet Gym
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-3
-        pokemon SPECIES_PIKIPEK
+        pokemon SPECIES_ARCHEN
         item ITEM_ORAN_BERRY
         move MOVE_ACROBATICS
         move MOVE_ROCK_SLIDE
