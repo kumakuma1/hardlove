@@ -880,7 +880,7 @@ movedata MOVE_MIST, "Mist"
     basepower 0
     type TYPE_ICE
     accuracy 0
-    pp 5
+    pp 30
     effectchance 0
     target RANGE_USER_SIDE
     priority 0
@@ -1824,7 +1824,7 @@ movedata MOVE_LIGHT_SCREEN, "Light Screen"
     basepower 0
     type TYPE_PSYCHIC
     accuracy 0
-    pp 5
+    pp 10
     effectchance 0
     target RANGE_USER_SIDE
     priority 0
@@ -1840,7 +1840,7 @@ movedata MOVE_HAZE, "Haze"
     basepower 0
     type TYPE_ICE
     accuracy 0
-    pp 5
+    pp 30
     effectchance 0
     target RANGE_FIELD
     priority 0
@@ -1856,7 +1856,7 @@ movedata MOVE_REFLECT, "Reflect"
     basepower 0
     type TYPE_PSYCHIC
     accuracy 0
-    pp 5
+    pp 10
     effectchance 0
     target RANGE_USER_SIDE
     priority 0
@@ -5136,7 +5136,7 @@ movedata MOVE_GRASS_WHISTLE, "Grass Whistle"
     basepower 0
     type TYPE_GRASS
     accuracy 70
-    pp 10
+    pp 15
     effectchance 0
     target RANGE_SINGLE_TARGET
     priority 0

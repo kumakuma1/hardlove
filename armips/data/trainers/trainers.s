@@ -1175,12 +1175,12 @@ trainerdata 20, "Falkner" // Leader
     party 20
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-3
+        level LEVEL_FALKNER-2
         monWithForm SPECIES_FARFETCHD, 1
         item ITEM_LEEK
         move MOVE_ROCK_SMASH
         move MOVE_PLUCK
-        move MOVE_SAND_ATTACK
+        move MOVE_FLAIL
         move MOVE_QUICK_ATTACK
         ability ABILITY_SCRAPPY
         ball ITEM_POKE_BALL
@@ -1199,7 +1199,7 @@ trainerdata 20, "Falkner" // Leader
         move MOVE_SHOCK_WAVE
         move MOVE_AIR_CUTTER
         move MOVE_ROOST
-        move MOVE_NONE
+        move MOVE_THUNDER_WAVE
         ability ABILITY_MOTOR_DRIVE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1211,31 +1211,31 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-2
+        level LEVEL_FALKNER-1
         pokemon SPECIES_TORCHIC
         item ITEM_FOCUS_SASH
         move MOVE_INCINERATE
         move MOVE_BOUNCE
-        move MOVE_PROTECT
+        move MOVE_WORK_UP
         move MOVE_BATON_PASS
         ability ABILITY_SPEED_BOOST
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-2
+        level LEVEL_FALKNER-1
         pokemon SPECIES_QUAXLY
         item ITEM_WATER_GEM
         move MOVE_AQUA_JET
         move MOVE_ROOST
         move MOVE_WING_ATTACK
-        move MOVE_NONE
+        move MOVE_RAPID_SPIN
         ability ABILITY_MOXIE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1252,7 +1252,7 @@ trainerdata 20, "Falkner" // Leader
         item ITEM_EVIOLITE
         move MOVE_STORED_POWER
         move MOVE_COSMIC_POWER
-        move MOVE_RECOVER
+        move MOVE_MOONLIGHT
         move MOVE_CHARGE_BEAM
         ability ABILITY_UNAWARE
         ball ITEM_POKE_BALL
