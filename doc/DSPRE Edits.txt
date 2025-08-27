@@ -360,18 +360,12 @@ replace texts
 GivePokemon 133 5 0 0 0 0x800C -> 137 15
 
 
-Eusin gives Item, Choice Specs/Band, Life Orb, ITEM_MANECTITE
+Eusin gives Life Orb, ITEM_MANECTITE
 075 - T24 - Event File 72 - Script File 875
 16... \nagain. Take this on your journey!\fSee you around!\r
 Script 3:
 Message 16
-GetRandom 0x800C 3
-CompareVarValue 0x800C 0
-CallIf EQUAL Function#18
-CompareVarValue 0x800C 1
-CallIf EQUAL Function#19
-CompareVarValue 0x800C 2
-CallIf EQUAL Function#20
+Call Function#20
 ..
      SetVar 0x8004 566
     SetVar 0x8005 1
@@ -381,119 +375,13 @@ CallIf EQUAL Function#20
     CommonScript 2008
 
 Function 18:
-    SetVar 0x8004 220 // Choice band
+    SetVar 0x8004 270 //life orb
     SetVar 0x8005 1
     CheckItemSpace 0x8004 0x8005 0x800C
-    SetVar 0x8004 220
+    SetVar 0x8004 270 //life orb
     SetVar 0x8005 1
     CommonScript 2008
 Return
-
-Function 19:
-    SetVar 0x8004 297 // Choice specs
- ....
-Return
-
-Function 20:
-    SetVar 0x8004 270 //life orb
-...
-Return
-
-
-
-Random Fossil in Cianwood
-234 - T24R0601 - Event File 220 - Script File 882
-Add Spawnable
-
-Script 2:
-	PlayFanfare 1500
-	LockAll 
-	FacePlayer 
-	Message 1
-    OpenTouchScreen 
-	YesNoTouchScreen 0x800C
-	CloseTouchScreen 
-	CompareVarValue 0x800C 1
-	JumpIf EQUAL Function#1
-    GetPartyCount 0x8005
-	CompareVarValue 0x8005 6
-	JumpIf EQUAL Function#2
-    GetRandom 0x800C 9
-    CompareVarValue 0x800C 0
-    CallIf EQUAL Function#3
-    CompareVarValue 0x800C 1
-    CallIf EQUAL Function#4
-    CompareVarValue 0x800C 2
-    CallIf EQUAL Function#5
-    CompareVarValue 0x800C 3
-    CallIf EQUAL Function#6
-    CompareVarValue 0x800C 4
-    CallIf EQUAL Function#7
-    CompareVarValue 0x800C 5
-    CallIf EQUAL Function#8
-    CompareVarValue 0x800C 6
-    CallIf EQUAL Function#9
-    CompareVarValue 0x800C 7
-    CallIf EQUAL Function#10
-    CompareVarValue 0x800C 8
-    CallIf EQUAL Function#11
-    PlayFanfare 2323
-    Message 4
-	WaitButton 
-	CloseMessage 
-	ReleaseAll 
-End 
-
-Function 1:
-	Message 2
-	WaitButton 
-	CloseMessage 
-	ReleaseAll 
-End 
-
-Function 2:
-	Message 3
-	WaitButton 
-	CloseMessage
-    ReleaseAll 
-End
-
-Function 3:
-    GivePokemon 138 20 0 0 0 0x800C
-Return 
-
-Function 4:
-    GivePokemon 140 20 0 0 0 0x800C
-Return 
-
-Function 5:
-    GivePokemon 142 20 0 0 0 0x800C
-Return 
-
-Function 6:
-	SetFlag 2600
-    GivePokemon 345 20 0 0 0 0x800C
-Return 
-
-Function 7:
-    GivePokemon 347 20 0 0 0 0x800C
-Return 
-
-Function 8:
-    GivePokemon 408 20 0 0 0 0x800C
-Return 
-
-Function 9:
-    GivePokemon 410 20 0 0 0 0x800C
-Return 
-
-Function 10:
-    GivePokemon 614 20 0 0 0 0x800C
-Return 
-
-Function 11:
-    GivePokemon 616 20 0 0 0 0x800C
-Return 
 
 
 
@@ -2076,3 +1964,127 @@ Function 8:
 	SetVar 0x8004 378 -> 370
 
 Text adapted
+
+
+
+
+
+### Random Fossil in Cianwood
+385-T24R0801
+Hi there!\rI sometimes find Fossils at the beach\nand make them come back to life\fas real Pokémon.\rWould like such a Pokémon? \v0200\x0001\x0000
+Oh I understand.\r
+Sadly you don’t have space.\r
+How delightful! Here is your new friend.\r
+Soon I will go out searching for more Fossils!\r
+
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer
+    CheckFlag 2591
+    JumpIf EQUAL Function#14
+    Message 0
+    OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#1
+    GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#2
+    SetFlag 2600
+    GetRandom 0x800C 11
+    CompareVarValue 0x800C 0
+    CallIf EQUAL Function#3
+    CompareVarValue 0x800C 1
+    CallIf EQUAL Function#4
+    CompareVarValue 0x800C 2
+    CallIf EQUAL Function#5
+    CompareVarValue 0x800C 3
+    CallIf EQUAL Function#6
+    CompareVarValue 0x800C 4
+    CallIf EQUAL Function#7
+    CompareVarValue 0x800C 5
+    CallIf EQUAL Function#8
+    CompareVarValue 0x800C 6
+    CallIf EQUAL Function#9
+    CompareVarValue 0x800C 7
+    CallIf EQUAL Function#10
+    CompareVarValue 0x800C 8
+    CallIf EQUAL Function#11
+	CompareVarValue 0x800C 9
+    CallIf EQUAL Function#12
+    CompareVarValue 0x800C 10
+    CallIf EQUAL Function#13
+    SetFlag 2591
+    Message 3 
+	CloseMessage 
+	ReleaseAll 
+End
+
+
+Function 1:
+	Message 1
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 2:
+	Message 2
+	CloseMessage
+    ReleaseAll 
+End
+
+Function 3:
+    GivePokemon 138 30 0 0 0 0x800C
+Return 
+
+Function 4:
+    GivePokemon 140 30 0 0 0 0x800C
+Return 
+
+Function 5:
+    GivePokemon 142 30 0 0 0 0x800C
+Return 
+
+Function 6:
+    GivePokemon 345 30 0 0 0 0x800C
+Return 
+
+Function 7:
+    GivePokemon 347 30 0 0 0 0x800C
+Return 
+
+Function 8:
+    GivePokemon 410 30 0 0 0 0x800C
+Return 
+
+Function 9:
+    GivePokemon 408 30 0 0 0 0x800C
+Return 
+
+Function 10:
+    GivePokemon 614 30 0 0 0 0x800C
+Return 
+
+Function 11:
+    GivePokemon 616 30 0 0 0 0x800C
+Return 
+
+Function 12:
+    GivePokemon 746 30 0 0 0 0x800C
+Return 
+
+Function 13:
+    GivePokemon 748 30 0 0 0 0x800C
+Return 
+
+Function 14:
+    Message 4 
+	CloseMessage
+    ReleaseAll 
+End
+
+
+
+

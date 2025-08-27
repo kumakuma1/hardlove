@@ -2,8 +2,8 @@
 Mechanic Changes
 ----------------
 
-For any mechanic that's not described in here, assume Generation 9 mechanics.
-Exceptions are Protean/Libero.
+For any mechanic that's not described in here, assume a wild mix of Gen4 and Gen9 mechanics.
+Exceptions are Protean/Libero (Gen8).
 
 Battle style is forced to set.
 Bag is unacessible during trainer battles.
@@ -15,6 +15,7 @@ HMs do not need to be taught, obtaining them plus the required badge for use is 
 Critical hit chance: 1/16.
 Critical hit damage multiplier: 1.5.
 
+Hail has been replaced by Snow.
 Weather abilities/moves: Will set Weather permanently.
 Terrain abilities/moves: Will set Terrain permanently. Cannot be removed by Defog.
 
@@ -108,7 +109,7 @@ Psychic Mark
 School Kid Alan
 Route 36 Schorsch
 Beauty Victoria
-Beatuy Samantha
+Beauty Samantha
 Lass Carrie
 Lass Cathy
 Leader Whitney

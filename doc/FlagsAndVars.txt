@@ -36,7 +36,7 @@ Flag
 1239  - 036-R32      : Item: ITEM_SHELL_BELL -> ITEM_POISON_BARB
 1274  - 038-R34      : Item: ITEM_TM63 -> Black Belt
 
-
+2591 - 385-T24R0801 : Random Fossil
 
 Variable
 16533 (0x4095) - Call from Mom for Saving Money on R30.

@@ -1655,13 +1655,16 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
 				moveScore += 5;
             break;
         case MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN:
-            if (GetRecoverAmountPercent(bsys, ai->attackerMove, MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN) > 50)
+        {
+            u32 recoverAmount = GetRecoverAmountPercent(bsys, ai->attackerMove, MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN);
+            if (aiShouldRecover && recoverAmount > 50)
                 moveScore += 7;
-			else if (shouldRecover(bsys, attacker, MOVE_EFFECT_RESTORE_HALF_HP, ai))
+            else if (recoverAmount == 50 && shouldRecover(bsys, attacker, MOVE_EFFECT_RESTORE_HALF_HP, ai))
                 moveScore += 7;
             else
                 moveScore += 5;
             break;
+        }
         case MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP:
             if (aiShouldRecover)
             {

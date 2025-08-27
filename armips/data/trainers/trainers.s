@@ -3318,7 +3318,7 @@ trainerdata 52, "Edmond" // Sprout Tower
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_SAGE
     nummons 3
-    item ITEM_MEGA_RING
+    item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -3332,8 +3332,8 @@ trainerdata 52, "Edmond" // Sprout Tower
         level LEVEL_ELDER_LI-3
         pokemon SPECIES_ANORITH
         item ITEM_FOCUS_SASH
-        move MOVE_FALSE_SWIPE
-        move MOVE_SWAGGER
+        move MOVE_ROCK_TOMB
+        move MOVE_BUG_BITE
         move MOVE_DOUBLE_TEAM
         move MOVE_NONE
         ability ABILITY_BATTLE_ARMOR

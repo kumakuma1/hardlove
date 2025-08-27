@@ -68,6 +68,15 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
         trade_dat->gender = POKEMON_GENDER_FEMALE;
         level = 35;
     }
+    else if (tradeno == NPC_TRADE_SHUCKIE_SHUCKLE)
+    {
+        trade_dat->give_species = SPECIES_PIDGEY;
+
+        randomIV(trade_dat);
+        trade_dat->heldItem = ITEM_NONE;
+        trade_dat->gender = POKEMON_GENDER_MALE;
+        level = 5;
+    }
 #endif
         CreateMon(mon, trade_dat->give_species, level, 32, FALSE, trade_dat->pid, OT_ID_PRESET, trade_dat->otId);
 
