@@ -835,13 +835,15 @@ int LONG_CALL BattleAI_CalcBaseDamage(void* bw, struct BattleStruct* sp, int mov
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, attackerSlot, ABILITY_CLOUD_NINE) == 0)
         && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, attackerSlot, ABILITY_AIR_LOCK) == 0))
     {
-        if ((field_cond & WEATHER_SUNNY_ANY) && (attacker->ability == ABILITY_SOLAR_POWER) && (movesplit == SPLIT_SPECIAL))
-            attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
-        if ((field_cond & WEATHER_SUNNY_ANY)
-            && (attacker->ability == ABILITY_FLOWER_GIFT || (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(attackerSlot)) == ABILITY_FLOWER_GIFT))
-            && (movesplit == SPLIT_PHYSICAL))
+        if (field_cond & WEATHER_SUNNY_ANY)
         {
-            attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
+            if (attacker->ability == ABILITY_SOLAR_POWER && movesplit == SPLIT_SPECIAL)
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
+            if ((attacker->ability == ABILITY_FLOWER_GIFT || (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(attackerSlot)) == ABILITY_FLOWER_GIFT))
+                && (movesplit == SPLIT_PHYSICAL))
+            {
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
+            }
         }
     }
 
@@ -916,11 +918,11 @@ int LONG_CALL BattleAI_CalcBaseDamage(void* bw, struct BattleStruct* sp, int mov
         attackModifier = QMul_RoundUp(attackModifier, UQ412__0_5);
 
     // handle Water Bubble
-    if ((defender->ability == ABILITY_WATER_BUBBLE) && (movetype == TYPE_FIRE))
+    if (!attacker->hasMoldBreaker && (defender->ability == ABILITY_WATER_BUBBLE) && (movetype == TYPE_FIRE))
         attackModifier = QMul_RoundUp(attackModifier, UQ412__0_5);
 
     // handle Purifying Salt
-    if ((defender->ability == ABILITY_PURIFYING_SALT) && (movetype == TYPE_GHOST))
+    if (!attacker->hasMoldBreaker && (defender->ability == ABILITY_PURIFYING_SALT) && (movetype == TYPE_GHOST))
         attackModifier = QMul_RoundUp(attackModifier, UQ412__0_5);
 
     // Items
@@ -1093,9 +1095,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void* bw, struct BattleStruct* sp, int mov
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
         && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
     {
-        if ((field_cond & WEATHER_SUNNY_ANY) && movesplit == SPLIT_SPECIAL
-            && (GetBattlerAbility(sp, defenderSlot) == ABILITY_FLOWER_GIFT
-                || (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot)) == ABILITY_FLOWER_GIFT)))
+        if ((field_cond & WEATHER_SUNNY_ANY) && movesplit == SPLIT_SPECIAL)
+        if ((!attacker->hasMoldBreaker && defender->ability == ABILITY_FLOWER_GIFT)
+              || (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot)) == ABILITY_FLOWER_GIFT))
         {
             defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
         }
@@ -1559,7 +1561,7 @@ int LONG_CALL BattleAI_CalcDamage(void* bw, struct BattleStruct* sp, int moveno,
     {
         if (attacker->ability == ABILITY_NEUROFORCE)
             finalModifier = QMul_RoundUp(finalModifier, UQ412__1_25);
-        if (defender->ability == ABILITY_SOLID_ROCK || defender->ability == ABILITY_FILTER || defender->ability == ABILITY_PRISM_ARMOR)
+        if (!attacker->hasMoldBreaker && (defender->ability == ABILITY_SOLID_ROCK || defender->ability == ABILITY_FILTER || defender->ability == ABILITY_PRISM_ARMOR))
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_75);
     }
 
@@ -1567,7 +1569,7 @@ int LONG_CALL BattleAI_CalcDamage(void* bw, struct BattleStruct* sp, int moveno,
     if ((attacker->ability == ABILITY_SNIPER) && (critical > 1))
         finalModifier = QMul_RoundUp(finalModifier, UQ412__1_5);
 
-    if (defender->ability == ABILITY_FLUFFY)
+    if (!attacker->hasMoldBreaker && defender->ability == ABILITY_FLUFFY)
     {
         // 6.9.6 Fluffy (contact moves)
         if (BattleAI_IsContactBeingMade(sp, attacker->ability, attacker->item_held_effect, moveno))
@@ -1579,15 +1581,15 @@ int LONG_CALL BattleAI_CalcDamage(void* bw, struct BattleStruct* sp, int moveno,
     }
 
     // 6.9.5 Multiscale / Shadow Shield
-    if ((defender->ability == ABILITY_MULTISCALE || defender->ability == ABILITY_SHADOW_SHIELD) && (defender->hp == defender->maxhp))
+    if (!attacker->hasMoldBreaker && (defender->ability == ABILITY_MULTISCALE || defender->ability == ABILITY_SHADOW_SHIELD) && (defender->hp == defender->maxhp))
         finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 
     // 6.9.7 Friend Guard
-    if (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot)) == ABILITY_FRIEND_GUARD)
+    if (isDoubleBattle && !attacker->hasMoldBreaker && GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot)) == ABILITY_FRIEND_GUARD)
         finalModifier = QMul_RoundUp(finalModifier, UQ412__0_75);
 
     // 6.9.15 Punk Rock
-    if (defender->ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(moveno))
+    if (!attacker->hasMoldBreaker && defender->ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(moveno))
         finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 
     // 6.9.16 Ice Scales - halve damage if move is special, regardless of if it uses defense stat
