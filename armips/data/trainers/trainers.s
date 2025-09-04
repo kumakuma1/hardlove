@@ -23626,7 +23626,7 @@ trainerdata 601, "Grunt"
         move MOVE_ICICLE_CRASH
         move MOVE_EXPLOSION
         move MOVE_ROCK_SLIDE
-        ability ABILITY_LEVITATE
+        ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
