@@ -1785,7 +1785,7 @@ trainerdata 28, "Jake"
 
 trainerdata 29, "Rod" // Violet Gym
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
-    trainerclass TRAINERCLASS_BIRD_KEEPER
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 5
     item ITEM_MEGA_RING
     item ITEM_NONE
@@ -3161,7 +3161,7 @@ trainerdata 49, "Albert" // Route 32
 
 trainerdata 50, "Abe" // Violet Gym
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
-    trainerclass TRAINERCLASS_BIRD_KEEPER
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
@@ -3554,13 +3554,13 @@ trainerdata 55, "Neal" // Sprout Tower
         ivs 0
         abilityslot 0
         level LEVEL_ELDER_LI-2
-        pokemon SPECIES_PANPOUR
+        pokemon SPECIES_PANSAGE
         item ITEM_ORAN_BERRY
         move MOVE_VINE_WHIP
         move MOVE_LEECH_SEED
         move MOVE_FLASH
         move MOVE_BITE
-        ability ABILITY_OVERGROW
+        ability ABILITY_GLUTTONY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -11506,7 +11506,7 @@ trainerdata 266, "Silver" //FIRE
 		
 		ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-3
+        level LEVEL_BUGSY-2
         pokemon SPECIES_ROSELIA
         item ITEM_LUM_BERRY
         move MOVE_MEGA_DRAIN
@@ -12886,7 +12886,7 @@ trainerdata 290, "Li" // Sprout Tower Boss
         item ITEM_LUM_BERRY
         move MOVE_CONFUSION
         move MOVE_POWDER_SNOW
-        move MOVE_SWEET_KISS
+        move MOVE_LOVELY_KISS
         move MOVE_WATER_PULSE
         ability ABILITY_OBLIVIOUS
         ball ITEM_POKE_BALL
@@ -16186,7 +16186,7 @@ trainerdata 390, "Ray"
         move MOVE_MEGA_DRAIN
         move MOVE_ELECTROWEB
         move MOVE_NONE
-        ability ABILITY_RAIN_DISH
+        ability ABILITY_OVERCOAT
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
