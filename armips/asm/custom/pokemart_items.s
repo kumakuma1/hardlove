@@ -12,23 +12,7 @@ THREE_BADGES equ 3
 FIVE_BADGES equ 4
 SEVEN_BADGES equ 5
 EIGHT_BADGES equ 6
-/* #define ITEM_TM001                        328 //Added a Zero to all TMS*/
 
-ITEM_TM07 equ 334
-ITEM_TM10 equ 337
-ITEM_TM11 equ 338
-ITEM_TM15 equ 342
-ITEM_TM21 equ 348
-
-ITEM_TM22 equ 349
-ITEM_TM25 equ 352
-ITEM_TM27 equ 354
-ITEM_TM28 equ 355
-ITEM_TM34 equ 361
-ITEM_TM39 equ 366
-ITEM_TM40 equ 367
-ITEM_TM70 equ 410
-ITEM_TM88 equ 428
 
 /* General Poké Mart Table */
 .org 0x020FBF22
@@ -96,9 +80,9 @@ ITEM_TM88 equ 428
 
 .org 0x020FBAB0
 
-.halfword ITEM_TM10 //ITEM_BLOOM_MAIL
-.halfword ITEM_TM70 //ITEM_HEAL_BALL
-.halfword ITEM_TM88 //ITEM_NET_BALL
+.halfword ITEM_TM010 //ITEM_BLOOM_MAIL
+.halfword ITEM_TM070 //ITEM_HEAL_BALL
+.halfword ITEM_TM088 //ITEM_NET_BALL
 .halfword 0xFFFF
 
 /* Indigo, 7 -> Goldenrod - CommonScript 2052  13*/
@@ -121,13 +105,13 @@ ITEM_TM88 equ 428
 
 .org 0x020FBBB4
 
-.halfword ITEM_TM15 // ITEM_X_SPEED
-.halfword ITEM_TM21 // ITEM_X_ATTACK
-.halfword ITEM_TM39 // ITEM_X_DEFENSE
-.halfword ITEM_TM07 // ITEM_GUARD_SPEC_
-.halfword ITEM_TM11 // ITEM_DIRE_HIT
-.halfword ITEM_TM34 // ITEM_X_ACCURACY
-.halfword ITEM_TM40 // ITEM_X_SPECIAL
+.halfword ITEM_TM015 // ITEM_X_SPEED
+.halfword ITEM_TM021 // ITEM_X_ATTACK
+.halfword ITEM_TM039 // ITEM_X_DEFENSE
+.halfword ITEM_TM007 // ITEM_GUARD_SPEC_
+.halfword ITEM_TM011 // ITEM_DIRE_HIT
+.halfword ITEM_TM034 // ITEM_X_ACCURACY
+.halfword ITEM_TM040 // ITEM_X_SPECIAL
 .halfword 0xFFFF    // ITEM_X_SP__DEF
 .halfword 0xFFFF
 
