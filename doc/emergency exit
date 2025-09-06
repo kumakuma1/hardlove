@@ -1,0 +1,77 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    // if battle is wild, jumps to wild battle code
+    TryEmergencyExit _026
+    // if nobody to replace, jump to fail
+    TryReplaceFaintedMon BATTLER_CATEGORY_ATTACKER, TRUE, _031
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HP, 0, _031
+    PlayBattleAnimation BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_HELD_ITEM
+    Wait 
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SHADOW_FORCE
+    Call BATTLE_SUBSCRIPT_ATTACK_THEN_SWITCH_OUT
+    UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SHADOW_FORCE
+    GoTo _031
+
+_026:
+    PlaySound BATTLER_CATEGORY_MSG_TEMP, 1791
+    // {1} fled from battle!
+    PrintMessage 469, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
+    Wait 
+    WaitButtonABTime 30
+    FadeOutBattle 
+    Wait 
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_OUTCOME, BATTLE_RESULT_TRY_FLEE|BATTLE_RESULT_WIN
+    SetLinkBattleResult 
+
+_031:
+    End 
+	
+	
+	
+	BOOL btl_scr_cmd_107_tryemergencyexit(void* bw, struct BattleStruct* sp) {
+    IncrementBattleScriptPtr(sp, 1);
+    int adrs = read_battle_script_param(sp);
+
+    if (!(BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_WIRELESS | BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG | BATTLE_TYPE_NPC_MULTI | BATTLE_TYPE_BATTLE_TOWER)))
+    {
+        IncrementBattleScriptPtr(sp, adrs);
+    }
+
+    return FALSE;
+}
+	
+	
+	 case ABILITY_WIMP_OUT:
+        case ABILITY_EMERGENCY_EXIT:
+            if
+                (
+                    (sp->battlemon[sp->defence_client].hp) // defender is alive after hit
+                    && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
+                    && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
+                    && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
+                    && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
+                    // neither activate if the Pokémon gets attacked by a sheer force boosted move
+                    && !((GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) && (sp->battlemon[sp->attack_client].sheer_force_flag == 1))
+                    // neither activate until the last hit of a multi-hit move
+                    && (sp->multiHitCount <= 1)
+                    && (sp->battlemon[sp->defence_client].hp <= (s32)(sp->battlemon[sp->defence_client].maxhp / 2))
+                    && (
+                        // checks if the pokémon has gone below half HP from the current damage instance
+                        // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
+                        ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].physical_damage)) > (s32)sp->battlemon[sp->defence_client].maxhp / 2) ||
+                        ((sp->battlemon[sp->defence_client].hp - (sp->oneSelfFlag[sp->defence_client].special_damage)) > (s32)sp->battlemon[sp->defence_client].maxhp / 2)
+                        )
+                    )
+            {
+                u32 temp = sp->attack_client;                   // swap attacker and defender so subseq handles it correctly
+                sp->battlerIdTemp = sp->defence_client;
+                sp->attack_client = sp->defence_client;
+                sp->defence_client = temp;
+                sp->current_move_index = MOVE_U_TURN;
+                seq_no[0] = SUB_SEQ_HANDLE_EMERGENCY_EXIT;
+                ret = TRUE;
+            }
+        break;

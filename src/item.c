@@ -14,108 +14,107 @@
 
 static const u16 sMachineMoves[] = {
     // vanilla TMs
-    MOVE_FOCUS_PUNCH,      // TM001
-    MOVE_DRAGON_CLAW,      // TM002
-    MOVE_WATER_PULSE,      // TM003
-    MOVE_CALM_MIND,        // TM004
-    MOVE_ROAR,             // TM005
-    MOVE_TOXIC,            // TM006
-    MOVE_HAIL,             // TM007
-    MOVE_BULK_UP,          // TM008
-    MOVE_BULLET_SEED,      // TM009
-    MOVE_HIDDEN_POWER,     // TM010
-    MOVE_SUNNY_DAY,        // TM011
-    MOVE_TAUNT,            // TM012
-    MOVE_ICE_BEAM,         // TM013
-    MOVE_BLIZZARD,         // TM014
-    MOVE_HYPER_BEAM,       // TM015
-    MOVE_LIGHT_SCREEN,     // TM016
-    MOVE_PROTECT,          // TM017
-    MOVE_RAIN_DANCE,       // TM018
-    MOVE_GIGA_DRAIN,       // TM019
-    MOVE_SAFEGUARD,        // TM020
-    MOVE_FRUSTRATION,      // TM021
-    MOVE_SOLAR_BEAM,       // TM022
-    MOVE_IRON_TAIL,        // TM023
-    MOVE_THUNDERBOLT,      // TM024
-    MOVE_THUNDER,          // TM025
-    MOVE_EARTHQUAKE,       // TM026
-    MOVE_RETURN,           // TM027
-    MOVE_DIG,              // TM028
-    MOVE_PSYCHIC,          // TM029
-    MOVE_SHADOW_BALL,      // TM030
-    MOVE_BRICK_BREAK,      // TM031
-    MOVE_DOUBLE_TEAM,      // TM032
-    MOVE_REFLECT,          // TM033
-    MOVE_SHOCK_WAVE,       // TM034
-    MOVE_FLAMETHROWER,     // TM035
-    MOVE_SLUDGE_BOMB,      // TM036
-    MOVE_SANDSTORM,        // TM037
-    MOVE_FIRE_BLAST,       // TM038
-    MOVE_ROCK_TOMB,        // TM039
-    MOVE_AERIAL_ACE,       // TM040
-    MOVE_TORMENT,          // TM041
-    MOVE_FACADE,           // TM042
-    MOVE_SECRET_POWER,     // TM043
-    MOVE_REST,             // TM044
-    MOVE_ATTRACT,          // TM045
-    MOVE_THIEF,            // TM046
-    MOVE_STEEL_WING,       // TM047
-    MOVE_SKILL_SWAP,       // TM048
-    MOVE_SNATCH,           // TM049
-    MOVE_OVERHEAT,         // TM050
-    MOVE_ROOST,            // TM051
-    MOVE_FOCUS_BLAST,      // TM052
-    MOVE_ENERGY_BALL,      // TM053
-    MOVE_FALSE_SWIPE,      // TM054
-    MOVE_BRINE,            // TM055
-    MOVE_FLING,            // TM056
-    MOVE_CHARGE_BEAM,      // TM057
-    MOVE_ENDURE,           // TM058
-    MOVE_DRAGON_PULSE,     // TM059
-    MOVE_DRAIN_PUNCH,      // TM060
-    MOVE_WILL_O_WISP,      // TM061
-    MOVE_SILVER_WIND,      // TM062
-    MOVE_EMBARGO,          // TM063
-    MOVE_EXPLOSION,        // TM064
-    MOVE_SHADOW_CLAW,      // TM065
-    MOVE_PAYBACK,          // TM066
-    MOVE_RECYCLE,          // TM067
-    MOVE_GIGA_IMPACT,      // TM068
-    MOVE_ROCK_POLISH,      // TM069
-    MOVE_FLASH,            // TM070
-    MOVE_STONE_EDGE,       // TM071
-    MOVE_AVALANCHE,        // TM072
-    MOVE_THUNDER_WAVE,     // TM073
-    MOVE_GYRO_BALL,        // TM074
-    MOVE_SWORDS_DANCE,     // TM075
-    MOVE_STEALTH_ROCK,     // TM076
-    MOVE_PSYCH_UP,         // TM077
-    MOVE_CAPTIVATE,        // TM078
-    MOVE_DARK_PULSE,       // TM079
-    MOVE_ROCK_SLIDE,       // TM080
-    MOVE_X_SCISSOR,        // TM081
-    MOVE_SLEEP_TALK,       // TM082
-    MOVE_NATURAL_GIFT,     // TM083
-    MOVE_POISON_JAB,       // TM084
-    MOVE_DREAM_EATER,      // TM085
-    MOVE_GRASS_KNOT,       // TM086
-    MOVE_SWAGGER,          // TM087
-    MOVE_PLUCK,            // TM088
-    MOVE_U_TURN,           // TM089
-    MOVE_SUBSTITUTE,       // TM090
-    MOVE_FLASH_CANNON,     // TM091
-    MOVE_TRICK_ROOM,       // TM092
-
+    MOVE_FOCUS_PUNCH,     // TM001
+    MOVE_DRAGON_CLAW,     // TM002
+    MOVE_FLIP_TURN,       // TM003
+    MOVE_CALM_MIND,       // TM004
+    MOVE_ROAR,            // TM005
+    MOVE_TOXIC,           // TM006
+    MOVE_FEINT_ATTACK,    // TM007
+    MOVE_BULK_UP,         // TM008
+    MOVE_BULLET_SEED,     // TM009
+    MOVE_HIDDEN_POWER,    // TM010
+    MOVE_MAGICAL_LEAF,    // TM011
+    MOVE_TAUNT,           // TM012
+    MOVE_ICE_BEAM,        // TM013
+    MOVE_BLIZZARD,        // TM014
+    MOVE_ELECTROWEB,      // TM015
+    MOVE_LIGHT_SCREEN,    // TM016
+    MOVE_SMART_STRIKE,    // TM017
+    MOVE_RAIN_DANCE,      // TM018
+    MOVE_GIGA_DRAIN,      // TM019
+    MOVE_HYPER_VOICE,     // TM020
+    MOVE_ICY_WIND,        // TM021
+    MOVE_SOLAR_BEAM,      // TM022
+    MOVE_IRON_TAIL,       // TM023
+    MOVE_THUNDERBOLT,     // TM024
+    MOVE_THUNDER,         // TM025
+    MOVE_EARTHQUAKE,      // TM026
+    MOVE_RETURN,          // TM027
+    MOVE_VENOSHOCK,       // TM028
+    MOVE_PSYCHIC,         // TM029
+    MOVE_SHADOW_BALL,     // TM030
+    MOVE_BRICK_BREAK,     // TM031
+    MOVE_DOUBLE_TEAM,     // TM032
+    MOVE_REFLECT,         // TM033
+    MOVE_SHOCK_WAVE,      // TM034
+    MOVE_FLAMETHROWER,    // TM035
+    MOVE_SLUDGE_BOMB,     // TM036
+    MOVE_SANDSTORM,       // TM037
+    MOVE_FIRE_BLAST,      // TM038
+    MOVE_ROCK_TOMB,       // TM039
+    MOVE_AERIAL_ACE,      // TM040
+    MOVE_VOLT_SWITCH,     // TM041
+    MOVE_FACADE,          // TM042
+    MOVE_DEFOG,           // TM043
+    MOVE_REST,            // TM044
+    MOVE_DRAINING_KISS,   // TM045
+    MOVE_THIEF,           // TM046
+    MOVE_STEEL_WING,      // TM047
+    MOVE_SKILL_SWAP,      // TM048
+    MOVE_SNATCH,          // TM049
+    MOVE_OVERHEAT,        // TM050
+    MOVE_ROOST,           // TM051
+    MOVE_FOCUS_BLAST,     // TM052
+    MOVE_ENERGY_BALL,     // TM053
+    MOVE_FALSE_SWIPE,     // TM054
+    MOVE_BRINE,           // TM055
+    MOVE_FLING,           // TM056
+    MOVE_CHARGE_BEAM,     // TM057
+    MOVE_ENDURE,          // TM058
+    MOVE_DRAGON_PULSE,    // TM059
+    MOVE_DRAIN_PUNCH,     // TM060
+    MOVE_WILL_O_WISP,     // TM061
+    MOVE_SILVER_WIND,     // TM062
+    MOVE_EMBARGO,         // TM063
+    MOVE_EXPLOSION,       // TM064
+    MOVE_SHADOW_CLAW,     // TM065
+    MOVE_PAYBACK,         // TM066
+    MOVE_RECYCLE,         // TM067
+    MOVE_GIGA_IMPACT,     // TM068
+    MOVE_ROCK_POLISH,     // TM069
+    MOVE_FLASH,           // TM070
+    MOVE_STONE_EDGE,      // TM071
+    MOVE_AVALANCHE,       // TM072
+    MOVE_THUNDER_WAVE,    // TM073
+    MOVE_GYRO_BALL,       // TM074
+    MOVE_SWORDS_DANCE,    // TM075
+    MOVE_STEALTH_ROCK,    // TM076
+    MOVE_PSYCH_UP,        // TM077
+    MOVE_CAPTIVATE,       // TM078
+    MOVE_DARK_PULSE,      // TM079
+    MOVE_ROCK_SLIDE,      // TM080
+    MOVE_X_SCISSOR,       // TM081
+    MOVE_SLEEP_TALK,      // TM082
+    MOVE_NATURAL_GIFT,    // TM083
+    MOVE_SCALD,           // TM084
+    MOVE_DREAM_EATER,     // TM085
+    MOVE_GRASS_KNOT,      // TM086
+    MOVE_SWAGGER,         // TM087
+    MOVE_PLUCK,           // TM088
+    MOVE_U_TURN,          // TM089
+    MOVE_SUBSTITUTE,      // TM090
+    MOVE_FLASH_CANNON,    // TM091
+    MOVE_TRICK_ROOM,      // TM092
     // vanilla HMs
-    MOVE_CUT,              // HM01
-    MOVE_FLY,              // HM02
-    MOVE_SURF,             // HM03
-    MOVE_STRENGTH,         // HM04
-    MOVE_WHIRLPOOL,        // HM05
-    MOVE_ROCK_SMASH,       // HM06
-    MOVE_WATERFALL,        // HM07
-    MOVE_ROCK_CLIMB,       // HM08
+    MOVE_CUT,             // HM01
+    MOVE_FLY,             // HM02
+    MOVE_SURF,            // HM03
+    MOVE_STRENGTH,        // HM04
+    MOVE_WHIRLPOOL,       // HM05
+    MOVE_ROCK_SMASH,      // HM06
+    MOVE_WATERFALL,       // HM07
+    MOVE_ROCK_CLIMB,      // HM08
 
     // HM07 (ORAS)
     MOVE_DIVE,             // HM07_ORAS
@@ -378,6 +377,9 @@ void ItemMenuUseFunc_AbilityCapsule(struct ItemMenuUseData *data, const struct I
 void ItemMenuUseFunc_Mint(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
 void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
 
+BOOL ItemFieldUseFunc_InfiniteCandy(struct ItemFieldUseData *data);
+void *_CreateInfiniteCandyWork(FieldSystem *fieldSystem);
+
 const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
     { NULL, ItemFieldUseFunc_Generic, NULL },
     { ItemMenuUseFunc_HealingItem, NULL, NULL },
@@ -415,6 +417,7 @@ const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
     { ItemMenuUseFunc_AbilityCapsule, NULL, NULL },
     { ItemMenuUseFunc_Mint, NULL, NULL },
     { ItemMenuUseFunc_Nectar, NULL, NULL },
+    //{ ItemMenuUseFunc_HealingItem, ItemFieldUseFunc_InfiniteCandy, NULL },
 };
 
 u16 GetItemIndex(u16 item, u16 type)
@@ -647,5 +650,25 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
     FieldSystem *fieldSystem = data->taskManager->fieldSystem; //TaskManager_GetFieldSystem(data->taskManager);
     struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, data->itemId);
+    sub_0203C8F0(env, 0x0203CA9C | 1);
+}
+
+/*
+BOOL ItemFieldUseFunc_InfiniteCandy(struct ItemFieldUseData *data)
+{
+    RegisteredItem_CreateGoToAppTask(data, (FieldApplicationWorkCtor)_CreateInfiniteCandyWork, FALSE);
+    return TRUE;
+}
+
+void *_CreateInfiniteCandyWork(FieldSystem *fieldSystem)
+{
+    return sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_INFINITE_CANDY);
+}
+*/
+void ItemMenuUseFunc_InfiniteCandy(struct ItemMenuUseData* data, const struct ItemCheckUseData* dat2 UNUSED)
+{
+    FieldSystem* fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
+    struct BagViewAppWork* env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_INFINITE_CANDY);
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }

@@ -17,7 +17,23 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
+<<<<<<< HEAD
 #include "../../include/constants/generated/learnsets.h"
+=======
+#include "../../include/map_events_internal.h"
+#include "../../include/custom/random_eggs.h"
+
+void shuffle(u8 array[], int n)
+{
+    for (int i = n - 1; i > 0; i--)
+    {
+        int j = gf_rand() % (i + 1);
+        u8 temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+>>>>>>> ai-dev
 
 /**
  *  @brief script command to give an egg adapted to set the hidden ability
@@ -34,6 +50,15 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
 
     u32 form = (species & 0xF800) >> 11; // extract form from egg
     species = species & 0x7FF;
+
+#ifdef RANDOMIZE_EGG  
+    if (CheckScriptFlag(RANDOMIZE_EGG_FLAG) == 1) // used command for different kind of Egg
+    {
+        int it = gf_rand() % randomMonsLength;
+        species = randomMons[it];
+        ClearScriptFlag(RANDOMIZE_EGG_FLAG);
+    }
+#endif
 
     u16 offset = ScriptGetVar(ctx);
 
@@ -59,6 +84,23 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
             ClearScriptFlag(HIDDEN_ABILITIES_FLAG);
         }
 
+#ifdef RANDOM_3_MAX_IVS
+        if (CheckScriptFlag(RANDOM_3_MAX_IVS_FLAG) == 1)
+        {
+            u8 array[] = {0, 1, 2, 3, 4, 5};
+            shuffle(array, 6);
+
+            int iv = 31;
+            // Randomly chooses 3 stats
+            for (int i = 0; i < 3; i++) 
+            {
+                u8 selectedValue = array[i];
+                SetMonData(pokemon, MON_DATA_HP_IV + selectedValue, &iv);
+            }
+            ClearScriptFlag(RANDOM_3_MAX_IVS_FLAG);
+        }
+#endif
+
         PokeParty_Add(party, pokemon);
         sys_FreeMemoryEz(pokemon);
     }
@@ -73,9 +115,9 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
  *  @return FALSE
  */
 BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
-    s32 i;
-    u8 pp;
-    u16 moveData;
+    //s32 i;
+    //u8 pp;
+    //u16 moveData;
     struct PartyPokemon *togepi;
     void *profile;
     struct Party *party;
@@ -97,7 +139,7 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 
     //ClearMonMoves(pokemon);
     //InitBoxMonMoveset(&pokemon->box);
-
+    /*
     for (i = 0; i < 4; i++) {
         if (!GetMonData(togepi, MON_DATA_MOVE1 + i, 0)) {
             break;
@@ -113,7 +155,7 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 
     pp = GetMonData(togepi, MON_DATA_MOVE1MAXPP + i, 0);
     SetMonData(togepi, MON_DATA_MOVE1PP + i, &pp);
-
+    */
     if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1) // add HA capability
     {
         SET_MON_HIDDEN_ABILITY_BIT(togepi)
@@ -121,6 +163,18 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
         ClearScriptFlag(HIDDEN_ABILITIES_FLAG);
     }
 
+#ifdef RANDOM_3_MAX_IVS
+    u8 array[] = {0, 1, 2, 3, 4, 5};
+    shuffle(array, 6);
+
+    int iv = 31;
+    // Randomly chooses 3 stats
+    for (int i = 0; i < 3; i++) 
+    {
+        u8 selectedValue = array[i];
+        SetMonData(togepi, MON_DATA_HP_IV + selectedValue, &iv);
+    }
+#endif
 
     PokeParty_Add(party, togepi);
 
@@ -316,6 +370,7 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
     return FALSE;
 }
 
+<<<<<<< HEAD
 BOOL ScrCmd_BufferItemName(SCRIPTCONTEXT *ctx) {
     MessageFormat **msgFmt = FieldSysGetAttrAddr(ctx->fsys, 16);
     u8 idx = ScriptReadByte(ctx);
@@ -323,3 +378,65 @@ BOOL ScrCmd_BufferItemName(SCRIPTCONTEXT *ctx) {
     BufferItemNameGiveItem(*msgFmt, idx, itemId);
     return FALSE;
 }
+=======
+/**
+ *  @brief clear overworld request flags
+ *
+ *  @param req OVERWORLD_REQUEST_FLAGS structure to clear
+ */
+void LONG_CALL ClearOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS* req)
+{
+    req->TalkCheck = 0;
+    req->StepCheck = 0;
+    req->MenuOpen = 0;
+    req->unk0_0018 = 0;
+    req->CnvButton = 0;
+    req->MatCheck = 0;
+    req->PushCheck = 0;
+    req->MoveCheck = 0;
+    req->FloatCheck = 0;
+    req->DebugMenu = 0;
+    req->DebugBattle = 0;
+    req->DebugHook = 0;
+    req->DebugKeyPush = 0;
+
+    req->OpenPCCheck = 0; // new:  check if pc should be opened
+    req->ToggleRepel = 0;
+
+    req->Site = 0xFF;
+    req->PushSite = 0xFF;
+}
+
+/**
+ *  @brief set new overworld request flags depending on buttons pressed
+ *
+ *  @param req OVERWORLD_REQUEST_FLAGS structure to set flags in
+ *  @param trg buttons that are pressed on this frame
+ */
+void LONG_CALL SetOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS* req, u16 trg)
+{
+    if (trg & PAD_BUTTON_L) {
+        req->ToggleRepel = TRUE;
+    }
+    if (trg & PAD_BUTTON_R) {
+    //    req->OpenPCCheck = TRUE;
+    }
+}
+
+/**
+ *  @brief handle overworld request flags
+ *
+ *  @param req OVERWORLD_REQUEST_FLAGS structure to set flags in
+ */
+void LONG_CALL CheckOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS* req, FieldSystem* fsys)
+{
+    if (req->ToggleRepel) {
+        EventSet_Script(fsys, 2094, NULL);
+    }
+
+   /* if (req->OpenPCCheck) {
+        SetScriptFlag(0x18F); // some random flag that should be set by script 2010 (file 3 script 10)
+        EventSet_Script(fsys, 2010, NULL); // set up script 2010
+    }*/
+}
+>>>>>>> ai-dev

@@ -2567,7 +2567,9 @@
 // define your custom move effects below like this
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
 
-#define MAX_TOTAL_ITEM_NUM ITEM_BRIARS_BOOK
+#define ITEM_INFINITE_CANDY      2558
+
+#define MAX_TOTAL_ITEM_NUM ITEM_INFINITE_CANDY
 
 
 #define NUM_MEGA_STONES 48 // includes the pixie plate
@@ -2638,7 +2640,7 @@ enum ItemGeneration {
 #define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
 #define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
 
-#define NEW_ITEM_MAX ITEM_BRIARS_BOOK
+#define NEW_ITEM_MAX ITEM_INFINITE_CANDY
 
 #define BAG_SLOT_QUANTITY_MAX 999
 #define BAG_TMHM_QUANTITY_MAX 99

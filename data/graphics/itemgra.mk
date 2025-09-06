@@ -25586,6 +25586,17 @@ ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/briars_book.png
 ITEMGFX_OBJS += $(ITEMGFX_DIR)/2559-00.NCGR
 ITEMGFX_PALS += $(ITEMGFX_DIR)/2559-01.NCLR
 
+
+$(ITEMGFX_DIR)/2559-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/infinite_candy.png
+	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
+
+$(ITEMGFX_DIR)/2559-01.NCLR:$(ITEMGFX_DEPENDENCIES_DIR)/infinite_candy.png
+	$(GFX) $< $@ -ir -bitdepth 4
+
+ITEMGFX_SRCS += $(ITEMGFX_DEPENDENCIES_DIR)/infinite_candy.png
+ITEMGFX_OBJS += $(ITEMGFX_DIR)/2560-00.NCGR
+ITEMGFX_PALS += $(ITEMGFX_DIR)/2560-01.NCLR
+
 $(ITEMGFX_DIR)/2560-00.NCGR:$(ITEMGFX_DEPENDENCIES_DIR)/dummy.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 

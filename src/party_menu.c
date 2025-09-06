@@ -1,13 +1,77 @@
 #include "../include/types.h"
 #include "../include/config.h"
 #include "../include/pokemon.h"
-#include "../include/bag.h"
 #include "../include/battle.h"
+#include "../include/bag.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
 #include "../include/constants/file.h"
 #include "../include/party_menu.h"
+
+#if defined(USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU)
+u8 customFieldMoveCheckInPartyMenu(struct PLIST_WORK *wk, struct PartyPokemon *pp, u8 *buf, u8 count)
+{
+    u8 fieldMoveIndex = 0;
+    BAG_DATA *bag = Sav2_Bag_get(SaveBlock2_get());
+    u8 type1 = GetMonData(pp, MON_DATA_TYPE_1, NULL);
+    u8 type2 = GetMonData(pp, MON_DATA_TYPE_2, NULL);
+
+    if(count < 8 && (type1 == TYPE_FLYING || type2 == TYPE_FLYING))
+    {
+        if (Bag_HasItem(bag, ITEM_HM02, 1, HEAPID_MAIN_HEAP))
+        {
+            buf[count] = PARTY_MON_CONTEXT_MENU_FLY;
+            ++count;
+            PartyMenu_ContextMenuAddFieldMove(wk, MOVE_FLY, fieldMoveIndex);
+            ++fieldMoveIndex;
+        }
+    }
+
+    if(count < 8 && (type1 == TYPE_WATER || type2 == TYPE_WATER))
+    {
+        if (Bag_HasItem(bag, ITEM_HM03, 1, HEAPID_MAIN_HEAP))
+        {
+            buf[count] = PARTY_MON_CONTEXT_MENU_SURF;
+            ++count;
+            PartyMenu_ContextMenuAddFieldMove(wk, MOVE_SURF, fieldMoveIndex);
+            ++fieldMoveIndex;
+        }
+    }
+
+    if(count < 8 && (type1 == TYPE_WATER || type2 == TYPE_WATER))
+    {
+        if (Bag_HasItem(bag, ITEM_HM06, 1, HEAPID_MAIN_HEAP))
+        {
+            buf[count] = PARTY_MON_CONTEXT_MENU_WHIRLPOOL;
+            ++count;
+            PartyMenu_ContextMenuAddFieldMove(wk, MOVE_WHIRLPOOL, fieldMoveIndex);
+            ++fieldMoveIndex;
+        }
+    }
+
+    if(count < 8 && (type1 == TYPE_WATER || type2 == TYPE_WATER))
+    {
+        if (Bag_HasItem(bag, ITEM_HM07, 1, HEAPID_MAIN_HEAP))
+        {
+            buf[count] = PARTY_MON_CONTEXT_MENU_WATERFALL;
+            ++count;
+            PartyMenu_ContextMenuAddFieldMove(wk, MOVE_WATERFALL, fieldMoveIndex);
+            ++fieldMoveIndex;
+        }
+    }
+
+    if (count < 8)
+    {
+        buf[count] = PARTY_MON_CONTEXT_MENU_FLASH;
+        ++count;
+        PartyMenu_ContextMenuAddFieldMove(wk, MOVE_FLASH, fieldMoveIndex);
+        ++fieldMoveIndex;
+    }
+
+    return count;
+}
+#endif
 
 u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
 {
@@ -38,12 +102,13 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
                 buf[count] = PARTY_MON_CONTEXT_MENU_ITEM;
             }
             ++count;
+            
             buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
             ++count;
-
-            // here is where a custom check would go.  replace the below for loop with your own checks
-
-            for (i = 0; i < MAX_MON_MOVES; ++i)
+#if defined(USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU)
+            count = customFieldMoveCheckInPartyMenu(wk, pp, buf, count);
+#else
+            for (i = 0; i < MAX_MON_MOVES; ++i) 
             {
                 move = GetMonData(pp, MON_DATA_MOVE1 + i, NULL);
                 if (move == MOVE_NONE)
@@ -60,6 +125,7 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
                     ++fieldMoveIndex;
                 }
             }
+#endif
         }
         else
         {
@@ -72,8 +138,6 @@ u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
         buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
         ++count;
     }
-
-
 
     return count;
 }
@@ -121,59 +185,4 @@ void LONG_CALL sub_0207AFC4(struct PLIST_WORK *wk)
     sub_0207D1C8(wk);
     PartyMenu_PrintMessageOnWindow33(wk, -1, TRUE);
     thunk_Sprite_SetPalIndex(wk->sprites[PARTY_MENU_SPRITE_ID_CURSOR], 1);
-}
-
-/*
- * @brief hooks rare candy usage in the bag to allow for repeated use without returning to the bag between each
- * thanks to yako for the for the format
- */
-int PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6(struct PLIST_WORK *wk) {
-    struct PartyPokemon *mon = Party_GetMonByIndex(wk->dat->pp, wk->pos);
-    wk->dat->after_mons = GetMonEvolution(wk->dat->pp, mon, EVOCTX_LEVELUP, EVO_NONE, (int *)&wk->dat->shinka_cond);
-    if (wk->dat->after_mons != SPECIES_NONE) {
-        wk->dat->ret_mode = 0x9;
-        return 0x20;
-    }
-    wk->dat->ret_mode = 0x0;
-    if (Bag_HasItem(wk->dat->myitem, wk->dat->item, 1, HEAP_ID_PARTY_MENU)) {
-        ClearFrameAndWindow2(&wk->windows[34], TRUE);
-        PartyMenu_PrintMessageOnWindow32(wk, 33, TRUE); // message index in 300.txt
-        return 0x4;
-    }
-    return 0x20;
-}
-
-/*
- * @brief hooks into the ending of pokeheartgold PartyMenu_ItemUseFunc_WaitTextPrinterThenExit
- * to allow for item reuse if not an evo item and the bag has more of the item
- */
-int PartyMenu_ItemUseFunc_ReuseItem(struct PLIST_WORK *wk) {
-    wk->dat->ret_mode = 0;
-    if (GetItemData(wk->dat->item, ITEM_PARAM_EVOLUTION, HEAP_ID_PARTY_MENU) == 0 && Bag_HasItem(wk->dat->myitem, wk->dat->item, 1, HEAP_ID_PARTY_MENU)) {
-        ClearFrameAndWindow2(&wk->windows[34], TRUE);
-        PartyMenu_PrintMessageOnWindow32(wk, 33, TRUE); // message index in 300.txt
-        return 0x4;
-    }
-    return 0x20;
-}
-
-void PartyMenu_LearnMoveToSlot(struct PLIST_WORK *partyMenu, struct PartyPokemon *mon, int moveIdx) {
-    int data = partyMenu->dat->move;
-    SetMonData(mon, MON_DATA_MOVE1 + moveIdx, &data);
-    data = 0;
-    SetMonData(mon, MON_DATA_MOVE1PPUP + moveIdx, &data);
-    data = GetMoveMaxPP(partyMenu->dat->move, 0);
-    SetMonData(mon, MON_DATA_MOVE1PP + moveIdx, &data);
-    if (partyMenu->dat->item != ITEM_NONE) {
-#ifdef REUSABLE_TMS
-    BOOL consumeItem = IS_ITEM_TR(partyMenu->dat->item);
-#else
-    BOOL consumeItem = IS_ITEM_TM(partyMenu->dat->item) || IS_ITEM_TR(partyMenu->dat->item);
-#endif // REUSABLE_TMS
-        if (consumeItem) {
-            Bag_TakeItem(partyMenu->dat->myitem, partyMenu->dat->item, 1, HEAP_ID_PARTY_MENU);
-        }
-        MonApplyFriendshipMod(mon, 4, PartyMenu_GetCurrentMapSec(partyMenu));
-        ApplyMonMoodModifier(mon, 3);
-    }
 }

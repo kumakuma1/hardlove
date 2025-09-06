@@ -1,0 +1,65 @@
+Flag
+
+106   - 061-T20R0101 : Script File 843 - Script 13: StarterSelection Screen
+106   - 171-D34R0201 : Script File 239 - Got TM from NPC -> White herb
+121   - 048-R46      : Script File 259 - NPC message, Set in 843, when getting Rival is named | Unused
+154   - 061-T20R0101 : Script File 225 - Function 25: CatchTutorial done    | Prof Elm sets after receiving balls
+162   - 086-T27R0501 : Script File 928 - Got Surf in Ecruteak, Surf replaced with Shed Shell
+167   - 063-T20R0201 : Talked to Mom for Saving Money. Flag is set, money saving disabled.
+189   -                                - prev. Good Rod. Used for Mega-Ring
+219   - 036-R32      : Script File 232 - Script 6, Poison Barb from Frieda, Used for auto heal in gym trainer battles
+270   - 096-D22R0101 : Script File  25 - Silk Scarf in National Park from Persian Lady
+345   - 158-T22PC0101: Script File 860 - Maarep-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items + TMs 1, Cleared after Schorsch
+346   - 158-T22PC0101: Script File 860 - Wooper-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items 2, Cleared after Morty
+347   - 158-T22PC0101: Script File 860 - Slugma-Egg Primo. Flag is not set. |
+420   - 061-T20R0101 : Script File 225 - Function 25: Hide Lyra. Flag is set.
+421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
+417   - 060-T20      : Script File 842 - Function 9: Hide Marill. Flag is set. by mom
+418   - 060-T20      : Script File 842 - Function 9: Hide Lyra. Flag is set.
+423   - 117-D36R0101 : Script File  92 - Porenta to hunt in Ilex. Used for Heart Scale with Litten Starter in Goldenrod Store. Mom clears.
+424   - 117-D36R0101 : Script File  92 - Porenta to hunt in Ilex.
+433                                    - Flag for DayOfWeek in Goldenrod tunnel
+434
+435
+440                                    - Hiding NPCs in Goldenrod Tunnel
+451   -              :                 - Moves Guy for Bug Catching Contest
+452   -              :                 - Adds Guy for Bug Catching Contest
+
+
+
+1061  - 110-D15R0101 : Item: ITEM_PARALYZE_HEAL -> ITEM_EVERSTONE
+1067  - 099-D25R0101 : Item: X-Attack -> ITEM_WIDE_LENS
+1077  - 117-D36R0101 : Item: ITEM_REVIVE -> ITEM_RARE_CANDY
+1090  - 200-D37R0103 : Item: Ultraball -> Muscle Band
+1093  - 200-D37R0103 : Item: Burn Heal -> Wise Glasses
+1218  - 176-D42R0102 : Item: ITEM_POTION -> ITEM_HEART_SCALE
+1239  - 036-R32      : Item: ITEM_SHELL_BELL -> ITEM_POISON_BARB
+1274  - 038-R34      : Item: ITEM_TM63 -> Black Belt
+
+2570-2590 berry trees
+2591 - 385-T24R0801 : Random Fossil
+2598 - randomize Egg command
+2599 - random 3x31 IVs when giving mon
+
+Variable
+16533 (0x4095) - Call from Mom for Saving Money on R30.
+
+16648 (0x4108)   - 061-T20R0101: Script File 843, Function 15: Potion giving event in Elm Lab
+
+
+
+16420 (0x4024)  - Previously unused. Use for Rematches:
+                0: start
+                1: Set by Pryce. Whitney in Goldenrod
+                2: Set by Whitney. 
+16421 (0x4025)  - Previously unused. Use for Rocket:
+                0: start
+                0: R47 Bridge Scene
+                1: Set in Bridge Scene
+16422 (0x4026)  - Previously unused. Use for Mini-Boss:
+                0: start
+                0: Route 36
+                
+
+16523 (0x408B)  - Catching Tutorial trigger - Prof Elm sets to zero after receiving balls
+

@@ -865,6 +865,9 @@ typedef struct WildEncounterWork
 } WildEncounterWork;
 
 
+void arrayShuffle(u8 array[], int n);
+
+
 /**
  *  @brief allocate enough space for a PartyPokemon and zero it out
  *
@@ -1878,6 +1881,8 @@ void LONG_CALL Mon_UpdateShayminForm(struct PartyPokemon *mon, int form);
 void LONG_CALL Daycare_GetBothBoxMonsPtr(Daycare *dayCare, struct BoxPokemon **boxmons);
 
 BOOL LONG_CALL CanUseItemOnPokemon(struct PartyPokemon *mon, u16 itemID, s32 moveIdx, u32 heapID);
+
+void LONG_CALL CreateMon(struct PartyPokemon *mon, s32 species, s32 level, s32 fixedIV, s32 hasFixedPersonality, s32 fixedPersonality, s32 otIdType, s32 fixedOtId);
 
 void LONG_CALL correct_zacian_zamazenta_kyurem_moves_for_form(struct PartyPokemon *param, unsigned int expected_form, int *a3);
 

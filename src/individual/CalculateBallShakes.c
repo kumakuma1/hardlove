@@ -81,16 +81,17 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         }
         return 4;
     case ITEM_ULTRA_BALL:
-        ballCaptureRatio = 0x2000;
+        ballCaptureRatio = 0x3800;
         break;
     case ITEM_GREAT_BALL:
-        ballCaptureRatio = 0x1800;
+        ballCaptureRatio = 0x2000;
         break;
     case ITEM_POKE_BALL:
-        ballCaptureRatio = 0x1000;
+        ballCaptureRatio = 0x1800;
         break;
     case ITEM_SAFARI_BALL:
-        ballCaptureRatio = 0x1000;
+        //ballCaptureRatio = 0x1000;
+        return 4;
         break;
     case ITEM_NET_BALL:
         if (HasType(sp, sp->defence_client, TYPE_WATER) || HasType(sp, sp->defence_client, TYPE_BUG)) {
@@ -353,7 +354,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             break;
 
     }
-
+    badgePenalty = UQ412__1_0;
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("badgePenalty in Q4.12 number format: %d\n", badgePenalty);
 #endif

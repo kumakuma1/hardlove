@@ -100,6 +100,9 @@ unloadSecond:
 
 
 u32 LONG_CALL HandleLoadOverlay(u32 ovyId, u32 loadType) {
+#ifdef DEBUG_PRINT_OVERLAY_LOADS
+    debug_printf("Loading overlay_%04d.bin: type %d\n", ovyId, loadType);
+#endif // DEBUG_PRINT_OVERLAY_LOADS
     u32 result;
     u32 dmaBak = FS_DMA_NOT_USE;
     u32 overlayRegion;
