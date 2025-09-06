@@ -12,6 +12,23 @@ THREE_BADGES equ 3
 FIVE_BADGES equ 4
 SEVEN_BADGES equ 5
 EIGHT_BADGES equ 6
+/* #define ITEM_TM001                        328 //Added a Zero to all TMS*/
+
+ITEM_TM07 equ 334
+ITEM_TM10 equ 337
+ITEM_TM11 equ 338
+ITEM_TM15 equ 342
+ITEM_TM21 equ 348
+
+ITEM_TM22 equ 349
+ITEM_TM25 equ 352
+ITEM_TM27 equ 354
+ITEM_TM28 equ 355
+ITEM_TM34 equ 361
+ITEM_TM39 equ 366
+ITEM_TM40 equ 367
+ITEM_TM70 equ 410
+ITEM_TM88 equ 428
 
 /* General Poké Mart Table */
 .org 0x020FBF22

@@ -17,9 +17,7 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
-<<<<<<< HEAD
 #include "../../include/constants/generated/learnsets.h"
-=======
 #include "../../include/map_events_internal.h"
 #include "../../include/custom/random_eggs.h"
 
@@ -33,7 +31,7 @@ void shuffle(u8 array[], int n)
         array[j] = temp;
     }
 }
->>>>>>> ai-dev
+
 
 /**
  *  @brief script command to give an egg adapted to set the hidden ability
@@ -370,7 +368,7 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
     return FALSE;
 }
 
-<<<<<<< HEAD
+
 BOOL ScrCmd_BufferItemName(SCRIPTCONTEXT *ctx) {
     MessageFormat **msgFmt = FieldSysGetAttrAddr(ctx->fsys, 16);
     u8 idx = ScriptReadByte(ctx);
@@ -378,7 +376,7 @@ BOOL ScrCmd_BufferItemName(SCRIPTCONTEXT *ctx) {
     BufferItemNameGiveItem(*msgFmt, idx, itemId);
     return FALSE;
 }
-=======
+
 /**
  *  @brief clear overworld request flags
  *
@@ -439,4 +437,4 @@ void LONG_CALL CheckOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS* req, FieldSys
         EventSet_Script(fsys, 2010, NULL); // set up script 2010
     }*/
 }
->>>>>>> ai-dev
+

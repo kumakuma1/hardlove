@@ -9305,11 +9305,7 @@ movedata MOVE_DRAINING_KISS, "Draining Kiss"
     appeal 0x00
     contesttype CONTEST_CUTE
     terminatedata
-<<<<<<< HEAD
     movedescription MOVE_DRAINING_KISS, "An energy-stealing\nkiss. The user’s\nHP is restored by\nhalf the damage taken\nby the target."
-=======
-    movedescription MOVE_DRAINING_KISS, "The user steals the\ntarget's HP with a\nkiss. The user's HP is\nrestored by over half of the damage\ntaken by the target."
->>>>>>> ai-dev
 
 movedata MOVE_CRAFTY_SHIELD, "Crafty Shield"
     battleeffect MOVE_EFFECT_PROTECT_USER_SIDE

@@ -1582,7 +1582,7 @@ u32 LONG_CALL GetRecoverAmountPercent(struct BattleSystem* bsys, u32 attackerMov
     case MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP:
         recoverAmountPercent = 100;
         break;
-    case MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN:
+    case MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER:
         if ((attackerMove == MOVE_SHORE_UP && (ctx->field_condition & WEATHER_SANDSTORM_ANY))
             || (attackerMove != MOVE_SHORE_UP && (ctx->field_condition & WEATHER_SUNNY_ANY)))
             recoverAmountPercent = 67;
@@ -1654,9 +1654,9 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
             else
 				moveScore += 5;
             break;
-        case MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN:
+        case MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER:
         {
-            u32 recoverAmount = GetRecoverAmountPercent(bsys, ai->attackerMove, MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN);
+            u32 recoverAmount = GetRecoverAmountPercent(bsys, ai->attackerMove, MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER);
             if (aiShouldRecover && recoverAmount > 50)
                 moveScore += 7;
             else if (recoverAmount == 50 && shouldRecover(bsys, attacker, MOVE_EFFECT_RESTORE_HALF_HP, ai))
