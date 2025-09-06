@@ -2010,7 +2010,7 @@ trainerdata 30, "Whitney"
         move MOVE_SWIFT
         move MOVE_WILL_O_WISP
         move MOVE_HIDDEN_POWER //GRASS
-        ability ABILITY_MOXIE
+        ability ABILITY_UNNERVE
         ball ITEM_POKE_BALL
         setivs 30, 31, 31, 31, 30, 31 // hp, atk, def, spd, spatk, spdef //GRASS
         setevs 0, 0, 0, 0, 0, 0
