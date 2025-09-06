@@ -1211,18 +1211,18 @@ trainerdata 20, "Falkner" // Leader
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER-1
-        pokemon SPECIES_TORCHIC
-        item ITEM_FOCUS_SASH
-        move MOVE_INCINERATE
-        move MOVE_BOUNCE
-        move MOVE_WORK_UP
-        move MOVE_BATON_PASS
-        ability ABILITY_SPEED_BOOST
+        level LEVEL_FALKNER-2
+        pokemon SPECIES_GLIGAR
+        item ITEM_ORAN_BERRY
+        move MOVE_BULLDOZE
+        move MOVE_WING_ATTACK
+        move MOVE_TOXIC
+        move MOVE_QUICK_ATTACK
+        ability ABILITY_HYPER_CUTTER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_NAIVE
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1298,18 +1298,18 @@ trainerdata 21, "Bugsy"
     party 21
         ivs 0
         abilityslot 0
-        level LEVEL_BUGSY-2
-        pokemon SPECIES_DWEBBLE
-        item ITEM_FOCUS_SASH
-        move MOVE_STEALTH_ROCK
-        move MOVE_ROCK_SLIDE
-        move MOVE_BUG_BITE
-        move MOVE_BULLDOZE
-        ability ABILITY_WEAK_ARMOR
+        level LEVEL_BUGSY-3
+        pokemon SPECIES_ARIADOS
+        item ITEM_SCOPE_LENS
+        move MOVE_X_SCISSOR
+        move MOVE_SUCKER_PUNCH
+        move MOVE_CROSS_POISON
+        move MOVE_STICKY_WEB
+        ability ABILITY_SNIPER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -1864,17 +1864,17 @@ trainerdata 29, "Rod" // Violet Gym
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-1
-        pokemon SPECIES_QUAXLY
-        item ITEM_ORAN_BERRY
-        move MOVE_AQUA_JET
-        move MOVE_AERIAL_ACE
-        move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_MOXIE
+        pokemon SPECIES_TORCHIC
+        item ITEM_FOCUS_SASH
+        move MOVE_INCINERATE
+        move MOVE_BOUNCE
+        move MOVE_WORK_UP
+        move MOVE_BATON_PASS
+        ability ABILITY_SPEED_BOOST
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
