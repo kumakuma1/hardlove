@@ -2006,7 +2006,7 @@ trainerdata 30, "Whitney"
         level LEVEL_WHITNEY-2
         pokemon SPECIES_PYROAR
         item ITEM_SILK_SCARF
-        move MOVE_BODY_SLAM
+        move MOVE_FLAME_BURST
         move MOVE_SWIFT
         move MOVE_WILL_O_WISP
         move MOVE_HIDDEN_POWER //GRASS
@@ -2014,7 +2014,7 @@ trainerdata 30, "Whitney"
         ball ITEM_POKE_BALL
         setivs 30, 31, 31, 31, 30, 31 // hp, atk, def, spd, spatk, spdef //GRASS
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_SERIOUS
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
