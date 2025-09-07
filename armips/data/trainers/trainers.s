@@ -4614,7 +4614,7 @@ trainerdata 69, "Josh"
         pokemon SPECIES_VIVILLON
         item ITEM_POWER_HERB
         move MOVE_AIR_CUTTER
-        move MOVE_STRUGGLE_BUG
+        move MOVE_SIGNAL_BEAM
         move MOVE_SLEEP_POWDER
         move MOVE_SOLAR_BEAM
         ability ABILITY_COMPOUND_EYES
@@ -4631,9 +4631,9 @@ trainerdata 69, "Josh"
         level LEVEL_BUGSY-2
         pokemon SPECIES_CHARJABUG   
         item ITEM_CHOICE_SCARF
-        move MOVE_SPARK
-        move MOVE_BUG_BITE
-        move MOVE_NONE
+        move MOVE_LUNGE
+        move MOVE_WILD_CHARGE
+        move MOVE_CRUNCH
         move MOVE_NONE
         ability ABILITY_BATTERY
         ball ITEM_POKE_BALL
