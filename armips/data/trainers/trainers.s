@@ -1533,7 +1533,7 @@ trainerdata 23, "Larry"
         move MOVE_THUNDER_PUNCH
         move MOVE_FIRE_PUNCH
         move MOVE_NONE
-        ability ABILITY_STUDY
+        ability ABILITY_STURDY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
