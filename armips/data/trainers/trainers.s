@@ -574,13 +574,13 @@ trainerdata 10, "Amy & Mimi"
 	    ivs 0
         abilityslot 0
         level LEVEL_BUGSY-3
-        pokemon SPECIES_ARIADOS
-        item ITEM_SCOPE_LENS
-        move MOVE_PIN_MISSILE
-        move MOVE_NIGHT_SHADE
-        move MOVE_CROSS_POISON
-        move MOVE_NIGHT_SLASH
-        ability ABILITY_SNIPER
+        pokemon SPECIES_HERACROSS
+        item ITEM_FLAME_ORB
+        move MOVE_BUG_BITE
+        move MOVE_ROCK_SLIDE
+        move MOVE_BRICK_BREAK
+        move MOVE_BULK_UP
+        ability ABILITY_GUTS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -592,17 +592,17 @@ trainerdata 10, "Amy & Mimi"
 	    ivs 0
         abilityslot 0
         level LEVEL_BUGSY-3
-        pokemon SPECIES_LEDIAN
-        item ITEM_MUSCLE_BAND
-        move MOVE_DRAIN_PUNCH
-        move MOVE_THUNDER_PUNCH
-        move MOVE_ICE_PUNCH
-        move MOVE_MACH_PUNCH
-        ability ABILITY_IRON_FIST
+        pokemon SPECIES_FROSMOTH
+        item ITEM_FOCUS_SASH
+        move MOVE_ICY_WIND
+        move MOVE_STRUGGLE_BUG
+        move MOVE_STUN_SPORE
+        move MOVE_MEGA_DRAIN
+        ability ABILITY_ICE_SCALES
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_MODEST
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -855,7 +855,7 @@ trainerdata 13, "Grunt"
         move MOVE_FEINT_ATTACK
         move MOVE_QUICK_ATTACK
         move MOVE_BULK_UP
-        move MOVE_NONE
+        move MOVE_QUICK_ATTACK
         ability ABILITY_HUSTLE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1527,13 +1527,13 @@ trainerdata 23, "Larry"
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-3
-        pokemon SPECIES_ONIX
+        pokemon SPECIES_GRAVELER
         item ITEM_HARD_STONE
         move MOVE_ROCK_SLIDE
-        move MOVE_ROCK_POLISH
-        move MOVE_SECRET_POWER
+        move MOVE_THUNDER_PUNCH
+        move MOVE_FIRE_PUNCH
         move MOVE_NONE
-        ability ABILITY_WEAK_ARMOR
+        ability ABILITY_STUDY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
