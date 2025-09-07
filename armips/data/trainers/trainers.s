@@ -1664,7 +1664,7 @@ trainerdata 26, "Roland"
         level LEVEL_PROTON_1-2
         pokemon SPECIES_SIZZLIPEDE
         item ITEM_LUM_BERRY
-        move MOVE_FIRE_FANG
+        move MOVE_FIRE_LASH
         move MOVE_CRUNCH
         move MOVE_COIL
         move MOVE_WILL_O_WISP
@@ -16005,14 +16005,14 @@ trainerdata 383, "Peter"
         abilityslot 0
         level LEVEL_PROTON_1-3
         pokemon SPECIES_MURKROW
-        item ITEM_ORAN_BERRY
+        item ITEM_LUM_BERRY
         move MOVE_PLUCK
         move MOVE_FEINT_ATTACK
         move MOVE_THUNDER_WAVE
-        move MOVE_HIDDEN_POWER //FIRE
+        move MOVE_SCREECH
         ability ABILITY_PRANKSTER
         ball ITEM_POKE_BALL
-        setivs 31, 30, 31, 30, 30, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
         shinylock 0
@@ -16032,7 +16032,7 @@ trainerdata 383, "Peter"
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_IMPISH
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -16043,14 +16043,14 @@ trainerdata 383, "Peter"
         pokemon SPECIES_GABITE
         item ITEM_ROCKY_HELMET
         move MOVE_BREAKING_SWIPE
-        move MOVE_MUD_SHOT
-        move MOVE_INCINERATE
+        move MOVE_BULLDOZE
+        move MOVE_FIRE_FANG
         move MOVE_NONE
         ability ABILITY_ROUGH_SKIN
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_NAIVE
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -16072,17 +16072,17 @@ trainerdata 384, "Daniel"
 	    ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-3
-        pokemon SPECIES_SKIPLOOM
-        item ITEM_YACHE_BERRY
-        move MOVE_MEMENTO
-        move MOVE_TAILWIND
-        move MOVE_NONE
-        move MOVE_NONE
-        ability ABILITY_INFILTRATOR
+        pokemon SPECIES_ONIX
+        item ITEM_CUSTAP_BERRY
+        move MOVE_BULLDOZE
+        move MOVE_ROCK_TOMB
+        move MOVE_STEALTH_ROCK
+        move MOVE_ROCK_POLISH
+        ability ABILITY_STURDY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -16109,12 +16109,12 @@ trainerdata 384, "Daniel"
         abilityslot 0
         level LEVEL_PROTON_1-3
         pokemon SPECIES_BIBAREL
-        item ITEM_QUICK_CLAW
-        move MOVE_ROLLOUT
-        move MOVE_DEFENSE_CURL
+        item ITEM_SITRUS_BERRY
+        move MOVE_HEADBUTT
+        move MOVE_CURSE
         move MOVE_AQUA_JET
         move MOVE_NONE
-        ability ABILITY_MOODY
+        ability ABILITY_SIMPLE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -16286,16 +16286,16 @@ trainerdata 390, "Ray"
         abilityslot 0
         level LEVEL_PROTON_1-4
         pokemon SPECIES_HIPPOPOTAS
-        item ITEM_LEFTOVERS
+        item ITEM_EVIOLITE
         move MOVE_STOMPING_TANTRUM
         move MOVE_ROCK_TOMB
         move MOVE_YAWN
-        move MOVE_NONE
+        move MOVE_SLACK_OFF
         ability ABILITY_SAND_STREAM
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_IMPISH
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -16304,9 +16304,9 @@ trainerdata 390, "Ray"
         abilityslot 0
         level LEVEL_PROTON_1-3
         pokemon SPECIES_CLEFAIRY
-        item ITEM_FOCUS_SASH
+        item ITEM_SITRUS_BERRY
         move MOVE_METRONOME
-        move MOVE_NONE
+        move MOVE_DAZZLING_GLEAM
         move MOVE_NONE
         move MOVE_NONE
         ability ABILITY_MAGIC_GUARD
@@ -16323,10 +16323,10 @@ trainerdata 390, "Ray"
         level LEVEL_PROTON_1-4
         pokemon SPECIES_HERDIER
         item ITEM_LUM_BERRY
-        move MOVE_SECRET_POWER
+        move MOVE_HEADBUTT
         move MOVE_FIRE_FANG
         move MOVE_PURSUIT
-        move MOVE_NONE
+        move MOVE_HOWL
         ability ABILITY_SAND_RUSH
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -16339,17 +16339,17 @@ trainerdata 390, "Ray"
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-4
-        monwithform SPECIES_WORMADAM, 0
-        item ITEM_COBA_BERRY
+        monwithform SPECIES_WORMADAM, 2 //SPECIES_WORMADAM_TRASHY
+        item ITEM_SITRUS_BERRY
         move MOVE_STRUGGLE_BUG
-        move MOVE_MEGA_DRAIN
+        move MOVE_GYRO_BALL
         move MOVE_ELECTROWEB
         move MOVE_NONE
         ability ABILITY_OVERCOAT
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
