@@ -93,6 +93,9 @@ SetVar 0x8004 445
 SetVar 0x8005 1
 CommonScript 2033
 
+SetVar 0x8004 800 / 2558 Infinite Candy
+SetVar 0x8005 1
+CommonScript 2033
 
 
 Delete old Rod guy
