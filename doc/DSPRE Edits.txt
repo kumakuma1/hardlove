@@ -2089,5 +2089,11 @@ Function 14:
 End
 
 
-
+##### Kurt gives Moon Stone after Well
+164 - T230501 - script file 874
+Added Message 2 : Kurt: Also I found this in the well.\r
+    Message 2
+    SetVar 0x8004 81
+	SetVar 0x8005 1
+	CommonScript 2008
 
