@@ -5002,23 +5002,124 @@ trainerdata 76, "Brooke"
     endparty
 
 trainerdata 77, "Kim"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_PICNICKER
-    nummons 1
+    nummons 6
+    item ITEM_MEGA_RING
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype SINGLE_BATTLE
+    aiflags TRAINER_AI_FLAGS
+    battletype DOUBLE_BATTLE
     endentry
 
     party 77
-        // mon 0
         ivs 0
         abilityslot 0
-        level 15
-        pokemon SPECIES_VULPIX
+        level LEVEL_SCHORSCH-3
+        pokemon SPECIES_VIKAVOLT
+        item ITEM_SITRUS_BERRY
+        move MOVE_STICKY_WEB
+        move MOVE_THUNDER_WAVE
+        move MOVE_QUIVER_DANCE
+        move MOVE_BATON_PASS
+        ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_CALM
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-3
+        pokemon SPECIES_HAUNTER
+        item ITEM_EVIOLITE
+        move MOVE_TOXIC_SPIKES
+        move MOVE_CURSE
+        move MOVE_HYPNOSIS
+        move MOVE_NONE
+        ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-3
+        pokemon SPECIES_SKARMORY
+        item ITEM_SITRUS_BERRY
+        move MOVE_SPIKES
+        move MOVE_WHIRLWIND
+        move MOVE_ROOST
+        move MOVE_NONE
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-3
+        pokemon SPECIES_NIDOQUEEN
+        item ITEM_SITRUS_BERRY
+        move MOVE_STEALTH_ROCK
+        move MOVE_SPIKES
+        move MOVE_TOXIC_SPIKES
+        move MOVE_ROAR
+        ability ABILITY_POISON_POINT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-3
+        pokemon SPECIES_UMBREON
+        item ITEM_SITRUS_BERRY
+        move MOVE_MOONLIGHT
+        move MOVE_ROAR
+        move MOVE_PROTECT
+        move MOVE_NONE
+        ability ABILITY_SYNCHRONIZE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_IMPISH
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-3
+        pokemon SPECIES_SPIRITOMB
+        item ITEM_LEFTOVERS
+        move MOVE_CURSE
+        move MOVE_REST
+        move MOVE_SLEEP_TALK
+        move MOVE_PROTECT
+        ability ABILITY_PRESSURE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_IMPISH
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
