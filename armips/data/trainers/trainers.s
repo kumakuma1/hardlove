@@ -20443,31 +20443,49 @@ trainerdata 498, "Eusine"
         ivs 0
         abilityslot 0
         level LEVEL_CHUCK-2
-        pokemon SPECIES_GYARADOS
-        item ITEM_WACAN_BERRY
-        move MOVE_WATERFALL
-        move MOVE_CRUNCH
-        move MOVE_STONE_EDGE
-        move MOVE_OUTRAGE
-        ability ABILITY_INTIMIDATE
+        pokemon SPECIES_PINCURCHIN
+        item ITEM_ROCKY_HELMET
+        move MOVE_DISCHARGE
+        move MOVE_SCALD
+        move MOVE_HEX
+        move MOVE_MEMENTO
+        ability ABILITY_ELECTRIC_SURGE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CHUCK-2
+        pokemon SPECIES_MUDSDALE
+        item ITEM_LEFTOVERS
+        move MOVE_HIGH_HORSEPOWER
+        move MOVE_SUPERCELL_SLAM
+        move MOVE_BODY_PRESS
+        move MOVE_LOW_KICK
+        ability ABILITY_STAMINA
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_IMPISH
         shinylock 0
         additionalflags 0
         ballseal 0
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_CHUCK
-        pokemon SPECIES_MANECTRIC
-        item ITEM_MANECTITE
-        move MOVE_THUNDERBOLT
-        move MOVE_VOLT_SWITCH
-        move MOVE_FLAMETHROWER
-        move MOVE_SIGNAL_BEAM
-        ability ABILITY_INTIMIDATE
+        level LEVEL_CHUCK-2
+        pokemon SPECIES_KILOWATTREL
+        item ITEM_FLYING_GEM
+        move MOVE_AIR_CUTTER
+        move MOVE_DISCHARGE
+        move MOVE_TAILWIND
+        move MOVE_ROOST
+        ability ABILITY_VOLT_ABSORB
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -20479,53 +20497,17 @@ trainerdata 498, "Eusine"
 	    ivs 0
         abilityslot 0
         level LEVEL_CHUCK-2
-        pokemon SPECIES_FERROTHORN
-        item ITEM_LEFTOVERS
-        move MOVE_EXPLOSION
-        move MOVE_GIGA_DRAIN
-        move MOVE_GYRO_BALL
-        move MOVE_KNOCK_OFF
-        ability ABILITY_IRON_BARBS
+        pokemon SPECIES_URSALUNA
+        item ITEM_FLAME_ORB
+        move MOVE_EARTHQUAKE
+        move MOVE_BODY_SLAM
+        move MOVE_SUPERCELL_SLAM
+        move MOVE_CLOSE_COMBAT
+        ability ABILITY_GUTS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_RELAXED
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-	    ivs 0
-        abilityslot 0
-        level LEVEL_CHUCK-1
-        pokemon SPECIES_VAPOREON
-        item ITEM_LEFTOVERS
-        move MOVE_SCALD
-        move MOVE_TOXIC
-        move MOVE_WISH
-        move MOVE_PROTECT
-        ability ABILITY_WATER_ABSORB
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_CALM
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-	    ivs 0
-        abilityslot 0
-        level LEVEL_CHUCK-1
-        pokemon SPECIES_HYPNO
-        item ITEM_CHOICE_BAND
-        move MOVE_ZEN_HEADBUTT
-        move MOVE_BRICK_BREAK
-        move MOVE_FIRE_PUNCH
-        move MOVE_ICE_PUNCH
-        ability ABILITY_INSOMNIA
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -20533,17 +20515,35 @@ trainerdata 498, "Eusine"
 	    ivs 0
         abilityslot 0
         level LEVEL_CHUCK-2
-        pokemon SPECIES_CAMERUPT
+        pokemon SPECIES_BEHEEYEM
         item ITEM_LIFE_ORB
-        move MOVE_ANCIENT_POWER
-        move MOVE_FIRE_BLAST
-        move MOVE_EARTH_POWER
-        move MOVE_ROCK_SLIDE
-        ability ABILITY_SOLID_ROCK
+        move MOVE_PSYCHIC
+        move MOVE_THUNDERBOLT
+        move MOVE_RECOVER
+        move MOVE_THUNDER_WAVE
+        ability ABILITY_TELEPATHY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_QUIET
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CHUCK-2
+        pokemon SPECIES_MANECTRIC
+        item ITEM_MANECTITE
+        move MOVE_DISCHARGE
+        move MOVE_VOLT_SWITCH
+        move MOVE_FLAME_BURST
+        move MOVE_SNARL
+        ability ABILITY_LIGHTNING_ROD
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
