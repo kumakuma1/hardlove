@@ -11372,7 +11372,7 @@ trainerdata 262, "Mickey"
         ballseal 0
     endparty
 
-trainerdata 263, "Silver"
+trainerdata 263, "Silver" //grass
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_RIVAL
     nummons 6
@@ -11387,32 +11387,50 @@ trainerdata 263, "Silver"
     party 263
         ivs 0
         abilityslot 0
-        level LEVEL_MORTY
-        pokemon SPECIES_CROBAT
-        item ITEM_SITRUS_BERRY
-        move MOVE_U_TURN
-        move MOVE_POISON_FANG
-        move MOVE_BITE
-        move MOVE_AERIAL_ACE
-        ability ABILITY_SNIPER
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
         level LEVEL_MORTY-1
-        pokemon SPECIES_SABLEYE
-        item ITEM_SITRUS_BERRY
-        move MOVE_FAKE_OUT
-        move MOVE_WILL_O_WISP
-        move MOVE_SHADOW_SNEAK
-        move MOVE_KNOCK_OFF
-        ability ABILITY_PRANKSTER
+        pokemon SPECIES_CROBAT
+        item ITEM_SHARP_BEAK
+        move MOVE_BRAVE_BIRD
+        move MOVE_ROOST
+        move MOVE_HYPNOSIS
+        move MOVE_SUPER_FANG
+        ability ABILITY_INNER_FOCUS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-2
+        pokemon SPECIES_HOUNDOOM
+        item ITEM_POWER_HERB
+        move MOVE_FLAMETHROWER
+        move MOVE_DARK_PULSE
+        move MOVE_PURSUIT
+        move MOVE_SOLAR_BEAM
+        ability ABILITY_UNNERVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_HASTY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-2
+        pokemon SPECIES_KINGDRA
+        item ITEM_LEFTOVERS
+        move MOVE_WATERFALL
+        move MOVE_SCALE_SHOT
+        move MOVE_IRON_HEAD
+        move MOVE_DRAGON_DANCE
+        ability ABILITY_SNIPER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -11420,17 +11438,17 @@ trainerdata 263, "Silver"
         shinylock 0
         additionalflags 0
         ballseal 0
-
-        ivs 0
+		
+	    ivs 0
         abilityslot 0
-        level LEVEL_MORTY
-        pokemon SPECIES_KINGDRA
-        item ITEM_LIFE_ORB
-        move MOVE_BRINE
-        move MOVE_DRAGON_BREATH
-        move MOVE_FLIP_TURN
-        move MOVE_YAWN
-        ability ABILITY_SNIPER
+        level LEVEL_MORTY-2
+        pokemon SPECIES_GARDEVOIR
+        item ITEM_FOCUS_SASH
+        move MOVE_PSYSHOCK
+        move MOVE_MOONBLAST
+        move MOVE_ICY_WIND
+        move MOVE_DESTINY_BOND
+        ability ABILITY_SYNCHRONIZE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -11441,32 +11459,14 @@ trainerdata 263, "Silver"
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_MORTY
-        pokemon SPECIES_EXCADRILL
-        item ITEM_SITRUS_BERRY
-        move MOVE_STOMPING_TANTRUM
-        move MOVE_ROCK_TOMB
-        move MOVE_RAPID_SPIN
-        move MOVE_METAL_CLAW
-        ability ABILITY_SAND_RUSH
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-	    ivs 0
-        abilityslot 0
-        level LEVEL_MORTY-1
-        pokemon SPECIES_ARCANINE
-        item ITEM_SITRUS_BERRY
-        move MOVE_EXTREME_SPEED
-        move MOVE_FLAMETHROWER
-        move MOVE_COVET
-        move MOVE_THUNDER_FANG
-        ability ABILITY_INTIMIDATE
+        level LEVEL_MORTY-2
+        pokemon SPECIES_MIENSHAO
+        item ITEM_WHITE_HERB
+        move MOVE_CLOSE_COMBAT
+        move MOVE_ACROBATICS
+        move MOVE_KNOCK_OFF
+        move MOVE_STONE_EDGE
+        ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -11478,15 +11478,15 @@ trainerdata 263, "Silver"
 	    ivs 0
         abilityslot 0
         level LEVEL_MORTY
-        pokemon SPECIES_VENUSAUR
+        pokemon SPECIES_MEGANIUM
         item ITEM_SITRUS_BERRY
-        move MOVE_GIGA_DRAIN
+        move MOVE_ENERGY_BALL
         move MOVE_SLEEP_POWDER
-        move MOVE_HIDDEN_POWER //ROCK
-        move MOVE_EARTHQUAKE
+        move MOVE_ANCIENT_POWER
+        move MOVE_SYNTHESIS
         ability ABILITY_OVERGROW
         ball ITEM_POKE_BALL
-        setivs 31, 31, 30, 30, 31, 30 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
@@ -11719,60 +11719,124 @@ trainerdata 266, "Silver" //FIRE
     endparty
 
 trainerdata 267, "Silver" //FIRE
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_RIVAL
-    nummons 4
+    nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 267
-        // mon 0
-        ivs 80
+        ivs 0
         abilityslot 0
-        level 20
-        pokemon SPECIES_GASTLY
-        move MOVE_LICK
-        move MOVE_CONFUSE_RAY
-        move MOVE_MEAN_LOOK
-        move MOVE_CURSE
+        level LEVEL_MORTY-1
+        pokemon SPECIES_CROBAT
+        item ITEM_SHARP_BEAK
+        move MOVE_BRAVE_BIRD
+        move MOVE_ROOST
+        move MOVE_HYPNOSIS
+        move MOVE_SUPER_FANG
+        ability ABILITY_INNER_FOCUS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
-        ivs 80
+        ivs 0
         abilityslot 0
-        level 18
-        pokemon SPECIES_MAGNEMITE
-        move MOVE_THUNDER_WAVE
-        move MOVE_THUNDER_SHOCK
-        move MOVE_SUPERSONIC
-        move MOVE_SONIC_BOOM
+        level LEVEL_MORTY-2
+        pokemon SPECIES_WEAVILE
+        item ITEM_FOCUS_SASH
+        move MOVE_NIGHT_SLASH
+        move MOVE_ICICLE_SPEAR
+        move MOVE_PURSUIT
+        move MOVE_LOW_KICK
+        ability ABILITY_INNER_FOCUS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 2
-        ivs 80
+        ivs 0
         abilityslot 0
-        level 20
-        pokemon SPECIES_ZUBAT
-        move MOVE_ASTONISH
-        move MOVE_SUPERSONIC
-        move MOVE_BITE
-        move MOVE_WING_ATTACK
+        level LEVEL_MORTY-2
+        pokemon SPECIES_KINGDRA
+        item ITEM_LEFTOVERS
+        move MOVE_WATERFALL
+        move MOVE_SCALE_SHOT
+        move MOVE_IRON_HEAD
+        move MOVE_DRAGON_DANCE
+        ability ABILITY_SNIPER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
-
-        // mon 3
-        ivs 80
+		
+	    ivs 0
         abilityslot 0
-        level 22
-        pokemon SPECIES_QUILAVA
-        move MOVE_FLAME_WHEEL
-        move MOVE_SMOKESCREEN
-        move MOVE_EMBER
-        move MOVE_QUICK_ATTACK
+        level LEVEL_MORTY-2
+        pokemon SPECIES_ROSERADE
+        item ITEM_SITRUS_BERRY
+        move MOVE_MEGA_DRAIN
+        move MOVE_SLUDGE_BOMB
+        move MOVE_SLEEP_POWDER
+        move MOVE_HIDDEN_POWER //ROCK
+        ability ABILITY_TECHNICIAN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 30, 30, 31, 30 // hp, atk, def, spd, spatk, spdef //HP Rock
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-2
+        pokemon SPECIES_GRANBULL
+        item ITEM_ASSAULT_VEST
+        move MOVE_PLAY_ROUGH
+        move MOVE_EARTHQUAKE
+        move MOVE_PAYBACK
+        move MOVE_COUNTER
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_CAREFUL
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_MORTY
+        pokemon SPECIES_TYPHLOSION
+        item ITEM_POWER_HERB
+        move MOVE_LAVA_PLUME
+        move MOVE_SCORCHING_SANDS
+        move MOVE_EXTRASENSORY
+        move MOVE_SOLAR_BEAM
+        ability ABILITY_BLAZE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -11994,108 +12058,108 @@ trainerdata 270, "Silver"
     party 270
         ivs 0
         abilityslot 0
-        level LEVEL_MORTY
+        level LEVEL_MORTY-1
         pokemon SPECIES_CROBAT
-        item ITEM_SITRUS_BERRY
-        move MOVE_U_TURN
-        move MOVE_POISON_FANG
-        move MOVE_BITE
-        move MOVE_AERIAL_ACE
-        ability ABILITY_SNIPER
+        item ITEM_SHARP_BEAK
+        move MOVE_BRAVE_BIRD
+        move MOVE_ROOST
+        move MOVE_HYPNOSIS
+        move MOVE_SUPER_FANG
+        ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
 
         ivs 0
         abilityslot 0
-        level LEVEL_MORTY-1
-        pokemon SPECIES_SABLEYE
-        item ITEM_SITRUS_BERRY
-        move MOVE_FAKE_OUT
-        move MOVE_WILL_O_WISP
-        move MOVE_SHADOW_SNEAK
-        move MOVE_KNOCK_OFF
-        ability ABILITY_PRANKSTER
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_MORTY
-        pokemon SPECIES_EXCADRILL
-        item ITEM_SITRUS_BERRY
-        move MOVE_STOMPING_TANTRUM
-        move MOVE_ROCK_TOMB
-        move MOVE_RAPID_SPIN
-        move MOVE_METAL_CLAW
-        ability ABILITY_SAND_RUSH
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-	    ivs 0
-        abilityslot 0
-        level LEVEL_MORTY-1
-        pokemon SPECIES_ARCANINE
-        item ITEM_SITRUS_BERRY
-        move MOVE_EXTREME_SPEED
+        level LEVEL_MORTY-2
+        pokemon SPECIES_HOUNDOOM
+        item ITEM_POWER_HERB
         move MOVE_FLAMETHROWER
-        move MOVE_COVET
-        move MOVE_THUNDER_FANG
-        ability ABILITY_INTIMIDATE
+        move MOVE_DARK_PULSE
+        move MOVE_PURSUIT
+        move MOVE_SOLAR_BEAM
+        ability ABILITY_UNNERVE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_HASTY
         shinylock 0
         additionalflags 0
         ballseal 0
-		
-	    ivs 0
+
+        ivs 0
         abilityslot 0
-        level LEVEL_MORTY-1
+        level LEVEL_MORTY-2
         pokemon SPECIES_ROSERADE
-        item ITEM_LIFE_ORB
+        item ITEM_SITRUS_BERRY
         move MOVE_MEGA_DRAIN
-        move MOVE_LEECH_SEED
-        move MOVE_GRASS_WHISTLE
         move MOVE_SLUDGE_BOMB
+        move MOVE_SLEEP_POWDER
+        move MOVE_HIDDEN_POWER //ROCK
         ability ABILITY_TECHNICIAN
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 30, 30, 31, 30 // hp, atk, def, spd, spatk, spdef //HP Rock
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
-
+		
 	    ivs 0
         abilityslot 0
-        level LEVEL_MORTY
-        pokemon SPECIES_BLASTOISE
-        item ITEM_SITRUS_BERRY
-        move MOVE_FAKE_OUT
-        move MOVE_SURF
-        move MOVE_ICY_WIND
-        move MOVE_DARK_PULSE
-        ability ABILITY_TORRENT
+        level LEVEL_MORTY-2
+        pokemon SPECIES_ALCREMIE
+        item ITEM_LEFTOVERS
+        move MOVE_STORED_POWER
+        move MOVE_MOONBLAST
+        move MOVE_ACID_ARMOR
+        move MOVE_RECOVER
+        ability ABILITY_SWEET_VEIL
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_BOLD
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-2
+        pokemon SPECIES_MIENSHAO
+        item ITEM_WHITE_HERB
+        move MOVE_CLOSE_COMBAT
+        move MOVE_ACROBATICS
+        move MOVE_KNOCK_OFF
+        move MOVE_STONE_EDGE
+        ability ABILITY_INNER_FOCUS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_MORTY
+        pokemon SPECIES_FERALIGATR
+        item ITEM_LIFE_ORB
+        move MOVE_LIQUIDATION
+        move MOVE_ICE_PUNCH
+        move MOVE_CRUNCH
+        move MOVE_DRAGON_DANCE
+        ability ABILITY_SHEER_FORCE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0

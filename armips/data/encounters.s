@@ -3043,12 +3043,12 @@ pokemon SPECIES_ABSOL           //10%
 pokemon SPECIES_LAIRON          //10%
 pokemon SPECIES_HATTREM    	    //10%
 pokemon SPECIES_GLISCOR	        //10%
-pokemon SPECIES_DRILBUR         //10%
+pokemon SPECIES_TORKOAL        //10%
 pokemon SPECIES_DUOSION	        //10%
 pokemon SPECIES_ABSOL	        //5%
 pokemon SPECIES_LAIRON	        //5%
 pokemon SPECIES_HATTREM 	    //5%
-pokemon SPECIES_TYRUNT  	    //5%
+pokemon SPECIES_DRILBUR  	    //5%
 
 // day encounter slots
 pokemon SPECIES_GOLBAT 	        //10% 
@@ -3057,12 +3057,12 @@ pokemon SPECIES_ABSOL           //10%
 pokemon SPECIES_LAIRON          //10%
 pokemon SPECIES_HATTREM    	    //10%
 pokemon SPECIES_GLISCOR	        //10%
-pokemon SPECIES_DRILBUR         //10%
-pokemon SPECIES_DUOSION 	    //10%
+pokemon SPECIES_TORKOAL        //10%
+pokemon SPECIES_DUOSION	        //10%
 pokemon SPECIES_ABSOL	        //5%
 pokemon SPECIES_LAIRON	        //5%
 pokemon SPECIES_HATTREM 	    //5%
-pokemon SPECIES_TYRUNT  	    //5%
+pokemon SPECIES_DRILBUR  	    //5%
 
 // night encounter slots
 pokemon SPECIES_GOLBAT 	        //10% 
@@ -3071,12 +3071,12 @@ pokemon SPECIES_ABSOL           //10%
 pokemon SPECIES_LAIRON          //10%
 pokemon SPECIES_HATTREM    	    //10%
 pokemon SPECIES_GLISCOR	        //10%
-pokemon SPECIES_DRILBUR         //10%
+pokemon SPECIES_TORKOAL        //10%
 pokemon SPECIES_DUOSION	        //10%
 pokemon SPECIES_ABSOL	        //5%
 pokemon SPECIES_LAIRON	        //5%
 pokemon SPECIES_HATTREM 	    //5%
-pokemon SPECIES_TYRUNT  	    //5%
+pokemon SPECIES_DRILBUR  	    //5%
 
 // hoenn encounter slots
 pokemon SPECIES_NONE
