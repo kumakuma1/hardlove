@@ -17,17 +17,6 @@ u8 customFieldMoveCheckInPartyMenu(struct PLIST_WORK *wk, struct PartyPokemon *p
     u8 type1 = GetMonData(pp, MON_DATA_TYPE_1, NULL);
     u8 type2 = GetMonData(pp, MON_DATA_TYPE_2, NULL);
 
-    if(count < 8 && (type1 == TYPE_FLYING || type2 == TYPE_FLYING))
-    {
-        if (Bag_HasItem(bag, ITEM_HM02, 1, HEAPID_MAIN_HEAP))
-        {
-            buf[count] = PARTY_MON_CONTEXT_MENU_FLY;
-            ++count;
-            PartyMenu_ContextMenuAddFieldMove(wk, MOVE_FLY, fieldMoveIndex);
-            ++fieldMoveIndex;
-        }
-    }
-
     if(count < 8 && (type1 == TYPE_WATER || type2 == TYPE_WATER))
     {
         if (Bag_HasItem(bag, ITEM_HM03, 1, HEAPID_MAIN_HEAP))
@@ -57,6 +46,17 @@ u8 customFieldMoveCheckInPartyMenu(struct PLIST_WORK *wk, struct PartyPokemon *p
             buf[count] = PARTY_MON_CONTEXT_MENU_WATERFALL;
             ++count;
             PartyMenu_ContextMenuAddFieldMove(wk, MOVE_WATERFALL, fieldMoveIndex);
+            ++fieldMoveIndex;
+        }
+    }
+
+    if (count < 8)
+    {
+        if (Bag_HasItem(bag, ITEM_HM02, 1, HEAPID_MAIN_HEAP))
+        {
+            buf[count] = PARTY_MON_CONTEXT_MENU_FLY;
+            ++count;
+            PartyMenu_ContextMenuAddFieldMove(wk, MOVE_FLY, fieldMoveIndex);
             ++fieldMoveIndex;
         }
     }
