@@ -3305,7 +3305,7 @@ mondata SPECIES_LAPRAS, "Lapras"
     basefriendship 50
     growthrate GROWTH_SLOW
     egggroups EGG_GROUP_MONSTER, EGG_GROUP_WATER_1
-    abilities ABILITY_WATER_ABSORB, ABILITY_SHELL_ARMOR
+    abilities ABILITY_SHELL_ARMOR, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BLUE, 0
     mondexentry SPECIES_LAPRAS, "They have gentle hearts. Because\nthey rarely fight, many have been\ncaught. Their number has dwindled."
