@@ -92,7 +92,7 @@
 .halfword ITEM_GREAT_BALL
 
 .org 0x02000000 + 0xFA638 //Slowpoke Well B1F Rock
-.halfword ITEM_MOON_STONE
+.halfword ITEM_NUGGET
 
 .org 0x02000000 + 0xFA640 //Slowpoke Well B1F Ladder
 .halfword ITEM_FULL_HEAL
