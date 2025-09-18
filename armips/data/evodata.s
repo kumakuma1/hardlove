@@ -2604,7 +2604,7 @@ evodata SPECIES_SNEASEL
     terminateevodata
 
 evodata SPECIES_TEDDIURSA
-    evolution EVO_LEVEL, 26, SPECIES_URSARING
+    evolution EVO_LEVEL, 30, SPECIES_URSARING
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2616,7 +2616,7 @@ evodata SPECIES_TEDDIURSA
     terminateevodata
 
 evodata SPECIES_URSARING
-    evolution EVO_ITEM_NIGHT, ITEM_PEAT_BLOCK, SPECIES_URSALUNA
+    evolution EVO_STONE, ITEM_HONEY, SPECIES_URSALUNA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4992,7 +4992,7 @@ evodata SPECIES_MOTHIM
     terminateevodata
 
 evodata SPECIES_COMBEE
-    evolution EVO_LEVEL_FEMALE, 21, SPECIES_VESPIQUEN
+    evolution EVO_LEVEL, 21, SPECIES_VESPIQUEN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

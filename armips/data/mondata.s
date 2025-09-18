@@ -7528,7 +7528,7 @@ mondata SPECIES_SKITTY, "Skitty"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_MOON_STONE, ITEM_NONE
     genderratio 190
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 70
@@ -10403,7 +10403,7 @@ mondata SPECIES_COMBEE, "Combee"
     .else
         evyields 0, 0, 0, 0, 0, 0
     .endif
-    items ITEM_NONE, ITEM_NONE
+    items ITEM_HONEY, ITEM_NONE
     genderratio 31
     eggcycles (SHORTENED_EGG_CYCLE) ? 1 : 15
     basefriendship 50
