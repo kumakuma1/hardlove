@@ -467,8 +467,9 @@
 #define SUB_SEQ_HANDLE_PARTING_SHOT                   (457)
 #define SUB_SEQ_HANDLE_CLEAR_SMOG                     (458)
 #define SUB_SEQ_HANDLE_FLAME_BURST_HIT                (459)
+#define SUB_SEQ_CHEEK_POUCH                           (460)
 
-#define MAX_BASE_SUBSCRIPT_NUM 459
+#define MAX_BASE_SUBSCRIPT_NUM 460
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
