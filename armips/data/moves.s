@@ -14286,7 +14286,7 @@ movedata MOVE_TWIN_BEAM, "Twin Beam"
 movedata MOVE_RAGE_FIST, "Rage Fist"
     battleeffect MOVE_EFFECT_HIT
     pss SPLIT_PHYSICAL
-    basepower 50
+    basepower 90
     type TYPE_GHOST
     accuracy 100
     pp 10

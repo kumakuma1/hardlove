@@ -2690,23 +2690,20 @@ levelup SPECIES_GYARADOS
 
 
 levelup SPECIES_LAPRAS
-    learnset MOVE_GROWL, 1
-    learnset MOVE_WATER_GUN, 1
-    learnset MOVE_SING, 1
-    learnset MOVE_SING, 5
-    learnset MOVE_MIST, 7
-    learnset MOVE_LIFE_DEW, 15
-    learnset MOVE_ICE_SHARD, 15
-    learnset MOVE_CONFUSE_RAY, 16
-    learnset MOVE_WATER_PULSE, 22
-    learnset MOVE_BODY_SLAM, 29
-    learnset MOVE_BRINE, 35
-    learnset MOVE_RAIN_DANCE, 36
-    learnset MOVE_ICE_BEAM, 38
-    learnset MOVE_SAFEGUARD, 43
-    learnset MOVE_PERISH_SONG, 44
-    learnset MOVE_HYDRO_PUMP, 51
-    learnset MOVE_SHEER_COLD, 58
+    learnset MOVE_POUND, 1 
+    learnset MOVE_WATER_GUN, 1 
+    learnset MOVE_DISARMING_VOICE, 4 
+    learnset MOVE_BABY_DOLL_EYES, 7 
+    learnset MOVE_LIFE_DEW, 10
+    learnset MOVE_AQUA_JET, 14
+    learnset MOVE_ICY_WIND, 19
+    learnset MOVE_CONFUSE_RAY, 24
+    learnset MOVE_SING, 28
+    learnset MOVE_SCALD, 34
+    learnset MOVE_FREEZE_DRY, 40
+    learnset MOVE_PERISH_SONG, 46
+    learnset MOVE_BLIZZARD, 52
+    learnset MOVE_HYDRO_PUMP, 58
     terminatelearnset
 
 

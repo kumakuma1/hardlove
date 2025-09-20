@@ -52,7 +52,7 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
         }
         else if (nature == 1)
         {
-            trade_dat->give_species = SPECIES_TYPHLOSION_HISUIAN;
+            trade_dat->give_species = SPECIES_HERACROSS;
         }
         else
         {
