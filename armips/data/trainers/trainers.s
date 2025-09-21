@@ -1671,7 +1671,7 @@ trainerdata 25, "Russel"
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-2
-        monWithForm SPECIES_SANDSHREW
+        monWithForm SPECIES_SANDSHREW, 1
         item ITEM_SITRUS_BERRY
         move MOVE_ROCK_TOMB
         move MOVE_ICE_SHARD
@@ -1694,7 +1694,7 @@ trainerdata 25, "Russel"
         move MOVE_PSYBEAM
         move MOVE_WATER_PULSE
         move MOVE_YAWN
-        move MOVE_WACUUM_WAVE
+        move MOVE_VACUUM_WAVE
         ability ABILITY_DAMP
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
