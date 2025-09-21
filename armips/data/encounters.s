@@ -1903,7 +1903,7 @@ pokemon SPECIES_ZUBAT				//10%
 pokemon SPECIES_ONIX				//10%
 pokemon SPECIES_NATU                //5%
 pokemon SPECIES_DWEBBLE 			//5%
-pokemon SPECIES_ABRA				//5%
+pokemon SPECIES_BALTOY				//5%
 pokemon SPECIES_SNEASEL				//5%
 
 // day encounter slots
@@ -1917,7 +1917,7 @@ pokemon SPECIES_ZUBAT				//10%
 pokemon SPECIES_ONIX				//10%
 pokemon SPECIES_NATU                //5%
 pokemon SPECIES_DWEBBLE 			//5%
-pokemon SPECIES_ABRA				//5%
+pokemon SPECIES_BALTOY				//5%
 pokemon SPECIES_SNEASEL				//5%
 
 // night encounter slots
@@ -1931,7 +1931,7 @@ pokemon SPECIES_ZUBAT				//10%
 pokemon SPECIES_ONIX				//10%
 pokemon SPECIES_NATU                //5%
 pokemon SPECIES_DWEBBLE 			//5%
-pokemon SPECIES_ABRA				//5%
+pokemon SPECIES_BALTOY				//5%
 pokemon SPECIES_SNEASEL				//5%
 
 // hoenn encounter slots
