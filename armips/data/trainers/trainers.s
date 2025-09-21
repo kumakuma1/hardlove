@@ -753,7 +753,7 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
         pokemon SPECIES_EXEGGUTOR
         item ITEM_STARF_BERRY
         move MOVE_PSYCHO_CUT
-        move MOVE_MEGA_DRAIN
+        move MOVE_GIGA_DRAIN
         move MOVE_HYPNOSIS
         move MOVE_BODY_SLAM
         ability ABILITY_HARVEST
