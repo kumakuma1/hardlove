@@ -1811,46 +1811,6 @@ End
 21: Wow!\nI also picked a Fire Pokémon as\fStarter.\rThey are the best, but they might\nneed some help on their adventures.\rHere take this.\r
 
 
-###Heartscale after Ilex/on R34:
-171 - R34R0201 - Script FIle 239 - Text FIle 386
-
-Script 3:
-	PlayFanfare 1500
-	LockAll 
-	FacePlayer 
-    CheckStarter 0x800C
-	CompareVarValue 0x800C 775
-	JumpIf DIFFERENT Function#3
-    CheckFlag 423
-	JumpIf EQUAL Function#4
-    Message 6
-    SetVar 0x8004 93
-	SetVar 0x8005 1
-	CheckItemSpace 0x8004 0x8005 0x800C
-	CompareVarValue 0x800C 0
-	JumpIf EQUAL Function#2
-	CommonScript 2033
-    SetFlag 423
-	CloseMessage 
-	ReleaseAll 
-End 
-
-Function 3:
-	Message 4
-	CloseMessage 
-	ReleaseAll 
-End 
-
-Function 4:
-    Message 5
-	CloseMessage 
-	ReleaseAll 
-End 
-
-5:Good luck out there!\r
-6:Wow, you have Litten as Starter!\rMe too! That is so cool.\rTake this.\r
-
-
 ###NPC text in R46
 Message 2:
 A dead end...?\rDid I take the wrong path?\rI didn’t know this was only\none way.
