@@ -17059,7 +17059,7 @@ trainerdata 395, "Mark" // route 36
         item ITEM_FOCUS_SASH
         move MOVE_PSYSHOCK
         move MOVE_DAZZLING_GLEAM
-        move MOVE_TELEPORT
+        move MOVE_SIGNAL_BEAM
         move MOVE_THUNDER_WAVE
         ability ABILITY_SYNCHRONIZE
         ball ITEM_POKE_BALL
@@ -17074,8 +17074,8 @@ trainerdata 395, "Mark" // route 36
         abilityslot 0
         level LEVEL_SCHORSCH-2
         pokemon SPECIES_LUCARIO
-        item ITEM_STEEL_GEM
-        move MOVE_VACUUM_WAVE
+        item ITEM_SITRUS_BERRY
+        move MOVE_METAL_CLAW
         move MOVE_BULLET_PUNCH
         move MOVE_CRUNCH
         move MOVE_BRICK_BREAK
@@ -17110,7 +17110,7 @@ trainerdata 395, "Mark" // route 36
         abilityslot 0
         level LEVEL_SCHORSCH-2
         pokemon SPECIES_SIMISAGE
-        item ITEM_LUM_BERRY
+        item ITEM_POWER_HERB
         move MOVE_GIGA_DRAIN
         move MOVE_ACROBATICS
         move MOVE_DIG
