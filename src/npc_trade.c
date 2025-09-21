@@ -66,7 +66,7 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
         //random ability
 
         trade_dat->gender = POKEMON_GENDER_FEMALE;
-        level = 35;
+        level = 36;
     }
     else if (tradeno == NPC_TRADE_SHUCKIE_SHUCKLE)
     {
