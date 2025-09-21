@@ -753,7 +753,7 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
         pokemon SPECIES_EXEGGUTOR
         item ITEM_STARF_BERRY
         move MOVE_PSYCHO_CUT
-        move MOVE_MEGA_DRAIN
+        move MOVE_GIGA_DRAIN
         move MOVE_HYPNOSIS
         move MOVE_BODY_SLAM
         ability ABILITY_HARVEST
@@ -3082,7 +3082,7 @@ trainerdata 46, "Martha"
     party 46
 		ivs 0
         abilityslot 0
-        level LEVEL_MORTY-3
+        level LEVEL_MORTY-1
         pokemon SPECIES_INDEEDEE
         item ITEM_LIGHT_CLAY
         move MOVE_EXPANDING_FORCE
@@ -3100,8 +3100,8 @@ trainerdata 46, "Martha"
 		
 		ivs 0
         abilityslot 0
-        level LEVEL_MORTY-3
-        pokemon SPECIES_DRIFLOON
+        level LEVEL_MORTY-1
+        pokemon SPECIES_DRIFBLIM
         item ITEM_PSYCHIC_SEED
         move MOVE_OMINOUS_WIND
         move MOVE_AIR_SLASH
@@ -3118,7 +3118,7 @@ trainerdata 46, "Martha"
 
         ivs 0
         abilityslot 0
-        level LEVEL_MORTY-2
+        level LEVEL_MORTY-1
         pokemon SPECIES_FROSLASS
         item ITEM_SITRUS_BERRY
         move MOVE_ICE_BEAM
