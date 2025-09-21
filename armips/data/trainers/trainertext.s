@@ -1831,7 +1831,7 @@ _1068: // Trainer 282
 
 _1074: // Trainer 181
     trainertextentry 181, TEXT_NOTICE_IN_OVERWORLD, "We adore our Pokémon, even if they\ndislike us. That’s what being a\fPokéfan is all about.\r"
-    trainertextentry 181, TEXT_DEFEATED_IN_BATTLE, "M-my Pokémon!\n"
+    trainertextentry 181, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "M-my Pokémon!\n"
     trainertextentry 181, TEXT_DEFEATED_IN_OVERWORLD, "I lost the battle, but my Pokémon win\nthe prize for being the most lovely.\n"
 
 _1080: // Trainer 182

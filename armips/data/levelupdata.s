@@ -13857,7 +13857,7 @@ levelup SPECIES_FLETCHLING
     learnset MOVE_NATURAL_GIFT, 29
     learnset MOVE_ACROBATICS, 34
     learnset MOVE_ME_FIRST, 40
-    learnset MOVE_TAILWIND, 45
+    learnset MOVE_TAILWIND, 44
 	terminatelearnset
 
 
@@ -13872,7 +13872,7 @@ levelup SPECIES_FLETCHINDER
     learnset MOVE_NATURAL_GIFT, 31
     learnset MOVE_ACROBATICS, 37
     learnset MOVE_ME_FIRST, 41
-    learnset MOVE_TAILWIND, 45
+    learnset MOVE_TAILWIND, 44
 	terminatelearnset
 
 
@@ -13887,7 +13887,7 @@ levelup SPECIES_TALONFLAME
     learnset MOVE_NATURAL_GIFT, 31
     learnset MOVE_ACROBATICS, 38
     learnset MOVE_ME_FIRST, 42
-    learnset MOVE_TAILWIND, 46
+    learnset MOVE_TAILWIND, 45
     learnset MOVE_FLARE_BLITZ, 52
     learnset MOVE_BRAVE_BIRD, 60
 	terminatelearnset

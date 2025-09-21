@@ -2939,7 +2939,7 @@ pokemon SPECIES_KROKOROK        //10%
 pokemon SPECIES_NUMEL           //10%
 pokemon SPECIES_BRAIXEN    	    //10%
 pokemon SPECIES_GOLBAT	        //10%
-pokemon SPECIES_LITLEO          //10%
+pokemon SPECIES_MAGCARGO        //10%
 pokemon SPECIES_HYPNO 	        //10%
 pokemon SPECIES_KROKOROK	    //5%
 pokemon SPECIES_MAGMAR	        //5%
@@ -2953,7 +2953,7 @@ pokemon SPECIES_KROKOROK        //10%
 pokemon SPECIES_NUMEL           //10%
 pokemon SPECIES_BRAIXEN    	    //10%
 pokemon SPECIES_GOLBAT	        //10%
-pokemon SPECIES_LITLEO          //10%
+pokemon SPECIES_MAGCARGO        //10%
 pokemon SPECIES_HYPNO 	        //10%
 pokemon SPECIES_KROKOROK	    //5%
 pokemon SPECIES_MAGMAR	        //5%
@@ -2967,7 +2967,7 @@ pokemon SPECIES_KROKOROK        //10%
 pokemon SPECIES_NUMEL           //10%
 pokemon SPECIES_BRAIXEN    	    //10%
 pokemon SPECIES_GOLBAT	        //10%
-pokemon SPECIES_LITLEO          //10%
+pokemon SPECIES_MAGCARGO        //10%
 pokemon SPECIES_HYPNO 	        //10%
 pokemon SPECIES_KROKOROK	    //5%
 pokemon SPECIES_MAGMAR	        //5%
