@@ -1638,37 +1638,70 @@ trainerdata 24, "Alan"
    endparty
 
 trainerdata 25, "Russel"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_HIKER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 25
-        // mon 0
         ivs 0
-        abilityslot 32
-        level 4
-        pokemon SPECIES_GEODUDE
+        abilityslot 0
+        level LEVEL_PROTON_1-2
+        monWithForm SPECIES_GEODUDE, 1
+        item ITEM_CUSTAP_BERRY
+        move MOVE_SPARK
+        move MOVE_ROCK_TOMB
+        move MOVE_BULLDOZE
+        move MOVE_NONE
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
-        abilityslot 32
-        level 6
-        pokemon SPECIES_GEODUDE
+        abilityslot 0
+        level LEVEL_PROTON_1-2
+        monWithForm SPECIES_SANDSHREW
+        item ITEM_SITRUS_BERRY
+        move MOVE_ROCK_TOMB
+        move MOVE_ICE_SHARD
+        move MOVE_ICICLE_SPEAR
+        move MOVE_METAL_CLAW
+        ability ABILITY_SNOW_CLOAK
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 2
         ivs 0
-        abilityslot 32
-        level 8
-        pokemon SPECIES_GEODUDE
+        abilityslot 0
+        level LEVEL_PROTON_1-3
+        pokemon SPECIES_PSYDUCK
+        item ITEM_LUM_BERRY
+        move MOVE_PSYBEAM
+        move MOVE_WATER_PULSE
+        move MOVE_YAWN
+        move MOVE_WACUUM_WAVE
+        ability ABILITY_DAMP
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
