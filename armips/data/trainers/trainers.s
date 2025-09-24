@@ -17128,17 +17128,17 @@ trainerdata 391, "Issac"
         ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-4
-        pokemon SPECIES_BEWEAR
-        item ITEM_PUNCHING_GLOVE
-        move MOVE_MEGA_PUNCH
-        move MOVE_ICE_PUNCH
-        move MOVE_THUNDER_PUNCH
-        move MOVE_DRAIN_PUNCH
-        ability ABILITY_FLUFFY
+        pokemon SPECIES_DELCATTY
+        item ITEM_SILK_SCARF
+        move MOVE_FAKE_OUT
+        move MOVE_LAST_RESORT
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_NORMALIZE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
