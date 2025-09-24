@@ -302,7 +302,7 @@ trainerdata 5, "Victoria"
     party 5
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-5
+        level LEVEL_WHITNEY-4
         pokemon SPECIES_DODRIO
         item ITEM_STARF_BERRY
         move MOVE_ACROBATICS
@@ -320,7 +320,7 @@ trainerdata 5, "Victoria"
 
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-5
+        level LEVEL_WHITNEY-4
         pokemon SPECIES_DUBWOOL
         item ITEM_SITRUS_BERRY
         move MOVE_BODY_SLAM
@@ -17113,27 +17113,70 @@ trainerdata 390, "Ray"
     endparty
 
 trainerdata 391, "Issac"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_POKE_MANIAC
-    nummons 1
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
-    party 391
-        // mon 0
+    party 390
         ivs 0
         abilityslot 0
-        level 12
-        pokemon SPECIES_LICKITUNG
-        move MOVE_LICK
-        move MOVE_SUPERSONIC
-        move MOVE_CUT
+        level LEVEL_WHITNEY-4
+        pokemon SPECIES_BEWEAR
+        item ITEM_PUNCHING_GLOVE
+        move MOVE_MEGA_PUNCH
+        move MOVE_ICE_PUNCH
+        move MOVE_THUNDER_PUNCH
+        move MOVE_DRAIN_PUNCH
+        ability ABILITY_FLUFFY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-4
+        pokemon SPECIES_EXPLOUD
+        item ITEM_CHOICE_SCARF
+        move MOVE_HYPER_VOICE
+        move MOVE_FLAMETHROWER
+        move MOVE_EXTRASENSORY
         move MOVE_NONE
+        ability ABILITY_SOUNDPROOF
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-5
+        pokemon SPECIES_LINOONE
+        item ITEM_SITRUS_BERRY
+        move MOVE_EXTREME_SPEED
+        move MOVE_BELLY_DRUM
+        move MOVE_PURSUIT
+        move MOVE_NONE
+        ability ABILITY_GLUTTONY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
