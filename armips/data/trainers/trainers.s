@@ -389,12 +389,12 @@ trainerdata 6, "Keith"
 	    ivs 0
         abilityslot 0
         level LEVEL_SCHORSCH-4
-        pokemon SPECIES_GRANBULL
-        item ITEM_QUICK_CLAW
+        pokemon SPECIES_MIGHTYENA
+        item ITEM_LUM_BERRY
         move MOVE_PLAY_ROUGH
-        move MOVE_ICE_PUNCH
-        move MOVE_BRICK_BREAK
-        move MOVE_BULK_UP
+        move MOVE_ICE_FANG
+        move MOVE_CRUNCH
+        move MOVE_POISON_FANG
         ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -5222,7 +5222,7 @@ trainerdata 76, "Brooke"
         item ITEM_LIFE_ORB
         move MOVE_FIRST_IMPRESSION
         move MOVE_SUCKER_PUNCH
-        move MOVE_NONE
+        move MOVE_LEECH_LIFE
         move MOVE_NONE
         ability ABILITY_TINTED_LENS
         ball ITEM_POKE_BALL
@@ -8665,7 +8665,7 @@ trainerdata 178, "Jack"
     party 178
         ivs 0
         abilityslot 0
-        level LEVEL_SCHORSCH-2
+        level LEVEL_SCHORSCH-1
         pokemon SPECIES_VILEPLUME
         item ITEM_SITRUS_BERRY
         move MOVE_GIGA_DRAIN
@@ -8683,7 +8683,7 @@ trainerdata 178, "Jack"
 
         ivs 0
         abilityslot 0
-        level LEVEL_SCHORSCH-2
+        level LEVEL_SCHORSCH-1
         pokemon SPECIES_TOGEDEMARU
         item ITEM_AIR_BALLOON
         move MOVE_NUZZLE
@@ -8850,23 +8850,88 @@ trainerdata 181, "William"
    endparty
 
 trainerdata 182, "Beverly"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_POKEFAN
-    nummons 1
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 182
-        // mon 0
         ivs 0
         abilityslot 0
-        level 16
-        pokemon SPECIES_SNUBBULL
+        level LEVEL_SCHORSCH-2
+        pokemon SPECIES_GRANBULL
+        item ITEM_TOXIC_ORB
+        move MOVE_PLAY_ROUGH
+        move MOVE_FACADE
+        move MOVE_FIRE_PUNCH
+        move MOVE_BRICK_BREAK
+        ability ABILITY_QUICK_FEET
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-2
+        pokemon SPECIES_BRONZONG
+        item ITEM_SITRUS_BERRY
+        move MOVE_EXTRASENSORY
+        move MOVE_HEX
+        move MOVE_FLASH_CANNON
+        move MOVE_TRICK_ROOM
+        ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_QUIET
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-2
+        pokemon SPECIES_MAGCARGO
+        item ITEM_ROCKY_HELMET
+        move MOVE_LAVA_PLUME
+        move MOVE_POWER_GEM
+        move MOVE_RECOVER
+        move MOVE_SCORCHING_SANDS
+        ability ABILITY_FLAME_BODY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_RELAXED
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-2
+        pokemon SPECIES_PORYGON2
+        item ITEM_EVIOLITE
+        move MOVE_TRI_ATTACK
+        move MOVE_DISCHARGE
+        move MOVE_RECOVER
+        move MOVE_TRICK_ROOM
+        ability ABILITY_DOWNLOAD
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_BOLD
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -8918,30 +8983,70 @@ trainerdata 183, "Alice"
     endparty
 
 trainerdata 184, "Krise"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_LASS
-    nummons 2
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_EXPERT_ATTACKS | 0
-    battletype SINGLE_BATTLE
+    aiflags TRAINER_AI_FLAGS
+    battletype NO_PARTNER_DOUBLE_BATTLE
     endentry
 
     party 184
-        // mon 0
         ivs 0
         abilityslot 0
-        level 14
-        pokemon SPECIES_ODDISH
+        level LEVEL_SCHORSCH-1
+        monwithform SPECIES_MAROWAK, 1
+        item ITEM_FOCUS_SASH
+        move MOVE_INCINERATE
+        move MOVE_SCORCHING_SANDS
+        move MOVE_ICY_WIND
+        move MOVE_HEX
+        ability ABILITY_LIGHTNING_ROD
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_SASSY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
         abilityslot 0
-        level 17
-        pokemon SPECIES_CUBONE
+        level LEVEL_SCHORSCH-1
+        pokemon SPECIES_LANTURN
+        item ITEM_LUM_BERRY
+        move MOVE_DISCHARGE
+        move MOVE_BRINE
+        move MOVE_SIGNAL_BEAM
+        move MOVE_ICY_WIND
+        ability ABILITY_VOLT_ABSORB
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_SCHORSCH-2
+        pokemon SPECIES_PACHIRISU
+        item ITEM_METRONOME
+        move MOVE_DISCHARGE
+        move MOVE_NONE
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_VOLT_ABSORB
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 

@@ -1842,7 +1842,7 @@ _1080: // Trainer 182
 
 _1090: // Trainer 184
     trainertextentry 184, TEXT_NOTICE_IN_OVERWORLD, "Hello? Why are you staring at me?\rOh, a battle?\r"
-    trainertextentry 184, TEXT_DEFEATED_IN_BATTLE, "...Hmmm...\n"
+    trainertextentry 184, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "...Hmmm...\n"
     trainertextentry 184, TEXT_DEFEATED_IN_OVERWORLD, "I thought I did something wrong\nbecause you kept staring at me.\n"
     trainertextentry 184, TEXT_REMATCH_IN_OVERWORLD, "What?\nStaring at people’s faces.\r...Oh, didn’t I make a promise to\nsomeone? Was that you?\r"
 
