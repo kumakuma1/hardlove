@@ -3,6 +3,7 @@ Flag
 106   - 061-T20R0101 : Script File 843 - Script 13: StarterSelection Screen
 106   - 171-D34R0201 : Script File 239 - Got TM from NPC -> White herb
 121   - 048-R46      : Script File 259 - NPC message, Set in 843, when getting Rival is named | Unused
+141   - 195-T25R1005 : Script File 903 - Flag for trade in Goldenrod. Also used for Starter gifts candy (+Heartscale)
 154   - 061-T20R0101 : Script File 225 - Function 25: CatchTutorial done    | Prof Elm sets after receiving balls
 162   - 086-T27R0501 : Script File 928 - Got Surf in Ecruteak, Surf replaced with Shed Shell
 167   - 063-T20R0201 : Talked to Mom for Saving Money. Flag is set, money saving disabled.
@@ -16,7 +17,7 @@ Flag
 421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
 417   - 060-T20      : Script File 842 - Function 9: Hide Marill. Flag is set. by mom
 418   - 060-T20      : Script File 842 - Function 9: Hide Lyra. Flag is set.
-423   - 117-D36R0101 : Script File  92 - Porenta to hunt in Ilex. Used for Heart Scale with Litten Starter in Goldenrod Store. Mom clears.
+423   - 117-D36R0101 : Script File  92 - 
 424   - 117-D36R0101 : Script File  92 - Porenta to hunt in Ilex.
 433                                    - Flag for DayOfWeek in Goldenrod tunnel
 434

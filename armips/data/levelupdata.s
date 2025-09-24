@@ -7766,6 +7766,10 @@ levelup SPECIES_RAYQUAZA
     learnset MOVE_HURRICANE, 72
     learnset MOVE_OUTRAGE, 80
     learnset MOVE_HYPER_BEAM, 90
+    learnset MOVE_DRAGON_ASCENT, 99
+    learnset MOVE_DUAL_CHOP, 99
+    learnset MOVE_DUAL_WINGBEAT, 99
+    learnset MOVE_TACHYON_CUTTER, 99
     terminatelearnset
 
 

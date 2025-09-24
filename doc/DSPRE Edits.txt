@@ -84,17 +84,53 @@ SetVar 0x8004 50
 SetVar 0x8005 995
 CommonScript 2008
 
-Super Repel:
-SetVar 0x8004 76
-...
 
 Old Rod:
 SetVar 0x8004 445
 SetVar 0x8005 1
 CommonScript 2033
 
+SetVar 0x8004 800 / 2558 Infinite Candy
+SetVar 0x8005 1
+CommonScript 2033
+
+#### Debug
+065 - T20R0301 - script file 847
+I am the Creator.\nDo you want to debug? \v0200\x0001\x0000
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#1
+	TakeItem 50 999 0x800C
+	TakeItem 93 999 0x800C
+	SetVar 0x8004 50
+	SetVar 0x8005 900
+	CommonScript 2008
+	SetVar 0x8004 93
+	SetVar 0x8005 900
+	CommonScript 2008
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#1
+	GivePokemon 384 100 0 0 0 0x800C
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 1:
+	CloseMessage 
+	ReleaseAll 
+End 
 
 
+#####
 Delete old Rod guy
 169 R32PC0101 : Script File 163 - ID 04 - Script 2
 
