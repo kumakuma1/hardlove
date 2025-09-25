@@ -126,8 +126,15 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 
     togepi = AllocMonZeroed(11);
     ZeroMonData(togepi);
+    int species = gf_rand() % 3;
+    if (species == 0)
+        species = SPECIES_MAGBY;
+    else if (species == 1)
+        species = SPECIES_ELEKID;
+    else
+        species = SPECIES_SMOOCHUM;
 
-    SetEggStats(togepi, SPECIES_TOGEPI, 1, profile, 3, sub_02017FE4(1, 13));
+    SetEggStats(togepi, species, 1, profile, 3, sub_02017FE4(1, 13));
 
     //SetMonData(togepi, MON_DATA_FORM, &form); // add form capability
 
