@@ -25480,62 +25480,41 @@ levelup SPECIES_ROCKRUFF_OWN_TEMPO
 
 
 levelup SPECIES_LYCANROC_MIDNIGHT
-    learnset MOVE_COUNTER, 0
-    learnset MOVE_COUNTER, 1
-    learnset MOVE_ENDURE, 1
-    learnset MOVE_REVERSAL, 1
-    learnset MOVE_TAUNT, 1
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_DOUBLE_TEAM, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_SAND_ATTACK, 4
-    learnset MOVE_ROCK_THROW, 13
-    learnset MOVE_BITE, 13
-    learnset MOVE_HOWL, 14
-    learnset MOVE_ODOR_SLEUTH, 18
+    learnset MOVE_REVERSAL, 1 
+    learnset MOVE_TACKLE, 1 
+    learnset MOVE_ODOR_SLEUTH, 1 
+    learnset MOVE_SAND_ATTACK, 4 
+    learnset MOVE_ROCK_THROW, 7 
+    learnset MOVE_BITE, 12
+    learnset MOVE_ROAR, 15
+    learnset MOVE_BRICK_BREAK, 18
     learnset MOVE_ROCK_TOMB, 23
-    learnset MOVE_ROAR, 28
-    learnset MOVE_ROCK_SLIDE, 35
-    learnset MOVE_CRUNCH, 41
-    learnset MOVE_SCARY_FACE, 42
-    learnset MOVE_STEALTH_ROCK, 42
-    learnset MOVE_ROCK_CLIMB, 45
-    learnset MOVE_STONE_EDGE, 54
+    learnset MOVE_SUCKER_PUNCH, 27
+    learnset MOVE_STOMPING_TANTRUM, 31
+    learnset MOVE_ROCK_SLIDE, 36
+    learnset MOVE_CROSS_CHOP, 40
+    learnset MOVE_CRUNCH, 44
+    learnset MOVE_HIGH_HORSEPOWER, 50
+    learnset MOVE_STONE_EDGE, 58
     terminatelearnset
 
 
 levelup SPECIES_LYCANROC_DUSK
-    learnset MOVE_CRUSH_CLAW, 0
-    learnset MOVE_THRASH, 0
-    learnset MOVE_CRUSH_CLAW, 1
-    learnset MOVE_SUCKER_PUNCH, 1
-    learnset MOVE_ACCELEROCK, 1
-    learnset MOVE_QUICK_GUARD, 1
-    learnset MOVE_QUICK_ATTACK, 1
-    learnset MOVE_COUNTER, 1
-    learnset MOVE_ENDURE, 1
-    learnset MOVE_REVERSAL, 1
-    learnset MOVE_TAUNT, 1
-    learnset MOVE_TACKLE, 1
-    learnset MOVE_LEER, 1
-    learnset MOVE_SAND_ATTACK, 1
-    learnset MOVE_DOUBLE_TEAM, 1
-    learnset MOVE_THRASH, 1
-    learnset MOVE_BITE, 1
-    learnset MOVE_SAND_ATTACK, 4
-    learnset MOVE_ROCK_THROW, 13
+    learnset MOVE_PSYCHIC_FANGS, 1 
+    learnset MOVE_TACKLE, 1 
+    learnset MOVE_ODOR_SLEUTH, 1 
+    learnset MOVE_SAND_ATTACK, 5 
+    learnset MOVE_ROCK_THROW, 8 
     learnset MOVE_BITE, 13
-    learnset MOVE_HOWL, 14
-    learnset MOVE_ODOR_SLEUTH, 18
-    learnset MOVE_ROCK_TOMB, 23
-    learnset MOVE_ROAR, 28
-    learnset MOVE_ROCK_SLIDE, 35
-    learnset MOVE_CRUNCH, 41
-    learnset MOVE_SCARY_FACE, 42
-    learnset MOVE_STEALTH_ROCK, 42
-    learnset MOVE_ROCK_CLIMB, 45
+    learnset MOVE_ROAR, 16
+    learnset MOVE_CRUSH_CLAW, 20
+    learnset MOVE_ROCK_TOMB, 25
+    learnset MOVE_SUCKER_PUNCH, 28
+    learnset MOVE_THRASH, 31
+    learnset MOVE_ROCK_SLIDE, 36
+    learnset MOVE_ACCELEROCK, 40
+    learnset MOVE_CRUNCH, 45
+    learnset MOVE_HIGH_HORSEPOWER, 50
     learnset MOVE_STONE_EDGE, 54
     terminatelearnset
 

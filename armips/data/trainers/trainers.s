@@ -302,7 +302,7 @@ trainerdata 5, "Victoria"
     party 5
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-5
+        level LEVEL_WHITNEY-4
         pokemon SPECIES_DODRIO
         item ITEM_STARF_BERRY
         move MOVE_ACROBATICS
@@ -320,7 +320,7 @@ trainerdata 5, "Victoria"
 
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-5
+        level LEVEL_WHITNEY-4
         pokemon SPECIES_DUBWOOL
         item ITEM_SITRUS_BERRY
         move MOVE_BODY_SLAM
@@ -722,7 +722,7 @@ trainerdata 11, "Schorsch" // Mini-Boss Route 36
         ivs 0
         abilityslot 0
         level LEVEL_SCHORSCH-2
-        monwithform SPECIES_PERSIAN, 1
+        monWithForm SPECIES_PERSIAN, 1
         item ITEM_BLACK_GLASSES
         move MOVE_FAKE_OUT
         move MOVE_BITE
@@ -876,7 +876,7 @@ trainerdata 13, "Grunt"
 	    ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-2
-        monwithform SPECIES_RATICATE, 1
+        monWithForm SPECIES_RATICATE, 1
         item ITEM_LUM_BERRY
         move MOVE_FEINT_ATTACK
         move MOVE_QUICK_ATTACK
@@ -1202,12 +1202,12 @@ trainerdata 20, "Falkner" // Leader
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-2
-        monwithform SPECIES_FARFETCHD, 1
+        monWithForm SPECIES_FARFETCHD, 1
         item ITEM_LEEK
         move MOVE_ROCK_SMASH
         move MOVE_PLUCK
+        move MOVE_FLAIL
         move MOVE_QUICK_ATTACK
-        move MOVE_NONE
         ability ABILITY_SCRAPPY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1603,7 +1603,7 @@ trainerdata 24, "Alan"
 	    ivs 0
         abilityslot 0
         level LEVEL_SCHORSCH-2
-        pokemon SPECIES_PALOSSAND
+         pokemon SPECIES_PALOSSAND
         item ITEM_LUM_BERRY
         move MOVE_HEX
         move MOVE_GIGA_DRAIN
@@ -1653,7 +1653,7 @@ trainerdata 25, "Russel"
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-2
-        monwithform SPECIES_GEODUDE, 1
+        monWithForm SPECIES_GEODUDE, 1
         item ITEM_CUSTAP_BERRY
         move MOVE_SPARK
         move MOVE_ROCK_TOMB
@@ -1671,7 +1671,7 @@ trainerdata 25, "Russel"
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-2
-        monwithform SPECIES_SANDSHREW, 1
+        monWithForm SPECIES_SANDSHREW, 1
         item ITEM_SITRUS_BERRY
         move MOVE_ROCK_TOMB
         move MOVE_ICE_SHARD
@@ -1959,7 +1959,7 @@ trainerdata 29, "Rod" // Violet Gym
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-3
-        monwithform SPECIES_FARFETCHD, 0
+        monWithForm SPECIES_FARFETCHD, 0
         item ITEM_LEEK
         move MOVE_AERIAL_ACE
         move MOVE_QUICK_ATTACK
@@ -2081,7 +2081,7 @@ trainerdata 30, "Whitney"
 	    ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-2
-        monwithform SPECIES_RAPIDASH, 1
+        monWithForm SPECIES_RAPIDASH, 1
         item ITEM_FAIRY_GEM
         move MOVE_COVET
         move MOVE_PSYCHO_CUT
@@ -2821,7 +2821,7 @@ trainerdata 39, "Eugene"
         ivs 0
         abilityslot 0
         level LEVEL_CHUCK-5
-        monwithform SPECIES_RAICHU, 1 // _ALOLAN
+        monWithForm SPECIES_RAICHU, 1 // _ALOLAN
         item ITEM_FOCUS_SASH
         move MOVE_DISCHARGE
         move MOVE_SURF
@@ -4379,7 +4379,7 @@ trainerdata 65, "Gina"
 	    ivs 0
         abilityslot 0
         level LEVEL_SCHORSCH-5
-        monwithform SPECIES_LILLIGANT, 1
+        monWithForm SPECIES_LILLIGANT, 1
         item ITEM_SITRUS_BERRY
         move MOVE_SEED_BOMB
         move MOVE_AXE_KICK
@@ -16956,7 +16956,7 @@ trainerdata 388, "Walt"
 	    ivs 0
         abilityslot 0
         level LEVEL_SCHORSCH-2
-        monwithform SPECIES_SNEASEL, 1
+        monWithForm SPECIES_SNEASEL, 1
         item ITEM_LUM_BERRY
         move MOVE_NIGHT_SLASH
         move MOVE_POISON_JAB
@@ -17113,27 +17113,70 @@ trainerdata 390, "Ray"
     endparty
 
 trainerdata 391, "Issac"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_POKE_MANIAC
-    nummons 1
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | F_PRIORITIZE_DAMAGE | 0
+    aiflags TRAINER_AI_FLAGS
     battletype SINGLE_BATTLE
     endentry
 
     party 391
-        // mon 0
         ivs 0
         abilityslot 0
-        level 12
-        pokemon SPECIES_LICKITUNG
-        move MOVE_LICK
-        move MOVE_SUPERSONIC
-        move MOVE_CUT
+        level LEVEL_WHITNEY-4
+        pokemon SPECIES_DELCATTY
+        item ITEM_SILK_SCARF
+        move MOVE_FAKE_OUT
+        move MOVE_LAST_RESORT
         move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_NORMALIZE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-4
+        pokemon SPECIES_EXPLOUD
+        item ITEM_CHOICE_SCARF
+        move MOVE_HYPER_VOICE
+        move MOVE_FLAMETHROWER
+        move MOVE_EXTRASENSORY
+        move MOVE_NONE
+        ability ABILITY_SOUNDPROOF
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_WHITNEY-5
+        pokemon SPECIES_LINOONE
+        item ITEM_SITRUS_BERRY
+        move MOVE_EXTREME_SPEED
+        move MOVE_BELLY_DRUM
+        move MOVE_PURSUIT
+        move MOVE_NONE
+        ability ABILITY_GLUTTONY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -17239,7 +17282,7 @@ trainerdata 393, "Teru" //moved to RoA
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-4
-        monwithform SPECIES_YAMASK, 1
+        monWithForm SPECIES_YAMASK, 1
         item ITEM_LEFTOVERS
         move MOVE_SHADOW_SNEAK
         move MOVE_BULLDOZE
@@ -20901,7 +20944,7 @@ trainerdata 493, "Edith"
         ivs 0
         abilityslot 0
         level LEVEL_MORTY-2
-        monwithform SPECIES_ZOROARK, 1
+        monWithForm SPECIES_ZOROARK, 1
         item ITEM_LIFE_ORB
         move MOVE_BITTER_MALICE
         move MOVE_EXTRASENSORY
@@ -21041,7 +21084,7 @@ trainerdata 494, "Georgina"
         ivs 0
         abilityslot 0
         level LEVEL_MORTY-3
-        monwithform SPECIES_TYPHLOSION, 1
+        monWithForm SPECIES_TYPHLOSION, 1
         item ITEM_POWER_HERB
         move MOVE_INFERNAL_PARADE
         move MOVE_LAVA_PLUME
