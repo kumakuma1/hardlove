@@ -1672,7 +1672,7 @@ trainerdata 25, "Russel"
         abilityslot 0
         level LEVEL_PROTON_1-2
         monWithForm SPECIES_SANDSHREW, 1
-        item ITEM_SITRUS_BERRY
+        item ITEM_ICE_GEM
         move MOVE_ROCK_TOMB
         move MOVE_ICE_SHARD
         move MOVE_ICICLE_SPEAR
@@ -1690,7 +1690,7 @@ trainerdata 25, "Russel"
         abilityslot 0
         level LEVEL_PROTON_1-3
         pokemon SPECIES_PSYDUCK
-        item ITEM_LUM_BERRY
+        item ITEM_WATER_GEM
         move MOVE_PSYBEAM
         move MOVE_WATER_PULSE
         move MOVE_YAWN
