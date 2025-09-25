@@ -20602,7 +20602,7 @@ trainerdata 486, "Proton"
 		
 	ivs 0
         abilityslot 0
-        level LEVEL_PROTON_1-1
+        level LEVEL_PROTON_1
         pokemon SPECIES_MAWILE
         item ITEM_LEFTOVERS
         move MOVE_COVET
