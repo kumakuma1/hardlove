@@ -44,6 +44,7 @@ BOOL LONG_CALL isMoveSpecialAiAttackingMove(u32 attackerMove);
 int LONG_CALL SpecialAiAttackingMove(struct BattleSystem* bsys, u32 attacker, int i, struct AIContext* ai);
 BOOL LONG_CALL canMoveKillBattler(u32 move, u32 damage, u32 defenderHP, u32 defenderMaxHP, BOOL attackerHasMoldBreaker, u32 defenderAbility, u32 defenderItem);
 BOOL LONG_CALL monDiesFromResidualDamage(struct BattleStruct* ctx, u32 attacker, u32 attackerCondition, BOOL isSeeded);
+BOOL LONG_CALL IsMonInflictedWithAnyStatus(struct BattleStruct* ctx, u32 attacker);
 
 int LONG_CALL scoreMovesAgainstDefender(struct BattleSystem* bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext* ai)
 {
@@ -1125,11 +1126,11 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
     //case MOVE_EFFECT_SPIKEY_SHIELD:
     case MOVE_EFFECT_PROTECT: //TODO
     {
-        //BOOL monDiesEndTurn = monDiesFromResidualDamage(ctx, ai->attacker, ai->attackerMon.condition, (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE));
+        BOOL monDiesEndTurn = monDiesFromResidualDamage(ctx, ai->attacker, ai->attackerMon.condition, (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE));
         moveScore += 6;
-        if ((ai->attackerMon.condition & (STATUS_POISON | STATUS_BURN | STATUS_PARALYSIS)) || (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE)) //TODO
+        if (IsMonInflictedWithAnyStatus(ctx, attacker))
             moveScore -= 1;
-        if ((ai->defenderMon.condition & (STATUS_POISON | STATUS_BURN | STATUS_PARALYSIS)) || (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE)) //TODO
+        if (IsMonInflictedWithAnyStatus(ctx, defender))
             moveScore += 1;
         if (ai->attackerTurnsOnField == 0 && ai->isDoubleBattle)
             moveScore -= 1;
@@ -1142,6 +1143,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
         {
             moveScore -= IMPOSSIBLE_MOVE;
         }
+        if (monDiesEndTurn)
+            moveScore -= IMPOSSIBLE_MOVE;
         break;
     }
     case MOVE_EFFECT_MAKE_SHARED_MOVES_UNUSEABLE:
@@ -1405,7 +1408,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
             }
             if (ctx->battlemon[ai->defender].condition2 & STATUS2_ATTRACT || ctx->battlemon[ai->defender].condition2 & STATUS2_CONFUSION)
                 moveScore += 1;
-            if (ai->defenderMon.condition & (STATUS_POISON | STATUS_BURN | STATUS_PARALYSIS))
+            if (ai->defenderMon.condition & (STATUS_POISON_ALL | STATUS_BURN | STATUS_PARALYSIS))
                 moveScore += 1;
         }
         break;
@@ -1820,29 +1823,8 @@ BOOL monDiesFromResidualDamage(struct BattleStruct* ctx, u32 attacker, u32 attac
     u32 maxHp = ctx->battlemon[attacker].maxhp;
     u32 ability = ctx->battlemon[attacker].ability;
     u32 item = ctx->battlemon[attacker].item;
-    u32 damageReceived = 0;
+    int damageReceived = 0;
 
-    if (isSeeded)
-    {
-        damageReceived += maxHp / 8;
-    }
-
-    if (attackerCondition & STATUS_BURN)
-    {
-        damageReceived += maxHp / 16;
-    }
-    else if (attackerCondition & STATUS_POISON)
-    {
-        damageReceived += maxHp / 8;
-    }
-    else if (attackerCondition & STATUS_BAD_POISON)
-    {
-        if ((attackerCondition & STATUS_POISON_COUNT) != STATUS_POISON_COUNT) {
-            attackerCondition += 1 << 8;
-        }
-		int toxicDamageTicks = ((attackerCondition & STATUS_POISON_COUNT) >> 8); //TODO: check this
-        damageReceived += (toxicDamageTicks * maxHp / 16);
-    }
     if (ctx->field_condition & WEATHER_SANDSTORM_ANY)
     {
         if (!HasType(ctx, attacker, TYPE_ROCK) && !HasType(ctx, attacker, TYPE_GROUND) && !HasType(ctx, attacker, TYPE_STEEL)
@@ -1853,14 +1835,21 @@ BOOL monDiesFromResidualDamage(struct BattleStruct* ctx, u32 attacker, u32 attac
             damageReceived += maxHp / 16;
         }
     }
-    else if (ctx->field_condition & WEATHER_HAIL_ANY)
+    else if (ctx->field_condition & WEATHER_HAIL_ANY || ctx->field_condition & WEATHER_SNOW_ANY)
     {
-        if (!HasType(ctx, attacker, TYPE_ICE)
-            && ability != ABILITY_ICE_BODY && ability != ABILITY_SNOW_CLOAK && ability != ABILITY_SLUSH_RUSH
-            && ability != ABILITY_OVERCOAT && ability != ABILITY_MAGIC_GUARD
-            && item != ITEM_SAFETY_GOGGLES)
+        if (ability == ABILITY_ICE_BODY)
         {
-            damageReceived += maxHp / 16;
+            damageReceived -= maxHp / 16;
+        }
+        else if (SNOW_WARNING_GENERATION < GEN_LATEST)
+        {
+            if (!HasType(ctx, attacker, TYPE_ICE)
+                && ability != ABILITY_ICE_BODY && ability != ABILITY_SNOW_CLOAK && ability != ABILITY_SLUSH_RUSH
+                && ability != ABILITY_OVERCOAT && ability != ABILITY_MAGIC_GUARD
+                && item != ITEM_SAFETY_GOGGLES)
+            {
+                damageReceived += maxHp / 16;
+            }
         }
     }
     else if (ctx->field_condition & WEATHER_SUNNY_ANY)
@@ -1868,8 +1857,70 @@ BOOL monDiesFromResidualDamage(struct BattleStruct* ctx, u32 attacker, u32 attac
         if (ability == ABILITY_DRY_SKIN || ability == ABILITY_SOLAR_POWER)
             damageReceived += maxHp / 8;
     }
+    else if (ctx->field_condition & WEATHER_RAIN_ANY)
+    {
+        if (ability == ABILITY_RAIN_DISH)
+            damageReceived -= maxHp / 16;
+    }
+    if (item == ITEM_LEFTOVERS || (HasType(ctx, attacker, TYPE_POISON) && item == ITEM_BLACK_SLUDGE))
+    {
+        damageReceived -= maxHp / 16;
+    }
+    if (ctx->terrainOverlay.type == GRASSY_TERRAIN && ctx->terrainOverlay.numberOfTurnsLeft > 0)
+    {
+        damageReceived -= maxHp / 16;
+    }
+    //if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN || ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING)
+    {
 
-    if (damageReceived >= hp)
+    }
+    if (isSeeded)
+    {
+        damageReceived += maxHp / 8;
+    }
+    if (ctx->battlemon[attacker].condition2 & STATUS2_CURSE)
+    {
+        damageReceived += maxHp / 4;
+    }
+
+    if (attackerCondition & STATUS_BURN)
+    {
+        damageReceived += maxHp / 16;
+    }
+    else if (attackerCondition & STATUS_POISON)
+    {
+        if (ability == ABILITY_POISON_HEAL)
+            damageReceived -= maxHp / 8;
+        else
+            damageReceived += maxHp / 8;
+    }
+    else if (attackerCondition & STATUS_BAD_POISON)
+    {
+        if (ability == ABILITY_POISON_HEAL)
+            damageReceived -= maxHp / 8;
+        else
+        {
+            if ((attackerCondition & STATUS_POISON_COUNT) != STATUS_POISON_COUNT) {
+                attackerCondition += 1 << 8;
+            }
+            int toxicDamageTicks = ((attackerCondition & STATUS_POISON_COUNT) >> 8); //TODO: check this
+            damageReceived += (toxicDamageTicks * maxHp / 16);
+        }
+    }
+    
+    if (damageReceived > 0 && damageReceived >= hp)
 		diesFromResidual = TRUE;
 	return diesFromResidual;
+}
+
+BOOL LONG_CALL IsMonInflictedWithAnyStatus(struct BattleStruct* ctx, u32 attacker)
+{
+    if (ctx->battlemon[attacker].ability == ABILITY_POISON_HEAL && ctx->battlemon[attacker].condition & STATUS_POISON_ALL)
+        return FALSE;
+    if (ctx->battlemon[attacker].condition & (STATUS_POISON_ALL | STATUS_BURN | STATUS_PARALYSIS))
+        return TRUE;
+    if (ctx->battlemon[attacker].effect_of_moves & (MOVE_EFFECT_YAWN_COUNTER | MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE | MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE))
+        return TRUE;
+    if (ctx->battlemon[attacker].condition2 & (STATUS2_ATTRACT | STATUS2_CURSE))
+        return TRUE;
 }
