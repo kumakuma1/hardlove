@@ -19909,7 +19909,7 @@ mondata SPECIES_LYCANROC, "Lycanroc"
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_KEEN_EYE, ABILITY_SAND_RUSH
+    abilities ABILITY_SAND_RUSH, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
     mondexentry SPECIES_LYCANROC, "Well equipped with claws and fangs, it\nuses the sharp rocks in its mane as\nweapons."
@@ -30926,7 +30926,7 @@ mondata SPECIES_ROCKRUFF_OWN_TEMPO, "-----"
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_OWN_TEMPO, ABILITY_NONE
+    abilities ABILITY_KEEN_EYE, ABILITY_VITAL_SPIRIT
     runchance 0
     colorflip BODY_COLOR_BROWN, 0
 
@@ -30946,7 +30946,7 @@ mondata SPECIES_LYCANROC_MIDNIGHT, "-----"
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_KEEN_EYE,  ABILITY_VITAL_SPIRIT
+    abilities ABILITY_NO_GUARD,  ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_RED, 0
 

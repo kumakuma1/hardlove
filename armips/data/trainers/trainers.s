@@ -17124,7 +17124,7 @@ trainerdata 391, "Issac"
     battletype SINGLE_BATTLE
     endentry
 
-    party 390
+    party 391
         ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-4
