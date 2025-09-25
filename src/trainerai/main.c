@@ -1130,7 +1130,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem* bsys, u32 attacker, int i, 
         moveScore += 6;
         if (IsMonInflictedWithAnyStatus(ctx, attacker))
             moveScore -= 1;
-        if (IsMonInflictedWithAnyStatus(ctx, defender))
+        if (IsMonInflictedWithAnyStatus(ctx, ai->defender))
             moveScore += 1;
         if (ai->attackerTurnsOnField == 0 && ai->isDoubleBattle)
             moveScore -= 1;
@@ -1908,7 +1908,7 @@ BOOL monDiesFromResidualDamage(struct BattleStruct* ctx, u32 attacker, u32 attac
         }
     }
     
-    if (damageReceived > 0 && damageReceived >= hp)
+    if (damageReceived > 0 && damageReceived >= (int)hp)
 		diesFromResidual = TRUE;
 	return diesFromResidual;
 }
