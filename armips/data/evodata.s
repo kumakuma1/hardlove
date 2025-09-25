@@ -2076,7 +2076,7 @@ evodata SPECIES_LANTURN
     terminateevodata
 
 evodata SPECIES_PICHU
-    evolution EVO_FRIENDSHIP, 0, SPECIES_PIKACHU
+    evolution EVO_LEVEL, 10, SPECIES_PIKACHU
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3588,7 +3588,7 @@ evodata SPECIES_HARIYAMA
     terminateevodata
 
 evodata SPECIES_AZURILL
-    evolution EVO_FRIENDSHIP, 0, SPECIES_MARILL
+    evolution EVO_LEVEL, 10, SPECIES_MARILL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4884,7 +4884,7 @@ evodata SPECIES_LUXRAY
     terminateevodata
 
 evodata SPECIES_BUDEW
-    evolution EVO_FRIENDSHIP_DAY, 0, SPECIES_ROSELIA
+    evolution EVO_LEVEL, 16, SPECIES_ROSELIA
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -5376,7 +5376,7 @@ evodata SPECIES_MUNCHLAX
     terminateevodata
 
 evodata SPECIES_RIOLU
-    evolution EVO_FRIENDSHIP_DAY, 0, SPECIES_LUCARIO
+    evolution EVO_LEVEL, 28, SPECIES_LUCARIO
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
