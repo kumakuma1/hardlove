@@ -25,6 +25,7 @@ Flag
 440                                    - Hiding NPCs in Goldenrod Tunnel
 451   -              :                 - Moves Guy for Bug Catching Contest
 452   -              :                 - Adds Guy for Bug Catching Contest
+474   -              :                 - Hide Gym Trainer in Lighthouse 5F
 
 
 
