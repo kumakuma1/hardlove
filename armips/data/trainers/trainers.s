@@ -12147,7 +12147,7 @@ trainerdata 263, "Silver" //GRASS
         ballseal 0
     endparty
 
-trainerdata 264, "Silver"
+trainerdata 264, "Silver" //GRASS
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_RIVAL
     nummons 6
