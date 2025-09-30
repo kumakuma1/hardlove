@@ -6,6 +6,7 @@ Flag
 141   - 195-T25R1005 : Script File 903 - Flag for trade in Goldenrod. Also used for Starter gifts candy (+Heartscale)
 154   - 061-T20R0101 : Script File 225 - Function 25: CatchTutorial done    | Prof Elm sets after receiving balls
 162   - 086-T27R0501 : Script File 928 - Got Surf in Ecruteak, Surf replaced with Shed Shell
+165   - 041-R37      : Script File 246 - Got Magnet From Sunny on R37
 167   - 063-T20R0201 : Talked to Mom for Saving Money. Flag is set, money saving disabled.
 189   -                                - prev. Good Rod. Used for Mega-Ring
 219   - 036-R32      : Script File 232 - Script 6, Poison Barb from Frieda, Used for auto heal in gym trainer battles
