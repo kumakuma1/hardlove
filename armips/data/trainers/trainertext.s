@@ -2654,12 +2654,12 @@ _185C: // Trainer 734
 
 _1860: // Trainer 679
     trainertextentry 679, TEXT_NOTICE_IN_OVERWORLD, "Oh, you are a cute little Trainer!\nWhy don’t you battle me?\r"
-    trainertextentry 679, TEXT_DEFEATED_IN_BATTLE, "You’re good...\n"
+    trainertextentry 679, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "You’re good...\n"
     trainertextentry 679, TEXT_DEFEATED_IN_OVERWORLD, "Oh, I’ve learned something. There are\npeople like you out there who are very\fskilled even though they’re young...\n"
 
 _186C: // Trainer 680
     trainertextentry 680, TEXT_NOTICE_IN_OVERWORLD, "Hey hey there, you young Trainer!\nWon’t you battle with me?\r"
-    trainertextentry 680, TEXT_DEFEATED_IN_BATTLE, "Wow, you’re strong...\n"
+    trainertextentry 680, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "Wow, you’re strong...\n"
     trainertextentry 680, TEXT_DEFEATED_IN_OVERWORLD, "You...\nI wonder what your future holds...\n"
 
 _1878: // Trainer 238

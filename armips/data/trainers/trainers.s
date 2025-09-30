@@ -27935,76 +27935,196 @@ trainerdata 678, "Joy"
     endparty
 
 trainerdata 679, "Callie"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_BEAUTY
-    nummons 2
+    nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype SINGLE_BATTLE
+    aiflags TRAINER_AI_FLAGS
+    battletype NO_PARTNER_DOUBLE_BATTLE
     endentry
 
     party 679
-        // mon 0
+		ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-4
+        pokemon SPECIES_WIGGLYTUFF
+        item ITEM_SITRUS_BERRY
+        move MOVE_BLIZZARD
+        move MOVE_FIRE_BLAST
+        move MOVE_THUNDER
+        move MOVE_TRI_ATTACK
+        ability ABILITY_COMPETITIVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+		ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-4
+        pokemon SPECIES_MILOTIC
+        item ITEM_LEFTOVERS
+        move MOVE_SCALD
+        move MOVE_BULLDOZE
+        move MOVE_REST
+        move MOVE_SLEEP_TALK
+        ability ABILITY_COMPETITIVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_RELAXED
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
         ivs 0
         abilityslot 0
-        level 16
-        pokemon SPECIES_CLEFABLE
-        move MOVE_GROWL
-        move MOVE_ENCORE
-        move MOVE_DOUBLE_SLAP
-        move MOVE_METRONOME
+        level LEVEL_MORTY-4
+        pokemon SPECIES_ELDEGOSS
+        item ITEM_LUM_BERRY
+        move MOVE_GIGA_DRAIN
+        move MOVE_HYPER_VOICE
+        move MOVE_LEECH_SEED
+        move MOVE_SLEEP_POWDER
+        ability ABILITY_COTTON_DOWN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_BOLD
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
         abilityslot 0
-        level 16
-        pokemon SPECIES_WIGGLYTUFF
-        move MOVE_SING
-        move MOVE_DEFENSE_CURL
-        move MOVE_POUND
-        move MOVE_DISABLE
+        level LEVEL_MORTY-4
+        pokemon SPECIES_BISHARP
+        item ITEM_CHOPLE_BERRY
+        move MOVE_IRON_HEAD
+        move MOVE_POISON_JAB
+        move MOVE_X_SCISSOR
+        move MOVE_KNOCK_OFF
+        ability ABILITY_DEFIANT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
-    endparty
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-4
+        pokemon SPECIES_SPINDA
+        item ITEM_LUM_BERRY
+        move MOVE_SUPERPOWER
+        move MOVE_TEETER_DANCE
+        move MOVE_RETURN
+        move MOVE_FAKE_OUT
+        ability ABILITY_CONTRARY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+	endparty
 
 trainerdata 680, "Kassandra"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_BEAUTY
-    nummons 2
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
+    trainerclass TRAINERCLASS_BEAUTY
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
-    aiflags F_PRIORITIZE_SUPER_EFFECTIVE | 0
-    battletype SINGLE_BATTLE
+    aiflags TRAINER_AI_FLAGS
+    battletype NO_PARTNER_DOUBLE_BATTLE
     endentry
 
     party 680
-        // mon 0
+		ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-4
+        pokemon SPECIES_PERRSERKER
+        item ITEM_SITRUS_BERRY
+        move MOVE_IRON_HEAD
+        move MOVE_KNOCK_OFF
+        move MOVE_PLAY_ROUGH
+        move MOVE_FAKE_OUT
+        ability ABILITY_STEELY_SPIRIT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+		ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-4
+        pokemon SPECIES_SANDACONDA
+        item ITEM_LUM_BERRY
+        move MOVE_HIGH_HORSEPOWER
+        move MOVE_FIRE_FANG
+        move MOVE_GLARE
+        move MOVE_IRON_HEAD
+        ability ABILITY_SAND_SPIT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
         ivs 0
         abilityslot 0
-        level 16
-        pokemon SPECIES_WIGGLYTUFF
-        move MOVE_SING
-        move MOVE_DEFENSE_CURL
-        move MOVE_POUND
-        move MOVE_DISABLE
+        level LEVEL_MORTY-4
+        pokemon SPECIES_PROBOPASS
+        item ITEM_LUM_BERRY
+        move MOVE_FLASH_CANNON
+        move MOVE_POWER_GEM
+        move MOVE_THUNDER_WAVE
+        move MOVE_ROCK_POLISH
+        ability ABILITY_SAND_FORCE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
         abilityslot 0
-        level 16
-        pokemon SPECIES_CLEFABLE
-        move MOVE_GROWL
-        move MOVE_ENCORE
-        move MOVE_DOUBLE_SLAP
-        move MOVE_METRONOME
+        level LEVEL_MORTY-4
+        pokemon SPECIES_SANDSLASH
+        item ITEM_FOCUS_SASH
+        move MOVE_IRON_TAIL
+        move MOVE_DRILL_RUN
+        move MOVE_X_SCISSOR
+        move MOVE_ROCK_SLIDE
+        ability ABILITY_SAND_RUSH
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
-    endparty
+	endparty
 
 trainerdata 681, "Arabella"
     trainermontype TRAINER_DATA_TYPE_MOVES
