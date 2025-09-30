@@ -10243,7 +10243,7 @@ trainerdata 217, "Denis"
         move MOVE_DRAGON_PULSE
         move MOVE_HURRICANE
         move MOVE_FLAMETHROWER
-        move MOVE_DOUBLE_TEAM
+        move MOVE_CALM_MIND
         ability ABILITY_INFILTRATOR
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
