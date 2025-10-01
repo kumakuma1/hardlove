@@ -20554,7 +20554,7 @@ levelup SPECIES_KORAIDON
     learnset MOVE_OUTRAGE, 77
     learnset MOVE_CLOSE_COMBAT, 84
     learnset MOVE_FLARE_BLITZ, 91
-    learnset MOVE_GIGA_IMPACT, 981
+    learnset MOVE_GIGA_IMPACT, 98
     terminatelearnset
 
 levelup SPECIES_MIRAIDON
@@ -27403,7 +27403,7 @@ levelup SPECIES_KORAIDON_LIMITED_BUILD
     learnset MOVE_OUTRAGE, 77
     learnset MOVE_CLOSE_COMBAT, 84
     learnset MOVE_FLARE_BLITZ, 91
-    learnset MOVE_GIGA_IMPACT, 981
+    learnset MOVE_GIGA_IMPACT, 98
     terminatelearnset
 
 levelup SPECIES_KORAIDON_SPRINTING_BUILD
@@ -27422,7 +27422,7 @@ levelup SPECIES_KORAIDON_SPRINTING_BUILD
     learnset MOVE_OUTRAGE, 77
     learnset MOVE_CLOSE_COMBAT, 84
     learnset MOVE_FLARE_BLITZ, 91
-    learnset MOVE_GIGA_IMPACT, 981
+    learnset MOVE_GIGA_IMPACT, 98
     terminatelearnset
 
 levelup SPECIES_KORAIDON_SWIMMING_BUILD
@@ -27441,7 +27441,7 @@ levelup SPECIES_KORAIDON_SWIMMING_BUILD
     learnset MOVE_OUTRAGE, 77
     learnset MOVE_CLOSE_COMBAT, 84
     learnset MOVE_FLARE_BLITZ, 91
-    learnset MOVE_GIGA_IMPACT, 981
+    learnset MOVE_GIGA_IMPACT, 98
     terminatelearnset
 
 levelup SPECIES_KORAIDON_GLIDING_BUILD
@@ -27460,7 +27460,7 @@ levelup SPECIES_KORAIDON_GLIDING_BUILD
     learnset MOVE_OUTRAGE, 77
     learnset MOVE_CLOSE_COMBAT, 84
     learnset MOVE_FLARE_BLITZ, 91
-    learnset MOVE_GIGA_IMPACT, 981
+    learnset MOVE_GIGA_IMPACT, 98
     terminatelearnset
 
 levelup SPECIES_MIRAIDON_LOW_POWER_MODE
