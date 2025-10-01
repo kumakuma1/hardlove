@@ -1796,7 +1796,7 @@ pokemon SPECIES_CROAGUNK	//10%
 pokemon SPECIES_NIDORAN_F	//10%
 pokemon SPECIES_NIDORAN_M	//10%
 pokemon SPECIES_YANMA		//10%
-monWithForm SPECIES_FARFETCHD, 1		//10%
+pokemon SPECIES_SCRAGGY		//10%
 pokemon SPECIES_CROAGUNK		//5%
 pokemon SPECIES_SKRELP		//5%
 pokemon SPECIES_MAKUHITA	//5%
@@ -1810,7 +1810,7 @@ pokemon SPECIES_CROAGUNK	//10%
 pokemon SPECIES_NIDORAN_F	//10%
 pokemon SPECIES_NIDORAN_M	//10%
 pokemon SPECIES_YANMA		//10%
-monWithForm SPECIES_FARFETCHD, 1		//10%
+pokemon SPECIES_SCRAGGY		//10%
 pokemon SPECIES_CROAGUNK		//5%
 pokemon SPECIES_SKRELP		//5%
 pokemon SPECIES_MAKUHITA	//5%
@@ -1824,7 +1824,7 @@ pokemon SPECIES_CROAGUNK	//10%
 pokemon SPECIES_NIDORAN_F	//10%
 pokemon SPECIES_NIDORAN_M	//10%
 pokemon SPECIES_YANMA		//10%
-monWithForm SPECIES_FARFETCHD, 1		//10%
+pokemon SPECIES_SCRAGGY		//10%
 pokemon SPECIES_CROAGUNK		//5%
 pokemon SPECIES_SKRELP		//5%
 pokemon SPECIES_MAKUHITA	//5%
@@ -2210,7 +2210,7 @@ pokemon SPECIES_MAKUHITA	//10%
 pokemon SPECIES_TIMBURR    	//10%
 pokemon SPECIES_TYROGUE		//10%
 pokemon SPECIES_STUFFUL		//10%
-monwithform SPECIES_FARFETCHD, 1	//10%
+pokemon SPECIES_SCRAGGY		//10%
 pokemon SPECIES_MIENFOO	    //10%
 pokemon SPECIES_MEDITITE	//10%
 pokemon SPECIES_TIMBURR	    //5%
@@ -2224,7 +2224,7 @@ pokemon SPECIES_MAKUHITA	//10%
 pokemon SPECIES_TIMBURR    	//10%
 pokemon SPECIES_TYROGUE		//10%
 pokemon SPECIES_STUFFUL		//10%
-monwithform SPECIES_FARFETCHD, 1	//10%
+pokemon SPECIES_SCRAGGY		//10%
 pokemon SPECIES_MIENFOO	    //10%
 pokemon SPECIES_MEDITITE	//10%
 pokemon SPECIES_TIMBURR	    //5%
@@ -2238,7 +2238,7 @@ pokemon SPECIES_MAKUHITA	//10%
 pokemon SPECIES_TIMBURR    	//10%
 pokemon SPECIES_TYROGUE		//10%
 pokemon SPECIES_STUFFUL		//10%
-monwithform SPECIES_FARFETCHD, 1	//10%
+pokemon SPECIES_SCRAGGY		//10%
 pokemon SPECIES_MIENFOO	    //10%
 pokemon SPECIES_MEDITITE	//10%
 pokemon SPECIES_TIMBURR	    //5%

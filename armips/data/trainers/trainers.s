@@ -1202,7 +1202,7 @@ trainerdata 20, "Falkner" // Leader
         ivs 0
         abilityslot 0
         level LEVEL_FALKNER-2
-        monWithForm SPECIES_FARFETCHD, 1
+        monWithForm SPECIES_FARFETCHD, 0
         item ITEM_LEEK
         move MOVE_ROCK_SMASH
         move MOVE_PLUCK
