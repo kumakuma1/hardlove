@@ -17826,7 +17826,7 @@ trainerdata 395, "Mark" // route 36
         move MOVE_WISH
         move MOVE_PROTECT
         move MOVE_TRICK
-        ability ABILITY_BLAZE
+        ability ABILITY_MAGIC_GUARD
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
