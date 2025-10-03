@@ -7,7 +7,7 @@
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 
-#define ITEM_DATA_MAX (ITEM_INFINITE_CANDY)
+#define ITEM_DATA_MAX (MAX_TOTAL_ITEM_NUM)
 #define GFX_ITEM_DUMMY_ID ((MAX_TOTAL_ITEM_NUM) * 2 + 2)
 #define GFX_ITEM_RETURN_ID ((MAX_TOTAL_ITEM_NUM+1) * 2 + 4)
 #define NEW_ITEM_GFX (797)
@@ -17,7 +17,7 @@ static const u16 sMachineMoves[] = {
     MOVE_FOCUS_PUNCH,     // TM001
     MOVE_DRAGON_CLAW,     // TM002
     MOVE_FLIP_TURN,       // TM003
-    MOVE_CALM_MIND,       // TM004
+    MOVE_DUAL_WINGBEAT,   // TM004
     MOVE_ROAR,            // TM005
     MOVE_TOXIC,           // TM006
     MOVE_FEINT_ATTACK,    // TM007

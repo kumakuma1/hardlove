@@ -28,8 +28,7 @@
 
 .include "armips/asm/custom/enable_surf_without_knowing_move.s"
 .include "armips/asm/custom/encounter_rates.s"
-.include "armips/asm/custom/pokemart_items.s" // edits items in pokemarts
-.include "armips/asm/custom/rocksmash_items.s" // edits items obtainable by rocksmash
+.include "armips/asm/custom/rocksmash_items.s"
 .include "armips/asm/custom/waterfall.s"
 
 .if FAIRY_TYPE_IMPLEMENTED == 1
