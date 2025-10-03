@@ -19,6 +19,7 @@
 #include "../../include/constants/weather_numbers.h"
 #include "../../include/map_events_internal.h"
 #include "../../include/custom/random_eggs.h"
+#include "../../include/constants/generated/learnsets.h"
 
 void shuffle(u8 array[], int n)
 {

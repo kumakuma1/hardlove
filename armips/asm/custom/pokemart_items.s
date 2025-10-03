@@ -79,9 +79,9 @@ EIGHT_BADGES equ 6
 
 .org 0x020FBAB0
 
-.halfword ITEM_TM10 //ITEM_BLOOM_MAIL
-.halfword ITEM_TM70 //ITEM_HEAL_BALL
-.halfword ITEM_TM88 //ITEM_NET_BALL
+.halfword ITEM_TM010 //ITEM_BLOOM_MAIL
+.halfword ITEM_TM070 //ITEM_HEAL_BALL
+.halfword ITEM_TM088 //ITEM_NET_BALL
 .halfword 0xFFFF
 
 /* Indigo, 7 -> Goldenrod - CommonScript 2052  13*/
@@ -104,13 +104,13 @@ EIGHT_BADGES equ 6
 
 .org 0x020FBBB4
 
-.halfword ITEM_TM15 // ITEM_X_SPEED
-.halfword ITEM_TM21 // ITEM_X_ATTACK
-.halfword ITEM_TM39 // ITEM_X_DEFENSE
-.halfword ITEM_TM07 // ITEM_GUARD_SPEC_
-.halfword ITEM_TM11 // ITEM_DIRE_HIT
-.halfword ITEM_TM34 // ITEM_X_ACCURACY
-.halfword ITEM_TM40 // ITEM_X_SPECIAL
+.halfword ITEM_TM015 // ITEM_X_SPEED
+.halfword ITEM_TM021 // ITEM_X_ATTACK
+.halfword ITEM_TM039 // ITEM_X_DEFENSE
+.halfword ITEM_TM007 // ITEM_GUARD_SPEC_
+.halfword ITEM_TM011 // ITEM_DIRE_HIT
+.halfword ITEM_TM034 // ITEM_X_ACCURACY
+.halfword ITEM_TM040 // ITEM_X_SPECIAL
 .halfword 0xFFFF    // ITEM_X_SP__DEF
 .halfword 0xFFFF
 

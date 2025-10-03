@@ -1585,7 +1585,7 @@ u32 LONG_CALL GetRecoverAmountPercent(struct BattleSystem* bsys, u32 attackerMov
     case MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP:
         recoverAmountPercent = 100;
         break;
-    case MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN:
+    case MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER:
         if ((attackerMove == MOVE_SHORE_UP && (ctx->field_condition & WEATHER_SANDSTORM_ANY))
             || (attackerMove != MOVE_SHORE_UP && (ctx->field_condition & WEATHER_SUNNY_ANY)))
             recoverAmountPercent = 67;
@@ -1634,59 +1634,59 @@ BOOL LONG_CALL shouldRecover(struct BattleSystem* bsys, u32 attacker UNUSED, u32
 }
 
 
-int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext* ai)
+int LONG_CALL RecoveryScoring(struct BattleSystem* bsys, u32 attacker, int i, struct AIContext* ai)
 {
     int moveScore = 0;
     struct BattleStruct* ctx = bsys->sp;
-	BOOL isHealingMove = TRUE;
+    BOOL isHealingMove = TRUE;
 
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
     BOOL aiShouldRecover = shouldRecover(bsys, attacker, ai->attackerMoveEffect, ai);
     if (ai->attackerMon.percenthp >= 85)
-		moveScore -= 6;
+        moveScore -= 6;
 
     switch (ai->attackerMoveEffect)
     {
         //case MOVE_EFFECT_HIT_STRENGTH_SAP
-        case MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE:
-        case MOVE_EFFECT_RESTORE_HALF_HP:
-            if (aiShouldRecover)
-                moveScore += 7;
-            else
-				moveScore += 5;
-            break;
-        case MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN:
+    case MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE:
+    case MOVE_EFFECT_RESTORE_HALF_HP:
+        if (aiShouldRecover)
+            moveScore += 7;
+        else
+            moveScore += 5;
+        break;
+    case MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER:
+    {
+        u32 recoverAmount = GetRecoverAmountPercent(bsys, ai->attackerMove, MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER);
+        if (aiShouldRecover && recoverAmount > 50)
+            moveScore += 7;
+        else if (recoverAmount == 50 && shouldRecover(bsys, attacker, MOVE_EFFECT_RESTORE_HALF_HP, ai))
+            moveScore += 7;
+        else
+            moveScore += 5;
+        break;
+    }
+    case MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP:
+        if (aiShouldRecover)
         {
-            u32 recoverAmount = GetRecoverAmountPercent(bsys, ai->attackerMove, MOVE_EFFECT_HEAL_HALF_MORE_IN_SUN);
-            if (aiShouldRecover && recoverAmount > 50)
-                moveScore += 7;
-            else if (recoverAmount == 50 && shouldRecover(bsys, attacker, MOVE_EFFECT_RESTORE_HALF_HP, ai))
-                moveScore += 7;
-            else
-                moveScore += 5;
-            break;
-        }
-        case MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP:
-            if (aiShouldRecover)
+            if (ai->attackerMon.item == ITEM_CHESTO_BERRY || ai->attackerMon.item == ITEM_LUM_BERRY
+                || ai->attackerMon.ability == ABILITY_EARLY_BIRD || ai->attackerMon.ability == ABILITY_SHED_SKIN
+                || BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) || BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai)
+                || (ai->attackerMon.ability == ABILITY_HYDRATION && (ctx->field_condition & WEATHER_RAIN_ANY)))
             {
-                if (ai->attackerMon.item == ITEM_CHESTO_BERRY || ai->attackerMon.item == ITEM_LUM_BERRY
-                    || ai->attackerMon.ability == ABILITY_EARLY_BIRD || ai->attackerMon.ability == ABILITY_SHED_SKIN
-                    || BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) || BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai)
-                    || (ai->attackerMon.ability == ABILITY_HYDRATION && (ctx->field_condition & WEATHER_RAIN_ANY)))
-                {
-                    moveScore += 8;
-                }
-                else
-                    moveScore += 7;
+                moveScore += 8;
             }
             else
-                moveScore += 5;
-            break;
-        default:
-            isHealingMove = FALSE;
-            break;
+                moveScore += 7;
+        }
+        else
+            moveScore += 5;
+        break;
+    default:
+        isHealingMove = FALSE;
+        break;
     }
 
     if (!isHealingMove)
@@ -1696,6 +1696,7 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
 
     return moveScore;
 }
+
 
 
 
