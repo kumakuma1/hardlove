@@ -4534,7 +4534,7 @@ trainerdata 67, "Benny"
         abilityslot 0
         level LEVEL_BUGSY-3
         pokemon SPECIES_MASQUERAIN
-        item ITEM_AIR_BALLOON
+        item ITEM_SITRUS_BERRY
         move MOVE_SIGNAL_BEAM
         move MOVE_AIR_CUTTER
         move MOVE_AQUA_JET
