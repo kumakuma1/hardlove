@@ -12317,17 +12317,35 @@ trainerdata 263, "Silver" //GRASS
         ivs 0
         abilityslot 0
         level LEVEL_MORTY-2
-        pokemon SPECIES_HOUNDOOM
-        item ITEM_POWER_HERB
-        move MOVE_FLAMETHROWER
+        pokemon SPECIES_CHANDELURE
+        item ITEM_ASSAULT_VEST
+        move MOVE_MYSTICAL_FIRE
+        move MOVE_ENERGY_BALL
+        move MOVE_SHADOW_BALL
         move MOVE_DARK_PULSE
-        move MOVE_PURSUIT
-        move MOVE_SOLAR_BEAM
-        ability ABILITY_UNNERVE
+        ability ABILITY_SHADOW_TAG
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_HASTY
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY
+        pokemon SPECIES_MEGANIUM
+        item ITEM_LEFTOVERS
+        move MOVE_ENERGY_BALL
+        move MOVE_SLEEP_POWDER
+        move MOVE_ANCIENT_POWER
+        move MOVE_SYNTHESIS
+        ability ABILITY_OVERGROW
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -12335,31 +12353,13 @@ trainerdata 263, "Silver" //GRASS
         ivs 0
         abilityslot 0
         level LEVEL_MORTY-2
-        pokemon SPECIES_KINGDRA
-        item ITEM_LEFTOVERS
-        move MOVE_WATERFALL
-        move MOVE_SCALE_SHOT
-        move MOVE_IRON_HEAD
-        move MOVE_DRAGON_DANCE
-        ability ABILITY_SNIPER
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-	    ivs 0
-        abilityslot 0
-        level LEVEL_MORTY-2
-        pokemon SPECIES_GARDEVOIR
-        item ITEM_FOCUS_SASH
+        pokemon SPECIES_STARMIE
+        item ITEM_SITRUS_BERRY
+        move MOVE_SCALD
         move MOVE_PSYSHOCK
-        move MOVE_MOONBLAST
-        move MOVE_ICY_WIND
-        move MOVE_DESTINY_BOND
-        ability ABILITY_SYNCHRONIZE
+        move MOVE_ICE_BEAM
+        move MOVE_RECOVER
+        ability ABILITY_NATURAL_CURE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -12385,21 +12385,21 @@ trainerdata 263, "Silver" //GRASS
         shinylock 0
         additionalflags 0
         ballseal 0
-		
-	    ivs 0
+
+        ivs 0
         abilityslot 0
-        level LEVEL_MORTY
-        pokemon SPECIES_MEGANIUM
-        item ITEM_SITRUS_BERRY
-        move MOVE_ENERGY_BALL
-        move MOVE_SLEEP_POWDER
-        move MOVE_ANCIENT_POWER
-        move MOVE_SYNTHESIS
-        ability ABILITY_OVERGROW
+        level LEVEL_MORTY-2
+        pokemon SPECIES_GRIMMSNARL
+        item ITEM_LUM_BERRY
+        move MOVE_CRUNCH
+        move MOVE_SPIRIT_BREAK
+        move MOVE_THUNDER_WAVE
+        move MOVE_FIRE_PUNCH
+        ability ABILITY_PRANKSTER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -12662,78 +12662,6 @@ trainerdata 267, "Silver" //FIRE
 
         ivs 0
         abilityslot 0
-        level LEVEL_MORTY-2
-        pokemon SPECIES_WEAVILE
-        item ITEM_FOCUS_SASH
-        move MOVE_NIGHT_SLASH
-        move MOVE_ICICLE_SPEAR
-        move MOVE_PURSUIT
-        move MOVE_LOW_KICK
-        ability ABILITY_INNER_FOCUS
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_MORTY-2
-        pokemon SPECIES_KINGDRA
-        item ITEM_LEFTOVERS
-        move MOVE_WATERFALL
-        move MOVE_SCALE_SHOT
-        move MOVE_IRON_HEAD
-        move MOVE_DRAGON_DANCE
-        ability ABILITY_SNIPER
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-	    ivs 0
-        abilityslot 0
-        level LEVEL_MORTY-2
-        pokemon SPECIES_ROSERADE
-        item ITEM_SITRUS_BERRY
-        move MOVE_MEGA_DRAIN
-        move MOVE_SLUDGE_BOMB
-        move MOVE_SLEEP_POWDER
-        move MOVE_HIDDEN_POWER //ROCK
-        ability ABILITY_TECHNICIAN
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 30, 30, 31, 30 // hp, atk, def, spd, spatk, spdef //HP Rock
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-	    ivs 0
-        abilityslot 0
-        level LEVEL_MORTY-2
-        pokemon SPECIES_GRANBULL
-        item ITEM_ASSAULT_VEST
-        move MOVE_PLAY_ROUGH
-        move MOVE_EARTHQUAKE
-        move MOVE_PAYBACK
-        move MOVE_COUNTER
-        ability ABILITY_INTIMIDATE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_CAREFUL
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-	    ivs 0
-        abilityslot 0
         level LEVEL_MORTY
         pokemon SPECIES_TYPHLOSION
         item ITEM_POWER_HERB
@@ -12746,6 +12674,78 @@ trainerdata 267, "Silver" //FIRE
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-2
+        pokemon SPECIES_TSAREENA
+        item ITEM_ASSAULT_VEST
+        move MOVE_TROP_KICK
+        move MOVE_KNOCK_OFF
+        move MOVE_LOW_KICK
+        move MOVE_KNOCK_OFF
+        ability ABILITY_QUEENLY_MAJESTY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-2
+        pokemon SPECIES_STARMIE
+        item ITEM_SITRUS_BERRY
+        move MOVE_SCALD
+        move MOVE_PSYSHOCK
+        move MOVE_ICE_BEAM
+        move MOVE_RECOVER
+        ability ABILITY_NATURAL_CURE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-2
+        pokemon SPECIES_MIENSHAO
+        item ITEM_WHITE_HERB
+        move MOVE_CLOSE_COMBAT
+        move MOVE_ACROBATICS
+        move MOVE_KNOCK_OFF
+        move MOVE_STONE_EDGE
+        ability ABILITY_INNER_FOCUS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-2
+        pokemon SPECIES_GRIMMSNARL
+        item ITEM_LUM_BERRY
+        move MOVE_CRUNCH
+        move MOVE_SPIRIT_BREAK
+        move MOVE_THUNDER_WAVE
+        move MOVE_FIRE_PUNCH
+        ability ABILITY_PRANKSTER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -13020,26 +13020,26 @@ trainerdata 270, "Silver" //WATER
         shinylock 0
         additionalflags 0
         ballseal 0
-
-        ivs 0
+		
+	    ivs 0
         abilityslot 0
-        level LEVEL_MORTY-2
-        pokemon SPECIES_ALCREMIE
-        item ITEM_LEFTOVERS
-        move MOVE_STORED_POWER
-        move MOVE_MOONBLAST
-        move MOVE_ACID_ARMOR
-        move MOVE_RECOVER
-        ability ABILITY_SWEET_VEIL
+        level LEVEL_MORTY
+        pokemon SPECIES_FERALIGATR
+        item ITEM_LIFE_ORB
+        move MOVE_LIQUIDATION
+        move MOVE_ICE_PUNCH
+        move MOVE_CRUNCH
+        move MOVE_DRAGON_DANCE
+        ability ABILITY_SHEER_FORCE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_BOLD
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
-		
-	    ivs 0
+
+        ivs 0
         abilityslot 0
         level LEVEL_MORTY-2
         pokemon SPECIES_MIENSHAO
@@ -13056,21 +13056,21 @@ trainerdata 270, "Silver" //WATER
         shinylock 0
         additionalflags 0
         ballseal 0
-		
-	    ivs 0
+
+        ivs 0
         abilityslot 0
-        level LEVEL_MORTY
-        pokemon SPECIES_FERALIGATR
-        item ITEM_LIFE_ORB
-        move MOVE_LIQUIDATION
-        move MOVE_ICE_PUNCH
-        move MOVE_CRUNCH
-        move MOVE_DRAGON_DANCE
-        ability ABILITY_SHEER_FORCE
+        level LEVEL_MORTY-2
+        pokemon SPECIES_HATTERENE
+        item ITEM_LEFTOVERS
+        move MOVE_PSYSHOCK
+        move MOVE_DRAINING_KISS
+        move MOVE_NUZZLE
+        move MOVE_MYSTICAL_FIRE
+        ability ABILITY_MAGIC_BOUNCE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_BOLD
         shinylock 0
         additionalflags 0
         ballseal 0
