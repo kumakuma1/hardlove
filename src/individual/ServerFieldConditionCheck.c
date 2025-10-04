@@ -142,6 +142,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 debugsyscall(buf);
                 #endif
 
+                sp->fcc.weather_count = 5; // infinite weather
                 if (sp->field_condition & WEATHER_RAIN) {
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RAIN_END);
@@ -1567,7 +1568,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 #endif
 
                 if (sp->terrainOverlay.type != TERRAIN_NONE) {
-                    sp->terrainOverlay.numberOfTurnsLeft--;
+                    // sp->terrainOverlay.numberOfTurnsLeft--; // infinite terrain
                     if (sp->terrainOverlay.numberOfTurnsLeft <= 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_TERRAIN_END);
                         sp->next_server_seq_no = sp->server_seq_no;

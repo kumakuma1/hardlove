@@ -106,7 +106,12 @@ _0000: // Trainer 0
        // Trainer 709
        // Trainer 710
        // Trainer 711
-    trainertextentry 495, TEXT_LAST_MON_CRITICAL, "...Humph!\nYou’re doing OK for someone weak.\n"
+
+    trainertextentry 11, TEXT_LAST_MON_SENT_OUT, "Schau ma moi.\n"
+    trainertextentry 11, TEXT_DEFEATED_IN_BATTLE, "...Wer ko, der ko.\n"
+    trainertextentry 11, TEXT_PLAYER_LOSES, "....Ned umfall'n!\n"
+
+    trainertextentry 495, TEXT_LAST_MON_SENT_OUT, "...Humph!\nYou’re doing OK for someone weak.\n"
     trainertextentry 495, TEXT_DEFEATED_IN_BATTLE, "...Humph!\nAre you happy you won?\n"
     trainertextentry 495, TEXT_PLAYER_LOSES, "...Humph!\nThat was a waste of time.\n"
 
@@ -364,7 +369,7 @@ _0280: // Trainer 5
 
 _028C: // Trainer 70
     trainertextentry  70, TEXT_NOTICE_IN_OVERWORLD, "Give it your best shot, or I’ll take\nyou down!\r"
-    trainertextentry  70, TEXT_DEFEATED_IN_BATTLE, "No!\nOh, MEOWTH, I’m so sorry!\n"
+    trainertextentry  70, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "No!\nOh, MEOWTH, I’m so sorry!\n"
     trainertextentry  70, TEXT_DEFEATED_IN_OVERWORLD, "I taught MEOWTH moves for taking\non any type...\n"
 
 _0298: // Trainer 46
@@ -1230,7 +1235,7 @@ _0AB4: // Trainer 61
 
 _0AC4: // Trainer 66
     trainertextentry  66, TEXT_NOTICE_IN_OVERWORLD, "I’m confident in my ability to raise\nPokémon. Want to see?\r"
-    trainertextentry  66, TEXT_DEFEATED_IN_BATTLE, "Didn’t I train enough?\n"
+    trainertextentry  66, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "Didn’t I train enough?\n"
     trainertextentry  66, TEXT_DEFEATED_IN_OVERWORLD, "Hmm... Maybe I should take them to\nPokémon Day Care? What should I do?\n"
     trainertextentry  66, TEXT_REMATCH_IN_OVERWORLD, "Hey, you’re back!\rBattle my carefully trained Pokémon!\r"
 
@@ -1384,7 +1389,7 @@ _0C40: // Trainer 389
 
 _0C4C: // Trainer 44
     trainertextentry  44, TEXT_NOTICE_IN_OVERWORLD, "Is it OK to brag about my Pokémon?\r"
-    trainertextentry  44, TEXT_DEFEATED_IN_BATTLE, "I couldn’t brag...\n"
+    trainertextentry  44, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "I couldn’t brag...\n"
     trainertextentry  44, TEXT_DEFEATED_IN_OVERWORLD, "I’m not listening to your bragging!\nWe Pokéfans have a policy of not\flistening to other people brag!\n"
     trainertextentry  44, TEXT_REMATCH_IN_OVERWORLD, "I’ve been waiting!\nI’ve been wanting to brag to you!\r\n"
 
@@ -1826,7 +1831,7 @@ _1068: // Trainer 282
 
 _1074: // Trainer 181
     trainertextentry 181, TEXT_NOTICE_IN_OVERWORLD, "We adore our Pokémon, even if they\ndislike us. That’s what being a\fPokéfan is all about.\r"
-    trainertextentry 181, TEXT_DEFEATED_IN_BATTLE, "M-my Pokémon!\n"
+    trainertextentry 181, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "M-my Pokémon!\n"
     trainertextentry 181, TEXT_DEFEATED_IN_OVERWORLD, "I lost the battle, but my Pokémon win\nthe prize for being the most lovely.\n"
 
 _1080: // Trainer 182
@@ -1837,7 +1842,7 @@ _1080: // Trainer 182
 
 _1090: // Trainer 184
     trainertextentry 184, TEXT_NOTICE_IN_OVERWORLD, "Hello? Why are you staring at me?\rOh, a battle?\r"
-    trainertextentry 184, TEXT_DEFEATED_IN_BATTLE, "...Hmmm...\n"
+    trainertextentry 184, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "...Hmmm...\n"
     trainertextentry 184, TEXT_DEFEATED_IN_OVERWORLD, "I thought I did something wrong\nbecause you kept staring at me.\n"
     trainertextentry 184, TEXT_REMATCH_IN_OVERWORLD, "What?\nStaring at people’s faces.\r...Oh, didn’t I make a promise to\nsomeone? Was that you?\r"
 
@@ -2649,12 +2654,12 @@ _185C: // Trainer 734
 
 _1860: // Trainer 679
     trainertextentry 679, TEXT_NOTICE_IN_OVERWORLD, "Oh, you are a cute little Trainer!\nWhy don’t you battle me?\r"
-    trainertextentry 679, TEXT_DEFEATED_IN_BATTLE, "You’re good...\n"
+    trainertextentry 679, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "You’re good...\n"
     trainertextentry 679, TEXT_DEFEATED_IN_OVERWORLD, "Oh, I’ve learned something. There are\npeople like you out there who are very\fskilled even though they’re young...\n"
 
 _186C: // Trainer 680
     trainertextentry 680, TEXT_NOTICE_IN_OVERWORLD, "Hey hey there, you young Trainer!\nWon’t you battle with me?\r"
-    trainertextentry 680, TEXT_DEFEATED_IN_BATTLE, "Wow, you’re strong...\n"
+    trainertextentry 680, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "Wow, you’re strong...\n"
     trainertextentry 680, TEXT_DEFEATED_IN_OVERWORLD, "You...\nI wonder what your future holds...\n"
 
 _1878: // Trainer 238

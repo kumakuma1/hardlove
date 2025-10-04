@@ -1,0 +1,45 @@
+#include "../types.h"
+#include "../bag.h"
+#include "../battle.h"
+#include "../config.h"
+#include "../debug.h"
+#include "../pokemon.h"
+
+u16 randomMons [] = {
+    SPECIES_SENTRET,
+    SPECIES_LILLIPUP,
+    SPECIES_POOCHYENA,
+    SPECIES_PONYTA,
+    SPECIES_GROWLITHE,
+    SPECIES_SLUGMA,
+    SPECIES_BUIZEL,
+    SPECIES_HORSEA,
+    SPECIES_CORPHISH,
+    SPECIES_KRABBY,
+    SPECIES_ODDISH,
+    SPECIES_BELLSPROUT,
+    SPECIES_DEERLING,
+    SPECIES_SURSKIT,
+    SPECIES_SHELLOS,
+    SPECIES_SPINARAK,
+    SPECIES_SCATTERBUG,
+    SPECIES_SIZZLIPEDE,
+    SPECIES_BLIPBUG,
+    SPECIES_SPHEAL,
+    SPECIES_SEEL,
+    SPECIES_ZIGZAGOON_GALARIAN,
+    SPECIES_HOUNDOUR,
+    SPECIES_STUNKY,
+    SPECIES_EKANS,
+    SPECIES_SKRELP,
+    SPECIES_SALANDIT,
+    SPECIES_GEODUDE,
+    SPECIES_CUFANT,
+    SPECIES_ROGGENROLA,
+    SPECIES_PIDGEY,
+    SPECIES_STARLY,
+    SPECIES_ROOKIDEE
+};
+
+
+u16 randomMonsLength = sizeof(randomMons)/sizeof(u16);

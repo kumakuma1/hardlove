@@ -3037,6 +3037,14 @@ void LONG_CALL PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int in
 BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no);
 
 /**
+ *  @brief function to check whether a party pokemon is grounded or not
+ *  @param sp global battle structure
+ *  @param pp party pokemon
+ *  @return `TRUE` if grounded, `FALSE` otherwise
+ */
+BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokemon *pp);
+
+/**
  *  @brief function to check whether a mon is grounded or not
  *  @param sp global battle structure
  *  @param attacker resolved battler attacker
@@ -3112,7 +3120,9 @@ u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int at
  */
 u32 LONG_CALL MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, u32 ability);
 
-/**
+BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM *msg);
+
+    /**
  *  @brief check if synchronize should activate
  *
  *  @param bw battle work structure

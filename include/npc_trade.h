@@ -60,5 +60,6 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
 String* LONG_CALL _GetNpcTradeName(u32 heapId, u32 msgno);
 u16 LONG_CALL MapHeader_GetMapSec(u32 map_no);
 void LONG_CALL MonSetTrainerMemo(struct PartyPokemon *mon, void *profile, int strat, int mapsec, u32 heapId);
+void LONG_CALL CalcMonLevelAndStats(struct PartyPokemon *mon);
 
 #endif // POKEHEARTGOLD_NPC_TRADE_H

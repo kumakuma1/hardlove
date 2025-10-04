@@ -1,0 +1,123 @@
+Elder Li  12
+Falk      16
+Rocket    20
+Busgy     24
+Park      29
+Whitney   31
+Morty     35, Rival has starter at 36
+Chuck     40, Eusin 40
+Jasmine   46
+Rocket    50
+Pryce     52
+Tower     56, Rival 55
+Clair     60
+Rival     65
+Elite     70
+
+
+063 T20R0201 : Event File 60 - Script File 845 : Script 1:
+..
+Call Function#1
+..
+Function 1:
+	Message 39
+	SetVar 0x416F 100
+	YesNoBox 0x800C
+	CloseMessage 
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#5
+    CheckFlag 117
+	CallIf DIFFERENT Function#10
+	CloseTouchScreen 
+Return 
+
+Function 5:
+	Message 40
+	SetFlag 117 // GOT_OLD FLAG, hopefully this is only used for the guy in Route 32 giving the rod
+	SetVar 0x416F 12
+Return
+Function 5:
+	Message 41
+Return
+
+//Elder Li
+156 D15R0103 : Event File 151 - Script File 18 : Script 3: Text Archive 56
+CheckFlag 117
+CallIf EQUAL Function#4 
+
+Function 4:
+	SetVar 0x416F 16
+Return 
+
+//Falk
+135 T22GYM0101 : Event File 131 -  Script File 859 : Script 2
+CheckFlag 117
+CallIf EQUAL Function#7
+
+Function 7:
+	SetVar 0x416F 18
+Return 
+
+//Rocket Slowpoke
+177 D26R0102 : Event File 170 -  Script File 60 : Script 3
+CheckFlag 117
+CallIf EQUAL Function#3
+
+Function 3:
+	SetVar 0x416F 22
+Return
+
+//bugsy
+180 T23GYM0102 : Event File 173 -  Script File 869 : Script 2
+CheckFlag 117
+CallIf EQUAL Function#3
+
+Function 3:
+	SetVar 0x416F 27
+Return
+
+//whitney
+137 T25GYM0101 : Event File 133 -  Script File 886 : Script 1
+CheckFlag 117
+CallIf EQUAL Function#22
+
+Function 22:
+	SetVar 0x416F 35
+Return
+
+//rival ecruteak
+007 D18R0101 : Event File 5 -  Script File 23 : Script 4, Functions 2/3
+CheckFlag 117
+CallIf EQUAL Function#5
+
+Function 5:
+	SetVar 0x416F 35
+Return
+
+
+//Morty
+80 T27GYM0101 : Event File 77 -  Script File 922 : Script 2
+CheckFlag 117
+CallIf EQUAL Function#16
+
+Function 16:
+	SetVar 0x416F 40
+Return
+
+//Chuck
+139 T24GYM0101 : Event File 135 -  Script File 877 : Script 1
+CheckFlag 117
+CallIf EQUAL Function#11
+
+Function 11:
+	SetVar 0x416F 46
+Return
+
+//Jasmine
+138 T26GYM0101 : Event File 134 -  Script File 913 : Script 1
+CheckFlag 117
+CallIf EQUAL Function#50
+
+Function 50:
+	SetVar 0x416F 52
+Return

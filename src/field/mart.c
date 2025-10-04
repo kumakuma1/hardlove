@@ -20,24 +20,22 @@ struct BadgeMartItems {
 // note: limited to 203 items (~34 pages)
 const struct BadgeMartItems sBadgeMart[] = {
     { ITEM_POKE_BALL,      0 },
-    { ITEM_GREAT_BALL,     3 },
-    { ITEM_ULTRA_BALL,     5 },
+    { ITEM_NET_BALL,       0 },
+    { ITEM_GREAT_BALL,     1 },
+    { ITEM_ULTRA_BALL,     3 },
+    { ITEM_QUICK_BALL,     3 },
+    { ITEM_TIMER_BALL,     3 },
     { ITEM_POTION,         0 },
     { ITEM_SUPER_POTION,   1 },
-    { ITEM_HYPER_POTION,   5 },
-    { ITEM_MAX_POTION,     7 },
-    { ITEM_FULL_RESTORE,   8 },
+    { ITEM_HYPER_POTION,   3 },
+    { ITEM_MAX_POTION,     5 },
+    { ITEM_FULL_RESTORE,   5 },
+    { ITEM_FULL_HEAL,      1 },
     { ITEM_REVIVE,         3 },
-    { ITEM_ANTIDOTE,       0 },
-    { ITEM_PARALYZE_HEAL,  0 },
-    { ITEM_AWAKENING,      1 },
-    { ITEM_BURN_HEAL,      1 },
-    { ITEM_ICE_HEAL,       1 },
-    { ITEM_FULL_HEAL,      5 },
-    { ITEM_ESCAPE_ROPE,    1 },
-    { ITEM_REPEL,          1 },
-    { ITEM_SUPER_REPEL,    3 },
-    { ITEM_MAX_REPEL,      5 },
+    { ITEM_MAX_REVIVE,     5 },
+    { ITEM_ETHER,          5 },
+    { ITEM_ELIXIR,         5 },
+    { ITEM_MAX_ELIXIR,     5 },
 };
 
 void LONG_CALL InitMartUI(void *taskManager, FieldSystem *fieldSystem, const u16 *items, int kind, int buySell, int decoWhich, const struct MartItem *priceOverrides);
@@ -51,13 +49,25 @@ u16 sVioletCityMart[] = {
 };
 
 u16 sAzaleaCityMart[] = {
-    ITEM_BLOOM_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF
+    ITEM_TM010, // ITEM_BLOOM_MAIL,
+    ITEM_TM070, // ITEM_HEAL_BALL,
+    ITEM_TM088, // ITEM_NET_BALL,
+    0xFFFF
 };
 
 u16 sGoldenrodDepartmentUpper2F[] = {
-    ITEM_POTION, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_REVIVE,
-    ITEM_ANTIDOTE, ITEM_PARALYZE_HEAL, ITEM_BURN_HEAL, ITEM_ICE_HEAL, ITEM_AWAKENING,
-    ITEM_FULL_HEAL, 0xFFFF
+    ITEM_TM015, // ITEM_POTION,
+    ITEM_TM021, // ITEM_SUPER_POTION,
+    ITEM_TM039, // ITEM_HYPER_POTION,
+    ITEM_TM007, // ITEM_MAX_POTION,
+    ITEM_TM011, // ITEM_REVIVE,
+    ITEM_TM017, // ITEM_ANTIDOTE,
+    ITEM_TM034, // ITEM_PARALYZE_HEAL,
+    ITEM_TM040, // ITEM_BURN_HEAL,
+    ITEM_TM008, // ITEM_ICE_HEAL,
+    0xFFFF, // ITEM_AWAKENING, // nightshade, low sweep
+    0xFFFF, // ITEM_FULL_HEAL,
+    0xFFFF
 };
 
 u16 sGoldenrodDepartmentLower2F[] = {
@@ -72,8 +82,13 @@ u16 sGoldenrodDepartment3F[] = {
 };
 
 u16 sGoldenrodDepartment4F[] = {
-    ITEM_PROTEIN, ITEM_IRON, ITEM_CALCIUM, ITEM_ZINC, ITEM_CARBOS,
-    ITEM_HP_UP, 0xFFFF
+    ITEM_RAZOR_CLAW,   // ITEM_PROTEIN,
+    ITEM_RAZOR_FANG,   // ITEM_IRON,
+    ITEM_DRAGON_SCALE, // ITEM_CALCIUM,
+    ITEM_UP_GRADE,     // ITEM_ZINC,
+    ITEM_ELECTIRIZER,  // ITEM_CARBOS,
+    ITEM_MAGMARIZER,   // ITEM_HP_UP,
+    0xFFFF
 };
 
 u16 sGoldenrodDepartment5F[] = {
@@ -104,8 +119,14 @@ u16 sBlackthornAndBattleFrontierMart[] = {
 };
 
 u16 sIndigoPlateau[] = {
-    ITEM_ULTRA_BALL, ITEM_MAX_REPEL, ITEM_HYPER_POTION, ITEM_MAX_POTION, ITEM_FULL_RESTORE,
-    ITEM_REVIVE, ITEM_FULL_HEAL, 0xFFFF
+    ITEM_MOON_STONE,  // ITEM_ULTRA_BALL,
+    ITEM_FIRE_STONE,  // ITEM_MAX_REPEL,
+    ITEM_WATER_STONE, // ITEM_HYPER_POTION,
+    ITEM_THUNDER_STONE, // ITEM_MAX_POTION,
+    ITEM_LEAF_STONE,  // ITEM_FULL_RESTORE,
+    ITEM_ICE_STONE,   // ITEM_REVIVE,
+    ITEM_SHINY_STONE, // ITEM_FULL_HEAL,
+    0xFFFF
 };
 
 u16 sVermilionAndSafariMart[] = {

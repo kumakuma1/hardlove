@@ -8,7 +8,7 @@ GEN_LATEST equ 9
 START_ADDRESS equ 0x0
 
 // DISALLOW_DEXIT_GEN controls whether to disallow selection of dexited moves in later generations. Choose any Generation below 8 for none. 0 will instead disable any unimplemented moves.
-DISALLOW_DEXIT_GEN equ 0
+DISALLOW_DEXIT_GEN equ 7
 
 // FAIRY_TYPE_IMPLEMENTED defines whether or not the Fairy type is to be implemented as type 9 or not.
 // If you do not want this change, then set it to 0.
@@ -32,7 +32,7 @@ SNOW_WARNING_GENERATION equ GEN_LATEST
 CRY_PSEUDOBANK_START equ 778
 
 // BATTLE_MODE_FORCE_SET defines whether or not players will be able to switch out mons when the opponent sends out their next mon. The player will be able to choose themselves like normal if the following is 0, 1 if the player will be forced to use "set"
-BATTLE_MODE_FORCE_SET equ 0
+BATTLE_MODE_FORCE_SET equ 1
 
 // ALWAYS_HAVE_NATIONAL_DEX defines whether or not the player will always have the national dex unlocked.
 ALWAYS_HAVE_NATIONAL_DEX equ 0
@@ -44,7 +44,7 @@ ALWAYS_UNCAPPED_FRAME_RATE equ 0
 BATTLES_UNCAPPED_FRAME_RATE equ 0
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
-FAST_TEXT_PRINTING equ 0
+FAST_TEXT_PRINTING equ 1
 
 // NO_PARTNER_DOUBLE_BATTLES allows for setting trainers to double battles without setting up a partner trainer.  set to 0 to disable
 // note that the entry in `armips/data/trainers/trainertext.s` has to use `TEXT_DOUBLE_DEFEATED_IN_BATTLE_1`, but the overworld entries can remain the same.
@@ -53,3 +53,11 @@ NO_PARTNER_DOUBLE_BATTLES equ 1
 // APPLY_ANTIPIRACY will apply the typical anti-piracy code changes to your ROM automatically so that the game runs well on hardware (TWLmenu and R4 are both tested)
 // comment out the lines if you do not want anti-piracy to be applied to your ROM
 .definelabel APPLY_ANTIPIRACY, 0
+
+
+
+
+STAT_CHANGES_IMPLEMENTED equ 0
+TYPE_CHANGES_IMPLEMENTED equ 0
+SHORTENED_EGG_CYCLE equ 1
+EV_ENABLED equ 0

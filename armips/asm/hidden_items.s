@@ -35,7 +35,7 @@
 .halfword ITEM_ELIXIR
 
 .org 0x02000000 + 0xFA5A0 //Violet
-.halfword ITEM_HYPER_POTION
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA5A8 //Violet
 .halfword ITEM_POKE_BALL
@@ -65,7 +65,7 @@
 .halfword ITEM_BIG_PEARL
 
 .org 0x02000000 + 0xFA5F0 //Union Cave B1F S
-.halfword ITEM_X_SPEED
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA5F8 //Union Cave B1F E
 .halfword ITEM_REVIVE
@@ -74,7 +74,7 @@
 .halfword ITEM_ULTRA_BALL
 
 .org 0x02000000 + 0xFA608 //Union Cave B2F W
-.halfword ITEM_CALCIUM
+.halfword ITEM_ELIXIR
 
 .org 0x02000000 + 0xFA610 //R32 E
 .halfword ITEM_HEART_SCALE
@@ -92,7 +92,7 @@
 .halfword ITEM_GREAT_BALL
 
 .org 0x02000000 + 0xFA638 //Slowpoke Well B1F Rock
-.halfword ITEM_SUPER_POTION
+.halfword ITEM_NUGGET
 
 .org 0x02000000 + 0xFA640 //Slowpoke Well B1F Ladder
 .halfword ITEM_FULL_HEAL
@@ -113,7 +113,7 @@
 .halfword ITEM_TINY_MUSHROOM
 
 .org 0x02000000 + 0xFA670 //Ilex Forest
-.halfword ITEM_REPEL
+.halfword ITEM_ETHER
 
 .org 0x02000000 + 0xFA678 //Ilex Forest W Surf
 .halfword ITEM_BIG_MUSHROOM
@@ -128,7 +128,7 @@
 .halfword ITEM_RARE_CANDY
 
 .org 0x02000000 + 0xFA698 //R34 E
-.halfword ITEM_SUPER_POTION
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA6A0 //Goldenrod
 .halfword ITEM_SUPER_POTION
@@ -164,7 +164,7 @@
 .halfword ITEM_PP_UP
 
 .org 0x02000000 + 0xFA6F8 //Pokeathlon Dome W
-.halfword ITEM_PROTEIN
+.halfword ITEM_ETHER
 
 .org 0x02000000 + 0xFA700 //Ecruteak Centre
 .halfword ITEM_HYPER_POTION
@@ -176,10 +176,10 @@
 .halfword ITEM_RARE_CANDY
 
 .org 0x02000000 + 0xFA718 //Ecruteak W
-.halfword ITEM_ULTRA_BALL
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA720 //Burned Tower Entrance N
-.halfword ITEM_ETHER
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA728 //Burned Tower Entrance SW
 .halfword ITEM_ULTRA_BALL
@@ -236,7 +236,7 @@
 .halfword ITEM_HYPER_POTION
 
 .org 0x02000000 + 0xFA7B8 //Olivine
-.halfword ITEM_PROTEIN
+.halfword ITEM_PEARL
 
 .org 0x02000000 + 0xFA7C0 //Olivine Dock
 .halfword ITEM_PEARL
@@ -269,7 +269,7 @@
 .halfword ITEM_ULTRA_BALL
 
 .org 0x02000000 + 0xFA810 //Whirl Islands
-.halfword ITEM_SUPER_REPEL
+.halfword ITEM_ETHER
 
 .org 0x02000000 + 0xFA818 //Whirl Islands
 .halfword ITEM_PEARL
@@ -317,7 +317,7 @@
 .halfword ITEM_REVIVE
 
 .org 0x02000000 + 0xFA890 //Mt Mortar Back
-.halfword ITEM_MAX_REPEL
+.halfword ITEM_ETHER
 
 .org 0x02000000 + 0xFA898 //Mt Mortar Back
 .halfword ITEM_ETHER

@@ -60,9 +60,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_POISON
 .skip 4
 
-// TM007 HAIL
+// TM007 HAIL change to DARK
 .skip 2
-.halfword PALETTE_ICE
+.halfword PALETTE_DARK 
 .skip 4
 
 // TM008 BULK_UP
@@ -80,9 +80,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_NORMAL
 .skip 4
 
-// TM011 SUNNY_DAY
+// TM011 SUNNY_DAY change to DARK
 .skip 2
-.halfword PALETTE_FIRE
+.halfword PALETTE_DARK
 .skip 4
 
 // TM012 TAUNT
@@ -100,9 +100,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_ICE
 .skip 4
 
-// TM015 HYPER_BEAM
+// TM015 HYPER_BEAM change to ELECTRO
 .skip 2
-.halfword PALETTE_NORMAL
+.halfword PALETTE_ELECTRIC
 .skip 4
 
 // TM016 LIGHT_SCREEN
@@ -110,9 +110,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_PSYCHIC
 .skip 4
 
-// TM017 PROTECT
+// TM017 PROTECT -> smart strike
 .skip 2
-.halfword PALETTE_NORMAL
+.halfword PALETTE_STEEL
 .skip 4
 
 // TM018 RAIN_DANCE
@@ -130,9 +130,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_NORMAL
 .skip 4
 
-// TM021 FRUSTRATION
+// TM021 FRUSTRATION change to ICE
 .skip 2
-.halfword PALETTE_NORMAL
+.halfword PALETTE_ICE
 .skip 4
 
 // TM022 SOLARBEAM
@@ -165,9 +165,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_NORMAL
 .skip 4
 
-// TM028 DIG
+// TM028 DIG -> Venoshock
 .skip 2
-.halfword PALETTE_GROUND
+.halfword PALETTE_POISON
 .skip 4
 
 // TM029 PSYCHIC
@@ -230,19 +230,19 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_FLYING
 .skip 4
 
-// TM041 TORMENT
+// TM041 TORMENT change to ELECTRO
 .skip 2
 .halfword PALETTE_DARK
 .skip 4
 
 // TM042 FACADE
 .skip 2
-.halfword PALETTE_NORMAL
+.halfword PALETTE_ELECTRIC
 .skip 4
 
-// TM043 SECRET_POWER
+// TM043 SECRET_POWER  change to FLYING
 .skip 2
-.halfword PALETTE_NORMAL
+.halfword PALETTE_FLYING
 .skip 4
 
 // TM044 REST
@@ -250,9 +250,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_PSYCHIC
 .skip 4
 
-// TM045 ATTRACT
+// TM045 ATTRACT change to FAIRY
 .skip 2
-.halfword PALETTE_NORMAL
+.halfword PALETTE_PSYCHIC
 .skip 4
 
 // TM046 THIEF
@@ -445,9 +445,9 @@ PALETTE_FAIRY equ 401
 .halfword PALETTE_NORMAL
 .skip 4
 
-// TM084 POISON_JAB
+// TM084 POISON_JAB -> SCALD
 .skip 2
-.halfword PALETTE_POISON
+.halfword PALETTE_WATER
 .skip 4
 
 // TM085 DREAM_EATER

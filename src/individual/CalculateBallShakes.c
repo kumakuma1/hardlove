@@ -92,10 +92,11 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
         break;
 #ifdef INCLUDE_LURE_PARK_SPORTS_BALL_CALCULATION
     case ITEM_SAFARI_BALL:
-        if (BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) {
-            ballCaptureRatio = 0x1800;
-        }
-        break;
+        //if (BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) {
+        //    ballCaptureRatio = 0x1800;
+        //}
+        return 4;
+        //break;
 #endif
     case ITEM_NET_BALL:
         if (HasType(sp, sp->defence_client, TYPE_WATER) || HasType(sp, sp->defence_client, TYPE_BUG)) {
@@ -371,6 +372,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
             break;
 
     }
+    badgePenalty = UQ412__1_0;
 
 #ifdef DEBUG_CAPTURE_RATE_PERCENTAGES
     debug_printf("badgePenalty in Q4.12 number format: %d\n", badgePenalty);

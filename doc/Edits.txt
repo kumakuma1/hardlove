@@ -1,0 +1,410 @@
+- Cut, Rock Smash, Rock Climb, Strength, Whirlpool, Waterfall can be used without teaching the move. Only the HM and the badge are required
+- Rock Climb usable after Jasmine
+
+
+-----------------------------
+New Bark Town
+-----------------------------
+- shortened text
+- Mom gives bicycle, pokegear with upgrade 1, running shoes, VS Recorder
+- Mom gives radio upgrade (no quiz needed in goldenrod, sets Whitney in the arena)
+- disables quide Kent in cherrygrove
+- Level caps
+- removed need to talk to mom after starter was received
+- Prof gives starter with hidden ability, 3x 31 IVs at random
+- Aide gives 995 super repels, 995 candies, 2 heartscales, old rod, Infinite Candy
+- Prof gives Pokeballs after getting the Dex
+- fishing encounter
+- removed Lyra events to save time
+
+TODO:
+- change encounter rates
+
+
+
+-----------------------------
+Route 29
+-----------------------------
+- removed Lyra catching event, Balls from Prof
+- removed cut trees
+- encounter
+
+TODO:
+
+
+-----------------------------
+Route 46
+-----------------------------
+- encounter
+
+TODO:
+
+
+-----------------------------
+Cherrygrove City
+-----------------------------
+- removed guide Kent events. He is placed in his house
+- fishing encounter
+- added Rock Smash stones for encounter
+
+TODO:
+- add Rock Smash encounter + rate
+
+
+-----------------------------
+Route 30
+-----------------------------
+- fishing encounter
+- encounter
+- removed event for Aprikoko box
+TODO:
+- place trainer, so that they are mandatory
+- surf encounter
+
+-----------------------------
+Route 31
+-----------------------------
+- removed cut trees
+- fishing encounter
+- encounter
+- Lyra Scene not triggered
+
+TODO:
+- place trainer, so that they are mandatory
+- place bug catcher in front of dark cave
+- surf encounter
+
+
+-----------------------------
+Dark Cave - First Part
+-----------------------------
+- heart scale in ball
+TODO:
+- remove need for flash
+- surf encounter
+
+-----------------------------
+Violet City
+-----------------------------
+- fishing encounter
+- Trainer in gym are mandatory
+- Falk increases Level cap
+- removed Primo and use flags otherwise
+- candy reached with surf
+TODO:
+- IVs for Onix trade? / replace trade
+- surf encounter
+- heart scale behind rock?
+
+
+-----------------------------
+Route 36 - First Part
+-----------------------------
+- random egg: Mon with Evolution from Gen 1-3. No (pseudo-) Legendaries, OU
+TODO:
+
+
+-----------------------------
+Ruins of Alph
+-----------------------------
+- changed cave entries, so that grass is accessible
+- Mini-Boss before grass
+- Blocker NPC blocks Union Cave entry, vanishes after Morty
+- encounter
+- fishing encounter
+- Ruins are blocked until after Whitney Badge
+- Never Melt Ice
+TODO:
+- (Move NPC inside of cave to allow for early Union Cave encounter)?
+- surf encounter
+
+-----------------------------
+Route 32 - First Part
+-----------------------------
+TODO:
+- night form encounter
+
+-----------------------------
+Sprout Tower 1F
+-----------------------------
+- removed trainer -> Gym
+- ever stone
+TODO:
+
+-----------------------------
+Sprout Tower 2F
+-----------------------------
+- encounter
+TODO:
+- move trainer(s) to route 37?
+
+-----------------------------
+Sprout Tower 3F
+-----------------------------
+- made trainier mandatory
+- Li increases Level caps
+- Li gives 3x Berry Juice, 2x Coba Berries
+- Blocked right path after last trainer has moved
+TODO:
+- 
+
+-----------------------------
+Route 32 - Second Part
+-----------------------------
+- removed cut tree
+- removed Guy giving old rod - used flag otherwise
+- miracle Seed
+- Poison barb behind rock
+TODO:
+- made trainier mandatory
+- items
+- Bird keeper Mini boss
+- fishing encounter
+- surf encounter
+- heart scale?
+
+-----------------------------
+Union Cave
+-----------------------------
+TODO:
+- night form encounter
+- fishing encounter
+- surf encounter
+- Togedemaru
+- Wise Glasses
+- Muscle Band
+
+-----------------------------
+Route 33
+-----------------------------
+- mandatory Mini boss
+TODO:
+
+
+-----------------------------
+Azalea
+-----------------------------
+- heabutt encounter
+- Rival fight is mandatory before entering gym the first time. No longer triggers when entering forrest 
+TODO:
+- (TM ?)
+- overhall heabutt encounter
+
+-----------------------------
+Ilex Forrest
+-----------------------------
+- heabutt teacher moved closer to entrance
+- no need to catch Porentas to get HM01 Cut
+- Boss guards Candy
+TODO:
+- encounter
+- overhall heabutt encounter
+- fishing encounter
+- surf encounter
+
+-----------------------------
+Slowpoke cave
+-----------------------------
+- rocket increases level cap
+TODO:
+- encounter
+- fishing encounter
+- surf encounter
+
+-----------------------------
+Route 34
+-----------------------------
+- After receiving the Mega-Ring, the player can earn a Choice Scarf in the Gauntlet against 3 Ace Trainers.
+TODO:
+- make trainer mandatory
+- scale level of gauntlet
+- 
+
+-----------------------------
+Goldenrod
+-----------------------------
+- Store used Primo Flags to scale
+- Store adds ordinary market
+- Store: Balls -> Berries
+- Store: Potions -> Evolution Stones
+- Store: Vitamins -> TMs, moved next to ordinary TM guy
+- Lady giving TM27 Return and TM21 Frustration on Sunday, only gives TM27. Appears every day
+- Bill gifts Porygon instead of Eevee
+- quiz for radio upgrade no onger needed
+- Whitney always in the arena
+- Whitney gives TM45 Drain Kiss, shortened text
+- Witney unlockes TM guy in Mart, ClearFlag 345
+TODO:
+- use bycicle store differently (fossil?)
+- store items
+- flower shop items
+- Correct store location messages
+
+
+
+-----------------------------
+Goldenrod - Rocket
+-----------------------------
+- Before entering tower, Whitney challenges to a rematch
+TODO:
+- (rescuing director gives mega-ring?)
+- tag battle with giovanni?
+
+
+-----------------------------
+Goldenrod Game Corner
+-----------------------------
+- add NPC to buy coins
+- replaced pokemon prizes with badge scaling prices
+- move tutor 1 (Top left) here
+//- Items replaced: Scope lens (5k), Wide lens (2k), Toxic Orb (5k), Flame Orb (5k)
+//- TMs: Swords Dance 10k, Substitute 6k
+TODO:
+- badge scaling pokemon held items
+- badge scaling offering multiple pokemons per badge
+
+
+
+Park
+-----------------------------
+- Soothe Bell -> Rare Candy, behind 2 Trainers. Their reset location will block access. First Trainer also blocks TM28 Dig
+- Moved one Trainer in the lower area to guard Quick Claw/Silk Scarf Woman
+TODO:
+
+
+-----------------------------
+Route 36
+-----------------------------
+- Mini Boss with level cap increase
+- Psychic with Flame Orb and Trick Pokemon
+TODO:
+- Toxic Orb
+
+
+
+
+-----------------------------
+Route 37
+-----------------------------
+TODO:
+- make trainer mandatory
+
+-----------------------------
+Route 38
+-----------------------------
+TODO:
+- make trainer mandatory
+
+-----------------------------
+Moomoo Farm
+-----------------------------
+TODO:
+- 
+
+-----------------------------
+Route 39
+-----------------------------
+- Blocked with NPC until Morty is beaten
+- TM60 Drain Punch replaced with TM65 Shadow Claw
+TODO:
+- make trainer mandatory
+
+
+-----------------------------
+Olivine City
+-----------------------------
+- Blocked Lighthouse with Jasmine, Disappears after Chuck is beaten
+- Good Rod no longer obtainable
+- Find VM 08 Rock Climb next to jasmine in the lighthouse
+- Perma Sandstorm in Jasmine Gym
+TODO:
+- move rock climb to rocket hideout
+
+
+-----------------------------
+Cianwood City
+-----------------------------
+- Eusin gives Manectite and randomly Life Orb, Choice Specs, Choice Band
+- Guy in the Photographer's house gives random fossil pokemon
+- Chuck gives TM60 Drain Punch
+TODO:
+- newer fossils
+
+-----------------------------
+Route 47
+-----------------------------
+- Perma Sandstorm
+- NPC Porter to access grass for encounter
+- Rocket Cutscene on Bridge
+TODO:
+- make trainer mandatory
+
+-----------------------------
+Safari-Zone Gate
+-----------------------------
+- NPC gives random starter
+- Shop sells 2. line of evolution items
+
+-----------------------------
+Safari-Zone
+-----------------------------
+- Encounters changed
+
+-----------------------------
+Route 42
+-----------------------------
+TODO:
+- replace TM65 Shadow Claw
+
+
+
+-----------------------------
+Radio Tower
+-----------------------------
+- Rescuing Director gives Mega-Ring
+TODO:
+- Perma Tailwind, Sun at Archer
+
+
+-----------------------------
+Blackthorn City
+-----------------------------
+- Replaced Dratini by Random Pseudo legendary
+- A Dratini still knows Extreme Speed
+TODO:
+
+
+
+
+-----------------------------
+Route 46 - Uppper Part
+-----------------------------
+- When entering Dark Cave, Bugsy appears and challenges for a rematch. Gives Scizorite, Heracrossnite
+TODO:
+- Rain, Encounter, Trainer, Items
+
+
+-----------------------------
+Kimono Gauntlet
+-----------------------------
+TODO:
+- Give Mega-stones instead of Ho-Oh Encounter
+
+
+
+-----------------------------
+Route 27
+-----------------------------
+- Blocked until Badge 8 is received. Surf Area still accessable.
+TODO:
+- 
+
+-----------------------------
+Elite Four
+-----------------------------
+TODO:
+- Use Koga for Melanie
+- Use Lance for Melanie
+- New champ
+- port Lance, Melanie text
+- Sprite Raissa, change name to Meralda
