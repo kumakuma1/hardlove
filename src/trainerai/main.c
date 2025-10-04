@@ -1924,4 +1924,6 @@ BOOL LONG_CALL IsMonInflictedWithAnyStatus(struct BattleStruct* ctx, u32 attacke
         return TRUE;
     if (ctx->battlemon[attacker].condition2 & (STATUS2_ATTRACT | STATUS2_CURSE))
         return TRUE;
+
+    return FALSE;
 }
