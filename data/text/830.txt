@@ -333,7 +333,7 @@ The user slams the target with its\nwings to inflict damage. The targe\nis hit t
 The foe is scared off, to be replaced\nby another Pokémon in its party.\nIn the wild, the battle ends.
 A move that leaves the foe badly\npoisoned. This poison damage\nworsens every turn.
 The user approaches the target\ndisarmingly, then throws a sucker punch.\nThis attack never misses.
-The target is thrown using the\npower of gravity. It inflicts damage\nequal to the user's level.
+The target is thrown using the\npower of gravity. It inflicts damage\nequal to the user’s level.
 The user forcefully shoots seeds at\nthe foe. Two to five seeds are shot in\nrapid succession.
 A variable move that changes type\nand power depending on the hidden\nability of the Pokémon using it.
 The user scatters curious leaves\nthat chase the target. This attack\nnever misses.
@@ -346,14 +346,14 @@ The user stabs the target with a\nsharp horn. This attack never misses.
 The user summons a heavy rain that\nfalls for five turns, powering up\nWater-type moves.
 A nutrient-draining attack. The user’s\nHP is restored by half the damage\ntaken by the target.
 The user creates a protective field\nthat prevents status problems like\npoison, paralysis, burn, and sleep.
-The user attacks with a gust of\nchilled air. This also lowers opposing\nPokémon's Speed stats.
+The user attacks with a gust of\nchilled air. This also lowers opposing\nPokémon’s Speed stats.
 A two-turn attack. The user gathers\nlight, then blasts a bundled beam on\nthe second turn.
 The foe is slammed with a sturdy\ntail of steel. It may also lower the\ntarget’s Defense stat if it hits.
 A strong electric blast is loosed at\nthe foe. It may also leave the foe\nparalyzed.
 A wicked thunderbolt is dropped on the\nfoe to inflict damage. It may also\nleave the target paralyzed.
 The user sets off an earthquake\nthat hits all the Pokémon in the\nbattle.
 A full-power attack that grows more\npowerful the more the user likes its\nTrainer.
-The user drenches the target in a\nspecial poisonous liquid. This move's\npower is doubled if the target is\npoisoned.
+The user drenches the target in a\nspecial poisonous liquid. This move’s\npower is doubled if the target is\npoisoned.
 The foe is hit by a strong telekinetic\nforce. It may also reduce the foe’s\nSp. Def stat.
 The user hurls a shadowy blob at the\nfoe. It may also lower the foe’s\nSp. Def stat.
 The user attacks with tough fists,\netc. It can also break any barrier\nsuch as Light Screen and Reflect.
@@ -368,7 +368,7 @@ Large boulders are hurled at the foe\nto inflict damage. It lowers the foe’s\n
 The user confounds the foe with speed,\nthen strikes. The attack lands without\nfail.
 The user torments and enrages the\nfoe, making it incapable of using the\nsame move twice in a row.
 An attack move that doubles its power\nif the user is poisoned, paralyzed, or\nhas a burn.
-It reduces the foe's evasion stat.\nIt also removes spikes, light screens,\netc.
+It reduces the foe’s evasion stat.\nIt also removes spikes, light screens,\netc.
 The user goes to sleep for two\nturns. It fully restores the user’s HP\nand heals any status problem.
 The user attacks with an energy-\ndraining kiss that restores the\nuser’s HP.
 The user attacks and steals the foe’s\nheld item simultaneously. It can’t\nsteal if the user holds an item.
