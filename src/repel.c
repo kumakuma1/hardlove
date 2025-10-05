@@ -10,7 +10,9 @@ void Repel_SetCurrentType();
 #ifdef IMPLEMENT_REUSABLE_REPELS
 u16 ALIGN4 CurrentRepelType = 0;
 
-bool32 PlayerStepEvent_RepelCounterDecrement(SaveData *saveData, FieldSystem *fieldSystem) {
+bool32 PlayerStepEvent_RepelCounterDecrement(SaveData *saveData UNUSED, FieldSystem *fieldSystem UNUSED)
+{
+    /*
     void *roamerSaveData = EncDataSave_GetSaveDataPtr(saveData);
     u8* repel_addr = SaveData_GetRepelPtr(roamerSaveData);
 
@@ -29,7 +31,7 @@ bool32 PlayerStepEvent_RepelCounterDecrement(SaveData *saveData, FieldSystem *fi
             return TRUE;
         }
     }
-
+    */
     return FALSE;
 }
 

@@ -1,0 +1,142 @@
+﻿###Mom gives Shoes, pokegear, Level caps
+063 T20R0201 : Event File 60 - Script File 845 : Script 1:
+	TextPlayerName 0
+	GenderMessage 0 1
+	SetFlag 283
+	SetFlag 284
+	SetFlag 285
+	SetFlag 286
+	SetFlag 408
+	ClearFlag 117
+	SetFlag 156
+	PlaySound 1185
+	WaitSound
+	UpgradePokegear 1
+	SetFlag 138
+	SetVar 0x4073 2
+    Message 4
+    GiveShoes
+	Message 5
+	Call Function#26
+	CloseMessage
+
+Function 26:
+	Message 39
+	SetVar 0x416F 100
+	YesNoBox 0x800C
+	CloseMessage 
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#27
+	CheckFlag 117
+	CallIf DIFFERENT Function#28
+	CloseTouchScreen 
+Return 
+
+Function 27:
+	Message 40
+	SetFlag 117
+	SetVar 0x416F 12
+Return 
+
+Function 28:
+	Message 41
+Return 
+
+By the way, would you like to\nplay with Hard Level Caps?\r
+That’s my fearless little adventurer!\rHard caps are on.\r
+That’s okay honey. You just go at your\nown pace.\r
+
+### Remove Lyra Scene in Newbark
+060 - T20 : even file 57, script file 842, lvel script file 615:
+Clear Script 4 (first scene), Script 9, script 10
+
+Add to Mom's script in 845
+	SetFlag 417
+	SetFlag 418
+	SetVar 0x4106 2
+	SetVar 0x4072 2
+
+
+Remove Professor coming for pokegear number
+Script 3:
+	MecScript 
+	LockAll 
+				CheckFlag 156 //remove
+				JumpIf EQUAL Function#5 //remove
+	Movement Overworld.1 Action#2
+
+
+###Starter Hidden Ability, 3x31 IVs
+Header 061 T20R0101 - Script File 843 : Script 13
+Script 13:
+	...
+    SetFlag 2601
+	SetFlag 2599
+	StarterSelectionScreen 
+	...
+### Register Prof Elm number
+	...
+	TextPlayerName 0
+	GenderMessage 12 13 (add \r)
+    RecordPokegearNumber 1
+	TextPlayerName 0
+	Message 106
+	PlaySound 1206
+	WaitSound 
+	SetVar 0x407E 1
+
+\v0103ぁ\x0000\x0000 registered Professor Elm\nin the Pokégear!\r	
+
+
+#### Debug
+065 - T20R0301 - script file 847
+I am the Creator.\nDo you want to debug? \v0200\x0001\x0000
+Make some space in your Bag and Team.\r
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#1
+	TakeItem 50 900 0x800C
+	TakeItem 93 900 0x800C
+	SetVar 0x8004 50
+	SetVar 0x8005 900
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	SetVar 0x8004 50
+	SetVar 0x8005 900
+	CommonScript 2008
+	SetVar 0x8004 93
+	SetVar 0x8005 900
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	SetVar 0x8004 93
+	SetVar 0x8005 900
+	CommonScript 2008
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#1
+	GivePokemon 384 100 0 0 0 0x800C
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 1:
+	Message 1
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+
+#### Remove Catch Tutorial Scene
+033 R29 : Script File 225 : Clear script 1 and 2
+Move overworlds out of way

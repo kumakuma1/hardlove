@@ -1,8 +1,8 @@
-Hello, and welcome to\nthe Pokémon Center.\rWe restore your tired Pokémon\nto full health.\rWould you like to rest your\nPokémon?{YESNO 0}
+Would you like to rest your\nPokémon?{YESNO 0}
 OK, I’ll take your Pokémon for a few\nseconds.
-Thank you for waiting.\rWe’ve restored your Pokémon to full\nhealth.\r
+We’ve restored your Pokémon to full\nhealth.\r
 Please, come back again any time!
-Hello, and welcome to\nthe Pokémon Center.\rWe restore your tired Pokémon\nto full health.\rWould you like to...\r
+We restore your tired Pokémon\nto full health.\rWould you like to...\r
 Th-that Trainer Card!\rThat wonderful shade!\nAnd all those stars!\rI’ve seen several Trainers with\nViolet Trainer Cards up to now...\rBut you’re the first to top them\nwith that impressive Trainer Card.\rPlease, {STRVAR_1 3, 0, 0}, may I please\nheal your Pokémon? {YESNO 0}
 Great to see you, {STRVAR_1 3, 0, 0}!\nYou want the usual, right? {YESNO 0}
 I will be pleased to take your\nPokémon for a few seconds.
@@ -118,3 +118,135 @@ NOT TELLING
 
 The repellent’s effect wore off!\nWould you like to use another one?
 You used the {STRVAR_1 8, 1, 0}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How can I help you today?\r
+Forget a move
+Remember a move
+Maximize IV
+Apply a status
+EXIT
+Goodbye.\nLet me know, if you need anything.\r
+I can make your Pokémon forget\na move. {YESNO 0}
+Which Pokémon should forget a move?\r
+What? That’s an Egg.\r
+That Pokémon knows only one move,\nso it can’t be forgotten...\r
+Which move should be forgotten?\r
+The move {STRVAR_1 6, 0, 0}?\nShould that move be forgotten? {YESNO 0}
+Your Pokémon has forgotten the move\n{STRVAR_1 6, 0, 0}.\r
+
+I can make Pokémon remember their\nmoves for a Heart Scale.\r
+You need more Heart Scales.\r
+Which Pokémon needs tutoring?\r
+Which move should I make it remember?\r
+There is no move to remember.\r
+{STRVAR_1 3, 0, 0} handed over 1 Heart Scale\nin exchange.\r
+It costs one Heart Scale to maximize\nan IV of a Pokémon.\r
+Which Pokémon’s IV do you want to\nlook at?\r
+Which of your {STRVAR_1 3, 0, 0}’s IVs\ndo you want to maximize?\r
+HP
+Attack
+Defense
+Speed
+Sp.Atk
+Sp.Def
+I will maximize {STRVAR_1 3, 0, 0}’s\nHP? {YESNO 0}
+I will maximize {STRVAR_1 3, 0, 0}’s\nAttack? {YESNO 0}
+I will maximize {STRVAR_1 3, 0, 0}’s\nDefense? {YESNO 0}
+I will maximize {STRVAR_1 3, 0, 0}’s\nSpeed? {YESNO 0}
+I will maximize {STRVAR_1 3, 0, 0}’s\nSpecial Attack? {YESNO 0}
+I will maximize {STRVAR_1 3, 0, 0}’s\nSpecial Defense? {YESNO 0}
+I have set your {STRVAR_1 3, 0, 0}’s\nHP IV to 31.\r
+I have set your {STRVAR_1 3, 0, 0}’s\nAttack IV to 31.\r
+I have set your {STRVAR_1 3, 0, 0}’s\nDefense IV to 31.\r
+I have set your {STRVAR_1 3, 0, 0}’s\nSpeed IV to 31.\r
+I have set your {STRVAR_1 3, 0, 0}’s\nSp. Attack IV to 31.\r
+I have set your {STRVAR_1 3, 0, 0}’s\nSp. Defense IV to 31.\r
+Which status would you like to apply\nto your Pokémon?\r
+Burn
+Freeze
+Paralysis
+Poison
+Sleep
+And to which Pokémon should I apply\nthat status effect?\r
+Your {STRVAR_1 3, 0, 0} is now inflicted\nwith a status condition.\r
+Your {STRVAR_1 3, 0, 0} cannot be\ninflicted with that status.\r
+
+
+Change Nature
+It costs three Heart Scales to change\nthe nature of a Pokémon.\r
+Which Pokémon’s Nature do you want to\nlook at?\r
+Which Nature would you like?
+Hardy     Neutral
+Lonely   {COLOR 1}+Atk{COLOR 0}  {COLOR 3}-Def{COLOR 0}
+Brave    {COLOR 1}+Atk{COLOR 0}  {COLOR 3}-Spe{COLOR 0}
+Adamant {COLOR 1}+Atk{COLOR 0}  {COLOR 3}-SpA{COLOR 0}
+Naughty {COLOR 1}+Atk{COLOR 0}  {COLOR 3}-SpD{COLOR 0}
+Bold      {COLOR 1}+Def{COLOR 0}  {COLOR 3}-Atk{COLOR 0}
+Docile    Neutral
+Relaxed  {COLOR 1}+Def{COLOR 0}  {COLOR 3}-Spe{COLOR 0}
+Impish   {COLOR 1}+Def{COLOR 0}  {COLOR 3}-SpA{COLOR 0}
+Lax       {COLOR 1}+Def{COLOR 0}  {COLOR 3}-SpD{COLOR 0}
+Timid     {COLOR 1}+Spe{COLOR 0}  {COLOR 3}-Atk{COLOR 0}
+Hasty    {COLOR 1}+Spe{COLOR 0}  {COLOR 3}-Def{COLOR 0}
+Serious  Neutral
+Jolly     {COLOR 1}+Spe{COLOR 0}  {COLOR 3}-SpA{COLOR 0}
+Naive    {COLOR 1}+Spe{COLOR 0}  {COLOR 3}-SpD{COLOR 0}
+Modest  {COLOR 1}+SpA{COLOR 0}  {COLOR 3}-Atk{COLOR 0}
+Mild      {COLOR 1}+SpA{COLOR 0}  {COLOR 3}-Def{COLOR 0}
+Quiet    {COLOR 1}+SpA{COLOR 0}  {COLOR 3}-Spe{COLOR 0}
+Bashful  Neutral
+Rash    {COLOR 1}+SpA{COLOR 0}  {COLOR 3}-SpD{COLOR 0}
+Calm     {COLOR 1}+SpD{COLOR 0}  {COLOR 3}-Atk{COLOR 0}
+Gentle  {COLOR 1}+SpD{COLOR 0}  {COLOR 3}-Def{COLOR 0}
+Sassy   {COLOR 1}+SpD{COLOR 0}  {COLOR 3}-Spe{COLOR 0}
+Careful {COLOR 1}+SpD{COLOR 0}  {COLOR 3}-SpA{COLOR 0}
+Quirky   Neutral
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Hardy? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Lonely? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Brave? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Adamant? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Naughty? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Bold? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Docile? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Relaxed? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Impish? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Lax? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Timid? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Hasty? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Serious? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Jolly? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Naive? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Modest? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Mild? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Quiet? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Bashful? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Rash? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Calm? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Gentle? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Sassy? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Careful? {YESNO 0}
+Change your {STRVAR_1 3, 0, 0}’s Nature\nto Quirky? {YESNO 0}
+{STRVAR_1 3, 0, 0}’s Nature has been\nchanged!\r
+{STRVAR_1 3, 0, 0} handed over 3 Heart Scales\nin exchange.\r
+REPEL is enabled.\nDo you want to turn it off?
+{STRVAR_1 3, 0, 0} turned the REPEL off.\r
+REPEL is disabled.\nDo you want to turn it on?
+{STRVAR_1 3, 0, 0} turned the REPEL on.\r

@@ -1,0 +1,3 @@
+117   - 061-T20R0201 : Script File 845 - prev. Old Rod Flag. Used for level caps
+420   - 061-T20R0101 : Script File 225 - Function 25: Hide Lyra. Flag is set.
+421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
