@@ -46,6 +46,42 @@ By the way, would you like to\nplay with Hard Level Caps?\r
 That’s my fearless little adventurer!\rHard caps are on.\r
 That’s okay honey. You just go at your\nown pace.\r
 
+###Remove Mom Saving money
+063 T20R0201 : Event File 60 - Script File 845 : Script 2:
+	CheckFlag 2404 GAME_CLEAR
+	JumpIf EQUAL Function#2  -> SS_Ticket -> Function#3
+	CompareVarValue 0x4108 4
+	JumpIf GREATER/EQUAL Function#3
+	CheckFlag 106
+	JumpIf EQUAL Function#4 -> GetPokeGear, go to Mr. Pokemon
+
+
+Function 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 167
+	JumpIf EQUAL Function#7 -> Withdraw,etc
+	CheckBadge 0 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#8 - "I will save money"
+	Message 15
+Jump Function#9
+
+add new script for Mom
+Script 8:
+	PlayFanfare 1500
+	LockAll
+    FacePlayer
+	Message 42 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+42:Hi! Welcome home!\nYou’re doing fine, I see.\rI’ve kept your room tidy and clean.\rGive it all you got!\r
+
+
+
 ### Remove Lyra Scene in Newbark
 060 - T20 : even file 57, script file 842, lvel script file 615:
 Clear Script 4 (first scene), Script 9, script 10
@@ -87,6 +123,28 @@ Script 13:
 
 \v0103ぁ\x0000\x0000 registered Professor Elm\nin the Pokégear!\r	
 
+
+### Professor gives balls
+script 3/Function 12:
+	GenderMessage 38 39
+    SetVar 0x8004 4	
+    SetVar 0x8005 50
+    CommonScript 2008
+
+38/39:And take these!\r
+
+
+
+### Assistant gives Old Rod/Infinite Candy
+Function15:
+	SetVar 0x8004 445
+	SetVar 0x8005 1
+	CommonScript 2033
+	CloseMessage 
+
+	20/21:
+Pokémon are weak in the beginning.\rDon’t hesitate to use a Potion if you\nthink yours is in danger.\r
+Pokémon are weak in the beginning.\rDon’t hesitate to use Items to help\nthem grow stronger.\r
 
 #### Debug
 065 - T20R0301 - script file 847
@@ -140,3 +198,38 @@ End
 #### Remove Catch Tutorial Scene
 033 R29 : Script File 225 : Clear script 1 and 2
 Move overworlds out of way
+
+
+
+### Cherrygrove Guide
+Remove events triggerd by 0x4073/16499
+Clear Script 1,2,3
+Mom Sets flag 408
+
+
+
+###Route 30 Events
+Remove Aprikoko Guy event
+Clear Script 3
+Move OW out of way
+Remove event triggered by 0x408C/16524 == 0
+
+### Mom Calling on Route 30
+034 - R30 Remove call
+Script 5:   0x4095/16533 == 1
+	MecScript 
+	LockAll 
+	SetVar 0x8004 0
+	SetVar 0x8005 2
+	SetVar 0x8006 0
+		//CommonScript 2039
+	SetVar 0x4095 0
+	SetFlag 167
+	ReleaseAll 
+End 
+
+
+### Remove Lyra/VS Recorder in R31
+Clear script 1,2 triggered by 0x4132/16690 == 0
+Delete OWs
+Delete Level Script

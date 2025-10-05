@@ -1,3 +1,10 @@
 117   - 061-T20R0201 : Script File 845 - prev. Old Rod Flag. Used for level caps
+156   -                                - Pokegear Flag
 420   - 061-T20R0101 : Script File 225 - Function 25: Hide Lyra. Flag is set.
 421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
+591   -              :                 - Aprikoko Guy in Route 30
+
+
+
+0x4095/16533 == 1 : Mom Calling on Route 30
+0x4132 == 1 VS Recorder in R31
