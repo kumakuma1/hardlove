@@ -1740,12 +1740,12 @@ scr_seq_0003_063:
 scr_seq_0003_064:
     play_se SEQ_SE_DP_SELECT
     lockall
-    scrcmd_727 VAR_SPECIAL_x8005
+    get_follow_poke_party_index VAR_SPECIAL_x8005
     bufferpartymonnick 0, VAR_SPECIAL_x8005
     npc_msg 99
     closemsg
     scrcmd_806
-    scrcmd_727 VAR_SPECIAL_x8005
+    get_follow_poke_party_index VAR_SPECIAL_x8005
     bufferpartymonnick 0, VAR_SPECIAL_x8005
     npc_msg 100
     wait_button
