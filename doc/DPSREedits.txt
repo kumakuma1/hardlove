@@ -253,3 +253,8 @@ Script 7:
 	SetVar 0x8007 0
 	CommonScript 2093
 End 
+
+
+
+###Remove Old Rod guy
+R32 PC, clear script 2, move OW out of way

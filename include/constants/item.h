@@ -2563,7 +2563,7 @@
 #define ITEM_BRIARS_BOOK                  2557
 #define ITEM_INFINITE_CANDY               2558
 
-#define MAX_BASE_ITEM_NUM ITEM_INFINITE_CANDY
+#define MAX_BASE_ITEM_NUM ITEM_BRIARS_BOOK
 
 // define your custom move effects below like this
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
@@ -2626,7 +2626,7 @@ enum ItemGeneration {
     (id) <= ITEM_EON_FLUTE    ? GEN6 : \
     (id) <= ITEM_UNKNOWN_1073 ? GEN7 : \
     (id) <= ITEM_LEGEND_PLATE ? GEN8 : \
-    (id) <= ITEM_INFINITE_CANDY  ? GEN9 : \
+    (id) <= ITEM_BRIARS_BOOK  ? GEN9 : \
                                 CUSTOM )
 
 #define ITEM_MSG_OFFSET(id) ( \
@@ -2635,8 +2635,8 @@ enum ItemGeneration {
     (id) <= ITEM_EON_FLUTE    ? ((id) - (ITEM_REVEAL_GLASS + 1)) : \
     (id) <= ITEM_UNKNOWN_1073 ? ((id) - (ITEM_EON_FLUTE    + 1)) : \
     (id) <= ITEM_LEGEND_PLATE ? ((id) - (ITEM_UNKNOWN_1073 + 1)) : \
-    (id) <= ITEM_INFINITE_CANDY  ? ((id) - (ITEM_LEGEND_PLATE + 1)) : \
-                                ((id) - (ITEM_INFINITE_CANDY + 1)))
+    (id) <= ITEM_BRIARS_BOOK  ? ((id) - (ITEM_LEGEND_PLATE + 1)) : \
+                                ((id) - (ITEM_BRIARS_BOOK + 1)))
 
 #define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
 #define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c
