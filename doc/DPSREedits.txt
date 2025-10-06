@@ -233,3 +233,15 @@ End
 Clear script 1,2 triggered by 0x4132/16690 == 0
 Delete OWs
 Delete Level Script
+
+
+
+### Sprout Tower 3F  Blocker
+Bellsprout OW
+Script 4:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer
+    Message 9 
+    ReleaseAll 
+End
