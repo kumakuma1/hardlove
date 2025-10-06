@@ -1,8 +1,11 @@
 117   - 061-T20R0201 : Script File 845 - prev. Old Rod Flag. Used for level caps
 156   -                                - Pokegear Flag
+345   - 158-T22PC0101: Script File 860 - Maarep-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items + TMs 1, Cleared after Schorsch
+346   - 158-T22PC0101: Script File 860 - Wooper-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items 2, Cleared after Morty
+347   - 158-T22PC0101: Script File 860 - Slugma-Egg Primo. Flag is not set. | Mom sets 063
 420   - 061-T20R0101 : Script File 225 - Function 25: Hide Lyra. Flag is set.
 421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
-591   -              :                 - Aprikoko Guy in Route 30
+591   -              :                 - Aprikoko Guy in Route 30. Used for Healing in Gyms
 
 
 

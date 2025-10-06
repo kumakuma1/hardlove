@@ -67,13 +67,13 @@ u8 LONG_CALL customFieldMoveCheckInPartyMenu(struct PLIST_WORK *wk, struct Party
 u8 LONG_CALL sub_0207B0B0(struct PLIST_WORK *wk, u8 *buf)
 {
     struct PartyPokemon *pp = Party_GetMonByIndex(wk->dat->pp, wk->pos);
-    u16 move;
 #if !defined(USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU)
+    u16 move;
     u8 fieldMoveIndex = 0;
     u8 i;
-#endif
-    u8 count = 0;
     u8 fieldEffect;
+#endif
+    u8 count = 0; 
 
     u8 isEgg = GetMonData(pp, MON_DATA_IS_EGG, NULL);
     u32 item = GetMonData(pp, MON_DATA_HELD_ITEM, NULL);

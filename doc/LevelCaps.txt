@@ -6,3 +6,11 @@ CallIf EQUAL Function#4
 Function 4:
 	SetVar 0x416F 16
 Return 
+
+//Falkner
+	CheckFlag 117
+	CallIf EQUAL Function#16
+	...
+Function 16:
+	SetVar 0x416F 20
+Return 

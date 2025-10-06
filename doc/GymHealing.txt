@@ -1,0 +1,29 @@
+ScriptFile 953:
+    CheckFlag 591
+	CallIf EQUAL Function#37
+    TrainerBattle...
+
+Function 37:
+    HealPokemon
+Return
+
+//Violet 
+
+Script 16:
+	ClearFlag 591
+End 
+
+VioletGym 
+Script 1:
+    SetFlag 591
+    ...
+Script 2:
+    ...
+    HealPokemon 
+	TrainerBattle 20 0 0 0
+    ...
+Function 6:
+    ClearFlag 591
+	LostBattle 
+	ReleaseAll 
+End 

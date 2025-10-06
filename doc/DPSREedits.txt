@@ -245,3 +245,11 @@ Script 4:
     Message 9 
     ReleaseAll 
 End
+
+
+##### Utility in Pokecenter
+Add OW  ID 6
+Script 7:
+	SetVar 0x8007 0
+	CommonScript 2093
+End 
