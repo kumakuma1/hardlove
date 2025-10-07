@@ -67363,10 +67363,26 @@
         "Level": 81,
         "Move": "MOVE_OUTRAGE"
       },
-      {
-        "Level": 90,
-        "Move": "MOVE_HYPER_BEAM"
-      }
+        {
+            "Level": 90,
+            "Move": "MOVE_HYPER_BEAM"
+        },
+        {
+            "Level": 99,
+            "Move": "MOVE_DUAL_WINGBEAT"
+        },
+        {
+            "Level": 99,
+            "Move": "MOVE_DUAL_CHOP"
+        },
+        {
+            "Level": 99,
+            "Move": "MOVE_TACHYON_CUTTER"
+        },
+        {
+            "Level": 99,
+            "Move": "MOVE_DRAGON_ASCENT"
+        }
     ],
     "MachineMoves": [
       "MOVE_AERIAL_ACE",
