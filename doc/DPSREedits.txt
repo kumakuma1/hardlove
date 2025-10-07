@@ -206,6 +206,9 @@ Remove events triggerd by 0x4073/16499
 Clear Script 1,2,3
 Mom Sets flag 408
 
+###Cherry Grove Rocksmash Rocks
+OW 85, Flag 20/21, Script 10001
+
 
 
 ###Route 30 Events

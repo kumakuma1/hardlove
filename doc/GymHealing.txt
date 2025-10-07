@@ -27,3 +27,79 @@ Function 6:
 	LostBattle 
 	ReleaseAll 
 End 
+
+//Azalea
+script 5:
+    ClearFlag 591
+    CompareVarValue 0x4080 0
+
+AzaleaGym
+script 2:
+    HealPokemon
+	TrainerBattle 21 0 0 0
+    ...
+Script 17:
+    SetFlag 591
+    ...
+Function 2:
+    ClearFlag 591
+    LostBattle 
+	ReleaseAll 
+End 
+
+//Goldenrod
+Script 19:
+    ClearFlag 591
+
+GoldenrodGym
+script 1:
+    HealPokemon
+	TrainerBattle 30 0 0 0
+    ...
+Script 5:
+    SetFlag 591
+    ...
+Function 4:
+    ClearFlag 591
+	LostBattle 
+	ReleaseAll 
+End 
+
+
+
+//Ecruteak
+Script 16:
+    ClearFlag 591
+
+EcruteakGym
+Script 1:
+    SetFlag 591
+
+Script 2:
+    HealPokemon
+	TrainerBattle 31 0 0 0
+    ...
+ Function 7:
+    ClearFlag 591
+	LostBattle 
+	ReleaseAll 
+End 
+
+//Cianwood
+Script 6:
+    ClearFlag 591
+
+CianwoodGym
+script 1:
+    HealPokemon
+	TrainerBattle 34 0 0 0
+
+script 2:
+    SetFlag 591
+    ...
+
+Function 3:
+    ClearFlag 591
+	LostBattle 
+	ReleaseAll 
+End 
