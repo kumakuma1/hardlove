@@ -254,7 +254,8 @@ Script 7:
 	CommonScript 2093
 End 
 
-
+#### Block RoA entry with OWs
+Flag 127 clear. Got TM from Bugsy
 
 ###Remove Old Rod guy
 R32 PC, clear script 2, move OW out of way
