@@ -266,13 +266,36 @@ R32 PC, clear script 2, move OW out of way
 ### Remove weekly sibling Frieda
 R32, clear script 5, 6, move OW out of way, clear flag 520
 
-Trigger var:
-SetVar 0x40F4/16628 1
+### Block the pier on Route 32
+Add 3 OWs
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	Message 20
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 21
+	CloseMessage 
+	ReleaseAll 
+End 
+
+20 Pssst!\rDon’t scare the fish!\r
+21 Poli...\r
 
 
 ###Gauntlet in Slowpoke Well
 Change Grunt OW to Ariana, Move Proton
 clear script 3
+
+Trigger var:
+SetVar 0x40F4/16628 1
 
 Script 4:
     MecScript 
@@ -368,9 +391,10 @@ Action 1:
 End
 
 Action 2:
-	WalkRightFast 0x2
-	LookUp 0x1
-	Freeze8 0x6
+	Freeze8 0x1
+	WalkLeftFast 0x1
+	WalkUpFast 0x5
+	Freeze8 0x4
 	LookDown 0x1
 	Freeze8 0x5
 	LookRight 0x1
@@ -392,3 +416,15 @@ End
 7 Proton: Lost, kid? Or just too dumb\nto stay away from Team Rocket?\r
 8 Ariana: Tsk. Guess we’ll have to\nteach this brat a painful lesson.\r
 9 Proton: Seriously, Ariana? It’s just\na kid!\rUgh, fine...\rI’ll handle this myself.\r
+
+
+
+### Kurt gives Moonstone
+script 6:
+	...
+	Message 2
+    SetVar 0x8004 81
+	SetVar 0x8005 1
+	CommonScript 2008
+
+2:Kurt: I also found this in the Well.\nYou might have a use for it.\r
