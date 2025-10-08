@@ -428,3 +428,91 @@ script 6:
 	CommonScript 2008
 
 2:Kurt: I also found this in the Well.\nYou might have a use for it.\r
+
+
+
+### Azalea Rival
+Move Slowpoke OW out of way
+Move event in front of Gym
+SetVar 0x40F4/16628 2
+
+Script 3:
+	MecScript 
+	LockAll 
+    LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	..
+	//GetPlayerPosition 0x8004 0x8005
+	//CompareVarValue 0x8005 462
+	//JumpIf DIFFERENT Function#1
+	SetOWPosition Overworld.9 404 0 463 Left -> 414 0 472 Left
+	Movement Overworld.9 Action#2
+	Movement Player Action#3
+Jump Function#1
+
+Function 1:
+	WaitMovement 
+	TextRivalName 0
+	Message 1
+	CloseMessage 
+	Movement Player Action#7
+	WaitMovement 
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 387
+	JumpIf DIFFERENT Function#6
+	TrainerBattle 266 0 0 0
+Jump Function#7
+
+Function 6:
+	CompareVarValue 0x800C 775
+	JumpIf DIFFERENT Function#8
+	TrainerBattle 269 0 0 0
+Jump Function#7
+
+Function 7:
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	CommonScript 2070
+	TextRivalName 0
+	Message 2
+	CloseMessage 
+	SetVar 0x4075 2
+Jump Function#10
+
+Function 8:
+	TrainerBattle 1 0 0 0
+Jump Function#7
+
+Function 9:
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 10:
+	Movement Overworld.9 Action#8
+	WaitMovement 
+	RemoveOW Overworld.9
+	CommonScript 2071
+	SetVar 0x4024 2
+	ReleaseAll 
+End 
+
+
+Action 2:
+	WalkLeftFast 0x7
+End
+
+Action 3:
+	LookRight 0x1
+End
+
+Action 7:
+	WalkRightSlow 0x1
+End
+
+Action 8:
+	LookRight 0x1
+	WalkRightFast 0x9
+End

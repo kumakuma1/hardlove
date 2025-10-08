@@ -18,4 +18,4 @@ Variables
 16420 (0x4024)   : unused. Story Events.
                 0: start
                 1: Set by Gauntlet in Slowpoke Well.
-                2: 
+                2: Set by Azalea Rival. (prev used  0x4075/16501))
