@@ -352,9 +352,9 @@ trainerdata 11, "Mickey"
         ballseal 0
     endparty
 
-trainerdata 12, "Grunt"
+trainerdata 12, "Ariana"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_TEAM_ROCKET
+    trainerclass TRAINERCLASS_EXECUTIVE_ARIANA
     nummons 3
     item ITEM_NONE
     item ITEM_NONE

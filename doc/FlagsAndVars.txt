@@ -5,9 +5,17 @@
 347   - 158-T22PC0101: Script File 860 - Slugma-Egg Primo. Flag is not set. | Mom sets 063
 420   - 061-T20R0101 : Script File 225 - Function 25: Hide Lyra. Flag is set.
 421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
+520   -                                - Frieda on R32                  
 591   -              :                 - Aprikoko Guy in Route 30. Used for Healing in Gyms
 
 
+Variables
 
 0x4095/16533 == 1 : Mom Calling on Route 30
 0x4132 == 1 VS Recorder in R31
+
+
+16420 (0x4024)   : unused. Story Events.
+                0: start
+                1: Set by Gauntlet in Slowpoke Well.
+                2: 

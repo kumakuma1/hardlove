@@ -262,3 +262,133 @@ Flag 127 clear. Got TM from Bugsy
 
 ###Remove Old Rod guy
 R32 PC, clear script 2, move OW out of way
+
+### Remove weekly sibling Frieda
+R32, clear script 5, 6, move OW out of way, clear flag 520
+
+Trigger var:
+SetVar 0x40F4/16628 1
+
+
+###Gauntlet in Slowpoke Well
+Change Grunt OW to Ariana, Move Proton
+clear script 3
+
+Script 4:
+    MecScript 
+	PlayFanfare 1500
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#3
+	Movement Overworld.4 Action#4
+	WaitMovement 
+	Message 6
+	CloseMessage 
+	Movement Overworld.2 Action#5
+	Movement Overworld.4 Action#5
+	WaitMovement 
+	Message 7
+	Message 8
+	CloseMessage 
+	TrainerBattle 12 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 9
+	CloseMessage 
+	TrainerBattle 486 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CheckFlag 117
+	CallIf EQUAL Function#3
+	Message 2
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.1
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	RemoveOW Overworld.4
+	SetFlag 425
+	WaitTime 20 0x8004
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetOWPosition Overworld.7 36 0 7 Left
+	Movement Overworld.7 Action#1
+	Movement Player Action#2
+Jump Function#5
+
+Function 5:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	Message 0
+	CloseMessage 
+	ClearFlag 414
+	ClearFlag 427
+	SetFlag 123
+	SetVar 0x4075 1
+	SetVar 0x4080 2
+	SetVar 0x4099 1
+	SetVar 0x409B 1
+	SetVar 0x409E 1
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 164 0 4 5 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetFlag 426
+	SetFlag 469
+	SetFlag 428
+	ClearFlag 429
+	ClearFlag 423
+	ClearFlag 424
+	SetVar 0x4024 1 //story Flag
+	ReleaseAll 
+End 
+
+Action 1:
+	WalkLeftFast 0x2
+	WalkDownFast 0x2
+	WalkLeftFast 0x3
+	WalkUpFast 0x2
+	Freeze4 0x4
+	WalkLeftFast 0x1
+	WalkUpFast 0x3
+	LookLeft 0x1
+End
+
+Action 2:
+	WalkRightFast 0x2
+	LookUp 0x1
+	Freeze8 0x6
+	LookDown 0x1
+	Freeze8 0x5
+	LookRight 0x1
+End
+
+Action 3:
+	WalkLeftFast 0x1
+End
+
+Action 4:
+	Exclamation 0x1
+End
+
+Action 5:
+	WalkRightFast 0x2
+End
+
+6 Proton: What do we have here?\r
+7 Proton: Lost, kid? Or just too dumb\nto stay away from Team Rocket?\r
+8 Ariana: Tsk. Guess we’ll have to\nteach this brat a painful lesson.\r
+9 Proton: Seriously, Ariana? It’s just\na kid!\rUgh, fine...\rI’ll handle this myself.\r
