@@ -19,6 +19,9 @@
 	Message 5
 	Call Function#26
 	CloseMessage
+	SetVar 0x4024 0
+
+
 
 Function 26:
 	Message 39
@@ -249,6 +252,13 @@ Script 4:
     ReleaseAll 
 End
 
+###Falkner gives Defog
+Function 8:
+	SetVar 0x8004 370
+	SetVar 0x8005 1
+
+Falkner: With that Badge, you can use\nthe hidden move Rock Smash anytime\foutside of battle.\r
+Falkner: By using a TM, a Pokémon will\ninstantly learn a new move.\rThink before you act--a TM can be\nused only once.\rTM43 contains Defog.\nIt removes Hazards in battle.\rThere are Pokémon Gyms in cities and\ntowns ahead. Make good use of them!\rAs for your next move...\fI would suggest Azalea Town.
 
 ##### Utility in Pokecenter
 Add OW  ID 6
@@ -257,8 +267,9 @@ Script 7:
 	CommonScript 2093
 End 
 
-#### Block RoA entry with OWs
+#### Block RoA entries with OWs
 Flag 127 clear. Got TM from Bugsy
+Block smaller caves with OWs without Flag
 
 ###Remove Old Rod guy
 R32 PC, clear script 2, move OW out of way
@@ -376,6 +387,7 @@ Function 5:
 	ClearFlag 423
 	ClearFlag 424
 	SetVar 0x4024 1 //story Flag
+	SetVar 0x40F4 1 // Cut in Ilex
 	ReleaseAll 
 End 
 
@@ -516,3 +528,37 @@ Action 8:
 	LookRight 0x1
 	WalkRightFast 0x9
 End
+
+
+
+### Getting Cut in Ilex
+Remove all OWs, clear scripts regarding Ilex Events
+
+Script 17:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 10
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 18:
+	MecScript 
+	LockAll 
+	Movement Overworld.3 Action#3
+	Movement Player Action#4
+	WaitMovement 
+	Message 0
+	SetVar 0x8004 420
+	SetVar 0x8005 1
+	CommonScript 2033
+	CloseMessage 
+	SetFlag 429
+	SetVar 0x40F4 0
+	ReleaseAll 
+End 
+
+
+0: Hey!\rYou need Cut to go any further!\rTake this!\r
+10: Do you want to apprentice as a charcoal\nmaker with me?\rYou’ll be first-rate in ten years!\rWe cut wood all day, everyday.\r
