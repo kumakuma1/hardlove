@@ -42,8 +42,10 @@ scr_seq_0146_000:
 	play_se SEQ_SE_DP_SELECT
 	lockall
 	faceplayer
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_CUT
-	compare VAR_SPECIAL_RESULT, 6
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_CUT
+	//compare VAR_SPECIAL_RESULT, 6
+	CheckItem ITEM_HM01, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
 	goto_if_eq _009E
 	check_badge BADGE_HIVE, VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 0
@@ -64,7 +66,8 @@ _009E:
 	goto _093D
 
 _00AD:
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_CUT
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_CUT
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
 	copyvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
 	get_follow_poke_party_index VAR_SPECIAL_x8005
 	bufferpartymonnick 0, VAR_SPECIAL_RESULT
@@ -188,7 +191,11 @@ scr_seq_0146_001:
 	play_se SEQ_SE_DP_SELECT
 	lockall
 	faceplayer
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_ROCK_SMASH
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_ROCK_SMASH
+	CheckItem ITEM_HM06, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
+	goto_if_eq _02D7
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
 	copyvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 6
 	goto_if_eq _02D7
@@ -351,8 +358,12 @@ scr_seq_0146_002:
 	goto _093D
 
 _051C:
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_STRENGTH
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_STRENGTH
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 6
+	goto_if_eq _0564
+	CheckItem ITEM_HM04, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
 	goto_if_eq _0564
 	check_badge BADGE_PLAIN, VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 0
@@ -374,7 +385,8 @@ _0564:
 
 _0573:
 	strength_flag_action 1, 0
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_STRENGTH
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_STRENGTH
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
 	copyvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
 	bufferpartymonnick 0, VAR_SPECIAL_RESULT
 	npc_msg 11
@@ -505,10 +517,14 @@ _0736:
 scr_seq_0146_003:
 	play_se SEQ_SE_DP_SELECT
 	lockall
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_ROCK_CLIMB
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_ROCK_CLIMB
 	compare VAR_SPECIAL_RESULT, 6
 	goto_if_eq _0797
-	check_badge BADGE_EARTH, VAR_SPECIAL_RESULT
+	CheckItem ITEM_HM08, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
+	goto_if_eq _0797
+	check_badge BADGE_MINERAL, VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 0
 	goto_if_eq _0797
 	check_escort_mode VAR_SPECIAL_RESULT
@@ -536,7 +552,8 @@ _07A6:
 	goto _0941
 
 _07B5:
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_ROCK_CLIMB
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_ROCK_CLIMB
 	copyvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
 	bufferpartymonnick 0, VAR_SPECIAL_RESULT
 	npc_msg 21
@@ -560,6 +577,9 @@ scr_seq_0146_004:
 	check_escort_mode VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 1
 	goto_if_eq _0826
+	CheckItem ITEM_HM03, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
+	goto_if_eq _0826
 	npc_msg 14
 	touchscreen_menu_hide
 	getmenuchoice VAR_SPECIAL_RESULT
@@ -576,7 +596,8 @@ _0826:
 	goto _0941
 
 _0833:
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_SURF
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_SURF
 	copyvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
 	bufferpartymonnick 0, VAR_SPECIAL_RESULT
 	npc_msg 15
@@ -764,7 +785,8 @@ scr_seq_0146_014:
 	play_se SEQ_SE_DP_SELECT
 	lockall
 	faceplayer
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_HEADBUTT
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_HEADBUTT
 	compare VAR_SPECIAL_RESULT, 6
 	goto_if_eq _0AC2
 	npc_msg 32

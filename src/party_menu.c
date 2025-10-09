@@ -27,7 +27,7 @@ u8 LONG_CALL customFieldMoveCheckInPartyMenu(struct PLIST_WORK *wk, struct Party
     }
 
     if (count < 8 && (type1 == TYPE_WATER || type2 == TYPE_WATER)) {
-        if (Bag_HasItem(bag, ITEM_HM06, 1, HEAPID_MAIN_HEAP)) {
+        if (Bag_HasItem(bag, ITEM_HM05, 1, HEAPID_MAIN_HEAP)) {
             buf[count] = PARTY_MON_CONTEXT_MENU_WHIRLPOOL;
             ++count;
             PartyMenu_ContextMenuAddFieldMove(wk, MOVE_WHIRLPOOL, fieldMoveIndex);
