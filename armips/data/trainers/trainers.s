@@ -13132,7 +13132,7 @@ trainerdata 391, "Issac"
 
 trainerdata 392, "Donald"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_POKE_MANIAC
+    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
