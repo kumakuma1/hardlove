@@ -307,7 +307,7 @@ Block smaller caves with OWs without Flag
 	SetVarFromVariable 0x8004 0x800C
 	GetPartyPokemonID 0x8004 0x8005
 	//GetRequestedPokemon 0x800C
-	CompareVars 0x8005 0x800C -> 28
+	CompareVars 0x8005 0x800C -> CompareVarValue 0x8005 28
 
 
 ### Move trainers
