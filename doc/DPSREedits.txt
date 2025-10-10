@@ -260,6 +260,37 @@ Function 8:
 Falkner: With that Badge, you can use\nthe hidden move Rock Smash anytime\foutside of battle.\r
 Falkner: By using a TM, a Pokémon will\ninstantly learn a new move.\rThink before you act--a TM can be\nused only once.\rTM43 contains Defog.\nIt removes Hazards in battle.\rThere are Pokémon Gyms in cities and\ntowns ahead. Make good use of them!\rAs for your next move...\fI would suggest Azalea Town.
 
+
+### Athur giving Hard Stone on R36 after beating  whitney
+Whitney beaten, Flag 547 cleared
+Route 36:
+OW 6, FLag 452, Script 2 -> Flag 547, script 12
+clear script 2
+
+script 12:
+    LockAll 
+	FacePlayer 
+    CheckFlag 177
+    JumpIf EQUAL Function#36
+    Message 19
+	SetVar 0x8004 238
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#22
+	CommonScript 2033
+	SetFlag 177
+Jump Function#36
+
+Function 36:
+	Message 20
+	CloseMessage 
+	ReleaseAll 
+End 
+
+19	Who are you?\rI’m Arthur of Thursday.\nHere, take this!\r
+20	It raises the strength of Rock-type\nmoves.\r
+
 ##### Utility in Pokecenter
 Add OW  ID 6
 Script 7:
@@ -270,6 +301,19 @@ End
 #### Block RoA entries with OWs
 Flag 127 clear. Got TM from Bugsy
 Block smaller caves with OWs without Flag
+
+### Clodsire Trade in Violet
+	InitTrade 0 ->3
+	SetVarFromVariable 0x8004 0x800C
+	GetPartyPokemonID 0x8004 0x8005
+	//GetRequestedPokemon 0x800C
+	CompareVars 0x8005 0x800C -> 28
+
+
+### Move trainers
+Move goldenod underground Teru to RoA
+	sprout tower chow to violet gym
+	sprout tower jin to violet gym
 
 ###Remove Old Rod guy
 R32 PC, clear script 2, move OW out of way
