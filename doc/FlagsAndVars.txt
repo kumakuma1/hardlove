@@ -6,6 +6,7 @@
 420   - 061-T20R0101 : Script File 225 - Function 25: Hide Lyra. Flag is set.
 421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
 423   - 117-D36R0101 : Script File  92 - Porenta to hunt in Ilex
+424   - 117-D36R0101 : Script File  92 - Porenta to hunt in Ilex ??
 426   - 117-D36R0101 : Script File  92 - Porenta to hunt in Ilex
 429   - 117-D36R0101 : Script File  92 - Student who gives Cut in Ilex
 431   - 117-D36R0101 : Script File  92 - Master who gives Cut in Ilex
@@ -29,3 +30,4 @@ Variables
 
 0x40EA   : Headbutt Event in Ilex, removed
 0x40F4   : Student with Cut In Ilex
+0x4114   : Spearow/kenya delivery progress

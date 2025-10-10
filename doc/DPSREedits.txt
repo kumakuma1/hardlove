@@ -427,11 +427,11 @@ Function 5:
 	SetFlag 426
 	SetFlag 469
 	SetFlag 428
-	ClearFlag 429
-	ClearFlag 423
-	ClearFlag 424
+	//ClearFlag 429
+	//ClearFlag 423
+	//ClearFlag 424
 	SetVar 0x4024 1 //story Flag
-	SetVar 0x40F4 1 // Cut in Ilex
+	//SetVar 0x40F4 1 // Cut in Ilex
 	ReleaseAll 
 End 
 
@@ -475,9 +475,13 @@ End
 
 
 
-### Kurt gives Moonstone
+### Kurt gives Moonstone, Quick Balls
 script 6:
 	...
+	Message 1
+	SetVar 0x8004 492 -> 15
+	SetVar 0x8005 10
+	CommonScript 2008
 	Message 2
     SetVar 0x8004 81
 	SetVar 0x8005 1
@@ -606,3 +610,48 @@ End
 
 0: Hey!\rYou need Cut to go any further!\rTake this!\r
 10: Do you want to apprentice as a charcoal\nmaker with me?\rYou’ll be first-rate in ten years!\rWe cut wood all day, everyday.\r
+
+
+
+
+### Remove SPearow/kenya delivery
+101 - R35R0101 : Script File 241 : Clear Script 1
+
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+### Always lose goldenrod Store lottery
+196 - T25R1006 : Event File 189
+move ladies OW out of way
+
+### Always lose goldenrod radio lottery
+112 - D23R0101 : Script File 29
+Function 6:
+...
+	CheckWinLotto 0x8001 0x8002 0x8003 0x8000
+    SetVar 0x8002 0
+	CompareVarValue 0x8002 0
+	JumpIf EQUAL Function#19
+
+### Remove Berry Pot
+040 - R36 - Script file 243 - Script 1 -> Function 26/27
+Function 26:
+	Movement Overworld.5 Action#8
+	WaitMovement 
+	Message 15
+	//SetVar 0x8004 470
+	//SetVar 0x8005 1
+	//CommonScript 2033
+	//Message 16
+	//Message 17
+	SetVar 0x8004 155
+	SetVar 0x8005 3
+	CommonScript 2033
