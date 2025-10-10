@@ -51,7 +51,10 @@ u16 sVioletCityMart[] = {
 };
 
 u16 sAzaleaCityMart[] = {
-    ITEM_BLOOM_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF
+    ITEM_TM010, 
+    ITEM_TM070, 
+    ITEM_TM088, 
+    0xFFFF
 };
 
 u16 sGoldenrodDepartmentUpper2F[] = {
