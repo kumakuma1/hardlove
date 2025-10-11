@@ -427,11 +427,11 @@ Function 5:
 	SetFlag 426
 	SetFlag 469
 	SetFlag 428
-	//ClearFlag 429
-	//ClearFlag 423
-	//ClearFlag 424
+	ClearFlag 429
+	ClearFlag 423
+	ClearFlag 424
 	SetVar 0x4024 1 //story Flag
-	//SetVar 0x40F4 1 // Cut in Ilex
+	SetVar 0x40F4 1 // Cut in Ilex
 	ReleaseAll 
 End 
 
@@ -611,6 +611,17 @@ End
 0: Hey!\rYou need Cut to go any further!\rTake this!\r
 10: Do you want to apprentice as a charcoal\nmaker with me?\rYou’ll be first-rate in ten years!\rWe cut wood all day, everyday.\r
 
+
+###Charcoal after Bugsy
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer
+    CheckFlag 127 //Bugsy TM
+    JumpIf EQUAL Function#2
+	CheckFlag 128
+	JumpIf EQUAL Function#3
 
 
 

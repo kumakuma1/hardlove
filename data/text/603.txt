@@ -1,0 +1,19 @@
+My name is Mr. Game!\rMy heart pounds with excitement when\npeople spend some coin!\r
+Get fabulous prizes by collecting\nBadges!\r
+ 5,000$   Zephyr
+10,000$   Hive
+15,000$   Plain
+20,000$   Fog
+30,000$   Storm
+40,000$   Mineral
+50,000$   Glacier
+60,000$   Rising
+CANCEL
+We hope to help you again!\r
+We hope to help you again!\r
+I am sorry, you need the Badge first.\r
+I am sorry, you do not have\nenough money.\r
+I am sorry, you do not have\nenough space in your party.\r
+Do you want {STRVAR_1 3, 0, 0}? {YESNO 0}
+Here you go!\r
+{STRVAR_1 1, 0, 0} received {STRVAR_1 3, 1, 0}!\r
