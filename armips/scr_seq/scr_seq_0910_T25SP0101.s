@@ -40,7 +40,7 @@ scr_seq_T25SP0101_001:
 	faceplayer
     npc_msg 1
     touchscreen_menu_hide
-    ShowMoney 20, 0
+    ShowMoney 20, 1
 	ListLocalText 1, 1, 0, 1, VAR_SPECIAL_RESULT
     AddListOption 2, 255, 0
     AddListOption 3, 255, 1
@@ -68,13 +68,13 @@ _zephyr:
     CheckBadge 0, VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _nobadge
-    CompareMoney VAR_SPECIAL_RESULT, 1000 
+    CompareMoney VAR_SPECIAL_RESULT, 5000 
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _nomoney
     call _checkspace
     SetVar VAR_TEMP_x4005, 236
     call _doyouwant
-    TakeMoney 1000
+    TakeMoney 5000
     UpdateMoney
     SetFlag 2599
 	GivePokemon VAR_TEMP_x4005, 10, 0, 0, 0, VAR_SPECIAL_RESULT
