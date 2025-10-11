@@ -17,3 +17,4 @@ I am sorry, you do not have\nenough space in your party.\r
 Do you want {STRVAR_1 3, 0, 0}? {YESNO 0}
 Here you go!\r
 {STRVAR_1 1, 0, 0} received {STRVAR_1 3, 1, 0}!\r
+Some good old gambling going on,\nwith Blackjack and coca...\rBetter to stop now.\r
