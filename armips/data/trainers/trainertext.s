@@ -2134,9 +2134,9 @@ _134C: // Trainer 392
     trainertextentry 392, TEXT_DEFEATED_IN_OVERWORLD, "Are you making a Pokédex?\nHere’s a hot tip.\rYou want to battle as many Trainers as\nyou can when you see them on routes\fand in caves.\rTheir Pokémon will be recorded in the\nPokédex, and they’ll also make your\fPokémon grow!\n"
 
 _1358: // Trainer 233
-    trainertextentry 233, TEXT_NOTICE_IN_OVERWORLD, "I got booted out of the Game Corner.\nI kept winning at the new Coin game,\fand they thought I was cheating...\r"
-    trainertextentry 233, TEXT_DEFEATED_IN_BATTLE, "...Grumble...\n"
-    trainertextentry 233, TEXT_DEFEATED_IN_OVERWORLD, "I guess I have to do things fair\nand square...\n"
+    trainertextentry 233, TEXT_NOTICE_IN_OVERWORLD, "Schau ma moi.\r"
+    trainertextentry 233, TEXT_DEFEATED_IN_BATTLE, "...Wer ko, der ko.\n"
+    trainertextentry 233, TEXT_DEFEATED_IN_OVERWORLD, "Ned umfalln!...\n"
 
 _1364: // Trainer 393
     trainertextentry 393, TEXT_NOTICE_IN_OVERWORLD, "Do you consider the Pokémon types\nin battle?\rIf you know about the different types\nof Pokémon, you’ll do better in battle.\r"

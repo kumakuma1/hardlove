@@ -7119,9 +7119,9 @@ trainerdata 232, "Vincent"
         ballseal 0
     endparty
 
-trainerdata 233, "Eric"
+trainerdata 233, "Schorsch"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_SUPER_NERD
+    trainerclass TRAINERCLASS_HIKER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
@@ -13705,7 +13705,7 @@ trainerdata 408, "Cybil"
 
 trainerdata 409, "Brandon"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_POKEFAN_M
+    trainerclass TRAINERCLASS_YOUNGSTER
     nummons 2
     item ITEM_NONE
     item ITEM_NONE

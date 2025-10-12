@@ -666,3 +666,248 @@ Function 26:
 	SetVar 0x8004 155
 	SetVar 0x8005 3
 	CommonScript 2033
+
+###Quiz in Radio tower
+112 - D23R0101 : Script File 29, Textfile 65
+script 3:
+
+Message 6
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	//PlayFanfare 1521
+	//WaitFanfare 1521
+	//Message 7
+	//YesNoTouchScreen 0x800C
+	//CompareVarValue 0x800C 1
+	//JumpIf EQUAL Function#10
+	//PlayFanfare 1521
+	//WaitFanfare 1521
+	//Message 8
+	//YesNoTouchScreen 0x800C
+	//CompareVarValue 0x800C 0
+	//JumpIf EQUAL Function#10
+	WaitTime 30 0x800C
+
+We have a special Quiz campaign!\rAnswer five -> three questions correctly in a\nrow to win a Radio Card!\rWhen you load it into the Pokégear, you\nwill be able to listen to the radio...\fanytime, anywhere!\rWould you like to try our Quiz? \v0200\x0001\x0000
+The first question!\rCan you check the Town Map with\nyour Pokégear? \v0200\x0001\x0000
+You are correct.\nThe second question!\rNIDORINA can only be female.\nTrue? \v0200\x0001\x0000
+You are correct.\nThe third question!\rKurt, the Poké Ball creator, uses\napricots as ingredients? \v0200\x0001\x0000
+
+
+###Remove TM Frustration in goldenrod mart 5f
+Script 7:
+	GetPokemonHappiness 0x800C 0x8000
+	CompareVarValue 0x800C 149
+	JumpIf GREATER/EQUAL Function#12
+	//CompareVarValue 0x800C 50
+	//JumpIf LESS/EQUAL Function#13
+
+### Bill Eevee -> porygon
+
+Function 2:
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#7
+	Message 1
+	GivePokemon 137 15 0 0 0 0x800C
+
+
+###Randomize Trainer positions on Route 34
+CHange Brandon OW 328 -> 317, change trainer.s too
+Trigger when Event 16420/0x4024 == 2
+script 14:
+    GetRandom 0x800C 6
+    CompareVarValue 0x800C 1
+	CallIf EQUAL Function#49
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#50
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#51
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#52
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#53
+End
+
+Function 49:
+	SetOWPosition Overworld.2 381 0 431 Left
+    SetOWPosition Overworld.0 381 0 432 Left
+    SetOWPosition Overworld.13 381 0 433 Left
+Return 
+
+Function 50:
+    SetOWPosition Overworld.13 381 0 431 Left
+	SetOWPosition Overworld.2 381 0 432 Left
+	SetOWPosition Overworld.0 381 0 433 Left
+Return 
+
+Function 51:
+	SetOWPosition Overworld.2 381 0 431 Left
+    SetOWPosition Overworld.13 381 0 432 Left
+	SetOWPosition Overworld.0 381 0 433 Left
+Return 
+
+Function 52:
+    SetOWPosition Overworld.13 381 0 431 Left
+    SetOWPosition Overworld.0 381 0 432 Left
+	SetOWPosition Overworld.2 381 0 433 Left
+Return 
+
+Function 53:
+    SetOWPosition Overworld.0 381 0 431 Left
+    SetOWPosition Overworld.13 381 0 432 Left
+	SetOWPosition Overworld.2 381 0 433 Left  
+Return 
+
+
+### Schorsch on ROute 36
+Event 16420 == 2, script 13
+
+script 13:
+	PlayFanfare 1500
+	LockAll 
+	Message 23
+	CloseMessage 
+	SetOWPosition Overworld.9 415 0 248 Left
+	Movement Overworld.9 Action#11
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 248
+	JumpIf EQUAL Function#30
+	Movement Overworld.9 Action#12
+	Movement Player Action#1
+	WaitMovement 
+Jump Function#31
+
+Function 30:
+	Movement Overworld.9 Action#13
+	Movement Player Action#14
+	WaitMovement 
+Jump Function#31
+
+Function 31:
+	Message 24
+	CloseMessage 
+	TrainerBattle 233 0 0 0 //super Nerd Eric from Gouldenrod Tunnel
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	CheckFlag 117
+	CallIf EQUAL Function#33
+	ClearFlag 345
+	Message 25
+	SetVar 0x8004 157
+	SetVar 0x8005 1
+	CommonScript 2008
+	Message 26
+	CloseMessage 
+	Movement Overworld.9 Action#11
+	WaitMovement 
+	SetOWPosition Overworld.9 413 0 225 Left
+	SetVar 0x4024 3
+	ReleaseAll 
+End 
+
+Function 32:
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 33:
+	SetVar 0x416F 35
+Return 
+
+
+
+###Turtwig Trade in Goldenrod, Candy for others, additional Heartscale for litten
+
+Textfile 200 : Muscle -> Princess
+Script 4:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 345
+	JumpIf EQUAL Function#5
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 387
+    JumpIf DIFFERENT Function#15
+	CheckFlag 141
+	JumpIf EQUAL Function#14
+	Message 9
+	Message 23
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+Jump Function#7
+
+Function 5:
+	Message 20
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 7:
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PartyPokemonTradeScreen 
+	GetSelectedPartySlot 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#8
+	InitTrade 1
+	SetVarFromVariable 0x8004 0x800C
+	TradePokemonScreen 0x8004
+	EndTrade 
+	SetFlag 141
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End  
+
+Function 8:
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+
+Function 14:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 15:
+    CheckFlag 141
+	JumpIf EQUAL Function#5
+    CheckStarter 0x800C
+	CompareVarValue 0x800C 775
+	JumpIf DIFFERENT Function#16
+	Message 21
+	SetVar 0x8004 50
+	SetVar 0x8005 1
+	CommonScript 2008
+	SetVar 0x8004 93
+	SetVar 0x8005 1
+	CommonScript 2008
+	SetFlag 141
+Jump Function#5
+
+
+Function 16:
+	Message 22
+	SetVar 0x8004 50
+	SetVar 0x8005 1
+	CommonScript 2008
+	SetFlag 141
+Jump Function#5
