@@ -252,6 +252,12 @@ Script 4:
     ReleaseAll 
 End
 
+### Elder Li gives Coba Berry
+	Message 10
+    SetVar 0x8004 192
+	SetVar 0x8005 1
+	CommonScript 2033
+
 ###Falkner gives Defog
 Function 8:
 	SetVar 0x8004 370
@@ -911,3 +917,76 @@ Function 16:
 	CommonScript 2008
 	SetFlag 141
 Jump Function#5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Surf in Ecruteak Theater
+script 12:
+script 13:
+SetVar 0x8004 422 -> 295
+SetVar 0x8005 1
+
+That’s a Shed Shell.\nIt can be useful fighting Ghost-type\nPokémon.\r
+That’s Surf.\nIt’s a move that lets Pokémon swim\facross water with ease.\r
+
+
+### Block Route 42
+Add OWs 222, FLag 194 TM from Jasmine
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 1
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Team Rocket is currently building a\nsecret base in Mahagony.\rI mean business.\nIt is a business.\r
+
+### Block Route 39
+Add 3 OWs, Flag 166 TM from morty
+script 9:
+	PlayFanfare 1500
+	LockAll 
+	Message 15 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+script 10:
+	PlayFanfare 1500
+	LockAll 
+	Message 17
+	CloseMessage 
+	ReleaseAll 
+End 
+
+script 11:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 16
+	CloseMessage 
+	ReleaseAll 
+End 

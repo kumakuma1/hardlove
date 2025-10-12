@@ -276,36 +276,43 @@ scrdef scr_seq_0141_255
 scrdef_end
 
 scr_seq_0141_000:
+	//Route 29 East, 1081
 	setvar VAR_SPECIAL_x8008, 17
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_001:
+	//Route 30 middle, 1088
 	setvar VAR_SPECIAL_x8008, 18
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_002:
+	//Route 30 south, 1056
 	setvar VAR_SPECIAL_x8008, 17
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_003:
+	//Route 31 east, 1057
 	setvar VAR_SPECIAL_x8008, 17
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_004:
+	//Route 31 south, 1058
 	setvar VAR_SPECIAL_x8008, 4
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_005:
+	//Violet east, 1059
 	setvar VAR_SPECIAL_x8008, 50
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_006:
+	//Violet west, 1060
 	setvar VAR_SPECIAL_x8008, 51
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
@@ -331,11 +338,13 @@ scr_seq_0141_010:
 	goto scr_seq_0141_255
 
 scr_seq_0141_011:
+	//Ruins of Alph, East, 1146
 	setvar VAR_SPECIAL_x8008, 17
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_012:
+	//Ruins of Alph, West, 1147
 	setvar VAR_SPECIAL_x8008, 25
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
@@ -421,21 +430,25 @@ scr_seq_0141_028:
 	goto scr_seq_0141_255
 
 scr_seq_0141_029:
+	// Route 32 north, 1065
 	setvar VAR_SPECIAL_x8008, 79
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_030:
+	// Route 32 central, 1066
 	setvar VAR_SPECIAL_x8008, 3
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_031:
+	// Route 32 central, west, 1273
 	setvar VAR_SPECIAL_x8008, 336
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_032:
+	// Route 32 south, 1239
 	setvar VAR_SPECIAL_x8008, 253
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
@@ -1116,26 +1129,31 @@ scr_seq_0141_167:
 	goto scr_seq_0141_255
 
 scr_seq_0141_168:
+	//Dark Cave R31 west, 1218
 	setvar VAR_SPECIAL_x8008, 17
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_169:
+	//Dark Cave east, 1219
 	setvar VAR_SPECIAL_x8008, 25
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_170:
+	//Dark Cave south, 1220
 	setvar VAR_SPECIAL_x8008, 27
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_171:
+	//Dark Cave south, 1221
 	setvar VAR_SPECIAL_x8008, 56
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_172:
+	//Dark Cave R31 west, surf, 1292
 	setvar VAR_SPECIAL_x8008, 68
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
