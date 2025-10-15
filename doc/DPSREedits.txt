@@ -919,7 +919,9 @@ Function 16:
 Jump Function#5
 
 
-
+###Whitney clear vendor flag
+    ClearFlag 346
+End 
 
 
 
