@@ -289,7 +289,7 @@ scr_seq_0141_001:
 
 scr_seq_0141_002:
 	//Route 30 south, 1056
-	setvar VAR_SPECIAL_x8008, 17
+	setvar VAR_SPECIAL_x8008, ITEM_ESCAPE_ROPE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -307,39 +307,43 @@ scr_seq_0141_004:
 
 scr_seq_0141_005:
 	//Violet east, 1059
-	setvar VAR_SPECIAL_x8008, 50
+	setvar VAR_SPECIAL_x8008, ITEM_AUDINITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_006:
 	//Violet west, 1060
-	setvar VAR_SPECIAL_x8008, 51
+	setvar VAR_SPECIAL_x8008, ITEM_PIDGEOTITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_007:
+	//sprout tower 1F, 1061
 	setvar VAR_SPECIAL_x8008, 22
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_008:
-	setvar VAR_SPECIAL_x8008, 60
+	//sprout tower 2F, 1062
+	setvar VAR_SPECIAL_x8008, ITEM_EVERSTONE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_009:
+	//sprout tower 3F south, 1063
 	setvar VAR_SPECIAL_x8008, 17
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_010:
-	setvar VAR_SPECIAL_x8008, 78
+	//sprout tower 3F north, 1064
+	setvar VAR_SPECIAL_x8008, ITEM_SUPER_POTION
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_011:
 	//Ruins of Alph, East, 1146
-	setvar VAR_SPECIAL_x8008, 17
+	setvar VAR_SPECIAL_x8008, ITEM_MIRACLE_SEED
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -431,7 +435,7 @@ scr_seq_0141_028:
 
 scr_seq_0141_029:
 	// Route 32 north, 1065
-	setvar VAR_SPECIAL_x8008, 79
+	setvar VAR_SPECIAL_x8008, ITEM_GREAT_BALL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -443,137 +447,162 @@ scr_seq_0141_030:
 
 scr_seq_0141_031:
 	// Route 32 central, west, 1273
-	setvar VAR_SPECIAL_x8008, 336
+	setvar VAR_SPECIAL_x8008, ITEM_TM087
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_032:
 	// Route 32 south, 1239
-	setvar VAR_SPECIAL_x8008, 253
+	setvar VAR_SPECIAL_x8008, ITEM_POISON_BARB
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_033:
-	setvar VAR_SPECIAL_x8008, 57
+	//Union CAVE 1F north, 1067
+	setvar VAR_SPECIAL_x8008, ITEM_WIDE_LENS
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_034:
-	setvar VAR_SPECIAL_x8008, 3
+	//Union CAVE 1F east, 1068
+	setvar VAR_SPECIAL_x8008, ITEM_MUSCLE_BAND
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_035:
+	//Union CAVE 1F west, 1069
 	setvar VAR_SPECIAL_x8008, 17
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_036:
-	setvar VAR_SPECIAL_x8008, 21
+	//Union CAVE 1F south, 1070
+	setvar VAR_SPECIAL_x8008, ITEM_WISE_GLASSES
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_037:
-	setvar VAR_SPECIAL_x8008, 58
+	//Union CAVE B1F north, 1071
+	setvar VAR_SPECIAL_x8008, ITEM_TM008
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_038:
-	setvar VAR_SPECIAL_x8008, 366
+	//Union CAVE B1F west, 1072
+	setvar VAR_SPECIAL_x8008, ITEM_ROCK_TOMB
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_039:
+	//Union CAVE B2F north, 1082
 	setvar VAR_SPECIAL_x8008, 40
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_040:
+	//Union CAVE B2F south, 1083
 	setvar VAR_SPECIAL_x8008, 25
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_041:
-	setvar VAR_SPECIAL_x8008, 26
+	//slowpoke well B1F, central, 1075
+	setvar VAR_SPECIAL_x8008, ITEM_SILK_SCARF
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_042:
+	//slowpoke well B2F, central, 1076
 	setvar VAR_SPECIAL_x8008, 345
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_043:
-	setvar VAR_SPECIAL_x8008, 28
+	//ilex forest south, 1077
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_044:
-	setvar VAR_SPECIAL_x8008, 57
+	//ilex forest central, 1084
+	setvar VAR_SPECIAL_x8008, ITEM_SILVER_POWDER
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_045:
+	//ilex forest north, 1085
 	setvar VAR_SPECIAL_x8008, 18
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_046:
+	//ilex forest north east, 1086
 	setvar VAR_SPECIAL_x8008, 38
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_047:
+	//route 34 south, surf, 1087
 	setvar VAR_SPECIAL_x8008, 92
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_048:
-	setvar VAR_SPECIAL_x8008, 390
+	//route 34 north, 1274
+	setvar VAR_SPECIAL_x8008, ITEM_TM009
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_049:
+	//Goldenrod rocket basement central, 1078
 	setvar VAR_SPECIAL_x8008, 409
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_050:
+	//Goldenrod rocket basement south, 1079
 	setvar VAR_SPECIAL_x8008, 39
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_051:
+	//Goldenrod rocket basement north west, 1094
 	setvar VAR_SPECIAL_x8008, 2
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_052:
-	setvar VAR_SPECIAL_x8008, 19
+	//goldenrod Department Store basement, north west, 1090
+	setvar VAR_SPECIAL_x8008, ITEM_PROTECTIVE_PADS
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_053:
+	//goldenrod Department Store basement, north east, 1091
 	setvar VAR_SPECIAL_x8008, 223
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_054:
-	setvar VAR_SPECIAL_x8008, 38
+	//goldenrod Department Store basement, south, 1092
+	setvar VAR_SPECIAL_x8008, ITEM_SOFT_SAND
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_055:
+	//goldenrod Department Store basement, south east, 1093
 	setvar VAR_SPECIAL_x8008, 2
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_056:
+	//goldenrod rocket labyrinth, north, 1095
 	setvar VAR_SPECIAL_x8008, 27
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_057:
+	//goldenrod rocket labyrinth, south, 1096
 	setvar VAR_SPECIAL_x8008, 228
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
@@ -589,51 +618,61 @@ scr_seq_0141_059:
 	goto scr_seq_0141_255
 
 scr_seq_0141_060:
+	//radio tower 4F, 1089
 	setvar VAR_SPECIAL_x8008, 2
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_061:
+	//route 35 north, 1097
 	setvar VAR_SPECIAL_x8008, 393
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_062:
+	//route 35 south, 1275
 	setvar VAR_SPECIAL_x8008, 22
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_063:
-	setvar VAR_SPECIAL_x8008, 218
+	//national park east, 1144
+	setvar VAR_SPECIAL_x8008, ITEM_TM028
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_064:
-	setvar VAR_SPECIAL_x8008, 355
+	//national park west, 1145
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_065:
+	//national park north east, rockclimb, 1286
 	setvar VAR_SPECIAL_x8008, 107
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_066:
+	//route 36 central, 1276
 	setvar VAR_SPECIAL_x8008, 25
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_067:
-	setvar VAR_SPECIAL_x8008, 18
+	//burned tower 1F north, 1291
+	setvar VAR_SPECIAL_x8008, ITEM_BLACK_SLUDGE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_068:
-	setvar VAR_SPECIAL_x8008, 45
+	//burned tower 1F south, 1073
+	setvar VAR_SPECIAL_x8008, ITEM_SHELL_BELL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_069:
+	//burned tower 2F north, 1074
 	setvar VAR_SPECIAL_x8008, 339
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
@@ -699,51 +738,61 @@ scr_seq_0141_081:
 	goto scr_seq_0141_255
 
 scr_seq_0141_082:
-	setvar VAR_SPECIAL_x8008, 24
+	//route 38 east, 1277
+	setvar VAR_SPECIAL_x8008, ITEM_ZOOM_LENS
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_083:
+	//route 38 west, rockclimb, 1278
 	setvar VAR_SPECIAL_x8008, 255
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_084:
-	setvar VAR_SPECIAL_x8008, 387
+	//route 39 farm, 1279
+	setvar VAR_SPECIAL_x8008, ITEM_TM004
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_085:
-	setvar VAR_SPECIAL_x8008, 384
+	//olivine city east, surf, 1310
+	setvar VAR_SPECIAL_x8008, ITEM_AMPHAROSITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_086:
-	setvar VAR_SPECIAL_x8008, 50
+	//light tower 3F outside, 1160
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_087:
+	//light tower 4F, 1098
 	setvar VAR_SPECIAL_x8008, 38
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_088:
-	setvar VAR_SPECIAL_x8008, 414
+	//light tower 5F, 1099
+	setvar VAR_SPECIAL_x8008, ITEM_TM035
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_089:
-	setvar VAR_SPECIAL_x8008, 76
+	//light tower 6F, 1100
+	setvar VAR_SPECIAL_x8008, ITEM_TM024
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_090:
-	setvar VAR_SPECIAL_x8008, 26
+	//light tower 7F, 1101
+	setvar VAR_SPECIAL_x8008, ITEM_HM03
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_091:
+	//route 40, island, 1266
 	setvar VAR_SPECIAL_x8008, 415
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
@@ -804,26 +853,31 @@ scr_seq_0141_102:
 	goto scr_seq_0141_255
 
 scr_seq_0141_103:
+	//route 47 central south, 1267
 	setvar VAR_SPECIAL_x8008, 28
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_104:
+	//route 47 central north, 1281
 	setvar VAR_SPECIAL_x8008, 279
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_105:
+	//route 47 west, rockclimb, 1282
 	setvar VAR_SPECIAL_x8008, 317
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_106:
+	//route 47 north west, waterfall, 1283
 	setvar VAR_SPECIAL_x8008, 69
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
-scr_seq_0141_107:
+scr_seq_0141_107:	
+	//route 48, 1284
 	setvar VAR_SPECIAL_x8008, 92
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255

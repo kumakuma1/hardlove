@@ -922,6 +922,14 @@ Jump Function#5
 ###Whitney clear vendor flag
     ClearFlag 346
 End 
+Shorten message 7
+
+
+### BLack glasses in national park
+Script 1:
+	...
+	SetVar 0x8004 217 -> 240
+	SetVar 0x8005 1
 
 
 
@@ -937,9 +945,8 @@ End
 
 
 
-
-
-
+### Magnet from Sunny Route 37
+Remove Flag 451
 
 
 #### Surf in Ecruteak Theater
@@ -992,3 +999,21 @@ script 11:
 	CloseMessage 
 	ReleaseAll 
 End 
+
+### Morty clears vendor flag
+Script 2:
+	....
+	Message 3
+    ClearFlag 347
+
+
+
+
+
+
+
+
+
+
+### Sharp Beak Route 40
+Remove Flag 518
