@@ -1013,7 +1013,8 @@ Script 2:
 
 
 
-
+### Facade at Moomoo Farm
+Text: 10: That there’s Facade.\rIts Power will increase if yer Pokémon\nhas a status condition.\rYou best think how you ought to\nuse it, hon.
 
 ### Sharp Beak Route 40
 Remove Flag 518

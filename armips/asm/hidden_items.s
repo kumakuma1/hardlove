@@ -20,7 +20,7 @@
 .halfword ITEM_POTION
 
 .org 0x02000000 + 0xFA578 //Dark Cave
-.halfword ITEM_POKE_BALL
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA580 //Dark Cave
 .halfword ITEM_MAX_ETHER
@@ -35,7 +35,7 @@
 .halfword ITEM_ELIXIR
 
 .org 0x02000000 + 0xFA5A0 //Violet
-.halfword ITEM_HYPER_POTION
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA5A8 //Violet
 .halfword ITEM_POKE_BALL
@@ -65,7 +65,7 @@
 .halfword ITEM_BIG_PEARL
 
 .org 0x02000000 + 0xFA5F0 //Union Cave B1F S
-.halfword ITEM_X_SPEED
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA5F8 //Union Cave B1F E
 .halfword ITEM_REVIVE
@@ -113,7 +113,7 @@
 .halfword ITEM_TINY_MUSHROOM
 
 .org 0x02000000 + 0xFA670 //Ilex Forest
-.halfword ITEM_REPEL
+.halfword ITEM_BIG_MUSHROOM
 
 .org 0x02000000 + 0xFA678 //Ilex Forest W Surf
 .halfword ITEM_BIG_MUSHROOM
@@ -125,7 +125,7 @@
 .halfword ITEM_TINY_MUSHROOM
 
 .org 0x02000000 + 0xFA690 //R34 Centre
-.halfword ITEM_RARE_CANDY
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA698 //R34 E
 .halfword ITEM_SUPER_POTION
@@ -176,10 +176,10 @@
 .halfword ITEM_RARE_CANDY
 
 .org 0x02000000 + 0xFA718 //Ecruteak W
-.halfword ITEM_ULTRA_BALL
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA720 //Burned Tower Entrance N
-.halfword ITEM_ETHER
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA728 //Burned Tower Entrance SW
 .halfword ITEM_ULTRA_BALL
