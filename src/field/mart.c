@@ -86,7 +86,7 @@ u16 sGoldenrodDepartment3F[] = {
     ITEM_TM021,
     ITEM_TM034,
     ITEM_TM039,
-    ITEM_TM040
+    ITEM_TM040,
     ITEM_TM088,
     0xFFFF//... NIGHT_SHADE
 };

@@ -489,7 +489,7 @@ scr_seq_0141_037:
 
 scr_seq_0141_038:
 	//Union CAVE B1F west, 1072
-	setvar VAR_SPECIAL_x8008, ITEM_ROCK_TOMB
+	setvar VAR_SPECIAL_x8008, ITEM_TM039
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
