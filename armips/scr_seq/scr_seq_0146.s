@@ -805,7 +805,8 @@ _0AC2:
 	goto _093D
 
 _0AD1:
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_HEADBUTT
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_HEADBUTT
 	copyvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
 	get_follow_poke_party_index VAR_SPECIAL_x8005
 	bufferpartymonnick 0, VAR_SPECIAL_RESULT
