@@ -703,11 +703,12 @@ You are correct.\nThe third question!\rKurt, the Poké Ball creator, uses\napric
 
 ###Remove TM Frustration in goldenrod mart 5f
 Script 7:
-	GetPokemonHappiness 0x800C 0x8000
-	CompareVarValue 0x800C 149
-	JumpIf GREATER/EQUAL Function#12
-	//CompareVarValue 0x800C 50
-	//JumpIf LESS/EQUAL Function#13
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 142
+	JumpIf DIFFERENT Function#12
+Jump Function#11
 
 ### Bill Eevee -> porygon
 
@@ -845,7 +846,7 @@ Script 4:
 	OpenTouchScreen 
 	YesNoTouchScreen 0x800C
 	CloseTouchScreen 
-	CompareVarValue 0x800C 0
+	CompareVarValue 0x800C 1
 	JumpIf EQUAL Function#5
 Jump Function#7
 
@@ -931,8 +932,16 @@ Script 1:
 	SetVar 0x8004 217 -> 240
 	SetVar 0x8005 1
 
+### Block Pokeathlon Dome
 
-
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	Message 11
+	CloseMessage 
+	ReleaseAll 
+End 
+I AM FIRST IN LINE!\r
 
 
 
@@ -1018,3 +1027,46 @@ Text: 10: That there’s Facade.\rIts Power will increase if yer Pokémon\nhas a
 
 ### Sharp Beak Route 40
 Remove Flag 518
+
+
+
+### EUsine gives Manectite, Life Orb
+
+TextPlayerName 0
+	Message 16
+    SetVar 0x8004 270
+	SetVar 0x8005 1
+	CommonScript 2033
+    SetVar 0x8004 682
+	SetVar 0x8005 1
+	CommonScript 2033
+    Message 23
+	CloseMessage 
+	Movement Overworld.6 Action#9
+	WaitMovement 
+	RemoveOW Overworld.6
+	SetFlag 482
+	ClearFlag 670
+	SetVar 0x4092 1
+	ReleaseAll 
+End 
+
+16:You’re amazing, \v0103ぁ\x0000\x0000!\rI’m starting to understand why SUICUNE\nwas keeping an eye on you.\r
+I want you to have this.\nIt will help you on your journey.\r
+23:I’m going to keep searching\nfor SUICUNE.\rI have a feeling we’ll see each other\nagain. See you around!\r
+
+
+
+### Mart in Cianwood:
+
+Function 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetFlag 367
+	Message 3
+	FreezeMessage 
+	//SetVar 0x8004 11
+	//CommonScript 2052
+    SetVar 0x8004 1
+	CommonScript 2048

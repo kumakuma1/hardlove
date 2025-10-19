@@ -49,5 +49,16 @@ Return
 	CallIf EQUAL Function#16
 
 Function 16:
-	SetVar 0x416F 44
+	SetVar 0x416F 47
 Return 
+
+
+//Chuck
+script 1:
+
+	CheckFlag 117
+	CallIf EQUAL Function#11
+
+Function 11:
+	SetVar 0x416F 54
+Return
