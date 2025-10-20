@@ -8,6 +8,10 @@
 .include "asm/include/moves.inc"
 .include "asm/include/species.inc"
 
+//custom
+.include "armips/asm/custom/enable_surf_without_knowing_move.s"
+.include "armips/asm/custom/encounter_rates.s"
+
 .include "armips/asm/backgrounds.s" // fixes new move animations
 .include "armips/asm/moves.s" // repoints all the move table defines within the structure
 .include "armips/asm/trainer_ai.s" // repoints all the move table defines for trainer ai within the structure
