@@ -1030,6 +1030,25 @@ Remove Flag 518
 
 
 
+### Remove Rod in Olivine
+230: T26R0601
+Add 
+Script 2:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer
+Jump Function#1
+
+Make OW use script 2
+
+### Remove Guy blocking route 40
+16528 == 0, script 9, clear script 9
+remove event
+
+
+
+
+
 ### EUsine gives Manectite, Life Orb
 
 TextPlayerName 0
@@ -1070,3 +1089,121 @@ Function 1:
 	//CommonScript 2052
     SetVar 0x8004 1
 	CommonScript 2048
+
+
+### Fossil in Cianwood
+385-T24R0801
+Hi there!\rI sometimes find Fossils at the beach\nand make them come back to life\fas real Pokémon.\rWould like such a Pokémon? \v0200\x0001\x0000
+Oh I understand.\r
+Sadly you don’t have space.\r
+How delightful! Here is your new friend.\r
+Soon I will go out searching for more Fossils!\r
+
+
+Script 1:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer
+    CompareVarValue 0x4005 1
+    JumpIf EQUAL Function#14
+    Message 0
+    OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#1
+    GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#2
+    SetFlag 2600
+    GetRandom 0x800C 11
+    CompareVarValue 0x800C 0
+    CallIf EQUAL Function#3
+    CompareVarValue 0x800C 1
+    CallIf EQUAL Function#4
+    CompareVarValue 0x800C 2
+    CallIf EQUAL Function#5
+    CompareVarValue 0x800C 3
+    CallIf EQUAL Function#6
+    CompareVarValue 0x800C 4
+    CallIf EQUAL Function#7
+    CompareVarValue 0x800C 5
+    CallIf EQUAL Function#8
+    CompareVarValue 0x800C 6
+    CallIf EQUAL Function#9
+    CompareVarValue 0x800C 7
+    CallIf EQUAL Function#10
+    CompareVarValue 0x800C 8
+    CallIf EQUAL Function#11
+	CompareVarValue 0x800C 9
+    CallIf EQUAL Function#12
+    CompareVarValue 0x800C 10
+    CallIf EQUAL Function#13
+    SetVar 0x4005 1
+    Message 3
+Jump Function#14
+
+Function 1:
+	Message 1
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 2:
+	Message 2
+	CloseMessage
+    ReleaseAll 
+End
+
+Function 3:
+    GivePokemon 138 30 0 0 0 0x800C
+Return 
+
+Function 4:
+    GivePokemon 140 30 0 0 0 0x800C
+Return 
+
+Function 5:
+    GivePokemon 142 30 0 0 0 0x800C
+Return 
+
+Function 6:
+    GivePokemon 345 30 0 0 0 0x800C
+Return 
+
+Function 7:
+    GivePokemon 347 30 0 0 0 0x800C
+Return 
+
+Function 8:
+    GivePokemon 410 30 0 0 0 0x800C
+Return 
+
+Function 9:
+    GivePokemon 408 30 0 0 0 0x800C
+Return 
+
+Function 10:
+    GivePokemon 614 30 0 0 0 0x800C
+Return 
+
+Function 11:
+    GivePokemon 616 30 0 0 0 0x800C
+Return 
+
+Function 12:
+    GivePokemon 746 30 0 0 0 0x800C
+Return 
+
+Function 13:
+    GivePokemon 748 30 0 0 0 0x800C
+Return 
+
+Function 14:
+    Message 4 
+	CloseMessage
+    ReleaseAll 
+End
+
+
+
