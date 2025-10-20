@@ -13,6 +13,10 @@
 431   - 117-D36R0101 : Script File  92 - Master who gives Cut in Ilex
 451   -                                - NPC for Bug Catching Contest   
 452   -                                - NPC for Bug Catching Contest, if contest is on
+461   -  Route 35                      - Remove Police NPC at Night
+462   -  Route 35                      - Remove Police Trainer at Day
+465   -  Route 34                      - Remove Police NPC at Night
+466   -  Route 34                      - Remove Police Trainer at Day
 467   - 117-D36R0101 : Script File  92 - Caught Porenta in Ilex
 468   - 117-D36R0101 : Script File  92 - Caught Porenta in Ilex
 474   - light tower 5f                 - Hide gym trainer
