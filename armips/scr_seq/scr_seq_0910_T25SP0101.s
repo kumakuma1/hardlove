@@ -55,13 +55,13 @@ scr_seq_T25SP0101_001:
     ShowList
     switch VAR_SPECIAL_RESULT
     case 0, _zephyr
-    case 1, _exitmessage
-    case 2, _exitmessage
-    case 3, _exitmessage
-    case 4, _exitmessage
-	case 5, _exitmessage
-    case 6, _exitmessage
-    case 7, _exitmessage
+    case 1, _hive
+    case 2, _plain
+    case 3, _fog
+    case 4, _storm
+	case 5, _mineral
+    case 6, _glacier
+    case 7, _rising
     //case 8, _exitmessage
     goto _exitmessage
 
