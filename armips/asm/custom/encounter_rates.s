@@ -79,24 +79,24 @@
 .byte 0xD2
 
 // Surfing Encounters
-// Change rates to 25/25/25/20/5
+// Change rates to 30/30/25/10/5
 
 .org 0x02247734
 
 // 25%
-.byte 25
+.byte 30
 .skip 9
 
 // 25%
-.byte 50
+.byte 60
 .skip 7
-.byte 50
+.byte 60
 .skip 3
 
 // 25%
-.byte 75
+.byte 85
 .skip 7
-.byte 75
+.byte 85
 .skip 3
 
 // 20%
@@ -104,20 +104,20 @@
 .byte 95
 
 // Fishing Encounters
-// Change rates to 25/25/25/20/5
+// Change rates to 30/30/25/10/5
 
 .org 0x02247778
 
 //25%
-.byte 25
+.byte 30
 .skip 7
 
 // 25%
-.byte 50
+.byte 60
 .skip 7
 
 // 25%
-.byte 75
+.byte 85
 .skip 7
 
 // 20%
