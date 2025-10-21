@@ -164,28 +164,30 @@ int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker,
 {
     struct BattleStruct *ctx = bsys->sp;
     int highestScoredMove = 0;
-    for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++) {
+    for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++)
+    {
         u32 attackerMove = ctx->battlemon[attacker].move[i];
-
-        if (attackerMove != MOVE_NONE 
-            && (attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice 
-                || attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove)) // if the attacker has a move that is forced, use it
+        if (attackerMove != MOVE_NONE)
         {
+            if (attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice
+                || attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove) // if the attacker has a move that is forced, use it
+            {
 #ifdef BATTLE_DEBUG_OUTPUT
-            debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
+                debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
 #endif // BATTLE_DEBUG_OUTPUT
-            moveScores[target][i] += 1000;
-        }
+                moveScores[target][i] += 1000;
+            }
 
-        moveScores[target][i] += 1000; // don't want to get negative numbers, so start high at 1000, MOVE_NONE will stay at 0
-        //moveScores[target][i] += BasicScoring(bsys, attacker, i, ai);
-        //moveScores[target][i] += DamagingMoveScoring(bsys, attacker, i, ai);
-        //moveScores[target][i] += SetupScoring(bsys, attacker, i, ai);
-        //moveScores[target][i] += RecoveryScoring(bsys, attacker, i, ai);
-        //moveScores[target][i] += HarassmentScoring(bsys, attacker, i, ai);
+            moveScores[target][i] += 1000; // don't want to get negative numbers, so start high at 1000, MOVE_NONE will stay at 0
+            // moveScores[target][i] += BasicScoring(bsys, attacker, i, ai);
+            // moveScores[target][i] += DamagingMoveScoring(bsys, attacker, i, ai);
+            // moveScores[target][i] += SetupScoring(bsys, attacker, i, ai);
+            // moveScores[target][i] += RecoveryScoring(bsys, attacker, i, ai);
+            // moveScores[target][i] += HarassmentScoring(bsys, attacker, i, ai);
 
-        if (highestScoredMove < moveScores[target][i]) {
-            highestScoredMove = moveScores[target][i];
+            if (highestScoredMove < moveScores[target][i]) {
+                highestScoredMove = moveScores[target][i];
+            }
         }
     }
 

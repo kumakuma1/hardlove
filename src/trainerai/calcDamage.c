@@ -1131,7 +1131,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     return baseDamage;
 }
 
-int LONG_CALL BattleAI_CalcDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_damage *damages, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
+int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_damage *damages, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
 
     u8 movetype;
@@ -1616,4 +1616,11 @@ int LONG_CALL BattleAI_CalcDamage(void *bw, struct BattleStruct *sp, int moveno,
     // #endif //DEBUG_DAMAGE_CALC_AI
 
     return damages->damageRoll;
+}
+
+
+int LONG_CALL BattleAI_CalcDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_damage *damages, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
+{
+    // TODO: Parental bond, Triple Axel, Triple Kick
+    return BattleAI_CalcDamageInternal(bw, sp, moveno, side_cond, field_cond, pow, type, critical, attackerSlot, defenderSlot, damages, attacker, defender);
 }
