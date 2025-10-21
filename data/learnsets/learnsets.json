@@ -115853,62 +115853,58 @@
   },
   "SPECIES_FROAKIE": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_POUND"
-      },
-      {
-        "Level": 5,
-        "Move": "MOVE_WATER_GUN"
-      },
-      {
-        "Level": 7,
-        "Move": "MOVE_GROWL"
-      },
-      {
-        "Level": 10,
-        "Move": "MOVE_QUICK_ATTACK"
-      },
-      {
-        "Level": 13,
-        "Move": "MOVE_LICK"
-      },
-      {
-        "Level": 14,
-        "Move": "MOVE_WATER_PULSE"
-      },
-      {
-        "Level": 16,
-        "Move": "MOVE_ICY_WIND"
-      },
-      {
-        "Level": 21,
-        "Move": "MOVE_FEINT_ATTACK"
-      },
-      {
-        "Level": 25,
-        "Move": "MOVE_SMOKESCREEN"
-      },
-      {
-        "Level": 32,
-        "Move": "MOVE_WATERFALL"
-      },
-      {
-        "Level": 35,
-        "Move": "MOVE_FLING"
-      },
-      {
-        "Level": 40,
-        "Move": "MOVE_SURF"
-      },
-      {
-        "Level": 45,
-        "Move": "MOVE_ACROBATICS"
-      },
-      {
-        "Level": 56,
-        "Move": "MOVE_HYDRO_PUMP"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_POUND"
+        },
+        {
+            "Level": 5,
+            "Move": "MOVE_WATER_GUN"
+        },
+        {
+            "Level": 7,
+            "Move": "MOVE_GROWL"
+        },
+        {
+            "Level": 10,
+            "Move": "MOVE_QUICK_ATTACK"
+        },
+        {
+            "Level": 13,
+            "Move": "MOVE_LICK"
+        },
+        {
+            "Level": 14,
+            "Move": "MOVE_WATER_PULSE"
+        },
+        {
+            "Level": 16,
+            "Move": "MOVE_ICY_WIND"
+        },
+        {
+            "Level": 20,
+            "Move": "MOVE_FEINT_ATTACK"
+        },
+        {
+            "Level": 22,
+            "Move": "MOVE_ACROBATICS"
+        },
+        {
+            "Level": 25,
+            "Move": "MOVE_LOW_KICK"
+        },
+        {
+            "Level": 32,
+            "Move": "MOVE_WATERFALL"
+        },
+        {
+            "Level": 35,
+            "Move": "MOVE_FLING"
+        },
+        {
+            "Level": 40,
+            "Move": "MOVE_HYDRO_PUMP"
+        }
     ],
     "MachineMoves": [
       "MOVE_ACROBATICS",
@@ -115989,70 +115985,74 @@
   },
   "SPECIES_FROGADIER": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_SMACK_DOWN"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_MUD_SHOT"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_POUND"
-      },
-      {
-        "Level": 5,
-        "Move": "MOVE_WATER_GUN"
-      },
-      {
-        "Level": 7,
-        "Move": "MOVE_GROWL"
-      },
-      {
-        "Level": 10,
-        "Move": "MOVE_QUICK_ATTACK"
-      },
-      {
-        "Level": 13,
-        "Move": "MOVE_LICK"
-      },
-      {
-        "Level": 14,
-        "Move": "MOVE_WATER_PULSE"
-      },
-      {
-        "Level": 16,
-        "Move": "MOVE_ICY_WIND"
-      },
-      {
-        "Level": 21,
-        "Move": "MOVE_FEINT_ATTACK"
-      },
-      {
-        "Level": 25,
-        "Move": "MOVE_SMOKESCREEN"
-      },
-      {
-        "Level": 32,
-        "Move": "MOVE_WATERFALL"
-      },
-      {
-        "Level": 35,
-        "Move": "MOVE_FLING"
-      },
-      {
-        "Level": 40,
-        "Move": "MOVE_SURF"
-      },
-      {
-        "Level": 45,
-        "Move": "MOVE_ACROBATICS"
-      },
-      {
-        "Level": 56,
-        "Move": "MOVE_HYDRO_PUMP"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_ICE_PUNCH"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_SMACK_DOWN"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_MUD_SHOT"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_POUND"
+        },
+        {
+            "Level": 5,
+            "Move": "MOVE_WATER_GUN"
+        },
+        {
+            "Level": 7,
+            "Move": "MOVE_GROWL"
+        },
+        {
+            "Level": 10,
+            "Move": "MOVE_QUICK_ATTACK"
+        },
+        {
+            "Level": 13,
+            "Move": "MOVE_LICK"
+        },
+        {
+            "Level": 14,
+            "Move": "MOVE_WATER_PULSE"
+        },
+        {
+            "Level": 16,
+            "Move": "MOVE_ICY_WIND"
+        },
+        {
+            "Level": 20,
+            "Move": "MOVE_FEINT_ATTACK"
+        },
+        {
+            "Level": 22,
+            "Move": "MOVE_ACROBATICS"
+        },
+        {
+            "Level": 25,
+            "Move": "MOVE_LOW_KICK"
+        },
+        {
+            "Level": 32,
+            "Move": "MOVE_WATERFALL"
+        },
+        {
+            "Level": 35,
+            "Move": "MOVE_FLING"
+        },
+        {
+            "Level": 40,
+            "Move": "MOVE_DARK_PULSE"
+        },
+        {
+            "Level": 45,
+            "Move": "MOVE_HYDRO_PUMP"
+        }
     ],
     "MachineMoves": [
       "MOVE_ACROBATICS",
@@ -116141,106 +116141,110 @@
   },
   "SPECIES_GRENINJA": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_SMACK_DOWN"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_MUD_SHOT"
-      },
-      {
-        "Level": 0,
-        "Move": "MOVE_WATER_SHURIKEN"
-      },
-      {
-        "Level": 0,
-        "Move": "MOVE_NIGHT_SLASH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_GUNK_SHOT"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_EXTRASENSORY"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_MAT_BLOCK"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_HAZE"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_ICE_BEAM"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_GRASS_KNOT"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SPIKES"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_POUND"
-      },
-      {
-        "Level": 5,
-        "Move": "MOVE_WATER_GUN"
-      },
-      {
-        "Level": 7,
-        "Move": "MOVE_GROWL"
-      },
-      {
-        "Level": 10,
-        "Move": "MOVE_SHADOW_SNEAK"
-      },
-      {
-        "Level": 14,
-        "Move": "MOVE_WATER_PULSE"
-      },
-      {
-        "Level": 16,
-        "Move": "MOVE_BOUNCE"
-      },
-      {
-        "Level": 21,
-        "Move": "MOVE_FEINT_ATTACK"
-      },
-      {
-        "Level": 25,
-        "Move": "MOVE_SMOKESCREEN"
-      },
-      {
-        "Level": 32,
-        "Move": "MOVE_WATERFALL"
-      },
-      {
-        "Level": 35,
-        "Move": "MOVE_FLING"
-      },
-      {
-        "Level": 40,
-        "Move": "MOVE_SURF"
-      },
-      {
-        "Level": 45,
-        "Move": "MOVE_ACROBATICS"
-      },
-      {
-        "Level": 48,
-        "Move": "MOVE_DARK_PULSE"
-      },
-      {
-        "Level": 56,
-        "Move": "MOVE_HYDRO_PUMP"
-      }
+        {
+            "Level": 0,
+            "Move": "MOVE_WATER_SHURIKEN"
+        },
+        {
+            "Level": 0,
+            "Move": "MOVE_NIGHT_SLASH"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_SMACK_DOWN"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_MUD_SHOT"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_GUNK_SHOT"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_MAT_BLOCK"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_HAZE"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_ICE_BEAM"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_GRASS_KNOT"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_SPIKES"
+        },
+        {
+            "Level": 5,
+            "Move": "MOVE_WATER_GUN"
+        },
+        {
+            "Level": 7,
+            "Move": "MOVE_GROWL"
+        },
+        {
+            "Level": 10,
+            "Move": "MOVE_SHADOW_SNEAK"
+        },
+        {
+            "Level": 14,
+            "Move": "MOVE_WATER_PULSE"
+        },
+        {
+            "Level": 16,
+            "Move": "MOVE_BOUNCE"
+        },
+        {
+            "Level": 20,
+            "Move": "MOVE_FEINT_ATTACK"
+        },
+        {
+            "Level": 22,
+            "Move": "MOVE_ACROBATICS"
+        },
+        {
+            "Level": 25,
+            "Move": "MOVE_LOW_KICK"
+        },
+        {
+            "Level": 32,
+            "Move": "MOVE_WATERFALL"
+        },
+        {
+            "Level": 35,
+            "Move": "MOVE_FLING"
+        },
+        {
+            "Level": 37,
+            "Move": "MOVE_SCALD"
+        },
+        {
+            "Level": 40,
+            "Move": "MOVE_DARK_PULSE"
+        },
+        {
+            "Level": 43,
+            "Move": "MOVE_EXTRASENSORY"
+        },
+        {
+            "Level": 47,
+            "Move": "MOVE_SLUDGE_WAVE"
+        },
+        {
+            "Level": 54,
+            "Move": "MOVE_HYDRO_PUMP"
+        },
+        {
+            "Level": 61,
+            "Move": "MOVE_HYDRO_CANNON"
+        }
     ],
     "MachineMoves": [
       "MOVE_ACROBATICS",
