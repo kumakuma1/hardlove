@@ -26,6 +26,13 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
 
 int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai);
 int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai);
+int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai);
+int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai);
+
+int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai);
+int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai);
+
+int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem *bsys, u32 battler, struct AIContext *ai);
 
 
 enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
@@ -183,12 +190,12 @@ int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker,
                 moveScores[target][i] += 1000;
             }
 
-            moveScores[target][i] += 1000; // don't want to get negative numbers, so start high at 1000, MOVE_NONE will stay at 0
+             moveScores[target][i] += 1000; // don't want to get negative numbers, so start high at 1000, MOVE_NONE will stay at 0
              moveScores[target][i] += BasicScoring(bsys, attacker, i, ai);
              moveScores[target][i] += DamagingMoveScoring(bsys, attacker, i, ai);
-            // moveScores[target][i] += SetupScoring(bsys, attacker, i, ai);
+             moveScores[target][i] += SetupScoring(bsys, attacker, i, ai);
             // moveScores[target][i] += RecoveryScoring(bsys, attacker, i, ai);
-            // moveScores[target][i] += HarassmentScoring(bsys, attacker, i, ai);
+             moveScores[target][i] += HarassmentScoring(bsys, attacker, i, ai);
 
             if (highestScoredMove < moveScores[target][i]) {
                 highestScoredMove = moveScores[target][i];
@@ -726,6 +733,756 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             }
         }
     }
+    default:
+        break;
+    }
+
+    return moveScore;
+}
+
+
+int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai)
+{
+    int moveScore = 0;
+    if (ai->isDefenderIncapacitated) {
+        moveScore += 3;
+    }
+    if (ai->attackerMovesFirst) {
+        if (!ai->playerCanOneShotMonWithAnyMove) {
+            moveScore += 3;
+        }
+    } else {
+        if (2 * ai->maxDamageReceived >= ai->attackerMon.hp) {
+            moveScore -= 5;
+        }
+    }
+
+    return moveScore;
+}
+int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai)
+{
+    int moveScore = 0;
+    if (ai->isDefenderIncapacitated) {
+        moveScore += 2;
+    }
+    if (ai->defenderMovesFirst && 2 * ai->maxDamageReceived >= ai->attackerMon.hp) {
+        moveScore -= 5;
+    }
+    return moveScore;
+}
+
+int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai)
+{
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    BOOL hasSitrus = (ai->attackerMon.item == ITEM_SITRUS_BERRY);
+    BOOL shouldSetup = TRUE;
+    BOOL isSetupMove = TRUE;
+
+    ai->attackerMove = ctx->battlemon[attacker].move[i];
+    ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
+
+    if (ai->playerCanOneShotMonWithAnyMove) {
+        shouldSetup = FALSE;
+    }
+    if (ai->defenderMon.ability == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0)) {
+        shouldSetup = FALSE;
+    }
+
+    switch (ai->attackerMoveEffect) {
+    case MOVE_EFFECT_WEATHER_RAIN:
+        if (ctx->field_condition & WEATHER_RAIN_ANY) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            if (ai->attackerMon.ability == ABILITY_SWIFT_SWIM
+                || ai->attackerMon.ability == ABILITY_RAIN_DISH
+                || ai->attackerMon.ability == ABILITY_HYDRATION
+                || ai->attackerMon.ability == ABILITY_DRY_SKIN) {
+                moveScore += 9;
+            }
+            if (ai->attackerMon.item == ITEM_DAMP_ROCK) {
+                moveScore += 1;
+            }
+        }
+        break;
+    case MOVE_EFFECT_WEATHER_HAIL:
+    case MOVE_EFFECT_WEATHER_SNOW:
+        // case MOVE_EFFECT_SNOWSCAPE:
+        if (ctx->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY)) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            if (HasType(ctx, attacker, TYPE_ICE)
+                || ai->attackerMon.ability == ABILITY_ICE_BODY || ai->attackerMon.ability == ABILITY_SNOW_CLOAK
+                || ai->attackerMon.ability == ABILITY_SLUSH_RUSH) {
+                moveScore += 9;
+            }
+            if (ai->attackerMon.item == ITEM_ICY_ROCK) {
+                moveScore += 1;
+            }
+        }
+        break;
+    case MOVE_EFFECT_WEATHER_SUN:
+        if (ctx->field_condition & WEATHER_SUNNY_ANY) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            if (HasType(ctx, attacker, TYPE_FIRE) || ai->attackerMon.ability == ABILITY_SOLAR_POWER) { //|| ai->attackerMon.ability == ABILITY_CHLOROPHYL
+                moveScore += 9;
+            }
+            if (ai->attackerMon.item == ITEM_HEAT_ROCK) {
+                moveScore += 1;
+            }
+        }
+        break;
+    case MOVE_EFFECT_WEATHER_SANDSTORM:
+        if (ctx->field_condition & WEATHER_SANDSTORM_ANY) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            if (HasType(ctx, attacker, TYPE_ROCK) || HasType(ctx, attacker, TYPE_GROUND) || HasType(ctx, attacker, TYPE_STEEL)
+                || ai->attackerMon.ability == ABILITY_SAND_FORCE || ai->attackerMon.ability == ABILITY_SAND_RUSH || ai->attackerMon.ability == ABILITY_SAND_VEIL) {
+                moveScore += 9;
+            }
+            if (ai->attackerMon.item == ITEM_SMOOTH_ROCK) {
+                moveScore += 1;
+            }
+        }
+        break;
+    case MOVE_EFFECT_COPY_STAT_CHANGES: {
+        u8 sumStatChange = BattlerPositiveStatChangesSum(bsys, ai->defender, ai);
+        if (sumStatChange > 0) {
+            moveScore += 5;
+        }
+        if (sumStatChange > 1) {
+            moveScore += sumStatChange;
+        }
+        break;
+    }
+    case MOVE_EFFECT_EVA_UP:
+    case MOVE_EFFECT_EVA_UP_2:
+    case MOVE_EFFECT_EVA_UP_3:
+    case MOVE_EFFECT_EVA_UP_2_MINIMIZE:
+        moveScore += 6;
+        if (ai->defenderMon.ability == ABILITY_NO_GUARD || ctx->battlemon[attacker].states[STAT_EVASION] >= 10) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else if (2 * ai->maxDamageReceived < ai->attackerMon.hp) {
+            moveScore += 2;
+        }
+        if (ai->isDefenderIncapacitated) {
+            moveScore += 2;
+        }
+        break;
+    case MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING: // rapid_spin
+    case MOVE_EFFECT_RAISE_SPEED_HIT: // trailblaze
+        if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance < 100 || ai->attackerRolledMaxDamage == ai->attackerRolledMoveDamages[i]) // if other move (like ...), or highest damage
+        {
+            isSetupMove = FALSE;
+            break;
+        }
+        FALLTHROUGH;
+    case MOVE_EFFECT_SPEED_UP_2:
+    case MOVE_EFFECT_AUTOTOMIZE:
+        if (ai->defenderMovesFirst) {
+            moveScore += 7;
+        } else {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_CRIT_UP_2:
+        if (ai->defenderMon.ability == ABILITY_SHELL_ARMOR || ai->defenderMon.ability == ABILITY_BATTLE_ARMOR) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else if (ai->attackerMon.ability == ABILITY_SUPER_LUCK || ai->attackerMon.ability == ABILITY_SNIPER || ai->attackerMon.item == ITEM_SCOPE_LENS) { // or hight crit moves
+            moveScore += 7;
+        } else {
+            moveScore += 5;
+        }
+        break;
+    // case MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_LOSE_HALF_MAX_HP: //filet away
+    case MOVE_EFFECT_MAX_ATK_LOSE_HALF_MAX_HP: // belly drum
+        moveScore += 4;
+        if (ai->isDefenderIncapacitated) {
+            moveScore += 5;
+        } else if (2 * ai->attackerMon.hp > ai->attackerMon.maxhp) {
+            if (hasSitrus) {
+                if (2 * ai->maxDamageReceived < (u32)(25 * ai->attackerMon.hp / 10 - ai->attackerMon.maxhp)) { // D < 1.125*Hp - 0.5maxHp
+                    moveScore += 4;
+                }
+            } else if (2 * ai->maxDamageReceived < (u32)(2 * ai->attackerMon.hp - ai->attackerMon.maxhp)) { // D < Hp - 0.5maxHp
+                moveScore += 4;
+            }
+        }
+        break;
+    case MOVE_EFFECT_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP: // clangorous soul
+    case MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN: // shell smash
+        moveScore += 6;
+        if (ai->isDefenderIncapacitated) {
+            moveScore += 3;
+        }
+        if (ai->attackerMovesFirst) // if ai is slower, no defense drop for hit
+        {
+            if (ai->attackerMon.item == ITEM_WHITE_HERB || 2 * ai->maxDamageReceived < ai->attackerMon.hp) { // simple heuristic to not calc exact dmg.
+                moveScore += 2;
+            } else {
+                moveScore -= 2;
+            }
+        }
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7) {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_RAISE_SP_ATK_HIT: // charge beam
+    case MOVE_EFFECT_RAISE_ATTACK_HIT: // PuP
+        if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance < 100 || ai->attackerRolledMaxDamage == ai->attackerRolledMoveDamages[i]) // if other move (like Metal Claw), or highest damage
+        {
+            isSetupMove = FALSE;
+            break;
+        }
+        FALLTHROUGH;
+    case MOVE_EFFECT_ATK_UP: // howl
+    case MOVE_EFFECT_ATK_UP_2: // swords dance
+    case MOVE_EFFECT_ATK_UP_3:
+    case MOVE_EFFECT_ATK_SPEED_UP: // dragon dance
+    case MOVE_EFFECT_SP_ATK_UP: // growth
+    case MOVE_EFFECT_ATK_SP_ATK_UP: // work up
+    case MOVE_EFFECT_ATK_ACC_UP: // hone claws
+    case MOVE_EFFECT_SPEED_UP_2_ATK_UP: // shift gear
+    case MOVE_EFFECT_TIDY_UP: // tidy up is basically ddance
+    case MOVE_EFFECT_RANDOM_STAT_UP_2: // accupressure
+    case MOVE_EFFECT_ATK_DEF_SPEED_UP: // victory dance
+        moveScore += 6;
+        moveScore += OffensiveSetup(bsys, attacker, i, ai);
+        break;
+    case MOVE_EFFECT_GROUND_TRAP_USER_CONTINUOUS_HEAL: // Ingrain
+        if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) {
+            moveScore -= NEVER_USE_MOVE_20;
+            break;
+        }
+        FALLTHROUGH;
+    case MOVE_EFFECT_RESTORE_HP_EVERY_TURN: // Aqua Ring
+        if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING) {
+            moveScore -= NEVER_USE_MOVE_20;
+            break;
+        }
+        FALLTHROUGH;
+    case MOVE_EFFECT_DEF_UP:
+    case MOVE_EFFECT_DEF_UP_2:
+    case MOVE_EFFECT_DEF_UP_3:
+    case MOVE_EFFECT_SP_DEF_UP:
+    case MOVE_EFFECT_SP_DEF_UP_2:
+    case MOVE_EFFECT_SP_DEF_UP_3:
+    case MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER:
+    case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER: // Charge
+    case MOVE_EFFECT_DEF_SP_DEF_UP:
+    case MOVE_EFFECT_STOCKPILE:
+        // case MOVE_EFFECT_STUFF_CHEEKS:
+        moveScore += 6;
+        moveScore += DefensiveSetup(bsys, attacker, i, ai);
+        break;
+    case MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP: // quiver dance
+    case MOVE_EFFECT_SP_ATK_SP_DEF_UP: // Calm Mind
+        moveScore += 6;
+        if (ai->defenderHasAtleastOnePhysicalMove == FALSE && ai->defenderHasAtleastOneSpecialMove) {
+            moveScore += DefensiveSetup(bsys, attacker, i, ai);
+        } else {
+            moveScore += OffensiveSetup(bsys, attacker, i, ai);
+        }
+        break;
+    case MOVE_EFFECT_CURSE:
+        if (HasType(ctx, attacker, TYPE_GHOST)) {
+            isSetupMove = FALSE;
+            break;
+        }
+        FALLTHROUGH;
+    case MOVE_EFFECT_ATK_DEF_UP: // Bulk Up
+    case MOVE_EFFECT_ATK_DEF_ACC_UP: // coil
+        // case MOVE_EFFECT_NO_RETREAT: // No Retreat
+        moveScore += 6;
+        if (ai->defenderHasAtleastOnePhysicalMove && ai->defenderHasAtleastOneSpecialMove == FALSE) {
+            moveScore += DefensiveSetup(bsys, attacker, i, ai);
+        } else {
+            moveScore += OffensiveSetup(bsys, attacker, i, ai);
+        }
+        break;
+    case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2: // geomancy
+        if (ai->attackerMon.item == ITEM_POWER_HERB) {
+            moveScore += 9;
+        } else {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    default:
+        isSetupMove = FALSE;
+        break;
+    }
+    if (!shouldSetup) {
+        moveScore = (0 - NEVER_USE_MOVE_20);
+    }
+    if (!isSetupMove) {
+        moveScore = 0;
+    }
+
+    return moveScore;
+}
+
+int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai)
+{
+    int moveScore = 0;
+    BOOL sharesMoves = FALSE;
+    struct BattleStruct *ctx = bsys->sp;
+
+    ai->attackerMove = ctx->battlemon[attacker].move[i];
+    ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
+
+    switch (ai->attackerMoveEffect) {
+    case MOVE_EFFECT_STEALTH_ROCK:
+    case MOVE_EFFECT_SET_SPIKES:
+    case MOVE_EFFECT_TOXIC_SPIKES:
+        if (ai->attackerTurnsOnField == 0) {
+            moveScore += 8;
+        } else {
+            moveScore += 6;
+        }
+        if (BattleRand(bsys) % 4 != 0) {
+            moveScore += 1;
+        }
+        if (ctx->scw[ai->defenderSide].spikesLayers > 0 && ai->attackerMoveEffect == MOVE_EFFECT_SET_SPIKES) {
+            moveScore -= 1;
+        }
+        if (ctx->scw[ai->defenderSide].toxicSpikesLayers > 0 && ai->attackerMoveEffect == MOVE_EFFECT_TOXIC_SPIKES) {
+            moveScore -= 1;
+        }
+        break;
+    case MOVE_EFFECT_STICKY_WEB:
+        if (ai->attackerTurnsOnField == 0) {
+            moveScore += 9;
+        } else {
+            moveScore += 6;
+        }
+        if (BattleRand(bsys) % 4 != 0) {
+            moveScore += 3;
+        }
+        break;
+    case MOVE_EFFECT_SURVIVE_WITH_1_HP:
+        if (ctx->protectSuccessTurns[ai->attacker] == 1) {
+            if (BattleRand(bsys) % 2 == 0) {
+                moveScore -= NEVER_USE_MOVE_20;
+            }
+        } else if (ctx->protectSuccessTurns[ai->attacker] > 1) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        } else if (ai->defenderMovesFirst && (ai->playerCanOneShotMonWithAnyMove || !ai->monCanOneShotPlayerWithAnyMove)) {
+            moveScore += 6;
+            if (ai->attackerMon.item == ITEM_CUSTAP_BERRY || ai->attackerMon.item == ITEM_SALAC_BERRY) {
+                moveScore += 2;
+            }
+        } else {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    // case MOVE_EFFECT_KINGS_SHIELD:
+    // case MOVE_EFFECT_OBSTRUCT:
+    // case MOVE_EFFECT_SPIKEY_SHIELD:
+    case MOVE_EFFECT_PROTECT: // TODO
+    {
+        BOOL monDiesEndTurn = MonDiesFromResidualDamage(ctx, ai->attacker, ai->attackerMon.condition, (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE));
+        moveScore += 6;
+        if (IsMonInflictedWithAnyNegativeStatus(ctx, attacker)) {
+            moveScore -= 1;
+        }
+        if (IsMonInflictedWithAnyNegativeStatus(ctx, ai->defender)) {
+            moveScore += 1;
+        }
+        if (ai->attackerTurnsOnField == 0 && ai->isDoubleBattle) {
+            moveScore -= 1;
+        }
+        if (ctx->protectSuccessTurns[ai->attacker] == 1) {
+            if (BattleRand(bsys) % 2 == 0) {
+                moveScore -= NEVER_USE_MOVE_20;
+            }
+        } else if (ctx->protectSuccessTurns[ai->attacker] > 1) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        if (monDiesEndTurn) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        break;
+    }
+    case MOVE_EFFECT_MAKE_SHARED_MOVES_UNUSEABLE:
+        if (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_IMPRISONED) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            for (int j = 0; j < CLIENT_MAX; ++j) {
+                for (int k = 0; k < CLIENT_MAX; ++k) {
+                    if (ctx->battlemon[ai->attacker].move[k] == ctx->battlemon[ai->defender].move[j] && ctx->battlemon[ai->defender].move[j] != MOVE_NONE) {
+                        sharesMoves = TRUE;
+                        break;
+                    }
+                }
+                if (sharesMoves == TRUE) {
+                    break;
+                }
+            }
+            if (sharesMoves == TRUE) {
+                moveScore += 9;
+            }
+        }
+        break;
+    case MOVE_EFFECT_PASS_STATS_AND_STATUS:
+        if ((ai->isDoubleBattle && ai->livingMembersAttacker > 2) || (!ai->isDoubleBattle && ai->livingMembersAttacker > 1)) {
+            if ((BattlerPositiveStatChangesSum(bsys, ai->attacker, ai) >= 1) || ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE) {
+                moveScore += 14;
+            }
+        }
+        if (ai->livingMembersAttacker == 1) {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_DOUBLE_SPEED_3_TURNS:
+        if (IsBattleMonSlowerThanOpposition(bsys, attacker, ai->isDoubleBattle)
+            || (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp > 0 && IsBattleMonSlowerThanOpposition(bsys, BATTLER_ALLY(attacker), ai->isDoubleBattle))) { // or partner is slower
+            moveScore += 9;
+        } else {
+            moveScore += 5;
+        }
+        if (ctx->side_condition[ai->attackerSide] & SIDE_STATUS_TAILWIND) {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_TRICK_ROOM:
+        if (IsBattleMonSlowerThanOpposition(bsys, attacker, ai->isDoubleBattle)
+            || (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp > 0 && IsBattleMonSlowerThanOpposition(bsys, BATTLER_ALLY(attacker), ai->isDoubleBattle))) { // or partner is slower
+            moveScore += 10;
+        } else {
+            moveScore += 5;
+        }
+
+        if (ctx->field_condition & FIELD_STATUS_TRICK_ROOM) {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_APPLY_TERRAINS:
+        if (ai->attackerMon.item == ITEM_TERRAIN_EXTENDER) {
+            moveScore += 9;
+        } else {
+            moveScore += 8;
+        }
+        break;
+    case MOVE_EFFECT_SET_REFLECT:
+        if (ctx->side_condition[ai->attackerSide] & SIDE_STATUS_REFLECT) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            moveScore += 6;
+            if (ai->defenderHasAtleastOnePhysicalMove) {
+                if (ai->attackerMon.item == ITEM_LIGHT_CLAY) {
+                    moveScore += 1;
+                }
+                if (BattleRand(bsys) % 2 == 0) {
+                    moveScore += 1;
+                }
+            }
+        }
+        break;
+    case MOVE_EFFECT_SET_LIGHT_SCREEN:
+        if (ctx->side_condition[ai->attackerSide] & SIDE_STATUS_LIGHT_SCREEN) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            moveScore += 6;
+            if (ai->defenderHasAtleastOneSpecialMove) {
+                if (ai->attackerMon.item == ITEM_LIGHT_CLAY) {
+                    moveScore += 1;
+                }
+                if (BattleRand(bsys) % 2 == 0) {
+                    moveScore += 1;
+                }
+            }
+        }
+        break;
+    case MOVE_EFFECT_BOOST_ALLY_POWER_BY_50_PERCENT: // TODO
+    case MOVE_EFFECT_MAKE_GLOBAL_TARGET:
+        moveScore += 6;
+        break;
+    case MOVE_EFFECT_SET_SUBSTITUTE:
+        moveScore += 6;
+        if (ai->attackerMovesFirst && (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE)) {
+            moveScore += 2;
+        }
+        if (ai->defenderMon.condition & STATUS_SLEEP) {
+            moveScore += 2;
+        }
+        if (BattleRand(bsys) % 2 == 0) {
+            moveScore -= 1;
+        }
+        if (ai->defenderMon.ability == ABILITY_INFILTRATOR || ai->attackerMon.percenthp < 50) {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        if (BattlerHasSoundBasedMove(bsys, ai->defender, ai)) {
+            moveScore -= 8;
+        }
+        break;
+    case MOVE_EFFECT_FAINT_AND_ATK_SP_ATK_DOWN_2:
+        moveScore += 6;
+        if (ai->attackerMon.percenthp < 10) {
+            moveScore += 10;
+        } else if (ai->attackerMon.percenthp < 33) {
+            if (BattleRand(bsys) % 10 < 7) { // 70%
+                moveScore += 8;
+            }
+        } else if (ai->attackerMon.percenthp < 66) {
+            if (BattleRand(bsys) % 2) { // 50%
+                moveScore += 7;
+            }
+        } else {
+            if (BattleRand(bsys) % 20 == 0) { // 5%
+                moveScore += 7;
+            }
+        }
+
+        if (ai->livingMembersAttacker == 1) {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_PARALYZE_HIT:
+        if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance < 100 || ai->attackerRolledMoveDamages[i] > 0 /*no immunity*/) { // nuzzle
+            break;
+        }
+        FALLTHROUGH;
+    case MOVE_EFFECT_STATUS_PARALYZE:
+        if (ai->defenderMovesFirst || // and slower after para
+            (BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE) || (BattlerKnowsFlinchingMove(bsys, attacker, ai) == TRUE) || ctx->battlemon[ai->defender].condition2 & STATUS2_ATTRACT || ctx->battlemon[ai->defender].condition2 & STATUS2_CONFUSION) {
+            moveScore += 8;
+        } else {
+            moveScore += 7;
+        }
+        if (BattleRand(bsys) % 2) { // 50%
+            moveScore -= 1;
+        }
+        break;
+    case MOVE_EFFECT_STATUS_BURN:
+        moveScore += 6;
+        if (BattleRand(bsys) % 3 == 0) {
+            if ((BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE)
+                || (ai->isDoubleBattle && BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_HEX, ai))) { // or partner
+                moveScore += 1;
+            }
+            if (ai->defenderHasAtleastOnePhysicalMove) {
+                moveScore += 1;
+            }
+        }
+        break;
+    case MOVE_EFFECT_STATUS_SLEEP:
+    case MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN:
+        moveScore += 6;
+        if (!ai->monCanOneShotPlayerWithAnyMove && (BattleRand(bsys) % 4 == 0)) // no kill
+        {
+            if (!ai->defenderImmuneToSleep) {
+                moveScore += 1;
+            }
+            if (((BattlerKnowsMove(bsys, attacker, MOVE_DREAM_EATER, ai) == TRUE) || (BattlerKnowsMove(bsys, attacker, MOVE_NIGHTMARE, ai) == TRUE))
+                && (BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai) == FALSE) && (BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) == FALSE)) {
+                moveScore += 1;
+            }
+            if ((BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE)
+                || (ai->isDoubleBattle && BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_HEX, ai))) // or partner
+            {
+                moveScore += 1;
+            }
+        }
+        if (ai->attackerMon.ability == ABILITY_PRANKSTER) {
+            moveScore += 2;
+        }
+        break;
+    case MOVE_EFFECT_STATUS_POISON:
+    case MOVE_EFFECT_STATUS_BADLY_POISON:
+        moveScore += 6;
+        if (!ai->monCanOneShotPlayerWithAnyMove && (BattleRand(bsys) % 3 == 0)) // no kill
+        {
+            if (!ai->defenderImmuneToPoison && ai->defenderMon.percenthp > 20) {
+                if (ai->maxDamageReceived < ai->attackerMon.hp / 2 && (BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) || BattlerKnowsMove(bsys, attacker, MOVE_VENOM_DRENCH, ai) || BattlerKnowsMove(bsys, attacker, MOVE_VENOSHOCK, ai) || ai->attackerMon.ability == ABILITY_MERCILESS)) {
+                    moveScore += 2;
+                }
+            }
+        }
+        break;
+    case MOVE_EFFECT_SWITCH_HELD_ITEMS:
+        moveScore += 5;
+        if ((ai->attackerMon.item == ITEM_TOXIC_ORB && !ai->defenderImmuneToPoison) || (ai->attackerMon.item == ITEM_FLAME_ORB && !ai->defenderImmuneToBurn) || (ai->attackerMon.item == ITEM_BLACK_SLUDGE && !HasType(ctx, ai->defender, TYPE_POISON))) {
+            moveScore += 1;
+            if (BattleRand(bsys) % 2) { // 50%
+                moveScore += 1;
+            }
+        } else if (ai->attackerMon.item == ITEM_IRON_BALL || ai->attackerMon.item == ITEM_LAGGING_TAIL || ai->attackerMon.item == ITEM_STICKY_BARB) {
+            moveScore += 2;
+        }
+        break;
+    case MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION:
+    case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION:
+    case MOVE_EFFECT_STATUS_CONFUSE:
+        if ((ctx->battlemon[ai->defender].condition2 & STATUS2_CONFUSION)
+            || (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_SAFEGUARD)
+            || (!ai->attackerMon.hasMoldBreaker && ai->defenderMon.ability == ABILITY_OWN_TEMPO)) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            moveScore += 6;
+            if (ai->defenderMon.condition & STATUS_PARALYSIS || ctx->battlemon[ai->defender].condition2 & STATUS2_ATTRACT) {
+                moveScore += 2;
+            }
+        }
+        break;
+    case MOVE_EFFECT_INFATUATE:
+        if (ctx->battlemon[ai->defender].condition2 & STATUS2_ATTRACT
+            || (!ai->attackerMon.hasMoldBreaker && ai->defenderMon.ability == ABILITY_OBLIVIOUS)
+#ifndef ATTRACT_WORK_ON_ALL_SEXES
+            || ai->attackerMon.sex != POKEMON_GENDER_UNKNOWN
+            || ai->attackerMon.sex == ai->defenderMon.sex
+#endif // !ATTRACT_WORK_ON_ALL_SEXES
+        )
+
+        {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            moveScore += 6;
+            if (ai->defenderMon.condition & STATUS_PARALYSIS || ctx->battlemon[ai->defender].condition2 & STATUS2_CONFUSION) {
+                moveScore += 2;
+            }
+        }
+        break;
+    case MOVE_EFFECT_STATUS_LEECH_SEED:
+        if ((ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE) || HasType(ctx, ai->defender, TYPE_GRASS) || ai->defenderMon.ability == ABILITY_MAGIC_GUARD) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            moveScore += 6;
+            if (ai->playerCanOneShotMonWithAnyMove == FALSE && ai->defenderMon.percenthp > 20) {
+                moveScore += 1;
+                if (BattleRand(bsys) % 2) { // 50%
+                    moveScore += 1;
+                }
+            }
+            if (ctx->battlemon[ai->defender].condition2 & STATUS2_ATTRACT || ctx->battlemon[ai->defender].condition2 & STATUS2_CONFUSION) {
+                moveScore += 1;
+            }
+            if (ai->defenderMon.condition & (STATUS_POISON_ALL | STATUS_BURN | STATUS_PARALYSIS)) {
+                moveScore += 1;
+            }
+        }
+        break;
+    case MOVE_EFFECT_USE_RANDOM_LEARNED_MOVE_SLEEP:
+    case MOVE_EFFECT_DAMAGE_WHILE_ASLEEP:
+        if (ctx->battlemon[attacker].condition & STATUS_SLEEP) {
+            moveScore += 6;
+            if (ai->attackerLastUsedMove == MOVE_REST) {
+                moveScore += 10;
+            }
+            if (BattleRand(bsys) % 2 == 0) {
+                moveScore += 1;
+            }
+        } else {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_CURSE:
+        if (!HasType(ctx, attacker, TYPE_GHOST)) {
+            break;
+        }
+        FALLTHROUGH;
+    case MOVE_EFFECT_KO_MON_THAT_DEFEATED_USER:
+        if (ai->playerCanOneShotMonWithAnyMove && ai->attackerMovesFirst) {
+            moveScore += 6;
+            if (BattleRand(bsys) % 5 == 0) {
+                moveScore += 1;
+            }
+        } else if (ai->defenderMovesFirst) {
+            moveScore += 5;
+            if (BattleRand(bsys) % 2) {
+                moveScore += 1;
+            }
+        }
+        break;
+    case MOVE_EFFECT_CHANGE_TO_WATER_TYPE:
+        if (HasType(ctx, ai->defender, TYPE_WATER)) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            moveScore += 6;
+        }
+        break;
+    case MOVE_EFFECT_ATK_DOWN:
+    case MOVE_EFFECT_ATK_DOWN_2:
+    case MOVE_EFFECT_ATK_DOWN_3:
+    case MOVE_EFFECT_ATK_DEF_DOWN:
+        if (ai->defenderHasAtleastOnePhysicalMove) {
+            moveScore += 5;
+            if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY && ai->defenderMon.ability != ABILITY_HYPER_CUTTER)) {
+                moveScore += 1;
+            }
+            if (ai->defenderMovesFirst) {
+                moveScore -= 1;
+            }
+        } else {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_SP_ATK_DOWN:
+    case MOVE_EFFECT_SP_ATK_DOWN_2:
+    case MOVE_EFFECT_SP_ATK_DOWN_3:
+    case MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER:
+    case MOVE_EFFECT_ATK_SP_ATK_DOWN:
+        if (ai->defenderHasAtleastOneSpecialMove) {
+            moveScore += 5;
+            if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY)) {
+                moveScore += 1;
+            }
+            if (ai->defenderMovesFirst) {
+                moveScore -= 1;
+            }
+        } else {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_DEF_DOWN:
+    case MOVE_EFFECT_DEF_DOWN_2:
+    case MOVE_EFFECT_DEF_DOWN_3:
+        if (2 * ai->maxDamageReceived < ai->attackerMon.hp && 2 * ai->attackerRolledMaxDamage < ai->defenderMon.hp) {
+            if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_BIG_PECKS && ai->defenderMon.ability != ABILITY_CONTRARY)) {
+                moveScore += 7;
+            }
+        }
+        break;
+    case MOVE_EFFECT_SP_DEF_DOWN:
+    case MOVE_EFFECT_SP_DEF_DOWN_2:
+    case MOVE_EFFECT_SP_DEF_DOWN_3:
+        if (2 * ai->maxDamageReceived < ai->attackerMon.hp && 2 * ai->attackerRolledMaxDamage < ai->defenderMon.hp) {
+            if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY)) {
+                moveScore += 7;
+            }
+        }
+        break;
+    case MOVE_EFFECT_EVA_DOWN:
+    case MOVE_EFFECT_EVA_DOWN_2:
+    case MOVE_EFFECT_EVA_DOWN_3:
+    case MOVE_EFFECT_ACC_DOWN:
+    case MOVE_EFFECT_ACC_DOWN_2:
+    case MOVE_EFFECT_ACC_DOWN_3:
+        moveScore += 5;
+        if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_KEEN_EYE && ai->defenderMon.ability != ABILITY_CONTRARY)) {
+            moveScore += 1;
+        }
+        if (ai->defenderMovesFirst) {
+            moveScore -= 1;
+        }
+        break;
+    case MOVE_EFFECT_VENOM_DRENCH:
+        if (ai->defenderMon.condition & STATUS_POISON_ALL) {
+            if ((ai->defenderHasAtleastOnePhysicalMove && ctx->battlemon[ai->defender].states[STAT_ATTACK] >= 6) || (ai->defenderHasAtleastOneSpecialMove && ctx->battlemon[ai->defender].states[STAT_SPATK] >= 6)) {
+                moveScore += 5;
+                if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY)) {
+                    moveScore += 1;
+                }
+                if (ai->defenderMovesFirst) {
+                    moveScore -= 1;
+                }
+            } else {
+                moveScore -= NEVER_USE_MOVE_20;
+            }
+        } else {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
     default:
         break;
     }

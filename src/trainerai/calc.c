@@ -355,7 +355,7 @@ BOOL LONG_CALL BattleAI_IsKnockOffPoweredUp(struct AI_sDamageCalc *defender)
     }
 }
 
-BOOL LONG_CALL canAttackerOneShotDefender(u32 attackerDamage, u8 split, u32 moveno, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
+BOOL LONG_CALL CanAttackerOneShotDefender(u32 attackerDamage, u8 split, u32 moveno, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
     BOOL isMoveMultihit = IsMultiHitMove(moveno);
     BOOL canOneShot = TRUE;
@@ -436,32 +436,6 @@ BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct BattleSystem *bsys, u8 slo
     return isSlower;
 }
 
-BOOL LONG_CALL battlerKnowsThawingMove(struct BattleSystem *bsys, u32 battler, struct AIContext *ai UNUSED)
-{
-    BOOL knowsMove = 0;
-    struct BattleStruct *ctx = bsys->sp;
-    for (int i = 0; i < CLIENT_MAX; ++i) {
-        u32 move = ctx->battlemon[battler].move[i];
-        switch (move) {
-        case MOVE_FLAME_WHEEL:
-        case MOVE_SACRED_FIRE:
-        case MOVE_FLARE_BLITZ:
-        case MOVE_FUSION_FLARE:
-        case MOVE_SCALD:
-        case MOVE_STEAM_ERUPTION:
-        case MOVE_BURN_UP:
-        case MOVE_PYRO_BALL:
-        case MOVE_SCORCHING_SANDS:
-        case MOVE_MATCHA_GOTCHA:
-            knowsMove = TRUE;
-            break;
-        default:
-            break;
-        }
-    }
-    return knowsMove;
-}
-
 BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokemon *pp)
 {
     u16 item = GetMonData(pp, MON_DATA_HELD_ITEM, 0);
@@ -514,7 +488,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->maxDamageReceived = 0;
     ai->attackerRolledMaxDamage = 0;
 
-    ai->defenderKnowsThawingMove = battlerKnowsThawingMove(bsys, ai->defender, ai);
+    ai->defenderKnowsThawingMove = BattlerKnowsThawingMove(bsys, ai->defender, ai);
 
     ai->isPartnerGrounded = FALSE;
     if (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp) {
@@ -631,7 +605,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
                 damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(ai->defenderMon.level, ai->defenderMon.hp, ai->attackerMon.hp, damages.damageRange[u], defenderMove.effect, ai->defenderMon.ability, ai->defenderMon.item);
             }
 
-            BOOL playerCanOneShotAiMon = canAttackerOneShotDefender(damages.damageRoll, defenderMove.split, defenderMoveno, &ai->defenderMon, &ai->attackerMon);
+            BOOL playerCanOneShotAiMon = CanAttackerOneShotDefender(damages.damageRoll, defenderMove.split, defenderMoveno, &ai->defenderMon, &ai->attackerMon);
             if (playerCanOneShotAiMon) {
                 ai->playerCanOneShotMonWithAnyMove = TRUE;
                 ai->playerCanOneShotMonWithMove[k] = TRUE;
@@ -675,7 +649,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
                 damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(ai->attackerMon.level, ai->attackerMon.hp, ai->defenderMon.hp, damages.damageRange[u], attackerMove.effect, ai->attackerMon.ability, ai->attackerMon.item);
             }
 
-            BOOL aiMonCanOneshotPlayer = canAttackerOneShotDefender(damages.damageRoll, attackerMove.split, attackerMoveno, &ai->attackerMon, &ai->defenderMon);
+            BOOL aiMonCanOneshotPlayer = CanAttackerOneShotDefender(damages.damageRoll, attackerMove.split, attackerMoveno, &ai->attackerMon, &ai->defenderMon);
 
             ai->attackerRolledMoveDamages[j] = damages.damageRoll;
             if (aiMonCanOneshotPlayer) {
@@ -790,8 +764,8 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
             }
 
             // TODO stealth rocks, spikes, toxic spikes, etc...
-            u8 aiMonCanOneshotPlayer = canAttackerOneShotDefender(monDealsRolledDamage[i], ctx->moveTbl[monHighestDamageMoveno].split, monHighestDamageMoveno, &attackerMon, &defenderMon);
-            u8 playerCanOneShotAiMon = canAttackerOneShotDefender(monReceivesDamage[i], ctx->moveTbl[monReceivingHighestDamageMoveno].split, monReceivingHighestDamageMoveno, &defenderMon, &attackerMon);
+            u8 aiMonCanOneshotPlayer = CanAttackerOneShotDefender(monDealsRolledDamage[i], ctx->moveTbl[monHighestDamageMoveno].split, monHighestDamageMoveno, &attackerMon, &defenderMon);
+            u8 playerCanOneShotAiMon = CanAttackerOneShotDefender(monReceivesDamage[i], ctx->moveTbl[monReceivingHighestDamageMoveno].split, monReceivingHighestDamageMoveno, &defenderMon, &attackerMon);
             u16 partyMonPercentDamageDealt = (100 * monDealsRolledDamage[i] / defenderMon.hp);
             u16 partyMonPercentDamageReceived = (100 * monReceivesDamage[i] / attackerMon.hp);
 
