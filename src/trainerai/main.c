@@ -27,12 +27,11 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
 int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai);
 int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai);
 int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai);
+int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai);
 int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai);
 
 int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai);
 int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai);
-
-int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem *bsys, u32 battler, struct AIContext *ai);
 
 
 enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
@@ -194,7 +193,7 @@ int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker,
              moveScores[target][i] += BasicScoring(bsys, attacker, i, ai);
              moveScores[target][i] += DamagingMoveScoring(bsys, attacker, i, ai);
              moveScores[target][i] += SetupScoring(bsys, attacker, i, ai);
-            // moveScores[target][i] += RecoveryScoring(bsys, attacker, i, ai);
+             moveScores[target][i] += RecoveryScoring(bsys, attacker, i, ai);
              moveScores[target][i] += HarassmentScoring(bsys, attacker, i, ai);
 
             if (highestScoredMove < moveScores[target][i]) {
@@ -1485,6 +1484,128 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         break;
     default:
         break;
+    }
+
+    return moveScore;
+}
+
+u32 LONG_CALL GetRecoverAmountPercent(struct BattleSystem *bsys, u32 attackerMove, u32 attackerMoveEffect)
+{
+    struct BattleStruct *ctx = bsys->sp;
+    u32 recoverAmountPercent = 50;
+    switch (attackerMoveEffect) {
+    case MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP:
+        recoverAmountPercent = 100;
+        break;
+    case MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER:
+        if ((attackerMove == MOVE_SHORE_UP && (ctx->field_condition & WEATHER_SANDSTORM_ANY))
+            || (attackerMove != MOVE_SHORE_UP && (ctx->field_condition & WEATHER_SUNNY_ANY))) {
+            recoverAmountPercent = 67;
+        } else if (ctx->field_condition & WEATHER_RAIN_ANY) {
+            recoverAmountPercent = 25;
+        }
+        break;
+    default:
+        break;
+    }
+    return recoverAmountPercent;
+}
+
+BOOL LONG_CALL shouldRecover(struct BattleSystem *bsys, u32 attacker UNUSED, u32 attackerMoveEffect, struct AIContext *ai)
+{
+    u32 recoverAmountPercent = GetRecoverAmountPercent(bsys, ai->attackerMove, attackerMoveEffect);
+
+    u32 recoverAmountHP = recoverAmountPercent * ai->attackerMon.maxhp / 100;
+    if ((recoverAmountHP + ai->attackerMon.hp) > ai->attackerMon.maxhp) {
+        recoverAmountHP = ai->attackerMon.maxhp - ai->attackerMon.hp; // prevent overheal
+    }
+
+    if (ai->attackerMon.condition & STATUS_BAD_POISON) {
+        return FALSE;
+    }
+    if (ai->maxDamageReceived > recoverAmountHP) {
+        return FALSE;
+    }
+    if (ai->attackerMovesFirst) {
+        if (ai->playerCanOneShotMonWithAnyMove && ai->maxDamageReceived < (ai->attackerMon.hp + recoverAmountHP)) { // cannot kill after heal
+            return TRUE;
+        }
+        if (!ai->playerCanOneShotMonWithAnyMove) {
+            if (ai->attackerMon.percenthp < 40) {
+                return TRUE;
+            } else if (ai->attackerMon.percenthp < 66) {
+                return FALSE + (BattleRand(bsys) % 2);
+            }
+        }
+    } else {
+        if (ai->attackerMon.percenthp < 50) {
+            return TRUE;
+        } else if (ai->attackerMon.percenthp < 70 && (BattleRand(bsys) % 4) != 0) { // 75%
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai)
+{
+    int moveScore = 0;
+    struct BattleStruct *ctx = bsys->sp;
+    BOOL isHealingMove = TRUE;
+
+    ai->attackerMove = ctx->battlemon[attacker].move[i];
+    ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
+
+    BOOL aiShouldRecover = shouldRecover(bsys, attacker, ai->attackerMoveEffect, ai);
+    if (ai->attackerMon.percenthp >= 85) {
+        moveScore -= 6;
+    }
+
+    switch (ai->attackerMoveEffect) {
+    // case MOVE_EFFECT_HIT_STRENGTH_SAP
+    case MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE:
+    case MOVE_EFFECT_RESTORE_HALF_HP:
+        if (aiShouldRecover) {
+            moveScore += 7;
+        } else {
+            moveScore += 5;
+        }
+        break;
+    case MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER: {
+        u32 recoverAmount = GetRecoverAmountPercent(bsys, ai->attackerMove, MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER);
+        if (aiShouldRecover && recoverAmount > 50) {
+            moveScore += 7;
+        } else if (recoverAmount == 50 && shouldRecover(bsys, attacker, MOVE_EFFECT_RESTORE_HALF_HP, ai)) {
+            moveScore += 7;
+        } else {
+            moveScore += 5;
+        }
+        break;
+    }
+    case MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP:
+        if (aiShouldRecover) {
+            if (ai->attackerMon.item == ITEM_CHESTO_BERRY || ai->attackerMon.item == ITEM_LUM_BERRY
+                || ai->attackerMon.ability == ABILITY_EARLY_BIRD || ai->attackerMon.ability == ABILITY_SHED_SKIN
+                || BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) || BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai)
+                || (ai->attackerMon.ability == ABILITY_HYDRATION && (ctx->field_condition & WEATHER_RAIN_ANY))) {
+                moveScore += 8;
+            } else {
+                moveScore += 7;
+            }
+        } else {
+            moveScore += 5;
+        }
+        break;
+    default:
+        isHealingMove = FALSE;
+        break;
+    }
+
+    if (!isHealingMove) {
+        moveScore = 0;
+    } else if (ai->attackerMon.percenthp == 100) {
+        moveScore = 0 - NEVER_USE_MOVE_20;
     }
 
     return moveScore;
