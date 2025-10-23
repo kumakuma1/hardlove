@@ -767,6 +767,18 @@ Function 53:
 	SetOWPosition Overworld.2 381 0 433 Left  
 Return 
 
+###Block short cut around park on Route 35
+Add OW
+But I am so afraid of high grass!\r
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 30
+	CloseMessage 
+	ReleaseAll 
+End 
+
 
 ### Schorsch on ROute 36
 Event 16420 == 2, script 13
