@@ -117,7 +117,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
      && sp->oneSelfFlag[sp->state_client].defiant_flag == 0
      && statchange < 0
      && sp->state_client != sp->attack_client // can't raise own stats
-     && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
+     //&& sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
      && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
      && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
      && ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0))
