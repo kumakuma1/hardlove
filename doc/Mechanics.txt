@@ -4,7 +4,7 @@ Mechanic Changes
 
 For any mechanic that's not described in here, assume a wild mix of Gen4 and Gen9 mechanics.
 
-
+Button L will toggle the repel.
 Battle style is forced to set.
 Bag is unacessible during trainer battles.
 Gym Trainers and Gym Leaders will heal your party to full before battle.
