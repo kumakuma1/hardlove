@@ -928,6 +928,9 @@ Function 16:
 	SetVar 0x8004 50
 	SetVar 0x8005 1
 	CommonScript 2008
+	SetVar 0x8004 2559 // Starter Card
+	SetVar 0x8005 1
+	CommonScript 2008
 	SetFlag 141
 Jump Function#5
 

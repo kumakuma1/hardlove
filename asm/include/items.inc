@@ -2561,5 +2561,6 @@
 .equ ITEM_VIOLET_BOOK_SVID,             2556
 .equ ITEM_BRIARS_BOOK,                  2557
 .equ ITEM_INFINITE_CANDY,               2558
+.equ ITEM_STARTER_CARD,                 2559
 
 .endif

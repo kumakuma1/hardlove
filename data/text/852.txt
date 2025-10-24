@@ -728,3 +728,4 @@
 {COLOR 255}copies of the Violet Book{COLOR 0}
 {COLOR 255}copies of Briar’s Book{COLOR 0}
 {COLOR 255}Infinite Candy{COLOR 0}
+{COLOR 255}Starter Card{COLOR 0}

@@ -1,1 +1,2 @@
 {COLOR 255}Infinite Candy{COLOR 0}
+{COLOR 255}Starter Card{COLOR 0}

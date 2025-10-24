@@ -7,6 +7,7 @@
 .include "armips/include/vars.s"
 
 .include "asm/include/items.inc"
+.include "asm/include/species.inc"
 
 
 // text archive to grab from: 040.txt
@@ -2353,9 +2354,6 @@ _maxSpDef:
 
 _remember:
     npc_msg 154 //I can remember
-    CheckItem ITEM_HEART_SCALE, 1, VAR_SPECIAL_RESULT
-    compare VAR_SPECIAL_RESULT, 0
-    goto_if_eq _needmoreheartsclaes
     npc_msg 156 //which mon
     fade_screen 6, 1, 0, RGB_BLACK
     wait_fade
@@ -2369,10 +2367,39 @@ _remember:
     goto_if_eq _exit
     GetPartyPokemonID VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, 0
+    GetPartyPokemonID VAR_SPECIAL_x8005, VAR_SPECIAL_x8004
     goto_if_eq _wontworkegg
     scrcmd_466 VAR_SPECIAL_RESULT, VAR_SPECIAL_x8005
     compare VAR_SPECIAL_RESULT, 0
 	goto_if_eq _nomoves
+    CheckItem ITEM_STARTER_CARD, 1, VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 1
+    goto_if_eq _hasstartercard
+    CheckItem ITEM_HEART_SCALE, 1, VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 0
+    goto_if_eq _needmoreheartsclaes
+    goto _remindmove
+
+_hasstartercard:
+    compare VAR_SPECIAL_x8004, SPECIES_GRENINJA
+    goto_if_eq _greninja
+    goto _remindmove
+
+_greninja:
+    npc_msg 157
+    fade_screen 6, 1, 0, RGB_BLACK
+    wait_fade
+    closemsg
+    RememberMoveScreen VAR_SPECIAL_x8005
+	move_relearner_get_result VAR_SPECIAL_RESULT
+    ReturnScreen
+    fade_screen 6, 1, 1, RGB_BLACK
+    wait_fade
+    buffer_players_name 0
+	npc_msg 153
+    goto _exit
+
+_remindmove:
     npc_msg 157
     fade_screen 6, 1, 0, RGB_BLACK
     wait_fade

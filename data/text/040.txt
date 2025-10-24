@@ -151,7 +151,7 @@ That Pokémon knows only one move,\nso it can’t be forgotten...\r
 Which move should be forgotten?\r
 The move {STRVAR_1 6, 0, 0}?\nShould that move be forgotten? {YESNO 0}
 Your Pokémon has forgotten the move\n{STRVAR_1 6, 0, 0}.\r
-
+{STRVAR_1 3, 0, 0} showed his Starter Card.\r
 I can make Pokémon remember their\nmoves for a Heart Scale.\r
 You need more Heart Scales.\r
 Which Pokémon needs tutoring?\r
