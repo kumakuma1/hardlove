@@ -1848,18 +1848,18 @@ headbuttheader  73,  27,   0   // Violet City
 
 headbuttheader  74,  15,   0   // Azalea Town
     // normal slots
-    headbuttencounter SPECIES_NONE, 0, 0
-    headbuttencounter SPECIES_NONE, 0, 0
-    headbuttencounter SPECIES_NONE, 0, 0
-    headbuttencounter SPECIES_NONE, 0, 0
-    headbuttencounter SPECIES_NONE, 0, 0
-    headbuttencounter SPECIES_NONE, 0, 0
-    headbuttencounter SPECIES_NONE, 0, 0
-    headbuttencounter SPECIES_NONE, 0, 0
-    headbuttencounter SPECIES_NONE, 0, 0
-    headbuttencounter SPECIES_NONE, 0, 0
-    headbuttencounter SPECIES_NONE, 0, 0
-    headbuttencounter SPECIES_NONE, 0, 0
+    headbuttencounter SPECIES_SPINARAK, 1, 10 	    //50%
+    headbuttencounter SPECIES_SURSKIT, 1, 10	    //15%
+    headbuttencounter SPECIES_WEEDLE, 1, 10         //15%
+    headbuttencounter SPECIES_SPEAROW, 1, 10 	    //10%
+    headbuttencounter SPECIES_VENIPEDE, 1, 10		//5%
+    headbuttencounter SPECIES_SCATTERBUG, 1, 10	    //5%
+    headbuttencounter SPECIES_BLIPBUG, 1, 10		//50%
+    headbuttencounter SPECIES_COMBEE, 1, 10	        //15%
+    headbuttencounter SPECIES_WEEDLE, 1, 10		    //15%
+    headbuttencounter SPECIES_EXEGGCUTE, 1, 10		//10%
+    headbuttencounter SPECIES_SIZZLIPEDE, 1, 10	    //5%
+    headbuttencounter SPECIES_SIZZLIPEDE, 1, 10     //5%
     // special slots
     headbuttencounter SPECIES_NONE, 0, 0
     headbuttencounter SPECIES_NONE, 0, 0
