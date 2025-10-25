@@ -307,6 +307,7 @@ End
 #### Block RoA entries with OWs
 Flag 127 clear. Got TM from Bugsy
 Block smaller caves with OWs without Flag
+\vFF01\x0001ｃKEVIN!\vFF01\x0001コ\r
 
 ### Clodsire Trade in Violet
 	InitTrade 0 ->3
@@ -479,7 +480,16 @@ End
 8 Ariana: Tsk. Guess we’ll have to\nteach this brat a painful lesson.\r
 9 Proton: Seriously, Ariana? It’s just\na kid!\rUgh, fine...\rI’ll handle this myself.\r
 
+### Bugbite Teacher in Azalea
+ADD OW Id 3
 
+Script 18:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 0x28CA
+	ReleaseAll 
+End 
 
 ### Kurt gives Moonstone, Quick Balls
 script 6:
@@ -671,6 +681,28 @@ Function 26:
 	//Message 17
 	SetVar 0x8004 155
 	SetVar 0x8005 3
+	CommonScript 2033
+
+### gives salac/custap berry
+
+Function 30:
+	Movement Overworld.5 Action#12
+	WaitMovement 
+	Message 15
+	SetVar 0x8004 210
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 203
+	SetVar 0x8005 1
+	CommonScript 2033
+
+Function 31:
+	Message 15
+	SetVar 0x8004 210
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 203
+	SetVar 0x8005 1
 	CommonScript 2033
 
 ###Quiz in Radio tower
