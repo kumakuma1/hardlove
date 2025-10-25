@@ -288,7 +288,7 @@ evodata SPECIES_FEAROW
     terminateevodata
 
 evodata SPECIES_EKANS
-    evolution EVO_LEVEL, 22, SPECIES_ARBOK
+    evolution EVO_LEVEL, 20, SPECIES_ARBOK
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -504,7 +504,7 @@ evodata SPECIES_WIGGLYTUFF
     terminateevodata
 
 evodata SPECIES_ZUBAT
-    evolution EVO_LEVEL, 22, SPECIES_GOLBAT
+    evolution EVO_LEVEL, 20, SPECIES_GOLBAT
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -528,7 +528,7 @@ evodata SPECIES_GOLBAT
     terminateevodata
 
 evodata SPECIES_ODDISH
-    evolution EVO_LEVEL, 21, SPECIES_GLOOM
+    evolution EVO_LEVEL, 20, SPECIES_GLOOM
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -840,7 +840,7 @@ evodata SPECIES_MACHAMP
     terminateevodata
 
 evodata SPECIES_BELLSPROUT
-    evolution EVO_LEVEL, 21, SPECIES_WEEPINBELL
+    evolution EVO_LEVEL, 20, SPECIES_WEEPINBELL
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -2136,7 +2136,7 @@ evodata SPECIES_TOGETIC
     terminateevodata
 
 evodata SPECIES_NATU
-    evolution EVO_LEVEL, 25, SPECIES_XATU
+    evolution EVO_LEVEL, 20, SPECIES_XATU
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -3408,7 +3408,7 @@ evodata SPECIES_GARDEVOIR
     terminateevodata
 
 evodata SPECIES_SURSKIT
-    evolution EVO_LEVEL, 22, SPECIES_MASQUERAIN
+    evolution EVO_LEVEL, 20, SPECIES_MASQUERAIN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -4992,7 +4992,7 @@ evodata SPECIES_MOTHIM
     terminateevodata
 
 evodata SPECIES_COMBEE
-    evolution EVO_LEVEL, 21, SPECIES_VESPIQUEN
+    evolution EVO_LEVEL, 20, SPECIES_VESPIQUEN
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
@@ -7132,7 +7132,7 @@ evodata SPECIES_LEAVANNY
     terminateevodata
 
 evodata SPECIES_VENIPEDE
-    evolution EVO_LEVEL, 22, SPECIES_WHIRLIPEDE
+    evolution EVO_LEVEL, 20, SPECIES_WHIRLIPEDE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
