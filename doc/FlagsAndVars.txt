@@ -1,4 +1,5 @@
 117   - 061-T20R0201 : Script File 845 - prev. Old Rod Flag. Used for level caps
+131   -                                - Get White Herb from Butterfree Lady on Route 34 Passage
 156   -                                - Pokegear Flag
 189   - 230-T26R0601 : Script File 918 - Got good rod in olivine. Unused                        
 345   - 158-T22PC0101: Script File 860 - Maarep-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items + TMs 1, Cleared after Schorsch

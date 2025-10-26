@@ -152,6 +152,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     case MOVE_WATER_SPOUT:
         movepower = (150 * attacker->hp) / attacker->maxhp;
         break;
+    case MOVE_REVERSAL:
     case MOVE_FLAIL:
         p = (48 * attacker->hp) / attacker->maxhp;
         if (p >= 32) {
@@ -683,6 +684,10 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     if (moveno == MOVE_FOUL_PLAY) {
         attacker->attack = defender->attack;
         attacker->states[STAT_ATTACK] = defender->states[STAT_ATTACK];
+    }
+    if (moveno == MOVE_BODY_PRESS) {
+        attacker->attack = attacker->defense;
+        attacker->states[STAT_DEFENSE] = defender->states[STAT_DEFENSE];
     }
 
 #ifdef DEBUG_DAMAGE_CALC_AI

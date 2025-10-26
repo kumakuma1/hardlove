@@ -55,7 +55,7 @@ Pickup
 Truant
 Hustle
 Cute Charm
-Plus
+Anger Shell
 Minus
 Forecast
 Sticky Hold

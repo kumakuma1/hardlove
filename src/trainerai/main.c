@@ -1012,7 +1012,8 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         break;
     }
     if (!shouldSetup) {
-        moveScore = (0 - NEVER_USE_MOVE_20);
+        moveScore = 0;
+        moveScore = (moveScore - NEVER_USE_MOVE_20);
     }
     if (!isSetupMove) {
         moveScore = 0;
@@ -1066,7 +1067,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             }
         } else if (ctx->protectSuccessTurns[ai->attacker] > 1) {
             moveScore -= IMPOSSIBLE_MOVE;
-        } else if (ai->defenderMovesFirst && (ai->playerCanOneShotMonWithAnyMove || !ai->monCanOneShotPlayerWithAnyMove)) {
+        } else if (ai->defenderMovesFirst && ai->playerCanOneShotMonWithAnyMove) {
             moveScore += 6;
             if (ai->attackerMon.item == ITEM_CUSTAP_BERRY || ai->attackerMon.item == ITEM_SALAC_BERRY) {
                 moveScore += 2;

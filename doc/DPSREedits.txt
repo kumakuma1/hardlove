@@ -352,6 +352,11 @@ End
 21 Poli...\r
 
 
+###Union Cave Aggronite
+Move OW item to patch accessable with surf
+Move Trainer as guard
+Move Hiker Philipp 203 to National Park
+
 ###Gauntlet in Slowpoke Well
 Change Grunt OW to Ariana, Move Proton
 clear script 3
@@ -640,6 +645,19 @@ Script 2:
 	JumpIf EQUAL Function#3
 
 
+### White Herb Route 34 Passage
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 131
+	JumpIf EQUAL Function#1
+	Message 0
+	WaitAB 
+	SetVar 0x8004 315 -> 214
+	SetVar 0x8005 1
+
+It’s a White Herb.\rUse it to restore a Pokémon’s\ndecreased stat in battle.\n
 
 ### Remove SPearow/kenya delivery
 101 - R35R0101 : Script File 241 : Clear Script 1
@@ -869,6 +887,9 @@ Function 33:
 	SetVar 0x416F 35
 Return 
 
+###National Park Beedrillite
+OW item accessable with rockclimb
+Move Hiker Philipp 203 from Union Cave to National Park
 
 
 ###Turtwig Trade in Goldenrod, Candy for others, additional Heartscale for litten

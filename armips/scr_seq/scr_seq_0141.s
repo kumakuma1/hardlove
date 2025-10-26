@@ -482,8 +482,8 @@ scr_seq_0141_036:
 	goto scr_seq_0141_255
 
 scr_seq_0141_037:
-	//Union CAVE B1F north, 1071
-	setvar VAR_SPECIAL_x8008, ITEM_TM008
+	//Union CAVE B1F north, 1071, //moved to require Surf
+	setvar VAR_SPECIAL_x8008, ITEM_AGGRONITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -649,7 +649,7 @@ scr_seq_0141_064:
 
 scr_seq_0141_065:
 	//national park north east, rockclimb, 1286
-	setvar VAR_SPECIAL_x8008, 107
+	setvar VAR_SPECIAL_x8008, ITEM_BEEDRILLITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
