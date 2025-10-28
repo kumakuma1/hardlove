@@ -232,7 +232,7 @@ scr_seq_0150_011:
 	anim_apricorn_tree VAR_SPECIAL_RESULT
 	//GetRandom 0x800C, 50
 	setvar VAR_SPECIAL_x8004, ITEM_MICLE_BERRY
-	setvar VAR_SPECIAL_x8005, 2
+	setvar VAR_SPECIAL_x8005, 1
 	//IncrementVar VAR_SPECIAL_x8005, 0x800C 
 	CommonScript 2008
 	//play_fanfare SEQ_ME_ITEM
