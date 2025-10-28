@@ -1024,9 +1024,35 @@ I AM FIRST IN LINE!\r
 
 ### Magnet from Sunny Route 37
 Remove Flag 451
+Set script 5
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CheckFlag 165
+    JumpIf EQUAL Function#11
+    Message 3
+    SetVar 0x8004 242
+	SetVar 0x8005 1
+	CommonScript 2033
+    SetFlag 165
+    Message 4
+    CloseMessage 
+	ReleaseAll 
+End
+
+Function 11:
+    Message 4
+    CloseMessage 
+	ReleaseAll 
+End
+
+3: Sunny: Hey! I am Sunny.\rToday is a beautiful day, so I want\nyou to have this!\r
+4: Sunny: What a beautiful day!\r
 
 
-#### Surf in Ecruteak Theater
+#### Shed Shell/Surf in Ecruteak Theater
 script 12:
 script 13:
 SetVar 0x8004 422 -> 295
@@ -1112,6 +1138,38 @@ Make OW use script 2
 ### Remove Guy blocking route 40
 16528 == 0, script 9, clear script 9
 remove event
+
+
+
+### Sharp Beak from Monica Route 40
+Remove Flag 451
+Set script 11
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CheckFlag 215
+    JumpIf EQUAL Function#20
+    Message 1
+    SetVar 0x8004 244
+	SetVar 0x8005 1
+	CommonScript 2033
+    SetFlag 215
+    Message 2
+    CloseMessage 
+	ReleaseAll 
+End
+
+Function 20:
+    Message 2
+    CloseMessage 
+	ReleaseAll 
+End
+
+3: Monica: Hey! I am Monica.\rToday is a beautiful day, so I want\nyou to have this!\r
+4: Monica: What a beautiful day!\r
+
 
 
 

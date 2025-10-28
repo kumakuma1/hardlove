@@ -1,7 +1,9 @@
 117   - 061-T20R0201 : Script File 845 - prev. Old Rod Flag. Used for level caps
 131   -                                - Get White Herb from Butterfree Lady on Route 34 Passage
 156   -                                - Pokegear Flag
-189   - 230-T26R0601 : Script File 918 - Got good rod in olivine. Unused                        
+165   -                                - Flag for getting Magnet from Sunny on Route 37
+189   - 230-T26R0601 : Script File 918 - Got good rod in olivine. Unused        
+215   -                                - Flag for getting Sharp Beak from Monica on Route 40
 345   - 158-T22PC0101: Script File 860 - Maarep-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items + TMs 1, Cleared after Schorsch
 346   - 158-T22PC0101: Script File 860 - Wooper-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items 2, Cleared after Morty
 347   - 158-T22PC0101: Script File 860 - Slugma-Egg Primo. Flag is not set. | Mom sets 063
