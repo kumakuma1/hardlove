@@ -793,7 +793,7 @@ scr_seq_0141_090:
 
 scr_seq_0141_091:
 	//route 40, island, 1266
-	setvar VAR_SPECIAL_x8008, 415
+	setvar VAR_SPECIAL_x8008, ITEM_TM051
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
