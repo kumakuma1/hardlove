@@ -116,7 +116,7 @@
 .halfword ITEM_BIG_MUSHROOM
 
 .org 0x02000000 + 0xFA678 //Ilex Forest W Surf
-.halfword ITEM_BIG_MUSHROOM
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA680 //Ilex Forest
 .halfword ITEM_TINY_MUSHROOM
