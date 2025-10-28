@@ -579,7 +579,7 @@ scr_seq_0146_004:
 	goto_if_eq _0826
 	CheckItem ITEM_HM03, 1, VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 0
-	goto_if_eq _0826
+	goto_if_eq _0941
 	npc_msg 14
 	touchscreen_menu_hide
 	getmenuchoice VAR_SPECIAL_RESULT
