@@ -314,6 +314,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             case 202: // Poke Maniac Calvin Cherrygrove
             case 203: // Hiker Phillip National Park
             case 204: // Hiker Leonard Union Cave B1F
+            case 358: // Hiker Kenny Cherrygrove
             {
                 u16 levelcap = GetScriptVar(LEVEL_CAP_VARIABLE);
                 if (levelcap > 2)

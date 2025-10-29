@@ -149,7 +149,7 @@
 .halfword ITEM_REVIVE
 
 .org 0x02000000 + 0xFA6D0 //R35 NW
-.halfword ITEM_NUGGET
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA6D8 //R36 W
 .halfword ITEM_AWAKENING
