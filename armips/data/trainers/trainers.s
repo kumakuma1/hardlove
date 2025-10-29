@@ -9866,7 +9866,7 @@ trainerdata 211, "Huey"
     battletype SINGLE_BATTLE
     endentry
 
-    party 440
+    party 211
         ivs 0
         abilityslot 0
         level LEVEL_CHUCK-7

@@ -46,3 +46,4 @@ Variables
 0x40EA   : Headbutt Event in Ilex, removed
 0x40F4   : Student with Cut In Ilex
 0x4114   : Spearow/kenya delivery progress
+16535/0x4097: Gauntlet on Route 34

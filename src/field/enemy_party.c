@@ -303,6 +303,29 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         }
         rnd = (rnd << 8) + rnd_tmp;
         pow = pow * 31 / 255;
+
+#ifdef IMPLEMENT_LEVEL_CAP
+        switch (bp->trainer_id[1])
+        {
+            case 118: // Ace Trainer Irene Route 34
+            case 120: // Ace Trainer Kate Route 34
+            case 417: // Ace Trainer Jenn Route 34
+            case 201: // Poke Maniac Andrew Dark Cave
+            case 202: // Poke Maniac Calvin Cherrygrove
+            case 203: // Hiker Phillip National Park
+            case 204: // Hiker Leonard Union Cave B1F
+            {
+                u16 levelcap = GetScriptVar(LEVEL_CAP_VARIABLE);
+                if (levelcap > 2)
+                {
+                    level = (u8)(levelcap - 2);
+                }
+                break;
+            }
+            default:
+                break;
+        }
+#endif
         PokeParaSet(mons[i], species, level, pow, 1, rnd, 2, 0);
         SetMonData(mons[i], MON_DATA_FORM, &form_no);
 

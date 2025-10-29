@@ -817,6 +817,58 @@ Function 53:
 	SetOWPosition Overworld.2 381 0 433 Left  
 Return 
 
+### Gauntlet on Route 34
+038 R34: Script File 237 : Event File 35: Text Archive 384
+Delete second event, clear script 6
+Script 6:
+End
+
+Script 5:
+	MecScript 
+	LockAll 
+	//CountAlivePokemonExceptFirst 0x4003 6
+	//CompareVarValue 0x4003 1
+	//JumpIf DIFFERENT Function#5
+Jump Function#6
+
+Function 6:
+	Movement Overworld.5 Action#16
+	StopMusic 0
+	PlayMusic 1107
+	WaitMovement 
+	...
+	Message 26
+	WaitButton 
+	CloseMessage 
+    Movement Overworld.7 Action#12
+	StopMusic 0
+	PlayMusic 1107
+	WaitMovement
+    Movement Player Action#47
+	WaitMovement 
+    Message 28
+    CloseMessage 
+	StopMusic 0
+	TrainerBattle 118 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	SetVar 0x4097 2
+    Message 30
+	SetVar 0x8004 665
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CommonScript 2033
+	SetVar 0x4097 3
+	Message 32
+	WaitButton 
+	CloseMessage
+	ReleaseAll 
+End
+
+
 ###Block short cut around park on Route 35
 Add OW
 But I am so afraid of high grass!\r

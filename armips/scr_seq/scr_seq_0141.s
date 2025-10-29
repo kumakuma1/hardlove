@@ -276,19 +276,19 @@ scrdef scr_seq_0141_255
 scrdef_end
 
 scr_seq_0141_000:
-	//Route 29 East, 1081
-	setvar VAR_SPECIAL_x8008, 17
+	//Route 29 East, 1081 //moved to cherrygrove rockclimb
+	setvar VAR_SPECIAL_x8008, ITEM_PINSIRITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_001:
-	//Route 30 middle, 1088
-	setvar VAR_SPECIAL_x8008, 18
+	//Route 30 middle, 1056 //moved to cherrygrove pond
+	setvar VAR_SPECIAL_x8008, ITEM_LOPUNNITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_002:
-	//Route 30 south, 1056
+	//Route 30 south, 1088
 	setvar VAR_SPECIAL_x8008, ITEM_ESCAPE_ROPE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
@@ -543,7 +543,7 @@ scr_seq_0141_046:
 
 scr_seq_0141_047:
 	//route 34 south, surf, 1087
-	setvar VAR_SPECIAL_x8008, 92
+	setvar VAR_SPECIAL_x8008, ITEM_BLACK_BELT
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -649,7 +649,7 @@ scr_seq_0141_064:
 
 scr_seq_0141_065:
 	//national park north east, rockclimb, 1286
-	setvar VAR_SPECIAL_x8008, ITEM_BEEDRILLITE
+	setvar VAR_SPECIAL_x8008, ITEM_HERACRONITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1208,7 +1208,7 @@ scr_seq_0141_171:
 
 scr_seq_0141_172:
 	//Dark Cave R31 west, surf, 1292
-	setvar VAR_SPECIAL_x8008, 68
+	setvar VAR_SPECIAL_x8008, ITEM_BEEDRILLITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
