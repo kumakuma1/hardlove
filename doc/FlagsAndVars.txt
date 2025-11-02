@@ -41,6 +41,7 @@ Variables
                 1: Set by Gauntlet in Slowpoke Well.
                 2: Set by Azalea Rival. (prev used  0x4075/16501))
                 3: Set by Schorsch
+                4: set by rocket cutscene on Route 47    
 
 
 0x40EA   : Headbutt Event in Ilex, removed

@@ -29,7 +29,7 @@ static const u16 sMachineMoves[] = {
     MOVE_ICE_BEAM,         // TM013
     MOVE_BLIZZARD,         // TM014
     MOVE_ELECTROWEB,            // TM015
-    MOVE_LIGHT_SCREEN,     // TM016
+    MOVE_WEATHER_BALL,          // TM016
     MOVE_PROTECT,          // TM017
     MOVE_RAIN_DANCE,       // TM018
     MOVE_GIGA_DRAIN,       // TM019

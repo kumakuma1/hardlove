@@ -1425,3 +1425,80 @@ Function 14:
 Return 
 
 
+
+
+#### Rocket Cutscene on Route 47
+ADD OWS 222 rocket grunt x2
+Event 16420 == 3, script 6
+
+13: Aha!\nWe found it!\rThis has to be the place,\nno doubt about it!\r
+14: Grunt 2: Hold on, you sure?\nThis looks like...\rjust a hole in the wall.\rThe legends talked about whirlpools\nand a deep-sea cavern, didn’t they?\r
+Grunt 1: Oh, come on.\nFolk stories are for kids and\ftourists!\rThe boss said it is hiding somewhere around here.\rJust think of our reward!\nHe’s been chasing this thing for ages!\rHe searched amost all of Johto!\r
+Grunt 1: You scope out the cavern,\nwhile I secure the entry.\r
+Grunt 2: What? I don’t...\rDAMN!\r
+
+
+Script 6:
+	MecScript 
+	PlayFanfare 1500
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#3
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	Movement Player Action#4
+	WaitMovement 
+	Movement Overworld.14 Action#5
+	WaitMovement 
+	Message 14
+	Message 15
+	Message 16
+	CloseMessage 
+	Movement Overworld.14 Action#6
+	WaitMovement 
+	Message 17
+	CloseMessage 
+	Movement Overworld.14 Action#7
+	WaitMovement 
+	SetOWPosition Overworld.14 65 0 385 Up
+	Movement Overworld.13 Action#8
+	WaitMovement 
+	Movement Overworld.13 Action#7
+	WaitMovement 
+	SetOWPosition Overworld.13 65 0 386 Left
+	SetVar 0x4024 4
+	ReleaseAll 
+End 
+
+
+
+
+Action 3:
+	Exclamation 0x1
+End
+
+Action 4:
+	WalkLeftSlow 0x3
+	WalkDownSlow 0x1
+	LookLeft 0x1
+End
+
+Action 5:
+	LookRight 0x1
+End
+
+Action 6:
+	LookUp 0x1
+End
+
+Action 7:
+	WalkUpSlow 0x1
+End
+
+Action 8:
+	WalkLeftSlow 0x1
+	LookUp 0x1
+End

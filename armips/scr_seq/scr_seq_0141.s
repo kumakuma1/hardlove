@@ -854,13 +854,13 @@ scr_seq_0141_102:
 
 scr_seq_0141_103:
 	//route 47 central south, 1267
-	setvar VAR_SPECIAL_x8008, 28
+	setvar VAR_SPECIAL_x8008, ITEM_TM016
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_104:
 	//route 47 central north, 1281
-	setvar VAR_SPECIAL_x8008, 279
+	setvar VAR_SPECIAL_x8008, ITEM_TM020
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -878,7 +878,7 @@ scr_seq_0141_106:
 
 scr_seq_0141_107:	
 	//route 48, 1284
-	setvar VAR_SPECIAL_x8008, 92
+	setvar VAR_SPECIAL_x8008, ITEM_TM029
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
