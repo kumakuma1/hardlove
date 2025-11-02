@@ -751,6 +751,21 @@ You are correct.\nThe second question!\rNIDORINA can only be female.\nTrue? \v02
 You are correct.\nThe third question!\rKurt, the Poké Ball creator, uses\napricots as ingredients? \v0200\x0001\x0000
 
 
+### Add new Mart guy in 5F
+Add OW 334, FLag 189 cleared by Chuck
+Move old lady in underground
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 2011
+	FreezeMessage 
+	SetVar 0x8004 8 //golden rod underground medicine mart.
+	CommonScript 2052
+	ReleaseAll 
+End 
+
 ###Remove TM Frustration in goldenrod mart 5f
 Script 7:
 	PlayFanfare 1500

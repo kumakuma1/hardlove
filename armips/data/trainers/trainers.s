@@ -11713,7 +11713,7 @@ trainerdata 251, "Nob"
         move MOVE_CLOSE_COMBAT
         move MOVE_THUNDER_PUNCH
         move MOVE_PLAY_ROUGH
-        move MOVE_SACRED_SWORD
+        move MOVE_NUZZLE
         ability ABILITY_IRON_FIST
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef

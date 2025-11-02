@@ -101,8 +101,6 @@ u16 sGoldenrodDepartment4F[] = {
     0xFFFF
 };
 
-// ITEM_DAWN_STONE
-
 u16 sGoldenrodDepartment5F[] = {
     ITEM_DUSK_STONE,
     ITEM_KINGS_ROCK,
@@ -116,8 +114,13 @@ u16 sGoldenrodDepartment5F[] = {
     //ITEM_TM014, ITEM_TM015, 0xFFFF
 };
 
+//moved to 5F
 u16 sGoldenrodHerbs[] = {
-    ITEM_HEAL_POWDER, ITEM_ENERGY_POWDER, ITEM_ENERGY_ROOT, ITEM_REVIVAL_HERB, 0xFFFF
+    ITEM_HONEY, 
+    ITEM_DAWN_STONE, 
+    //ITEM_ENERGY_ROOT,
+    //ITEM_REVIVAL_HERB,
+    0xFFFF
 };
 
 u16 sEcruteakMart[] = {
