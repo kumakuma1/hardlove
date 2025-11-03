@@ -898,23 +898,23 @@ _078C: // Trainer 322
     trainertextentry 322, TEXT_DEFEATED_IN_OVERWORLD, "I think electricity is the most\nimportant thing in our daily lives.\rIf it weren’t, people wouldn’t have\nmade such a fuss when the Power Plant\fwent out of commission.\n"
 
 _0798: // Trainer 420
-    trainertextentry 420, TEXT_NOTICE_IN_OVERWORLD, "Agility is the key attribute of\nbird Pokémon.\r"
-    trainertextentry 420, TEXT_DEFEATED_IN_BATTLE, "You beat me with your speed...\n"
-    trainertextentry 420, TEXT_DEFEATED_IN_OVERWORLD, "Your Pokémon are remarkably\nwell trained.\n"
+    trainertextentry 420, TEXT_NOTICE_IN_OVERWORLD, "Executives Proton and Ariana\nwill show them.\r"
+    trainertextentry 420, TEXT_DEFEATED_IN_BATTLE, "How...\n"
+    trainertextentry 420, TEXT_DEFEATED_IN_OVERWORLD, "Don’t play the hero, kid.\n"
 
 _07A4: // Trainer 421
-    trainertextentry 421, TEXT_NOTICE_IN_OVERWORLD, "Check out my Pokémon. Just look at\ntheir coloring and plumage.\r"
+    trainertextentry 421, TEXT_NOTICE_IN_OVERWORLD, "You want to face Jasmine?\rFirst, you must break through\nmy defense!\r"
     trainertextentry 421, TEXT_DEFEATED_IN_BATTLE, "Shoot!\nNot good enough!\n"
-    trainertextentry 421, TEXT_DEFEATED_IN_OVERWORLD, "If you groom them, Pokémon get happy.\n"
+    trainertextentry 421, TEXT_DEFEATED_IN_OVERWORLD, "Have to work on that one.\n"
 
 _07B0: // Trainer 349
-    trainertextentry 349, TEXT_NOTICE_IN_OVERWORLD, "Ha ha ha ha!\fWould you like to fight my pack\nof PIKACHU?\r"
-    trainertextentry 349, TEXT_DEFEATED_IN_BATTLE, "My PIKACHU!\n"
-    trainertextentry 349, TEXT_DEFEATED_IN_OVERWORLD, "You look like you have many Pokémon,\nbut PIKACHU is still the best.\n"
+    trainertextentry 349, TEXT_NOTICE_IN_OVERWORLD, "Can’t you see I’m working?\rWe need to find this cave...\r"
+    trainertextentry 349, TEXT_DEFEATED_IN_BATTLE, "This is a setback!\n"
+    trainertextentry 349, TEXT_DEFEATED_IN_OVERWORLD, "You cannot stop Team Rocket!\n"
 
 _07BC: // Trainer 492
-    trainertextentry 492, TEXT_NOTICE_IN_OVERWORLD, "Bow down before my regal Pokémon!\r"
-    trainertextentry 492, TEXT_DEFEATED_IN_BATTLE, "How... How dare you mock royalty!\n"
+    trainertextentry 492, TEXT_NOTICE_IN_OVERWORLD, "The Safari Zone is currently under\nreview by Team Rocket.\r"
+    trainertextentry 492, TEXT_DEFEATED_IN_BATTLE, "You think this stops us? Fool!\n"
     trainertextentry 492, TEXT_DEFEATED_IN_OVERWORLD, "Doesn’t everyone wish to be\na ruler someday?\n"
 
 _07C8: // Trainer 358
@@ -2372,9 +2372,9 @@ _1580: // Trainer 559
     trainertextentry 559, TEXT_REMATCH_IN_OVERWORLD_DOUBLE_2, "Sue: A woman in love is impatient.\rBut if she’s with her boyfriend,\nwaiting is never a chore!\r"
 
 _15A8: // Trainer 560
-    trainertextentry 560, TEXT_NOTICE_IN_OVERWORLD, "Collect water!\nDon’t let the fire go out!\fLook out for wild Pokémon!\fLet’s go, Campfire!\r"
-    trainertextentry 560, TEXT_DEFEATED_IN_BATTLE, "Pfuuuuhh...\n"
-    trainertextentry 560, TEXT_DEFEATED_IN_OVERWORLD, "It doesn’t matter what kind of\npreparation you’ve done.\fIf you lose, you lose.\n"
+    trainertextentry 560, TEXT_NOTICE_IN_OVERWORLD, "When we find this thing,\nthe Boss will reward us all.\r"
+    trainertextentry 560, TEXT_DEFEATED_IN_BATTLE, "There goes our reward...\n"
+    trainertextentry 560, TEXT_DEFEATED_IN_OVERWORLD, "The Boss will not be happy.\n"
 
 _15B4: // Trainer 561
     trainertextentry 561, TEXT_NOTICE_IN_OVERWORLD, "I can fit in a quick battle while I’m in\nthe midst of preparing a meal!\r"
@@ -2383,14 +2383,14 @@ _15B4: // Trainer 561
     trainertextentry 561, TEXT_REMATCH_IN_OVERWORLD, "Hey, you’re back! I haven’t eaten\nanything while I waited!\r"
 
 _15C4: // Trainer 562
-    trainertextentry 562, TEXT_NOTICE_IN_OVERWORLD, "Hey, hey, how about we bring out your\nPokémon and mine for a battle?\r"
-    trainertextentry 562, TEXT_DEFEATED_IN_BATTLE, "Oh, that’s too bad...\n"
-    trainertextentry 562, TEXT_DEFEATED_IN_OVERWORLD, "The way you were walking with your\nPokémon made me think that I could win.\n"
+    trainertextentry 562, TEXT_NOTICE_IN_OVERWORLD, "Don’t be so proud of that minor\nvictory in the Well.\fYou merely delayed a minor operation.\rTeam Rocket’s plan is far bigger.\rNow, beat it, or I’ll make sure this\ntime your interruption is permanent.\r"
+    trainertextentry 562, TEXT_DEFEATED_IN_BATTLE, "Again?!\n"
+    trainertextentry 562, TEXT_DEFEATED_IN_OVERWORLD, "You just got lucky again, you brat!\n"
 
 _15D0: // Trainer 563
-    trainertextentry 563, TEXT_NOTICE_IN_OVERWORLD, "Why is it I always get the urge to\nwhistle when walking through nature?\r"
-    trainertextentry 563, TEXT_DEFEATED_IN_BATTLE, "Tweeee!\n"
-    trainertextentry 563, TEXT_DEFEATED_IN_OVERWORLD, "Instead of communicating with Pokémon\nwith words, you can communicate with\fthem through whistling!\n"
+    trainertextentry 563, TEXT_NOTICE_IN_OVERWORLD, "Our Steel-types embody patience.\nYou will find it is a long battle\fwhen you can’t even scratch the\fsurface.\r"
+    trainertextentry 563, TEXT_DEFEATED_IN_BATTLE, "I thought I had perfectly tempered\nmy defenses!\n"
+    trainertextentry 563, TEXT_DEFEATED_IN_OVERWORLD, "But Jasmine is on another level.\n"
 
 _15DC: // Trainer 564
     trainertextentry 564, TEXT_NOTICE_IN_OVERWORLD, "All right, let’s get this Pokémon\nbattle started!\r"

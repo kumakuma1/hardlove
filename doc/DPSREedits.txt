@@ -1425,6 +1425,49 @@ Function 14:
 Return 
 
 
+### Giving Medicine Lighthouse
+
+	SetFlag 2410
+	SetVar 0x40A5 2
+	SetVar 0x410E 1
+	SetFlag 471
+	ClearFlag 473
+	//SetFlag 474
+	//SetFlag 475
+	//ClearFlag 476
+	//ClearFlag 477
+	SetFlag 2456
+End 
+
+
+#### Jasmine fights with mega stone
+Add Trainers to Gym 421,563
+Remove triggers with 16654 == 1/2
+Clear scripts  2,3,4,5
+
+
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 5 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+    CheckFlag 2518
+    CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#50
+
+Function 50:
+    Message 25
+	Message 26
+	CloseMessage 
+	ReleaseAll 
+End 
+
+25: Jasmine: Thank you for your help\nat the Lighthouse.\rYou’ve come for a gym battle,\nhaven’t you?\rAs the Steel-type Gym Leader, I must\nbe sure both trainer and Pokémon are\f
+equipped for the League road ahead.\r
+26: It wouldn’t be fair to accept the\nfight if you don’t yet have\fa Key Stone.\rYou should secure that first.\nI heard the Safari Zone attracts all\fsorts of rare things\rPerhaps you should look there.\r
+
 
 
 #### Rocket Cutscene on Route 47
@@ -1447,6 +1490,12 @@ Script 6:
 	SetFollowingPokeMovement 55
 	Movement Player Action#3
 	WaitMovement 
+	SetOWPosition Overworld.13 88 0 390 Left
+    SetOWPosition Overworld.14 87 0 390 Up
+	Movement Overworld.13 Action#11  //to make them appear correctly
+	WaitMovement 
+    Movement Overworld.14 Action#12
+	WaitMovement
 	Message 13
 	CloseMessage 
 	Movement Player Action#4
@@ -1454,6 +1503,9 @@ Script 6:
 	Movement Overworld.14 Action#5
 	WaitMovement 
 	Message 14
+	CloseMessage
+    Movement Overworld.14 Action#12
+	WaitMovement 
 	Message 15
 	Message 16
 	CloseMessage 
@@ -1502,3 +1554,149 @@ Action 8:
 	WalkLeftSlow 0x1
 	LookUp 0x1
 End
+
+Action 11:
+    WalkLeftFastSite 0x1
+End
+
+Action 12:
+    WalkUpFastSite 0x1
+End
+
+
+### Route 47 Rockets
+distribute trainer from route 13 to route 47
+ID 15,16,17  OW  222/221
+
+
+
+
+
+### Route 48, Proton fight
+
+Script 4:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	Movement Overworld.4 Action#4
+	WaitMovement 
+	Message 2
+	CloseMessage 
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	Movement Overworld.4 Action#5
+	Movement Overworld.5 Action#5
+	Movement Overworld.9 Action#5
+	WaitMovement 
+	TextPlayerName 0
+	Message 4
+	Message 5
+	CloseMessage 
+	Movement Player Action#6
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8004 87
+	CallIf EQUAL Function#6
+	CompareVarValue 0x8004 88
+	CallIf EQUAL Function#7
+	CompareVarValue 0x8004 90
+	CallIf EQUAL Function#8
+	Message 6
+	Message 7
+	CloseMessage 
+	TrainerBattle 561 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	CheckFlag 117
+	CallIf EQUAL Function#10
+	Message 8
+	CloseMessage 
+	Movement Overworld.9 Action#4
+	WaitMovement 
+	Message 9
+	CloseMessage 
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 10
+	CloseMessage 
+	Movement Overworld.5 Action#7
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	RemoveOW Overworld.5
+	RemoveOW Overworld.7
+	RemoveOW Overworld.9
+	SetFlag 474
+	WaitTime 20 0x8004
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Movement Overworld.4 Action#8
+	WaitMovement 
+	Message 11
+	Message 12
+	CloseMessage 
+	Movement Overworld.4 Action#9
+	WaitMovement 
+	RemoveOW Overworld.4
+	SetVar 0x4024 5
+	ReleaseAll 
+End 
+
+Action 3:
+	WalkLeftFastSite 0x1
+End
+
+Action 4:
+	WalkRightFastSite 0x1
+End
+
+Action 5:
+	Exclamation 0x1
+	LookDown 0x1
+End
+
+Action 6:
+	WalkUpFast 0x3
+End
+
+Action 7:
+	LookDown 0x1
+End
+
+Action 8:
+	WalkRightSlow 0x1
+	LookDown 0x1
+End
+
+Action 9:
+	WalkUpSlow 0x10
+End
+
+1: Proton: Stop playing dumb, old man!\rTeam Rocket’s intel is flawless.\nWe know it is in this area.\rStop hiding it!\r
+Baoba: Your rumor is wrong.\rThe Safari Zone only has a tedious\nand grindy block system to lure in\frarer Pok...\r
+\vFF01\x0001ｃSHUT UP!\vFF01\x0001コ\rProton: Show us the cave or...\r
+Baoba: \v0103ぁ\x0000\x0000!\r
+Proton: What is the kid doing here?\r
+Proton: That little pest from the\nWell!\rWhere is Ariana?\nShe should have...\rWhatever...\rI am busy trying to secure an asset\nthat will change the fate of Johto.\rGet lost!\r
+Proton: Oh, I see. You are trying\nto play the hero after you got\flucky once.\rWell, this time, kid, you are out\nof your league.\r
+Proton: How is this possible?\r...\rIt does not matter.\nWe got what we came for.\r
+Grunt: But Executive Proton, the Boss\nwanted us to...\r
+Proton: We are done here.\nWe leave.\r
+Baoba: \v0103ぁ\x0000\x0000!\rThat was phenomenal!\nYou saved the Safari Zone!\rI have no idea what they were looking\nfor. But there is nothing hidden in\fthe Safari Zone.\rAnd why is Team Rocket even active\nagain?!\r
+This could have been a PR nightmare!\rBut thankfully you showed up!\rCome on, we talk inside.\rI will wait inside the Gate.\r
+13: But Team Rocket will prevail!\r

@@ -22,8 +22,11 @@
 466   -  Route 34                      - Remove Police Trainer at Day
 467   - 117-D36R0101 : Script File  92 - Caught Porenta in Ilex
 468   - 117-D36R0101 : Script File  92 - Caught Porenta in Ilex
-474   - light tower 5f                 - Hide gym trainer
+473   - olivine gym                    - Hide Jasmine
+474   - light tower 5f                 - Hide gym trainer. Used for Rocket on Route 47/48
 475   - light tower 5f                 - Hide gym trainer
+476   - olivine gym                    - Hide gym trainer
+477   - olivine gym                    - Hide gym trainer
 520   -                                - Frieda on R32 
               
 591   -              :                 - Aprikoko Guy in Route 30. Used for Healing in Gyms
@@ -41,10 +44,12 @@ Variables
                 1: Set by Gauntlet in Slowpoke Well.
                 2: Set by Azalea Rival. (prev used  0x4075/16501))
                 3: Set by Schorsch
-                4: set by rocket cutscene on Route 47    
+                4: set by rocket cutscene on Route 47
+                5: Set By Proton Scene in Safari Zone gate
 
 
 0x40EA   : Headbutt Event in Ilex, removed
 0x40F4   : Student with Cut In Ilex
 0x4114   : Spearow/kenya delivery progress
 16535/0x4097: Gauntlet on Route 34
+16654/0x410E: Trainers in Olivine Gym, Set 1 when giving medicine in lighthouse. Unused

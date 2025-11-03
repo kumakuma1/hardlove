@@ -16063,10 +16063,10 @@ trainerdata 348, "Robert"
         ballseal 0
     endparty
 
-trainerdata 349, "Joshua"
+trainerdata 349, "Grunt" //moved to route 47
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_POKEFAN_M
-    nummons 6
+    trainerclass TRAINERCLASS_TEAM_ROCKET
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -16077,41 +16077,6 @@ trainerdata 349, "Joshua"
 
     party 349
         // mon 0
-        ivs 0
-        abilityslot 0
-        level 32
-        pokemon SPECIES_PIKACHU
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 0
-        level 32
-        pokemon SPECIES_PIKACHU
-        ballseal 0
-
-        // mon 2
-        ivs 0
-        abilityslot 0
-        level 32
-        pokemon SPECIES_PIKACHU
-        ballseal 0
-
-        // mon 3
-        ivs 0
-        abilityslot 0
-        level 32
-        pokemon SPECIES_PIKACHU
-        ballseal 0
-
-        // mon 4
-        ivs 0
-        abilityslot 0
-        level 32
-        pokemon SPECIES_PIKACHU
-        ballseal 0
-
-        // mon 5
         ivs 0
         abilityslot 0
         level 32
@@ -19046,9 +19011,9 @@ trainerdata 419, "Ellen"
         ballseal 0
     endparty
 
-trainerdata 420, "Perry"
+trainerdata 420, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
@@ -19067,9 +19032,9 @@ trainerdata 420, "Perry"
         ballseal 0
     endparty
 
-trainerdata 421, "Bret"
+trainerdata 421, "Bret" //moved to Olivine Gym
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_BIRD_KEEPER_GS
+    trainerclass TRAINERCLASS_GENTLEMAN
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
@@ -21634,9 +21599,9 @@ trainerdata 491, "Silver"
         ballseal 0
     endparty
 
-trainerdata 492, "Alex"
+trainerdata 492, "Grunt" //moved to route 47
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_POKEFAN_M
+    trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -24223,9 +24188,9 @@ trainerdata 559, "Tim & Sue"
         ballseal 0
     endparty
 
-trainerdata 560, "Clark"
+trainerdata 560, "Grunt" //moved to route 47
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_CAMPER
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
@@ -24244,9 +24209,9 @@ trainerdata 560, "Clark"
         ballseal 0
     endparty
 
-trainerdata 561, "Tanner"
+trainerdata 561, "Proton" //moved to route 48
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_CAMPER
+    trainerclass TRAINERCLASS_EXECUTIVE_PROTON
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
@@ -24265,9 +24230,9 @@ trainerdata 561, "Tanner"
         ballseal 0
     endparty
 
-trainerdata 562, "Piper"
+trainerdata 562, "Ariana"  //moved to route 48
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_PICNICKER
+    trainerclass TRAINERCLASS_EXECUTIVE_ARIANA
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
@@ -24286,7 +24251,7 @@ trainerdata 562, "Piper"
         ballseal 0
     endparty
 
-trainerdata 563, "Ginger"
+trainerdata 563, "Ginger" //moved to Olivine Gym
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_PICNICKER
     nummons 1
