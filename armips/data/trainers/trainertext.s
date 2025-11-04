@@ -2378,12 +2378,16 @@ _15A8: // Trainer 560
 
 _15B4: // Trainer 561
     trainertextentry 561, TEXT_NOTICE_IN_OVERWORLD, "I can fit in a quick battle while I’m in\nthe midst of preparing a meal!\r"
-    trainertextentry 561, TEXT_DEFEATED_IN_BATTLE, "Oh, I’m hungry...\n"
+    trainertextentry 561, TEXT_LAST_MON_SENT_OUT, "I cannot lose to a kid!\n"
+    trainertextentry 561, TEXT_LAST_MON_CRITICAL, "No... Not...yet...\n"
+    trainertextentry 561, TEXT_DEFEATED_IN_BATTLE, "We...lost...\n"
     trainertextentry 561, TEXT_DEFEATED_IN_OVERWORLD, "I figured it would be easy to knock\nyou out...\n"
     trainertextentry 561, TEXT_REMATCH_IN_OVERWORLD, "Hey, you’re back! I haven’t eaten\nanything while I waited!\r"
 
 _15C4: // Trainer 562
     trainertextentry 562, TEXT_NOTICE_IN_OVERWORLD, "Don’t be so proud of that minor\nvictory in the Well.\fYou merely delayed a minor operation.\rTeam Rocket’s plan is far bigger.\rNow, beat it, or I’ll make sure this\ntime your interruption is permanent.\r"
+    trainertextentry 562, TEXT_LAST_MON_SENT_OUT, "This will not be like Azalea again!\n"
+    trainertextentry 562, TEXT_LAST_MON_CRITICAL, "No... Not...yet...\n"
     trainertextentry 562, TEXT_DEFEATED_IN_BATTLE, "Again?!\n"
     trainertextentry 562, TEXT_DEFEATED_IN_OVERWORLD, "You just got lucky again, you brat!\n"
 

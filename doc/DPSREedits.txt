@@ -1469,6 +1469,20 @@ equipped for the League road ahead.\r
 26: It wouldn’t be fair to accept the\nfight if you don’t yet have\fa Key Stone.\rYou should secure that first.\nI heard the Safari Zone attracts all\fsorts of rare things\rPerhaps you should look there.\r
 
 
+#### SS Aqua drives after getting ticket in Safari Zone
+DOcks: 240-P01R01 - script file 152
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	//CheckFlag 2404 //GAME CLEAR FLAG
+	CompareVarValue 16420 6
+	JumpIf LESS Function#1
+	CompareVarValue 0x4002 1
+
+
+
+
 
 #### Rocket Cutscene on Route 47
 ADD OWS 222 rocket grunt x2
@@ -1700,3 +1714,57 @@ Proton: We are done here.\nWe leave.\r
 Baoba: \v0103ぁ\x0000\x0000!\rThat was phenomenal!\nYou saved the Safari Zone!\rI have no idea what they were looking\nfor. But there is nothing hidden in\fthe Safari Zone.\rAnd why is Team Rocket even active\nagain?!\r
 This could have been a PR nightmare!\rBut thankfully you showed up!\rCome on, we talk inside.\rI will wait inside the Gate.\r
 13: But Team Rocket will prevail!\r
+
+
+
+### Baoba gives SS Ticket at Safari Zone
+173 - D47R0101 : Script File 119 - Text File 135
+Trigger script 9 16471 == 1
+
+Script 9:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.5 Action#5
+	Movement Player Action#6
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 29
+	//OpenTouchScreen 
+	//YesNoTouchScreen 0x800C
+	//CloseTouchScreen 
+	//CompareVarValue 0x800C 1
+	//JumpIf EQUAL Function#26
+	Message 30
+	//WaitButton 
+	CloseMessage 
+	SetVar 0x4057 2
+	ReleaseAll 
+End 
+
+
+    TextPlayerName 0
+	Message 29
+	Message 30
+    SetVar 0x8004 456
+	SetVar 0x8005 1
+	CommonScript 2008
+	Message 33 
+	CloseMessage 
+	SetVar 0x4057 2
+    SetVar 16420 6
+	ReleaseAll 
+End 
+.equ ITEM_SS_TICKET,                    456
+
+29: Baoba: Ah \v0103ぁ\x0000\x0000!\rOur hero! You saved the Safari Zone!\nWe can’t thank you enough for driving\foff Team Rocket.\rThose thugs would have turned my\nwonderful Zone into a barren wasteland!\r
+30: A mere ’thank you’ isn’t enough, is it?\rYou deserve something grand...\r...\r...something adventurous!\rI know!\rTake my ticket!\nIt’s for the S.S. Anne!\r
+33: Go on, take a proper vacation!\rHave you tried the Safari Zone yet,\nby the way?\fIt’s better than ever!\r
+
+
+
+

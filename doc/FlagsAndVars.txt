@@ -46,8 +46,9 @@ Variables
                 3: Set by Schorsch
                 4: set by rocket cutscene on Route 47
                 5: Set By Proton Scene in Safari Zone gate
+                6: Set by Baoba after talking to him
 
-
+0x4057   : Boaboa and Safari Zone tests
 0x40EA   : Headbutt Event in Ilex, removed
 0x40F4   : Student with Cut In Ilex
 0x4114   : Spearow/kenya delivery progress
