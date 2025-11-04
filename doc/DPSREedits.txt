@@ -1762,7 +1762,7 @@ End
 .equ ITEM_SS_TICKET,                    456
 
 29: Baoba: Ah \v0103ぁ\x0000\x0000!\rOur hero! You saved the Safari Zone!\nWe can’t thank you enough for driving\foff Team Rocket.\rThose thugs would have turned my\nwonderful Zone into a barren wasteland!\r
-30: A mere ’thank you’ isn’t enough, is it?\rYou deserve something grand...\r...\r...something adventurous!\rI know!\rTake my ticket!\nIt’s for the S.S. Anne!\r
+30: A mere ’thank you’ isn’t enough, is it?\rYou deserve something grand...\r...\r...something adventurous!\rI know!\rTake my ticket!\nIt’s for the S.S. Aqua!\r
 33: Go on, take a proper vacation!\rHave you tried the Safari Zone yet,\nby the way?\fIt’s better than ever!\r
 
 
