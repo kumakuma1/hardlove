@@ -1383,22 +1383,26 @@ scr_seq_0141_206:
 	goto scr_seq_0141_255
 
 scr_seq_0141_207:
-	setvar VAR_SPECIAL_x8008, 49
+	// Route 12, North, 1228 // moved to SS Aqua
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_208:
-	setvar VAR_SPECIAL_x8008, 66
+	// Route 12, Central, 1229 // moved to SS Aqua
+	setvar VAR_SPECIAL_x8008, ITEM_GRASSY_SEED
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_209:
-	setvar VAR_SPECIAL_x8008, 51
+	//route 15, west, 1230 // moved to SS Aqua
+	setvar VAR_SPECIAL_x8008, ITEM_ELECTRIC_SEED
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_210:
-	setvar VAR_SPECIAL_x8008, 318
+	//route 15, central, 1306 // moved to SS Aqua
+	setvar VAR_SPECIAL_x8008, ITEM_PSYCHIC_SEED
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

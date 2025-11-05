@@ -502,8 +502,8 @@
 .org 0x02000000 + 0xFAA78 //R13
 .halfword ITEM_CALCIUM
 
-.org 0x02000000 + 0xFAA80 //R12
-.halfword ITEM_ELIXIR
+.org 0x02000000 + 0xFAA80 //R12, Moved to SS Aqua
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFAA88 //Viridian Forest
 .halfword ITEM_MAX_ETHER
