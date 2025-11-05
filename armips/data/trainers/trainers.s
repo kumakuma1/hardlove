@@ -11829,7 +11829,7 @@ trainerdata 253, "Brock"
 trainerdata 254, "Misty"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_LEADER_MISTY
-    nummons 4
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -11842,49 +11842,13 @@ trainerdata 254, "Misty"
         // mon 0
         ivs 200
         abilityslot 0
-        level 49
-        pokemon SPECIES_GOLDUCK
-        item ITEM_NONE
+        level 30
+        pokemon SPECIES_BLASTOISE
+        item ITEM_BLASTOISINITE
         move MOVE_WATER_PULSE
         move MOVE_DISABLE
         move MOVE_PSYCH_UP
         move MOVE_PSYCHIC
-        ballseal 0
-
-        // mon 1
-        ivs 200
-        abilityslot 32
-        level 49
-        pokemon SPECIES_QUAGSIRE
-        item ITEM_NONE
-        move MOVE_WATER_PULSE
-        move MOVE_AMNESIA
-        move MOVE_EARTHQUAKE
-        move MOVE_RAIN_DANCE
-        ballseal 0
-
-        // mon 2
-        ivs 200
-        abilityslot 0
-        level 52
-        pokemon SPECIES_LAPRAS
-        item ITEM_NONE
-        move MOVE_WATER_PULSE
-        move MOVE_SING
-        move MOVE_ICE_BEAM
-        move MOVE_BODY_SLAM
-        ballseal 0
-
-        // mon 3
-        ivs 200
-        abilityslot 32
-        level 54
-        pokemon SPECIES_STARMIE
-        item ITEM_SITRUS_BERRY
-        move MOVE_WATER_PULSE
-        move MOVE_CONFUSE_RAY
-        move MOVE_RECOVER
-        move MOVE_ICE_BEAM
         ballseal 0
     endparty
 

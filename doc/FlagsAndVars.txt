@@ -4,6 +4,7 @@
 165   -                                - Flag for getting Magnet from Sunny on Route 37
 189   - 230-T26R0601 : Script File 918 - Got good rod in olivine -  | Mom sets 063 , used for goldenrod Evolution Items 4, Cleared after Chuck    
 215   -                                - Flag for getting Sharp Beak from Monica on Route 40
+305   -                                - Flag for getting Cleanse Tag on Route 5. Lady gives Spell Tag.
 345   - 158-T22PC0101: Script File 860 - Maarep-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items + TMs 1, Cleared after Schorsch
 346   - 158-T22PC0101: Script File 860 - Wooper-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items 2, Cleared after Whitneys
 347   - 158-T22PC0101: Script File 860 - Slugma-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items 3, Cleared after Morty
@@ -24,12 +25,14 @@
 468   - 117-D36R0101 : Script File  92 - Caught Porenta in Ilex
 473   - olivine gym                    - Hide Jasmine
 474   - light tower 5f                 - Hide gym trainer. Used for Rocket on Route 47/48
-475   - light tower 5f                 - Hide gym trainer
+475   - light tower 5f                 - Hide gym trainer. Used for Misty on Route 25
 476   - olivine gym                    - Hide gym trainer
 477   - olivine gym                    - Hide gym trainer
 520   -                                - Frieda on R32 
               
 591   -              :                 - Aprikoko Guy in Route 30. Used for Healing in Gyms
+598   -                                - Hide Misty on Route 25
+777   -                                - Hide Brad on Route 25
 
 
 Variables
@@ -47,8 +50,12 @@ Variables
                 4: set by rocket cutscene on Route 47
                 5: Set By Proton Scene in Safari Zone gate
                 6: Set by Baoba after talking to him
+                7: Set by Misty on Route 25
 
 0x4057   : Boaboa and Safari Zone tests
+16520    : Misty/Eusine/Suicune event on Route 25
+16521    : Misty/Eusine/Suicune event on Route 25
+16587/0x40CB : SS Aqua event line with little girl.  Set to 7 after completion
 0x40EA   : Headbutt Event in Ilex, removed
 0x40F4   : Student with Cut In Ilex
 0x4114   : Spearow/kenya delivery progress

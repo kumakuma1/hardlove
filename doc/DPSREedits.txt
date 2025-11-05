@@ -1716,6 +1716,204 @@ This could have been a PR nightmare!\rBut thankfully you showed up!\rCome on, we
 13: But Team Rocket will prevail!\r
 
 
+### Safari Zone NPCs comment on TR
+Add to several scripts
+
+CompareVarValue 0x4024 6
+JumpIf LESS Function#14/15/16
+
+Function 14:
+	Message 18
+	CloseMessage
+	ReleaseAll
+End
+
+Function 15:
+	Message 19
+	CloseMessage
+	ReleaseAll
+End
+
+Function 16:
+	Message 20
+	CloseMessage
+	ReleaseAll
+End
+
+18:Team Rocket at the Safari Zone?!\r
+19:Team Plasma attacked the Safari Zone!?\r
+20:Masked thugs attacked Baoba?!\r
+
+
+### Random starter in Safari Zone
+21: I cought so many Pokémon in the\nSafari Zone, that I am handing out\fsome rare ones.\rDo you want a rare Pokémon? \v0200\x0001\x0000
+Alright.\r
+Sadly you don’t have space.\r
+Haha.\nHere you go.\r
+\v0103ぁ\x0000\x0000 received\n\v0100ぁ\x0001\x0000!\r
+
+Script 18:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 21
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#17
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#18
+	SetFlag 2599
+	GetRandom 0x800C 21
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#19
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#20
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#21
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#22
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#23
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#24
+	CompareVarValue 0x800C 6
+	CallIf EQUAL Function#25
+	CompareVarValue 0x800C 7
+	CallIf EQUAL Function#26
+	CompareVarValue 0x800C 8
+	CallIf EQUAL Function#27
+	CompareVarValue 0x800C 9
+	CallIf EQUAL Function#28
+	CompareVarValue 0x800C 10
+	CallIf EQUAL Function#29
+    CompareVarValue 0x800C 11
+	CallIf EQUAL Function#30
+    CompareVarValue 0x800C 12
+	CallIf EQUAL Function#31
+	CompareVarValue 0x800C 13
+	CallIf EQUAL Function#32
+	CompareVarValue 0x800C 14
+	CallIf EQUAL Function#33
+	CompareVarValue 0x800C 15
+	CallIf EQUAL Function#34
+	CompareVarValue 0x800C 16
+	CallIf EQUAL Function#35
+	CompareVarValue 0x800C 17
+	CallIf EQUAL Function#36
+	CompareVarValue 0x800C 18
+	CallIf EQUAL Function#37
+	CompareVarValue 0x800C 19
+	CallIf EQUAL Function#38
+	CompareVarValue 0x800C 20
+	CallIf EQUAL Function#39
+	Message 24
+    TextPlayerName 0
+	TextPokemon 1 0x4002 0 0
+    Message 25
+    GivePokemon 0x4002 5 0 0 0 0x800C
+Jump Function#17
+
+Function 17:
+	Message 22
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 18:
+	Message 23
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 19:
+    SetVarFromFlexible 0x4002 1
+Return 
+
+Function 20:
+    SetVarFromFlexible 0x4002 4
+Return 
+
+Function 21:
+    SetVarFromFlexible 0x4002 7
+Return 
+
+Function 22:
+    SetVarFromFlexible 0x4002 152
+Return 
+
+Function 23:
+    SetVarFromFlexible 0x4002 155
+Return 
+
+Function 24:
+    SetVarFromFlexible 0x4002 158
+Return 
+
+Function 25:
+    SetVarFromFlexible 0x4002 252
+Return 
+
+Function 26:
+    SetVarFromFlexible 0x4002 255
+Return 
+
+Function 27:
+    SetVarFromFlexible 0x4002 258
+Return 
+
+Function 28:
+    SetVarFromFlexible 0x4002 390
+Return 
+
+Function 29:
+    SetVarFromFlexible 0x4002 393
+Return 
+
+Function 30:
+    SetVarFromFlexible 0x4002 545
+Return 
+
+Function 31:
+    SetVarFromFlexible 0x4002 548
+Return 
+
+Function 32:
+    SetVarFromFlexible 0x4002 551
+Return 
+
+Function 33:
+    SetVarFromFlexible 0x4002 700
+Return 
+
+Function 34:
+    SetVarFromFlexible 0x4002 703
+Return 
+
+Function 35:
+    SetVarFromFlexible 0x4002 772
+Return 
+
+Function 36:
+    SetVarFromFlexible 0x4002 778
+Return 
+
+Function 37:
+    SetVarFromFlexible 0x4002 860
+Return 
+
+Function 38:
+    SetVarFromFlexible 0x4002 863
+Return 
+
+Function 39:
+    SetVarFromFlexible 0x4002 866
+Return 
+
+
+
 
 ### Baoba gives SS Ticket at Safari Zone
 173 - D47R0101 : Script File 119 - Text File 135
@@ -1766,5 +1964,247 @@ End
 33: Go on, take a proper vacation!\rHave you tried the Safari Zone yet,\nby the way?\fIt’s better than ever!\r
 
 
+### SS Aqua Gentleman gives Metronome
+Script 4:
+	...
+	SetVar 0x8004 233 -> 277
+	SetVar 0x8005 1
 
 
+
+
+#### After traveling to Kanto via SS Aqua, fast travel from vermilion port to olivine port and vice versa
+Vermillion:
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CompareVarValue 0x40CB 7  //little girl story line
+	JumpIf GREATER/EQUAL Function#12
+
+Function 12:
+    Message 4
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 240 0 7 7 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+    ReleaseAll
+End
+
+
+Olvine:
+Function 16:
+	Message 16
+	...
+	Warp 386 0 7 7 Up
+
+4: Welcome to the S.S. Aqua!\rWe offer fast travel to Johto.\nYou will be in Olivine City in\fno time.\r
+16:Welcome to the S.S. Aqua!\rWe offer fast travel to Kanto.\nYou will be in Vermilion City in\fno time.\r
+
+
+
+
+### Block Saffron, Route 9
+OWs ID 40
+
+Move OWs on Route 5,6
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 1
+	CloseMessage 
+	ReleaseAll 
+End 
+The road is closed until the problem at\nthe Power Plant is solved.\r
+
+
+
+
+
+
+
+
+
+
+#### Spell tag on Route 5 from old Lady
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 305
+	JumpIf EQUAL Function#1
+	Message 0
+	SetVar 0x8004 224 -> 247
+	SetVar 0x8005 1
+.equ ITEM_SPELL_TAG,                    247
+
+
+
+### Cerulean Cave blocker
+This is...\nThe notorious Cerulean Cave!\rHorribly powerful Pokémon live here.\nOnly the strongest trainers are\fallowed to challenge it.
+
+
+#### Route 25 Bills grandfather wants to see Arceus:
+
+Function 15:
+	CompareVarValue 0x8001 43 -> 493
+	JumpIf EQUAL Function#27
+	Message 14
+Jump Function#28
+
+1:Ah, my grandson mentioned a round,\nblue Pokémon that has leaves\fgrowing on its head.\r
+1:Ah, my grandson mentioned a big white\nPokémon that has golden hooves and\flooks like a qilin.\r
+
+
+### Misty Event on Route 25
+Clear script 1, 5,6,7,8,9,10, delete event
+
+Brad
+Script 11:
+    PlayFanfare 1500
+	LockAll 
+	Message 20
+	CloseMessage 
+	ReleaseAll 
+End 
+
+20: Brad: Oh Misty, we have such a strong\nbond. Our relationship will overcome\fanything!\r
+Misty: Fine, you won.\rBut I will not give you my number.\r
+Misty: Oh Brad.\r
+Misty: Who are you?!\rWe are in the middle of something...\r...\r...\rA Ring?!\rI don’t want a Ring!\r
+Brad: But Misty!\rI...\rWe...\r
+Misty: Brad!\rHow do I say this...\rI like my independence.\rIt’s over.\nYou can go now.\r
+Brad: But Misty!\r
+Misty: And you.\rWhat Ring are you talking about?\r
+Misty: Brad!\rI am\r\vFF01\x0001ｃBUSY!\vFF01\x0001コ\r
+Brad: This is the worst day of\nmy life!\r
+Misty: Anyway.\rYou are looking for a Mega Ring?\rFine.\rHere take my old one.\rI got new one.\nA blue one.\rIt matches my eye color so well.\nDon’t you think so?\r
+Misty: But wait a second.\rAs a Gym Leader I have to test your\nskill and resolve.\rAre you even worthy of wielding\nthe Mega Ring?\rBut I must warn you.\nI am a pretty strong Leader.\r
+Misty: You really are good...\rI’ll admit that you are skilled...\rHere is another memento from this\nbattle.\r
+33: Misty: Just stop bragging about this.\rI had a long day.\r
+
+Script 12:
+    PlayFanfare 1500
+	LockAll 
+    CompareVarValue 16420 7
+	JumpIf GREATER/EQUAL Function#16
+    Movement Overworld.9 Action#1
+	WaitMovement
+    Message 20
+    CloseMessage
+    Movement Overworld.8 Action#2
+	WaitMovement
+    Message 22
+    CloseMessage
+    Movement Overworld.8 Action#3
+    WaitMovement
+    Message 23
+    CloseMessage
+    Movement Overworld.9 Action#1
+	WaitMovement
+    Message 24
+    CloseMessage
+    Movement Overworld.8 Action#4
+    WaitMovement
+    Message 25
+    CloseMessage
+    Movement Overworld.9 Action#1
+	WaitMovement
+    Message 26
+    CloseMessage
+    Movement Overworld.8 Action#5
+	WaitMovement
+    Message 27
+    CloseMessage
+    Movement Overworld.9 Action#1
+	WaitMovement
+    Message 26
+    CloseMessage
+    Movement Overworld.8 Action#5
+	WaitMovement
+    Message 28
+    CloseMessage
+    Movement Overworld.9 Action#5
+	WaitMovement
+    Message 29
+    CloseMessage
+    Movement Overworld.9 Action#6
+	WaitMovement    
+    RemoveOW Overworld.9
+    Message 30
+    CloseMessage
+    Movement Overworld.8 Action#5
+	WaitMovement
+    SetVar 0x8004 696
+	SetVar 0x8005 1
+	CommonScript 2008
+    SetFlag 2518
+    Message 31
+    CloseMessage 
+	TrainerBattle 254 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#17
+    Message 32
+    CloseMessage
+    SetVar 0x8004 661
+	SetVar 0x8005 1
+	CommonScript 2008
+    Message 33
+    CloseMessage
+    SetVar 16420 7
+    SetFlag 475
+    ClearFlag 476
+    ClearFlag 477
+    ReleaseAll
+End
+
+
+Function 16:
+    Message 21
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 17:
+    ClearFlag 2518
+    TakeItem 696 1 0x800C
+    LostBattle 
+	ReleaseAll 
+End 
+
+Action 1:
+	WalkRightFastSite 0x1
+End
+
+Action 2:
+	WalkDownFastSite 0x1
+End
+
+Action 3:
+	Exclamation 0x1
+	WalkUpFastSite 0x1
+End
+
+Action 4:
+	WalkLeftFastSite 0x1
+End
+
+Action 5:
+	WalkUpFastSite 0x1
+End
+
+Action 6:
+    WalkLeftSlow 0x1
+	WalkUpSlow 0x5
+    Freeze8 0x8
+    LookDown 0x1
+    Freeze8 0x8
+    WalkLeftFastSite 0x1
+    WalkLeftFast 0x10
+End

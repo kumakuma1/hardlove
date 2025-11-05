@@ -1283,12 +1283,14 @@ scr_seq_0141_186:
 	goto scr_seq_0141_255
 
 scr_seq_0141_187:
+	//Vermilion City, west, 1294
 	setvar VAR_SPECIAL_x8008, 319
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_188:
-	setvar VAR_SPECIAL_x8008, 288
+	//Vermilion City, east, reachable from Route 11, 1295 // moved to SS aqua
+	setvar VAR_SPECIAL_x8008, ITEM_MISTY_SEED
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
