@@ -745,7 +745,7 @@ scr_seq_0141_082:
 
 scr_seq_0141_083:
 	//route 38 west, rockclimb, 1278
-	setvar VAR_SPECIAL_x8008, 255
+	setvar VAR_SPECIAL_x8008, ITEM_PIXIE_PLATE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -866,7 +866,7 @@ scr_seq_0141_104:
 
 scr_seq_0141_105:
 	//route 47 west, rockclimb, 1282
-	setvar VAR_SPECIAL_x8008, 317
+	setvar VAR_SPECIAL_x8008, ITEM_TWISTED_SPOON
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
