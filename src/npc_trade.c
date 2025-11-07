@@ -48,7 +48,7 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
         } else if (nature == 1) {
             trade_dat->give_species = SPECIES_HERACROSS;
         } else {
-            trade_dat->give_species = SPECIES_ARCANINE_HISUIAN;
+            trade_dat->give_species = SPECIES_ARCANINE;
         }
 
         trade_dat->heldItem = ITEM_SITRUS_BERRY;
@@ -67,7 +67,8 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
 #endif
     randomIV(trade_dat);
     PokeParaSet(mon, trade_dat->give_species, level, 32, FALSE, trade_dat->pid, OT_ID_PRESET, trade_dat->otId); // OT_ID_PRESET, trade_dat->otId);
-
+    if (trade_dat->give_species == SPECIES_ARCANINE)
+        SetMonData(mon, MON_DATA_FORM, 1);
     heapId_2 = (int)heapId;
     name = _GetNpcTradeName(heapId_2, tradeno);
     SetMonData(mon, MON_DATA_NICKNAME_3 /*MON_DATA_NICKNAME_STRING = 119*/, name);
