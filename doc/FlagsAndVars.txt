@@ -42,7 +42,7 @@ Variables
 0x4090/16528  = 1, got Surf
 0x4095/16533 == 1 : Mom Calling on Route 30
 0x4132 == 1 VS Recorder in R31
-0x4135 == 1 Set By Lt. Surge after Battle
+0x4135 += 1 Set By Lt. Surge after Battle/Kanto Badges
 
 
 16421 (0x4025)   : custom OW weather
