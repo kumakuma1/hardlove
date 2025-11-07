@@ -36,7 +36,7 @@ static const u16 sMachineMoves[] = {
     MOVE_HYPER_VOICE,        // TM020
     MOVE_ICY_WIND,      // TM021
     MOVE_SOLAR_BEAM,       // TM022
-    MOVE_IRON_TAIL,        // TM023
+    MOVE_HEAVY_SLAM,        // TM023
     MOVE_THUNDERBOLT,      // TM024
     MOVE_THUNDER,          // TM025
     MOVE_EARTHQUAKE,       // TM026

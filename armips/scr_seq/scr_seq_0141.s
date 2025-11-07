@@ -769,7 +769,7 @@ scr_seq_0141_086:
 
 scr_seq_0141_087:
 	//light tower 4F, 1098
-	setvar VAR_SPECIAL_x8008, 38
+	setvar VAR_SPECIAL_x8008, ITEM_TM037
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1284,7 +1284,7 @@ scr_seq_0141_186:
 
 scr_seq_0141_187:
 	//Vermilion City, west, 1294
-	setvar VAR_SPECIAL_x8008, 319
+	setvar VAR_SPECIAL_x8008, ITEM_POWER_HERB
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1305,7 +1305,8 @@ scr_seq_0141_190:
 	goto scr_seq_0141_255
 
 scr_seq_0141_191:
-	setvar VAR_SPECIAL_x8008, 389
+	//route 6, 1299 //moved to other corner on same route
+	setvar VAR_SPECIAL_x8008, ITEM_TM022
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1370,7 +1371,8 @@ scr_seq_0141_203:
 	goto scr_seq_0141_255
 
 scr_seq_0141_204:
-	setvar VAR_SPECIAL_x8008, 46
+	//route 24, east, cut, 1227 //cut removed
+	setvar VAR_SPECIAL_x8008, ITEM_HEART_SCALE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

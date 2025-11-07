@@ -2048,6 +2048,19 @@ End
 Script 22:
     SetFlag 794 //deactivate barrier in level script
 
+Add Event 16421 == 0
+
+Script 28:
+	LockAll 
+	CheckFlag 2470
+	JumpIf EQUAL Function#17
+	VermillionGymAnimation 0
+	VermillionGymAnimation 1
+	SetFlag 2470
+	ReleaseAll 
+End 
+
+
 15: Lt. Surge: Hey challenger!\nThe Vermilion Gym isn’t active.\rMy Arena is currently undergoing\nsome tactical changes.\r...\r
 So, you are from Johto...\rThen this is a perfect opportunity\nfor a field test.\rPrepare for an electric surprise!\nLet the exercise commence!\r
 You’ve earned the victory, like a\ntrue soldier!\rHere, take this.\nIt’s a crucial piece of gear in\fany battle.\r
@@ -2106,6 +2119,19 @@ Jump Function#28
 
 1:Ah, my grandson mentioned a round,\nblue Pokémon that has leaves\fgrowing on its head.\r
 1:Ah, my grandson mentioned a big white\nPokémon that has golden hooves and\flooks like a qilin.\r
+
+#### TM on Route 25 Gauntlet
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 290
+	JumpIf EQUAL Function#1
+	Message 11
+	SetVar 0x8004 92 -> 350
+	SetVar 0x8005 1
+
+.equ ITEM_TM023,                        350
 
 
 ### Misty Event on Route 25
@@ -2255,3 +2281,78 @@ Action 6:
     WalkLeftFastSite 0x1
     WalkLeftFast 0x10
 End
+
+
+### CHange Mega Ring Description
+
+Misty's old Mega Ring. It has lots\nof scratches and the pink colour\nis slighty faded.
+File 838: 58:This ring contains an unknown power\nthat somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\rin battle.
+File 222: 697: Mega Ring
+Misty's Mega Ring
+
+### Jasmine gives Rock Climb
+.equ ITEM_HM08,                         427
+.equ ITEM_STEELIXITE,                   761
+
+Script 1:
+	...
+	Message 27
+    Message 28
+	CloseMessage 
+	TrainerBattle 33 0 0 0
+	...
+	SetVar 0x8004 350 -> 427
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	....
+	Message 5
+	WaitButton
+    SetVar 0x8004 761
+	SetVar 0x8005 1
+    CommonScript 2033
+    Message 4
+
+Function 4:
+	Message 3
+	SetVar 0x8004 427
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	CommonScript 2033
+	Message 5
+	WaitButton
+    SetVar 0x8004 761
+	SetVar 0x8005 1
+    CommonScript 2033
+    Message 4 
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 194
+End 
+
+Function 16:
+	SetVar 0x8004 427
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	CommonScript 2033
+	Message 5
+	WaitButton
+    SetVar 0x8004 761
+	SetVar 0x8005 1
+    CommonScript 2033
+    Message 4
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 194
+End 
+
+3: Jasmine: It is Rock Climb.\rWith that your Pokémon will be able\nto reach hidden spots.\rBest of luck on your journey\nto the Pokémon League.\r
+4: Jasmine: I hope it will help you on\nyour journey to the Pokémon League.\rBest of luck.\r
+5: Jasmine: With that Badge,\nPokémon will be able to use Rock Climb.\rPlease take this, too.\r
+27: Jasmine: Thank you for your help\nat the Lighthouse.\r...\r
+28: Ah, you have it. The Mega Ring.\rThis is an important milestone on your\njourney to the Pokémon League.\rNow, show me that you can wield\nthat power wisely, Trainer.\r

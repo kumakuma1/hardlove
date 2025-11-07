@@ -62,3 +62,20 @@ script 1:
 Function 11:
 	SetVar 0x416F 54
 Return
+
+
+
+
+Jasmine
+Script 1:
+	HealPokemon 
+	TrainerBattle 33 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+    CheckFlag 117
+	CallIf EQUAL Function#37
+
+Function 37:
+    SetVar 0x416F 60
+Return

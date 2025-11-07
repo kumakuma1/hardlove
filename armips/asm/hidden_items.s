@@ -458,7 +458,7 @@
 .halfword ITEM_FULL_RESTORE
 
 .org 0x02000000 + 0xFAA08 //Underground Path
-.halfword ITEM_X_SP_ATK
+.halfword ITEM_RAGE_CANDY_BAR
 
 .org 0x02000000 + 0xFAA10 //R11
 .halfword ITEM_REVIVE
@@ -485,7 +485,7 @@
 .halfword ITEM_NUGGET
 
 .org 0x02000000 + 0xFAA50 //R25
-.halfword ITEM_REVIVE
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFAA58 //Celadon
 .halfword ITEM_PP_UP

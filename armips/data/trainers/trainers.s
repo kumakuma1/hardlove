@@ -7912,7 +7912,7 @@ trainerdata 156, "Yoshi"
 	    ivs 0
         abilityslot 0
         level LEVEL_CHUCK-4
-        pokemon SPECIES_INFERNAPE
+        pokemon SPECIES_TOXICROAK
         item ITEM_FOCUS_SASH
         move MOVE_CLOSE_COMBAT
         move MOVE_FAKE_OUT
@@ -8154,7 +8154,7 @@ trainerdata 159, "Lung"
         move MOVE_VACUUM_WAVE
         move MOVE_DARK_PULSE
         move MOVE_FLASH_CANNON
-        ability ABILITY_IRON_FIST
+        ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
