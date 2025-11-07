@@ -1495,7 +1495,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 #endif
 
                 if (sp->field_condition & FIELD_STATUS_TRICK_ROOM) {
-                    sp->field_condition -= 1 << FIELD_CONDITION_TRICK_ROOM_SHIFT;
+
+                    if (CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG)) {
+                        // u32 w = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE); //check if more
+                    }
+                    else {
+                        sp->field_condition -= 1 << FIELD_CONDITION_TRICK_ROOM_SHIFT;
+                    }
                     if (!(sp->field_condition & FIELD_STATUS_TRICK_ROOM)) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, 251);
                         sp->next_server_seq_no = sp->server_seq_no;
