@@ -141,8 +141,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 sprintf(buf, "In ENDTURN_WEATHER_SUBSIDING\n");
                 debugsyscall(buf);
                 #endif
-                sp->fcc.weather_count = 5; // infinite weather
+                
                 if (sp->field_condition & WEATHER_RAIN) {
+                    sp->fcc.weather_count = 5; // infinite weather
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RAIN_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -153,6 +154,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 }
 
                 if (sp->field_condition & WEATHER_SANDSTORM) {
+                    sp->fcc.weather_count = 5; // infinite weather
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SANDSTORM_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -163,6 +165,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 }
 
                 if (sp->field_condition & WEATHER_SUNNY) {
+                    sp->fcc.weather_count = 5; // infinite weather
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUN_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -173,6 +176,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 }
 
                 if (sp->field_condition & WEATHER_HAIL) {
+                    sp->fcc.weather_count = 5; // infinite weather
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HAIL_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -183,6 +187,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 }
 
                 if (sp->field_condition & WEATHER_SNOW) {
+                    sp->fcc.weather_count = 5; // infinite weather
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SNOW_END);
                         sp->next_server_seq_no = sp->server_seq_no;

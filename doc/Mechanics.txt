@@ -11,6 +11,8 @@ Gym Trainers and Gym Leaders will heal your party to full before battle.
 EVs are removed from the game.
 TMs are consumed on use.
 HMs do not need to be taught, obtaining them plus the required badge for use is enough.
+Whirlpool/Waterfall require a Water Pokemon.
+Fly works between Johto and Kanto.
 
 Critical hit chance: 1/16.
 Critical hit damage multiplier: 1.5.
@@ -40,6 +42,7 @@ Route 36 Schorsch 	    lvl 30
 Leader Whitney          lvl 35
 Leader Morty            lvl 39
 Leader Chuck            lvl 47
+Safari Zone Proton  	lvl 50
 Leader Jasmine          lvl 54
 
 Known Issues:

@@ -2005,6 +2005,53 @@ Function 16:
 16:Welcome to the S.S. Aqua!\rWe offer fast travel to Kanto.\nYou will be in Vermilion City in\fno time.\r
 
 
+#### Lt. Surge fight
+Move OWs, Move triggers, move barrier
+
+Script 27:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer
+	CheckFlag 385
+    JumpIf EQUAL Function#27
+    Message 15
+    Message 16
+	CloseMessage 
+	SetFlag 2591  // permanent OW weather
+    SetVar 16421 1
+	TrainerBattle 255 0 0 0
+    SetVar 16421 0
+    ClearFlag 2591
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+    Message 17
+    SetVar 0x8004 1120
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#22
+	CommonScript 2033
+	SetFlag 385
+	Message 18
+	CloseMessage 
+	ReleaseAll 
+End
+.equ ITEM_HEAVY_DUTY_BOOTS,             1120
+
+Function 27:
+	Message 18
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 22:
+    SetFlag 794 //deactivate barrier in level script
+
+15: Lt. Surge: Hey challenger!\nThe Vermilion Gym isn’t active.\rMy Arena is currently undergoing\nsome tactical changes.\r...\r
+So, you are from Johto...\rThen this is a perfect opportunity\nfor a field test.\rPrepare for an electric surprise!\nLet the exercise commence!\r
+You’ve earned the victory, like a\ntrue soldier!\rHere, take this.\nIt’s a crucial piece of gear in\fany battle.\r
+18: Dismissed!\r
 
 
 ### Block Saffron, Route 9
