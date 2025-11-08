@@ -1189,7 +1189,18 @@ Text: 10: That there’s Facade.\rIts Power will increase if yer Pokémon\nhas a
 ### Sharp Beak Route 40
 Remove Flag 518
 
+### Trade in Olivine:
+228 - T26R010 - script file 916, text file 608
+Krabby -> Kingler
+Voltorb -> Electrode
 
+SetVarFromVariable 0x8004 0x800C
+	GetPartyPokemonID 0x8004 0x8005
+	// GetRequestedPokemon 0x800C
+	CompareVars 0x8005 0x800C -> CompareVars 0x8005 99
+	JumpIf DIFFERENT Function#4
+
+#define SPECIES_KINGLER        99
 
 ### Remove Rod in Olivine
 230: T26R0601

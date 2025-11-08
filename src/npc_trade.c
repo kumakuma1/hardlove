@@ -41,7 +41,8 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
         trade_dat->heldItem = ITEM_NONE;
         trade_dat->gender = POKEMON_GENDER_FEMALE;
         // random ability
-    } else if (tradeno == NPC_TRADE_MUSCLE_MACHOP) {
+    }
+    else if (tradeno == NPC_TRADE_MUSCLE_MACHOP) {
         nature = gf_rand() % 3;
         if (nature == 0) {
             trade_dat->give_species = SPECIES_INFERNAPE;
@@ -57,17 +58,24 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
 
         trade_dat->gender = POKEMON_GENDER_FEMALE;
         level = 36;
-    } else if (tradeno == NPC_TRADE_SHUCKIE_SHUCKLE) {
+    }
+    else if (tradeno == NPC_TRADE_SHUCKIE_SHUCKLE) {
         trade_dat->give_species = SPECIES_PIDGEY;
 
-        trade_dat->heldItem = ITEM_NONE;
+        trade_dat->heldItem = ITEM_CHARTI_BERRY;
         trade_dat->gender = POKEMON_GENDER_MALE;
         level = 5;
+    }
+    else if (tradeno == NPC_TRADE_BILLY_VOLTORB) {
+        trade_dat->give_species = SPECIES_ELECTRODE;
+
+        trade_dat->heldItem = ITEM_YACHE_BERRY;
+        trade_dat->gender = POKEMON_GENDER_MALE;
     }
 #endif
     randomIV(trade_dat);
     PokeParaSet(mon, trade_dat->give_species, level, 32, FALSE, trade_dat->pid, OT_ID_PRESET, trade_dat->otId); // OT_ID_PRESET, trade_dat->otId);
-    if (trade_dat->give_species == SPECIES_ARCANINE)
+    if (trade_dat->give_species == SPECIES_ARCANINE || trade_dat->give_species == SPECIES_ELECTRODE)
     {
         int form = 1;
         SetMonData(mon, MON_DATA_FORM, &form);
