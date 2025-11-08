@@ -117496,24 +117496,7 @@
       "MOVE_ROOST"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_COVET",
-      "MOVE_DEFOG",
-      "MOVE_DUAL_WINGBEAT",
-      "MOVE_FALSE_SWIPE",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_GRASSY_GLIDE",
-      "MOVE_GRASS_PLEDGE",
-      "MOVE_MAGICAL_LEAF",
-      "MOVE_PSYCHO_CUT",
-      "MOVE_REST",
-      "MOVE_SEED_BOMB",
-      "MOVE_SHADOW_CLAW",
-      "MOVE_SKY_ATTACK",
-      "MOVE_SNORE",
-      "MOVE_SWIFT",
-      "MOVE_SYNTHESIS",
-      "MOVE_WORRY_SEED"
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_DARTRIX": {
@@ -117651,25 +117634,7 @@
       "MOVE_ROOST"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_COVET",
-      "MOVE_DEFOG",
-      "MOVE_DUAL_WINGBEAT",
-      "MOVE_ENERGY_BALL",
-      "MOVE_FALSE_SWIPE",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_GRASSY_GLIDE",
-      "MOVE_GRASS_PLEDGE",
-      "MOVE_MAGICAL_LEAF",
-      "MOVE_PSYCHO_CUT",
-      "MOVE_REST",
-      "MOVE_SEED_BOMB",
-      "MOVE_SHADOW_CLAW",
-      "MOVE_SKY_ATTACK",
-      "MOVE_SNORE",
-      "MOVE_SWIFT",
-      "MOVE_SYNTHESIS",
-      "MOVE_WORRY_SEED"
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_DECIDUEYE": {
@@ -117842,23 +117807,8 @@
       "MOVE_ROOST"
     ],
     "TutorMoves": [
-      "MOVE_COVET",
-      "MOVE_DEFOG",
-      "MOVE_DUAL_WINGBEAT",
-      "MOVE_FRENZY_PLANT",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_GRASSY_GLIDE",
-      "MOVE_GRASS_PLEDGE",
-      "MOVE_LASER_FOCUS",
-      "MOVE_POLTERGEIST",
-      "MOVE_SEED_BOMB",
-      "MOVE_SKITTER_SMACK",
-      "MOVE_SKY_ATTACK",
-      "MOVE_SNORE",
-      "MOVE_SPITE",
-      "MOVE_SYNTHESIS",
-      "MOVE_TAILWIND",
-      "MOVE_WORRY_SEED"
+        "MOVE_HEADBUTT",
+        "MOVE_HURRICANE"
     ]
   },
   "SPECIES_LITTEN": {
@@ -118283,7 +118233,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -118413,19 +118362,9 @@
       "MOVE_LIFE_DEW"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_COVET",
-      "MOVE_FLIP_TURN",
-      "MOVE_HELPING_HAND",
-      "MOVE_HYPER_VOICE",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_TAIL",
-      "MOVE_SNORE",
-      "MOVE_TRIPLE_AXEL",
-      "MOVE_UPROAR",
-      "MOVE_WATER_PLEDGE",
-      "MOVE_WATER_PULSE",
-      "MOVE_WONDER_ROOM"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP"
     ]
   },
   "SPECIES_BRIONNE": {
@@ -118555,19 +118494,9 @@
       "MOVE_PERISH_SONG"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_COVET",
-      "MOVE_FLIP_TURN",
-      "MOVE_HELPING_HAND",
-      "MOVE_HYPER_VOICE",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_TAIL",
-      "MOVE_SNORE",
-      "MOVE_TRIPLE_AXEL",
-      "MOVE_UPROAR",
-      "MOVE_WATER_PLEDGE",
-      "MOVE_WATER_PULSE",
-      "MOVE_WONDER_ROOM"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP"
     ]
   },
   "SPECIES_PRIMARINA": {
@@ -118716,23 +118645,9 @@
       "MOVE_PERISH_SONG"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_COVET",
-      "MOVE_FLIP_TURN",
-      "MOVE_HELPING_HAND",
-      "MOVE_HYDRO_CANNON",
-      "MOVE_HYPER_VOICE",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_TAIL",
-      "MOVE_LIQUIDATION",
-      "MOVE_MAGIC_COAT",
-      "MOVE_MISTY_EXPLOSION",
-      "MOVE_SNORE",
-      "MOVE_TRIPLE_AXEL",
-      "MOVE_UPROAR",
-      "MOVE_WATER_PLEDGE",
-      "MOVE_WATER_PULSE",
-      "MOVE_WONDER_ROOM"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP"
     ]
   },
   "SPECIES_PIKIPEK": {
@@ -120341,22 +120256,7 @@
       "MOVE_STICKY_WEB"
     ],
     "TutorMoves": [
-      "MOVE_AFTER_YOU",
-      "MOVE_ALLY_SWITCH",
-      "MOVE_BUG_BITE",
-      "MOVE_COVET",
-      "MOVE_DEFOG",
-      "MOVE_DUAL_WINGBEAT",
-      "MOVE_HELPING_HAND",
-      "MOVE_LAST_RESORT",
-      "MOVE_MAGIC_ROOM",
-      "MOVE_SIGNAL_BEAM",
-      "MOVE_SKILL_SWAP",
-      "MOVE_SNORE",
-      "MOVE_TAILWIND",
-      "MOVE_TELEKINESIS",
-      "MOVE_TRICK",
-      "MOVE_WONDER_ROOM"
+      "MOVE_BUG_BITE"
     ]
   },
   "SPECIES_RIBOMBEE": {
@@ -120491,22 +120391,7 @@
       "MOVE_STICKY_WEB"
     ],
     "TutorMoves": [
-      "MOVE_AFTER_YOU",
-      "MOVE_ALLY_SWITCH",
-      "MOVE_BUG_BITE",
-      "MOVE_COVET",
-      "MOVE_DEFOG",
-      "MOVE_DUAL_WINGBEAT",
-      "MOVE_HELPING_HAND",
-      "MOVE_LAST_RESORT",
-      "MOVE_MAGIC_ROOM",
-      "MOVE_SIGNAL_BEAM",
-      "MOVE_SKILL_SWAP",
-      "MOVE_SNORE",
-      "MOVE_TAILWIND",
-      "MOVE_TELEKINESIS",
-      "MOVE_TRICK",
-      "MOVE_WONDER_ROOM"
+      "MOVE_BUG_BITE"
     ]
   },
   "SPECIES_ROCKRUFF": {
@@ -120632,18 +120517,8 @@
       "MOVE_SUCKER_PUNCH"
     ],
     "TutorMoves": [
-      "MOVE_COVET",
-      "MOVE_EARTH_POWER",
-      "MOVE_ENDEAVOR",
-      "MOVE_HYPER_VOICE",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_LAST_RESORT",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_LYCANROC": {
@@ -120783,19 +120658,9 @@
       "MOVE_THRASH"
     ],
     "TutorMoves": [
-      "MOVE_COVET",
-      "MOVE_DRILL_RUN",
-      "MOVE_EARTH_POWER",
-      "MOVE_ENDEAVOR",
-      "MOVE_HYPER_VOICE",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_LAST_RESORT",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_WISHIWASHI": {
@@ -121338,15 +121203,8 @@
       "MOVE_SMACK_DOWN"
     ],
     "TutorMoves": [
-      "MOVE_EARTH_POWER",
-      "MOVE_ENDEAVOR",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_LOW_KICK",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_SUPERPOWER"
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_MUDSDALE": {
@@ -121484,16 +121342,8 @@
       "MOVE_SMACK_DOWN"
     ],
     "TutorMoves": [
-      "MOVE_EARTH_POWER",
-      "MOVE_ENDEAVOR",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_LASH_OUT",
-      "MOVE_LOW_KICK",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_SUPERPOWER"
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_DEWPIDER": {
@@ -121613,7 +121463,10 @@
       "MOVE_STICKY_WEB"
     ],
     "TutorMoves": [
+        "MOVE_BLIZZARD",
         "MOVE_BUG_BITE",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP",
         "MOVE_POISON_JAB"
     ]
   },
@@ -121745,20 +121598,11 @@
       "MOVE_STOCKPILE"
     ],
     "TutorMoves": [
-      "MOVE_BUG_BITE",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_LASER_FOCUS",
-      "MOVE_LIQUIDATION",
-      "MOVE_MAGIC_COAT",
-      "MOVE_MAGIC_ROOM",
-      "MOVE_POISON_JAB",
-      "MOVE_SIGNAL_BEAM",
-      "MOVE_SKITTER_SMACK",
-      "MOVE_SNORE",
-      "MOVE_WATER_PULSE",
-      "MOVE_WONDER_ROOM"
+        "MOVE_BLIZZARD",
+        "MOVE_BUG_BITE",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_FOMANTIS": {
@@ -122156,17 +122000,6 @@
       "MOVE_STUN_SPORE"
     ],
     "TutorMoves": [
-      "MOVE_AFTER_YOU",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_MAGIC_COAT",
-      "MOVE_MAGIC_ROOM",
-      "MOVE_RECYCLE",
-      "MOVE_SEED_BOMB",
-      "MOVE_SIGNAL_BEAM",
-      "MOVE_SNORE",
-      "MOVE_SYNTHESIS",
-      "MOVE_WONDER_ROOM",
-      "MOVE_WORRY_SEED"
     ]
   },
   "SPECIES_SHIINOTIC": {
@@ -122281,17 +122114,6 @@
       "MOVE_STUN_SPORE"
     ],
     "TutorMoves": [
-      "MOVE_AFTER_YOU",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_MAGIC_COAT",
-      "MOVE_MAGIC_ROOM",
-      "MOVE_RECYCLE",
-      "MOVE_SEED_BOMB",
-      "MOVE_SIGNAL_BEAM",
-      "MOVE_SNORE",
-      "MOVE_SYNTHESIS",
-      "MOVE_WONDER_ROOM",
-      "MOVE_WORRY_SEED"
     ]
   },
   "SPECIES_SALANDIT": {
@@ -122416,18 +122238,9 @@
       "MOVE_SAND_ATTACK"
     ],
     "TutorMoves": [
-      "MOVE_COVET",
-      "MOVE_DRAGON_PULSE",
-      "MOVE_FOUL_PLAY",
-      "MOVE_GUNK_SHOT",
-      "MOVE_HEAT_WAVE",
-      "MOVE_HELPING_HAND",
-      "MOVE_IRON_TAIL",
-      "MOVE_KNOCK_OFF",
-      "MOVE_SCALE_SHOT",
-      "MOVE_SKITTER_SMACK",
-      "MOVE_SNATCH",
-      "MOVE_SNORE"
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_SALAZZLE": {
@@ -122576,20 +122389,9 @@
       "MOVE_SAND_ATTACK"
     ],
     "TutorMoves": [
-      "MOVE_CORROSIVE_GAS",
-      "MOVE_COVET",
-      "MOVE_DRAGON_PULSE",
-      "MOVE_FOUL_PLAY",
-      "MOVE_GUNK_SHOT",
-      "MOVE_HEAT_WAVE",
-      "MOVE_HELPING_HAND",
-      "MOVE_IRON_TAIL",
-      "MOVE_KNOCK_OFF",
-      "MOVE_LASER_FOCUS",
-      "MOVE_SCALE_SHOT",
-      "MOVE_SKITTER_SMACK",
-      "MOVE_SNATCH",
-      "MOVE_SNORE"
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_STUFFUL": {
@@ -122697,19 +122499,10 @@
       "MOVE_STOMP"
     ],
     "TutorMoves": [
-      "MOVE_BIND",
-      "MOVE_COACHING",
-      "MOVE_DUAL_CHOP",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_ICE_PUNCH",
-      "MOVE_IRON_HEAD",
-      "MOVE_PAIN_SPLIT",
-      "MOVE_ROLE_PLAY",
-      "MOVE_SNORE",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_SUPERPOWER",
-      "MOVE_THUNDER_PUNCH",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_BEWEAR": {
@@ -122834,21 +122627,10 @@
       "MOVE_STOMP"
     ],
     "TutorMoves": [
-      "MOVE_BIND",
-      "MOVE_COACHING",
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_DUAL_CHOP",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_ICE_PUNCH",
-      "MOVE_IRON_HEAD",
-      "MOVE_LOW_KICK",
-      "MOVE_PAIN_SPLIT",
-      "MOVE_ROLE_PLAY",
-      "MOVE_SNORE",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_SUPERPOWER",
-      "MOVE_THUNDER_PUNCH",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_BOUNSWEET": {
@@ -122941,17 +122723,7 @@
       "MOVE_SYNTHESIS"
     ],
     "TutorMoves": [
-      "MOVE_BOUNCE",
-      "MOVE_COVET",
-      "MOVE_ENDEAVOR",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_GRASSY_GLIDE",
-      "MOVE_HELPING_HAND",
-      "MOVE_SEED_BOMB",
-      "MOVE_SNORE",
-      "MOVE_SYNTHESIS",
-      "MOVE_WORRY_SEED",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_STEENEE": {
@@ -123057,19 +122829,7 @@
       "MOVE_SYNTHESIS"
     ],
     "TutorMoves": [
-      "MOVE_BOUNCE",
-      "MOVE_COVET",
-      "MOVE_ENDEAVOR",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_GRASSY_GLIDE",
-      "MOVE_HELPING_HAND",
-      "MOVE_KNOCK_OFF",
-      "MOVE_SEED_BOMB",
-      "MOVE_SNORE",
-      "MOVE_SYNTHESIS",
-      "MOVE_TRIPLE_AXEL",
-      "MOVE_WORRY_SEED",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_TSAREENA": {
@@ -123205,21 +122965,7 @@
       "MOVE_SYNTHESIS"
     ],
     "TutorMoves": [
-      "MOVE_BOUNCE",
-      "MOVE_COVET",
-      "MOVE_ENDEAVOR",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_GRASSY_GLIDE",
-      "MOVE_HELPING_HAND",
-      "MOVE_KNOCK_OFF",
-      "MOVE_LASER_FOCUS",
-      "MOVE_LOW_KICK",
-      "MOVE_SEED_BOMB",
-      "MOVE_SNORE",
-      "MOVE_SYNTHESIS",
-      "MOVE_TRIPLE_AXEL",
-      "MOVE_WORRY_SEED",
-      "MOVE_ZEN_HEADBUTT"
+      "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_COMFEY": {
@@ -123804,8 +123550,6 @@
       "MOVE_WIDE_GUARD"
     ],
     "TutorMoves": [
-      "MOVE_SKITTER_SMACK",
-      "MOVE_SNORE"
     ]
   },
   "SPECIES_GOLISOPOD": {
@@ -123945,22 +123689,11 @@
       "MOVE_WIDE_GUARD"
     ],
     "TutorMoves": [
-      "MOVE_BUG_BITE",
-      "MOVE_DRILL_RUN",
-      "MOVE_DUAL_CHOP",
-      "MOVE_ENDEAVOR",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_KNOCK_OFF",
-      "MOVE_LASER_FOCUS",
-      "MOVE_LIQUIDATION",
-      "MOVE_PAIN_SPLIT",
-      "MOVE_SKITTER_SMACK",
-      "MOVE_SNORE",
-      "MOVE_SPITE",
-      "MOVE_THROAT_CHOP",
-      "MOVE_WATER_PULSE"
+        "MOVE_BLIZZARD",
+        "MOVE_BUG_BITE",
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_SANDYGAST": {
@@ -125125,24 +124858,9 @@
       "MOVE_WIDE_GUARD"
     ],
     "TutorMoves": [
-      "MOVE_BLOCK",
-      "MOVE_BURNING_JEALOUSY",
-      "MOVE_DRACO_METEOR",
-      "MOVE_DRAGON_PULSE",
-      "MOVE_ENDEAVOR",
-      "MOVE_HEAT_WAVE",
-      "MOVE_HYPER_VOICE",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_LASH_OUT",
-      "MOVE_OUTRAGE",
-      "MOVE_SCALE_SHOT",
-      "MOVE_SCORCHING_SANDS",
-      "MOVE_SHOCK_WAVE",
-      "MOVE_SNORE",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_UPROAR"
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_TOGEDEMARU": {
@@ -125275,25 +124993,9 @@
       "MOVE_WISH"
     ],
     "TutorMoves": [
-      "MOVE_AFTER_YOU",
-      "MOVE_BOUNCE",
-      "MOVE_COVET",
-      "MOVE_ELECTROWEB",
-      "MOVE_ENDEAVOR",
-      "MOVE_GRAVITY",
-      "MOVE_HELPING_HAND",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_LAST_RESORT",
-      "MOVE_MAGNET_RISE",
-      "MOVE_RISING_VOLTAGE",
-      "MOVE_ROLE_PLAY",
-      "MOVE_SHOCK_WAVE",
-      "MOVE_SNORE",
-      "MOVE_STEEL_BEAM",
-      "MOVE_STEEL_ROLLER",
-      "MOVE_SUPER_FANG",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_HEADBUTT",
+        "MOVE_POISON_JAB",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_MIMIKYU": {
@@ -125438,19 +125140,7 @@
       "MOVE_DESTINY_BOND"
     ],
     "TutorMoves": [
-      "MOVE_AFTER_YOU",
-      "MOVE_BURNING_JEALOUSY",
-      "MOVE_COVET",
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_LAST_RESORT",
-      "MOVE_MAGIC_ROOM",
-      "MOVE_PAIN_SPLIT",
-      "MOVE_SNATCH",
-      "MOVE_SNORE",
-      "MOVE_SPITE",
-      "MOVE_TELEKINESIS",
-      "MOVE_TRICK"
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_BRUXISH": {
@@ -125577,21 +125267,9 @@
       "MOVE_WATER_PULSE"
     ],
     "TutorMoves": [
-      "MOVE_AFTER_YOU",
-      "MOVE_ALLY_SWITCH",
-      "MOVE_AQUA_TAIL",
-      "MOVE_IRON_TAIL",
-      "MOVE_LIQUIDATION",
-      "MOVE_MAGIC_COAT",
-      "MOVE_MAGIC_ROOM",
-      "MOVE_PAIN_SPLIT",
-      "MOVE_SIGNAL_BEAM",
-      "MOVE_SNATCH",
-      "MOVE_SNORE",
-      "MOVE_TELEKINESIS",
-      "MOVE_UPROAR",
-      "MOVE_WATER_PULSE",
-      "MOVE_WONDER_ROOM"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP"
     ]
   },
   "SPECIES_DRAMPA": {
@@ -125901,22 +125579,8 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_ALLY_SWITCH",
-      "MOVE_BLOCK",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_GRASSY_GLIDE",
-      "MOVE_HELPING_HAND",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_KNOCK_OFF",
-      "MOVE_PAIN_SPLIT",
-      "MOVE_POLTERGEIST",
-      "MOVE_ROLE_PLAY",
-      "MOVE_SNORE",
-      "MOVE_SPITE",
-      "MOVE_STEEL_ROLLER",
-      "MOVE_SYNTHESIS",
-      "MOVE_TELEKINESIS"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HYDRO_PUMP"
     ]
   },
   "SPECIES_JANGMO_O": {
@@ -126039,18 +125703,8 @@
       "MOVE_FOCUS_PUNCH"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_DRACO_METEOR",
-      "MOVE_DRAGON_PULSE",
-      "MOVE_DUAL_CHOP",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_LOW_KICK",
-      "MOVE_OUTRAGE",
-      "MOVE_SCALE_SHOT",
-      "MOVE_SNORE",
-      "MOVE_UPROAR"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_HAKAMO_O": {
@@ -126193,20 +125847,13 @@
       "MOVE_FOCUS_PUNCH"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_COACHING",
-      "MOVE_DRACO_METEOR",
-      "MOVE_DRAGON_PULSE",
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_DUAL_CHOP",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_LOW_KICK",
-      "MOVE_OUTRAGE",
-      "MOVE_SCALE_SHOT",
-      "MOVE_SNORE",
-      "MOVE_UPROAR"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_POISON_JAB",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_KOMMO_O": {
@@ -126393,32 +126040,13 @@
       "MOVE_FOCUS_PUNCH"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_COACHING",
-      "MOVE_DRACO_METEOR",
-      "MOVE_DRAGON_PULSE",
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_DUAL_CHOP",
-      "MOVE_ENDEAVOR",
-      "MOVE_FIRE_PUNCH",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_HYPER_VOICE",
-      "MOVE_ICE_PUNCH",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_LASER_FOCUS",
-      "MOVE_LOW_KICK",
-      "MOVE_OUTRAGE",
-      "MOVE_SCALE_SHOT",
-      "MOVE_SHOCK_WAVE",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_SUPERPOWER",
-      "MOVE_THUNDER_PUNCH",
-      "MOVE_UPROAR",
-      "MOVE_WATER_PULSE"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_POISON_JAB",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_TAPU_KOKO": {
@@ -129265,35 +128893,10 @@
       "MOVE_WISH"
     ],
     "TutorMoves": [
-      "MOVE_ALLY_SWITCH",
-      "MOVE_BABY_DOLL_EYES",
-      "MOVE_CALM_MIND",
-      "MOVE_CHARGE_BEAM",
-      "MOVE_COVET",
-      "MOVE_ELECTROWEB",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HELPING_HAND",
-      "MOVE_HYPER_BEAM",
-      "MOVE_IRON_TAIL",
-      "MOVE_KNOCK_OFF",
-      "MOVE_LASER_FOCUS",
-      "MOVE_MAGIC_COAT",
-      "MOVE_MAGIC_ROOM",
-      "MOVE_MAGNET_RISE",
-      "MOVE_PLAY_ROUGH",
-      "MOVE_RECYCLE",
-      "MOVE_REST",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SHOCK_WAVE",
-      "MOVE_SIGNAL_BEAM",
-      "MOVE_SNORE",
-      "MOVE_SWIFT",
-      "MOVE_TELEKINESIS",
-      "MOVE_THUNDERBOLT",
-      "MOVE_THUNDER_PUNCH",
-      "MOVE_VOLT_TACKLE",
-      "MOVE_WILD_CHARGE"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_SANDSHREW_ALOLAN": {
@@ -129452,20 +129055,12 @@
       "MOVE_NIGHT_SLASH"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_COVET",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_ICE_PUNCH",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_KNOCK_OFF",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STEEL_BEAM",
-      "MOVE_SUPER_FANG",
-      "MOVE_THROAT_CHOP"
+        "MOVE_BLIZZARD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_SANDSLASH_ALOLAN": {
@@ -129632,21 +129227,12 @@
       "MOVE_NIGHT_SLASH"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_COVET",
-      "MOVE_DRILL_RUN",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_ICE_PUNCH",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_KNOCK_OFF",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STEEL_BEAM",
-      "MOVE_SUPER_FANG",
-      "MOVE_THROAT_CHOP"
+        "MOVE_BLIZZARD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_VULPIX_ALOLAN": {
@@ -130908,23 +130494,13 @@
       "MOVE_ZAP_CANNON"
     ],
     "TutorMoves": [
-      "MOVE_BLOCK",
-      "MOVE_BULLDOZE",
-      "MOVE_EARTH_POWER",
-      "MOVE_ELECTROWEB",
-      "MOVE_FIRE_PUNCH",
-      "MOVE_FLAMETHROWER",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_MAGNET_RISE",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STONE_EDGE",
-      "MOVE_SUPERPOWER",
-      "MOVE_THUNDER_PUNCH"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_GRAVELER_ALOLAN": {
@@ -131078,26 +130654,13 @@
       "MOVE_ZAP_CANNON"
     ],
     "TutorMoves": [
-      "MOVE_ALLY_SWITCH",
-      "MOVE_BLOCK",
-      "MOVE_BULLDOZE",
-      "MOVE_EARTH_POWER",
-      "MOVE_ELECTROWEB",
-      "MOVE_FIRE_PUNCH",
-      "MOVE_FLAMETHROWER",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_MAGNET_RISE",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SHOCK_WAVE",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_STONE_EDGE",
-      "MOVE_SUPERPOWER",
-      "MOVE_THUNDER_PUNCH"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_GOLEM_ALOLAN": {
@@ -131274,29 +130837,13 @@
       "MOVE_ZAP_CANNON"
     ],
     "TutorMoves": [
-      "MOVE_ALLY_SWITCH",
-      "MOVE_BLOCK",
-      "MOVE_BULLDOZE",
-      "MOVE_EARTH_POWER",
-      "MOVE_ELECTROWEB",
-      "MOVE_FIRE_PUNCH",
-      "MOVE_FLAMETHROWER",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_MAGNET_RISE",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SHOCK_WAVE",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_STONE_EDGE",
-      "MOVE_SUPERPOWER",
-      "MOVE_THUNDER_PUNCH"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_GRIMER_ALOLAN": {
@@ -131455,17 +131002,14 @@
       "MOVE_CLEAR_SMOG"
     ],
     "TutorMoves": [
-      "MOVE_FIRE_PUNCH",
-      "MOVE_GASTRO_ACID",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_GUNK_SHOT",
-      "MOVE_ICE_PUNCH",
-      "MOVE_KNOCK_OFF",
-      "MOVE_PAIN_SPLIT",
-      "MOVE_SHOCK_WAVE",
-      "MOVE_SNORE",
-      "MOVE_SPITE",
-      "MOVE_THUNDER_PUNCH"
+        "MOVE_BLIZZARD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_POISON_JAB",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_MUK_ALOLAN": {
@@ -131633,20 +131177,14 @@
       "MOVE_CLEAR_SMOG"
     ],
     "TutorMoves": [
-      "MOVE_BLOCK",
-      "MOVE_FIRE_PUNCH",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_GASTRO_ACID",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_GUNK_SHOT",
-      "MOVE_ICE_PUNCH",
-      "MOVE_KNOCK_OFF",
-      "MOVE_PAIN_SPLIT",
-      "MOVE_RECYCLE",
-      "MOVE_SHOCK_WAVE",
-      "MOVE_SNORE",
-      "MOVE_SPITE",
-      "MOVE_THUNDER_PUNCH"
+        "MOVE_BLIZZARD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_ICE_PUNCH",
+        "MOVE_POISON_JAB",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_EXEGGUTOR_ALOLAN": {
@@ -131816,25 +131354,8 @@
       "MOVE_STUN_SPORE"
     ],
     "TutorMoves": [
-      "MOVE_BLOCK",
-      "MOVE_DRACO_METEOR",
-      "MOVE_DRAGON_PULSE",
-      "MOVE_GIGA_DRAIN",
-      "MOVE_GRAVITY",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_KNOCK_OFF",
-      "MOVE_LOW_KICK",
-      "MOVE_OUTRAGE",
-      "MOVE_SEED_BOMB",
-      "MOVE_SKILL_SWAP",
-      "MOVE_SNORE",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_SUPERPOWER",
-      "MOVE_SYNTHESIS",
-      "MOVE_TELEKINESIS",
-      "MOVE_WORRY_SEED",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_MAROWAK_ALOLAN": {
@@ -132239,28 +131760,11 @@
       "MOVE_THRASH"
     ],
     "TutorMoves": [
-      "MOVE_COVET",
-      "MOVE_DUAL_CHOP",
-      "MOVE_EARTH_POWER",
-      "MOVE_ENDEAVOR",
-      "MOVE_FIRE_PUNCH",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_FOUL_PLAY",
-      "MOVE_HYPER_VOICE",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_LASER_FOCUS",
-      "MOVE_LASH_OUT",
-      "MOVE_LAST_RESORT",
-      "MOVE_OUTRAGE",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_THROAT_CHOP",
-      "MOVE_THUNDER_PUNCH",
-      "MOVE_UPROAR",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_LYCANROC_DUSK": {
@@ -132457,20 +131961,9 @@
       "MOVE_THRASH"
     ],
     "TutorMoves": [
-      "MOVE_COVET",
-      "MOVE_DRILL_RUN",
-      "MOVE_EARTH_POWER",
-      "MOVE_ENDEAVOR",
-      "MOVE_HYPER_VOICE",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_LAST_RESORT",
-      "MOVE_OUTRAGE",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_POIPOLE": {
@@ -133445,8 +132938,7 @@
       "MOVE_WORRY_SEED"
     ],
     "TutorMoves": [
-      "MOVE_GRASSY_GLIDE",
-      "MOVE_GRASS_PLEDGE"
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_THWACKEY": {
@@ -133554,8 +133046,7 @@
       "MOVE_WORRY_SEED"
     ],
     "TutorMoves": [
-      "MOVE_GRASSY_GLIDE",
-      "MOVE_GRASS_PLEDGE"
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_RILLABOOM": {
@@ -133687,9 +133178,8 @@
       "MOVE_WORRY_SEED"
     ],
     "TutorMoves": [
-      "MOVE_FRENZY_PLANT",
-      "MOVE_GRASSY_GLIDE",
-      "MOVE_GRASS_PLEDGE"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_SCORBUNNY": {
@@ -133795,7 +133285,8 @@
       "MOVE_HIGH_JUMP_KICK"
     ],
     "TutorMoves": [
-      "MOVE_FIRE_PLEDGE"
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_RABOOT": {
@@ -133903,7 +133394,8 @@
       "MOVE_SUPER_FANG"
     ],
     "TutorMoves": [
-      "MOVE_FIRE_PLEDGE"
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_CINDERACE": {
@@ -134043,10 +133535,8 @@
       "MOVE_SUPER_FANG"
     ],
     "TutorMoves": [
-      "MOVE_BLAST_BURN",
-      "MOVE_COACHING",
-      "MOVE_FIRE_PLEDGE",
-      "MOVE_SCORCHING_SANDS"
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_SOBBLE": {
@@ -134141,7 +133631,8 @@
       "MOVE_MIST"
     ],
     "TutorMoves": [
-      "MOVE_WATER_PLEDGE"
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP"
     ]
   },
   "SPECIES_DRIZZILE": {
@@ -134237,7 +133728,9 @@
       "MOVE_MIST"
     ],
     "TutorMoves": [
-      "MOVE_WATER_PLEDGE"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP"
     ]
   },
   "SPECIES_INTELEON": {
@@ -134370,9 +133863,9 @@
       "MOVE_MIST"
     ],
     "TutorMoves": [
-      "MOVE_HYDRO_CANNON",
-      "MOVE_SCALE_SHOT",
-      "MOVE_WATER_PLEDGE"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP"
     ]
   },
   "SPECIES_SKWOVET": {
@@ -134691,7 +134184,6 @@
       "MOVE_TAILWIND"
     ],
     "TutorMoves": [
-      "MOVE_DUAL_WINGBEAT"
     ]
   },
   "SPECIES_CORVISQUIRE": {
@@ -134793,7 +134285,6 @@
       "MOVE_TAILWIND"
     ],
     "TutorMoves": [
-      "MOVE_DUAL_WINGBEAT"
     ]
   },
   "SPECIES_CORVIKNIGHT": {
@@ -134922,8 +134413,8 @@
       "MOVE_TAILWIND"
     ],
     "TutorMoves": [
-      "MOVE_DUAL_WINGBEAT",
-      "MOVE_STEEL_BEAM"
+        "MOVE_HEADBUTT",
+        "MOVE_HURRICANE"
     ]
   },
   "SPECIES_BLIPBUG": {
@@ -134940,7 +134431,8 @@
       "MOVE_STICKY_WEB",
       "MOVE_SUPERSONIC"
     ],
-    "TutorMoves": []
+    "TutorMoves": [
+    ]
   },
   "SPECIES_DOTTLER": {
     "LevelMoves": [
@@ -135023,7 +134515,6 @@
       "MOVE_SUPERSONIC"
     ],
     "TutorMoves": [
-      "MOVE_EXPANDING_FORCE"
     ]
   },
   "SPECIES_ORBEETLE": {
@@ -135146,7 +134637,6 @@
       "MOVE_SUPERSONIC"
     ],
     "TutorMoves": [
-      "MOVE_EXPANDING_FORCE"
     ]
   },
   "SPECIES_NICKIT": {
@@ -135428,7 +134918,6 @@
       "MOVE_WORRY_SEED"
     ],
     "TutorMoves": [
-      "MOVE_GRASSY_GLIDE"
     ]
   },
   "SPECIES_ELDEGOSS": {
@@ -135528,7 +135017,6 @@
       "MOVE_WORRY_SEED"
     ],
     "TutorMoves": [
-      "MOVE_GRASSY_GLIDE"
     ]
   },
   "SPECIES_WOOLOO": {
@@ -135781,8 +135269,9 @@
       "MOVE_SHELL_SMASH"
     ],
     "TutorMoves": [
-      "MOVE_HEADBUTT",
-      "MOVE_POISON_JAB"
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_DREDNAW": {
@@ -135912,7 +135401,10 @@
       "MOVE_SHELL_SMASH"
     ],
     "TutorMoves": [
+        "MOVE_BLIZZARD",
         "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -135998,7 +135490,8 @@
       "MOVE_SAND_ATTACK"
     ],
     "TutorMoves": [
-      "MOVE_RISING_VOLTAGE"
+        "MOVE_HEADBUTT",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_BOLTUND": {
@@ -136108,7 +135601,8 @@
       "MOVE_SAND_ATTACK"
     ],
     "TutorMoves": [
-      "MOVE_RISING_VOLTAGE"
+        "MOVE_HEADBUTT",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_ROLYCOLY": {
@@ -137149,6 +136643,9 @@
       "MOVE_THRASH"
     ],
     "TutorMoves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP",
         "MOVE_POISON_JAB"
     ]
   },
@@ -137274,6 +136771,10 @@
       "MOVE_THRASH"
     ],
     "TutorMoves": [
+        "MOVE_BLIZZARD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP",
         "MOVE_POISON_JAB"
     ]
   },
@@ -137475,7 +136976,12 @@
       "MOVE_METAL_SOUND"
     ],
     "TutorMoves": [
-      "MOVE_RISING_VOLTAGE"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_POISON_JAB",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_SIZZLIPEDE": {
@@ -137558,8 +137064,7 @@
       "MOVE_STRUGGLE_BUG"
     ],
     "TutorMoves": [
-      "MOVE_SCORCHING_SANDS",
-      "MOVE_SKITTER_SMACK"
+        "MOVE_BUG_BITE"
     ]
   },
   "SPECIES_CENTISKORCH": {
@@ -137662,8 +137167,9 @@
       "MOVE_STRUGGLE_BUG"
     ],
     "TutorMoves": [
-      "MOVE_SCORCHING_SANDS",
-      "MOVE_SKITTER_SMACK"
+        "MOVE_BUG_BITE",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_CLOBBOPUS": {
@@ -138178,7 +137684,6 @@
       "MOVE_QUASH"
     ],
     "TutorMoves": [
-      "MOVE_EXPANDING_FORCE"
     ]
   },
   "SPECIES_HATTREM": {
@@ -138283,7 +137788,6 @@
       "MOVE_QUASH"
     ],
     "TutorMoves": [
-      "MOVE_EXPANDING_FORCE"
     ]
   },
   "SPECIES_HATTERENE": {
@@ -138428,8 +137932,6 @@
       "MOVE_QUASH"
     ],
     "TutorMoves": [
-      "MOVE_EXPANDING_FORCE",
-      "MOVE_MISTY_EXPLOSION"
     ]
   },
   "SPECIES_IMPIDIMP": {
@@ -138531,8 +138033,7 @@
       "MOVE_PARTING_SHOT"
     ],
     "TutorMoves": [
-      "MOVE_BURNING_JEALOUSY",
-      "MOVE_LASH_OUT"
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_MORGREM": {
@@ -138640,8 +138141,7 @@
       "MOVE_PARTING_SHOT"
     ],
     "TutorMoves": [
-      "MOVE_BURNING_JEALOUSY",
-      "MOVE_LASH_OUT"
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_GRIMMSNARL": {
@@ -138777,8 +138277,11 @@
       "MOVE_PARTING_SHOT"
     ],
     "TutorMoves": [
-      "MOVE_BURNING_JEALOUSY",
-      "MOVE_LASH_OUT"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_OBSTAGOON": {
@@ -138924,7 +138427,13 @@
       "MOVE_QUICK_GUARD"
     ],
     "TutorMoves": [
-      "MOVE_LASH_OUT"
+        "MOVE_BLIZZARD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_PERRSERKER": {
@@ -139084,8 +138593,9 @@
       "MOVE_SPITE"
     ],
     "TutorMoves": [
-      "MOVE_LASH_OUT",
-      "MOVE_STEEL_BEAM"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_CURSOLA": {
@@ -140854,8 +140364,8 @@
       "MOVE_WHIRLWIND"
     ],
     "TutorMoves": [
-      "MOVE_STEEL_BEAM",
-      "MOVE_STEEL_ROLLER"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_COPPERAJAH": {
@@ -140987,8 +140497,8 @@
       "MOVE_WHIRLWIND"
     ],
     "TutorMoves": [
-      "MOVE_STEEL_BEAM",
-      "MOVE_STEEL_ROLLER"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_DRACOZOLT": {
@@ -141510,9 +141020,9 @@
       "MOVE_NIGHT_SLASH"
     ],
     "TutorMoves": [
-      "MOVE_DRACO_METEOR",
-      "MOVE_STEEL_BEAM",
-      "MOVE_STEEL_ROLLER"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_DREEPY": {
@@ -141563,7 +141073,6 @@
       "MOVE_SUCKER_PUNCH"
     ],
     "TutorMoves": [
-      "MOVE_DRACO_METEOR"
     ]
   },
   "SPECIES_DRAKLOAK": {
@@ -141692,7 +141201,10 @@
       "MOVE_SUCKER_PUNCH"
     ],
     "TutorMoves": [
-      "MOVE_DRACO_METEOR"
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_DRAGAPULT": {
@@ -141832,7 +141344,10 @@
       "MOVE_SUCKER_PUNCH"
     ],
     "TutorMoves": [
-      "MOVE_DRACO_METEOR"
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_ZACIAN": {
@@ -142283,7 +141798,11 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_COACHING"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_URSHIFU": {
@@ -142432,8 +141951,13 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_COACHING",
-      "MOVE_LASH_OUT"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_POISON_JAB",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_ZARUDE": {
@@ -143287,8 +142811,9 @@
       "MOVE_SPITE"
     ],
     "TutorMoves": [
-      "MOVE_LASH_OUT",
-      "MOVE_STEEL_BEAM"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_PONYTA_GALARIAN": {
@@ -144129,6 +143654,8 @@
       "MOVE_SWALLOW"
     ],
     "TutorMoves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_MR_MIME_GALARIAN": {
@@ -145123,7 +144650,9 @@
       "MOVE_QUICK_GUARD"
     ],
     "TutorMoves": [
-      "MOVE_LASH_OUT"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_LINOONE_GALARIAN": {
@@ -145242,7 +144771,9 @@
       "MOVE_QUICK_GUARD"
     ],
     "TutorMoves": [
-      "MOVE_LASH_OUT"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_DARUMAKA_GALARIAN": {
@@ -145903,7 +145434,12 @@
       "MOVE_METAL_SOUND"
     ],
     "TutorMoves": [
-      "MOVE_RISING_VOLTAGE"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_POISON_JAB",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_INDEEDEE_FEMALE": {
@@ -146159,7 +145695,13 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_COACHING"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_POISON_JAB",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_CALYREX_ICE_RIDER": {
@@ -146743,22 +146285,8 @@
       "MOVE_THRASH"
     ],
     "TutorMoves": [
-      "MOVE_BULLDOZE",
-      "MOVE_CALM_MIND",
-      "MOVE_CHARGE_BEAM",
-      "MOVE_ENERGY_BALL",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HIGH_HORSEPOWER",
-      "MOVE_HYPER_BEAM",
-      "MOVE_IRON_TAIL",
-      "MOVE_MEGAHORN",
-      "MOVE_PSYCHIC",
-      "MOVE_REST",
-      "MOVE_SHADOW_BALL",
-      "MOVE_SWIFT",
-      "MOVE_THUNDERBOLT",
-      "MOVE_WILD_CHARGE",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_HEADBUTT",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_KLEAVOR": {
@@ -146890,21 +146418,11 @@
       "MOVE_QUICK_GUARD"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_CALM_MIND",
-      "MOVE_FALSE_SWIPE",
-      "MOVE_FOCUS_ENERGY",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_OMINOUS_WIND",
-      "MOVE_PSYCHO_CUT",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STONE_EDGE",
-      "MOVE_SWIFT",
-      "MOVE_X_SCISSOR"
+        "MOVE_BLIZZARD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_HURRICANE",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_KLEAVOR_LORD": {
@@ -146953,21 +146471,11 @@
     "MachineMoves": [],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_CALM_MIND",
-      "MOVE_FALSE_SWIPE",
-      "MOVE_FOCUS_ENERGY",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_OMINOUS_WIND",
-      "MOVE_PSYCHO_CUT",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STONE_EDGE",
-      "MOVE_SWIFT",
-      "MOVE_X_SCISSOR"
+        "MOVE_BLIZZARD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_HURRICANE",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_URSALUNA": {
@@ -147107,25 +146615,12 @@
       "MOVE_YAWN"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_BABY_DOLL_EYES",
-      "MOVE_BULK_UP",
-      "MOVE_BULLDOZE",
-      "MOVE_EARTH_POWER",
-      "MOVE_FIRE_PUNCH",
-      "MOVE_FOCUS_ENERGY",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HIGH_HORSEPOWER",
-      "MOVE_HYPER_BEAM",
-      "MOVE_ICE_PUNCH",
-      "MOVE_PLAY_ROUGH",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SHADOW_CLAW",
-      "MOVE_STONE_EDGE",
-      "MOVE_SWIFT",
-      "MOVE_THUNDER_PUNCH"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_BASCULEGION": {
@@ -147254,20 +146749,8 @@
       "MOVE_LAST_RESPECTS"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_CALM_MIND",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_ICE_BEAM",
-      "MOVE_ICE_FANG",
-      "MOVE_ICY_WIND",
-      "MOVE_OMINOUS_WIND",
-      "MOVE_PSYCHIC",
-      "MOVE_REST",
-      "MOVE_SHADOW_BALL",
-      "MOVE_SWIFT",
-      "MOVE_WATER_PULSE",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_BLIZZARD",
+        "MOVE_HYDRO_PUMP"
     ]
   },
   "SPECIES_SNEASLER": {
@@ -147406,24 +146889,12 @@
       "MOVE_SWITCHEROO"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_BULK_UP",
-      "MOVE_CALM_MIND",
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_FALSE_SWIPE",
-      "MOVE_FOCUS_ENERGY",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_IRON_TAIL",
-      "MOVE_POISON_JAB",
-      "MOVE_POWER_SHIFT",
-      "MOVE_REST",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SHADOW_BALL",
-      "MOVE_SHADOW_CLAW",
-      "MOVE_SNARL",
-      "MOVE_SWIFT",
-      "MOVE_X_SCISSOR"
+        "MOVE_BLIZZARD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_OVERQWIL": {
@@ -147567,20 +147038,10 @@
       "MOVE_WATER_PULSE"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_DARK_PULSE",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_ICE_BALL",
-      "MOVE_ICE_BEAM",
-      "MOVE_ICY_WIND",
-      "MOVE_POISON_JAB",
-      "MOVE_REST",
-      "MOVE_SHADOW_BALL",
-      "MOVE_SLUDGE_BOMB",
-      "MOVE_SPIKES",
-      "MOVE_SWIFT",
-      "MOVE_WATER_PULSE"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_ENAMORUS": {
@@ -147690,19 +147151,8 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_CALM_MIND",
-      "MOVE_DAZZLING_GLEAM",
-      "MOVE_EARTH_POWER",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_MYSTICAL_FIRE",
-      "MOVE_PLAY_ROUGH",
-      "MOVE_POWER_SHIFT",
-      "MOVE_PSYCHIC",
-      "MOVE_REST",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SLUDGE_BOMB",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_GROWLITHE_HISUIAN": {
@@ -147814,18 +147264,9 @@
       "MOVE_THRASH"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_FIRE_FANG",
-      "MOVE_FLAMETHROWER",
-      "MOVE_IRON_TAIL",
-      "MOVE_OUTRAGE",
-      "MOVE_PLAY_ROUGH",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SNARL",
-      "MOVE_SWIFT",
-      "MOVE_WILD_CHARGE"
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_ARCANINE_HISUIAN": {
@@ -147960,24 +147401,9 @@
       "MOVE_THRASH"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_BULLDOZE",
-      "MOVE_FIRE_FANG",
-      "MOVE_FLAMETHROWER",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_OUTRAGE",
-      "MOVE_PLAY_ROUGH",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SNARL",
-      "MOVE_STONE_EDGE",
-      "MOVE_SWIFT",
-      "MOVE_THUNDER_FANG",
-      "MOVE_WILD_CHARGE"
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_ARCANINE_LORD": {
@@ -148022,24 +147448,9 @@
     "MachineMoves": [],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_BULLDOZE",
-      "MOVE_FIRE_FANG",
-      "MOVE_FLAMETHROWER",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_OUTRAGE",
-      "MOVE_PLAY_ROUGH",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SNARL",
-      "MOVE_STONE_EDGE",
-      "MOVE_SWIFT",
-      "MOVE_THUNDER_FANG",
-      "MOVE_WILD_CHARGE"
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_VOLTORB_HISUIAN": {
@@ -148165,14 +147576,7 @@
       "MOVE_WORRY_SEED"
     ],
     "TutorMoves": [
-      "MOVE_CHARGE_BEAM",
-      "MOVE_ENERGY_BALL",
-      "MOVE_ICE_BALL",
-      "MOVE_MAGICAL_LEAF",
-      "MOVE_REST",
-      "MOVE_SWIFT",
-      "MOVE_THUNDERBOLT",
-      "MOVE_WILD_CHARGE"
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_ELECTRODE_HISUIAN": {
@@ -148303,16 +147707,7 @@
       "MOVE_WORRY_SEED"
     ],
     "TutorMoves": [
-      "MOVE_CHARGE_BEAM",
-      "MOVE_ENERGY_BALL",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_ICE_BALL",
-      "MOVE_MAGICAL_LEAF",
-      "MOVE_REST",
-      "MOVE_SWIFT",
-      "MOVE_THUNDERBOLT",
-      "MOVE_WILD_CHARGE"
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_ELECTRODE_LORD": {
@@ -148357,16 +147752,7 @@
     "MachineMoves": [],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_CHARGE_BEAM",
-      "MOVE_ENERGY_BALL",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_ICE_BALL",
-      "MOVE_MAGICAL_LEAF",
-      "MOVE_REST",
-      "MOVE_SWIFT",
-      "MOVE_THUNDERBOLT",
-      "MOVE_WILD_CHARGE"
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_TYPHLOSION_HISUIAN": {
@@ -148504,25 +147890,11 @@
       "MOVE_REVERSAL"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_BULLDOZE",
-      "MOVE_CALM_MIND",
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_FIRE_PUNCH",
-      "MOVE_FLAMETHROWER",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_IRON_TAIL",
-      "MOVE_MYSTICAL_FIRE",
-      "MOVE_OMINOUS_WIND",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SHADOW_BALL",
-      "MOVE_SHADOW_CLAW",
-      "MOVE_SWIFT",
-      "MOVE_THUNDER_PUNCH",
-      "MOVE_WILD_CHARGE"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_QWILFISH_HISUIAN": {
@@ -148663,18 +148035,10 @@
       "MOVE_WATER_PULSE"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_DARK_PULSE",
-      "MOVE_ICE_BALL",
-      "MOVE_ICE_BEAM",
-      "MOVE_ICY_WIND",
-      "MOVE_POISON_JAB",
-      "MOVE_REST",
-      "MOVE_SHADOW_BALL",
-      "MOVE_SLUDGE_BOMB",
-      "MOVE_SPIKES",
-      "MOVE_SWIFT",
-      "MOVE_WATER_PULSE"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_SNEASEL_HISUIAN": {
@@ -148806,21 +148170,9 @@
       "MOVE_SWITCHEROO"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_BULK_UP",
-      "MOVE_CALM_MIND",
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_FALSE_SWIPE",
-      "MOVE_FOCUS_ENERGY",
-      "MOVE_IRON_TAIL",
-      "MOVE_POISON_JAB",
-      "MOVE_REST",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SHADOW_BALL",
-      "MOVE_SHADOW_CLAW",
-      "MOVE_SNARL",
-      "MOVE_SWIFT",
-      "MOVE_X_SCISSOR"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_SAMUROTT_HISUIAN": {
@@ -148955,23 +148307,10 @@
       "MOVE_SCREECH"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_AQUA_TAIL",
-      "MOVE_DARK_PULSE",
-      "MOVE_FALSE_SWIPE",
-      "MOVE_FOCUS_ENERGY",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_ICE_BEAM",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_TAIL",
-      "MOVE_MEGAHORN",
-      "MOVE_POISON_JAB",
-      "MOVE_PSYCHO_CUT",
-      "MOVE_REST",
-      "MOVE_ROCK_SMASH",
-      "MOVE_WATER_PULSE",
-      "MOVE_X_SCISSOR"
+        "MOVE_BLIZZARD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP"
     ]
   },
   "SPECIES_LILLIGANT_HISUIAN": {
@@ -149129,17 +148468,10 @@
       "MOVE_WORRY_SEED"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_BABY_DOLL_EYES",
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_ENERGY_BALL",
-      "MOVE_FOCUS_ENERGY",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_MAGICAL_LEAF",
-      "MOVE_POISON_JAB",
-      "MOVE_REST",
-      "MOVE_ROCK_SMASH"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_HURRICANE",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_LILLIGANT_LADY": {
@@ -149204,17 +148536,10 @@
     "MachineMoves": [],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_BABY_DOLL_EYES",
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_ENERGY_BALL",
-      "MOVE_FOCUS_ENERGY",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_MAGICAL_LEAF",
-      "MOVE_POISON_JAB",
-      "MOVE_REST",
-      "MOVE_ROCK_SMASH"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_HURRICANE",
+        "MOVE_POISON_JAB"
     ]
   },
   "SPECIES_BASCULIN_WHITE_STRIPED": {
@@ -149325,13 +148650,9 @@
       "MOVE_LAST_RESPECTS"
     ],
     "TutorMoves": [
-      "MOVE_AQUA_TAIL",
-      "MOVE_ICE_BEAM",
-      "MOVE_ICE_FANG",
-      "MOVE_ICY_WIND",
-      "MOVE_REST",
-      "MOVE_SWIFT",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP"
     ]
   },
   "SPECIES_ZORUA_HISUIAN": {
@@ -149464,15 +148785,7 @@
       "MOVE_MEMENTO"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_CALM_MIND",
-      "MOVE_DARK_PULSE",
-      "MOVE_REST",
-      "MOVE_SHADOW_BALL",
-      "MOVE_SHADOW_CLAW",
-      "MOVE_SLUDGE_BOMB",
-      "MOVE_SNARL",
-      "MOVE_SWIFT"
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_ZOROARK_HISUIAN": {
@@ -149621,20 +148934,7 @@
       "MOVE_MEMENTO"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_CALM_MIND",
-      "MOVE_DARK_PULSE",
-      "MOVE_FLAMETHROWER",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_OMINOUS_WIND",
-      "MOVE_REST",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SHADOW_BALL",
-      "MOVE_SHADOW_CLAW",
-      "MOVE_SLUDGE_BOMB",
-      "MOVE_SNARL",
-      "MOVE_SWIFT"
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_BRAVIARY_HISUIAN": {
@@ -149899,17 +149199,9 @@
       "MOVE_LIFE_DEW"
     ],
     "TutorMoves": [
-      "MOVE_DRACO_METEOR",
-      "MOVE_ICE_BEAM",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_OUTRAGE",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_SLUDGE_BOMB",
-      "MOVE_STEEL_BEAM",
-      "MOVE_THUNDERBOLT",
-      "MOVE_WATER_PULSE"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_GOODRA_HISUIAN": {
@@ -150059,24 +149351,13 @@
       "MOVE_LIFE_DEW"
     ],
     "TutorMoves": [
-      "MOVE_BULLDOZE",
-      "MOVE_DRACO_METEOR",
-      "MOVE_FIRE_PUNCH",
-      "MOVE_FLAMETHROWER",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_ICE_BEAM",
-      "MOVE_IRON_HEAD",
-      "MOVE_IRON_TAIL",
-      "MOVE_OUTRAGE",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SLUDGE_BOMB",
-      "MOVE_STEEL_BEAM",
-      "MOVE_THUNDERBOLT",
-      "MOVE_THUNDER_PUNCH",
-      "MOVE_WATER_PULSE"
+        "MOVE_BLIZZARD",
+        "MOVE_FIRE_BLAST",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_AVALUGG_HISUIAN": {
@@ -150217,24 +149498,9 @@
       "MOVE_MIST"
     ],
     "TutorMoves": [
-      "MOVE_BULLDOZE",
-      "MOVE_EARTH_POWER",
-      "MOVE_FLASH_CANNON",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HIGH_HORSEPOWER",
-      "MOVE_HYPER_BEAM",
-      "MOVE_ICE_BALL",
-      "MOVE_ICE_BEAM",
-      "MOVE_ICE_FANG",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_HEAD",
-      "MOVE_POWER_SHIFT",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STONE_EDGE",
-      "MOVE_WATER_PULSE"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_AVALUGG_LORD": {
@@ -150287,24 +149553,9 @@
     "MachineMoves": [],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_BULLDOZE",
-      "MOVE_EARTH_POWER",
-      "MOVE_FLASH_CANNON",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HIGH_HORSEPOWER",
-      "MOVE_HYPER_BEAM",
-      "MOVE_ICE_BALL",
-      "MOVE_ICE_BEAM",
-      "MOVE_ICE_FANG",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_HEAD",
-      "MOVE_POWER_SHIFT",
-      "MOVE_REST",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROCK_SMASH",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STONE_EDGE",
-      "MOVE_WATER_PULSE"
+        "MOVE_BLIZZARD",
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_DECIDUEYE_HISUIAN": {
@@ -150448,20 +149699,8 @@
       "MOVE_ROOST"
     ],
     "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_BULK_UP",
-      "MOVE_ENERGY_BALL",
-      "MOVE_FALSE_SWIPE",
-      "MOVE_FOCUS_ENERGY",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_MAGICAL_LEAF",
-      "MOVE_PSYCHO_CUT",
-      "MOVE_REST",
-      "MOVE_ROCK_SMASH",
-      "MOVE_SHADOW_CLAW",
-      "MOVE_SPIKES",
-      "MOVE_SWIFT"
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT"
     ]
   },
   "SPECIES_SPRIGATITO": {
@@ -158883,7 +158122,11 @@
       "MOVE_STOCKPILE",
       "MOVE_SWALLOW"
     ],
-    "TutorMoves": []
+    "TutorMoves": [
+        "MOVE_HEADBUTT",
+        "MOVE_ROCK_SLIDE",
+        "MOVE_POISON_JAB"
+    ]
   },
   "SPECIES_FARIGIRAF": {
     "LevelMoves": [
