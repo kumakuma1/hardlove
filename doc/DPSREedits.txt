@@ -1243,7 +1243,7 @@ Function 23:
 End
 
 1: I can't use that for eating.
-2: I’ve heard that Kanto Gym Leaders give\nchallengers a Mega Ring if they excel\fin the fight\rCan you believe that?
+2: I’ve heard that Kanto Gym Leaders give\nchallengers a Mega Ring if they excel\fin the fight.\rCan you believe that?
 
 ### Sharp Beak from Monica Route 40
 Remove Flag 451
