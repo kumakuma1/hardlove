@@ -866,7 +866,7 @@ scr_seq_0141_104:
 
 scr_seq_0141_105:
 	//route 47 west, rockclimb, 1282
-	setvar VAR_SPECIAL_x8008, ITEM_TWISTED_SPOON
+	setvar VAR_SPECIAL_x8008, ITEM_DRAGON_FANG
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

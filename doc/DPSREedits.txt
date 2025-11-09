@@ -1218,6 +1218,32 @@ Make OW use script 2
 remove event
 
 
+### Twisted spoon in Olivine Restaurant
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+    CheckFlag 216
+    JumpIf EQUAL Function#23
+	Message 1
+	WaitButton 
+	CloseMessage
+    SetVar 0x8004 248
+	SetVar 0x8005 1
+    CommonScript 2033
+    CloseMessage
+    SetFlag 216
+	ReleaseAll 
+End 
+
+Function 23:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End
+
+1: I can't use that for eating.
+2: I’ve heard that Kanto Gym Leaders give\nchallengers a Mega Ring if they excel\fin the fight\rCan you believe that?
 
 ### Sharp Beak from Monica Route 40
 Remove Flag 451
@@ -1250,8 +1276,17 @@ End
 
 
 
+### Chuck Mentions Mega Ring, gives Aura Sphere
+Function 6:
+	SetVar 0x8004 328 //changed to Aura Sphere
+	SetVar 0x8005 1
+	...
+	Message 6
+	WaitButton
+	TextPlayerName 0
+    Message 15
 
-
+15: Chuck: \v0103ぁ\x0000\x0000!\nYou are strong enough the wield\fthe Mega Ring.\rI feel it in my bones.\rAnd you will need one if you want to\nchallenge the Pokémon League!\rWahahah!\r
 
 ### EUsine gives Manectite, Life Orb
 

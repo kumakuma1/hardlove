@@ -106704,10 +106704,6 @@
         },
         {
             "Level": 1,
-            "Move": "MOVE_HAZE"
-        },
-        {
-            "Level": 1,
             "Move": "MOVE_ICE_BEAM"
         },
         {
@@ -106731,6 +106727,10 @@
             "Move": "MOVE_SHADOW_SNEAK"
         },
         {
+            "Level": 10,
+            "Move": "MOVE_QUICK_ATTACK"
+        },
+        {
             "Level": 14,
             "Move": "MOVE_WATER_PULSE"
         },
@@ -106740,7 +106740,7 @@
         },
         {
             "Level": 20,
-            "Move": "MOVE_FEINT_ATTACK"
+            "Move": "MOVE_THIEF"
         },
         {
             "Level": 22,
@@ -106779,7 +106779,7 @@
             "Move": "MOVE_HYDRO_PUMP"
         },
         {
-            "Level": 61,
+            "Level": 64,
             "Move": "MOVE_HYDRO_CANNON"
         }
     ],
@@ -106869,7 +106869,8 @@
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
         "MOVE_HYDROPUMP",
-        "MOVE_ICE_PUNCH"
+        "MOVE_ICE_PUNCH",
+        "MOVE_ROCK_SLIDE"
     ]
   },
   "SPECIES_BUNNELBY": {
