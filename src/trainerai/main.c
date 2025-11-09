@@ -33,6 +33,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
 int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai);
 int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai);
 
+BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender);
+
 
 enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
 {
@@ -263,7 +265,8 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     }
 
     // if (ctx->clientPriority[ctx->attack_client] > 0 && GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_PRANKSTER && HasType(ctx, defender, TYPE_DARK) && (ctx->attack_client & 1) != (defender & 1)) // used on an enemy
-    if (ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS && ctx->clientPriority[ai->attacker] > 0 && ai->attackerMon.ability == ABILITY_PRANKSTER && HasType(ctx, ai->defender, TYPE_DARK) && (ctx->moveTbl[ai->attackerMove].target == RANGE_ADJACENT_OPPONENTS || (ctx->moveTbl[ai->attackerMove].target == RANGE_SINGLE_TARGET && BATTLERS_ON_DIFFERENT_SIDE(ai->attacker, ai->defender)))) {
+    if (HasMovePriority(bsys, ai->attacker, ai->attackerMove, ai->attackerMon.ability, ai->defender) && HasType(ctx, ai->defender, TYPE_DARK))
+    {
         moveScore -= IMPOSSIBLE_MOVE; // TODO check
     }
 
@@ -274,7 +277,7 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
 
     if ((ctx->terrainOverlay.type == PSYCHIC_TERRAIN && ctx->terrainOverlay.numberOfTurnsLeft > 0)
         && ai->defenderMon.isGrounded
-        && ctx->moveTbl[ai->attackerMove].priority > 0) {
+        && HasMovePriority(bsys, ai->attacker, ai->attackerMove, ai->attackerMon.ability, ai->defender)) {
         moveScore -= IMPOSSIBLE_MOVE;
     }
 
@@ -299,6 +302,7 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
+        //case MOVE_STEEL_ROLLER && ctx->terrainOverlay.type == TERRAIN_NONE //TODO
     case MOVE_EFFECT_APPLY_TERRAINS: {
         switch (ai->attackerMove) {
         case MOVE_GRASSY_TERRAIN:
@@ -575,8 +579,9 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
-    if (ai->defenderMovesFirst && ai->playerCanOneShotMonWithAnyMove) {
-        if (ctx->moveTbl[ai->attackerMove].priority > 0) {
+    if (ai->defenderMovesFirst && ai->playerCanOneShotMonWithAnyMove)
+    {
+        if (HasMovePriority(bsys, ai->attacker, ai->attackerMove, ai->attackerMon.ability, ai->defender)) {
             moveScore += 11;
         }
     }
@@ -1610,4 +1615,33 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
     }
 
     return moveScore;
+}
+
+
+
+BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender)
+{
+    struct BattleStruct *ctx = bsys->sp;
+    struct BattleMove attackerMoveStruct = ctx->moveTbl[attackerMove];
+    BOOL hasPriority = FALSE;
+    if (attackerMove == MOVE_GRASSY_GLIDE 
+        && ctx->terrainOverlay.type == GRASSY_TERRAIN 
+        && ctx->terrainOverlay.numberOfTurnsLeft > 0)
+    {
+        hasPriority = TRUE;
+    }
+    else if (attackerAbility == ABILITY_PRANKSTER 
+        && attackerMoveStruct.split == SPLIT_STATUS
+        && ctx->clientPriority[attacker] > 0
+        && (attackerMoveStruct.target == RANGE_ADJACENT_OPPONENTS 
+            || (attackerMoveStruct.target == RANGE_SINGLE_TARGET 
+                && BATTLERS_ON_DIFFERENT_SIDE(attacker, defender))))
+    {
+        hasPriority = TRUE;
+    }
+    else if (attackerMoveStruct.priority)
+    {
+        hasPriority = TRUE;
+    }
+    return hasPriority;
 }
