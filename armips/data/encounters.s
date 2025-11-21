@@ -2150,7 +2150,7 @@ pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_BASCULIN, 5, 35
-encounter SPECIES_WIMPOD, 5, 35
+encounter SPECIES_CLAMPERL, 5, 35
 encounter SPECIES_ARAQUANID, 35, 35
 encounter SPECIES_DHELMISE, 35, 35
 encounter SPECIES_DHELMISE, 35, 35
