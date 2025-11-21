@@ -622,7 +622,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
             } else {
                 ai->defenderHasAtleastOnePhysicalMove = 1;
             }
-            debug_printf("Receiving from move %d: %d is [%d-%d], roll %d > att.HP %d\n", k, defenderMoveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, ai->attackerMon.hp);
+            debug_printf("Receiving from move %d: %3d is [%4d-%4d], roll %4d > att.HP %d\n", k, defenderMoveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, ai->attackerMon.hp);
         }
     }
 
@@ -657,7 +657,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
                 ai->monCanOneShotPlayerWithMove[j] = TRUE;
                 ai->attackerRolledMoveDamages[j] = ai->defenderMon.hp; // cap killing move's damage at defender HP, so that all killing moves are treated equally as "highest damage"
             }
-            debug_printf("Dealing with move %d: %d is [%d-%d], roll %d > def.HP %d\n", j, attackerMoveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, ai->defenderMon.hp);
+            debug_printf("Dealing with move %d: %3d is [%4d-%4d], roll %4d > def.HP %d\n", j, attackerMoveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, ai->defenderMon.hp);
 
             if (ai->attackerRolledMoveDamages[j] > ai->attackerRolledMaxDamage) {
                 ai->attackerRolledMaxDamage = ai->attackerRolledMoveDamages[j];
@@ -693,11 +693,16 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 
     slot1 = attacker;
     slot2 = slot1;
+    debug_printf("Targeting defender in slot %d(%d) with hp %d\n", defender, ctx->battlemon[defender].species, ctx->battlemon[defender].hp);
 
     if (battleType & (BATTLE_TYPE_TAG | BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)) {
         slot2 = BATTLER_ALLY(attacker);
+        if (ctx->battlemon[defender].hp == 0) {
+            debug_printf("No target\n");
+            return 6;
+        }
     }
-
+    
     FillDamageStructFromBattleMon(bsys, ctx, &defenderMon, defender);
 
     partySize = Battle_GetClientPartySize(bsys, attacker);
@@ -738,7 +743,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                             monDealsRolledDamage[i] = damages.damageRoll;
                         }
                     }
-                    debug_printf("Dealing with move %d: %d deals [%d-%d], roll %d > def.HP %d\n", j, moveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, defenderMon.hp);
+                    debug_printf("Dealing with move %d: %3d deals [%4d-%4d], roll %4d > def.HP %d\n", j, moveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, defenderMon.hp);
                 }
             }
 
@@ -760,7 +765,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                         monReceivesDamage[i] = damages.damageRoll;
                     }
                 }
-                debug_printf("Receiving from move %d: %d is [%d-%d], roll %d > att.HP %d\n", k, defenderMoveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, attackerMon.hp);
+                debug_printf("Receiving from move %d: %3d is [%4d-%4d], roll %4d > att.HP %d\n", k, defenderMoveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, attackerMon.hp);
             }
 
             // TODO stealth rocks, spikes, toxic spikes, etc...
@@ -769,7 +774,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
             u16 partyMonPercentDamageDealt = (100 * monDealsRolledDamage[i] / defenderMon.hp);
             u16 partyMonPercentDamageReceived = (100 * monReceivesDamage[i] / attackerMon.hp);
 
-            debug_printf("SwitchScore: SpeedCalc %d. Attacker %d deals %d%% to defender %d. Receives %d%%", speedCalc, attacker, (100 * monDealsRolledDamage[i] / defenderMon.hp), defender, (100 * monReceivesDamage[i] / attackerMon.hp));
+            debug_printf("SwitchScore: SpeedCalc %d. Attacker %d deals %dpct to defender %d. Receives %dpct", speedCalc, attacker, (defenderMon.hp > 0 ? (100 * monDealsRolledDamage[i] / defenderMon.hp) : 0), defender, (100 * monReceivesDamage[i] / attackerMon.hp));
             if (calcWithHighestDamageHit) {
                 if (partyMonPercentDamageReceived >= 100) {
                     switchInScore[i] -= 10;

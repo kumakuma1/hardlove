@@ -40,10 +40,14 @@ u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, 
     hold_effect1 = HeldItemHoldEffectGet(sp, client1);
     hold_effect2 = BattleItemDataGet(sp, GetMonData(partyMon, MON_DATA_HELD_ITEM, 0), 1);
 
-    //TODO room service
     stat_stage_spd1 = sp->battlemon[client1].states[STAT_SPEED];
     stat_stage_spd2 = 6; // stage 0
     if (sp->side_condition[1] & SIDE_STATUS_STICKY_WEB) {
+        stat_stage_spd2 = stat_stage_spd2 - 1;
+    }
+
+    //Room Service
+    if (sp->field_condition & FIELD_STATUS_TRICK_ROOM && hold_effect2 == HOLD_EFFECT_DROP_SPEED_IN_TRICK_ROOM) {
         stat_stage_spd2 = stat_stage_spd2 - 1;
     }
 
@@ -114,7 +118,7 @@ u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, 
         speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
 
-    if ((ability1 == ABILITY_UNBURDEN)
+    if ((ability2 == ABILITY_UNBURDEN)
         && sp->terrainOverlay.numberOfTurnsLeft > 0
         && ((sp->terrainOverlay.type == ELECTRIC_TERRAIN && hold_effect2 == HOLD_EFFECT_BOOST_DEF_ON_ELECRIC_TERRAIN)
             || (sp->terrainOverlay.type == GRASSY_TERRAIN && hold_effect2 == HOLD_EFFECT_BOOST_DEF_ON_GRASSY_TERRAIN)

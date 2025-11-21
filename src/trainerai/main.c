@@ -34,7 +34,7 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
 int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai);
 
 BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender);
-
+BOOL LONG_CALL HasMovePranksterPriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender);
 
 enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
 {
@@ -56,6 +56,7 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
     int highestScoredMoveAcross = 0;
     int moveScores[4][4] = { 0 }; // account for BATTLER_OPPONENT (0), attacker (1), BATTLER_ACROSS(2), BATTLER_ALLY(3),  4 moves each or
                                   // account for BATTLER_OPPONENT (2), attacker (3), BATTLER_ACROSS(0), BATTLER_ALLY(1),  4 moves each
+    int damages[4][4] = { 0 };    // rolled damage for each move against each target
     int targets[4] = { 0 };
     int targetsSize = 0;
     int tiedMoveIndices[4] = { 0 };
@@ -67,11 +68,23 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
     if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
     {
 #ifdef BATTLE_DEBUG_OUTPUT
-        debug_printf("att %d, ally %d, defendOp %d, defendCross %d\n", attacker, BATTLER_ALLY(attacker), BATTLER_OPPONENT(attacker), BATTLER_ACROSS(attacker));
-        debug_printf("att %d, ally %d, defendOp %d, defendCross %d\n", ctx->battlemon[attacker].species, ctx->battlemon[BATTLER_ALLY(attacker)].species, ctx->battlemon[BATTLER_OPPONENT(attacker)].species, ctx->battlemon[BATTLER_ACROSS(attacker)].species);
+        debug_printf("att %d(%d), ally %d(%d), defendOp %d(%d), defendCross %d(%d)\n", 
+            attacker,
+            ctx->battlemon[attacker].species,
+            BATTLER_ALLY(attacker),
+            ctx->battlemon[BATTLER_ALLY(attacker)].species,
+            BATTLER_OPPONENT(attacker),
+            ctx->battlemon[BATTLER_OPPONENT(attacker)].species,
+            BATTLER_ACROSS(attacker),
+            ctx->battlemon[BATTLER_ACROSS(attacker)].species);
+        //debug_printf("att %d, ally %d, defendOp %d, defendCross %d\n", ctx->battlemon[attacker].species, ctx->battlemon[BATTLER_ALLY(attacker)].species, ctx->battlemon[BATTLER_OPPONENT(attacker)].species, ctx->battlemon[BATTLER_ACROSS(attacker)].species);
 #endif // BATTLE_DEBUG_OUTPUT
 
         SetupStateVariables(bsys, attacker, defender, ai);
+        for (u8 i = 0; i < 4; i++)
+        {
+            damages[defender][i] = ai->attackerRolledMoveDamages[i];
+        }
 
         BOOL playerCanOneShotMonWithAnyMove = ai->playerCanOneShotMonWithAnyMove;
         highestScoredMove = ScoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai);
@@ -80,6 +93,9 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
         if (ctx->battlemon[defender].hp > 0) {
             target = defender;
             SetupStateVariables(bsys, attacker, defender, ai);
+            for (u8 i = 0; i < 4; i++) {
+                damages[defender][i] = ai->attackerRolledMoveDamages[i];
+            }
             if (playerCanOneShotMonWithAnyMove) {
                 ai->playerCanOneShotMonWithAnyMove = playerCanOneShotMonWithAnyMove; // keep the value from the first target
             }
@@ -129,7 +145,7 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
     for (int k = 0; k < 4; k++) {
         for (u8 i = 0; i < 4; i++) // movesScore
         {
-            debug_printf("%4d  ", moveScores[k][i]);
+            debug_printf("%4d/%4d  ", moveScores[k][i], damages[k][i]);
         }
 
         if (targets[j] == k) {
@@ -265,7 +281,7 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     }
 
     // if (ctx->clientPriority[ctx->attack_client] > 0 && GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_PRANKSTER && HasType(ctx, defender, TYPE_DARK) && (ctx->attack_client & 1) != (defender & 1)) // used on an enemy
-    if (HasMovePriority(bsys, ai->attacker, ai->attackerMove, ai->attackerMon.ability, ai->defender) && HasType(ctx, ai->defender, TYPE_DARK))
+    if (HasMovePranksterPriority(bsys, ai->attacker, ai->attackerMove, ai->attackerMon.ability, ai->defender) && HasType(ctx, ai->defender, TYPE_DARK))
     {
         moveScore -= IMPOSSIBLE_MOVE; // TODO check
     }
@@ -421,7 +437,7 @@ BOOL LONG_CALL isMoveSpecialAiAttackingMove(u32 attackerMove)
     case MOVE_FIRE_SPIN:
     case MOVE_WRAP:
     case MOVE_WHIRLPOOL:
-        // case MOVE_INFESTATION:
+    case MOVE_INFESTATION:
         isSpecialAIMove = TRUE;
         break;
     default:
@@ -593,14 +609,20 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         case MOVE_DRACO_METEOR:
         case MOVE_CLOSE_COMBAT:
         case MOVE_SUPERPOWER:
-        case MOVE_V_CREATE: {
+        case MOVE_V_CREATE:
             if (ai->isDefenderIncapacitated) {
                 moveScore += 3;
             }
             if (ai->attackerMovesFirst) {
                 moveScore += 3;
             }
-        } break;
+            if (3 * ai->maxDamageReceived < ai->attackerMon.hp) {
+                moveScore += 3;
+                if (ai->attackerMovesFirst) {
+                    moveScore += 1;
+                }
+            }
+            break;
         default:
             break;
         }
@@ -760,6 +782,12 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
             moveScore -= 5;
         }
     }
+    if (3 * ai->maxDamageReceived < ai->attackerMon.hp) {
+        moveScore += 3;
+        if (ai->attackerMovesFirst) {
+            moveScore += 1;
+        }
+    }
 
     return moveScore;
 }
@@ -771,6 +799,12 @@ int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
     }
     if (ai->defenderMovesFirst && 2 * ai->maxDamageReceived >= ai->attackerMon.hp) {
         moveScore -= 5;
+    }
+    if (3 * ai->maxDamageReceived < ai->attackerMon.hp) {
+        moveScore += 3;
+        if (ai->attackerMovesFirst) {
+            moveScore += 1;
+        }
     }
     return moveScore;
 }
@@ -1037,6 +1071,21 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
     switch (ai->attackerMoveEffect) {
+    case MOVE_EFFECT_TAUNT: //TODO
+        if (ai->defenderMon.ability == ABILITY_OBLIVIOUS || ai->defenderMon.ability == ABILITY_AROMA_VEIL
+            || (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp > 0 && ctx->battlemon[BATTLER_ALLY(attacker)].ability == ABILITY_AROMA_VEIL))
+        {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        else if (BattlerKnowsMove(bsys, ai->defender, MOVE_DEFOG, ai) == TRUE && ai->attackerMovesFirst)
+        {
+            moveScore += 9;
+        }
+        else
+        {
+            moveScore += 5;
+        }
+        break;
     case MOVE_EFFECT_STEALTH_ROCK:
     case MOVE_EFFECT_SET_SPIKES:
     case MOVE_EFFECT_TOXIC_SPIKES:
@@ -1074,7 +1123,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore -= IMPOSSIBLE_MOVE;
         } else if (ai->defenderMovesFirst && ai->playerCanOneShotMonWithAnyMove) {
             moveScore += 6;
-            if (ai->attackerMon.item == ITEM_CUSTAP_BERRY || ai->attackerMon.item == ITEM_SALAC_BERRY) {
+            if (ai->attackerMon.item == ITEM_CUSTAP_BERRY || ai->attackerMon.item == ITEM_SALAC_BERRY) { //TODO
                 moveScore += 2;
             }
         } else {
@@ -1629,19 +1678,31 @@ BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attac
         && ctx->terrainOverlay.numberOfTurnsLeft > 0)
     {
         hasPriority = TRUE;
-    }
-    else if (attackerAbility == ABILITY_PRANKSTER 
-        && attackerMoveStruct.split == SPLIT_STATUS
-        && ctx->clientPriority[attacker] > 0
-        && (attackerMoveStruct.target == RANGE_ADJACENT_OPPONENTS 
-            || (attackerMoveStruct.target == RANGE_SINGLE_TARGET 
-                && BATTLERS_ON_DIFFERENT_SIDE(attacker, defender))))
+    } 
+    else if (HasMovePranksterPriority(bsys, attacker, attackerMove, attackerAbility, defender))
     {
         hasPriority = TRUE;
-    }
+    } 
     else if (attackerMoveStruct.priority)
     {
         hasPriority = TRUE;
     }
     return hasPriority;
+}
+
+BOOL LONG_CALL HasMovePranksterPriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender)
+{
+    struct BattleStruct *ctx = bsys->sp;
+    struct BattleMove attackerMoveStruct = ctx->moveTbl[attackerMove];
+
+    if (attackerAbility == ABILITY_PRANKSTER
+        && attackerMoveStruct.split == SPLIT_STATUS
+        && ctx->clientPriority[attacker] > 0
+        && (attackerMoveStruct.target == RANGE_ADJACENT_OPPONENTS
+            || (attackerMoveStruct.target == RANGE_SINGLE_TARGET
+                && BATTLERS_ON_DIFFERENT_SIDE(attacker, defender))))
+    {
+        return TRUE;
+    }
+    return FALSE;
 }

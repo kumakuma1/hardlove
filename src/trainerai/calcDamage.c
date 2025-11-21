@@ -1602,7 +1602,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         damages->damageRange[u] = damages->damageRange[u] % 65536;
     }
 
-    // #ifdef DEBUG_DAMAGE_CALC_AI
+#ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
     debug_printf("[CalcBaseDamage] Final damage: %d\n", damage);
     debug_printf("Unrolled damage: %d -- Battler %d hit battler %d for %d (%dth roll) damage.\n", damages->damageRange[0], attackerSlot, defenderSlot, damages->damageRoll, 15 - roll);
@@ -1618,7 +1618,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     }
     debug_printf("]\n");
     debug_printf("\n=================\n");
-    // #endif //DEBUG_DAMAGE_CALC_AI
+#endif //DEBUG_DAMAGE_CALC_AI
 
     return damages->damageRoll;
 }
