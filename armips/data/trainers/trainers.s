@@ -11869,7 +11869,7 @@ trainerdata 255, "Lt. Surge"
         abilityslot 0
         level LEVEL_JASMINE-4
         pokemon SPECIES_PINCURCHIN
-        item ITEM_SITRUS_BERRY
+        item ITEM_ELECTRIC_SEED
         move MOVE_ZING_ZAP
         move MOVE_MUDDY_WATER
         move MOVE_CHARGE
@@ -11966,7 +11966,7 @@ trainerdata 255, "Lt. Surge"
         move MOVE_CURSE
         ability ABILITY_STATIC
         ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 30, 31, 10 // hp, atk, def, spd, spatk, spdef
+        setivs 31, 31, 31, 30, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_QUIET
         shinylock 0
