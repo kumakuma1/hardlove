@@ -1270,7 +1270,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         if (ai->defenderMon.ability == ABILITY_INFILTRATOR || ai->attackerMon.percenthp < 50) {
             moveScore -= NEVER_USE_MOVE_20;
         }
-        if (ai->defenderHasAtleastOneUsefulSoundMove) {
+        if (ai->defenderHasAtleastOneUsefulSoundMove && (ai->defenderMon.hasMoldBreaker || ai->attackerMon.ability != ABILITY_SOUNDPROOF)) {
             moveScore -= 8;
         }
         break;
