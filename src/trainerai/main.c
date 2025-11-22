@@ -820,7 +820,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
-    if (ai->playerCanOneShotMonWithAnyMove) {
+    if (ai->playerCanOneShotMonWithAnyMove || ai->defenderCanForceSwitching) {
         shouldSetup = FALSE;
     }
     if (ai->defenderMon.ability == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0)) {
@@ -1072,7 +1072,11 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
 
     switch (ai->attackerMoveEffect) {
     case MOVE_EFFECT_TAUNT: //TODO
-        if (ai->defenderMon.ability == ABILITY_OBLIVIOUS || ai->defenderMon.ability == ABILITY_AROMA_VEIL
+        if (ctx->battlemon[ai->defender].moveeffect.tauntTurns > 0)
+        {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        else if (ai->defenderMon.ability == ABILITY_OBLIVIOUS || ai->defenderMon.ability == ABILITY_AROMA_VEIL
             || (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp > 0 && ctx->battlemon[BATTLER_ALLY(attacker)].ability == ABILITY_AROMA_VEIL))
         {
             moveScore -= NEVER_USE_MOVE_20;
@@ -1266,7 +1270,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         if (ai->defenderMon.ability == ABILITY_INFILTRATOR || ai->attackerMon.percenthp < 50) {
             moveScore -= NEVER_USE_MOVE_20;
         }
-        if (BattlerHasSoundBasedMove(bsys, ai->defender, ai)) {
+        if (ai->defenderHasAtleastOneUsefulSoundMove) {
             moveScore -= 8;
         }
         break;

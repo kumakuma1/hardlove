@@ -286,6 +286,63 @@ BOOL IsMoveBoostedBySheerForce(u32 moveno, u32 moveeffect)
     return isBoosted;
 }
 
+BOOL IsMoveUsefulSoundMove(u32 moveno)
+{
+    switch (moveno)
+    {
+    case MOVE_ALLURING_VOICE:
+    case MOVE_BOOMBURST:
+    case MOVE_BUG_BUZZ:
+    case MOVE_CHATTER:
+    case MOVE_CLANGING_SCALES:
+    //case MOVE_CLANGOROUS_SOUL:
+    case MOVE_CLANGOROUS_SOULBLAZE:
+    //case MOVE_CONFIDE:
+    //case MOVE_DISARMING_VOICE:
+    //case MOVE_ECHOED_VOICE:
+    case MOVE_EERIE_SPELL:
+    case MOVE_GRASS_WHISTLE:
+    //case MOVE_GROWL:
+    //case MOVE_HEAL_BELL:
+    //case MOVE_HOWL:
+    case MOVE_HYPER_VOICE:
+    //case MOVE_METAL_SOUND:
+    //case MOVE_NOBLE_ROAR:
+    case MOVE_OVERDRIVE:
+    //case MOVE_PARTING_SHOT:
+    case MOVE_PERISH_SONG:
+    case MOVE_PSYCHIC_NOISE:
+    case MOVE_RELIC_SONG:
+    case MOVE_ROAR:
+   //case MOVE_ROUND:
+    //case MOVE_SCREECH:
+    // MOVE_SHADOW_PANIC:
+    case MOVE_SING:
+    case MOVE_SNARL:
+    case MOVE_SNORE:
+    case MOVE_SPARKLING_ARIA:
+    // case MOVE_SUPERSONIC:
+    case MOVE_TORCH_SONG:
+    case MOVE_UPROAR:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
+BOOL IsMoveForceSwitching(u32 moveno)
+{
+    switch (moveno) {
+    case MOVE_ROAR:
+    case MOVE_WHIRLWIND:
+    case MOVE_DRAGON_TAIL:
+    case MOVE_CIRCLE_THROW:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
 int LONG_CALL BattleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP, u32 defenderHP, u32 damage, u32 moveEffect, u32 attackerAbility, u32 attackerItem)
 {
     // struct BattleStruct* ctx = bsys->sp;
@@ -495,6 +552,9 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         ai->isPartnerGrounded = IsClientGrounded(ctx, BATTLER_ALLY(attacker));
     }
 
+    ai->defenderHasAtleastOneUsefulSoundMove = FALSE;
+    ai->defenderCanForceSwitching = FALSE;
+
     speedCalc = CalcSpeed(bsys, ctx, defender, attacker, CALCSPEED_FLAG_NO_PRIORITY); // checks actual turn order with field state considered
     // evaluates to 0 if ai->defender > attacker (false)
     // and 1 if ai->defender < attacker (true)
@@ -622,6 +682,13 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
             } else {
                 ai->defenderHasAtleastOnePhysicalMove = 1;
             }
+            if (IsMoveUsefulSoundMove(defenderMoveno) && (defenderMove.split == SPLIT_STATUS || damages.moveEffectiveness >= TYPE_MUL_NORMAL)) {
+                ai->defenderHasAtleastOneUsefulSoundMove = TRUE;
+            }
+            if (IsMoveForceSwitching(defenderMoveno)) {
+                ai->defenderCanForceSwitching = TRUE;
+            }
+
             debug_printf("Receiving from move %d: %3d is [%4d-%4d], roll %4d > att.HP %d\n", k, defenderMoveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, ai->attackerMon.hp);
         }
     }

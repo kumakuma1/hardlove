@@ -93,6 +93,8 @@ struct PACKED AIContext {
 
     BOOL isDefenderIncapacitated;
     BOOL defenderKnowsThawingMove;
+    BOOL defenderHasAtleastOneUsefulSoundMove;
+    BOOL defenderCanForceSwitching;
 
     u32 maxDamageReceived;
 
@@ -101,7 +103,7 @@ struct PACKED AIContext {
     BOOL playerCanOneShotMonWithMove[4];
     BOOL playerCanOneShotMonWithAnyMove;
     BOOL monCanOneShotPlayerWithAnyMove;
-
+    
     BOOL monCanOneShotPlayerWithMove[4];
     u32 attackerRolledMoveDamages[4];
     u32 effectivenessOnPlayer[4];
