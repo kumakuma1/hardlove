@@ -418,6 +418,10 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         break;
     }
 
+    if (ai->attackerMove == MOVE_STEEL_ROLLER && ctx->terrainOverlay.type == TERRAIN_NONE) {
+        moveScore -= IMPOSSIBLE_MOVE;
+    }
+
     return moveScore;
 }
 

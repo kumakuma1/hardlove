@@ -1204,6 +1204,9 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         }
     }
     // MIMIKYU damage = 0?
+    if (moveno == MOVE_STEEL_ROLLER && sp->terrainOverlay.type == TERRAIN_NONE) {
+        return 0;
+    }
 
     if (!attackerHasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0 && !(defender->condition2 & STATUS2_TRANSFORMED) && movesplit == SPLIT_PHYSICAL) { // SPECIES_EISCUE
         return 0;

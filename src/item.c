@@ -30,7 +30,7 @@ static const u16 sMachineMoves[] = {
     MOVE_ELECTROWEB,            // TM015
     MOVE_WEATHER_BALL,          // TM016
     MOVE_PROTECT,          // TM017
-    MOVE_RAIN_DANCE,       // TM018
+    MOVE_TEMPER_FLARE,       // TM018
     MOVE_GIGA_DRAIN,       // TM019
     MOVE_HYPER_VOICE,        // TM020
     MOVE_ICY_WIND,      // TM021
