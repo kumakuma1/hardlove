@@ -20438,7 +20438,7 @@ mondata SPECIES_PAWMO, "Pawmo"
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_VOLT_ABSORB, ABILITY_NATURAL_CURE
+    abilities ABILITY_STATIC, ABILITY_NATURAL_CURE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     mondexentry SPECIES_PAWMO, "Pawmo uses a unique fighting technique in which it uses its forepaws to strike foes and zap them with electricity from its paw pads simultaneously."
@@ -20459,7 +20459,7 @@ mondata SPECIES_PAWMOT, "Pawmot"
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_FIELD, EGG_GROUP_FIELD
-    abilities ABILITY_VOLT_ABSORB, ABILITY_NATURAL_CURE
+    abilities ABILITY_IRON_FIST, ABILITY_NATURAL_CURE
     runchance 0
     colorflip BODY_COLOR_YELLOW, 0
     mondexentry SPECIES_PAWMOT, "Pawmot's fluffy fur acts as a battery.\nIt can store the same amount of\nelectricity as an electric car."

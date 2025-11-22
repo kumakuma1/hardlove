@@ -67,9 +67,14 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
         level = 5;
     }
     else if (tradeno == NPC_TRADE_BILLY_VOLTORB) {
-        trade_dat->give_species = SPECIES_ELECTRODE;
-
-        trade_dat->heldItem = ITEM_YACHE_BERRY;
+        nature = gf_rand() % 3;
+        if (nature == 0) {
+            trade_dat->give_species = SPECIES_ELECTRODE;
+        } else if (nature == 1) {
+            trade_dat->give_species = SPECIES_PAWMOT;
+        } else {
+            trade_dat->give_species = SPECIES_SCOVILLAIN;
+        }
         trade_dat->gender = POKEMON_GENDER_MALE;
     }
 #endif

@@ -151367,66 +151367,54 @@
   },
   "SPECIES_PAWMI": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_SCRATCH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_GROWL"
-      },
-      {
-        "Level": 3,
-        "Move": "MOVE_THUNDER_SHOCK"
-      },
-      {
-        "Level": 6,
-        "Move": "MOVE_QUICK_ATTACK"
-      },
-      {
-        "Level": 8,
-        "Move": "MOVE_CHARGE"
-      },
-      {
-        "Level": 12,
-        "Move": "MOVE_NUZZLE"
-      },
-      {
-        "Level": 15,
-        "Move": "MOVE_DIG"
-      },
-      {
-        "Level": 19,
-        "Move": "MOVE_BITE"
-      },
-      {
-        "Level": 23,
-        "Move": "MOVE_SPARK"
-      },
-      {
-        "Level": 27,
-        "Move": "MOVE_THUNDER_WAVE"
-      },
-      {
-        "Level": 31,
-        "Move": "MOVE_ENTRAINMENT"
-      },
-      {
-        "Level": 35,
-        "Move": "MOVE_SLAM"
-      },
-      {
-        "Level": 38,
-        "Move": "MOVE_DISCHARGE"
-      },
-      {
-        "Level": 40,
-        "Move": "MOVE_AGILITY"
-      },
-      {
-        "Level": 44,
-        "Move": "MOVE_WILD_CHARGE"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_SCRATCH"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_GROWL"
+        },
+        {
+            "Level": 3,
+            "Move": "MOVE_THUNDER_SHOCK"
+        },
+        {
+            "Level": 6,
+            "Move": "MOVE_QUICK_ATTACK"
+        },
+        {
+            "Level": 12,
+            "Move": "MOVE_NUZZLE"
+        },
+        {
+            "Level": 19,
+            "Move": "MOVE_BITE"
+        },
+        {
+            "Level": 23,
+            "Move": "MOVE_SPARK"
+        },
+        {
+            "Level": 25,
+            "Move": "MOVE_ARM_THRUST"
+        },
+        {
+            "Level": 29,
+            "Move": "MOVE_PLAY_ROUGH"
+        },
+        {
+            "Level": 33,
+            "Move": "MOVE_SUPER_FANG"
+        },
+        {
+            "Level": 35,
+            "Move": "MOVE_ENTRAINMENT"
+        },
+        {
+            "Level": 40,
+            "Move": "MOVE_WILD_CHARGE"
+        }
     ],
     "MachineMoves": [
       "MOVE_AGILITY",
@@ -151475,70 +151463,54 @@
   },
   "SPECIES_PAWMO": {
     "LevelMoves": [
-      {
-        "Level": 0,
-        "Move": "MOVE_ARM_THRUST"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SCRATCH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_GROWL"
-      },
-      {
-        "Level": 3,
-        "Move": "MOVE_THUNDER_SHOCK"
-      },
-      {
-        "Level": 6,
-        "Move": "MOVE_QUICK_ATTACK"
-      },
-      {
-        "Level": 8,
-        "Move": "MOVE_CHARGE"
-      },
-      {
-        "Level": 12,
-        "Move": "MOVE_NUZZLE"
-      },
-      {
-        "Level": 15,
-        "Move": "MOVE_DIG"
-      },
-      {
-        "Level": 19,
-        "Move": "MOVE_BITE"
-      },
-      {
-        "Level": 23,
-        "Move": "MOVE_SPARK"
-      },
-      {
-        "Level": 27,
-        "Move": "MOVE_THUNDER_WAVE"
-      },
-      {
-        "Level": 32,
-        "Move": "MOVE_SLAM"
-      },
-      {
-        "Level": 38,
-        "Move": "MOVE_ENTRAINMENT"
-      },
-      {
-        "Level": 42,
-        "Move": "MOVE_DISCHARGE"
-      },
-      {
-        "Level": 46,
-        "Move": "MOVE_AGILITY"
-      },
-      {
-        "Level": 52,
-        "Move": "MOVE_WILD_CHARGE"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_SCRATCH"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_GROWL"
+        },
+        {
+            "Level": 3,
+            "Move": "MOVE_THUNDER_SHOCK"
+        },
+        {
+            "Level": 6,
+            "Move": "MOVE_QUICK_ATTACK"
+        },
+        {
+            "Level": 12,
+            "Move": "MOVE_NUZZLE"
+        },
+        {
+            "Level": 19,
+            "Move": "MOVE_BITE"
+        },
+        {
+            "Level": 23,
+            "Move": "MOVE_SPARK"
+        },
+        {
+            "Level": 25,
+            "Move": "MOVE_ARM_THRUST"
+        },
+        {
+            "Level": 29,
+            "Move": "MOVE_PLAY_ROUGH"
+        },
+        {
+            "Level": 33,
+            "Move": "MOVE_SUPER_FANG"
+        },
+        {
+            "Level": 35,
+            "Move": "MOVE_ENTRAINMENT"
+        },
+        {
+            "Level": 40,
+            "Move": "MOVE_WILD_CHARGE"
+        }
     ],
     "MachineMoves": [
       "MOVE_AGILITY",
@@ -151590,86 +151562,85 @@
       "MOVE_SWEET_KISS",
       "MOVE_WISH"
     ],
-    "TutorMoves": []
+    "TutorMoves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
+    ]
   },
   "SPECIES_PAWMOT": {
     "LevelMoves": [
-      {
-        "Level": 0,
-        "Move": "MOVE_REVIVAL_BLESSING"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SCRATCH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_GROWL"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_WILD_CHARGE"
-      },
-      {
-        "Level": 3,
-        "Move": "MOVE_THUNDER_SHOCK"
-      },
-      {
-        "Level": 6,
-        "Move": "MOVE_QUICK_ATTACK"
-      },
-      {
-        "Level": 8,
-        "Move": "MOVE_CHARGE"
-      },
-      {
-        "Level": 12,
-        "Move": "MOVE_NUZZLE"
-      },
-      {
-        "Level": 15,
-        "Move": "MOVE_DIG"
-      },
-      {
-        "Level": 19,
-        "Move": "MOVE_BITE"
-      },
-      {
-        "Level": 23,
-        "Move": "MOVE_SPARK"
-      },
-      {
-        "Level": 25,
-        "Move": "MOVE_ARM_THRUST"
-      },
-      {
-        "Level": 29,
-        "Move": "MOVE_THUNDER_WAVE"
-      },
-      {
-        "Level": 33,
-        "Move": "MOVE_SLAM"
-      },
-      {
-        "Level": 39,
-        "Move": "MOVE_ENTRAINMENT"
-      },
-      {
-        "Level": 44,
-        "Move": "MOVE_CLOSE_COMBAT"
-      },
-      {
-        "Level": 49,
-        "Move": "MOVE_DISCHARGE"
-      },
-      {
-        "Level": 54,
-        "Move": "MOVE_AGILITY"
-      },
-      {
-        "Level": 60,
-        "Move": "MOVE_DOUBLE_SHOCK"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_FAKE_OUT"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_KNOCK_OFF"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_SCRATCH"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_GROWL"
+        },
+        {
+            "Level": 3,
+            "Move": "MOVE_THUNDER_SHOCK"
+        },
+        {
+            "Level": 6,
+            "Move": "MOVE_QUICK_ATTACK"
+        },
+        {
+            "Level": 12,
+            "Move": "MOVE_NUZZLE"
+        },
+        {
+            "Level": 19,
+            "Move": "MOVE_BITE"
+        },
+        {
+            "Level": 23,
+            "Move": "MOVE_SPARK"
+        },
+        {
+            "Level": 25,
+            "Move": "MOVE_ARM_THRUST"
+        },
+        {
+            "Level": 29,
+            "Move": "MOVE_PLAY_ROUGH"
+        },
+        {
+            "Level": 33,
+            "Move": "MOVE_SUPER_FANG"
+        },
+        {
+            "Level": 39,
+            "Move": "MOVE_ENTRAINMENT"
+        },
+        {
+            "Level": 44,
+            "Move": "MOVE_WILD_CHARGE"
+        },
+        {
+            "Level": 49,
+            "Move": "MOVE_CLOSE_COMBAT"
+        },
+        {
+            "Level": 54,
+            "Move": "MOVE_MACH_PUNCH"
+        },
+        {
+            "Level": 60,
+            "Move": "MOVE_DOUBLE_SHOCK"
+        }
     ],
     "MachineMoves": [
       "MOVE_AGILITY",
@@ -151737,7 +151708,14 @@
       "MOVE_SWEET_KISS",
       "MOVE_WISH"
     ],
-    "TutorMoves": []
+    "TutorMoves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER",
+        "MOVE_THUNDER_PUNCH"
+    ]
   },
   "SPECIES_TANDEMAUS": {
     "LevelMoves": [

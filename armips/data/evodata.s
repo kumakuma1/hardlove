@@ -11683,7 +11683,7 @@ evodata SPECIES_PAWMI
 terminateevodata
 
 evodata SPECIES_PAWMO
-    evolution EVO_LEVEL, 32, SPECIES_PAWMOT // TODO: program steps evolution
+    evolution EVO_LEVEL, 36, SPECIES_PAWMOT // TODO: program steps evolution
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

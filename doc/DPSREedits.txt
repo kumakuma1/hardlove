@@ -1192,7 +1192,7 @@ Remove Flag 518
 ### Trade in Olivine:
 228 - T26R010 - script file 916, text file 608
 Krabby -> Kingler
-Voltorb -> Electrode
+Voltorb -> "Billy"
 
 SetVarFromVariable 0x8004 0x800C
 	GetPartyPokemonID 0x8004 0x8005
