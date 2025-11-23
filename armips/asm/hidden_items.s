@@ -434,7 +434,7 @@
 .halfword ITEM_IRON
 
 .org 0x02000000 + 0xFA9C8 //Vermillion
-.halfword ITEM_FULL_HEAL
+.halfword ITEM_GROUND_GEM
 
 .org 0x02000000 + 0xFA9D0 //Vermillion
 .halfword ITEM_HEART_SCALE
@@ -455,10 +455,10 @@
 .halfword ITEM_CALCIUM
 
 .org 0x02000000 + 0xFAA00 //Underground Path
-.halfword ITEM_FULL_RESTORE
+.halfword ITEM_FIRE_GEM
 
 .org 0x02000000 + 0xFAA08 //Underground Path
-.halfword ITEM_RAGE_CANDY_BAR
+.halfword ITEM_WATER_GEM
 
 .org 0x02000000 + 0xFAA10 //R11
 .halfword ITEM_REVIVE
@@ -482,7 +482,7 @@
 .halfword ITEM_ETHER
 
 .org 0x02000000 + 0xFAA48 //Cerulean
-.halfword ITEM_NUGGET
+.halfword ITEM_RAGE_CANDY_BAR
 
 .org 0x02000000 + 0xFAA50 //R25
 .halfword ITEM_HEART_SCALE
