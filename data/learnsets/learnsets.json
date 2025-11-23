@@ -154749,16 +154749,8 @@
         "Move": "MOVE_BITE"
       },
       {
-        "Level": 10,
-        "Move": "MOVE_GROWTH"
-      },
-      {
         "Level": 13,
         "Move": "MOVE_RAZOR_LEAF"
-      },
-      {
-        "Level": 17,
-        "Move": "MOVE_SUNNY_DAY"
       },
       {
         "Level": 21,
@@ -154822,78 +154814,72 @@
       "MOVE_ROLLOUT",
       "MOVE_WORRY_SEED"
     ],
-    "TutorMoves": []
+    "TutorMoves": [
+        "MOVE_HEADBUTT"
+    ]
   },
   "SPECIES_SCOVILLAIN": {
     "LevelMoves": [
-      {
-        "Level": 0,
-        "Move": "MOVE_SPICY_EXTRACT"
-      },
-      {
-        "Level": 0,
-        "Move": "MOVE_FLAMETHROWER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_LEER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_FIRE_FANG"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_LEAFAGE"
-      },
-      {
-        "Level": 4,
-        "Move": "MOVE_BITE"
-      },
-      {
-        "Level": 10,
-        "Move": "MOVE_GROWTH"
-      },
-      {
-        "Level": 13,
-        "Move": "MOVE_RAZOR_LEAF"
-      },
-      {
-        "Level": 17,
-        "Move": "MOVE_SUNNY_DAY"
-      },
-      {
-        "Level": 21,
-        "Move": "MOVE_BULLET_SEED"
-      },
-      {
-        "Level": 24,
-        "Move": "MOVE_HEADBUTT"
-      },
-      {
-        "Level": 28,
-        "Move": "MOVE_ZEN_HEADBUTT"
-      },
-      {
-        "Level": 33,
-        "Move": "MOVE_WORRY_SEED"
-      },
-      {
-        "Level": 38,
-        "Move": "MOVE_CRUNCH"
-      },
-      {
-        "Level": 44,
-        "Move": "MOVE_SEED_BOMB"
-      },
-      {
-        "Level": 48,
-        "Move": "MOVE_SOLAR_BEAM"
-      },
-      {
-        "Level": 48,
-        "Move": "MOVE_OVERHEAT"
-      }
+        {
+            "Level": 0,
+            "Move": "MOVE_FLAMETHROWER"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_LEER"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_FIRE_FANG"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_LEAFAGE"
+        },
+        {
+            "Level": 4,
+            "Move": "MOVE_BITE"
+        },
+        {
+            "Level": 13,
+            "Move": "MOVE_RAZOR_LEAF"
+        },
+        {
+            "Level": 21,
+            "Move": "MOVE_BULLET_SEED"
+        },
+        {
+            "Level": 24,
+            "Move": "MOVE_HEADBUTT"
+        },
+        {
+            "Level": 28,
+            "Move": "MOVE_ZEN_HEADBUTT"
+        },
+        {
+            "Level": 33,
+            "Move": "MOVE_WORRY_SEED"
+        },
+        {
+            "Level": 38,
+            "Move": "MOVE_CRUNCH"
+        },
+        {
+            "Level": 44,
+            "Move": "MOVE_SEED_BOMB"
+        },
+        {
+            "Level": 48,
+            "Move": "MOVE_OVERHEAT"
+        },
+        {
+            "Level": 55,
+            "Move": "MOVE_LEAF_STORM"
+        },
+        {
+            "Level": 60,
+            "Move": "MOVE_SOLAR_BEAM"
+        }
     ],
     "MachineMoves": [
       "MOVE_BULLET_SEED",
@@ -154943,7 +154929,10 @@
       "MOVE_ROLLOUT",
       "MOVE_WORRY_SEED"
     ],
-    "TutorMoves": []
+    "TutorMoves": [
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT"
+    ]
   },
   "SPECIES_RELLOR": {
     "LevelMoves": [
