@@ -21,6 +21,7 @@
 #define IMPOSSIBLE_MOVE   40
 #define NEVER_USE_MOVE_20 20
 
+void LONG_CALL SetupContexts(struct BattleSystem *bsys, u32 attacker, struct AIContext *ai1, struct AIContext *ai2, int damages[4][4]);
 int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext *ai);
 int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext *ai);
 
@@ -48,8 +49,10 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
     }
 
     struct BattleStruct *ctx = bsys->sp;
-    struct AIContext aictx = { 0 };
-    struct AIContext *ai = &aictx;
+    struct AIContext aiContextOp1 = { 0 };
+    struct AIContext aiContextOp2 = { 0 };
+    struct AIContext *ai1 = &aiContextOp1;
+    struct AIContext *ai2 = &aiContextOp2;
     enum AIActionChoice result = AI_ENEMY_ATTACK_1;
 
     int highestScoredMove = 0;
@@ -58,7 +61,6 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
                                   // account for BATTLER_OPPONENT (2), attacker (3), BATTLER_ACROSS(0), BATTLER_ALLY(1),  4 moves each
     int damages[4][4] = { 0 };    // rolled damage for each move against each target
     int targets[4] = { 0 };
-    int targetsSize = 0;
     int tiedMoveIndices[4] = { 0 };
     u32 target = 0;
 
@@ -80,40 +82,26 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
         //debug_printf("att %d, ally %d, defendOp %d, defendCross %d\n", ctx->battlemon[attacker].species, ctx->battlemon[BATTLER_ALLY(attacker)].species, ctx->battlemon[BATTLER_OPPONENT(attacker)].species, ctx->battlemon[BATTLER_ACROSS(attacker)].species);
 #endif // BATTLE_DEBUG_OUTPUT
 
-        SetupStateVariables(bsys, attacker, defender, ai);
-        for (u8 i = 0; i < 4; i++)
-        {
-            damages[defender][i] = ai->attackerRolledMoveDamages[i];
-        }
-
-        BOOL playerCanOneShotMonWithAnyMove = ai->playerCanOneShotMonWithAnyMove;
-        highestScoredMove = ScoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai);
+        SetupContexts(bsys, attacker, ai1, ai2, damages);
+        if (ctx->battlemon[defender].hp > 0)
+            highestScoredMove = ScoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai1);
 
         defender = BATTLER_ACROSS(attacker);
-        if (ctx->battlemon[defender].hp > 0) {
+        if (ctx->battlemon[defender].hp > 0)
+        {
             target = defender;
-            SetupStateVariables(bsys, attacker, defender, ai);
-            for (u8 i = 0; i < 4; i++) {
-                damages[defender][i] = ai->attackerRolledMoveDamages[i];
-            }
-            if (playerCanOneShotMonWithAnyMove) {
-                ai->playerCanOneShotMonWithAnyMove = playerCanOneShotMonWithAnyMove; // keep the value from the first target
-            }
-
-            highestScoredMoveAcross = ScoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai);
-            if (highestScoredMoveAcross > highestScoredMove) {
+            highestScoredMoveAcross = ScoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai2);
+            if (highestScoredMoveAcross > highestScoredMove)
                 highestScoredMove = highestScoredMoveAcross;
-            }
         }
 
         defender = BATTLER_ALLY(attacker);
         target = defender;
-        highestScoredMoveAcross = ScoreMovesAgainstAlly(bsys, attacker, target, moveScores, ai);
-        if (highestScoredMoveAcross > highestScoredMove) {
+        highestScoredMoveAcross = ScoreMovesAgainstAlly(bsys, attacker, target, moveScores, ai1);
+        if (highestScoredMoveAcross > highestScoredMove)
             highestScoredMove = highestScoredMoveAcross;
-        }
 
-        targetsSize = 0;
+        int targetsSize = 0;
         for (u8 k = 0; k < 4; k++) // find targets with highestScoredMove
         {
             for (u8 i = 0; i < 4; i++) // movesScore
@@ -135,8 +123,8 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
     } else // single battles
     {
         // BATTLER_OPPONENT
-        SetupStateVariables(bsys, attacker, defender, ai);
-        highestScoredMove = ScoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai);
+        SetupStateVariables(bsys, attacker, defender, ai1);
+        highestScoredMove = ScoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai1);
     }
     ctx->aiWorkTable.ai_dir_select_client[attacker] = target;
 
@@ -186,7 +174,36 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
     return result;
 }
 
+void LONG_CALL SetupContexts(struct BattleSystem *bsys, u32 attacker, struct AIContext *ai1, struct AIContext *ai2, int damages[4][4])
+{
+    struct BattleStruct *ctx = bsys->sp;
 
+    u32 defender = BATTLER_OPPONENT(attacker);
+    if (ctx->battlemon[defender].hp > 0)
+    {
+        SetupStateVariables(bsys, attacker, defender, ai1);
+        for (u8 i = 0; i < 4; i++)
+        {
+            damages[defender][i] = ai1->attackerRolledMoveDamages[i];
+        }
+    }
+
+    defender = BATTLER_ACROSS(attacker);
+    if (ctx->battlemon[defender].hp > 0)
+    {
+        SetupStateVariables(bsys, attacker, defender, ai2);
+        for (u8 i = 0; i < 4; i++)
+        {
+            damages[defender][i] = ai2->attackerRolledMoveDamages[i];
+        }
+    }
+    if (ai1->playerCanOneShotMonWithAnyMove) {
+        ai2->playerCanOneShotMonWithAnyMove = TRUE;
+    }
+    if (ai2->playerCanOneShotMonWithAnyMove) {
+        ai1->playerCanOneShotMonWithAnyMove = TRUE;
+    }
+}
 
 
 int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext *ai)
@@ -773,6 +790,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 
 int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai)
 {
+    debug_printf("incap %d, movesFirst %d, can1H %d, maxRec %d, hp %d", ai->isDefenderIncapacitated, ai->attackerMovesFirst, ai->playerCanOneShotMonWithAnyMove, ai->maxDamageReceived, ai->attackerMon.hp);
     int moveScore = 0;
     if (ai->isDefenderIncapacitated) {
         moveScore += 3;
@@ -792,7 +810,7 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
             moveScore += 1;
         }
     }
-
+    debug_printf(", score %d\n", moveScore);
     return moveScore;
 }
 int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai)
@@ -1056,7 +1074,6 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     }
     if (!shouldSetup) {
         moveScore = 0;
-        moveScore = (moveScore - NEVER_USE_MOVE_20);
     }
     if (!isSetupMove) {
         moveScore = 0;
