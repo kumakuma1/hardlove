@@ -1197,7 +1197,7 @@ Voltorb -> "Billy"
 SetVarFromVariable 0x8004 0x800C
 	GetPartyPokemonID 0x8004 0x8005
 	// GetRequestedPokemon 0x800C
-	CompareVars 0x8005 0x800C -> CompareVars 0x8005 99
+	CompareVars 0x8005 0x800C -> CompareVarValue 0x8005 99
 	JumpIf DIFFERENT Function#4
 
 #define SPECIES_KINGLER        99
@@ -1286,6 +1286,7 @@ Function 6:
 	TextPlayerName 0
     Message 15
 
+8: Chuck: How to get a Mega Ring?!\rHmm..\rI dont know.\nI got mine in Kanto as a young\ftrainer.
 15: Chuck: \v0103ぁ\x0000\x0000!\nYou are strong enough the wield\fthe Mega Ring.\rI feel it in my bones.\rAnd you will need one if you want to\nchallenge the Pokémon League!\rWahahah!\r
 
 ### EUsine gives Manectite, Life Orb
