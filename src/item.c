@@ -29,7 +29,7 @@ static const u16 sMachineMoves[] = {
     MOVE_BLIZZARD,         // TM014
     MOVE_ELECTROWEB,            // TM015
     MOVE_WEATHER_BALL,          // TM016
-    MOVE_PROTECT,          // TM017
+    MOVE_STRUGGLE_BUG,          // TM017
     MOVE_TEMPER_FLARE,       // TM018
     MOVE_GIGA_DRAIN,       // TM019
     MOVE_HYPER_VOICE,        // TM020
@@ -43,7 +43,7 @@ static const u16 sMachineMoves[] = {
     MOVE_VENOSHOCK,              // TM028
     MOVE_PSYCHIC,          // TM029
     MOVE_SHADOW_BALL,      // TM030
-    MOVE_BRICK_BREAK,      // TM031
+    MOVE_BODY_PRESS,      // TM031
     MOVE_DOUBLE_TEAM,      // TM032
     MOVE_REFLECT,          // TM033
     MOVE_SHOCK_WAVE,       // TM034

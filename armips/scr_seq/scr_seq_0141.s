@@ -591,7 +591,7 @@ scr_seq_0141_054:
 
 scr_seq_0141_055:
 	//goldenrod Department Store basement, south east, 1093
-	setvar VAR_SPECIAL_x8008, 2
+	setvar VAR_SPECIAL_x8008, ITEM_TM017
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
