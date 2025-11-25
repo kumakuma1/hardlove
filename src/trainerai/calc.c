@@ -65,6 +65,8 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
     monStruct->slowStartCount = 0;
     monStruct->furyCutterCount = 0;
     monStruct->metronomeTurns = 0;
+    monStruct->lastResortCount = 0;
+    monStruct->attackerHasMoveFailureLastTurn = 0;
 }
 
 void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int numSlot)
@@ -124,7 +126,8 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->slowStartCount = (sp->total_turn - sp->battlemon[numSlot].moveeffect.slowStartTurns);
     monStruct->furyCutterCount = sp->battlemon[numSlot].moveeffect.furyCutterCount;
     monStruct->metronomeTurns = sp->battlemon[numSlot].moveeffect.metronomeTurns;
-    // monStruct->lastResortCount = sp->battlemon[numSlot].moveeffect.lastResortCount;
+    monStruct->lastResortCount = sp->battlemon[numSlot].moveeffect.lastResortCount;
+    monStruct->attackerHasMoveFailureLastTurn = sp->moveConditionsFlags[numSlot].moveFailureLastTurn;
 }
 
 

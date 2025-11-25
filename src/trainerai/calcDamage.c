@@ -238,8 +238,11 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
             movepower *= 2;
         }
         break;
+    case MOVE_TEMPER_FLARE:
     case MOVE_STOMPING_TANTRUM:
-        // TODO: Implement Stomping Tantrum
+        if (attacker->attackerHasMoveFailureLastTurn) {
+            movepower *= 2;
+        }
         break;
     case MOVE_WAKE_UP_SLAP:
         if (defender->condition & STATUS_SLEEP) {

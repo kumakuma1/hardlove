@@ -43,7 +43,8 @@ struct PACKED AI_sDamageCalc {
     u8 slowStartCount;
     u8 furyCutterCount;
     u8 metronomeTurns;
-    // u8 lastResortCount;
+    u8 lastResortCount;
+    u8 attackerHasMoveFailureLastTurn;
 };
 
 struct PACKED AIContext {
