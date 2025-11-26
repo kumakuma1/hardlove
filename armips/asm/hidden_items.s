@@ -71,10 +71,10 @@
 .halfword ITEM_REVIVE
 
 .org 0x02000000 + 0xFA600 //Union Cave B2F SW
-.halfword ITEM_ULTRA_BALL
+.halfword ITEM_GRASS_GEM
 
 .org 0x02000000 + 0xFA608 //Union Cave B2F W
-.halfword ITEM_CALCIUM
+.halfword ITEM_ROCK_GEM
 
 .org 0x02000000 + 0xFA610 //R32 E
 .halfword ITEM_HEART_SCALE
@@ -95,7 +95,7 @@
 .halfword ITEM_SUPER_POTION
 
 .org 0x02000000 + 0xFA640 //Slowpoke Well B1F Ladder
-.halfword ITEM_FULL_HEAL
+.halfword ITEM_PSYCHIC_GEM
 
 .org 0x02000000 + 0xFA648 //Ilex Forest W
 .halfword ITEM_ANTIDOTE

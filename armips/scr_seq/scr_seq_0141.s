@@ -495,13 +495,13 @@ scr_seq_0141_038:
 
 scr_seq_0141_039:
 	//Union CAVE B2F north, 1082
-	setvar VAR_SPECIAL_x8008, 40
+	setvar VAR_SPECIAL_x8008, ITEM_ABSOLITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_040:
 	//Union CAVE B2F south, 1083
-	setvar VAR_SPECIAL_x8008, 25
+	setvar VAR_SPECIAL_x8008, ITEM_ALTARIANITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -513,7 +513,7 @@ scr_seq_0141_041:
 
 scr_seq_0141_042:
 	//slowpoke well B2F, central, 1076
-	setvar VAR_SPECIAL_x8008, 345
+	setvar VAR_SPECIAL_x8008, ITEM_TM013
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
