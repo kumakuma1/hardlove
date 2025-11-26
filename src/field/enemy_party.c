@@ -316,6 +316,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             case 204: // Hiker Leonard Union Cave B1F
             case 358: // Hiker Kenny Cherrygrove
             case 205: // Ace Trainer Nick Union Cave B2F
+            case 206: // Ace Trainer Gwen Union Cave B2F
             case 363: // Ace Trainer Emma Union Cave B2F
             {
                 u16 levelcap = GetScriptVar(LEVEL_CAP_VARIABLE);
