@@ -9744,7 +9744,7 @@ trainerdata 202, "Calvin"
     battletype NO_PARTNER_DOUBLE_BATTLE
     endentry
 
-        party 201
+        party 202
         ivs 0
         abilityslot 0
         level LEVEL_JASMINE-2
