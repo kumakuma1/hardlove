@@ -1964,7 +1964,7 @@ _11B8: // Trainer 201
 
 _11C4: // Trainer 202
     trainertextentry 202, TEXT_NOTICE_IN_OVERWORLD, "I came all the way here to conduct my\nPokémon research.\rLet me demonstrate my findings in a\nreal battle!\r"
-    trainertextentry 202, TEXT_DEFEATED_IN_BATTLE, "I’m the one who learned something from\nyour demonstration!\n"
+    trainertextentry 202, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "I’m the one who learned something from\nyour demonstration!\n"
     trainertextentry 202, TEXT_DEFEATED_IN_OVERWORLD, "I should compile and announce my study\nfindings. I might even become famous\flike Professor Elm.\n"
 
 _11D0: // Trainer 203
