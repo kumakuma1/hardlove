@@ -290,6 +290,9 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     if (ctx->battlemon[ai->attacker].pp[i] == 0) {
         moveScore -= IMPOSSIBLE_MOVE;
     }
+    if (ctx->battlemon[ai->attacker].moveeffect.disabledTurns && ai->attackerMove == ctx->battlemon[ai->attacker].moveeffect.disabledMove) {
+        moveScore -= IMPOSSIBLE_MOVE;
+    }
     if (ctx->battlemon[ai->attacker].moveeffect.tauntTurns > 0 && ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS) {
         moveScore -= IMPOSSIBLE_MOVE; // taunted, so no status moves
     }
@@ -938,9 +941,13 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_EVA_UP_3:
     case MOVE_EFFECT_EVA_UP_2_MINIMIZE:
         moveScore += 6;
-        if (ai->defenderMon.ability == ABILITY_NO_GUARD || ctx->battlemon[attacker].states[STAT_EVASION] >= 10) {
+        if (ai->defenderMon.ability == ABILITY_NO_GUARD || ctx->battlemon[attacker].states[STAT_EVASION] >= 12) {
             moveScore -= NEVER_USE_MOVE_20;
-        } else if (2 * ai->maxDamageReceived < ai->attackerMon.hp) {
+        } 
+        if (ctx->battlemon[attacker].states[STAT_EVASION] >= 7) {
+            moveScore -= 1;
+        } 
+        else if (2 * ai->maxDamageReceived < ai->attackerMon.hp) {
             moveScore += 2;
         }
         if (ai->isDefenderIncapacitated) {
@@ -964,7 +971,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_CRIT_UP_2:
-        if (ai->defenderMon.ability == ABILITY_SHELL_ARMOR || ai->defenderMon.ability == ABILITY_BATTLE_ARMOR) {
+        if (ai->defenderMon.ability == ABILITY_SHELL_ARMOR || ai->defenderMon.ability == ABILITY_BATTLE_ARMOR || ctx->battlemon[ctx->defence_client].condition2 & STATUS2_FOCUS_ENERGY) {
             moveScore -= NEVER_USE_MOVE_20;
         } else if (ai->attackerMon.ability == ABILITY_SUPER_LUCK || ai->attackerMon.ability == ABILITY_SNIPER || ai->attackerMon.item == ITEM_SCOPE_LENS) { // or hight crit moves
             moveScore += 7;
@@ -1013,29 +1020,47 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
             break;
         }
         FALLTHROUGH;
-    case MOVE_EFFECT_ATK_UP: // howl
-    case MOVE_EFFECT_ATK_UP_2: // swords dance
-    case MOVE_EFFECT_ATK_UP_3:
-    case MOVE_EFFECT_ATK_SPEED_UP: // dragon dance
     case MOVE_EFFECT_SP_ATK_UP: // growth
     case MOVE_EFFECT_ATK_SP_ATK_UP: // work up
     case MOVE_EFFECT_ATK_ACC_UP: // hone claws
+    case MOVE_EFFECT_ATK_UP: // howl
+    case MOVE_EFFECT_ATK_UP_2: // swords dance
+    case MOVE_EFFECT_ATK_UP_3:
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 11 || ctx->battlemon[attacker].states[STAT_SPATK] > 11) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7) {
+            moveScore -= 2;
+        }
+        moveScore += 6;
+        moveScore += OffensiveSetup(bsys, attacker, i, ai);
+        break;
+    case MOVE_EFFECT_ATK_SPEED_UP: // dragon dance
     case MOVE_EFFECT_SPEED_UP_2_ATK_UP: // shift gear
     case MOVE_EFFECT_TIDY_UP: // tidy up is basically ddance
-    case MOVE_EFFECT_RANDOM_STAT_UP_2: // accupressure
     case MOVE_EFFECT_ATK_DEF_SPEED_UP: // victory dance
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 11 || ctx->battlemon[attacker].states[STAT_SPATK] > 11) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7 || ai->attackerMovesFirst) {
+            moveScore -= 2;
+        }
+        FALLTHROUGH;
+    case MOVE_EFFECT_RANDOM_STAT_UP_2: // accupressure
         moveScore += 6;
         moveScore += OffensiveSetup(bsys, attacker, i, ai);
         break;
     case MOVE_EFFECT_GROUND_TRAP_USER_CONTINUOUS_HEAL: // Ingrain
+        moveScore += 6;
         if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) {
-            moveScore -= NEVER_USE_MOVE_20;
+            moveScore -= IMPOSSIBLE_MOVE;
             break;
         }
         FALLTHROUGH;
     case MOVE_EFFECT_RESTORE_HP_EVERY_TURN: // Aqua Ring
+        moveScore += 6;
         if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING) {
-            moveScore -= NEVER_USE_MOVE_20;
+            moveScore -= IMPOSSIBLE_MOVE;
             break;
         }
         FALLTHROUGH;
@@ -1050,12 +1075,24 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_DEF_SP_DEF_UP:
     case MOVE_EFFECT_STOCKPILE:
         // case MOVE_EFFECT_STUFF_CHEEKS:
+        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 11 || ctx->battlemon[attacker].states[STAT_SPDEF] > 11) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 7 || ctx->battlemon[attacker].states[STAT_SPDEF] > 7) {
+            moveScore -= 3;
+        }
         moveScore += 6;
         moveScore += DefensiveSetup(bsys, attacker, i, ai);
         break;
     case MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP: // quiver dance
     case MOVE_EFFECT_SP_ATK_SP_DEF_UP: // Calm Mind
         moveScore += 6;
+        if (ctx->battlemon[attacker].states[STAT_SPATK] > 11 || ctx->battlemon[attacker].states[STAT_SPDEF] > 11) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        if (ctx->battlemon[attacker].states[STAT_SPATK] > 7 || ctx->battlemon[attacker].states[STAT_SPDEF] > 7) {
+            moveScore -= 2;
+        }
         if (ai->defenderHasAtleastOnePhysicalMove == FALSE && ai->defenderHasAtleastOneSpecialMove) {
             moveScore += DefensiveSetup(bsys, attacker, i, ai);
         } else {
@@ -1072,6 +1109,12 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_ATK_DEF_ACC_UP: // coil
         // case MOVE_EFFECT_NO_RETREAT: // No Retreat
         moveScore += 6;
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 11 || ctx->battlemon[attacker].states[STAT_DEFENSE] > 11) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_DEFENSE] > 7) {
+            moveScore -= 2;
+        }
         if (ai->defenderHasAtleastOnePhysicalMove && ai->defenderHasAtleastOneSpecialMove == FALSE) {
             moveScore += DefensiveSetup(bsys, attacker, i, ai);
         } else {
@@ -1156,22 +1199,29 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore += 3;
         }
         break;
-    case MOVE_EFFECT_SURVIVE_WITH_1_HP:
+    case MOVE_EFFECT_SURVIVE_WITH_1_HP: // endure
+    {
+        BOOL monDiesEndTurnEndure = MonDiesFromResidualDamage(ctx, ai->attacker, ai->attackerMon.condition, (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE));
+
+        if (IsMonInflictedWithAnyNegativeStatus(ctx, attacker)) {
+            moveScore -= 1;
+        }
+        if (ai->defenderMovesFirst && ai->playerCanOneShotMonWithAnyMove) {
+            moveScore += 6;
+            if (IS_ITEM_BERRY(ai->attackerMon.item)) {
+                moveScore += 2;
+            }
+        }
         if (ctx->protectSuccessTurns[ai->attacker] == 1) {
             if (BattleRand(bsys) % 2 == 0) {
                 moveScore -= NEVER_USE_MOVE_20;
             }
-        } else if (ctx->protectSuccessTurns[ai->attacker] > 1) {
+        }
+        if (ctx->protectSuccessTurns[ai->attacker] > 1 || monDiesEndTurnEndure) {
             moveScore -= IMPOSSIBLE_MOVE;
-        } else if (ai->defenderMovesFirst && ai->playerCanOneShotMonWithAnyMove) {
-            moveScore += 6;
-            if (ai->attackerMon.item == ITEM_CUSTAP_BERRY || ai->attackerMon.item == ITEM_SALAC_BERRY) { //TODO
-                moveScore += 2;
-            }
-        } else {
-            moveScore -= NEVER_USE_MOVE_20;
         }
         break;
+    }
     // case MOVE_EFFECT_KINGS_SHIELD:
     // case MOVE_EFFECT_OBSTRUCT:
     // case MOVE_EFFECT_SPIKEY_SHIELD:
@@ -1584,6 +1634,23 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             }
         } else {
             moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_MIRROR_COAT:
+        if (ai->attackerMovesFirst) {
+            moveScore -= 1;
+        }
+        if (ai->defenderHasAtleastOneSpecialMove && !ai->playerCanOneShotMonWithAnyMove)
+        {
+            moveScore += 6;
+        }
+        break;
+    case MOVE_EFFECT_COUNTER:
+        if (ai->attackerMovesFirst) {
+            moveScore -= 1;
+        }
+        if (ai->defenderHasAtleastOnePhysicalMove && !ai->playerCanOneShotMonWithAnyMove) {
+            moveScore += 6;
         }
         break;
     default:
