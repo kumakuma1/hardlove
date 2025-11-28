@@ -24,7 +24,7 @@ static const u16 sMachineMoves[] = {
     MOVE_BULLET_SEED,      // TM009
     MOVE_HIDDEN_POWER,     // TM010
     MOVE_MAGICAL_LEAF,        // TM011
-    MOVE_TAUNT,            // TM012
+    MOVE_PSYCHIC_FANGS,            // TM012
     MOVE_ICE_BEAM,         // TM013
     MOVE_BLIZZARD,         // TM014
     MOVE_ELECTROWEB,            // TM015
