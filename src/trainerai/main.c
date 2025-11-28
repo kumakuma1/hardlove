@@ -453,6 +453,7 @@ BOOL LONG_CALL isMoveSpecialAiAttackingMove(u32 attackerMove)
     case MOVE_ROLLOUT:
     case MOVE_METEOR_BEAM:
     case MOVE_ELECTRO_SHOT:
+    case MOVE_SAND_TOMB:
     case MOVE_BIND:
     case MOVE_CLAMP:
     case MOVE_FIRE_SPIN:
@@ -529,6 +530,11 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem *bsys, u32 attacker, in
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
+    case MOVE_SAND_TOMB:
+        if (!ai->defenderMon.isGrounded) {
+            break;
+        }
+        FALLTHROUGH;
     case MOVE_BIND:
     case MOVE_CLAMP:
     case MOVE_FIRE_SPIN:
