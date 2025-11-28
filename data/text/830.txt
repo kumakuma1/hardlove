@@ -326,7 +326,7 @@ A transparent device overflowing\nwith dubious data. It’s loved by a\ncertain 
 A cloth imbued with horrifyingly\nstrong spiritual energy. It’s loved\nby a certain Pokémon.
 An item to be held by a Pokémon.\nThis sharply hooked claw boosts the\ncritical-hit ratio of the holder’s\rmoves.
 An item to be held by a Pokémon.\nThis sharply hooked fang may cause\nthe target to flinch whenever the\rholder successfully inflicts damage\non them with an attack.
-The user focuses its mind before\nlaunching a punch. It will fail if\nthe user is hit before it is used.
+The user looses a blast of aura\npower from deep within its body.\nThis move is certain to hit.
 The user slashes the foe with huge,\nsharp claws.
 The user attacks the foe with a\npulsing blast of water. It may also\nconfuse the foe.
 The user slams the target with its\nwings to inflict damage. The target\nis hit twice in a row.
@@ -337,18 +337,18 @@ The foe is thrown using the power of\ngravity. It inflicts damage equal to\nthe 
 The user forcefully shoots seeds at\nthe foe. Two to five seeds are shot\nin rapid succession.
 A unique attack that varies in type\ndepending on the Pokémon using it.
 The user scatters curious leaves\nthat chase the foe. This attack will\nnot miss.
-The foe is taunted into a rage that\nallows it to use only attack moves\nfor two to four turns.
+The user bites the target with its\npsychic capabilities. This can also\ndestroy Light Screen and Reflect.
 The foe is struck with an icy-cold\nbeam of energy. It may also freeze\nthe target solid.
 A howling blizzard is summoned to\nstrike the foe. It may also freeze\nthe target solid.
 The user traps the foe in an\nelectric net. It also lowers the\nfoe’s Speed.
-A wondrous wall of light is put up\nto suppress damage from special\nattacks for five turns.
-It enables the user to evade all\nattacks. Its chance of failing rises\nif it is used in succession.
-The user summons a heavy rain that\nfalls for five turns, powering up\nWater- type moves.
+An attack move that varies in power\nand type depending on the weather.
+While resisting, the user attacks\nthe foe, lowering its Sp. Atk stat.
+---
 A nutrient-draining attack. The\nuser’s HP is restored by half the\ndamage taken by the target.
 The user lets loose a horribly\nechoing shout with the power to\ninflict damage.
 The user attacks with a gust of\nchilled air. It also lowers the\ntarget’s Speed stat.
 A two-turn attack. The user gathers\nlight, then blasts a bundled beam on\nthe second turn.
-The foe is slammed with a steel-hard\ntail. It may also lower the target’s\nDefense stat.
+The user slams into the target. The\ngreater the weight difference, the\ngreater the damage.
 A strong electric blast is loosed at\nthe foe. It may also leave the foe\nparalyzed.
 A wicked thunderbolt is dropped on\nthe foe to inflict damage. It may\nalso leave the target paralyzed.
 The user sets off an earthquake that\nhits all the Pokémon in the battle.
@@ -356,7 +356,7 @@ The user stabs the target with a\nsharp horn. This attack never\nmisses.
 The foe is soaked by a special acid.\nIts power doubles if the foe is\npoisoned.
 The foe is hit by a strong\ntelekinetic force. It may also\nreduce the foe’s Sp. Def stat.
 The user hurls a shadowy blob at the\nfoe. It may also lower the foe’s Sp.\nDef stat.
-The user attacks with tough fists,\netc. It can also break any barrier\nsuch as Light Screen and Reflect.
+---
 By moving rapidly, the user makes\nillusory copies of itself to raise\nits evasiveness.
 A wondrous wall of light is put up\nto suppress damage from physical\nattacks for five turns.
 The user strikes the foe with a\nquick jolt of electricity. This\nattack cannot be evaded.
