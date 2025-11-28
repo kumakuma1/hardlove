@@ -81,8 +81,8 @@ Ball Capsules can’t be used because\nyou don’t have any Seals.\r
                                          
 Would you like to\nsave your adventure so far?
 There is already a saved file.\nIs it OK to overwrite it?
-Good morning!\nWelcome to the Pokémon Center.\rWe restore your tired Pokémon\nto full health.\rWould you like to rest your\nPokémon? {YESNO 0}
-Hello, and welcome to\nthe Pokémon Center.\rWe restore your tired Pokémon\nto full health.\rWould you like to rest your\nPokémon? {YESNO 0}
+Good morning!\nWelcome to the Pokémon Center.\rWould you like to rest your\nPokémon? {YESNO 0}
+Hello, and welcome to\nthe Pokémon Center.\rWould you like to rest your\nPokémon? {YESNO 0}
 {STRVAR_1 3, 0, 0}’s Azure Flute is making\na sound!\rWould you like to blow into the\nAzure Flute? {YESNO 0}
 {STRVAR_1 3, 0, 0} blew the Azure Flute.\r
 A glowing stairway appeared!

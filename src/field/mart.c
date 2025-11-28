@@ -128,9 +128,7 @@ u16 sEcruteakMart[] = {
 };
 
 u16 sOlivineMart[] = {
-    ITEM_HONEY, //ITEM_HEART_MAIL, 
-    0xFFFF //ITEM_HEAL_BALL,
-    //ITEM_NET_BALL, 0xFFFF
+    ITEM_HEART_MAIL, ITEM_HEAL_BALL, ITEM_NET_BALL, 0xFFFF
 };
 
 u16 sCianwoodPharmacy[] = {
