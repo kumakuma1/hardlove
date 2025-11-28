@@ -534,10 +534,15 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem *bsys, u32 attacker, in
     case MOVE_FIRE_SPIN:
     case MOVE_WRAP:
     case MOVE_WHIRLPOOL:
-        // case MOVE_INFESTATION:
-        moveScore += 6;
-        if (BattleRand(bsys) % 10 < 2) {
-            moveScore += 2;
+    case MOVE_INFESTATION:
+        if (ctx->binding_turns[ai->defender] != 0 || HasType(ctx, ai->defender, TYPE_GHOST) || ai->attackerMon.item == ITEM_SHED_SHELL) {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        else {
+            moveScore += 6;
+            if (BattleRand(bsys) % 10 < 2) {
+                moveScore += 2;
+            }
         }
         break;
     default:
@@ -551,7 +556,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 {
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
-    BOOL isMoveHighestDamage = 0;
+    BOOL isMoveHighestDamage = FALSE;
 
     if (ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS) {
         return 0;
@@ -591,7 +596,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             moveScore -= NEVER_USE_MOVE_20;
         }
     } else if (ai->attackerRolledMaxDamage == ai->attackerRolledMoveDamages[i]) {
-        isMoveHighestDamage = 1;
+        isMoveHighestDamage = TRUE;
         moveScore += 6;
         if (BattleRand(bsys) % 10 < 2) {
             moveScore += 2;
@@ -649,8 +654,14 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
-    if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SPEED_HIT && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100) {
-        if (ai->defenderMovesFirst && ((ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY) || ai->attackerMon.hasMoldBreaker)) {
+    if (!isMoveHighestDamage 
+        && ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SPEED_HIT 
+        && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100) {
+        if (ai->defenderMovesFirst 
+            && ((ai->defenderMon.ability != ABILITY_CLEAR_BODY 
+                && ai->defenderMon.ability != ABILITY_WHITE_SMOKE 
+                && ai->defenderMon.ability != ABILITY_CONTRARY) 
+                || ai->attackerMon.hasMoldBreaker)) {
             moveScore += 6;
         } else {
             moveScore += 5;

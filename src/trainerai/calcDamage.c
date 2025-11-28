@@ -1206,7 +1206,9 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
             break;
         }
     }
-    // MIMIKYU damage = 0?
+    if (moveno == MOVE_DREAM_EATER && (defender->condition & STATUS_SLEEP) == 0) {
+        return 0;
+    }
     if (moveno == MOVE_STEEL_ROLLER && sp->terrainOverlay.type == TERRAIN_NONE) {
         return 0;
     }
