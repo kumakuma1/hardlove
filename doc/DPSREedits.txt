@@ -143,6 +143,9 @@ Function15:
 	SetVar 0x8004 445
 	SetVar 0x8005 1
 	CommonScript 2033
+	SetVar 0x8004 2558
+	SetVar 0x8005 1
+	CommonScript 2033
 	CloseMessage 
 
 	20/21:
