@@ -308,7 +308,7 @@
 .halfword ITEM_TINY_MUSHROOM
 
 .org 0x02000000 + 0xFA878 //R42
-.halfword ITEM_MAX_POTION
+.halfword ITEM_BUG_GEM
 
 .org 0x02000000 + 0xFA880 //Mt Mortar Entrance W
 .halfword ITEM_HYPER_POTION

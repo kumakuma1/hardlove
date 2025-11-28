@@ -789,7 +789,7 @@ trainerdata 13, "Grunt"
         move MOVE_FEINT_ATTACK
         move MOVE_QUICK_ATTACK
         move MOVE_BULK_UP
-        move MOVE_QUICK_ATTACK
+        move MOVE_NONE
         ability ABILITY_HUSTLE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef

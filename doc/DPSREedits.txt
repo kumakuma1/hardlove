@@ -351,6 +351,20 @@ End
 20 Pssst!\rDon’t scare the fish!\r
 21 Poli...\r
 
+### Double battle in Union Cave, blocker
+add Graveler OW
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 75 0
+	Message 0
+    WaitCry
+	CloseMessage 
+	ReleaseAll 
+End 
+0:GRAVELER:Gryyaaa!\r     
 
 ###Union Cave Aggronite
 Move OW item to patch accessable with surf
@@ -1186,6 +1200,14 @@ Script 2:
 ### Facade at Moomoo Farm
 Text: 10: That there’s Facade.\rIts Power will increase if yer Pokémon\nhas a status condition.\rYou best think how you ought to\nuse it, hon.
 
+Function 2:
+	CheckFlag 171
+	JumpIf EQUAL Function#4
+	Message 8
+	WaitAB 
+	SetVar 0x8004 410 -> 369
+	SetVar 0x8005 1
+
 ### Sharp Beak Route 40
 Remove Flag 518
 
@@ -1501,8 +1523,7 @@ Script 1:
 	CompareVarValue 0x800C 1
 	JumpIf EQUAL Function#1
     CheckFlag 2518
-    CompareVarValue 0x800C 0
-	JumpIf EQUAL Function#50
+	JumpIf LESS Function#50
 
 Function 50:
     Message 25
@@ -2403,3 +2424,28 @@ End
 5: Jasmine: With that Badge,\nPokémon will be able to use Rock Climb.\rPlease take this, too.\r
 27: Jasmine: Thank you for your help\nat the Lighthouse.\r...\r
 28: Ah, you have it. The Mega Ring.\rThis is an important milestone on your\njourney to the Pokémon League.\rNow, show me that you can wield\nthat power wisely, Trainer.\r
+
+
+
+### Lance Text at lake
+split message
+
+	TextPlayerName 0
+	GenderMessage 3 4
+    TextPlayerName 0
+	GenderMessage 19 20
+
+3:Did you come here because of the\nwild tales?\rYou’re \v0103ぁ\x0000\x0000?\nI’m Lance, a former Champion and a\fcurrent member of the Elite Four.\r
+4:...
+19: I heard some rumblings...
+20: I heard some rumblings...
+
+### Skill swap at lake of Rage house
+0:I am the inventor of Hidden Power!\nBut nowadays you buy the move as TM\feverywhere...\rSo...\rI invented a new move.\nSomething more pristine...\r
+
+2:Skill Swap!\rThis move allows advanced strategies\nin battle.\rBut now let me focus on my next\ninvention...\r
+Message 0
+	SetVar 0x8004 337 -> 375
+	SetVar 0x8005 1
+
+#define ITEM_TM048                        375

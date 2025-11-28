@@ -2,8 +2,10 @@
 131   -                                - Get White Herb from Butterfree Lady on Route 34 Passage
 156   -                                - Pokegear Flag
 165   -                                - Flag for getting Magnet from Sunny on Route 37
+171   -                                - Getting TM for curing Miltank at Route 39 Farm
 189   - 230-T26R0601 : Script File 918 - Got good rod in olivine -  | Mom sets 063 , used for goldenrod Evolution Items 4, Cleared after Chuck
 190   -                                - Trde in Olivine City
+199   -                                - Flag for gettint TM in Lake of Rage house
 215   -                                - Flag for getting Sharp Beak from Monica on Route 40
 216   -                                - Flag for getting Twisted spoon on Route 29, used in olivine restaurant to give spoon.
 305   -                                - Flag for getting Cleanse Tag on Route 5. Lady gives Spell Tag.

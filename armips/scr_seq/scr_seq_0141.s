@@ -513,7 +513,7 @@ scr_seq_0141_041:
 
 scr_seq_0141_042:
 	//slowpoke well B2F, central, 1076
-	setvar VAR_SPECIAL_x8008, ITEM_TM013
+	setvar VAR_SPECIAL_x8008, ITEM_TM012
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -883,17 +883,20 @@ scr_seq_0141_107:
 	goto scr_seq_0141_255
 
 scr_seq_0141_108:
-	setvar VAR_SPECIAL_x8008, 26
+	//route 42, central, 1172 
+	setvar VAR_SPECIAL_x8008, ITEM_TM006
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_109:
+	//route 42, central, rockclimb, 1193
 	setvar VAR_SPECIAL_x8008, 324
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_110:
-	setvar VAR_SPECIAL_x8008, 392
+	//route 42, west, 1285
+	setvar VAR_SPECIAL_x8008, ITEM_TM061
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1053,21 +1056,25 @@ scr_seq_0141_141:
 	goto scr_seq_0141_255
 
 scr_seq_0141_142:
+	//route 43, central, 1198
 	setvar VAR_SPECIAL_x8008, 39
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_143:
+	//lake of rage, north west, 1288
 	setvar VAR_SPECIAL_x8008, 370
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_144:
+	//lake of rage, north east, 1289
 	setvar VAR_SPECIAL_x8008, 297
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_145:
+	//lake of rage, west, 1290
 	setvar VAR_SPECIAL_x8008, 67
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
