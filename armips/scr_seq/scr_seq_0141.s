@@ -673,7 +673,7 @@ scr_seq_0141_068:
 
 scr_seq_0141_069:
 	//burned tower 2F north, 1074
-	setvar VAR_SPECIAL_x8008, 339
+	setvar VAR_SPECIAL_x8008, ITEM_TM018
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

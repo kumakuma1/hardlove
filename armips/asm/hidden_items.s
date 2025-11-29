@@ -185,10 +185,10 @@
 .halfword ITEM_ULTRA_BALL
 
 .org 0x02000000 + 0xFA730 //Burned Tower Basement NW
-.halfword ITEM_ANTIDOTE
+.halfword ITEM_FIGHTING_GEM
 
 .org 0x02000000 + 0xFA738 //Burned Tower Basement S
-.halfword ITEM_REVIVE
+.halfword ITEM_DARK_GEM
 
 .org 0x02000000 + 0xFA740 //Bellchime Trail
 .halfword ITEM_TINY_MUSHROOM

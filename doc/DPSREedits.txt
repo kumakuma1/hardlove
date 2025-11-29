@@ -7,6 +7,8 @@
 	SetFlag 285
 	SetFlag 286
 	SetFlag 408
+	SetFlag 440 //radio tower Lady
+    SetFlag 792 //radio tower whitney
 	ClearFlag 117
 	SetFlag 156
 	PlaySound 1185
@@ -959,6 +961,8 @@ Function 31:
 	WaitMovement 
 	SetOWPosition Overworld.9 413 0 225 Left
 	SetVar 0x4024 3
+	ClearFlag 440 //radio tower lady
+    ClearFlag 792 //radio tower whitney
 	ReleaseAll 
 End 
 

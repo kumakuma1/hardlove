@@ -28,6 +28,10 @@
 	scrdef scr_seq_0150_012 //r38
 	scrdef scr_seq_0150_013 //r39
 	scrdef scr_seq_0150_014 //r35, surf
+	scrdef scr_seq_0150_015 //r42, surf
+	scrdef scr_seq_0150_016 //r42, surf
+	scrdef scr_seq_0150_017 //r42, surf
+	scrdef scr_seq_0150_018 //r43, surf
 	scrdef_end
 
 scr_seq_0150_000:
@@ -173,9 +177,9 @@ scr_seq_0150_008:
 	goto_if_set 2578, _noberries
 	call _harvest
 	anim_apricorn_tree VAR_SPECIAL_RESULT
-	GetRandom 0x800C, 50
+	GetRandom 0x800C, 30
 	setvar VAR_SPECIAL_x8004, ITEM_SITRUS_BERRY
-	setvar VAR_SPECIAL_x8005, 100
+	setvar VAR_SPECIAL_x8005, 50
 	IncrementVar VAR_SPECIAL_x8005, 0x800C 
 	CommonScript 2008
 	//play_fanfare SEQ_ME_ITEM
@@ -194,7 +198,7 @@ scr_seq_0150_009:
 	anim_apricorn_tree VAR_SPECIAL_RESULT
 	//GetRandom 0x800C, 50
 	setvar VAR_SPECIAL_x8004, ITEM_ROWAP_BERRY
-	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8005, 2
 	//IncrementVar VAR_SPECIAL_x8005, 0x800C 
 	CommonScript 2008
 	//play_fanfare SEQ_ME_ITEM
@@ -213,7 +217,7 @@ scr_seq_0150_010:
 	anim_apricorn_tree VAR_SPECIAL_RESULT
 	//GetRandom 0x800C, 50
 	setvar VAR_SPECIAL_x8004, ITEM_JABOCA_BERRY
-	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8005, 2
 	//IncrementVar VAR_SPECIAL_x8005, 0x800C 
 	CommonScript 2008
 	//play_fanfare SEQ_ME_ITEM
@@ -232,7 +236,7 @@ scr_seq_0150_011:
 	anim_apricorn_tree VAR_SPECIAL_RESULT
 	//GetRandom 0x800C, 50
 	setvar VAR_SPECIAL_x8004, ITEM_MICLE_BERRY
-	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8005, 5
 	//IncrementVar VAR_SPECIAL_x8005, 0x800C 
 	CommonScript 2008
 	//play_fanfare SEQ_ME_ITEM
@@ -295,6 +299,94 @@ scr_seq_0150_014:
 	//play_fanfare SEQ_ME_ITEM
 	//wait_fanfare
 	setflag 2584
+	goto _goaway
+
+
+scr_seq_0150_015:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	npc_msg 10 //its  a berry tree
+	closemsg
+	goto_if_set 2585, _noberries
+	call _harvest
+	anim_apricorn_tree VAR_SPECIAL_RESULT
+	//GetRandom 0x800C, 50
+	setvar VAR_SPECIAL_x8004, ITEM_JABOCA_BERRY
+	setvar VAR_SPECIAL_x8005, 2
+	//IncrementVar VAR_SPECIAL_x8005, 0x800C 
+	CommonScript 2008
+	//play_fanfare SEQ_ME_ITEM
+	//wait_fanfare
+	setflag 2585
+	goto _goaway
+
+
+scr_seq_0150_016:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	npc_msg 10 //its  a berry tree
+	closemsg
+	goto_if_set 2586, _noberries
+	call _harvest
+	anim_apricorn_tree VAR_SPECIAL_RESULT
+	//GetRandom 0x800C, 50
+	setvar VAR_SPECIAL_x8004, ITEM_ROWAP_BERRY
+	setvar VAR_SPECIAL_x8005, 2
+	//IncrementVar VAR_SPECIAL_x8005, 0x800C 
+	CommonScript 2008
+	//play_fanfare SEQ_ME_ITEM
+	//wait_fanfare
+	setflag 2586
+	goto _goaway
+
+scr_seq_0150_017:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	npc_msg 10 //its  a berry tree
+	closemsg
+	goto_if_set 2587, _noberries
+	call _harvest
+	anim_apricorn_tree VAR_SPECIAL_RESULT
+	setvar VAR_SPECIAL_x8004, ITEM_FIGY_BERRY
+	setvar VAR_SPECIAL_x8005, 2
+	CommonScript 2008
+	setvar VAR_SPECIAL_x8004, ITEM_WIKI_BERRY
+	setvar VAR_SPECIAL_x8005, 2
+	CommonScript 2008
+	setvar VAR_SPECIAL_x8004, ITEM_MAGO_BERRY
+	setvar VAR_SPECIAL_x8005, 2
+	CommonScript 2008
+	setvar VAR_SPECIAL_x8004, ITEM_AGUAV_BERRY
+	setvar VAR_SPECIAL_x8005, 2
+	CommonScript 2008
+	setvar VAR_SPECIAL_x8004, ITEM_IAPAPA_BERRY
+	setvar VAR_SPECIAL_x8005, 2
+	CommonScript 2008
+	//play_fanfare SEQ_ME_ITEM
+	//wait_fanfare
+	setflag 2587
+	goto _goaway
+
+scr_seq_0150_018:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	npc_msg 10 //its  a berry tree
+	closemsg
+	goto_if_set 2588, _noberries
+	call _harvest
+	anim_apricorn_tree VAR_SPECIAL_RESULT
+	GetRandom 0x800C, 30
+	setvar VAR_SPECIAL_x8004, ITEM_SITRUS_BERRY
+	setvar VAR_SPECIAL_x8005, 50
+	IncrementVar VAR_SPECIAL_x8005, 0x800C 
+	CommonScript 2008
+	//play_fanfare SEQ_ME_ITEM
+	//wait_fanfare
+	setflag 2588
 	goto _goaway
 
 _noberries:
