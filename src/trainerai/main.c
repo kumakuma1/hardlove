@@ -107,7 +107,7 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
             for (u8 i = 0; i < 4; i++) // movesScore
             {
                 if (moveScores[k][i] == highestScoredMove) {
-                    // debug_printf("found target %d\n", k)
+                    debug_printf("found target %d with score %d, dmg %d\n", k, highestScoredMove, damages[k][i]);
                     targets[targetsSize] = k;
                     targetsSize++;
                     break;
@@ -154,7 +154,7 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
     for (u8 i = 0; i < 4; i++) {
         debug_printf("%i ", moveScores[target][i]);
     }
-    debug_printf("-> highest %i:%i\n", result, highestScoredMove);
+    debug_printf("-> highest %i:%i, dmg %d\n", result, highestScoredMove, damages[target][result]);
 #endif // BATTLE_DEBUG_OUTPUT
 
     int tieMoveCount = 0;
@@ -192,9 +192,9 @@ void LONG_CALL SetupContexts(struct BattleSystem *bsys, u32 attacker, struct AIC
     if (ctx->battlemon[defender].hp > 0)
     {
         SetupStateVariables(bsys, attacker, defender, ai2);
-        for (u8 i = 0; i < 4; i++)
+        for (u8 j = 0; j < 4; j++)
         {
-            damages[defender][i] = ai2->attackerRolledMoveDamages[i];
+            damages[defender][j] = ai2->attackerRolledMoveDamages[j];
         }
     }
     if (ai1->playerCanOneShotMonWithAnyMove) {
@@ -810,7 +810,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 
 int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai)
 {
-    debug_printf("incap %d, movesFirst %d, can1H %d, maxRec %d, hp %d", ai->isDefenderIncapacitated, ai->attackerMovesFirst, ai->playerCanOneShotMonWithAnyMove, ai->maxDamageReceived, ai->attackerMon.hp);
+    debug_printf("Off: incap %d, movesFirst %d, is1H %d, maxRec %d, hp %d", ai->isDefenderIncapacitated, ai->attackerMovesFirst, ai->playerCanOneShotMonWithAnyMove, ai->maxDamageReceived, ai->attackerMon.hp);
     int moveScore = 0;
     if (ai->isDefenderIncapacitated) {
         moveScore += 3;
@@ -835,6 +835,8 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
 }
 int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai)
 {
+    debug_printf("Def: incap %d, movesFirst %d, is1H %d, maxRec %d, hp %d", ai->isDefenderIncapacitated, ai->attackerMovesFirst, ai->playerCanOneShotMonWithAnyMove, ai->maxDamageReceived, ai->attackerMon.hp);
+    
     int moveScore = 0;
     if (ai->isDefenderIncapacitated) {
         moveScore += 2;
@@ -1021,6 +1023,8 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         FALLTHROUGH;
     case MOVE_EFFECT_SP_ATK_UP: // growth
+    case MOVE_EFFECT_SP_ATK_UP_2: // nasty plot
+    case MOVE_EFFECT_SP_ATK_UP_3: // tail glow
     case MOVE_EFFECT_ATK_SP_ATK_UP: // work up
     case MOVE_EFFECT_ATK_ACC_UP: // hone claws
     case MOVE_EFFECT_ATK_UP: // howl
@@ -1039,14 +1043,13 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_SPEED_UP_2_ATK_UP: // shift gear
     case MOVE_EFFECT_TIDY_UP: // tidy up is basically ddance
     case MOVE_EFFECT_ATK_DEF_SPEED_UP: // victory dance
+    case MOVE_EFFECT_RANDOM_STAT_UP_2: // accupressure
         if (ctx->battlemon[attacker].states[STAT_ATTACK] > 11 || ctx->battlemon[attacker].states[STAT_SPATK] > 11) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
         if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7 || ai->attackerMovesFirst) {
             moveScore -= 2;
         }
-        FALLTHROUGH;
-    case MOVE_EFFECT_RANDOM_STAT_UP_2: // accupressure
         moveScore += 6;
         moveScore += OffensiveSetup(bsys, attacker, i, ai);
         break;
@@ -1064,18 +1067,27 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
             break;
         }
         FALLTHROUGH;
-    case MOVE_EFFECT_DEF_UP:
-    case MOVE_EFFECT_DEF_UP_2:
-    case MOVE_EFFECT_DEF_UP_3:
+    case MOVE_EFFECT_DEF_UP:  //harden
+    case MOVE_EFFECT_DEF_UP_2: //iron defense
+    case MOVE_EFFECT_DEF_UP_3: //cotton guard
     case MOVE_EFFECT_SP_DEF_UP:
-    case MOVE_EFFECT_SP_DEF_UP_2:
+    case MOVE_EFFECT_SP_DEF_UP_2: //amnesia
     case MOVE_EFFECT_SP_DEF_UP_3:
-    case MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER:
+    case MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER: //defense curl
     case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER: // Charge
-    case MOVE_EFFECT_DEF_SP_DEF_UP:
-    case MOVE_EFFECT_STOCKPILE:
+    case MOVE_EFFECT_DEF_SP_DEF_UP: // cosmic power
         // case MOVE_EFFECT_STUFF_CHEEKS:
         if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 11 || ctx->battlemon[attacker].states[STAT_SPDEF] > 11) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 7 || ctx->battlemon[attacker].states[STAT_SPDEF] > 7) {
+            moveScore -= 3;
+        }
+        moveScore += 6;
+        moveScore += DefensiveSetup(bsys, attacker, i, ai);
+        break;
+    case MOVE_EFFECT_STOCKPILE:
+        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 8 || ctx->battlemon[attacker].states[STAT_SPDEF] > 8) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
         if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 7 || ctx->battlemon[attacker].states[STAT_SPDEF] > 7) {
@@ -1337,6 +1349,19 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
                 if (BattleRand(bsys) % 2 == 0) {
                     moveScore += 1;
                 }
+            }
+        }
+        break;
+    case MOVE_EFFECT_SET_AURORA_VEIL:
+        if (ctx->side_condition[ai->attackerSide] & SIDE_STATUS_AURORA_VEIL || (ctx->field_condition & WEATHER_SNOW_ANY) == 0) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            moveScore += 6;
+            if (ai->attackerMon.item == ITEM_LIGHT_CLAY) {
+                moveScore += 1;
+            }
+            if (BattleRand(bsys) % 2 == 0) {
+                moveScore += 2;
             }
         }
         break;
