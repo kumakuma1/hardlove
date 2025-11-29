@@ -44,8 +44,8 @@ static const u16 sMachineMoves[] = {
     MOVE_PSYCHIC,          // TM029
     MOVE_SHADOW_BALL,      // TM030
     MOVE_BODY_PRESS,      // TM031
-    MOVE_DOUBLE_TEAM,      // TM032
-    MOVE_REFLECT,          // TM033
+    MOVE_CURSE,      // TM032
+    MOVE_BREAKING_SWIPE,          // TM033
     MOVE_SHOCK_WAVE,       // TM034
     MOVE_FLAMETHROWER,     // TM035
     MOVE_SLUDGE_BOMB,      // TM036
@@ -56,7 +56,7 @@ static const u16 sMachineMoves[] = {
     MOVE_TORMENT,          // TM041
     MOVE_FACADE,           // TM042
     MOVE_DEFOG,     // TM043
-    MOVE_REST,             // TM044
+    MOVE_TAILWIND,             // TM044
     MOVE_DRAINING_KISS,          // TM045
     MOVE_THIEF,            // TM046
     MOVE_STEEL_WING,       // TM047
@@ -70,11 +70,11 @@ static const u16 sMachineMoves[] = {
     MOVE_BRINE,            // TM055
     MOVE_FLING,            // TM056
     MOVE_CHARGE_BEAM,      // TM057
-    MOVE_ENDURE,           // TM058
+    MOVE_HEAL_PULSE,           // TM058
     MOVE_DRAGON_PULSE,     // TM059
     MOVE_DRAIN_PUNCH,      // TM060
     MOVE_WILL_O_WISP,      // TM061
-    MOVE_SILVER_WIND,      // TM062
+    MOVE_MISTY_EXPLOSION,      // TM062
     MOVE_EMBARGO,          // TM063
     MOVE_EXPLOSION,        // TM064
     MOVE_SHADOW_CLAW,      // TM065

@@ -890,7 +890,7 @@ scr_seq_0141_108:
 
 scr_seq_0141_109:
 	//route 42, central, rockclimb, 1193
-	setvar VAR_SPECIAL_x8008, 324
+	setvar VAR_SPECIAL_x8008, ITEM_TM044
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1063,19 +1063,19 @@ scr_seq_0141_142:
 
 scr_seq_0141_143:
 	//lake of rage, north west, 1288
-	setvar VAR_SPECIAL_x8008, 370
+	setvar VAR_SPECIAL_x8008, ITEM_FLYING_GEM
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_144:
 	//lake of rage, north east, 1289
-	setvar VAR_SPECIAL_x8008, 297
+	setvar VAR_SPECIAL_x8008, ITEM_NORMAL_GEM
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_145:
 	//lake of rage, west, 1290
-	setvar VAR_SPECIAL_x8008, 67
+	setvar VAR_SPECIAL_x8008, ITEM_ROOM_SERVICE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

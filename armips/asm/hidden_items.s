@@ -358,14 +358,14 @@
 .org 0x02000000 + 0xFA8F8 //Rocket HQ B2F E
 .halfword ITEM_X_SP_DEF
 
-.org 0x02000000 + 0xFA900 //Lake of Rage SW
+.org 0x02000000 + 0xFA900 //Lake of Rage SW, not flooded
 .halfword ITEM_FULL_RESTORE
 
 .org 0x02000000 + 0xFA908 //Lake of Rage E
 .halfword ITEM_RARE_CANDY
 
 .org 0x02000000 + 0xFA910 //Lake of Rage NE
-.halfword ITEM_MAX_POTION
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA918 //R44
 .halfword ITEM_ELIXIR

@@ -1917,7 +1917,7 @@ trainerdata 30, "Whitney"
         level LEVEL_WHITNEY-2
         pokemon SPECIES_FARIGIRAF
         item ITEM_LEFTOVERS
-        move MOVE_PSYBEAM
+        move MOVE_TWIN_BEAM
         move MOVE_TRI_ATTACK
         move MOVE_AGILITY
         move MOVE_GRASS_KNOT
@@ -1937,8 +1937,8 @@ trainerdata 30, "Whitney"
         item ITEM_LUM_BERRY
         move MOVE_BODY_SLAM
         move MOVE_FIRE_PUNCH
-        move MOVE_NONE
-        move MOVE_NONE
+        move MOVE_DRAIN_PUNCH
+        move MOVE_WORK_UP
         ability ABILITY_SLOW_START
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -1950,11 +1950,11 @@ trainerdata 30, "Whitney"
 		
 	    ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-2
+        level LEVEL_WHITNEY-1
         pokemon SPECIES_MILTANK
         item ITEM_LUM_BERRY
         move MOVE_BODY_SLAM
-        move MOVE_ROLLOUT
+        move MOVE_BODY_PRESS
         move MOVE_DEFENSE_CURL
         move MOVE_MILK_DRINK
         ability ABILITY_SCRAPPY
@@ -1970,9 +1970,9 @@ trainerdata 30, "Whitney"
         abilityslot 0
         level LEVEL_WHITNEY-2
         pokemon SPECIES_PYROAR
-        item ITEM_SILK_SCARF
-        move MOVE_FLAME_BURST
-        move MOVE_SWIFT
+        item ITEM_CHARCOAL
+        move MOVE_INCINERATE
+        move MOVE_HYPER_VOICE
         move MOVE_WILL_O_WISP
         move MOVE_HIDDEN_POWER //GRASS
         ability ABILITY_UNNERVE
@@ -1988,8 +1988,8 @@ trainerdata 30, "Whitney"
         abilityslot 0
         level LEVEL_WHITNEY-2
         monWithForm SPECIES_RAPIDASH, 1
-        item ITEM_FAIRY_GEM
-        move MOVE_COVET
+        item ITEM_FOCUS_SASH
+        move MOVE_PLAY_ROUGH
         move MOVE_PSYCHO_CUT
         move MOVE_LOW_KICK
         move MOVE_MORNING_SUN
@@ -12315,7 +12315,7 @@ trainerdata 255, "Lt. Surge"
         move MOVE_THUNDER
         move MOVE_HYDRO_PUMP
         move MOVE_ICE_BEAM
-        move MOVE_CURSE
+        move MOVE_STOCKPILE
         ability ABILITY_VOLT_ABSORB
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -12333,7 +12333,7 @@ trainerdata 255, "Lt. Surge"
         move MOVE_DISCHARGE
         move MOVE_DRAGON_PULSE
         move MOVE_HIDDEN_POWER //ICE
-        move MOVE_CURSE
+        move MOVE_FOCUS_BLAST
         ability ABILITY_STATIC
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 30, 31, 31 // hp, atk, def, spd, spatk, spdef
