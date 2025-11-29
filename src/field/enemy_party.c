@@ -330,6 +330,15 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
                 break;
         }
 #endif
+        if(CheckScriptFlag(CUSTOM_EASY_MODE))
+        {
+            if(level > 30)
+            {
+                level = level - 2;
+            } else if (level > 1){
+                level = level - 1;
+            }
+        }
         PokeParaSet(mons[i], species, level, pow, 1, rnd, 2, 0);
         SetMonData(mons[i], MON_DATA_FORM, &form_no);
 

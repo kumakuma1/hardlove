@@ -51,6 +51,36 @@ By the way, would you like to\nplay with Hard Level Caps?\r
 That’s my fearless little adventurer!\rHard caps are on.\r
 That’s okay honey. You just go at your\nown pace.\r
 
+### easy mode
+
+Call Function#30
+
+Function 30:
+	Message 43
+	YesNoBox 0x800C
+	CloseMessage 
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#31
+	CheckFlag 2597
+	CallIf DIFFERENT Function#32
+	CloseTouchScreen 
+Return 
+
+Function 31:
+	Message 44
+	SetFlag 2597
+Return
+
+Function 32:
+	Message 45
+Return 
+
+43:
+Do you want to play on Easy?\r
+44:
+I will make sure that the other kids\nplay fairly with you, honey.\r
+45: Hard mode it is!\nGo get them sweetie!\r
+
 ###Remove Mom Saving money
 063 T20R0201 : Event File 60 - Script File 845 : Script 2:
 	CheckFlag 2404 GAME_CLEAR
