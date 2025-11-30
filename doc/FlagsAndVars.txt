@@ -6,6 +6,8 @@
 189   - 230-T26R0601 : Script File 918 - Got good rod in olivine -  | Mom sets 063 , used for goldenrod Evolution Items 4, Cleared after Chuck
 190   -                                - Trde in Olivine City
 199   -                                - Flag for gettint TM in Lake of Rage house
+202   -                                - FLag for clearing TR HQ?
+206   -                                - Flag for getting Sludge Bomb TM from guard in Route 43 passage house after TR is cleared
 215   -                                - Flag for getting Sharp Beak from Monica on Route 40
 216   -                                - Flag for getting Twisted spoon on Route 29, used in olivine restaurant to give spoon.
 305   -                                - Flag for getting Cleanse Tag on Route 5. Lady gives Spell Tag.
@@ -33,6 +35,8 @@
 475   - light tower 5f                 - Hide gym trainer. Used for Misty on Route 25
 476   - olivine gym                    - Hide gym trainer
 477   - olivine gym                    - Hide gym trainer
+506   -                                - Hide Rockets in Route 43 passage house. Flag is not set. Unused
+507   -                                - Hide Normal guard in Route 43 passage house. Flag is set. Unused
 520   -                                - Frieda on R32 
               
 591   -              :                 - Aprikoko Guy in Route 30. Used for Healing in Gyms
@@ -67,5 +71,9 @@ Variables
 0x40EA   : Headbutt Event in Ilex, removed
 0x40F4   : Student with Cut In Ilex
 0x4114   : Spearow/kenya delivery progress
+0x410F/16655 : Trigger for TR taking money in Route 43 passage. Unused
 16535/0x4097: Gauntlet on Route 34
 16654/0x410E: Trainers in Olivine Gym, Set 1 when giving medicine in lighthouse. Unused
+
+16562-16577 : Rocket HQ encounters. Unused
+

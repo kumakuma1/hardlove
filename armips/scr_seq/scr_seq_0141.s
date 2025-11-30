@@ -901,122 +901,146 @@ scr_seq_0141_110:
 	goto scr_seq_0141_255
 
 scr_seq_0141_111:
+	// mortar 1F entrance, west, 1173 //ether
 	setvar VAR_SPECIAL_x8008, 38
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_112:
+	// mortar 1F entrance, east, 1174 //revive
 	setvar VAR_SPECIAL_x8008, 28
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_113:
-	setvar VAR_SPECIAL_x8008, 78
+	// mortar 1F back, central, strength, 1175 //escape rope
+	setvar VAR_SPECIAL_x8008, ITEM_TM033
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_114:
-	setvar VAR_SPECIAL_x8008, 92
+	// mortar 1F back, north, strength, 1176 //nugget
+	setvar VAR_SPECIAL_x8008, ITEM_TM050
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_115:
+	// mortar 1F back, north, waterfall, 1177 //iron ball
 	setvar VAR_SPECIAL_x8008, 278
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_116:
+	// mortar 1F back, central, strength, 1178 //max potion
 	setvar VAR_SPECIAL_x8008, 24
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_117:
+	// mortar 1F back, north, waterfall, 1179 //iron
 	setvar VAR_SPECIAL_x8008, 47
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_118:
+	// mortar 1F back, north west, waterfall, 1180 //max revive
 	setvar VAR_SPECIAL_x8008, 29
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_119:
+	// mortar 1F back, west, strength, 1181 //ultra ball
 	setvar VAR_SPECIAL_x8008, 2
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_120:
-	setvar VAR_SPECIAL_x8008, 316
+	// mortar 1F back, east, rock climb, 1194//full incense
+	setvar VAR_SPECIAL_x8008, ITEM_TM032
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_121:
-	setvar VAR_SPECIAL_x8008, 321
+	// mortar 1F back, east, rock climb, 1195//protector
+	setvar VAR_SPECIAL_x8008, ITEM_GARCHOMPITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_122:
+	// mortar 2F, south west, waterfall, 1182 //Rare Candy
 	setvar VAR_SPECIAL_x8008, 50
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_123:
+	// mortar 2F, east, waterfall, 1183 //max potion
 	setvar VAR_SPECIAL_x8008, 24
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_124:
+	// mortar 2F, west, waterfall, 1184 //TM40
 	setvar VAR_SPECIAL_x8008, 367
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_125:
+	// mortar 2F, north west, waterfall, 1185 //elixier
 	setvar VAR_SPECIAL_x8008, 40
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_126:
+	// mortar 2F, north, waterfall, 1186 //dragon scale
 	setvar VAR_SPECIAL_x8008, 235
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_127:
+	// mortar 2F, north east, waterfall, 1187 //escape rope
 	setvar VAR_SPECIAL_x8008, 78
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_128:
-	setvar VAR_SPECIAL_x8008, 48
+	// mortar 3F, south west, surf, 1188 //carbos
+	setvar VAR_SPECIAL_x8008, ITEM_TM062
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_129:
-	setvar VAR_SPECIAL_x8008, 51
+	// mortar 3F, central, surf, 1189 //pp up
+	setvar VAR_SPECIAL_x8008, ITEM_TM049
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_130:
+	// mortar 3F, east, surf, 1190 //full restore
 	setvar VAR_SPECIAL_x8008, 23
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_131:
+	// mortar 3F, north east, surf, 1191 //max ether
 	setvar VAR_SPECIAL_x8008, 39
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_132:
+	// mortar 3F, north, surf, 1192 //hyperpotion
 	setvar VAR_SPECIAL_x8008, 25
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_133:
+	// TR HQ B1F, north east, 1102 // hyper potion
 	setvar VAR_SPECIAL_x8008, 25
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_134:
-	setvar VAR_SPECIAL_x8008, 55
+	// TR HQ B1F, central, 1103 // guards spec
+	setvar VAR_SPECIAL_x8008, ITEM_TM003
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1026,38 +1050,44 @@ scr_seq_0141_135:
 	goto scr_seq_0141_255
 
 scr_seq_0141_136:
-	setvar VAR_SPECIAL_x8008, 373
+	// TR HQ B2F, central, 1105 // tm46
+	setvar VAR_SPECIAL_x8008, ITEM_TM046
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_137:
-	setvar VAR_SPECIAL_x8008, 376
+	// TR HQ B3F, north west, 1106 //TM049
+	setvar VAR_SPECIAL_x8008, ITEM_TM002
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_138:
-	setvar VAR_SPECIAL_x8008, 27
+	// TR HQ B3F, east, 1107 //full heal
+	setvar VAR_SPECIAL_x8008, ITEM_HOUNDOOMITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_139:
-	setvar VAR_SPECIAL_x8008, 46
+	// TR HQ B3F, west, left, 1108 // protein
+	setvar VAR_SPECIAL_x8008, ITEM_EJECT_PACK
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_140:
-	setvar VAR_SPECIAL_x8008, 61
+	// TR HQ B3F, west, right, 1109 // X sp atck
+	setvar VAR_SPECIAL_x8008, ITEM_CAMERUPTITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_141:
-	setvar VAR_SPECIAL_x8008, 2
+	// TR HQ B3F, central petrel room, 1196 // ultra ball
+	setvar VAR_SPECIAL_x8008, ITEM_TM058
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_142:
 	//route 43, central, 1198
-	setvar VAR_SPECIAL_x8008, 39
+	setvar VAR_SPECIAL_x8008, ITEM_TM036
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

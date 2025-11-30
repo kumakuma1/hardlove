@@ -1005,6 +1005,11 @@ Function 33:
 	SetVar 0x416F 35
 Return 
 
+Servus!\rDu do!\rWos glaabst, wo d’ hiralafst?\r
+Do kimmst ned weida, Freindal.\nIrgenda Stoana blockiert ’n Weg.\rSo a Schweinerei, Kreizkruzefix!\rJetzt kimm i nimma gscheid hoam.\rI bin so angfressn, do muass\ni mir erst amoi Luft macha.\rOh! You no unnerstand Gherman, ja?\nVee bat-tell now!\r
+Hoho, wos fia a Gaudi.\rDo kriagst no a Leckerl.\r
+Und jetzt eascht amoi ins Brauheisl.\nPfia God!\r
+
 ###National Park Beedrillite
 OW item accessable with rockclimb
 Move Hiker Philipp 203 from Union Cave to National Park
@@ -2464,6 +2469,29 @@ End
 
 
 
+### Route 43 Rocket passage
+Clear Scripts, Levelscripts, Clear OW flags, remove TR OW
+Script 1:
+End 
+
+Script 2:
+End
+
+Script 3:
+End 
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 7
+	CloseMessage 
+	ReleaseAll 
+End 
+
+7:I have heard that something is strange\nis going on at the Lake of Rage...\rI even saw Team Rocket stalking around.\r
+
+
 ### Lance Text at lake
 split message
 
@@ -2486,3 +2514,11 @@ Message 0
 	SetVar 0x8005 1
 
 #define ITEM_TM048                        375
+
+
+
+
+#### ROcket HQ
+remove some random encounters
+clear 20-29 scripts
+16562-16577

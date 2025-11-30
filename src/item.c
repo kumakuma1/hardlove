@@ -15,7 +15,7 @@ static const u16 sMachineMoves[] = {
     // vanilla TMs
     MOVE_AURA_SPHERE,       // TM001
     MOVE_DRAGON_CLAW,      // TM002
-    MOVE_WATER_PULSE,      // TM003
+    MOVE_DARK_PULSE,      // TM003
     MOVE_DUAL_WINGBEAT,        // TM004
     MOVE_ROAR,             // TM005
     MOVE_TOXIC,            // TM006
@@ -58,11 +58,11 @@ static const u16 sMachineMoves[] = {
     MOVE_DEFOG,     // TM043
     MOVE_TAILWIND,             // TM044
     MOVE_DRAINING_KISS,          // TM045
-    MOVE_THIEF,            // TM046
+    MOVE_PLAY_ROUGH,            // TM046
     MOVE_STEEL_WING,       // TM047
     MOVE_SKILL_SWAP,       // TM048
-    MOVE_SNATCH,           // TM049
-    MOVE_OVERHEAT,         // TM050
+    MOVE_ROCK_SLIDE,           // TM049
+    MOVE_EARTH_POWER,         // TM050
     MOVE_ROOST,            // TM051
     MOVE_FOCUS_BLAST,      // TM052
     MOVE_ENERGY_BALL,      // TM053

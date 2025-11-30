@@ -214,17 +214,17 @@
 .org 0x02000000 + 0xFA778 //Bell Tower 8F
 .halfword ITEM_CARBOS
 
-.org 0x02000000 + 0xFA780 //R38
-.halfword ITEM_HP_UP
+.org 0x02000000 + 0xFA780 //R38 //hp up
+.halfword ITEM_FULL_HEAL
 
 .org 0x02000000 + 0xFA788 //R39 Centre SE
 .halfword ITEM_NUGGET
 
-.org 0x02000000 + 0xFA790 //R39 W
-.halfword ITEM_PP_UP
+.org 0x02000000 + 0xFA790 //R39 W //pp up
+.halfword ITEM_ULTRA_BALL
 
-.org 0x02000000 + 0xFA798 //R39 Centre NE
-.halfword ITEM_X_ATTACK
+.org 0x02000000 + 0xFA798 //R39 Centre NE //x attack
+.halfword ITEM_ULTRA_BALL
 
 .org 0x02000000 + 0xFA7A0 //Olivine Rock Climb
 .halfword ITEM_RARE_CANDY
@@ -235,8 +235,8 @@
 .org 0x02000000 + 0xFA7B0 //Olivine
 .halfword ITEM_HYPER_POTION
 
-.org 0x02000000 + 0xFA7B8 //Olivine
-.halfword ITEM_PROTEIN
+.org 0x02000000 + 0xFA7B8 //Olivine //protein
+.halfword ITEM_ULTRA_BALL
 
 .org 0x02000000 + 0xFA7C0 //Olivine Dock
 .halfword ITEM_PEARL
@@ -316,14 +316,14 @@
 .org 0x02000000 + 0xFA888 //Mt Mortar Entrance E
 .halfword ITEM_REVIVE
 
-.org 0x02000000 + 0xFA890 //Mt Mortar Back
+.org 0x02000000 + 0xFA890 //Mt Mortar Back //waterfall
 .halfword ITEM_MAX_REPEL
 
 .org 0x02000000 + 0xFA898 //Mt Mortar Back
 .halfword ITEM_ETHER
 
 .org 0x02000000 + 0xFA8A0 //Mt Mortar Back
-.halfword ITEM_RARE_CANDY
+.halfword ITEM_STEEL_GEM
 
 .org 0x02000000 + 0xFA8A8 //Mt Mortar Back
 .halfword ITEM_ULTRA_BALL
@@ -335,7 +335,7 @@
 .halfword ITEM_FULL_RESTORE
 
 .org 0x02000000 + 0xFA8C0 //Mt Mortar 2F
-.halfword ITEM_HP_UP
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA8C8 //Mt Mortar 2F
 .halfword ITEM_HYPER_POTION
@@ -350,13 +350,13 @@
 .halfword ITEM_ULTRA_BALL
 
 .org 0x02000000 + 0xFA8E8 //Rocket HQ B1F E
-.halfword ITEM_REVIVE
+.halfword ITEM_GHOST_GEM
 
 .org 0x02000000 + 0xFA8F0 //Rocket HQ B2F S
-.halfword ITEM_FULL_HEAL
+.halfword ITEM_ELECTRIC_GEM
 
 .org 0x02000000 + 0xFA8F8 //Rocket HQ B2F E
-.halfword ITEM_X_SP_DEF
+.halfword ITEM_POISON_GEM
 
 .org 0x02000000 + 0xFA900 //Lake of Rage SW, not flooded
 .halfword ITEM_FULL_RESTORE
