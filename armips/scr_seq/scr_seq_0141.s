@@ -1063,7 +1063,7 @@ scr_seq_0141_137:
 
 scr_seq_0141_138:
 	// TR HQ B3F, east, 1107 //full heal
-	setvar VAR_SPECIAL_x8008, ITEM_HOUNDOOMITE
+	setvar VAR_SPECIAL_x8008, ITEM_HOUNDOOMINITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

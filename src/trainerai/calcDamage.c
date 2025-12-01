@@ -74,7 +74,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
     struct BattleMove move = sp->moveTbl[moveno];
     movepower = move.power;
-    movetype = GetAdjustedMoveTypeBasics(sp, moveno, attacker->ability, move.type);
+    movetype = BattleAI_GetDynamicMoveType(bw, sp, attacker, moveno);
 
     switch (moveno) {
         // Speed-based
@@ -1150,7 +1150,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     BOOL attackerHasMoldBreaker = attacker->hasMoldBreaker;
 
     struct BattleMove move = sp->moveTbl[moveno];
-    movetype = GetAdjustedMoveTypeBasics(sp, moveno, attacker->ability, move.type);
+    movetype = BattleAI_GetDynamicMoveType(bw, sp, attacker, moveno);
 
     if (!attackerHasMoldBreaker) {
         switch (defender->ability) {
@@ -1375,6 +1375,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         GF_ASSERT_INTERNAL();
         break;
     }
+    debug_printf("atk %d, species %d, moveno %d, movetype %d, effectiveness %d\n", attackerSlot, attacker->species, moveno, movetype, moveEffectiveness);
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
