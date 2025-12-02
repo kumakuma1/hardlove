@@ -1027,14 +1027,14 @@ scr_seq_0141_131:
 	goto scr_seq_0141_255
 
 scr_seq_0141_132:
-	// mortar 3F, north, surf, 1192 //hyperpotion
-	setvar VAR_SPECIAL_x8008, 25
+	// mortar 3F, north, surf, 1192 //hyperpotion //moved to the area only accesiable with waterfall
+	setvar VAR_SPECIAL_x8008, ITEM_GALLADITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_133:
-	// TR HQ B1F, north east, 1102 // hyper potion
-	setvar VAR_SPECIAL_x8008, 25
+	// TR HQ B1F, north east, 1102 // hyper potion //moved to generator room in B2F
+	setvar VAR_SPECIAL_x8008, ITEM_SHARPEDONITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

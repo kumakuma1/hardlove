@@ -75,5 +75,5 @@ Variables
 16535/0x4097: Gauntlet on Route 34
 16654/0x410E: Trainers in Olivine Gym, Set 1 when giving medicine in lighthouse. Unused
 
-16562-16577 : Rocket HQ encounters. Unused
+16563-16577 : Rocket HQ encounters. Unused (16562 is used)
 

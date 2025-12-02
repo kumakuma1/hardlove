@@ -2520,5 +2520,5 @@ Message 0
 
 #### ROcket HQ
 remove some random encounters
-clear 20-29 scripts
-16562-16577
+clear 15-29 scripts
+16562-16577, 16563-16577 unused

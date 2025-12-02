@@ -27,7 +27,8 @@ LEVEL_MORTY equ 39
 LEVEL_CHUCK equ 47
 LEVEL_PROTON_2 equ 50
 LEVEL_JASMINE equ 54
-LEVEL_PRYCE equ 55
+LEVEL_PETREL equ 60
+LEVEL_PRYCE equ 64
 
 trainerdata 0, "-"
     trainermontype TRAINER_DATA_TYPE_NOTHING
@@ -18753,9 +18754,9 @@ trainerdata 402, "Tiffany"
     endparty
 
 trainerdata 403, "Spencer"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_CAMPER
-    nummons 3
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -18765,25 +18766,22 @@ trainerdata 403, "Spencer"
     endentry
 
     party 403
-        // mon 0
         ivs 0
         abilityslot 0
-        level 18
-        pokemon SPECIES_SANDSHREW
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 0
-        level 18
+        level LEVEL_PRYCE-6
         pokemon SPECIES_SANDSLASH
-        ballseal 0
-
-        // mon 2
-        ivs 0
-        abilityslot 0
-        level 20
-        pokemon SPECIES_ZUBAT
+        item ITEM_EXPERT_BELT
+        move MOVE_HYPER_VOICE
+        move MOVE_EARTH_POWER
+        move MOVE_HIDDEN_POWER //GRASS
+        move MOVE_POISON_FANG
+        ability ABILITY_INNER_FOCUS
+        ball ITEM_POKE_BALL
+       setivs 30, 31, 31, 31, 30, 31 // hp, atk, def, spd, spatk, spdef //GRASS
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_HASTY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 

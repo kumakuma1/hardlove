@@ -347,7 +347,7 @@
 .halfword ITEM_MAX_REVIVE
 
 .org 0x02000000 + 0xFA8E0 //Mt Mortar B1F
-.halfword ITEM_ULTRA_BALL
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA8E8 //Rocket HQ B1F E
 .halfword ITEM_GHOST_GEM
