@@ -66,7 +66,7 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
     else if (tradeno == NPC_TRADE_SHUCKIE_SHUCKLE) {
         trade_dat->give_species = SPECIES_PIDGEY;
 
-        trade_dat->heldItem = ITEM_YACHE_BERRY;
+        trade_dat->heldItem = ITEM_CHARTI_BERRY;
         trade_dat->gender = POKEMON_GENDER_MALE;
         level = 5;
     }
@@ -74,23 +74,19 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
         nature = gf_rand() % 3;
         if (nature == 0) {
             trade_dat->give_species = SPECIES_ELECTRODE;
-            trade_dat->heldItem = ITEM_KEBIA_BERRY;
-            ability = ABILITY_STATIC;
-            if (gf_rand() % 2 == 0) {
-                ability = ABILITY_AFTERMATH;
-            }
+            trade_dat->heldItem = ITEM_YACHE_BERRY;
         } else if (nature == 1) {
             trade_dat->give_species = SPECIES_PAWMOT;
             trade_dat->heldItem = ITEM_SHUCA_BERRY;
         } else {
             trade_dat->give_species = SPECIES_SCOVILLAIN;
-            trade_dat->heldItem = ITEM_CHARTI_BERRY;
+            trade_dat->heldItem = ITEM_COBA_BERRY;
         }
         trade_dat->gender = POKEMON_GENDER_MALE;
     }
 #endif
     randomIV(trade_dat);
-    PokeParaSet(mon, trade_dat->give_species, level, 32, FALSE, trade_dat->pid, OT_ID_PRESET, trade_dat->otId); // OT_ID_PRESET, trade_dat->otId);
+    PokeParaSet(mon, trade_dat->give_species, level, 32, FALSE, gf_rand() /* trade_dat->pid */, OT_ID_PRESET, trade_dat->otId); // OT_ID_PRESET, trade_dat->otId);
     if (trade_dat->give_species == SPECIES_ARCANINE || trade_dat->give_species == SPECIES_ELECTRODE)
     {
         int form = 1;
@@ -135,5 +131,6 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
     }
 
     RecalcPartyPokemonStats(mon); //CalcMonLevelAndStats(mon);
+    ResetPartyPokemonAbility(mon);
     //GF_ASSERT(!MonIsShiny(mon));
 }
