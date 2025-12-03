@@ -1323,7 +1323,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     // 6.7 Type Effectiveness Modifier
     // TODO: need to factor in Tera Shell
     u32 flag = 0;
-    moveEffectiveness = BattleAI_GetTypeEffectiveness(bw, sp, movetype, &flag, attacker, defender);
+    moveEffectiveness = BattleAI_GetTypeEffectiveness(bw, sp, moveno, movetype, &flag, attacker, defender);
     damages->moveEffectiveness = moveEffectiveness;
 
     switch (moveEffectiveness) {

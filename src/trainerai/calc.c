@@ -155,8 +155,16 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->attackerHasMoveFailureLastTurn = sp->moveConditionsFlags[numSlot].moveFailureLastTurn;
 }
 
+u8 LONG_CALL BattleAI_UpdateTypeEffectiveness(u32 move_no, u32 held_effect UNUSED, u8 defender_type, u8 defaultEffectiveness)
+{
+    if (move_no == MOVE_FREEZE_DRY && defender_type == TYPE_WATER) {
+        defaultEffectiveness = TYPE_MUL_SUPER_EFFECTIVE;
+    }
 
-int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, int move_type, u32 *flag UNUSED, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
+    return defaultEffectiveness;
+}
+
+int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, int moveno, int move_type, u32 *flag UNUSED, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
     int typeTableEntryNo = 0; // Used to cycle through all (non-neutral) type interactions.
 
@@ -185,6 +193,7 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
             }
         }
 
+        //TODO: terra
         if (TypeEffectivenessTable[typeTableEntryNo][0] == move_type)
         {
             if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1)
@@ -192,18 +201,18 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
                 if (AI_ShouldUseNormalTypeEffCalc(sp, defender->item_held_effect, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1))
                 {
- 
-                    type1Effectiveness = TypeEffectivenessTable[typeTableEntryNo][2];
+                    //no ring target
+                    type1Effectiveness = UpdateTypeEffectiveness(moveno, HOLD_EFFECT_NONE, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
             } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2) {
                 if (AI_ShouldUseNormalTypeEffCalc(sp, defender->item_held_effect, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2)) {
-                    type2Effectiveness = TypeEffectivenessTable[typeTableEntryNo][2];
+                    type2Effectiveness = UpdateTypeEffectiveness(moveno, HOLD_EFFECT_NONE, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
             } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3) {
                 if (AI_ShouldUseNormalTypeEffCalc(sp, defender->item_held_effect, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3)) {
-                    type3Effectiveness = TypeEffectivenessTable[typeTableEntryNo][2];
+                    type3Effectiveness = UpdateTypeEffectiveness(moveno, HOLD_EFFECT_NONE, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
             }
         }
@@ -212,19 +221,19 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
   
     int typeMul = type1Effectiveness * type2Effectiveness * type3Effectiveness;
     switch (typeMul) {
-    case 8000:
+    case EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE:
         return TYPE_MUL_TRIPLE_SUPER_EFFECTIVE; // 40
-    case 4000:
+    case EFFECTIVENESS_MULT_DOUBLE_SUPER_EFFECTIVE:
         return TYPE_MUL_DOUBLE_SUPER_EFFECTIVE; // 30
-    case 2000:
+    case EFFECTIVENESS_MULT_SUPER_EFFECTIVE:
         return TYPE_MUL_SUPER_EFFECTIVE; // 20
-    case 1000:
+    case EFFECTIVENESS_MULT_NORMAL:
         return TYPE_MUL_NORMAL; // 10
-    case 500:
+    case EFFECTIVENESS_MULT_NOT_EFFECTIVE:
         return TYPE_MUL_NOT_EFFECTIVE; // 5
-    case 250:
+    case EFFECTIVENESS_MULT_DOUBLE_NOT_EFFECTIVE:
         return TYPE_MUL_DOUBLE_NOT_EFFECTIVE; // 4
-    case 125:
+    case EFFECTIVENESS_MULT_TRIPLE_NOT_EFFECTIVE:
         return TYPE_MUL_TRIPLE_NOT_EFFECTIVE; // 3
     }
     return TYPE_MUL_NO_EFFECT; // 0
@@ -1045,7 +1054,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         struct BattleMove attackerMove = ctx->moveTbl[attackerMoveno];
         if (attackerMove.split == SPLIT_STATUS && ctx->battlemon[attacker].pp[j]) {
             u8 movetype = GetAdjustedMoveTypeBasics(ctx, attackerMoveno, ai->attackerMon.ability, attackerMove.type);
-            ai->effectivenessOnPlayer[j] = BattleAI_GetTypeEffectiveness(bsys, ctx, movetype, &effectivenessFlag, &ai->attackerMon, &ai->defenderMon);
+            ai->effectivenessOnPlayer[j] = BattleAI_GetTypeEffectiveness(bsys, ctx, attackerMoveno, movetype, &effectivenessFlag, &ai->attackerMon, &ai->defenderMon);
         } else if (attackerMove.power && ctx->battlemon[attacker].pp[j]) {
             ai->attackerHasAttackingMoves = TRUE;
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, attackerMoveno, ctx->side_condition[BATTLER_IS_ENEMY(attacker)], ctx->field_condition, attackerMove.power, attackerMove.type, critical, attacker, defender, &damages, &ai->attackerMon, &ai->defenderMon);
