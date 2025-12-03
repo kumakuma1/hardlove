@@ -8,6 +8,7 @@
 199   -                                - Flag for gettint TM in Lake of Rage house
 202   -                                - FLag for clearing TR HQ?
 206   -                                - Flag for getting Sludge Bomb TM from guard in Route 43 passage house after TR is cleared
+214   -                                - Traps disabled in Rocket HQ
 215   -                                - Flag for getting Sharp Beak from Monica on Route 40
 216   -                                - Flag for getting Twisted spoon on Route 29, used in olivine restaurant to give spoon.
 305   -                                - Flag for getting Cleanse Tag on Route 5. Lady gives Spell Tag.
@@ -37,10 +38,13 @@
 477   - olivine gym                    - Hide gym trainer
 506   -                                - Hide Rockets in Route 43 passage house. Flag is not set. Unused
 507   -                                - Hide Normal guard in Route 43 passage house. Flag is set. Unused
+510   -                                - hide Ace trainer Alton inside lake at lake of rage, flag is set. Unused
+511   -                                - hide Fisherman at lake of rage, flag is set. Unused
 520   -                                - Frieda on R32 
               
 591   -              :                 - Aprikoko Guy in Route 30. Used for Healing in Gyms
 598   -                                - Hide Misty on Route 25
+650   -                                - hide Ace trainer lois at lake of rage, flag is set. Unused
 752   -                                - Hide Lt. Surge Gym in Vermilion  
 777   -                                - Hide Brad on Route 25
 794   -                                - Barrier in Lt. Surge Gym in Vermilion. Flag gets set when entering  

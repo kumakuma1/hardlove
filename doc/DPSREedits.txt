@@ -2518,7 +2518,102 @@ Message 0
 
 
 
-#### ROcket HQ
+#### ROcket HQ B1F
 remove some random encounters
 clear 15-29 scripts
 16562-16577, 16563-16577 unused
+
+
+
+### Traps in HQ B1F
+Switch:
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40AC 9
+	JumpIf GREATER/EQUAL Function#5
+	CheckFlag 214
+	JumpIf EQUAL Function#5
+
+CompareVarValue 0x40AD 2
+JumpIf GREATER/EQUAL Function#8
+...
+// remove 
+Function 6:
+	PlayFanfare 1646
+	Message 7
+	CloseMessage 
+	SetFlag 214
+	SetVar 0x40AD 1
+	Movement Overworld.0 Action#3
+	SetVar 0x40AE 1
+	Movement Overworld.2 Action#3
+	SetVar 0x40AF 1
+	Movement Overworld.3 Action#3
+	SetVar 0x40B0 1
+	Movement Overworld.4 Action#3
+	SetVar 0x40B1 1
+	Movement Overworld.5 Action#3
+
+Level Script 32 when entering
+
+Script 32:
+	CheckFlag 214
+	CallIf EQUAL Function#24
+	CheckFlag 214
+	CallIf DIFFERENT Function#25
+	CompareVarValue 0x40AC 4
+	JumpIf EQUAL Function#26
+	CompareVarValue 0x40AC 5
+	JumpIf EQUAL Function#26
+	CompareVarValue 0x40AC 6
+	JumpIf EQUAL Function#26
+	CompareVarValue 0x40AC 7
+	JumpIf EQUAL Function#26
+End 
+
+Function 24:
+	SetVar 0x40AD 2
+	SetOWDefaultDirection Overworld.0 Down
+	SetVar 0x40AE 2
+	SetOWDefaultDirection Overworld.2 Down //blue eyes
+	SetOWDefaultDirection Overworld.13 Left // grey eyes
+	SetVar 0x40AF 2
+	SetOWDefaultDirection Overworld.3 Down
+	SetOWDefaultDirection Overworld.14 Left
+	SetVar 0x40B0 2
+	SetOWDefaultDirection Overworld.4 Down
+	SetVar 0x40B1 2
+	SetOWDefaultDirection Overworld.5 Down
+Return 
+
+Function 25:
+	SetVar 0x40AD 0
+	SetOWDefaultDirection Overworld.0 Up
+	SetVar 0x40AE 0
+	SetOWDefaultDirection Overworld.2 Up
+	SetOWDefaultDirection Overworld.13 Up
+	SetVar 0x40AF 0
+	SetOWDefaultDirection Overworld.3 Up
+	SetOWDefaultDirection Overworld.14 Up
+	SetVar 0x40B0 0
+	SetOWDefaultDirection Overworld.4 Up
+	SetVar 0x40B1 0
+	SetOWDefaultDirection Overworld.5 Up
+Return 
+
+ADD new persian OW since the old ones cannot be moved
+Make old ones use this script
+
+Script 34:
+	PlayFanfare 1500
+	LockAll 
+    CheckFlag 214
+    CallIf DIFFERENT Function#56
+	Message 2
+Jump Function#4
+
+Function 56:
+	Message 4
+Jump Function#4
