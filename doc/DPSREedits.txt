@@ -1,4 +1,16 @@
-﻿###Mom gives Shoes, pokegear, Level caps
+﻿### Remove trainers asking for phone number script file 953
+Function 22:
+	CMD_461 0 0x8004 0x8005 //removed
+	CMD_440 0x8004 0x8005 //removed
+Jump Function#35  -> return
+
+Function 17:
+	Call Function#32 //?
+	ReleaseAll 
+End 
+
+
+###Mom gives Shoes, pokegear, Level caps
 063 T20R0201 : Event File 60 - Script File 845 : Script 1:
 	TextPlayerName 0
 	GenderMessage 0 1
@@ -405,6 +417,40 @@ End
 Move OW item to patch accessable with surf
 Move Trainer as guard
 Move Hiker Philipp 203 to National Park
+
+### Slowbronite at well
+
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 122
+	JumpIf EQUAL Function#1
+    CheckBadge 6 0x800C
+	CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#3
+	Message 0
+	WaitAB 
+	CloseMessage 
+	SetVar 0x8004 760
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CommonScript 2033
+	SetFlag 122
+Jump Function#1
+
+Function 3:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Slowbro is the best Pokémon!\rBut only if you have this!
+The secret to the unlimited power of\nSlowbro is...\r...
+Make use of the mighty Slowbro!
 
 ###Gauntlet in Slowpoke Well
 Change Grunt OW to Ariana, Move Proton
@@ -2342,7 +2388,7 @@ Script 12:
     CloseMessage
     SetVar 16420 7
     SetFlag 475
-    ClearFlag 476
+    ClearFlag 476 //shows trainer in olivine gym/ move tutor #2 in goldenrod
     ClearFlag 477
     ReleaseAll
 End
@@ -2524,6 +2570,92 @@ clear 15-29 scripts
 16562-16577, 16563-16577 unused
 
 
+Script 14:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 1
+	PlayFanfare 2175
+    GetRandom 0x800C 11
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#57
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#58
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#59
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#60
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#61
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#62
+	CompareVarValue 0x800C 6
+	CallIf EQUAL Function#63
+	CompareVarValue 0x800C 7
+	CallIf EQUAL Function#64
+	CompareVarValue 0x800C 8
+	CallIf EQUAL Function#65
+	CompareVarValue 0x800C 9
+	CallIf EQUAL Function#66
+	CompareVarValue 0x800C 10
+	CallIf EQUAL Function#67
+	WildBattle 0x4002 60
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#20
+	SetVar 0x40B2 1
+	ReleaseAll 
+End 
+
+Forms are 2048 * 1 + 89 (id)
+
+Function 57:
+    SetVarFromFlexible 0x4002 2076
+Return 
+
+Function 58:
+    SetVarFromFlexible 0x4002 110
+Return 
+
+Function 59:
+    SetVarFromFlexible 0x4002 2158
+Return 
+
+Function 60:
+    SetVarFromFlexible 0x4002 2124
+Return 
+
+Function 61:
+    SetVarFromFlexible 0x4002 2137
+Return 
+
+Function 62:
+    SetVarFromFlexible 0x4002 426
+Return 
+
+Function 63:
+    SetVarFromFlexible 0x4002 205
+Return 
+
+Function 64:
+    SetVarFromFlexible 0x4002 761
+Return 
+
+Function 65:
+    SetVarFromFlexible 0x4002 344
+Return 
+
+Function 66:
+    SetVarFromFlexible 0x4002 435
+Return 
+
+Function 67:
+    SetVarFromFlexible 0x4002 665
+Return
+
+
+###Electrodes -> Hisui
+Script 5,6,7
+WildBattleSp 2149 60 0
 
 ### Traps in HQ B1F
 Switch:
@@ -2617,3 +2749,7 @@ Jump Function#4
 Function 56:
 	Message 4
 Jump Function#4
+ 
+script 1: Battle 223,224
+script 6: Battle 328,382
+script 7: Battle 571,570

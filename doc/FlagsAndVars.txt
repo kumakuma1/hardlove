@@ -1,4 +1,5 @@
 117   - 061-T20R0201 : Script File 845 - prev. Old Rod Flag. Used for level caps
+122   -                                - getting kings rock in Slowpoke well. ->Slowbronite Limited by badge check after 7th badge
 131   -                                - Get White Herb from Butterfree Lady on Route 34 Passage
 156   -                                - Pokegear Flag
 165   -                                - Flag for getting Magnet from Sunny on Route 37
@@ -34,7 +35,7 @@
 473   - olivine gym                    - Hide Jasmine
 474   - light tower 5f                 - Hide gym trainer. Used for Rocket on Route 47/48
 475   - light tower 5f                 - Hide gym trainer. Used for Misty on Route 25
-476   - olivine gym                    - Hide gym trainer
+476   - olivine gym                    - Hide gym trainer. Also used for tutor #2 in goldenrod
 477   - olivine gym                    - Hide gym trainer
 506   -                                - Hide Rockets in Route 43 passage house. Flag is not set. Unused
 507   -                                - Hide Normal guard in Route 43 passage house. Flag is set. Unused

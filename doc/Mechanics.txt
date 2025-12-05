@@ -4,6 +4,7 @@ Mechanic Changes
 
 For any mechanic that's not described in here, assume a wild mix of Gen4 and Gen9 mechanics.
 
+Easy mode will reduce enemy trainer level by 1 for lvl <= 30, and 2 by lvl > 30. 
 Button L will toggle the repel.
 Battle style is forced to set.
 Bag is unacessible during trainer battles.
@@ -36,7 +37,7 @@ Here is a list of all the bosses and their matching level caps:
 
 Elder Li                lvl 12
 Leader Falkner          lvl 16
-Slowpoke-Well Proton    lvl 20
+Slowpoke Well Proton    lvl 20
 Leader Bugsy            lvl 25
 Route 36 Schorsch       lvl 30
 Leader Whitney          lvl 35
@@ -44,3 +45,5 @@ Leader Morty            lvl 39
 Leader Chuck            lvl 47
 Safari Zone Proton  	lvl 50
 Leader Jasmine          lvl 54
+Team Rocket Petrel      lvl 60
+Leader Pryce            lvl 64

@@ -939,9 +939,9 @@ _07F0: // Trainer 300
     trainertextentry 300, TEXT_DEFEATED_IN_OVERWORLD, "You have Pokémon that know the HM move\nFly, don’t you? I envy you.\n"
 
 _07FC: // Trainer 179
-    trainertextentry 179, TEXT_NOTICE_IN_OVERWORLD, "Hang on. I have to phone my mom.\r"
-    trainertextentry 179, TEXT_DEFEATED_IN_BATTLE, "Sorry, Mom!\nI was beaten!\n"
-    trainertextentry 179, TEXT_DEFEATED_IN_OVERWORLD, "My mom worries so much about me, I have\nto phone her all the time.\n"
+    trainertextentry 179, TEXT_NOTICE_IN_OVERWORLD, "Don’t touch our prototype!\r"
+    trainertextentry 179, TEXT_DEFEATED_IN_BATTLE, "We secured the blueprints anyway...\n"
+    trainertextentry 179, TEXT_DEFEATED_IN_OVERWORLD, "This facility was just an experiement.\n"
 
 _0808: // Trainer 135
     trainertextentry 135, TEXT_NOTICE_IN_OVERWORLD, "We’re on a school trip to Lavender\nRadio Tower for social studies.\r"
@@ -2397,9 +2397,9 @@ _15D0: // Trainer 563
     trainertextentry 563, TEXT_DEFEATED_IN_OVERWORLD, "But Jasmine is on another level.\n"
 
 _15DC: // Trainer 564
-    trainertextentry 564, TEXT_NOTICE_IN_OVERWORLD, "All right, let’s get this Pokémon\nbattle started!\r"
-    trainertextentry 564, TEXT_DEFEATED_IN_BATTLE, "All right!\nThat concludes today’s battle.\n"
-    trainertextentry 564, TEXT_DEFEATED_IN_OVERWORLD, "Don’t relax just ’cause you won.\nOnce you get home, you should do a\ffull review!\n"
+    trainertextentry 564, TEXT_NOTICE_IN_OVERWORLD, "Talk is, there is a dude wih a Dragon\nattacking HQ!\r"
+    trainertextentry 564, TEXT_DEFEATED_IN_BATTLE, "Are you that Dragon?\n"
+    trainertextentry 564, TEXT_DEFEATED_IN_OVERWORLD, "You will never make it through!\n"
 
 _15E8: // Trainer 565
     trainertextentry 565, TEXT_NOTICE_IN_OVERWORLD, "My weight puts me in the\nfeatherweight class!\r...Huh? What do you mean that\ndoesn’t sound very strong?\r"
@@ -2408,14 +2408,14 @@ _15E8: // Trainer 565
     trainertextentry 565, TEXT_REMATCH_IN_OVERWORLD, "I’m a stubborn featherweight.\nI’ve been waiting here for you!\r"
 
 _15F8: // Trainer 566
-    trainertextentry 566, TEXT_NOTICE_IN_OVERWORLD, "I can’t wait to go home and drop off\nmy Bag!\r"
-    trainertextentry 566, TEXT_DEFEATED_IN_BATTLE, "I was in too much of a hurry.\n"
-    trainertextentry 566, TEXT_DEFEATED_IN_OVERWORLD, "Don’t rush, and take the road one step\nat a time. Great advice!\n"
+    trainertextentry 566, TEXT_NOTICE_IN_OVERWORLD, "This place is a fortress!\r"
+    trainertextentry 566, TEXT_DEFEATED_IN_BATTLE, "We are compromised...\n"
+    trainertextentry 566, TEXT_DEFEATED_IN_OVERWORLD, "There are to many of us!\n"
 
 _1604: // Trainer 567
-    trainertextentry 567, TEXT_NOTICE_IN_OVERWORLD, "It’s good to put what you learn to\nuse immediately!\r"
-    trainertextentry 567, TEXT_DEFEATED_IN_BATTLE, "I see. I see.\n"
-    trainertextentry 567, TEXT_DEFEATED_IN_OVERWORLD, "All right!\nNext time, I won’t make any mistakes!\n"
+    trainertextentry 567, TEXT_NOTICE_IN_OVERWORLD, "Are the new hire?\nWait, you are just a kid!\r"
+    trainertextentry 567, TEXT_DEFEATED_IN_BATTLE, What is happening?\n"
+    trainertextentry 567, TEXT_DEFEATED_IN_OVERWORLD, "How did you get past the traps?\n"
     trainertextentry 567, TEXT_REMATCH_IN_OVERWORLD, "I’ve made good use of the time I’ve\nbeen waiting and done a review!\r"
 
 _1614: // Trainer 568

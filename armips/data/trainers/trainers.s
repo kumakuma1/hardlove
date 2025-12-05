@@ -8789,9 +8789,9 @@ trainerdata 178, "Jack"
         ballseal 0
    endparty
 
-trainerdata 179, "Kipp"
+trainerdata 179, "Grunt #1"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_SCHOOL_KID_M
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 4
     item ITEM_NONE
     item ITEM_NONE
@@ -10564,7 +10564,7 @@ trainerdata 219, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 220, "Grunt"
+trainerdata 220, "Grunt #1"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
@@ -22501,9 +22501,9 @@ trainerdata 498, "Eusine"
         ballseal 0
     endparty
 
-trainerdata 499, "Grunt"
+trainerdata 499, "Proton"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass TRAINERCLASS_TEAM_ROCKET
+    trainerclass TRAINERCLASS_EXECUTIVE_PROTON
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
@@ -24930,9 +24930,9 @@ trainerdata 563, "Ginger" //moved to Olivine Gym
         ballseal 0
     endparty
 
-trainerdata 564, "Clarice"
+trainerdata 564, "Grunt #1"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass TRAINERCLASS_TEACHER
+    trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
@@ -24989,9 +24989,9 @@ trainerdata 565, "Josh"
         ballseal 0
     endparty
 
-trainerdata 566, "Connor"
+trainerdata 566, "Grunt #2"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
-    trainerclass TRAINERCLASS_SCHOOL_KID_M
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
@@ -25015,9 +25015,9 @@ trainerdata 566, "Connor"
         ballseal 0
     endparty
 
-trainerdata 567, "Torin"
+trainerdata 567, "Grunt #9"
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_SCHOOL_KID_M
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 2
     item ITEM_NONE
     item ITEM_NONE
