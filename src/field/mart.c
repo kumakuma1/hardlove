@@ -158,7 +158,7 @@ u16 sLavenderMart[] = {
 };
 
 u16 sCeruleanMart[] = {
-    ITEM_AIR_MAIL, ITEM_QUICK_BALL, 0xFFFF
+    ITEM_TM057, 0xFFFF
 };
 
 u16 sCeladonDepartmentUpper2F[] = {

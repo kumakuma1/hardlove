@@ -23,6 +23,7 @@ scrdef scr_seq_T25SP0101_000
 scrdef scr_seq_T25SP0101_001
 scrdef scr_seq_T25SP0101_002
 scrdef scr_seq_T25SP0101_003
+scrdef scr_seq_T25SP0101_004
 scrdef_end
 
 scr_seq_T25SP0101_000:
@@ -357,6 +358,14 @@ scr_seq_T25SP0101_003:
 	lockall
 	faceplayer
     CommonScript 0x28C8
+	releaseall
+    end
+
+scr_seq_T25SP0101_004:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+    CommonScript 0x28C9
 	releaseall
     end
 

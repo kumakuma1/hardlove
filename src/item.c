@@ -69,7 +69,7 @@ static const u16 sMachineMoves[] = {
     MOVE_FALSE_SWIPE,      // TM054
     MOVE_BRINE,            // TM055
     MOVE_FLING,            // TM056
-    MOVE_CHARGE_BEAM,      // TM057
+    MOVE_NATURAL_GIFT,      // TM057
     MOVE_HEAL_PULSE,           // TM058
     MOVE_DRAGON_PULSE,     // TM059
     MOVE_DRAIN_PUNCH,      // TM060
