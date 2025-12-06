@@ -1384,7 +1384,7 @@ _0C40: // Trainer 389
 
 _0C4C: // Trainer 44
     trainertextentry  44, TEXT_NOTICE_IN_OVERWORLD, "Is it OK to brag about my Pokémon?\r"
-    trainertextentry  44, TEXT_DEFEATED_IN_BATTLE, "I couldn’t brag...\n"
+    trainertextentry  44, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "I couldn’t brag...\n"
     trainertextentry  44, TEXT_DEFEATED_IN_OVERWORLD, "I’m not listening to your bragging!\nWe Pokéfans have a policy of not\flistening to other people brag!\n"
     trainertextentry  44, TEXT_REMATCH_IN_OVERWORLD, "I’ve been waiting!\nI’ve been wanting to brag to you!\r\n"
 
@@ -1400,7 +1400,7 @@ _0C68: // Trainer 39
 
 _0C74: // Trainer 16
     trainertextentry  16, TEXT_NOTICE_IN_OVERWORLD, "You have to warm up before going into\nthe water.\rThat’s basic.\r"
-    trainertextentry  16, TEXT_DEFEATED_IN_BATTLE, "OK! I give up!\n"
+    trainertextentry  16, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "OK! I give up!\n"
     trainertextentry  16, TEXT_DEFEATED_IN_OVERWORLD, "Cianwood City is a good distance away\nfrom here.\n"
 
 _0C80: // Trainer 86
