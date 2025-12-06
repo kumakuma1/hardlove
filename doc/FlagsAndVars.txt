@@ -37,6 +37,7 @@
 475   - light tower 5f                 - Hide gym trainer. Used for Misty on Route 25
 476   - olivine gym                    - Hide gym trainer. Also used for tutor #2 in goldenrod
 477   - olivine gym                    - Hide gym trainer
+500   -                                - Hiding Petrel in TR HQ. FLag is set. Unused
 506   -                                - Hide Rockets in Route 43 passage house. Flag is not set. Unused
 507   -                                - Hide Normal guard in Route 43 passage house. Flag is set. Unused
 510   -                                - hide Ace trainer Alton inside lake at lake of rage, flag is set. Unused
@@ -45,6 +46,7 @@
               
 591   -              :                 - Aprikoko Guy in Route 30. Used for Healing in Gyms
 598   -                                - Hide Misty on Route 25
+640   -                                - Giovnni NPC hiding Petrel in TR HQ. Used for Petrel+Archer. FLag is unset
 650   -                                - hide Ace trainer lois at lake of rage, flag is set. Unused
 752   -                                - Hide Lt. Surge Gym in Vermilion  
 777   -                                - Hide Brad on Route 25

@@ -8548,7 +8548,7 @@ evodata SPECIES_DIGGERSBY
 terminateevodata
 
 evodata SPECIES_FLETCHLING
-    evolution EVO_LEVEL, 17, SPECIES_FLETCHINDER
+    evolution EVO_LEVEL, 16, SPECIES_FLETCHINDER
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE
     evolution EVO_NONE, 0, SPECIES_NONE

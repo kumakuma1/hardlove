@@ -926,30 +926,88 @@ trainerdata 15, "Otis"
     endparty
 
 trainerdata 16, "Simon"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_SWIMMER_M
-    nummons 2
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_EVALUATE_ATTACKS | 0
-    battletype SINGLE_BATTLE
+    battletype NO_PARTNER_DOUBLE_BATTLE
     endentry
 
     party 16
-        // mon 0
         ivs 0
         abilityslot 0
-        level 20
-        pokemon SPECIES_TENTACOOL
+        level LEVEL_CHUCK-6
+        pokemon SPECIES_MEOWSTIC
+        item ITEM_FLAME_ORB
+        move MOVE_PSYCHIC
+        move MOVE_CHARGE_BEAM
+        move MOVE_REFLECT
+        move MOVE_TRICK
+        ability ABILITY_PRANKSTER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
-        abilityslot 32
-        level 20
-        pokemon SPECIES_TENTACOOL
+        abilityslot 0
+        level LEVEL_CHUCK-6
+        pokemon SPECIES_MAGMAR
+        item ITEM_EVIOLITE
+        move MOVE_KNOCK_OFF
+        move MOVE_FIRE_SPIN
+        move MOVE_CONFUSE_RAY
+        move MOVE_FOLLOW_ME
+        ability ABILITY_FLAME_BODY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CHUCK-6
+        pokemon SPECIES_MISMAGIUS
+        item ITEM_SITRUS_BERRY
+        move MOVE_HEX
+        move MOVE_PSYCHIC
+        move MOVE_MYSTICAL_FIRE
+        move MOVE_NASTY_PLOT
+        ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+		ivs 0
+        abilityslot 0
+        level LEVEL_CHUCK-6
+        pokemon SPECIES_DRIFBLIM
+        item ITEM_FLAME_ORB
+        move MOVE_HEX
+        move MOVE_AIR_SLASH
+        move MOVE_ICY_WIND
+        move MOVE_CALM_MIND
+        ability ABILITY_FLARE_BOOST
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -1182,11 +1240,11 @@ trainerdata 20, "Falkner"
 
         ivs 0
         abilityslot 0
-        level LEVEL_FALKNER+1
+        level LEVEL_FALKNER
         pokemon SPECIES_COSMOG
         item ITEM_EVIOLITE
         move MOVE_STORED_POWER
-        move MOVE_COSMIC_POWER
+        move MOVE_NIGHT_SHADE
         move MOVE_MOONLIGHT
         move MOVE_CHARGE_BEAM
         ability ABILITY_UNAWARE
@@ -6000,7 +6058,7 @@ trainerdata 92, "Denise"
 
         ivs 0
         abilityslot 0
-        level LEVEL_CHUCK-6
+        level LEVEL_CHUCK-5
         pokemon SPECIES_KINGDRA
         item ITEM_WATER_GEM
         move MOVE_HYDRO_PUMP
@@ -6018,7 +6076,7 @@ trainerdata 92, "Denise"
 
         ivs 0
         abilityslot 0
-        level LEVEL_CHUCK-6
+        level LEVEL_CHUCK-5
         pokemon SPECIES_ARMALDO
         item ITEM_LIFE_ORB
         move MOVE_STONE_EDGE
@@ -18307,7 +18365,7 @@ trainerdata 392, "Donald" //moved to Violet Gym
         abilityslot 0
         level LEVEL_FALKNER-3
         pokemon SPECIES_VULLABY
-        item ITEM_EVIOLITE
+        item ITEM_ORAN_BERRY
         move MOVE_AERIAL_ACE
         move MOVE_TOXIC
         move MOVE_PROTECT

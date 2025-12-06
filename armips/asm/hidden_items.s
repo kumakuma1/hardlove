@@ -353,10 +353,10 @@
 .halfword ITEM_GHOST_GEM
 
 .org 0x02000000 + 0xFA8F0 //Rocket HQ B2F S
-.halfword ITEM_ELECTRIC_GEM
+.halfword ITEM_POISON_GEM
 
 .org 0x02000000 + 0xFA8F8 //Rocket HQ B2F E
-.halfword ITEM_POISON_GEM
+.halfword ITEM_ELECTRIC_GEM
 
 .org 0x02000000 + 0xFA900 //Lake of Rage SW, not flooded
 .halfword ITEM_FULL_RESTORE

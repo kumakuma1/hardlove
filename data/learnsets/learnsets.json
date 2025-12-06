@@ -29003,10 +29003,10 @@
         "Level": 6,
         "Move": "MOVE_FLASH"
       },
-      {
-        "Level": 9,
-        "Move": "MOVE_ELECTRO_BALL"
-      },
+        {
+            "Level": 9,
+            "Move": "MOVE_SHOCK_WAVE"
+        },
       {
         "Level": 12,
         "Move": "MOVE_BUBBLE_BEAM"
@@ -29018,10 +29018,6 @@
       {
         "Level": 20,
         "Move": "MOVE_THUNDER_WAVE"
-      },
-      {
-        "Level": 23,
-        "Move": "MOVE_SHOCK_WAVE"
       },
       {
         "Level": 23,
@@ -29150,10 +29146,10 @@
         "Level": 6,
         "Move": "MOVE_FLASH"
       },
-      {
-        "Level": 9,
-        "Move": "MOVE_ELECTRO_BALL"
-      },
+        {
+            "Level": 9,
+            "Move": "MOVE_SHOCK_WAVE"
+        },
       {
         "Level": 12,
         "Move": "MOVE_BUBBLE_BEAM"
@@ -29165,10 +29161,6 @@
       {
         "Level": 20,
         "Move": "MOVE_THUNDER_WAVE"
-      },
-      {
-        "Level": 23,
-        "Move": "MOVE_SHOCK_WAVE"
       },
       {
         "Level": 23,

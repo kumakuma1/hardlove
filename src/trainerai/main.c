@@ -1250,6 +1250,10 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         if (ai->attackerTurnsOnField == 0 && ai->isDoubleBattle) {
             moveScore -= 1;
         }
+        if (ai->attackerTurnsOnField == 0 && BattlerKnowsMoveWithEffect(bsys, ai->attacker, MOVE_EFFECT_PROTECT, ai) 
+            && ai->attackerMon.item == ITEM_TOXIC_ORB && ai->attackerMon.ability == ABILITY_POISON_HEAL) {
+            moveScore += 1;
+        }
         if (ctx->protectSuccessTurns[ai->attacker] == 1) {
             if (BattleRand(bsys) % 2 == 0) {
                 moveScore -= NEVER_USE_MOVE_20;

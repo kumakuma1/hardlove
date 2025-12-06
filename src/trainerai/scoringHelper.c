@@ -43,6 +43,21 @@ BOOL LONG_CALL BattlerKnowsMove(struct BattleSystem *bsys, u32 battler, u32 move
     return knowsMove;
 }
 
+BOOL LONG_CALL BattlerKnowsMoveWithEffect(struct BattleSystem *bsys, u32 battler, u32 moveEffect, struct AIContext *ai UNUSED)
+{
+    BOOL knowsMove = FALSE;
+    struct BattleStruct *ctx = bsys->sp;
+    for (int i = 0; i < 4; i++) {
+        u32 battler_move_check = ctx->battlemon[battler].move[i];
+        u32 battler_move_effect_check = ctx->moveTbl[battler_move_check].effect;
+        if (battler_move_effect_check == moveEffect) {
+            knowsMove = TRUE;
+            break;
+        }
+    }
+    return knowsMove;
+}
+
 BOOL LONG_CALL BattlerHasSoundBasedMove(struct BattleSystem *bsys, u32 battler, struct AIContext *ai UNUSED)
 {
     BOOL hasMove = FALSE;
