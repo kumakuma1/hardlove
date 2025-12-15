@@ -27616,13 +27616,13 @@
         "Level": 4,
         "Move": "MOVE_QUICK_ATTACK"
       },
-      {
-        "Level": 7,
-        "Move": "MOVE_FURY_SWIPES"
-      },
+        {
+            "Level": 7,
+            "Move": "MOVE_HELPING_HAND"
+        },
       {
         "Level": 13,
-        "Move": "MOVE_HELPING_HAND"
+        "Move": "MOVE_HEADBUTT"
       },
       {
         "Level": 17,
@@ -27787,17 +27787,13 @@
         "Level": 1,
         "Move": "MOVE_QUICK_ATTACK"
       },
-      {
-        "Level": 1,
-        "Move": "MOVE_QUICK_ATTACK"
-      },
-      {
-        "Level": 7,
-        "Move": "MOVE_FURY_SWIPES"
-      },
+        {
+            "Level": 7,
+            "Move": "MOVE_HELPING_HAND"
+        },
       {
         "Level": 13,
-        "Move": "MOVE_HELPING_HAND"
+        "Move": "MOVE_HEADBUTT"
       },
       {
         "Level": 17,

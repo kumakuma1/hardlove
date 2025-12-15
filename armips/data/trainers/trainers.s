@@ -3670,7 +3670,7 @@ trainerdata 54, "Troy"
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI-2
+        level LEVEL_ELDER_LI-1
         pokemon SPECIES_RATTATA
         item ITEM_FOCUS_SASH
         move MOVE_QUICK_ATTACK
@@ -3725,7 +3725,7 @@ trainerdata 55, "Neal"
         item ITEM_ORAN_BERRY
         move MOVE_WATER_PULSE
         move MOVE_WHIRLPOOL
-        move MOVE_ICY_WIND
+        move MOVE_BITE
         move MOVE_NONE
         ability ABILITY_GLUTTONY
         ball ITEM_POKE_BALL
@@ -3738,7 +3738,7 @@ trainerdata 55, "Neal"
 
         ivs 0
         abilityslot 0
-        level LEVEL_ELDER_LI
+        level LEVEL_ELDER_LI-1
         pokemon SPECIES_PANSEAR
         item ITEM_ORAN_BERRY
         move MOVE_INCINERATE

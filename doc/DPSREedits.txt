@@ -2753,3 +2753,10 @@ Jump Function#4
 script 1: Battle 223,224
 script 6: Battle 328,382
 script 7: Battle 571,570
+
+
+
+
+
+
+Maho rocket hide out pharmacy.. removed FLag 498 on two npc to avoid crash, mistakenly set by archer/petrel event
