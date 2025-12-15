@@ -715,7 +715,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             if (BattleRand(bsys) % 10 < 2) {
                 moveScore += 1;
             }
-        }
+        }*/
         /*
         if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67)
             moveScore += 1;

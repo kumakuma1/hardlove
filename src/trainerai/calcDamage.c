@@ -1642,7 +1642,11 @@ int LONG_CALL BattleAI_CalcDamage(void *bw, struct BattleStruct *sp, int moveno,
     if (moveno == MOVE_TRIPLE_AXEL || moveno == MOVE_TRIPLE_KICK) {
         struct AI_damage damagesLocal = { 0 };
         for (unsigned i = 0; i < 3; ++i) {
-            damages->damageRoll += BattleAI_CalcDamageInternal(bw, sp, moveno, side_cond, field_cond, i*20, type, critical, attackerSlot, defenderSlot, &damagesLocal, attacker, defender);
+            int basePower = 10;
+            if (moveno == MOVE_TRIPLE_AXEL) {
+                basePower = 20;
+            }
+            damages->damageRoll += BattleAI_CalcDamageInternal(bw, sp, moveno, side_cond, field_cond, i * basePower, type, critical, attackerSlot, defenderSlot, &damagesLocal, attacker, defender);
             for (int u = 0; u < 16; u++) {
                 damages->damageRange[u] += damagesLocal.damageRange[u];
             }
