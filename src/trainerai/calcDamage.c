@@ -50,7 +50,7 @@ extern const int typeToBerryMapping[18];
 
 extern u8 TypeEffectivenessTable[][3];
 
-int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED, u32 field_cond, u16 pow UNUSED, u8 type UNUSED, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
+int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED, u32 field_cond, u16 pow, u8 type UNUSED, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
     u8 i = 0;
     u32 p;
@@ -295,7 +295,10 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         movepower = 71;
         break;
         // case MOVE_PRESENT:
+    case MOVE_TRIPLE_AXEL:
     case MOVE_TRIPLE_KICK:
+        movepower = pow;
+        break;
     case MOVE_TRUMP_CARD:
     default:
         break;
@@ -1636,5 +1639,18 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 int LONG_CALL BattleAI_CalcDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_damage *damages, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
     // TODO: Parental bond, Triple Axel, Triple Kick
-    return BattleAI_CalcDamageInternal(bw, sp, moveno, side_cond, field_cond, pow, type, critical, attackerSlot, defenderSlot, damages, attacker, defender);
+    if (moveno == MOVE_TRIPLE_AXEL || moveno == MOVE_TRIPLE_KICK) {
+        struct AI_damage damagesLocal = { 0 };
+        for (unsigned i = 0; i < 3; ++i) {
+            damages->damageRoll += BattleAI_CalcDamageInternal(bw, sp, moveno, side_cond, field_cond, i*20, type, critical, attackerSlot, defenderSlot, &damagesLocal, attacker, defender);
+            for (int u = 0; u < 16; u++) {
+                damages->damageRange[u] += damagesLocal.damageRange[u];
+            }
+        }
+        return damages->damageRoll;
+    }
+    else
+    {
+        return BattleAI_CalcDamageInternal(bw, sp, moveno, side_cond, field_cond, pow, type, critical, attackerSlot, defenderSlot, damages, attacker, defender);
+    }
 }

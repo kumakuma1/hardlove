@@ -3964,7 +3964,7 @@ trainerdata 60, "Henry" //moved to Ilex Forest
         abilityslot 0
         level LEVEL_BUGSY-5
         pokemon SPECIES_PELIPPER
-        item ITEM_WACAN_BERRY
+        item ITEM_SITRUS_BERRY
         move MOVE_WATER_PULSE
         move MOVE_AIR_SLASH
         move MOVE_QUICK_ATTACK

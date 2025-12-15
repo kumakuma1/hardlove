@@ -481,7 +481,7 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem *bsys, u32 attacker, in
     case MOVE_SELF_DESTRUCT:
     case MOVE_EXPLOSION:
     case MOVE_MISTY_EXPLOSION:
-        if ((ai->defenderMon.ability != ABILITY_DAMP || ai->attackerMon.hasMoldBreaker) && ai->attackerRolledMoveDamages[i] > 0) /*TODO: immunity handled? */
+        if ((ai->defenderMon.ability != ABILITY_DAMP || ai->attackerMon.hasMoldBreaker) && ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) // no immunity
         {
             if (ai->attackerMon.percenthp < 10) {
                 moveScore += 10;
@@ -698,7 +698,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     }
 
     if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT) { //TODO Parting shot
-        if (ai->attackerRolledMoveDamages[i] > 0) // no immunity
+        if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) { // no immunity
             moveScore += 6;
         }
         /*
@@ -1425,7 +1425,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_PARALYZE_HIT:
-        if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance < 100 || ai->attackerRolledMoveDamages[i] > 0 /*no immunity*/) { // nuzzle
+        if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance < 100 || ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT /*has immunity*/) { // nuzzle
             break;
         }
         FALLTHROUGH;
