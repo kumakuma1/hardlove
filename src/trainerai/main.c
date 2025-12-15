@@ -697,7 +697,11 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
-    if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT) {
+    if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT) { //TODO Parting shot
+        if (ai->attackerRolledMoveDamages[i] > 0) // no immunity
+            moveScore += 6;
+        }
+        /*
         u8 switchThreshold = 1;
         if (ai->monWithMegaInParty) {
             switchThreshold = 2;
