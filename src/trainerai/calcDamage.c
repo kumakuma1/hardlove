@@ -941,15 +941,15 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     }
 
     // Step 4.1. handle Unaware
-    // Step 4.2. Chip Away / Sacred Sword
-    if (attacker->ability == ABILITY_UNAWARE || moveno == MOVE_CHIP_AWAY || moveno == MOVE_SACRED_SWORD) {
+    // Step 4.2. Chip Away / Sacred Sword / Darkest Lariat
+    if (attacker->ability == ABILITY_UNAWARE || moveno == MOVE_CHIP_AWAY || moveno == MOVE_SACRED_SWORD || moveno == MOVE_DARKEST_LARIAT) {
         defender->states[STAT_DEFENSE] = 0;
         defender->states[STAT_SPDEF] = 0;
     }
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 4.2. Chip Away / Sacred Sword\n");
+    debug_printf("[CalcBaseDamage] Step 4.2. Chip Away / Sacred Sword / Darkest Lariat\n");
     debug_printf("[CalcBaseDamage] defender->defstate: %d\n", defender->states[STAT_DEFENSE]);
     debug_printf("[CalcBaseDamage] defender->spdefstate: %d\n", defender->states[STAT_SPDEF]);
 #endif

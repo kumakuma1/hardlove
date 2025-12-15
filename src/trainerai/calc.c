@@ -455,9 +455,9 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
 
     switch (moveNo) {
     case MOVE_NATURAL_GIFT:
-        //https://github.com/pret/pokeheartgold/blob/29282f7bb45946dee63475022a8d506092bc3748/src/battle/overlay_12_0224E4FC.c#L4600
-        //type = GetNaturalGiftType(ctx, battlerId);
-        type = GetItemData(attacker->item, ITEM_PARAM_NATURAL_POWER_TYPE, 5); //TODO: check heap
+        // https://github.com/pret/pokeheartgold/blob/29282f7bb45946dee63475022a8d506092bc3748/src/battle/overlay_12_0224E4FC.c#L4600
+        // type = GetNaturalGiftType(ctx, battlerId);
+        type = GetItemData(attacker->item, ITEM_PARAM_NATURAL_POWER_TYPE, 5); // TODO: check heap
         break;
     case MOVE_JUDGMENT:
         switch (attacker->item_held_effect) {
@@ -567,7 +567,7 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
         }
         break;
     case MOVE_REVELATION_DANCE:
-        //TODO
+        // TODO
         break;
     case MOVE_MULTI_ATTACK:
         switch (attacker->item_held_effect) {
@@ -672,7 +672,7 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
         break;
     case MOVE_TERA_BLAST:
     case MOVE_TERA_STARSTORM:
-        //TODO
+        // TODO
         break;
     case MOVE_RAGING_BULL:
         if (attacker->species == SPECIES_TAUROS) {
@@ -754,8 +754,12 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
         typeLocal = ctx->moveTbl[moveNo].type;
     }
 
-     if (attacker->ability == ABILITY_LIQUID_VOICE && IsMoveSoundBased(moveNo)) {
+    if (attacker->ability == ABILITY_LIQUID_VOICE && IsMoveSoundBased(moveNo)) {
         typeLocal = TYPE_WATER;
+    }
+    // Ion Deluge's effect is applied after all type-modifying abilities have activated.
+    if (typeLocal == TYPE_NORMAL && (ctx->field_condition & FIELD_STATUS_ION_DELUGE) == FIELD_STATUS_ION_DELUGE) {
+        typeLocal = TYPE_ELECTRIC;
     }
 
     return typeLocal;
@@ -1148,6 +1152,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 
                     if (attackerMove.split != SPLIT_STATUS && attackerMove.power) {
                         damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, moveno, ctx->side_condition[BATTLER_IS_ENEMY(attacker)], ctx->field_condition, attackerMove.power, attackerMove.type, critical, attacker, defender, &damages, &attackerMon, &defenderMon);
+                        damages.damageRoll = damages.damageRange[15]; //max Damage
 
                         damages.damageRoll = BattleAI_AdjustUnusualMoveDamage(attackerMon.level, attackerMon.hp, defenderMon.hp, damages.damageRoll, attackerMove.effect, attackerMon.ability, attackerMon.item);
                         for (int u = 0; u < 16; u++) {
@@ -1170,6 +1175,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 
                 if (defenderMove.split != SPLIT_STATUS && defenderMove.power && ctx->battlemon[defender].pp[k]) {
                     damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, defenderMoveno, ctx->side_condition[BATTLER_IS_ENEMY(defender)], ctx->field_condition, defenderMove.power, defenderMove.type, critical, defender, attacker, &damages, &defenderMon, &attackerMon);
+                    damages.damageRoll = damages.damageRange[15]; // max Damage
 
                     damages.damageRoll = BattleAI_AdjustUnusualMoveDamage(defenderMon.level, defenderMon.hp, attackerMon.hp, damages.damageRoll, defenderMove.effect, defenderMon.ability, defenderMon.item);
                     for (int u = 0; u < 16; u++) {
