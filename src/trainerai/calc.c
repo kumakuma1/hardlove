@@ -393,10 +393,7 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(u32 attackerLevel, u32 attackerHP
         return damage *= 3;
     case MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL: // surge Strikes
     case MOVE_EFFECT_HIT_THREE_TIMES: // triple dive
-    case MOVE_EFFECT_HIT_THREE_TIMES_INCREMENT_BASE_POWER_10: // triple kick
         return damage *= 3;
-    case MOVE_EFFECT_HIT_THREE_TIMES_INCREMENT_BASE_POWER_20: // triple axel
-        return damage *= 6;
     case MOVE_EFFECT_MULTI_HIT: // 2-5 hit moves
         if (attackerAbility == ABILITY_SKILL_LINK) {
             return damage * 5;
