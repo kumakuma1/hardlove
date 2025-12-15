@@ -8656,7 +8656,7 @@ pokemon SPECIES_GIGALITH		    //10%
 pokemon SPECIES_AMBIPOM             //10% 
 pokemon SPECIES_AMPHAROS            //10% 
 pokemon SPECIES_MUDSDALE    	    //10%  
-pokemon SPECIES_AURORUS	            //10%  
+pokemon SPECIES_EXCADRILL	            //10%  
 pokemon SPECIES_MARACTUS            //10% 
 pokemon SPECIES_SHIINOTIC 	        //10% 
 pokemon SPECIES_AMBIPOM	            //5%
@@ -8670,7 +8670,7 @@ pokemon SPECIES_GIGALITH		    //10%
 pokemon SPECIES_AMBIPOM             //10% 
 pokemon SPECIES_AMPHAROS            //10% 
 pokemon SPECIES_MUDSDALE    	    //10%  
-pokemon SPECIES_AURORUS	            //10%  
+pokemon SPECIES_EXCADRILL	            //10%  
 pokemon SPECIES_MARACTUS            //10% 
 pokemon SPECIES_SHIINOTIC 	        //10% 
 pokemon SPECIES_AMBIPOM	            //5%
@@ -8684,7 +8684,7 @@ pokemon SPECIES_GIGALITH		    //10%
 pokemon SPECIES_AMBIPOM             //10% 
 pokemon SPECIES_AMPHAROS            //10% 
 pokemon SPECIES_MUDSDALE    	    //10%  
-pokemon SPECIES_AURORUS	            //10%  
+pokemon SPECIES_EXCADRILL	            //10%  
 pokemon SPECIES_MARACTUS            //10% 
 pokemon SPECIES_SHIINOTIC 	        //10% 
 pokemon SPECIES_AMBIPOM	            //5%
