@@ -10742,7 +10742,7 @@ trainerdata 217, "Denis"
         ballseal 0
     endparty
 
-trainerdata 218, "Grunt"
+trainerdata 218, "Grunt #3"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -10763,7 +10763,7 @@ trainerdata 218, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 219, "Grunt"
+trainerdata 219, "Grunt #2"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 3
@@ -10847,7 +10847,7 @@ trainerdata 221, "Mickey"
         ballseal 0
     endparty
 
-trainerdata 222, "Grunt"
+trainerdata 222, "Admin Sheldon"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -16162,9 +16162,9 @@ trainerdata 330, "Joe"
         ballseal 0
     endparty
 
-trainerdata 331, "Billy"
+trainerdata 331, "Hannelore" //school kid billy
     trainermontype TRAINER_DATA_TYPE_NOTHING
-    trainerclass TRAINERCLASS_SCHOOL_KID_M
+    trainerclass TRAINERCLASS_SKIER
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -18998,7 +18998,7 @@ trainerdata 403, "Spencer"
         ballseal 0
     endparty
 
-trainerdata 404, "Grunt"
+trainerdata 404, "Admin Shelly"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 2
@@ -25277,9 +25277,9 @@ trainerdata 567, "Grunt #9"
         ballseal 0
     endparty
 
-trainerdata 568, "Travis"
+trainerdata 568, "Grunt #1" //School Kid Travis
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass TRAINERCLASS_SCHOOL_KID_M
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE

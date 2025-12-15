@@ -954,9 +954,9 @@ _0814: // Trainer 328
     trainertextentry 328, TEXT_DEFEATED_IN_OVERWORLD, "Sayonara! I just learned that in my\nforeign-language class.\n"
 
 _0820: // Trainer 331
-    trainertextentry 331, TEXT_NOTICE_IN_OVERWORLD, "I love gym class the best!\r"
+    trainertextentry 331, TEXT_NOTICE_IN_OVERWORLD, "Hals- und Beinbruch!\nNeck- and leg break!\r"
     trainertextentry 331, TEXT_DEFEATED_IN_BATTLE, "Oh, no!\nHow could I lose?\n"
-    trainertextentry 331, TEXT_DEFEATED_IN_OVERWORLD, "If Pokémon were a subject at school,\nI’d be the best!\n"
+    trainertextentry 331, TEXT_DEFEATED_IN_OVERWORLD, "The track is the goal.\n"
     trainertextentry 331, TEXT_REMATCH_IN_OVERWORLD, "Welcome, welcome!\rHere you will face a battle with me, and\nI’m really athletic!\r"
 
 _0830: // Trainer 38
@@ -2419,9 +2419,9 @@ _1604: // Trainer 567
     trainertextentry 567, TEXT_REMATCH_IN_OVERWORLD, "I’ve made good use of the time I’ve\nbeen waiting and done a review!\r"
 
 _1614: // Trainer 568
-    trainertextentry 568, TEXT_NOTICE_IN_OVERWORLD, "Do you have after-school\nstudy sessions?\r"
-    trainertextentry 568, TEXT_DEFEATED_IN_BATTLE, "So strong...\n"
-    trainertextentry 568, TEXT_DEFEATED_IN_OVERWORLD, "Maybe I should join your\nstudy sessions!\n"
+    trainertextentry 568, TEXT_NOTICE_IN_OVERWORLD, "Team Rocket is a great\nemployer with superb benefits.\r"
+    trainertextentry 568, TEXT_DEFEATED_IN_BATTLE, "Are you gonna apply?\n"
+    trainertextentry 568, TEXT_DEFEATED_IN_OVERWORLD, "We could split my\nreferral bonus.\n"
 
 _1620: // Trainer 569
     trainertextentry 569, TEXT_DOUBLE_NOTICE_IN_OVERWORLD_1, "We’re the twins Kay and Tia!\nDo you know which one I am?\r"

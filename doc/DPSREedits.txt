@@ -1056,6 +1056,175 @@ Do kimmst ned weida, Freindal.\nIrgenda Stoana blockiert ’n Weg.\rSo a Schwein
 Hoho, wos fia a Gaudi.\rDo kriagst no a Leckerl.\r
 Und jetzt eascht amoi ins Brauheisl.\nPfia God!\r
 
+#### Random gift route 36
+
+27: I can give you a really strong Pokémon\nWhat do you say? \v0200\x0001\x0000
+I understand.\r
+Please make some space.\r
+There you go.\r
+\v0103ぁ\x0000\x0000 received\n\v0100ぁ\x0001\x0000!\r
+
+Script 14:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 27
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#34
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#35
+	GetRandom 0x800C 21
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#36
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#37
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#38
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#39
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#40
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#41
+	CompareVarValue 0x800C 6
+	CallIf EQUAL Function#42
+	CompareVarValue 0x800C 7
+	CallIf EQUAL Function#43
+	CompareVarValue 0x800C 8
+	CallIf EQUAL Function#44
+	CompareVarValue 0x800C 9
+	CallIf EQUAL Function#45
+	CompareVarValue 0x800C 10
+	CallIf EQUAL Function#46
+    CompareVarValue 0x800C 11
+	CallIf EQUAL Function#47
+    CompareVarValue 0x800C 12
+	CallIf EQUAL Function#48
+	CompareVarValue 0x800C 13
+	CallIf EQUAL Function#49
+	CompareVarValue 0x800C 14
+	CallIf EQUAL Function#50
+	CompareVarValue 0x800C 15
+	CallIf EQUAL Function#51
+	CompareVarValue 0x800C 16
+	CallIf EQUAL Function#52
+	CompareVarValue 0x800C 17
+	CallIf EQUAL Function#53
+	CompareVarValue 0x800C 18
+	CallIf EQUAL Function#54
+	CompareVarValue 0x800C 19
+	CallIf EQUAL Function#55
+	CompareVarValue 0x800C 20
+	CallIf EQUAL Function#56
+	Message 30
+    TextPlayerName 0
+	TextPokemon 1 0x4002 0 0
+    Message 31
+    GivePokemon 0x4002 5 0 0 0 0x800C
+Jump Function#34
+
+
+Function 34:
+	Message 28
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 35:
+	Message 29
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 36:
+    SetVarFromFlexible 0x4002 874
+Return 
+
+Function 37:
+    SetVarFromFlexible 0x4002 418
+Return 
+
+Function 38:
+    SetVarFromFlexible 0x4002 341
+Return 
+
+Function 39:
+    SetVarFromFlexible 0x4002 928
+Return 
+
+Function 40:
+    SetVarFromFlexible 0x4002 635
+Return 
+
+Function 41:
+    SetVarFromFlexible 0x4002 23
+Return 
+
+Function 42:
+    SetVarFromFlexible 0x4002 74
+Return 
+
+Function 43:
+    SetVarFromFlexible 0x4002 58
+Return 
+
+Function 44:
+    SetVarFromFlexible 0x4002 116
+Return 
+
+Function 45:
+    SetVarFromFlexible 0x4002 98
+Return 
+
+Function 46:
+    SetVarFromFlexible 0x4002 43
+Return 
+
+Function 47:
+    SetVarFromFlexible 0x4002 261
+Return 
+
+Function 48:
+    SetVarFromFlexible 0x4002 871
+Return 
+
+Function 49:
+    SetVarFromFlexible 0x4002 807
+Return 
+
+Function 50:
+    SetVarFromFlexible 0x4002 27
+Return 
+
+Function 51:
+    SetVarFromFlexible 0x4002 714
+Return 
+
+Function 52:
+    SetVarFromFlexible 0x4002 300
+Return 
+
+Function 53:
+    SetVarFromFlexible 0x4002 218
+Return 
+
+Function 54:
+    SetVarFromFlexible 0x4002 363
+Return 
+
+Function 55:
+    SetVarFromFlexible 0x4002 167
+Return 
+
+Function 56:
+    SetVarFromFlexible 0x4002 396
+Return 
+
+
 ###National Park Beedrillite
 OW item accessable with rockclimb
 Move Hiker Philipp 203 from Union Cave to National Park
