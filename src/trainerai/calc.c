@@ -824,6 +824,8 @@ BOOL LONG_CALL IsChoicedMoveConsidedUseless(u32 moveno, u8 split)
     switch (moveno) {
     case MOVE_FAKE_OUT:
     case MOVE_FIRST_IMPRESSION:
+        isUseless = TRUE;
+        break;
     default:
         break;
     }
@@ -935,10 +937,13 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 
     BOOL isDefenderImmuneToAnyStatus = FALSE;
     if ((ai->defenderMon.condition & STATUS_ALL)
-        || (ai->defenderMon.ability == ABILITY_GOOD_AS_GOLD) || (ai->defenderMon.ability == ABILITY_COMATOSE) || (ai->defenderMon.ability == ABILITY_PURIFYING_SALT)
-        || (ai->defenderMon.ability == ABILITY_SHIELDS_DOWN && ai->defenderMon.percenthp > 50)
-        || (ai->defenderMon.ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)
+        || (!ai->attackerMon.hasMoldBreaker
+            && (ai->defenderMon.ability == ABILITY_GOOD_AS_GOLD 
+                || ai->defenderMon.ability == ABILITY_PURIFYING_SALT
+                || (ai->defenderMon.ability == ABILITY_SHIELDS_DOWN && ai->defenderMon.percenthp > 50)
+                || (ai->defenderMon.ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)))
         || (ai->defenderMon.ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY)
+        || (ai->defenderMon.ability == ABILITY_COMATOSE)
         || (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_SAFEGUARD)) {
         isDefenderImmuneToAnyStatus = TRUE;
     }
@@ -970,6 +975,17 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         || ai->defenderMon.ability == ABILITY_VITAL_SPIRIT || ai->defenderMon.ability == ABILITY_INSOMNIA
         || (ai->defenderMon.isGrounded && (ctx->terrainOverlay.type == MISTY_TERRAIN || ctx->terrainOverlay.type == ELECTRIC_TERRAIN))) {
         ai->defenderImmuneToSleep = TRUE;
+    }
+
+    ai->defenderImmuneToStatDrop = FALSE;
+    if (ai->defenderMon.ability == ABILITY_FULL_METAL_BODY 
+        || ai->defenderMon.item_held_effect == HOLD_EFFECT_PREVENT_STAT_DROPS
+        || (!ai->attackerMon.hasMoldBreaker
+            && (ai->defenderMon.ability == ABILITY_CLEAR_BODY
+            || ai->defenderMon.ability == ABILITY_CONTRARY
+            || ai->defenderMon.ability == ABILITY_WHITE_SMOKE)))
+    {
+        ai->defenderImmuneToStatDrop = TRUE;
     }
 
     ai->partySizeAttacker = Battle_GetClientPartySize(bsys, attacker);

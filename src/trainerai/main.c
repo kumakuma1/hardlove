@@ -250,7 +250,6 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
     switch (bsys->trainerId[BATTLER_ENEMY]) {
     case 66: // trainer ID
     {
-
         u8 skillSwapPosition = 5;
         for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
             if (ctx->battlemon[attacker].move[j] == MOVE_SKILL_SWAP) {
@@ -666,11 +665,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     if (!isMoveHighestDamage 
         && ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SPEED_HIT 
         && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100) {
-        if (ai->defenderMovesFirst 
-            && ((ai->defenderMon.ability != ABILITY_CLEAR_BODY 
-                && ai->defenderMon.ability != ABILITY_WHITE_SMOKE 
-                && ai->defenderMon.ability != ABILITY_CONTRARY) 
-                || ai->attackerMon.hasMoldBreaker)) {
+        if (ai->defenderMovesFirst && !ai->defenderImmuneToStatDrop) {
             moveScore += 6;
         } else {
             moveScore += 5;
@@ -685,7 +680,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     if (!isMoveHighestDamage && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100
         && ((ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SP_ATK_HIT && ai->defenderHasAtleastOneSpecialMove)
             || (ai->attackerMoveEffect == MOVE_EFFECT_LOWER_ATTACK_HIT && ai->defenderHasAtleastOnePhysicalMove))) {
-        if ((ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY) || ai->attackerMon.hasMoldBreaker) {
+        if (!ai->defenderImmuneToStatDrop) {
             moveScore += 6;
         } else {
             moveScore += 5;
@@ -733,8 +728,10 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
         break;
     case MOVE_ACID_SPRAY: {
-        if ((ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY && ai->defenderMon.ability != ABILITY_BULLETPROOF) || ai->attackerMon.hasMoldBreaker) {
-            moveScore += 6;
+        if (!ai->defenderImmuneToStatDrop) {
+            if (ai->defenderMon.ability != ABILITY_BULLETPROOF || ai->attackerMon.hasMoldBreaker) {
+                moveScore += 6;
+            }
         }
         break;
     }
@@ -755,7 +752,9 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         break;
     }
     case MOVE_FAKE_OUT: {
-        if (ai->attackerTurnsOnField == 0 && ((ai->defenderMon.ability != ABILITY_SHIELD_DUST && ai->defenderMon.ability != ABILITY_INNER_FOCUS) || ai->attackerMon.hasMoldBreaker)) {
+        if (ai->attackerTurnsOnField == 0
+            && (ai->defenderMon.item != ITEM_COVERT_CLOAK 
+                || ((ai->defenderMon.ability != ABILITY_SHIELD_DUST && ai->defenderMon.ability != ABILITY_INNER_FOCUS) || ai->attackerMon.hasMoldBreaker))) {
             moveScore += 9;
         } else {
             moveScore -= IMPOSSIBLE_MOVE;
@@ -790,7 +789,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     case MOVE_EARTHQUAKE:
     case MOVE_MAGNITUDE: {
         if (ai->isDoubleBattle) {
-            if (ai->isPartnerGrounded) // or about to use magnetrise && faster
+            if (ai->isPartnerGrounded) // TODO: or about to use magnetrise && faster
             {
                 if (ctx->battlemon[BATTLER_ALLY(ai->attacker)].hp) {
                     if (HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_POISON) || HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_STEEL) || HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_FIRE) || HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_ROCK)) {
@@ -1593,8 +1592,10 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     case MOVE_EFFECT_ATK_DEF_DOWN:
         if (ai->defenderHasAtleastOnePhysicalMove) {
             moveScore += 5;
-            if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY && ai->defenderMon.ability != ABILITY_HYPER_CUTTER)) {
-                moveScore += 1;
+            if (!ai->defenderImmuneToStatDrop) {
+                if (ai->attackerMon.hasMoldBreaker || ai->defenderMon.ability != ABILITY_HYPER_CUTTER) {
+                    moveScore += 1;
+                }
             }
             if (ai->defenderMovesFirst) {
                 moveScore -= 1;
@@ -1610,8 +1611,10 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     case MOVE_EFFECT_ATK_SP_ATK_DOWN:
         if (ai->defenderHasAtleastOneSpecialMove) {
             moveScore += 5;
-            if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY)) {
-                moveScore += 1;
+            if (!ai->defenderImmuneToStatDrop) {
+                if (ai->defenderMon.ability != ABILITY_BULLETPROOF || ai->attackerMon.hasMoldBreaker) {
+                    moveScore += 1;
+                }
             }
             if (ai->defenderMovesFirst) {
                 moveScore -= 1;
@@ -1633,7 +1636,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     case MOVE_EFFECT_SP_DEF_DOWN_2:
     case MOVE_EFFECT_SP_DEF_DOWN_3:
         if (2 * ai->maxDamageReceived < ai->attackerMon.hp && 2 * ai->attackerRolledMaxDamage < ai->defenderMon.hp) {
-            if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY)) {
+            if (!ai->defenderImmuneToStatDrop) {
                 moveScore += 7;
             }
         }
@@ -1645,8 +1648,10 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     case MOVE_EFFECT_ACC_DOWN_2:
     case MOVE_EFFECT_ACC_DOWN_3:
         moveScore += 5;
-        if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_KEEN_EYE && ai->defenderMon.ability != ABILITY_CONTRARY)) {
-            moveScore += 1;
+        if (!ai->defenderImmuneToStatDrop) {
+            if (ai->attackerMon.hasMoldBreaker || ai->defenderMon.ability != ABILITY_KEEN_EYE) {
+                moveScore += 1;
+            }
         }
         if (ai->defenderMovesFirst) {
             moveScore -= 1;
@@ -1656,7 +1661,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         if (ai->defenderMon.condition & STATUS_POISON_ALL) {
             if ((ai->defenderHasAtleastOnePhysicalMove && ctx->battlemon[ai->defender].states[STAT_ATTACK] >= 6) || (ai->defenderHasAtleastOneSpecialMove && ctx->battlemon[ai->defender].states[STAT_SPATK] >= 6)) {
                 moveScore += 5;
-                if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_CLEAR_BODY && ai->defenderMon.ability != ABILITY_WHITE_SMOKE && ai->defenderMon.ability != ABILITY_CONTRARY)) {
+                if (!ai->defenderImmuneToStatDrop) {
                     moveScore += 1;
                 }
                 if (ai->defenderMovesFirst) {

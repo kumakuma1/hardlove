@@ -61,6 +61,7 @@ struct PACKED AIContext {
     BOOL defenderImmuneToParalysis;
     BOOL defenderImmuneToBurn;
     BOOL defenderImmuneToSleep;
+    BOOL defenderImmuneToStatDrop;
 
     u8 attackerMovesFirst;
     u8 defenderMovesFirst;
