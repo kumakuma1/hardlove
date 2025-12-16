@@ -8708,7 +8708,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // rock smash encounters
-encounter SPECIES_GOLEM, 42, 42
+encounter SPECIES_MAMOSWINE, 42, 42
 encounter SPECIES_RHYDON, 42, 42
 
 // old rod encounters
@@ -10099,11 +10099,11 @@ pokemon SPECIES_MAGIKARP
 encounterdata  97   // Cerulean City
 
 walkrate 0
-surfrate 10
+surfrate 0
 rocksmashrate 0
-oldrodrate 100
-goodrodrate 50
-superrodrate 75
+oldrodrate 0
+goodrodrate 0
+superrodrate 0
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -13645,13 +13645,13 @@ walklevels 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45
 // morning encounter slots
 pokemon SPECIES_BRELOOM 	        //10% 
 pokemon SPECIES_BRELOOM		        //10%
-pokemon SPECIES_HARIYAMA            //10% 
+pokemon SPECIES_MEDICHAM            //10% 
 pokemon SPECIES_AGGRON              //10% 
 pokemon SPECIES_MAMOSWINE    	    //10%  
 pokemon SPECIES_HOUNDOOM   	        //10%  
 pokemon SPECIES_TOXICROAK	        //10%  
 pokemon SPECIES_RHYDON              //10%
-pokemon SPECIES_HARIYAMA	        //5%
+pokemon SPECIES_MEDICHAM	        //5%
 pokemon SPECIES_AGGRON              //5%
 pokemon SPECIES_FERROTHORN	        //5%
 pokemon SPECIES_GLISCOR             //5%
@@ -13659,13 +13659,13 @@ pokemon SPECIES_GLISCOR             //5%
 // day encounter slots
 pokemon SPECIES_BRELOOM 	        //10% 
 pokemon SPECIES_BRELOOM		        //10%
-pokemon SPECIES_HARIYAMA            //10% 
+pokemon SPECIES_MEDICHAM            //10% 
 pokemon SPECIES_AGGRON              //10% 
 pokemon SPECIES_MAMOSWINE    	    //10%  
 pokemon SPECIES_HOUNDOOM   	        //10%  
 pokemon SPECIES_TOXICROAK	        //10%  
 pokemon SPECIES_RHYDON              //10%
-pokemon SPECIES_HARIYAMA	        //5%
+pokemon SPECIES_MEDICHAM	        //5%
 pokemon SPECIES_AGGRON              //5%
 pokemon SPECIES_FERROTHORN	        //5%
 pokemon SPECIES_GLISCOR             //5%
@@ -13673,13 +13673,13 @@ pokemon SPECIES_GLISCOR             //5%
 // night encounter slots
 pokemon SPECIES_BRELOOM 	        //10% 
 pokemon SPECIES_BRELOOM		        //10%
-pokemon SPECIES_HARIYAMA            //10% 
+pokemon SPECIES_MEDICHAM            //10% 
 pokemon SPECIES_AGGRON              //10% 
 pokemon SPECIES_MAMOSWINE    	    //10%  
 pokemon SPECIES_HOUNDOOM   	        //10%  
 pokemon SPECIES_TOXICROAK	        //10%  
 pokemon SPECIES_RHYDON              //10%
-pokemon SPECIES_HARIYAMA	        //5%
+pokemon SPECIES_MEDICHAM	        //5%
 pokemon SPECIES_AGGRON              //5%
 pokemon SPECIES_FERROTHORN	        //5%
 pokemon SPECIES_GLISCOR             //5%
