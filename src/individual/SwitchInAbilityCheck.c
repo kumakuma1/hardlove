@@ -81,7 +81,19 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         default:
                             if (CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG))
                             {
-                                //u32 w = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE); //check if more
+                                u32 weatherCase = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE);
+                                switch (weatherCase)
+                                {
+                                case 0: // OW trick room
+                                case 1: //OW trick room
+                                    break;
+                                case 2:
+                                    sp->koban_counter = 2;
+                                    break;
+                                default:
+                                    break;
+                                }
+
                                 scriptnum = SUB_SEQ_OVERWORLD_TRICK_ROOM;
                                 ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             }
