@@ -533,8 +533,8 @@ Function 5:
 	WaitFadeScreen 
 	SetFlag 426
 	SetFlag 469
-	SetFlag 428
-	ClearFlag 429
+	SetFlag 428 //hides OW in cutter house
+	ClearFlag 429 //places cutter OW ilex
 	ClearFlag 423
 	ClearFlag 424
 	SetVar 0x4024 1 //story Flag
@@ -718,6 +718,7 @@ Script 18:
 	SetVar 0x8005 1
 	CommonScript 2033
 	CloseMessage 
+	ClearFlag 428 //places OW in cutter house
 	SetFlag 429
 	SetVar 0x40F4 0
 	ReleaseAll 
@@ -2924,8 +2925,189 @@ script 6: Battle 328,382
 script 7: Battle 571,570
 
 
+### spikes weather in b3f
+b2f Add Levelscript when entering
+Script 16:
+	ClearFlag 2598
+	SetVar 0x4025 0
+End
+
+
+b3f add to level script when entering
+Script 7:
+	SetFlag 2598
+	SetVar 0x4025 2
+
+Mahogany Town: Add Levelscript when entering
+Script 10: 
+    ClearFlag 2598
+	SetVar 0x4025 0
+End
 
 
 
+#### Archer + Petrel event
+Add Archer OW
+Script 4:
+	MecScript 
+	LockAll 
+    ClearFlag 2598
+	SetVar 0x4025 0
+	SendBackFollowingPoke 
+	Movement Player Action#2
+	WaitMovement 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 24
+	CallIf EQUAL Function#3
+	Movement Player Action#8
+	WaitMovement 
+	Movement Overworld.8 Action#9
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	Movement Overworld.22 Action#10
+	WaitMovement 
+	Message 14
+	CloseMessage 
+	Movement Overworld.8 Action#9
+	WaitMovement 
+	Message 15
+	CloseMessage 
+	Movement Overworld.22 Action#10
+	WaitMovement 
+	Message 16
+	CloseMessage 
+	Movement Overworld.22 Action#2
+	Movement Overworld.8 Action#2
+	WaitMovement 
+	Movement Overworld.22 Action#11
+	Movement Overworld.8 Action#11
+	WaitMovement 
+	Message 17
+	CloseMessage 
+	Movement Overworld.8 Action#11
+	WaitMovement 
+	Message 18
+	CloseMessage 
+	Movement Overworld.22 Action#11
+	WaitMovement 
+	Message 19
+	CloseMessage 
+	Movement Overworld.8 Action#11
+	WaitMovement 
+	Message 25
+	CloseMessage 
+	Movement Overworld.22 Action#12
+	Movement Overworld.8 Action#12
+	WaitMovement 
+	Message 20
+	CloseMessage 
+	Movement Overworld.22 Action#13
+	Movement Overworld.8 Action#13
+	WaitMovement 
+	Movement Overworld.22 Action#10
+	Movement Overworld.8 Action#9
+	WaitMovement 
+	Message 21
+	CloseMessage 
+	Movement Overworld.22 Action#10
+	WaitMovement 
+	Message 22
+	Message 23
+	CloseMessage 
+	Movement Overworld.22 Action#14
+	WaitMovement 
+	RemoveOW Overworld.22
+Jump Function#4
+
+
+Function 4:
+	ClearFlag 500
+	SetFlag 640
+	Movement Overworld.8 Action#11
+	WaitMovement 
+	Message 24
+	CloseMessage 
+	TrainerBattle 488 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	Movement Overworld.8 Action#25
+	WaitMovement 
+	Message 26
+	Message 27
+	CloseMessage 
+	Movement Overworld.8 Action#26
+	WaitMovement 
+	RemoveOW Overworld.8
+	SetFlag 500
+	Movement Overworld.9 Action#27
+	WaitMovement 
+	Message 8
+	CloseMessage 
+	Message 9
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.9 Action#28
+	Movement Player Action#29
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x40AC 4
+	RemoveOW Overworld.9
+	SetFlag 586
+	ClearFlag 587
+	SetFlag 214
+	BallResetFollowingPoke 
+	ReleaseAll 
+End 
+
+13: Petrel: Phase 1 is complete.\rThe prototype is a success, and\nthe buyer agreed to our terms.\fThe meeting is now set.\r
+Archer: Outstanding.\r
+Petrel: About phase 2...\r
+Archer: They will find it...\nanytime now.\r
+Archer: Ah, the sidekick.\rI didn’t expect Lance would so\ncowardly send a child on his crusade.\rOur fortifications must be occupying\nthe old Champion.\r
+Petrel: Haha, he is getting old.\rWhat do we do with this one?\r
+Archer: I take no pleasure in\nbeating up a child, but some lessons\fare only learned through pain.\r
+\vFF01\x0001ｃ*bing*\vFF01\x0001コ\r\vFF01\x0001ｃ*bing*\vFF01\x0001コ\vFF01\x0001ｃ*bing*\vFF01\x0001コ\r
+Petrel: A message from the team in\nOlivine City!\r
+Archer: They found it.\nExcellent.\rFinally...\r
+Archer: Petrel, you will finish up here.\nAbandon everything once you are done.\rI’m heading to Olivine City and taking\nthe blueprints with me.\rMeet me at the buyer’s place.\rAnd deal with our little hero here.\r
+Petrel: Muhahaha, unlike Archer I will\ntake pleasure in this!\fLance sent you into the abyss!\r
+Petrel: Hehe, it’s gonna be a painful\nlesson!\r
+Petrel: FUCK!\nHOW?!\rYou must be cheating!\r...\rArgh, but it doesn’t matter.\nWe’ve already gotten what we need!\rThe blueprints for the prototype are\nwith Archer and you can’t even turn\foff the generator of this facility!\r
+27: We locked the generator behind a door\nthat only reacts to my voice!\rGo ahead, try play the hero while\nwe leave this dumpster!\rTeam Rocket has far higher plans!\r
 
 Maho rocket hide out pharmacy.. removed FLag 498 on two npc to avoid crash, mistakenly set by archer/petrel event
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Pryce
+	SetVar 0x8004 334 -> 340
+	SetVar 0x8005 1
+	...
+    CommonScript 2033
+    SetVar 0x8004 763
+	SetVar 0x8005 1
+	CommonScript 2033
+
+Function 3:
+	....
+
+.equ ITEM_GLALITITE,                    763

@@ -2272,7 +2272,7 @@ trainerdata 33, "Jasmine"
         item ITEM_CHOPLE_BERRY
         move MOVE_ROCK_SLIDE
         move MOVE_CRUNCH
-        move MOVE_PURSUIT
+        move MOVE_DRAGON_DANCE
         move MOVE_STEALTH_ROCK
         ability ABILITY_SAND_STREAM
         ball ITEM_POKE_BALL

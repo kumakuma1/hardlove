@@ -12147,7 +12147,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_ARAQUANID, 45, 45
 encounter SPECIES_JELLICENT, 45, 45
 encounterwithform SPECIES_MUK, 1,  45, 45
-encounter SPECIES_FLOATZEL, 45, 45
+encounter SPECIES_WALREIN, 45, 45
 encounter SPECIES_FLOATZEL, 45, 45
 
 // good rod encounters
@@ -13650,7 +13650,7 @@ pokemon SPECIES_AGGRON              //10%
 pokemon SPECIES_MAMOSWINE    	    //10%  
 pokemon SPECIES_HOUNDOOM   	        //10%  
 pokemon SPECIES_TOXICROAK	        //10%  
-pokemon SPECIES_RHYDON              //10%
+pokemon SPECIES_CRYOGONAL              //10%
 pokemon SPECIES_MEDICHAM	        //5%
 pokemon SPECIES_AGGRON              //5%
 pokemon SPECIES_FERROTHORN	        //5%
@@ -13664,7 +13664,7 @@ pokemon SPECIES_AGGRON              //10%
 pokemon SPECIES_MAMOSWINE    	    //10%  
 pokemon SPECIES_HOUNDOOM   	        //10%  
 pokemon SPECIES_TOXICROAK	        //10%  
-pokemon SPECIES_RHYDON              //10%
+pokemon SPECIES_CRYOGONAL              //10%
 pokemon SPECIES_MEDICHAM	        //5%
 pokemon SPECIES_AGGRON              //5%
 pokemon SPECIES_FERROTHORN	        //5%
@@ -13678,7 +13678,7 @@ pokemon SPECIES_AGGRON              //10%
 pokemon SPECIES_MAMOSWINE    	    //10%  
 pokemon SPECIES_HOUNDOOM   	        //10%  
 pokemon SPECIES_TOXICROAK	        //10%  
-pokemon SPECIES_RHYDON              //10%
+pokemon SPECIES_CRYOGONAL              //10%
 pokemon SPECIES_MEDICHAM	        //5%
 pokemon SPECIES_AGGRON              //5%
 pokemon SPECIES_FERROTHORN	        //5%
@@ -13697,7 +13697,7 @@ encounter SPECIES_SHARPEDO, 45, 45
 encounter SPECIES_BLASTOISE, 45, 45
 encounter SPECIES_KINGDRA, 45, 45
 encounter SPECIES_CLOYSTER, 45, 45
-encounter SPECIES_EELEKTROSS, 45, 45
+encounter SPECIES_WALREIN, 45, 45
 
 // rock smash encounters
 encounter SPECIES_NONE, 0, 0
