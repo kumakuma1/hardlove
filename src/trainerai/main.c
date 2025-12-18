@@ -1579,6 +1579,13 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             }
         }
         break;
+    case MOVE_EFFECT_ION_DELUGE:
+        if (HasType(ctx, ai->defender, TYPE_GROUND)) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            moveScore += 6;
+        }
+        break;
     case MOVE_EFFECT_CHANGE_TO_WATER_TYPE:
         if (HasType(ctx, ai->defender, TYPE_WATER)) {
             moveScore -= NEVER_USE_MOVE_20;
