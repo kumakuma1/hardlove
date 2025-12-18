@@ -855,42 +855,42 @@ pokemon SPECIES_EKANS		    //10%
 pokemon SPECIES_EKANS		    //10%
 pokemon SPECIES_SKRELP 		    //10%
 pokemon SPECIES_SALANDIT		//10%
+pokemon SPECIES_CROAGUNK		//10%
 pokemon SPECIES_NIDORAN_F		//10%
 pokemon SPECIES_NIDORAN_M		//10%
-pokemon SPECIES_CROAGUNK		//10%
 pokemon SPECIES_BUDEW  		    //10%
 pokemon SPECIES_SKRELP  		//5%
 pokemon SPECIES_SALANDIT  		//5%
-pokemon SPECIES_NIDORAN_F	    //5%
-pokemon SPECIES_NIDORAN_M 		//5%
+pokemon SPECIES_CROAGUNK	    //5%
+pokemon SPECIES_STUNKY   		//5%
 
 // day encounter slots
 pokemon SPECIES_EKANS		    //10%
 pokemon SPECIES_EKANS		    //10%
 pokemon SPECIES_SKRELP 		    //10%
 pokemon SPECIES_SALANDIT		//10%
+pokemon SPECIES_CROAGUNK		//10%
 pokemon SPECIES_NIDORAN_F		//10%
 pokemon SPECIES_NIDORAN_M		//10%
-pokemon SPECIES_CROAGUNK		//10%
 pokemon SPECIES_BUDEW  		    //10%
 pokemon SPECIES_SKRELP  		//5%
 pokemon SPECIES_SALANDIT  		//5%
-pokemon SPECIES_NIDORAN_F	    //5%
-pokemon SPECIES_NIDORAN_M 		//5%
+pokemon SPECIES_CROAGUNK	    //5%
+pokemon SPECIES_STUNKY   		//5%
 
 // night encounter slots
 pokemon SPECIES_EKANS		    //10%
 pokemon SPECIES_EKANS		    //10%
 pokemon SPECIES_SKRELP 		    //10%
 pokemon SPECIES_SALANDIT		//10%
+pokemon SPECIES_CROAGUNK		//10%
 pokemon SPECIES_NIDORAN_F		//10%
 pokemon SPECIES_NIDORAN_M		//10%
-pokemon SPECIES_CROAGUNK		//10%
 pokemon SPECIES_BUDEW  		    //10%
 pokemon SPECIES_SKRELP  		//5%
 pokemon SPECIES_SALANDIT  		//5%
-pokemon SPECIES_NIDORAN_F	    //5%
-pokemon SPECIES_NIDORAN_M 		//5%
+pokemon SPECIES_CROAGUNK	    //5%
+pokemon SPECIES_STUNKY   		//5%
 
 // hoenn encounter slots
 pokemon SPECIES_NONE
