@@ -124,6 +124,9 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
     {
         // BATTLER_OPPONENT
         SetupStateVariables(bsys, attacker, defender, ai1);
+        for (u8 i = 0; i < 4; i++) {
+            damages[defender][i] = ai1->attackerRolledMoveDamages[i];
+        }
         highestScoredMove = ScoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai1);
     }
     ctx->aiWorkTable.ai_dir_select_client[attacker] = target;
@@ -263,7 +266,7 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                 || (ai->attackerMon.ability == ABILITY_TECHNICIAN && ai->defenderAlly.ability != ABILITY_TECHNICIAN && ai->defenderAlly.species == SPECIES_DURANT)
                 || (ai->attackerMon.ability == ABILITY_PRANKSTER && ai->defenderAlly.ability != ABILITY_PRANKSTER && ai->defenderAlly.species == SPECIES_BRELOOM)) {
                 highestScoredMove = 1000;
-                highestScoredMove += 12;
+                highestScoredMove += 14;
                 moveScores[target][skillSwapPosition] += highestScoredMove;
             }
         }
@@ -575,35 +578,34 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 
     if (isMoveSpecialAiAttackingMove(ai->attackerMove)) {
         moveScore += SpecialAiAttackingMove(bsys, attacker, i, ai);
-    } else if (ai->attackerMoveEffect == MOVE_EFFECT_ONE_HIT_KO) {
+    } 
+    /* else if (ai->attackerMoveEffect == MOVE_EFFECT_ONE_HIT_KO) {
         switch (ai->attackerMove) {
         case MOVE_SHEER_COLD:
             if (HasType(ctx, ai->defender, TYPE_ICE)) {
-                moveScore -= NEVER_USE_MOVE_20;
+                moveScore -= IMPOSSIBLE_MOVE;
             }
             break;
         case MOVE_GUILLOTINE:
         case MOVE_HORN_DRILL:
             if (HasType(ctx, ai->defender, TYPE_GHOST) && ai->attackerMon.ability != ABILITY_SCRAPPY) {
-                moveScore -= NEVER_USE_MOVE_20;
+                moveScore -= IMPOSSIBLE_MOVE;
             }
             break;
         case MOVE_FISSURE:
-            if (ai->attackerMove == MOVE_FISSURE && (ai->defenderMon.item == ITEM_AIR_BALLOON || HasType(ctx, ai->defender, TYPE_FLYING) || (!ai->attackerMon.hasMoldBreaker && ai->defenderMon.ability == ABILITY_LEVITATE))) {
-                moveScore -= NEVER_USE_MOVE_20;
+            if (!ai->defenderMon.isGrounded) {
+                moveScore -= IMPOSSIBLE_MOVE;
             }
             break;
         default:
             break;
         }
-        if (ai->attackerMon.level > ai->defenderMon.level) {
-            if (BattleRand(bsys) % 3 == 0) {
-                moveScore += 9;
-            }
-        } else {
-            moveScore -= NEVER_USE_MOVE_20;
+
+        if (ai->attackerMon.level <= ai->defenderMon.level) {
+            moveScore -= IMPOSSIBLE_MOVE;
         }
-    } else if (ai->attackerRolledMaxDamage == ai->attackerRolledMoveDamages[i]) {
+    } 
+    */else if (ai->attackerRolledMaxDamage == ai->attackerRolledMoveDamages[i]) {
         isMoveHighestDamage = TRUE;
         moveScore += 6;
         if (BattleRand(bsys) % 10 < 2) {

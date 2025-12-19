@@ -370,7 +370,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         }
         break;
     case MOVE_EXPANDING_FORCE:
-        if ((sp->terrainOverlay.numberOfTurnsLeft > 0) && (sp->terrainOverlay.type == MISTY_TERRAIN)) {
+        if ((sp->terrainOverlay.numberOfTurnsLeft > 0) && (sp->terrainOverlay.type == PSYCHIC_TERRAIN)) {
             basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
         }
         break;
