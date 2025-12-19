@@ -12884,7 +12884,7 @@
         "Move": "MOVE_BOUNCE"
       },
       {
-        "Level": 26,
+        "Level": 28,
         "Move": "MOVE_BLAZE_KICK"
       },
       {
@@ -64204,11 +64204,11 @@
         "Move": "MOVE_MEGA_DRAIN"
       },
       {
-        "Level": 29,
+        "Level": 27,
         "Move": "MOVE_NATURE_POWER"
       },
       {
-        "Level": 32,
+        "Level": 30,
         "Move": "MOVE_SEED_BOMB"
       },
       {
@@ -64351,27 +64351,27 @@
         "Move": "MOVE_MEGA_DRAIN"
       },
       {
-        "Level": 29,
+        "Level": 27,
         "Move": "MOVE_NATURE_POWER"
       },
       {
-        "Level": 32,
+        "Level": 30,
         "Move": "MOVE_SEED_BOMB"
       },
       {
-        "Level": 40,
+        "Level": 46,
         "Move": "MOVE_GIGA_DRAIN"
       },
       {
-        "Level": 45,
+        "Level": 40,
         "Move": "MOVE_CRUNCH"
       },
       {
-        "Level": 48,
+        "Level": 47,
         "Move": "MOVE_EARTHQUAKE"
       },
       {
-        "Level": 56,
+        "Level": 55,
         "Move": "MOVE_WOOD_HAMMER"
       }
     ],
@@ -106566,7 +106566,7 @@
             "Move": "MOVE_LOW_KICK"
         },
         {
-            "Level": 32,
+            "Level": 30,
             "Move": "MOVE_WATERFALL"
         },
         {
@@ -106739,7 +106739,7 @@
             "Move": "MOVE_LOW_KICK"
         },
         {
-            "Level": 32,
+            "Level": 30,
             "Move": "MOVE_WATERFALL"
         },
         {
@@ -118113,11 +118113,11 @@
         "Move": "MOVE_KNOCK_OFF"
       },
       {
-        "Level": 56,
+        "Level": 55,
         "Move": "MOVE_FLARE_BLITZ"
       },
       {
-        "Level": 65,
+        "Level": 64,
         "Move": "MOVE_OUTRAGE"
       }
     ],
