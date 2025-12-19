@@ -263,9 +263,9 @@ _0188: // Trainer 34
     trainertextentry  34, TEXT_DEFEATED_IN_BATTLE, "We...lost...\n"
 
 _0194: // Trainer 32
-    trainertextentry  32, TEXT_LAST_MON_SENT_OUT, "Humph... You are quite the Trainer.\n"
-    trainertextentry  32, TEXT_LAST_MON_CRITICAL, "Willow is my middle name.\nWillow is flexible and not easily broken.\fI’m not giving up yet.\n"
-    trainertextentry  32, TEXT_DEFEATED_IN_BATTLE, "Hmm. Seems as if my luck has run out.\n"
+    trainertextentry  32, TEXT_LAST_MON_SENT_OUT, "Hahahahaha!\n"
+    trainertextentry  32, TEXT_LAST_MON_CRITICAL, "Hahahahaha!\n"
+    trainertextentry  32, TEXT_DEFEATED_IN_BATTLE, "Hahahahaha!\n"
 
 _01A0: // Trainer 35
     trainertextentry  35, TEXT_LAST_MON_SENT_OUT, "One Pokémon left?\nThis is where the real battle begins!\n"
@@ -2099,9 +2099,9 @@ _1300: // Trainer 499
     trainertextentry 499, TEXT_DEFEATED_IN_BATTLE, "...\n"
 
 _1304: // Trainer 488
-    trainertextentry 488, TEXT_LAST_MON_SENT_OUT, "Hey, you’re good!\n"
-    trainertextentry 488, TEXT_LAST_MON_CRITICAL, "Wow, strong!\n"
-    trainertextentry 488, TEXT_DEFEATED_IN_BATTLE, "I...I couldn’t do a thing...\nGiovanni, please forgive me...\n"
+    trainertextentry 488, TEXT_LAST_MON_SENT_OUT, "Damn, you’re good!\n"
+    trainertextentry 488, TEXT_LAST_MON_CRITICAL, "...\n"
+    trainertextentry 488, TEXT_DEFEATED_IN_BATTLE, "I...I couldn’t do a thing...\nArcher, please forgive me...\n"
 
 _1310: // Trainer 468
     trainertextentry 468, TEXT_NOTICE_IN_OVERWORLD, "I used to work for Silph, but now I run\nresearch for Team Rocket.\rA meddlesome child like you needs to be\npunished.\r"
@@ -2413,7 +2413,7 @@ _15F8: // Trainer 566
     trainertextentry 566, TEXT_DEFEATED_IN_OVERWORLD, "There are to many of us!\n"
 
 _1604: // Trainer 567
-    trainertextentry 567, TEXT_NOTICE_IN_OVERWORLD, "Are the new hire?\nWait, you are just a kid!\r"
+    trainertextentry 567, TEXT_NOTICE_IN_OVERWORLD, "Are you the new hire?\nWait, you are just a kid!\r"
     trainertextentry 567, TEXT_DEFEATED_IN_BATTLE, What is happening?\n"
     trainertextentry 567, TEXT_DEFEATED_IN_OVERWORLD, "How did you get past the traps?\n"
     trainertextentry 567, TEXT_REMATCH_IN_OVERWORLD, "I’ve made good use of the time I’ve\nbeen waiting and done a review!\r"

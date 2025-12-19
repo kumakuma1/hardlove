@@ -2925,6 +2925,11 @@ script 6: Battle 328,382
 script 7: Battle 571,570
 
 
+###
+b3f
+Lance: \v0103ぁ\x0000\x0000, this place\nis full of traps and strange effects.\fBut we must push further!\rLet’s give our\nbest for Pokémon.\r
+
+
 ### spikes weather in b3f
 b2f Add Levelscript when entering
 Script 16:
