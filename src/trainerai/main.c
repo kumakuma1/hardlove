@@ -782,9 +782,10 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     case MOVE_FELL_STINGER: {
         if (ctx->battlemon[ai->attacker].states[STAT_ATTACK] < 12 && ai->monCanOneShotPlayerWithMove[i]) {
             if (ai->attackerMovesFirst) {
-                moveScore += 10;
+                moveScore += 12;
+            } else {
+                moveScore += 6;
             }
-            // TODO
         }
         break;
     }

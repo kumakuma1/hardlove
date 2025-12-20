@@ -2435,6 +2435,47 @@ Script 1:
 This is...\nThe notorious Cerulean Cave!\rHorribly powerful Pokémon live here.\nOnly the strongest trainers are\fallowed to challenge it.
 
 
+### Clear Amulet for Incineror
+429 - T04R0101 - script file 763
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CheckStarter 0x800C
+    CompareVarValue 0x800C 775
+	JumpIf EQUAL Function#1
+	Message 0
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 1:
+    CheckFlag 308 // Flag for getting Nugget on Route 2 in Kanto
+    JumpIf EQUAL Function#2
+    Message 1
+    SetVar 0x8004 1882
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 308
+	Message 3
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 2:
+	Message 2
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End
+.equ ITEM_CLEAR_AMULET,                 1882
+
+0: Are you collecting\nKanto Gym Badges?\r
+1: Oh you are collecting\nJohto Gym Badges!\rThen this will surely help you.\r
+2: How are those Badges coming?\r
+3: Go ahead. Take it!\r
+
+
 #### Route 25 Bills grandfather wants to see Arceus:
 
 Function 15:

@@ -10532,7 +10532,7 @@ trainerdata 206, "Gwen"
         level LEVEL_PRYCE-2
         pokemon SPECIES_EELEKTROSS
         item ITEM_LEFTOVERS
-        move MOVE_WILD_CHARGE
+        move MOVE_DRAIN_PUNCH
         move MOVE_AQUA_TAIL
         move MOVE_COIL
         move MOVE_ION_DELUGE
