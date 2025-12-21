@@ -5020,7 +5020,7 @@ mondata SPECIES_SMOOCHUM, "Smoochum"
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
     genderratio 254
-    eggcycles 25
+    eggcycles 5
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -5041,7 +5041,7 @@ mondata SPECIES_ELEKID, "Elekid"
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
     genderratio 63
-    eggcycles 25
+    eggcycles 5
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED
@@ -5062,7 +5062,7 @@ mondata SPECIES_MAGBY, "Magby"
     evyields 0, 0, 0, 0, 0, 0
     items ITEM_NONE, ITEM_NONE
     genderratio 63
-    eggcycles 25
+    eggcycles 5
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED

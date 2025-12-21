@@ -90,6 +90,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 case 2:
                                     sp->koban_counter = 2;
                                     break;
+                                case 3://no switch
                                 default:
                                     break;
                                 }

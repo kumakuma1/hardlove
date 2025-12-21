@@ -328,7 +328,7 @@ An item to be held by a Pokémon.\nThis sharply hooked claw boosts the\ncritical
 An item to be held by a Pokémon.\nThis sharply hooked fang may cause\nthe target to flinch whenever the\rholder successfully inflicts damage\non them with an attack.
 The user looses a blast of aura\npower from deep within its body.\nThis move is certain to hit.
 The user slashes the foe with huge,\nsharp claws.
-The user attacks the foe with a\npulsing blast of water. It may also\nconfuse the foe.
+The user releases a horrible aura\nimbued with dark thoughts. It may\nalso make the target flinch.
 The user slams the target with its\nwings to inflict damage. The target\nis hit twice in a row.
 The foe is scared off, to be\nreplaced by another Pokémon in its\nparty. In the wild, the battle ends.
 A move that leaves the target badly\npoisoned. Its poison damage worsens\nevery turn.
@@ -343,7 +343,7 @@ A howling blizzard is summoned to\nstrike the foe. It may also freeze\nthe targe
 The user traps the foe in an\nelectric net. It also lowers the\nfoe’s Speed.
 An attack move that varies in power\nand type depending on the weather.
 While resisting, the user attacks\nthe foe, lowering its Sp. Atk stat.
----
+The user desperately attacks the\ntarget. This move’s power is doubled\nif the user’s previous move failed.
 A nutrient-draining attack. The\nuser’s HP is restored by half the\ndamage taken by the target.
 The user lets loose a horribly\nechoing shout with the power to\ninflict damage.
 The user attacks with a gust of\nchilled air. It also lowers the\ntarget’s Speed stat.
@@ -356,9 +356,9 @@ The user stabs the target with a\nsharp horn. This attack never\nmisses.
 The foe is soaked by a special acid.\nIts power doubles if the foe is\npoisoned.
 The foe is hit by a strong\ntelekinetic force. It may also\nreduce the foe’s Sp. Def stat.
 The user hurls a shadowy blob at the\nfoe. It may also lower the foe’s Sp.\nDef stat.
----
-By moving rapidly, the user makes\nillusory copies of itself to raise\nits evasiveness.
-A wondrous wall of light is put up\nto suppress damage from physical\nattacks for five turns.
+The user slams its body into the\ntarget. The higher the user’s\nDefense stat, the greater the\rdamage.
+A move that works differently for\nthe Ghost type than for all the\nother types.
+The user swings its tough tail and\nattacks opposing Pokémon. This also\nlowers their Attack stats.
 The user strikes the foe with a\nquick jolt of electricity. This\nattack cannot be evaded.
 The foe is scorched with an intense\nblast of fire. The target may also\nbe left with a burn.
 The user attacks by hurling filthy\nsludge at the foe. It may also\npoison the target.
@@ -369,25 +369,25 @@ The user confounds the foe with\nspeed, then slashes. The attack\nlands without 
 The user torments and enrages the\nfoe, making it incapable of using\nthe same move twice in a row.
 An attack move that doubles its\npower if the user is poisoned,\nparalyzed, or has a burn.
 It reduces the foe’s evasion stat.\nIt also removes spikes, light\nscreens, etc.
-The user goes to sleep for two\nturns. It fully restores the user’s\nHP and heals any status problem.
+The user whips up a turbulent\nwhirlwind that ups the Speed of all\nparty Pokémon for three turns.
 An energy-stealing kiss. The user’s\nHP is restored by half the damage\ntaken by the target.
-The user attacks and steals the\nfoe’s held item simultaneously. It\ncan’t steal if the user holds an\ritem.
+The user attacks by playing rough\nwith the target. This may also lower\nthe target’s Attack stat.
 The foe is hit with wings of steel.\nIt may also raise the user’s Defense\nstat.
 The user employs its psychic power\nto exchange abilities with the foe.
-The user steals the effects of any\nhealing or stat- changing move the\nfoe attempts to use.
-The user attacks the foe at full\npower. The attack’s recoil sharply\nreduces the user’s Sp. Atk stat.
+Large boulders are hurled at the foe\nto inflict damage. It may also make\nthe target flinch.
+The user makes the ground under the\nfoe erupt with power. It may also\nlower the target’s Sp. Def.
 The user lands and rests its body.\nIt restores the user’s HP by up to\nhalf of its max HP.
 The user heightens its mental focus\nand unleashes its power. It may also\nlower the target’s Sp. Def.
 The user draws power from nature and\nfires it at the foe. It may also\nlower the target’s Sp. Def.
 A restrained attack that prevents\nthe foe from fainting. The target is\nleft with at least 1 HP.
 If the foe’s HP is down to about\nhalf, this attack will hit with\ndouble the power.
 The user flings its held item at the\nfoe to attack. Its power and effects\ndepend on the item.
-The user fires a concentrated bundle\nof electricity. It may also raise\nthe user’s Sp. Atk stat.
-The user endures any attack with at\nleast 1 HP. Its chance of failing\nrises if it is used in succession.
+The user draws power to attack by\nusing its held Berry. The Berry\ndetermines its type and power.
+The user emits a healing pulse that\nrestores a target’s HP by up to\nhalf.
 The foe is attacked with a shock\nwave generated by the user’s gaping\nmouth.
 An energy-draining punch. The user’s\nHP is restored by half the damage\ntaken by the target.
 The user shoots a sinister, bluish\nwhite flame at the foe to inflict a\nburn.
-The foe is attacked with powdery\nscales blown by wind. It may also\nraise all the user’s stats.
+The user attacks everything around\nit and faints. This move’s power is\nboosted on Misty Terrain.
 It prevents the foe from using its\nheld item. Its Trainer is also\nprevented from using items on it.
 The user explodes to inflict damage\non all Pokémon in battle. The user\nfaints upon using this move.
 The user slashes with a sharp claw\nmade from shadows. It has a high\ncritical-hit ratio.
