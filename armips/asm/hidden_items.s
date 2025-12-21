@@ -11,10 +11,10 @@
 .halfword ITEM_POTION
 
 .org 0x02000000 + 0xFA560 //Cherrygrove
-.halfword ITEM_NUGGET
+.halfword ITEM_BIG_NUGGET
 
 .org 0x02000000 + 0xFA568 //Cherrygrove
-.halfword ITEM_NUGGET
+.halfword ITEM_BIG_NUGGET
 
 .org 0x02000000 + 0xFA570 //R30
 .halfword ITEM_POTION
