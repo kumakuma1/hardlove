@@ -4758,17 +4758,17 @@ trainerdata 70, "Samantha"
         ivs 0
         abilityslot 0
         level LEVEL_WHITNEY-4
-        pokemon SPECIES_RILLABOOM
-        item ITEM_LUM_BERRY
-        move MOVE_GRASSY_GLIDE
+        pokemon SPECIES_ARBOLIVA
+        item ITEM_SILK_SCARF
+        move MOVE_GIGA_DRAIN
+        move MOVE_SWIFT
         move MOVE_LEECH_SEED
-        move MOVE_DRAIN_PUNCH
-        move MOVE_FAKE_OUT
-        ability ABILITY_GRASSY_SURGE
+        move MOVE_HELPING_HAND
+        ability ABILITY_SEED_SOWER
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
+        nature NATURE_MODEST
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -12466,11 +12466,11 @@ trainerdata 251, "Nob"
 	    ivs 0
         abilityslot 0
         level LEVEL_CHUCK-3
-        pokemon SPECIES_SAMUROTT
-        item ITEM_TOXIC_ORB
-        move MOVE_HYDRO_PUMP
+        monwithform SPECIES_SAMUROTT, 1
+        item ITEM_SITRUS_BERRY
+        move MOVE_AQUA_CUTTER
         move MOVE_AQUA_JET
-        move MOVE_DRILL_RUN
+        move MOVE_DARK_PULSE
         move MOVE_SACRED_SWORD
         ability ABILITY_SHELL_ARMOR
         ball ITEM_POKE_BALL
@@ -17470,7 +17470,7 @@ trainerdata 363, "Emma"
         abilityslot 0
         level LEVEL_PRYCE-2
         pokemon SPECIES_ARAQUANID
-        item ITEM_FOCUS_SASH
+        item ITEM_SITRUS_BERRY
         move MOVE_LIQUIDATION
         move MOVE_LEECH_LIFE
         move MOVE_SOAK
