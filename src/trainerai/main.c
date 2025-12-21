@@ -18,6 +18,7 @@
 #define BATTLE_DEBUG_OUTPUT 1
 // #define ATTRACT_WORK_ON_ALL_SEXES 1
 
+#define IMMUNE_TO_MOVE    80
 #define IMPOSSIBLE_MOVE   40
 #define NEVER_USE_MOVE_20 20
 
@@ -310,7 +311,7 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
 
     if (ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT) // immunity
     {
-        moveScore -= IMPOSSIBLE_MOVE;
+        moveScore -= IMMUNE_TO_MOVE;
     }
 
     if ((ctx->terrainOverlay.type == PSYCHIC_TERRAIN && ctx->terrainOverlay.numberOfTurnsLeft > 0)
@@ -754,10 +755,12 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         break;
     }
     case MOVE_FAKE_OUT: {
-        if (ai->attackerTurnsOnField == 0
-            && (ai->defenderMon.item != ITEM_COVERT_CLOAK 
-                || ((ai->defenderMon.ability != ABILITY_SHIELD_DUST && ai->defenderMon.ability != ABILITY_INNER_FOCUS) || ai->attackerMon.hasMoldBreaker))) {
-            moveScore += 9;
+        if (ai->attackerTurnsOnField == 0 && ai->defenderMon.item != ITEM_COVERT_CLOAK) {
+            if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_SHIELD_DUST && ai->defenderMon.ability != ABILITY_INNER_FOCUS)) {
+                moveScore += 9;
+            } else {
+                    moveScore -= IMPOSSIBLE_MOVE;
+            }
         } else {
             moveScore -= IMPOSSIBLE_MOVE;
         }
@@ -786,6 +789,15 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             } else {
                 moveScore += 6;
             }
+        }
+        break;
+    }
+    case MOVE_FOCUS_PUNCH:
+    {
+        if (ai->isDefenderIncapacitated || ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE) {
+            moveScore += 2;
+        } else {
+            moveScore -= IMPOSSIBLE_MOVE;
         }
         break;
     }
@@ -1388,6 +1400,9 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         break;
     case MOVE_EFFECT_SET_SUBSTITUTE:
         moveScore += 6;
+        if (ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
         if (ai->attackerMovesFirst && (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE)) {
             moveScore += 2;
         }
