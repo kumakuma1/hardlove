@@ -1866,7 +1866,7 @@ BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attac
     {
         hasPriority = TRUE;
     } 
-    else if (attackerMoveStruct.priority)
+    else if (attackerMoveStruct.priority > 0)
     {
         hasPriority = TRUE;
     }
