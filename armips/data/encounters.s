@@ -342,7 +342,7 @@ pokemon SPECIES_SEEDOT		//10%
 pokemon SPECIES_BELLSPROUT	//5%
 pokemon SPECIES_DEERLING	//5%
 pokemon SPECIES_PARAS		//5%
-pokemon SPECIES_SEWADDLE	//5%
+pokemon SPECIES_GOSSIFLEUR	//5%
 
 // day encounter slots
 pokemon SPECIES_ODDISH	    //10%
@@ -356,7 +356,7 @@ pokemon SPECIES_SEEDOT		//10%
 pokemon SPECIES_BELLSPROUT	//5%
 pokemon SPECIES_DEERLING	//5%
 pokemon SPECIES_PARAS		//5%
-pokemon SPECIES_SEWADDLE	//5%
+pokemon SPECIES_GOSSIFLEUR	//5%
 
 // night encounter slots
 pokemon SPECIES_ODDISH	    //10%
@@ -370,7 +370,7 @@ pokemon SPECIES_SEEDOT		//10%
 pokemon SPECIES_BELLSPROUT	//5%
 pokemon SPECIES_DEERLING	//5%
 pokemon SPECIES_PARAS		//5%
-pokemon SPECIES_SEWADDLE	//5%
+pokemon SPECIES_GOSSIFLEUR	//5%
 
 // hoenn encounter slots
 pokemon SPECIES_NONE
