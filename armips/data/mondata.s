@@ -2609,7 +2609,7 @@ mondata SPECIES_SCYTHER, "Scyther"
     basefriendship 50
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_BUG, EGG_GROUP_BUG
-    abilities ABILITY_SWARM, ABILITY_NONE
+    abilities ABILITY_SWARM, ABILITY_SWARM
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     mondexentry SPECIES_SCYTHER, "It slashes through grass with its\nsharp scythes, moving too fast\nfor the human eye to track."
