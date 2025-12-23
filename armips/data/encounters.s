@@ -333,43 +333,43 @@ walklevels 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3
 // morning encounter slots
 pokemon SPECIES_ODDISH	    //10%
 pokemon SPECIES_ODDISH	    //10%
-pokemon SPECIES_BELLSPROUT	//10%
+pokemon SPECIES_EXEGGCUTE	//10%
 pokemon SPECIES_DEERLING	//10%
 pokemon SPECIES_PARAS		//10%
 pokemon SPECIES_BUDEW		//10%
 pokemon SPECIES_LOTAD	    //10%
 pokemon SPECIES_SEEDOT		//10%
-pokemon SPECIES_BELLSPROUT	//5%
+pokemon SPECIES_EXEGGCUTE	//5%
 pokemon SPECIES_DEERLING	//5%
-pokemon SPECIES_PARAS		//5%
+pokemon SPECIES_GOSSIFLEUR		//5%
 pokemon SPECIES_GOSSIFLEUR	//5%
 
 // day encounter slots
 pokemon SPECIES_ODDISH	    //10%
 pokemon SPECIES_ODDISH	    //10%
-pokemon SPECIES_BELLSPROUT	//10%
+pokemon SPECIES_EXEGGCUTE	//10%
 pokemon SPECIES_DEERLING	//10%
 pokemon SPECIES_PARAS		//10%
 pokemon SPECIES_BUDEW		//10%
 pokemon SPECIES_LOTAD	    //10%
 pokemon SPECIES_SEEDOT		//10%
-pokemon SPECIES_BELLSPROUT	//5%
+pokemon SPECIES_EXEGGCUTE	//5%
 pokemon SPECIES_DEERLING	//5%
-pokemon SPECIES_PARAS		//5%
+pokemon SPECIES_GOSSIFLEUR		//5%
 pokemon SPECIES_GOSSIFLEUR	//5%
 
 // night encounter slots
 pokemon SPECIES_ODDISH	    //10%
 pokemon SPECIES_ODDISH	    //10%
-pokemon SPECIES_BELLSPROUT	//10%
+pokemon SPECIES_EXEGGCUTE	//10%
 pokemon SPECIES_DEERLING	//10%
 pokemon SPECIES_PARAS		//10%
 pokemon SPECIES_BUDEW		//10%
 pokemon SPECIES_LOTAD	    //10%
 pokemon SPECIES_SEEDOT		//10%
-pokemon SPECIES_BELLSPROUT	//5%
+pokemon SPECIES_EXEGGCUTE	//5%
 pokemon SPECIES_DEERLING	//5%
-pokemon SPECIES_PARAS		//5%
+pokemon SPECIES_GOSSIFLEUR		//5%
 pokemon SPECIES_GOSSIFLEUR	//5%
 
 // hoenn encounter slots
