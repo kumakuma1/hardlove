@@ -1069,7 +1069,7 @@ pokemon SPECIES_SOLOSIS			//10%
 pokemon SPECIES_BALTOY			//10%
 pokemon SPECIES_SLOWPOKE		//5%
 pokemon SPECIES_MUNNA		    //5%
-pokemon SPECIES_BRONZOR			//5%
+pokemon SPECIES_HATENNA			//5%
 pokemon SPECIES_RALTS			//5%
 
 // day encounter slots
@@ -1083,7 +1083,7 @@ pokemon SPECIES_SOLOSIS			//10%
 pokemon SPECIES_BALTOY			//10%
 pokemon SPECIES_SLOWPOKE		//5%
 pokemon SPECIES_MUNNA		    //5%
-pokemon SPECIES_BRONZOR			//5%
+pokemon SPECIES_HATENNA			//5%
 pokemon SPECIES_RALTS			//5%
 
 // night encounter slots
@@ -1097,7 +1097,7 @@ pokemon SPECIES_SOLOSIS			//10%
 pokemon SPECIES_BALTOY			//10%
 pokemon SPECIES_SLOWPOKE		//5%
 pokemon SPECIES_MUNNA		    //5%
-pokemon SPECIES_BRONZOR			//5%
+pokemon SPECIES_HATENNA			//5%
 pokemon SPECIES_RALTS			//5%
 
 // hoenn encounter slots
@@ -2045,7 +2045,7 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 // surf encounters
-encounter SPECIES_BRONZONG, 45, 45
+encounter SPECIES_STUNFISK, 45, 45
 encounter SPECIES_OVERQWIL, 45, 45
 encounter SPECIES_JELLICENT, 45, 45
 encounter SPECIES_DRATINI, 5, 45
