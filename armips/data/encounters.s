@@ -3040,7 +3040,7 @@ pokemon SPECIES_GOLBAT		    //10%
 pokemon SPECIES_ABSOL           //10%
 pokemon SPECIES_LAIRON          //10%
 pokemon SPECIES_HATTREM    	    //10%
-pokemon SPECIES_GLISCOR	        //10%
+pokemon SPECIES_GLIGAR	        //10%
 pokemon SPECIES_TORKOAL         //10%
 pokemon SPECIES_DUOSION	        //10%
 pokemon SPECIES_ABSOL	        //5%
@@ -3054,7 +3054,7 @@ pokemon SPECIES_GOLBAT		    //10%
 pokemon SPECIES_ABSOL           //10%
 pokemon SPECIES_LAIRON          //10%
 pokemon SPECIES_HATTREM    	    //10%
-pokemon SPECIES_GLISCOR	        //10%
+pokemon SPECIES_GLIGAR	        //10%
 pokemon SPECIES_TORKOAL         //10%
 pokemon SPECIES_DUOSION	        //10%
 pokemon SPECIES_ABSOL	        //5%
@@ -3068,7 +3068,7 @@ pokemon SPECIES_GOLBAT		    //10%
 pokemon SPECIES_ABSOL           //10%
 pokemon SPECIES_LAIRON          //10%
 pokemon SPECIES_HATTREM    	    //10%
-pokemon SPECIES_GLISCOR	        //10%
+pokemon SPECIES_GLIGAR	        //10%
 pokemon SPECIES_TORKOAL         //10%
 pokemon SPECIES_DUOSION	        //10%
 pokemon SPECIES_ABSOL	        //5%
@@ -4071,7 +4071,7 @@ surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
-superrodrate 0
+superrodrate 0n
 walklevels 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30
 
 // morning encounter slots
@@ -4082,7 +4082,7 @@ pokemon SPECIES_FLETCHINDER     //10%
 pokemon SPECIES_GALVANTULA      //10%
 pokemon SPECIES_SIGILYPH  	    //10%
 pokemon SPECIES_SWABLU          //10%
-pokemon SPECIES_SCYTHER	        //10%
+pokemon SPECIES_TRAPINCH	        //10%
 pokemon SPECIES_RIBOMBEE	    //5%
 pokemon SPECIES_FLETCHINDER     //5%
 pokemon SPECIES_GRANBULL        //5%
@@ -4096,7 +4096,7 @@ pokemon SPECIES_FLETCHINDER     //10%
 pokemon SPECIES_GALVANTULA      //10%
 pokemon SPECIES_SIGILYPH  	    //10%
 pokemon SPECIES_SWABLU          //10%
-pokemon SPECIES_SCYTHER	        //10%
+pokemon SPECIES_TRAPINCH	        //10%
 pokemon SPECIES_RIBOMBEE	    //5%
 pokemon SPECIES_FLETCHINDER     //5%
 pokemon SPECIES_GRANBULL        //5%
@@ -4110,7 +4110,7 @@ pokemon SPECIES_FLETCHINDER     //10%
 pokemon SPECIES_GALVANTULA      //10%
 pokemon SPECIES_SIGILYPH  	    //10%
 pokemon SPECIES_SWABLU          //10%
-pokemon SPECIES_SCYTHER	        //10%
+pokemon SPECIES_TRAPINCH	        //10%
 pokemon SPECIES_RIBOMBEE	    //5%
 pokemon SPECIES_FLETCHINDER     //5%
 pokemon SPECIES_GRANBULL        //5%
