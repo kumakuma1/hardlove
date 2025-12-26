@@ -4230,7 +4230,7 @@ pokemon SPECIES_NONE
 
 // surf encounters
 encounterWithForm SPECIES_ELECTRODE, 1, 35, 35
-encounter SPECIES_KINGDRA, 35, 35
+encounter SPECIES_LANTURN, 35, 35
 encounter SPECIES_GOLDUCK, 35, 35
 encounter SPECIES_FLOATZEL, 35, 35
 encounter SPECIES_LUDICOLO, 35, 35
@@ -4240,11 +4240,11 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
-encounter SPECIES_MAGIKARP, 5, 30
-encounter SPECIES_STARYU, 5, 30
-encounter SPECIES_LANTURN, 30, 30
-encounter SPECIES_TENTACRUEL, 30, 30
-encounter SPECIES_TENTACRUEL, 30, 30
+encounter SPECIES_MAGIKARP, 5, 35
+encounter SPECIES_BRUXISH, 35, 35
+encounter SPECIES_KINGDRA, 35, 35 
+encounter SPECIES_TENTACRUEL, 35, 35
+encounter SPECIES_TENTACRUEL, 35, 35
 
 // good rod encounters
 encounter SPECIES_MAGIKARP, 20, 20
@@ -4347,7 +4347,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_SHELLDER, 5, 35
 encounter SPECIES_OCTILLERY, 35, 35
 encounter SPECIES_ARAQUANID, 35, 35
-encounter SPECIES_BRUXISH, 35, 35
+encounter SPECIES_STARYU, 5, 35
 encounter SPECIES_WAILORD, 35, 35
 
 // good rod encounters
