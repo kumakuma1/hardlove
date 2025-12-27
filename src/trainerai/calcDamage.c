@@ -281,7 +281,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         // TODO: wonder room: if(wonder room) movepower = 0;
         break;
     case MOVE_NATURAL_GIFT:
-        movepower = GetItemData(attacker->item, ITEM_PARAM_NATURAL_POWER_POWER, 5); // TODO: check heap
+        movepower = GetItemData(attacker->item, ITEM_PARAM_NATURAL_GIFT_POWER, 5); // TODO: check heap
         //TODO: wonder room: if(wonder room) movepower = 0;
         break;
         // Other

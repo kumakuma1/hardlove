@@ -474,7 +474,7 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
     case MOVE_NATURAL_GIFT:
         // https://github.com/pret/pokeheartgold/blob/29282f7bb45946dee63475022a8d506092bc3748/src/battle/overlay_12_0224E4FC.c#L4600
         // type = GetNaturalGiftType(ctx, battlerId);
-        type = GetItemData(attacker->item, ITEM_PARAM_NATURAL_POWER_TYPE, 5); // TODO: check heap
+        type = GetItemData(attacker->item, ITEM_PARAM_NATURAL_GIFT_TYPE, 5); // TODO: check heap
         break;
     case MOVE_JUDGMENT:
         switch (attacker->item_held_effect) {
