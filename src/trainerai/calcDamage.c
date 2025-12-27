@@ -1211,6 +1211,9 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
             break;
         }
     }
+    if (movetype == TYPE_GROUND && !defender->isGrounded) { // Levitate/Earth Eater vs MoldBreaker is checked above
+        return 0;
+    }
     if (moveno == MOVE_DREAM_EATER && (defender->condition & STATUS_SLEEP) == 0) {
         return 0;
     }
