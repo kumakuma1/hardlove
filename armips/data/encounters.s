@@ -4071,7 +4071,7 @@ surfrate 0
 rocksmashrate 0
 oldrodrate 0
 goodrodrate 0
-superrodrate 0n
+superrodrate 0
 walklevels 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30
 
 // morning encounter slots
