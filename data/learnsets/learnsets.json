@@ -336,7 +336,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -423,7 +422,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -530,7 +528,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_HURRICANE",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -2453,7 +2450,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -2553,7 +2549,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -2834,7 +2829,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
@@ -3339,7 +3333,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
@@ -6309,7 +6302,6 @@
       "MOVE_ENDURE",
       "MOVE_MIMIC",
       "MOVE_MUD_SLAP",
-      "MOVE_ROCK_SLIDE",
       "MOVE_SLEEP_TALK",
       "MOVE_SNORE",
       "MOVE_STEALTH_ROCK",
@@ -6500,7 +6492,6 @@
       "MOVE_ENDURE",
       "MOVE_MIMIC",
       "MOVE_MUD_SLAP",
-      "MOVE_ROCK_SLIDE",
       "MOVE_SLEEP_TALK",
       "MOVE_SNORE",
       "MOVE_STEALTH_ROCK",
@@ -10806,7 +10797,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -10978,7 +10968,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -11168,7 +11157,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -13744,7 +13732,6 @@
         "MOVE_BLIZZARD",
         "MOVE_HEADBUTT",
         "MOVE_HYDRO_PUMP",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -16388,7 +16375,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -16559,7 +16545,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -17258,7 +17243,6 @@
         "MOVE_BLIZZARD",
         "MOVE_FIRE_BLAST",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER"
     ]
@@ -17482,7 +17466,6 @@
         "MOVE_HEADBUTT",
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
@@ -18199,7 +18182,6 @@
         "MOVE_HEADBUTT",
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -20090,7 +20072,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -20419,7 +20400,6 @@
         "MOVE_BLIZZARD",
         "MOVE_FIRE_BLAST",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER"
     ]
   },
@@ -20490,14 +20470,14 @@
         "Level": 31,
         "Move": "MOVE_SURF"
       },
-      {
-        "Level": 34,
-        "Move": "MOVE_CRUNCH"
-      },
-      {
-        "Level": 38,
-        "Move": "MOVE_TAKE_DOWN"
-      },
+        {
+            "Level": 34,
+            "Move": "MOVE_TAKE_DOWN"
+        },
+        {
+            "Level": 38,
+            "Move": "MOVE_CRUNCH"
+        },
       {
         "Level": 42,
         "Move": "MOVE_ICE_BEAM"
@@ -23950,7 +23930,6 @@
         "MOVE_HURRICANE",
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -24670,7 +24649,6 @@
         "MOVE_HURRICANE",
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
@@ -25578,7 +25556,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -29985,7 +29962,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -30893,7 +30869,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -33751,7 +33726,6 @@
         "MOVE_BUG_BITE",
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -34117,7 +34091,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -34318,7 +34291,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -35337,7 +35309,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -35437,7 +35408,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -37789,7 +37759,6 @@
     ],
     "TutorMoves": [
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -38911,7 +38880,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -39859,7 +39827,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -40228,7 +40195,6 @@
         "MOVE_HEADBUTT",
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -40991,7 +40957,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -41146,7 +41111,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -41340,7 +41304,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -41640,7 +41603,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -41833,7 +41795,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -45813,7 +45774,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -47601,7 +47561,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -47772,7 +47731,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -48002,7 +47960,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -49111,7 +49068,6 @@
         "MOVE_HEADBUTT",
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -49283,7 +49239,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -49478,7 +49433,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -53112,7 +53066,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -59900,7 +59853,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -60060,7 +60012,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -60163,7 +60114,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
@@ -60263,7 +60213,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -60367,7 +60316,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -61495,7 +61443,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -62899,7 +62846,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -63065,7 +63011,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -63266,7 +63211,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -65283,7 +65227,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -65459,7 +65402,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -65594,7 +65536,6 @@
         "MOVE_BLIZZARD",
         "MOVE_FIRE_BLAST",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER"
     ]
   },
@@ -65743,7 +65684,6 @@
         "MOVE_BLIZZARD",
         "MOVE_FIRE_BLAST",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER"
     ]
   },
@@ -67466,7 +67406,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -69642,7 +69581,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -70719,7 +70657,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_FIRE_BLAST",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -71094,7 +71031,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -71271,7 +71207,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -72293,7 +72228,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -73286,7 +73220,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -73900,7 +73833,6 @@
         "MOVE_HEADBUTT",
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
@@ -75382,7 +75314,6 @@
         "MOVE_BUG_BITE",
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -75902,7 +75833,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -76063,7 +75993,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -81228,7 +81157,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -81412,7 +81340,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -85368,7 +85295,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -85509,7 +85435,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -85817,7 +85742,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -85965,7 +85889,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -86138,7 +86061,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -86355,7 +86277,6 @@
         "MOVE_HEADBUTT",
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -86499,7 +86420,6 @@
         "MOVE_HEADBUTT",
         "MOVE_HYDRO_PUMP",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -86633,7 +86553,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -86768,7 +86687,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -89219,7 +89137,6 @@
     "TutorMoves": [
         "MOVE_BUG_BITE",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -89365,7 +89282,6 @@
     "TutorMoves": [
         "MOVE_BUG_BITE",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -89551,7 +89467,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -89756,7 +89671,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -98462,7 +98376,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -98617,7 +98530,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -103814,7 +103726,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -103975,7 +103886,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -104164,7 +104074,6 @@
     "TutorMoves": [
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -105399,7 +105308,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -107027,7 +106935,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -107203,7 +107110,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -110635,7 +110541,6 @@
     "TutorMoves": [
         "MOVE_BLIZZARD",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER"
     ]
   },
@@ -110805,7 +110710,6 @@
     "TutorMoves": [
         "MOVE_BLIZZARD",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER"
     ]
   },
@@ -111195,7 +111099,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -123069,7 +122972,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -123262,7 +123164,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -126207,7 +126108,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -126321,7 +126221,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -127588,7 +127487,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -127748,7 +127646,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -127932,7 +127829,6 @@
         "MOVE_FIRE_BLAST",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -128005,7 +127901,6 @@
       }
     ],
     "MachineMoves": [
-      
       "MOVE_DARK_PULSE",
       "MOVE_EMBARGO",
       "MOVE_EXPLOSION",
@@ -128024,7 +127919,6 @@
       "MOVE_VENOSHOCK"
     ],
     "EggMoves": [
-      
       "MOVE_SPITE",
       "MOVE_MEAN_LOOK",
       "MOVE_STOCKPILE",
@@ -128633,7 +128527,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -131748,7 +131641,6 @@
         "MOVE_BLIZZARD",
         "MOVE_HEADBUTT",
         "MOVE_HYDRO_PUMP",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },
@@ -136185,7 +136077,6 @@
     ],
     "EggMoves": [
       "MOVE_BELCH",
-      
       "MOVE_DEFENSE_CURL",
       "MOVE_DOUBLE_EDGE",
       "MOVE_FISSURE",
@@ -137415,7 +137306,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -140849,7 +140739,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB",
         "MOVE_THUNDER_PUNCH"
     ]
@@ -141643,7 +141532,6 @@
         "MOVE_FIRE_PUNCH",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_THUNDER_PUNCH"
     ]
   },
@@ -141838,7 +141726,6 @@
         "MOVE_BRICK_BREAK",
         "MOVE_HEADBUTT",
         "MOVE_ICE_PUNCH",
-        "MOVE_ROCK_SLIDE",
         "MOVE_POISON_JAB"
     ]
   },

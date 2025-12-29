@@ -2419,7 +2419,7 @@ trainerdata 33, "Jasmine"
         pokemon SPECIES_AGGRON
         item ITEM_ASSAULT_VEST
         move MOVE_STONE_EDGE
-        move MOVE_HEAVY_SLAM
+        move MOVE_IRON_HEAD
         move MOVE_BODY_PRESS
         move MOVE_AQUA_TAIL //TODO DRAGON TAIL
         ability ABILITY_STURDY
@@ -22715,24 +22715,6 @@ trainerdata 493, "Edith"
         ivs 0
         abilityslot 0
         level LEVEL_MORTY-2
-        pokemon SPECIES_WEAVILE
-        item ITEM_FOCUS_SASH
-        move MOVE_NIGHT_SLASH
-        move MOVE_ICICLE_SPEAR
-        move MOVE_PURSUIT
-        move MOVE_LOW_KICK
-        ability ABILITY_INNER_FOCUS
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_MORTY-2
         monwithform SPECIES_BASCULEGION, 0
         item ITEM_CHOICE_SCARF
         move MOVE_LIQUIDATION
@@ -22744,6 +22726,24 @@ trainerdata 493, "Edith"
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-2
+        pokemon SPECIES_WEAVILE
+        item ITEM_FOCUS_SASH
+        move MOVE_NIGHT_SLASH
+        move MOVE_ICICLE_SPEAR
+        move MOVE_PURSUIT
+        move MOVE_LOW_KICK
+        ability ABILITY_INNER_FOCUS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0

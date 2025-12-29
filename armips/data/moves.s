@@ -3532,10 +3532,10 @@ movedata MOVE_SAFEGUARD, "Safeguard"
 
 movedata MOVE_PAIN_SPLIT, "Pain Split"
     battleeffect MOVE_EFFECT_AVERAGE_HP
-    pss SPLIT_STATUS
-    basepower 0
-    type TYPE_NORMAL
-    accuracy 0
+    pss SPLIT_PHYSICAL
+    basepower 1
+    type TYPE_DARK
+    accuracy 100
     pp 20
     effectchance 0
     target RANGE_SINGLE_TARGET
