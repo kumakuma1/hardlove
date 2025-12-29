@@ -1704,22 +1704,67 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_MIRROR_COAT:
-        if (ai->attackerMovesFirst) {
-            moveScore -= 1;
-        }
-        if (ai->defenderHasAtleastOneSpecialMove && !ai->playerCanOneShotMonWithAnyMove)
-        {
-            moveScore += 6;
-        }
-        break;
     case MOVE_EFFECT_COUNTER:
-        if (ai->attackerMovesFirst) {
+        moveScore += 6;
+        if (ai->playerCanOneShotMonWithAnyMove) {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        
+        if (ai->attackerMoveEffect == MOVE_EFFECT_COUNTER  && !ai->defenderHasAtleastOneSpecialMove) {
+            moveScore += 2;
+            if (ai->attackerMon.hp == ai->attackerMon.maxhp && ai->attackerMon.item == ITEM_FOCUS_SASH) {
+                moveScore += 2;
+            }
+        }
+
+        if (ai->attackerMoveEffect == MOVE_EFFECT_MIRROR_COAT && !ai->defenderHasAtleastOnePhysicalMove) {
+            moveScore += 2;
+            if (ai->attackerMon.hp == ai->attackerMon.maxhp && ai->attackerMon.item == ITEM_FOCUS_SASH) {
+                moveScore += 2;
+            }
+        }
+
+        if (ai->attackerMovesFirst && BattleRand(bsys) % 4 == 0) {
             moveScore -= 1;
         }
-        if (ai->defenderHasAtleastOnePhysicalMove && !ai->playerCanOneShotMonWithAnyMove) {
-            moveScore += 6;
+        if (ai->defenderHasAtleastOneStatusMove && BattleRand(bsys) % 4 == 0) {
+            moveScore -= 1;
         }
         break;
+    case MOVE_EFFECT_FORCE_SWITCH:
+        if (ai->livingMembersDefender > 1) {
+            moveScore += 6;
+            if (BattleRand(bsys) % 2 == 0) {
+                moveScore += 1;
+            }
+        } else {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    case MOVE_EFFECT_ENCORE:
+        if (ai->defenderTurnsOnField == 0
+            || ctx->battlemon[ai->defender].moveeffect.encoredTurns > 0
+            || ctx->battlemon[ai->defender].moveeffect.moveNoChoice != MOVE_NONE)
+        {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        else
+        {
+            BOOL isEncouraged = IsUsedMoveEncouragedToEncore(bsys, ai->defenderLastUsedMove, ai->defenderLastUsedMoveEffect);
+            if (ai->attackerMon.species == SPECIES_WOBBUFFET && !isEncouraged) {
+                moveScore += 7;
+            }
+            if (ai->attackerMon.species != SPECIES_WOBBUFFET) {
+                if (ai->attackerMovesFirst && isEncouraged) {
+                    moveScore += 7;
+                } else {
+                    moveScore += 5;
+                    if (BattleRand(bsys) % 2 == 0) {
+                        moveScore += 1;
+                    }
+                }
+            }
+        }
     default:
         break;
     }

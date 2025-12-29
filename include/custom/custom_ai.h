@@ -103,6 +103,7 @@ struct PACKED AIContext {
 
     BOOL defenderHasAtleastOnePhysicalMove;
     BOOL defenderHasAtleastOneSpecialMove;
+    BOOL defenderHasAtleastOneStatusMove;
     BOOL playerCanOneShotMonWithMove[4];
     BOOL playerCanOneShotMonWithAnyMove;
     BOOL monCanOneShotPlayerWithAnyMove;
