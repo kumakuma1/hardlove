@@ -1555,6 +1555,35 @@ End
 4: Monica: What a beautiful day!\r
 
 
+#### Dragon Tail in Lighthouse
+ADD OW script 4:
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CheckFlag 309
+    JumpIf EQUAL Function#1
+	Message 2
+    CloseMessage
+    SetVar 0x8004 387	
+    SetVar 0x8005 1
+    CommonScript 2008
+    Message 3
+	CloseMessage 
+	SetFlag 309
+	ReleaseAll 
+End 
+
+Function 1:
+    Message 4
+	CloseMessage 
+	ReleaseAll 
+End 
+
+2 Hey! I used to be a heavy hitter\nin Baseball!\rHere a is little technique I came up\nwith back in my glory days.\r
+3 This move hits hard and forces\nthe other guy to ride the bench!\rUse it well\r
+4 Swing for the fences!\r
 
 ### Chuck Mentions Mega Ring, gives Aura Sphere
 Function 6:

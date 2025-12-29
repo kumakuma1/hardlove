@@ -13,7 +13,8 @@
 215   -                                - Flag for getting Sharp Beak from Monica on Route 40
 216   -                                - Flag for getting Twisted spoon on Route 29, used in olivine restaurant to give spoon.
 305   -                                - Flag for getting Cleanse Tag on Route 5. Lady gives Spell Tag.
-308   -                                - Flag for getting Nugget on Route 2
+308   -                                - Flag for getting Nugget on Route 2. Used for gift in cerulean city.
+309   -                                - Flag for getting sacred ashe on Route 2 from Prof Oak's helper. Used for TM in Olivine.
 345   - 158-T22PC0101: Script File 860 - Maarep-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items + TMs 1, Cleared after Schorsch
 346   - 158-T22PC0101: Script File 860 - Wooper-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items 2, Cleared after Whitney
 347   - 158-T22PC0101: Script File 860 - Slugma-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items 3, Cleared after Morty

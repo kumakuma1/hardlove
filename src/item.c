@@ -72,7 +72,7 @@ static const u16 sMachineMoves[] = {
     MOVE_NATURAL_GIFT,      // TM057
     MOVE_HEAL_PULSE,           // TM058
     MOVE_DRAGON_PULSE,     // TM059
-    MOVE_DRAIN_PUNCH,      // TM060
+    MOVE_DRAGON_TAIL,      // TM060
     MOVE_WILL_O_WISP,      // TM061
     MOVE_MISTY_EXPLOSION,      // TM062
     MOVE_EMBARGO,          // TM063
@@ -556,7 +556,7 @@ u16 ItemToMachineMove(u16 itemId) {
 BOOL MoveIsHM(u16 moveId) {
     for (u8 i = 0; i < NUM_HMS; i++) {
         if (sMachineMoves[i + ITEM_HM01 - ITEM_TM001] == moveId) {
-#if defined(REUSABLE_TMS) && defined(DELETABLE_HMS)
+#if /* defined(REUSABLE_TMS) &&*/ defined(DELETABLE_HMS)
             return FALSE;
 #else
             return TRUE;
