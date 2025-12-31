@@ -80875,7 +80875,7 @@
         "Move": "MOVE_TAIL_WHIP"
       },
       {
-        "Level": 5,
+        "Level": 6,
         "Move": "MOVE_EMBER"
       },
       {
@@ -81006,7 +81006,7 @@
         "Move": "MOVE_TAIL_WHIP"
       },
       {
-        "Level": 5,
+        "Level": 6,
         "Move": "MOVE_EMBER"
       },
       {
@@ -81172,7 +81172,7 @@
         "Move": "MOVE_TAIL_WHIP"
       },
       {
-        "Level": 5,
+        "Level": 6,
         "Move": "MOVE_EMBER"
       },
       {
@@ -144553,7 +144553,9 @@
     "EggMoves": [
     ],
     "TutorMoves": [
-      "MOVE_HEADBUTT"
+        "MOVE_HEADBUTT",
+        "MOVE_THUNDER_PUNCH",
+        "MOVE_BRICK_BREAK"
     ]
   },
   "SPECIES_FUECOCO": {

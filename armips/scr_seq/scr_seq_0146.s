@@ -524,9 +524,9 @@ scr_seq_0146_003:
 	CheckItem ITEM_HM08, 1, VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 0
 	goto_if_eq _0797
-	check_badge BADGE_MINERAL, VAR_SPECIAL_RESULT
-	compare VAR_SPECIAL_RESULT, 0
-	goto_if_eq _0797
+	//check_badge BADGE_MINERAL, VAR_SPECIAL_RESULT
+	//compare VAR_SPECIAL_RESULT, 0
+	//goto_if_eq _0797
 	check_escort_mode VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 1
 	goto_if_eq _07A6

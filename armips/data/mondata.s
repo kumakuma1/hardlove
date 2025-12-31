@@ -20102,7 +20102,7 @@ mondata SPECIES_SPRIGATITO, "Sprigatito"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
-    abilities ABILITY_OVERGROW, ABILITY_NONE
+    abilities ABILITY_PROTEAN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     mondexentry SPECIES_SPRIGATITO, "The sweet scent its body gives off\nmesmerizes those around it. The scent grows\nstronger when this Pokémon is in the sun."
@@ -20123,7 +20123,7 @@ mondata SPECIES_FLORAGATO, "Floragato"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
-    abilities ABILITY_OVERGROW, ABILITY_NONE
+    abilities ABILITY_PROTEAN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     mondexentry SPECIES_FLORAGATO, "Floragato deftly wields the vine hidden\nbeneath its long fur, slamming the hard\nflower bud against its opponents."
@@ -20144,7 +20144,7 @@ mondata SPECIES_MEOWSCARADA, "Mewscarada"
     basefriendship 50
     growthrate GROWTH_MEDIUM_SLOW
     egggroups EGG_GROUP_FIELD, EGG_GROUP_GRASS
-    abilities ABILITY_OVERGROW, ABILITY_NONE
+    abilities ABILITY_PROTEAN, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_GREEN, 0
     mondexentry SPECIES_MEOWSCARADA, "With skillful misdirection, it rigs foes with\npollen-packed flower bombs, and sets them\noff before its foes realize what’s going on."

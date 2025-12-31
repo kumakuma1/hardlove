@@ -195,7 +195,7 @@ trainerdata 2, "Silver"
         ivs 0
         abilityslot 0
         level 5
-        pokemon SPECIES_CYNDAQUIL
+        pokemon SPECIES_TEPIG
         ballseal 0
     endparty
 
@@ -13538,17 +13538,17 @@ trainerdata 266, "Silver" //fire
         ivs 0
         abilityslot 0
         level LEVEL_BUGSY-1
-        pokemon SPECIES_QUILAVA
+        pokemon SPECIES_PIGNITE
         item ITEM_CHARCOAL
-        move MOVE_INCINERATE
-        move MOVE_QUICK_ATTACK
-        move MOVE_SMOKESCREEN
+        move MOVE_FLAME_WHEEL
+        move MOVE_LOW_SWEEP
+        move MOVE_YAWN
         move MOVE_HIDDEN_POWER    //GRASS
-        ability ABILITY_FLASH_FIRE
+        ability ABILITY_BLAZE
         ball ITEM_POKE_BALL
         setivs 30, 31, 31, 31, 30, 31 // hp, atk, def, spd, spatk, spdef //GRASS
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_HASTY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -13588,17 +13588,17 @@ trainerdata 267, "Silver" //fire
         ivs 0
         abilityslot 0
         level LEVEL_MORTY
-        pokemon SPECIES_TYPHLOSION
-        item ITEM_POWER_HERB
-        move MOVE_LAVA_PLUME
-        move MOVE_SCORCHING_SANDS
-        move MOVE_EXTRASENSORY
-        move MOVE_SOLAR_BEAM
-        ability ABILITY_BLAZE
+        pokemon SPECIES_EMBOAR
+        item ITEM_ASSAULT_VEST
+        move MOVE_FLARE_BLITZ
+        move MOVE_WILD_CHARGE
+        move MOVE_DOUBLE_EDGE
+        move MOVE_SUCKER_PUNCH
+        ability ABILITY_RECKLESS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -13865,15 +13865,15 @@ trainerdata 269, "Silver"
         level LEVEL_BUGSY-1
         pokemon SPECIES_CROCONAW
         item ITEM_SITRUS_BERRY
-        move MOVE_BRINE
+        move MOVE_AQUA_JET
         move MOVE_ICE_FANG
-        move MOVE_BITE
+        move MOVE_WATER_PULSE
         move MOVE_ROCK_TOMB
         ability ABILITY_SHEER_FORCE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -22891,7 +22891,7 @@ trainerdata 496, "Boy"
         ivs 0
         abilityslot 0
         level 5
-        pokemon SPECIES_CYNDAQUIL
+        pokemon SPECIES_TEPIG
         ballseal 0
     endparty
 
