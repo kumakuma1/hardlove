@@ -3258,13 +3258,19 @@ Maho rocket hide out pharmacy.. removed FLag 498 on two npc to avoid crash, mist
 
 
 
+#### Lance Ariana Proton battle
+When clearing the elctrodes:
+Function 21/24:
+	// ClearFlag 507  
+	// SetFlag 506
+Pryce clears flag 507 //TODO
 
 
+### Whitney rematch:
+Add rocket OW Flag 507 on event when entering radio tower 
 
-
-
-
-
+##whirl islands
+use flag 506, set 506, 507 after events
 
 
 
@@ -3281,3 +3287,144 @@ Function 3:
 	....
 
 .equ ITEM_GLALITITE,                    763
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Whitney Rematch
+Place Whitney OW.22
+When entering Radio Tower add trigger
+16420 == 10 - Script 34
+
+Script 34:
+	MecScript 
+	PlayFanfare 1538
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	TextPlayerName 0
+	Message 47
+	CloseMessage 
+	Movement Player Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetOWPosition Overworld.22 356 0 353 Left
+	Movement Overworld.22 Action#5
+	WaitMovement 
+	Message 48
+    Message 49
+    Movement Player Action#6
+	WaitMovement 
+    Movement Player Action#6
+	WaitMovement 
+    Movement Overworld.22 Action#11
+	WaitMovement 
+    WaitButton
+    Message 50
+	Message 49
+    Movement Player Action#6
+	WaitMovement 
+    Movement Player Action#6
+	WaitMovement
+    Movement Overworld.22 Action#11
+	WaitMovement 
+    WaitButton
+    Message 51
+	Message 49
+    Movement Player Action#6
+    WaitMovement
+    Movement Overworld.22 Action#11
+	WaitMovement 
+    WaitButton
+    Message 52
+    CloseMessage 
+    Movement Overworld.22 Action#31
+    WaitMovement 
+    Message 53
+    CloseMessage
+    Movement Overworld.22 Action#6
+    WaitMovement 
+    Message 54
+    CloseMessage 
+    Movement Overworld.22 Action#11
+	WaitMovement 
+    Message 55
+    CloseMessage
+	TrainerBattle 714 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#56
+    CheckFlag 117
+    CallIf EQUAL Function#57 
+    Message 56
+    SetVar 0x8004 657
+    SetVar 0x8005 1
+	CommonScript 2033
+    CloseMessage
+    Movement Overworld.22 Action#30
+    WaitMovement
+    SetOWPosition Overworld.22 386 0 353 Left
+    SetVar 0x4024 11
+	ReleaseAll 
+End 
+
+Function 56:
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 57:
+	SetVar 0x416F 71
+Return 
+
+Action 5:
+	WalkLeftFast 0xD
+End
+
+Action 30:
+	WalkRightFast 0x9
+End
+
+Action 31:
+    WalkUpSite 0x1
+    Freeze8 0x1
+	WalkRightSite 0x1
+    Freeze8 0x1
+	WalkDownSite 0x1
+    Freeze8 0x1
+    WalkLeftSite 0x1
+End
+
+47: Whitney: Hey, \v0103ぁ\x0000\x0000!\r
+Whitney: What a surprise!\nYou came all the way to see me?!\rThat’s so cute!\rI have some free time right now.\nSo, where are we gonna go...?\r
+49: ...
+What do you mean, ’other reasons’...?\rWhat about Team Rocket?!\r
+Lance? The Dragon dude?\nI don’t quite understand what\fyou’re talking about...\r...Team Rocket, huh?\r
+Oh my gosh!\nStop with all that nonsense!\r
+There is no Team Rocket!\rI thought you were different!\r
+I feel so stupid and embarrassed for\ncoming to this date!\r...\r
+55: No! You know what?\nThis is your fault!\fI am furious right now!\rI’ll let the boys handle you!\r
+56: Whitney: You are so strong!\r...\rI have to think about it...\rBut you can have this souvenir!\nThat way, you’ll always be thinking\fabout me!\r

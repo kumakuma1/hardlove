@@ -41,6 +41,7 @@ _spikesWeather:
     PrintMessage 1063, TAG_NONE_SIDE, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_PAY_DAY_COUNT, 0
     End 
 
 _010:

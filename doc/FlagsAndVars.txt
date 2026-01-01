@@ -2,6 +2,7 @@
 122   -                                - getting kings rock in Slowpoke well. ->Slowbronite Limited by badge check after 7th badge
 131   -                                - Get White Herb from Butterfree Lady on Route 34 Passage
 156   -                                - Pokegear Flag
+164   -                                - General Flag for engaging static pokemon like lugia
 165   -                                - Flag for getting Magnet from Sunny on Route 37
 171   -                                - Getting TM for curing Miltank at Route 39 Farm
 189   - 230-T26R0601 : Script File 918 - Got good rod in olivine -  | Mom sets 063 , used for goldenrod Evolution Items 4, Cleared after Chuck
@@ -12,6 +13,7 @@
 214   -                                - Traps disabled in Rocket HQ
 215   -                                - Flag for getting Sharp Beak from Monica on Route 40
 216   -                                - Flag for getting Twisted spoon on Route 29, used in olivine restaurant to give spoon.
+279   -                                - caught lugia
 305   -                                - Flag for getting Cleanse Tag on Route 5. Lady gives Spell Tag.
 308   -                                - Flag for getting Nugget on Route 2. Used for gift in cerulean city.
 309   -                                - Flag for getting sacred ashe on Route 2 from Prof Oak's helper. Used for TM in Olivine.
@@ -45,8 +47,9 @@
 507   -                                - Hide Normal guard in Route 43 passage house. Flag is set. Unused
 510   -                                - hide Ace trainer Alton inside lake at lake of rage, flag is set. Unused
 511   -                                - hide Fisherman at lake of rage, flag is set. Unused
-520   -                                - Frieda on R32 
-              
+520   -                                - Frieda on R32
+579   -                                - Lugia in whirl islands
+581   -                                - Alola girls in whirl islands
 591   -              :                 - Aprikoko Guy in Route 30. Used for Healing in Gyms
 598   -                                - Hide Misty on Route 25
 640   -                                - Giovnni NPC hiding Petrel in TR HQ. Used for Petrel+Archer. FLag is unset
@@ -74,12 +77,15 @@ Variables
                 6: Set by Baoba after talking to him
                 7: Set by Misty on Route 25
 
+                11: set by whitney rematch in goldenrod, needs trigger == 10
+
 0x4057   : Boaboa and Safari Zone tests
 16520    : Misty/Eusine/Suicune event on Route 25
 16521    : Misty/Eusine/Suicune event on Route 25
 16587/0x40CB : SS Aqua event line with little girl.  Set to 7 after completion
 0x40EA   : Headbutt Event in Ilex, removed
 0x40F4   : Student with Cut In Ilex
+0x40FA/16634 : Alola Girls event in Whirl islands
 0x4114   : Spearow/kenya delivery progress
 0x410F/16655 : Trigger for TR taking money in Route 43 passage. Unused
 16535/0x4097: Gauntlet on Route 34
