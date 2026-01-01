@@ -773,6 +773,17 @@ End
 196 - T25R1006 : Event File 189
 move ladies OW out of way
 
+
+### radio quiz after schorsch
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CheckFlag 345
+    JumpIf EQUAL Function#8
+	CheckFlag 138
+	JumpIf EQUAL Function#8
+
 ### Always lose goldenrod radio lottery
 112 - D23R0101 : Script File 29
 Function 6:

@@ -242,3 +242,8 @@ BOOL LONG_CALL ov101_021EA804(void *mapApp UNUSED, u16 mapID UNUSED, u16 x UNUSE
 {
     return TRUE;
 }
+
+BOOL LONG_CALL PhoneCallPersistentState_MomGiftQueue_IsFull(void *callPersistentState UNUSED)
+{
+    return TRUE;
+}

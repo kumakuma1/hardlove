@@ -591,3 +591,4 @@ arm9 GetItemAttr_PreloadedItemData 02077DAC 2
 
 
 0101 ov101_021EA804 021EA804 3
+arm9 PhoneCallPersistentState_MomGiftQueue_IsFull 0202F240 2
