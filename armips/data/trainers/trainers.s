@@ -31153,7 +31153,7 @@ trainerdata 713, "Bugsy"
 trainerdata 714, "Whitney"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_LEADER_WHITNEY
-    nummons 6
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -31173,66 +31173,6 @@ trainerdata 714, "Whitney"
         move MOVE_SHADOW_BALL
         move MOVE_CALM_MIND
         move MOVE_BATON_PASS
-        ballseal 0
-
-        // mon 1
-        ivs 200
-        abilityslot 0
-        level 50
-        pokemon SPECIES_LICKILICKY
-        item ITEM_NONE
-        move MOVE_WRING_OUT
-        move MOVE_FLAMETHROWER
-        move MOVE_ICE_BEAM
-        move MOVE_THUNDERBOLT
-        ballseal 0
-
-        // mon 2
-        ivs 200
-        abilityslot 0
-        level 54
-        pokemon SPECIES_BIBAREL
-        item ITEM_NONE
-        move MOVE_DOUBLE_TEAM
-        move MOVE_CHARGE_BEAM
-        move MOVE_SURF
-        move MOVE_ICE_BEAM
-        ballseal 0
-
-        // mon 3
-        ivs 250
-        abilityslot 32
-        level 54
-        pokemon SPECIES_DELCATTY
-        item ITEM_NONE
-        move MOVE_FAKE_OUT
-        move MOVE_ASSIST
-        move MOVE_CALM_MIND
-        move MOVE_BATON_PASS
-        ballseal 0
-
-        // mon 4
-        ivs 200
-        abilityslot 0
-        level 52
-        pokemon SPECIES_CLEFABLE
-        item ITEM_NONE
-        move MOVE_BLIZZARD
-        move MOVE_THUNDER
-        move MOVE_FIRE_BLAST
-        move MOVE_CALM_MIND
-        ballseal 0
-
-        // mon 5
-        ivs 200
-        abilityslot 32
-        level 58
-        pokemon SPECIES_MILTANK
-        item ITEM_LUM_BERRY
-        move MOVE_BODY_SLAM
-        move MOVE_ATTRACT
-        move MOVE_SLEEP_TALK
-        move MOVE_REST
         ballseal 0
     endparty
 
