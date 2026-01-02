@@ -1847,6 +1847,7 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
 
     switch (ai->attackerMoveEffect) {
     // case MOVE_EFFECT_HIT_STRENGTH_SAP //TODO
+    case MOVE_EFFECT_HEAL_IN_3_TURNS:
     case MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE:
     case MOVE_EFFECT_RESTORE_HALF_HP:
         if (aiShouldRecover) {

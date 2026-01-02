@@ -24,6 +24,7 @@ scrdef scr_seq_T25SP0101_001
 scrdef scr_seq_T25SP0101_002
 scrdef scr_seq_T25SP0101_003
 scrdef scr_seq_T25SP0101_004
+scrdef scr_seq_T25SP0101_005
 scrdef_end
 
 scr_seq_T25SP0101_000:
@@ -368,6 +369,157 @@ scr_seq_T25SP0101_004:
     CommonScript 0x28C9
 	releaseall
     end
+
+scr_seq_T25SP0101_005:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+    npc_msg 21
+    npc_msg 22
+    touchscreen_menu_hide
+	ListLocalText 1, 1, 0, 1, VAR_SPECIAL_RESULT
+    compare VAR_TEMP_x4005, ITEM_LEFTOVERS
+    call_if_ne _addleftovers
+    //
+    compare VAR_TEMP_x4005, ITEM_ASSAULT_VEST
+    call_if_ne _addassaultvest
+    //
+    compare VAR_TEMP_x4005, ITEM_CHOICE_SCARF
+    call_if_ne _addchoicescarf
+    //
+    compare VAR_TEMP_x4005, ITEM_CHOICE_BAND
+    call_if_ne _addchoiceband
+    //
+    compare VAR_TEMP_x4005, ITEM_CHOICE_SPECS
+    call_if_ne _addchoicespecs
+    //
+    AddListOption 10, 255, 5
+    ShowList
+    switch VAR_SPECIAL_RESULT
+    case 0, _leftovers
+    case 1, _assaultvest
+    case 2, _choicescarf
+    case 3, _choiceband
+    case 4, _choicespecs
+    goto _exittrade
+
+_addleftovers:
+    AddListOption 23, 255, 0
+    return
+
+_addassaultvest:
+    AddListOption 24, 255, 1
+    return
+
+_addchoicescarf:
+    AddListOption 25, 255, 2
+    return
+
+_addchoiceband:
+    AddListOption 26, 255, 3
+    return
+
+_addchoicespecs:
+    AddListOption 27, 255, 4
+    return
+
+_exittrade:
+    npc_msg 12
+    touchscreen_menu_show
+    releaseall
+    end
+
+_leftovers:
+    SetVar VAR_TEMP_x4005, ITEM_LEFTOVERS
+    goto _checkitem
+
+_assaultvest:
+    SetVar VAR_TEMP_x4005, ITEM_ASSAULT_VEST
+    goto _checkitem
+
+_choicescarf:
+    SetVar VAR_TEMP_x4005, ITEM_CHOICE_SCARF
+    goto _checkitem
+
+_choiceband:
+    SetVar VAR_TEMP_x4005, ITEM_CHOICE_BAND
+    goto _checkitem
+
+_choicespecs:
+    SetVar VAR_TEMP_x4005, ITEM_CHOICE_SPECS
+    goto _checkitem
+
+
+_checkitem:
+    CheckItem VAR_TEMP_x4005, 1, VAR_SPECIAL_RESULT
+    compare VAR_SPECIAL_RESULT, 0
+    goto_if_eq _noitem
+    npc_msg 29
+    touchscreen_menu_hide
+	ListLocalText 1, 1, 0, 1, VAR_SPECIAL_RESULT
+    AddListOption 23, 255, 0
+    AddListOption 24, 255, 1
+	AddListOption 25, 255, 2
+	AddListOption 26, 255, 3
+    AddListOption 27, 255, 4
+    AddListOption 10, 255, 5
+    ShowList
+    switch VAR_SPECIAL_RESULT
+    case 0, _trade_leftovers
+    case 1, _trade_assaultvest
+    case 2, _trade_choicescarf
+    case 3, _trade_choiceband
+    case 4, _trade_choicespecs
+    goto _exittrade
+
+_noitem:
+    npc_msg 28
+    goto _exittrade
+
+_trade_leftovers:
+    takeitem VAR_TEMP_x4005, 1, VAR_SPECIAL_RESULT
+    giveitem ITEM_LEFTOVERS, 1, VAR_SPECIAL_RESULT
+    buffer_players_name 0
+    buffer_item_name 1, VAR_TEMP_x4005
+    buffer_item_name 2, ITEM_LEFTOVERS
+    npc_msg 30
+    goto _exittrade
+
+_trade_assaultvest:
+    takeitem VAR_TEMP_x4005, 1, VAR_SPECIAL_RESULT
+    giveitem ITEM_ASSAULT_VEST, 1, VAR_SPECIAL_RESULT
+    buffer_players_name 0
+    buffer_item_name 1, VAR_TEMP_x4005
+    buffer_item_name 2, ITEM_ASSAULT_VEST
+    npc_msg 30
+    goto _exittrade
+
+_trade_choicescarf:
+    takeitem VAR_TEMP_x4005, 1, VAR_SPECIAL_RESULT
+    giveitem ITEM_CHOICE_SCARF, 1, VAR_SPECIAL_RESULT
+    buffer_players_name 0
+    buffer_item_name 1, VAR_TEMP_x4005
+    buffer_item_name 2, ITEM_CHOICE_SCARF
+    npc_msg 30
+    goto _exittrade
+
+_trade_choiceband:
+    takeitem VAR_TEMP_x4005, 1, VAR_SPECIAL_RESULT
+    giveitem ITEM_CHOICE_BAND, 1, VAR_SPECIAL_RESULT
+    buffer_players_name 0
+    buffer_item_name 1, VAR_TEMP_x4005
+    buffer_item_name 2, ITEM_CHOICE_BAND
+    npc_msg 30
+    goto _exittrade
+
+_trade_choicespecs:
+    takeitem VAR_TEMP_x4005, 1, VAR_SPECIAL_RESULT
+    giveitem ITEM_CHOICE_SPECS, 1, VAR_SPECIAL_RESULT
+    buffer_players_name 0
+    buffer_item_name 1, VAR_TEMP_x4005
+    buffer_item_name 2, ITEM_CHOICE_SPECS
+    npc_msg 30
+    goto _exittrade
 
 .close
 

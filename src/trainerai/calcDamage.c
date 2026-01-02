@@ -308,9 +308,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 1. Custom BP\n");
-    debug_printf("[CalcBaseDamage] moveno: %d\n", moveno);
-    debug_printf("[CalcBaseDamage] movepower: %d\n", movepower);
+    debug_printf("[AI_Damage] Step 1. Custom BP\n");
+    debug_printf("[AI_Damage] moveno: %d\n", moveno);
+    debug_printf("[AI_Damage] movepower: %d\n", movepower);
 #endif
 
     switch (moveno) {
@@ -670,9 +670,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 2. Base Power Modifiers\n");
-    debug_printf("[CalcBaseDamage] basePowerModifier: %d\n", basePowerModifier);
-    debug_printf("[CalcBaseDamage] movepower: %d\n", movepower);
+    debug_printf("[AI_Damage] Step 2. Base Power Modifiers\n");
+    debug_printf("[AI_Damage] basePowerModifier: %d\n", basePowerModifier);
+    debug_printf("[AI_Damage] movepower: %d\n", movepower);
 #endif
 
     // Step 3.1. handle Unaware
@@ -683,9 +683,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 3.1. handle Unaware\n");
-    debug_printf("[CalcBaseDamage] attacker->atkstate: %d\n", attacker->states[STAT_ATTACK]);
-    debug_printf("[CalcBaseDamage] attacker->spatkstate: %d\n", attacker->states[STAT_SPATK]);
+    debug_printf("[AI_Damage] Step 3.1. handle Unaware\n");
+    debug_printf("[AI_Damage] attacker->atkstate: %d\n", attacker->states[STAT_ATTACK]);
+    debug_printf("[AI_Damage] attacker->spatkstate: %d\n", attacker->states[STAT_SPATK]);
 #endif
 
     // Step 3.2. handle Foul Play
@@ -700,9 +700,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 3.2. handle Foul Play\n");
-    debug_printf("[CalcBaseDamage] attacker->attack: %d\n", attacker->attack);
-    debug_printf("[CalcBaseDamage] attacker->atkstate: %d\n", attacker->states[STAT_ATTACK]);
+    debug_printf("[AI_Damage] Step 3.2. handle Foul Play\n");
+    debug_printf("[AI_Damage] attacker->attack: %d\n", attacker->attack);
+    debug_printf("[AI_Damage] attacker->atkstate: %d\n", attacker->states[STAT_ATTACK]);
 #endif
 
     // Step 3.3. Critical hit
@@ -714,9 +714,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 3.3. Critical hit\n");
-    debug_printf("[CalcBaseDamage] attacker->atkstate: %d\n", attacker->states[STAT_ATTACK]);
-    debug_printf("[CalcBaseDamage] attacker->spatkstate: %d\n", attacker->states[STAT_SPATK]);
+    debug_printf("[AI_Damage] Step 3.3. Critical hit\n");
+    debug_printf("[AI_Damage] attacker->atkstate: %d\n", attacker->states[STAT_ATTACK]);
+    debug_printf("[AI_Damage] attacker->spatkstate: %d\n", attacker->states[STAT_SPATK]);
 #endif
 
     // Step 3.4. Attack boosts/drops
@@ -730,9 +730,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 3.4. Attack boosts/drops\n");
-    debug_printf("[CalcBaseDamage] attack: %d\n", attack);
-    debug_printf("[CalcBaseDamage] sp_attack: %d\n", sp_attack);
+    debug_printf("[AI_Damage] Step 3.4. Attack boosts/drops\n");
+    debug_printf("[AI_Damage] attack: %d\n", attack);
+    debug_printf("[AI_Damage] sp_attack: %d\n", sp_attack);
 #endif
 
     // Step 3.5. Hustle
@@ -742,8 +742,8 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 3.5. Hustle\n");
-    debug_printf("[CalcBaseDamage] attack: %d\n", attack);
+    debug_printf("[AI_Damage] Step 3.5. Hustle\n");
+    debug_printf("[AI_Damage] attack: %d\n", attack);
 #endif
 
     switch (movesplit) {
@@ -922,9 +922,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 3.6. Attack Modifiers\n");
-    debug_printf("[CalcBaseDamage] attackModifier: %d\n", attackModifier);
-    debug_printf("[CalcBaseDamage] calculatedAttack: %d\n", calculatedAttack);
+    debug_printf("[AI_Damage] Step 3.6. Attack Modifiers\n");
+    debug_printf("[AI_Damage] attackModifier: %d\n", attackModifier);
+    debug_printf("[AI_Damage] calculatedAttack: %d\n", calculatedAttack);
 #endif
 
     // TODO
@@ -954,9 +954,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 4.2. Chip Away / Sacred Sword / Darkest Lariat\n");
-    debug_printf("[CalcBaseDamage] defender->defstate: %d\n", defender->states[STAT_DEFENSE]);
-    debug_printf("[CalcBaseDamage] defender->spdefstate: %d\n", defender->states[STAT_SPDEF]);
+    debug_printf("[AI_Damage] Step 4.2. Chip Away / Sacred Sword / Darkest Lariat\n");
+    debug_printf("[AI_Damage] defender->defstate: %d\n", defender->states[STAT_DEFENSE]);
+    debug_printf("[AI_Damage] defender->spdefstate: %d\n", defender->states[STAT_SPDEF]);
 #endif
 
     // Step 4.3. Psyshock / Psystrike / Secret Sword
@@ -966,8 +966,8 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 4.3. Psyshock / Psystrike / Secret Sword\n");
-    debug_printf("[CalcBaseDamage] defender->sp_defense: %d\n", defender->sp_defense);
+    debug_printf("[AI_Damage] Step 4.3. Psyshock / Psystrike / Secret Sword\n");
+    debug_printf("[AI_Damage] defender->sp_defense: %d\n", defender->sp_defense);
 #endif
 
     // Step 4.4. Wonder Room
@@ -982,9 +982,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 4.5. Critical hit\n");
-    debug_printf("[CalcBaseDamage] defender->defstate: %d\n", defender->states[STAT_DEFENSE]);
-    debug_printf("[CalcBaseDamage] defender->spdefstate: %d\n", defender->states[STAT_SPDEF]);
+    debug_printf("[AI_Damage] Step 4.5. Critical hit\n");
+    debug_printf("[AI_Damage] defender->defstate: %d\n", defender->states[STAT_DEFENSE]);
+    debug_printf("[AI_Damage] defender->spdefstate: %d\n", defender->states[STAT_SPDEF]);
 #endif
 
     // Step 4.6. Defense boosts/drops
@@ -998,9 +998,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 4.6. Defense boosts/drops\n");
-    debug_printf("[CalcBaseDamage] defense: %d\n", defense);
-    debug_printf("[CalcBaseDamage] sp_defense: %d\n", sp_defense);
+    debug_printf("[AI_Damage] Step 4.6. Defense boosts/drops\n");
+    debug_printf("[AI_Damage] defense: %d\n", defense);
+    debug_printf("[AI_Damage] sp_defense: %d\n", sp_defense);
 #endif
 
     // Step 4.7. Sandstorm + Rock-type
@@ -1015,9 +1015,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 4.7. Sandstorm + Rock-type\n");
-    debug_printf("[CalcBaseDamage] defense: %d\n", defense);
-    debug_printf("[CalcBaseDamage] sp_defense: %d\n", sp_defense);
+    debug_printf("[AI_Damage] Step 4.7. Sandstorm + Rock-type\n");
+    debug_printf("[AI_Damage] defense: %d\n", defense);
+    debug_printf("[AI_Damage] sp_defense: %d\n", sp_defense);
 #endif
 
     switch (movesplit) {
@@ -1110,9 +1110,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 4.8. Defense Modifiers\n");
-    debug_printf("[CalcBaseDamage] defenseModifier: %d\n", defenseModifier);
-    debug_printf("[CalcBaseDamage] calculatedDefense: %d\n", calculatedDefense);
+    debug_printf("[AI_Damage] Step 4.8. Defense Modifiers\n");
+    debug_printf("[AI_Damage] defenseModifier: %d\n", defenseModifier);
+    debug_printf("[AI_Damage] calculatedDefense: %d\n", calculatedDefense);
 #endif
     // TODO
     //  Handle Sword of Ruin
@@ -1135,8 +1135,8 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 5. Base Damage\n");
-    debug_printf("[CalcBaseDamage] baseDamage: %d\n", baseDamage);
+    debug_printf("[AI_Damage] Step 5. Base Damage\n");
+    debug_printf("[AI_Damage] baseDamage: %d\n", baseDamage);
 #endif
 
     //=====End of Step 5=====
@@ -1277,8 +1277,8 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     }
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] 6.3 Weather Modifier\n");
-    debug_printf("[CalcBaseDamage] damage: %d\n", damage);
+    debug_printf("[AI_Damage] 6.3 Weather Modifier\n");
+    debug_printf("[AI_Damage] damage: %d\n", damage);
 #endif
     // 6.3.5 Glaive Rush
 
@@ -1289,8 +1289,8 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] 6.4 Critical hit modifier\n");
-    debug_printf("[CalcBaseDamage] damage: %d\n", damage);
+    debug_printf("[AI_Damage] 6.4 Critical hit modifier\n");
+    debug_printf("[AI_Damage] damage: %d\n", damage);
 #endif
 
     u32 roll = (BattleRand(bw) % 16);
@@ -1303,8 +1303,8 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] 6.5 Random Factor Modifier\n");
-    debug_printf("[CalcBaseDamage] damage: %d\n", damages->damageRoll);
+    debug_printf("[AI_Damage] 6.5 Random Factor Modifier\n");
+    debug_printf("[AI_Damage] damage: %d\n", damages->damageRoll);
 #endif
 
     if (attacker->type1 == movetype || attacker->type2 == movetype || attacker->type3 == movetype 
@@ -1324,8 +1324,8 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] 6.6 Same-Type Attack Bonus (STAB) Modifier\n");
-    debug_printf("[CalcBaseDamage] damage: %d\n", damages->damageRoll);
+    debug_printf("[AI_Damage] 6.6 Same-Type Attack Bonus (STAB) Modifier\n");
+    debug_printf("[AI_Damage] damage: %d\n", damages->damageRoll);
 #endif
 
     // 6.7 Type Effectiveness Modifier
@@ -1387,9 +1387,9 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] 6.7 Type Effectiveness Modifier\n");
-    debug_printf("[CalcBaseDamage] moveEffectiveness: %d\n", moveEffectiveness);
-    debug_printf("[CalcBaseDamage] damage: %d\n", damages->damageRoll);
+    debug_printf("[AI_Damage] 6.7 Type Effectiveness Modifier\n");
+    debug_printf("[AI_Damage] moveEffectiveness: %d\n", moveEffectiveness);
+    debug_printf("[AI_Damage] damage: %d\n", damages->damageRoll);
 #endif
     // 6.8 Burn Modifier
 
@@ -1405,8 +1405,8 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] 6.8 Burn Modifier\n");
-    debug_printf("[CalcBaseDamage] damage: %d\n", damages->damageRoll);
+    debug_printf("[AI_Damage] 6.8 Burn Modifier\n");
+    debug_printf("[AI_Damage] damage: %d\n", damages->damageRoll);
 #endif
 
     // 6.9 Final Modifiers
@@ -1441,8 +1441,8 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] 6.9.14 Doubled-damage moves\n");
-    debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+    debug_printf("[AI_Damage] 6.9.14 Doubled-damage moves\n");
+    debug_printf("[AI_Damage] finalModifier: %d\n", finalModifier);
 #endif
 
     // Effects relative to a particular side of the field
@@ -1474,8 +1474,8 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] 6.9.1 Screens\n");
-    debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+    debug_printf("[AI_Damage] 6.9.1 Screens\n");
+    debug_printf("[AI_Damage] finalModifier: %d\n", finalModifier);
 #endif
 
     if (moveEffectiveness == TYPE_MUL_TRIPLE_NOT_EFFECTIVE || moveEffectiveness == TYPE_MUL_DOUBLE_NOT_EFFECTIVE || moveEffectiveness == TYPE_MUL_NOT_EFFECTIVE) {
@@ -1594,8 +1594,8 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     }
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Step 9. Item Modifier\n");
-    debug_printf("[CalcBaseDamage] damage: %d\n", damages->damageRoll);
+    debug_printf("[AI_Damage] Step 9. Item Modifier\n");
+    debug_printf("[AI_Damage] damage: %d\n", damages->damageRoll);
 #endif
 
     // Step 10. Z-move into Protecting Move Modifier
@@ -1621,7 +1621,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
-    debug_printf("[CalcBaseDamage] Final damage: %d\n", damage);
+    debug_printf("[AI_Damage] Final damage: %d\n", damage);
     debug_printf("Unrolled damage: %d -- Battler %d hit battler %d for %d (%dth roll) damage.\n", damages->damageRange[0], attackerSlot, defenderSlot, damages->damageRoll, 15 - roll);
     debug_printf("Rolls:[");
     BOOL first = TRUE;

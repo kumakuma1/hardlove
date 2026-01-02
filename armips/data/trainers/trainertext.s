@@ -2096,6 +2096,8 @@ _12F4: // Trainer 220
     trainertextentry 220, TEXT_DEFEATED_IN_OVERWORLD, "Heh, only the one who guards the boss’s\nroom knows the password for that door.\rWhere’s the boss’s room?\nWho knows? Go look for yourself.\n"
 
 _1300: // Trainer 499
+    trainertextentry 499, TEXT_LAST_MON_SENT_OUT, "Damn, you’re good!\n"
+    trainertextentry 499, TEXT_LAST_MON_CRITICAL, "...\n"
     trainertextentry 499, TEXT_DEFEATED_IN_BATTLE, "...\n"
 
 _1304: // Trainer 488

@@ -53,7 +53,9 @@
 591   -              :                 - Aprikoko Guy in Route 30. Used for Healing in Gyms
 598   -                                - Hide Misty on Route 25
 640   -                                - Giovnni NPC hiding Petrel in TR HQ. Used for Petrel+Archer. FLag is unset
-650   -                                - hide Ace trainer lois at lake of rage, flag is set. Unused
+650   -                                - hide Ace trainer lois at lake of rage, flag is set. Used for leftovers trader in goldenrod game hall
+651   -                                - lake of rage ?
+652   -                                - lake of rage ?
 752   -                                - Hide Lt. Surge Gym in Vermilion  
 777   -                                - Hide Brad on Route 25
 794   -                                - Barrier in Lt. Surge Gym in Vermilion. Flag gets set when entering  

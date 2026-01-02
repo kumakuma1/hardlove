@@ -26654,7 +26654,7 @@ mondata SPECIES_VOLTORB_HISUIAN, "-----"
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
-    abilities ABILITY_AFTERMATH, ABILITY_STATIC
+    abilities ABILITY_STATIC, ABILITY_AFTERMATH
     runchance 0
     colorflip BODY_COLOR_RED, 0
 
@@ -26670,7 +26670,7 @@ mondata SPECIES_ELECTRODE_HISUIAN, "-----"
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_MINERAL, EGG_GROUP_MINERAL
-    abilities ABILITY_AFTERMATH, ABILITY_STATIC
+    abilities ABILITY_STATIC, ABILITY_AFTERMATH
     runchance 0
     colorflip BODY_COLOR_RED, 0
 

@@ -803,7 +803,8 @@ scr_seq_0141_092:
 	goto scr_seq_0141_255
 
 scr_seq_0141_093:
-	setvar VAR_SPECIAL_x8008, 2
+	// Whirls Islands, Southwest island entrance, 1162
+	setvar VAR_SPECIAL_x8008, ITEM_LEFTOVERS
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

@@ -45,16 +45,17 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
 
 
     monStruct->condition = GetMonData(pp, MON_DATA_STATUS, 0);
-    monStruct->condition = 0;
+    monStruct->condition2 = 0;
     monStruct->isGrounded = IsPartyPokemonGrounded(sp, pp);
 
     monStruct->speed = GetMonData(pp, MON_DATA_SPEED, 0);
     monStruct->weight = 1;
+    // ArchiveDataLoadOfs(&monStruct->weight, ARC_DEX_LISTS, 1, PokeOtherFormMonsNoGet(monStruct->species, monStruct->form) * sizeof(s32), sizeof(s32));
 
-    monStruct->attack = GetMonData(pp, MON_DATA_SPECIAL_ATTACK, 0);
-    monStruct->defense = GetMonData(pp, MON_DATA_SPECIAL_ATTACK, 0);
+    monStruct->attack = GetMonData(pp, MON_DATA_ATTACK, 0);
+    monStruct->defense = GetMonData(pp, MON_DATA_DEFENSE, 0);
     monStruct->sp_attack = GetMonData(pp, MON_DATA_SPECIAL_ATTACK, 0);
-    monStruct->sp_defense = GetMonData(pp, MON_DATA_SPECIAL_ATTACK, 0);
+    monStruct->sp_defense = GetMonData(pp, MON_DATA_SPECIAL_DEFENSE, 0);
 
     for (int i = 0; i < 8; i++) {
         monStruct->states[i] = 0; // Reset all states to 0
@@ -62,7 +63,6 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
 
     monStruct->level = GetMonData(pp, MON_DATA_LEVEL, 0);
     monStruct->form = GetMonData(pp, MON_DATA_FORM, 0);
-    // ArchiveDataLoadOfs(&monStruct->weight, ARC_DEX_LISTS, 1, PokeOtherFormMonsNoGet(monStruct->species, monStruct->form) * sizeof(s32), sizeof(s32));
 
     monStruct->hasMoldBreaker = FALSE;
     if (monStruct->ability == ABILITY_MOLD_BREAKER || monStruct->ability == ABILITY_TERAVOLT || monStruct->ability == ABILITY_TURBOBLAZE) {
@@ -1127,7 +1127,6 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 
     struct BattleStruct *ctx = bsys->sp;
     int battleType = BattleTypeGet(bsys);
-    struct PartyPokemon *mon;
 
     struct AI_sDamageCalc attackerMon = { 0 };
     struct AI_sDamageCalc defenderMon = { 0 };
@@ -1162,7 +1161,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 
     partySize = Battle_GetClientPartySize(bsys, attacker);
     for (int i = 0; i < partySize; i++) {
-        mon = Battle_GetClientPartyMon(bsys, attacker, i);
+        struct PartyPokemon *mon = Battle_GetClientPartyMon(bsys, attacker, i);
         attackerMon.species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
         debug_printf("Slot %d:%d hp:%d,\n", i, attackerMon.species, GetMonData(mon, MON_DATA_HP, 0));
         debug_printf("sel_m1 %d, sel_m2 %d, switchSl1 %d, switchSl1 %d\n", ctx->sel_mons_no[slot1], ctx->sel_mons_no[slot2], ctx->aiSwitchedPartySlot[slot1], ctx->aiSwitchedPartySlot[slot2]);
