@@ -1070,7 +1070,7 @@ scr_seq_0141_138:
 
 scr_seq_0141_139:
 	// TR HQ B3F, west, left, 1108 // protein
-	setvar VAR_SPECIAL_x8008, ITEM_EJECT_PACK
+	setvar VAR_SPECIAL_x8008, ITEM_EJECT_BUTTON
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

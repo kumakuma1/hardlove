@@ -28,4 +28,4 @@ Choice Band
 Choice Specs
 You need the item first.\r
 Which item would you like?\r
-Tada!\r{STRVAR_1 1, 0, 0} traded a {STRVAR_1 8, 1, 0}\n for a {STRVAR_1 8, 2, 0}!\r
+Tada!\r{STRVAR_1 1, 0, 0} traded {STRVAR_1 8, 1, 0}\nfor {STRVAR_1 8, 2, 0}!\r

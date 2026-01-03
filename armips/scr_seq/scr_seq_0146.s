@@ -736,8 +736,12 @@ scr_seq_0146_012:
 scr_seq_0146_016:
 	play_se SEQ_SE_DP_SELECT
 	lockall
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_WHIRLPOOL
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_WHIRLPOOL
 	compare VAR_SPECIAL_RESULT, 6
+	goto_if_eq _0A34
+	CheckItem ITEM_HM08, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
 	goto_if_eq _0A34
 	check_badge BADGE_GLACIER, VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 0
@@ -758,7 +762,8 @@ _0A34:
 	goto _0941
 
 _0A43:
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_WHIRLPOOL
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_WHIRLPOOL
 	copyvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
 	bufferpartymonnick 0, VAR_SPECIAL_RESULT
 	npc_msg 30

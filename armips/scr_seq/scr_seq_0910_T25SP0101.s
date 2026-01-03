@@ -378,21 +378,11 @@ scr_seq_T25SP0101_005:
     npc_msg 22
     touchscreen_menu_hide
 	ListLocalText 1, 1, 0, 1, VAR_SPECIAL_RESULT
-    compare VAR_TEMP_x4005, ITEM_LEFTOVERS
-    call_if_ne _addleftovers
-    //
-    compare VAR_TEMP_x4005, ITEM_ASSAULT_VEST
-    call_if_ne _addassaultvest
-    //
-    compare VAR_TEMP_x4005, ITEM_CHOICE_SCARF
-    call_if_ne _addchoicescarf
-    //
-    compare VAR_TEMP_x4005, ITEM_CHOICE_BAND
-    call_if_ne _addchoiceband
-    //
-    compare VAR_TEMP_x4005, ITEM_CHOICE_SPECS
-    call_if_ne _addchoicespecs
-    //
+    AddListOption 23, 255, 0
+    AddListOption 24, 255, 1
+	AddListOption 25, 255, 2
+	AddListOption 26, 255, 3
+    AddListOption 27, 255, 4
     AddListOption 10, 255, 5
     ShowList
     switch VAR_SPECIAL_RESULT
@@ -425,6 +415,7 @@ _addchoicespecs:
 
 _exittrade:
     npc_msg 12
+    closemsg
     touchscreen_menu_show
     releaseall
     end
@@ -457,11 +448,21 @@ _checkitem:
     npc_msg 29
     touchscreen_menu_hide
 	ListLocalText 1, 1, 0, 1, VAR_SPECIAL_RESULT
-    AddListOption 23, 255, 0
-    AddListOption 24, 255, 1
-	AddListOption 25, 255, 2
-	AddListOption 26, 255, 3
-    AddListOption 27, 255, 4
+    compare VAR_TEMP_x4005, ITEM_LEFTOVERS
+    call_if_ne _addleftovers
+    //
+    compare VAR_TEMP_x4005, ITEM_ASSAULT_VEST
+    call_if_ne _addassaultvest
+    //
+    compare VAR_TEMP_x4005, ITEM_CHOICE_SCARF
+    call_if_ne _addchoicescarf
+    //
+    compare VAR_TEMP_x4005, ITEM_CHOICE_BAND
+    call_if_ne _addchoiceband
+    //
+    compare VAR_TEMP_x4005, ITEM_CHOICE_SPECS
+    call_if_ne _addchoicespecs
+    //
     AddListOption 10, 255, 5
     ShowList
     switch VAR_SPECIAL_RESULT
