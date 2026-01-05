@@ -3468,12 +3468,435 @@ Add rocket OW Flag 507 on event when entering radio tower
 
 ##whirl islands
 use flag 506, set 506, 507 after events
+Move Blocker OW, remove level scripts
+
+### Lugia room
+
+Keep for flags
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x400A 249
+	PlayCry 0x400A 0
+	Message 4
+	WaitCry 
+	CloseMessage 
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf DIFFERENT Function#1
+	SetVar 0x8004 70
+Jump Function#2
+
+Script 2
+	SetFlag 267
+	SetVar 0x40FA 2
+End 
+
+Script 3:
+	SetVar 0x4003 111
+	SetFlag 261
+End 
+
+### lugia room rocket event
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	StopMusic 0
+	PlayMusic 1112
+	Movement Overworld.8 Action#1
+	WaitMovement 
+	RemoveOW Overworld.8
+	Movement Overworld.2 Action#2
+	Movement Overworld.1 Action#3
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	Message 2
+	CloseMessage 
+	Movement Player Action#5
+	WaitMovement 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	TextPlayerName 0
+	Message 3
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	TextPlayerName 0
+	Message 4
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	Message 6
+	Message 7
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	Message 8
+	CloseMessage 
+	Movement Overworld.2 Action#6
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Message 9
+	CloseMessage 
+	Movement Overworld.2 Action#8
+	Movement Overworld.4 Action#9
+	Movement Overworld.5 Action#10
+	WaitMovement 
+	RemoveOW Overworld.2
+	RemoveOW Overworld.4
+	RemoveOW Overworld.5
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	Message 10
+	CloseMessage 
+	Message 11
+	CloseMessage 
+	SetOWPosition Overworld.6 18 1 34 Up
+	Movement Overworld.0 Action#11
+	Movement Overworld.1 Action#11
+	Movement Player Action#11
+	Movement Overworld.6 Action#12
+	WaitMovement 
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	TextRivalName 0
+	Message 12
+	CloseMessage 
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Message 14
+	CloseMessage 
+	Movement Overworld.1 Action#13
+	Movement Overworld.3 Action#14
+	Movement Overworld.7 Action#15
+	Movement Overworld.10 Action#16
+	Movement Overworld.6 Action#17
+	WaitMovement 
+Jump Function#2
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 27
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 1:
+	SetFlag 164
+	WildBattleSp 0x400A 0x8004 0
+	ClearFlag 164
+	GetBattleOutcome 0x4005
+	CompareVarValue 0x4005 2
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x4005 3
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x4005 4
+	CallIf EQUAL Function#4
+	ReleaseAll 
+	SetFlag 265
+	SetVar 0x4081 3
+	SetFlag 418
+	SetFlag 417
+	SetFlag 744
+	ClearFlag 741
+	SetFlag 581
+	ClearFlag 572
+	ClearFlag 577
+End 
+
+Function 2:
+	TrainerBattle 297 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	Movement Overworld.3 Action#18
+	Movement Overworld.10 Action#19
+	WaitMovement 
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Message 15
+	CloseMessage 
+	Movement Player Action#20
+	Movement Overworld.6 Action#6
+	WaitMovement 
+	SetVar 0x4005 285
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 387
+	CallIf DIFFERENT Function#6
+	CompareVarValue 0x800C 775
+	CallIf DIFFERENT Function#7
+	Battle2vs2 0x4005 298 676 1
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	Message 16
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.0
+	RemoveOW Overworld.3
+	RemoveOW Overworld.7
+	RemoveOW Overworld.9
+	RemoveOW Overworld.10
+	SetFlag 507
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Movement Player Action#21
+	Movement Overworld.6 Action#2
+	Movement Overworld.1 Action#22
+	WaitMovement 
+	Message 17
+	CloseMessage 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	TextRivalName 0
+	Message 18
+	CloseMessage 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	Message 19
+	CloseMessage 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	TextRivalName 0
+	Message 20
+	CloseMessage 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	Message 21
+	CloseMessage 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	TextRivalName 0
+	Message 22
+	CloseMessage 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	TextRivalName 0
+	Message 23
+	CloseMessage 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	TextRivalName 0
+	Message 24
+	CloseMessage 
+	Movement Overworld.6 Action#8
+	Movement Overworld.1 Action#23
+	WaitMovement 
+	Message 25
+	Message 26
+	CloseMessage 
+	SetVar 0x4024 10
+	ReleaseAll 
+End 
+
+Function 3:
+	ClearFlag 579
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 4:
+	SetFlag 279
+Return 
+
+Function 5:
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 6:
+	SetVar 0x4005 286
+Return 
+
+Function 7:
+	SetVar 0x4005 287
+Return 
 
 
 
+Action 1:
+	JumpRightSite 0x1
+	JumpRightSite 0x1
+End
 
+Action 2:
+	WalkLeftFastSite 0x1
+End
 
+Action 3:
+	LockDir 0x1
+	WalkLeftSlow 0x1
+	ReleaseDir 0x1
+End
 
+Action 4:
+	WalkRightFastSite 0x1
+End
+
+Action 5:
+	WalkUpFast 0x1
+	WalkLeftFast 0x3
+	WalkUpFast 0x6
+	WalkRightFast 0x1
+End
+
+Action 6:
+	WalkUpFastSite 0x1
+End
+
+Action 7:
+	WalkDownFastSite 0x1
+End
+
+Action 8:
+	WalkRightFast 0x2
+	LookDown 0x1
+	Freeze8 0x1
+	WalkDownFast 0x5
+	WalkLeftFast 0x2
+	WalkDownFast 0x2
+End
+
+Action 9:
+	Freeze8 0x2
+	WalkDownFast 0x1
+	WalkRightFast 0x1
+	WalkLeftFastSite 0x1
+	WalkLeftFast 0x1
+	WalkDownFast 0x3
+	WalkLeftFast 0x2
+	WalkDownFast 0x2
+End
+
+Action 10:
+	Freeze8 0x2
+	WalkLeftFastSite 0x1
+	Freeze8 0x2
+	WalkLeftFast 0x1
+	WalkDownFast 0x4
+	WalkLeftFast 0x2
+	WalkDownFast 0x2
+End
+
+Action 11:
+	Exclamation 0x1
+	WalkDownFastSite 0x1
+	WalkRightFastSite 0x1
+End
+
+Action 12:
+	Freeze8 0x1
+	Freeze8 0x1
+	Freeze8 0x1
+	WalkUpFast 0x6
+	WalkLeftFast 0x2
+	LookUp 0x1
+End
+
+Action 13:
+	WalkLeftFast 0x1
+End
+
+Action 14:
+	WalkDownFast 0x1
+	LookLeft 0x1
+End
+
+Action 15:
+	WalkDownFast 0x1
+End
+
+Action 16:
+	WalkLeftFast 0x3
+End
+
+Action 17:
+	Freeze8 0x1
+	WalkRightFastSite 0x1
+End
+
+Action 18:
+	LookDown 0x1
+	LockDir 0x1
+	WalkUpSlow 0x1
+	ReleaseDir 0x1
+End
+
+Action 19:
+	LockDir 0x1
+	WalkRightSlow 0x1
+	ReleaseDir 0x1
+End
+
+Action 20:
+	WalkRight 0x1
+End
+
+Action 21:
+	WalkRightFast 0x1
+	LookLeft 0x1
+End
+
+Action 22:
+	WalkRightFast 0x2
+End
+
+Action 23:
+	WalkUpFast 0x1
+	WalkRightFastSite 0x1
+End
+
+0	Archer: This was a very underwhelming\nperformance, Lance. Unworthy of a\fformer Champion.\r
+1	Lance: You... ugh... \nYou are messing ancients forces!\fThat Pokémon... cannot be controlled!\r
+2	Archer: Do not lecture me on what\nI can or cannot do.\r
+3	Lance: \v0103ぁ\x0000\x0000!\nThis is a dire situation...\r
+4	Archer: Not a surprise to see you\nhere, \v0103ぁ\x0000\x0000.\rI have already heard about Petrel’s\ndisappointing failure at your hands.\r
+5	Archer: But once again, you are too\nlate. I have what I came for.\rAnd while I would love to demonstrate\nmy newly gained power once more,\fI have other business to attend to.\r
+6	Archer: You see, although you shut it\ndown, the technology of the prototype\fgenerator we built in Mahogany Town\falready proved its success.\rMy buyer is quite eager to finalize\nthe exchange.\r
+7	You cannot imagine the exquisiteness\nof the prize.\r
+8	Archer: But enough of this.\nAriana, take care of them.\r
+9	Archer: Take this one.\rNo complications this time.\nI expect them to be buried in this\fcave.\r
+10	Ariana: Haha, this is the end for you.\nYou are outmatched and alone.\r
+11	???: He is not alone!\r
+12	\v0103ぁ\x0000\x0000: I did not come to save you,\nbut I won’t let Team Rocket hide\fbehind numbers to get a win.\r
+13	Ariana: You! The brat who has been\nsniffing around our heels...\r
+14	Ariana: We will bury all of you!\r
+15	Ariana: God damn it!\r
+16	Ariana: This means nothing!\rTeam Rocket has become unstoppable!\nArcher is already in Goldenrod city!\r
+17	Lance: Ugh... I can’t believe it...\nI couldn’t stop them.\r
+18	\v0103ぁ\x0000\x0000: Not so much of a Champion\nafter all...\r
+19	Lance: Hmph. Team Rocket has become\nincredibly strong.\rIf you both hadn’t come...\r
+20	\v0103ぁ\x0000\x0000: Don’t get it twisted.\nI only came to find out what legendary\fPokémon Team Rocket was after.\r
+21	Lance: Archer is on a dangerous path.\nHe seeks power without heart.\r
+22	\v0103ぁ\x0000\x0000: Maybe he is right after all?\nIf I want to be the best, I need\flegendary Pokémon and a Mega Ring.\fJust like him.\r
+23	Lance: \v0103ぁ\x0000\x0000, you still have a\nlong road ahead of you to understand\fwhat true strength is.\r
+24	\v0103ぁ\x0000\x0000: Whatever. Keep your lectures.\nI’m out of here.\r
+25	Lance: \v0103ぁ\x0000\x0000, Archer has become\nvery dangerous. I urge you not to face\fhim alone.\r
+26	I will go and assemble the remaining\nElite Four. We have to stop Archer\fand Team Rocket, or else...\r
+27	Lance: I still can’t believe it...\r
 
 
 

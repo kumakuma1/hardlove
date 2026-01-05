@@ -15264,9 +15264,9 @@ trainerdata 296, "Nikki"
         ballseal 0
     endparty
 
-trainerdata 297, "Diana"
+trainerdata 297, "Grunt #1"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass TRAINERCLASS_SWIMMER_F
+    trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
     item ITEM_NONE
     item ITEM_NONE
@@ -15289,10 +15289,10 @@ trainerdata 297, "Diana"
         ballseal 0
     endparty
 
-trainerdata 298, "Briana"
+trainerdata 298, "Ariana"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass TRAINERCLASS_SWIMMER_F
-    nummons 2
+    trainerclass TRAINERCLASS_EXECUTIVE_ARIANA
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -15303,17 +15303,6 @@ trainerdata 298, "Briana"
 
     party 298
         // mon 0
-        ivs 0
-        abilityslot 32
-        level 46
-        pokemon SPECIES_SEAKING
-        move MOVE_WATER_PULSE
-        move MOVE_AQUA_RING
-        move MOVE_SUPERSONIC
-        move MOVE_POISON_JAB
-        ballseal 0
-
-        // mon 1
         ivs 0
         abilityslot 32
         level 46
@@ -29515,10 +29504,10 @@ trainerdata 675, "Lance"
         ballseal 0
     endparty
 
-trainerdata 676, "Parker"
+trainerdata 676, "Grunt #2"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass TRAINERCLASS_SAILOR
-    nummons 2
+    trainerclass TRAINERCLASS_TEAM_ROCKET
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -29533,17 +29522,6 @@ trainerdata 676, "Parker"
         abilityslot 32
         level 43
         pokemon SPECIES_HORSEA
-        move MOVE_WATER_PULSE
-        move MOVE_FOCUS_ENERGY
-        move MOVE_TWISTER
-        move MOVE_AGILITY
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 32
-        level 43
-        pokemon SPECIES_SEADRA
         move MOVE_WATER_PULSE
         move MOVE_FOCUS_ENERGY
         move MOVE_TWISTER

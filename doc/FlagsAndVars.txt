@@ -79,6 +79,7 @@ Variables
                 6: Set by Baoba after talking to him
                 7: Set by Misty on Route 25
 
+                10: Set at rocket event in whirl island
                 11: set by whitney rematch in goldenrod, needs trigger == 10
 
 0x4057   : Boaboa and Safari Zone tests
@@ -91,6 +92,7 @@ Variables
 0x4114   : Spearow/kenya delivery progress
 0x410F/16655 : Trigger for TR taking money in Route 43 passage. Unused
 16535/0x4097: Gauntlet on Route 34
+16634/      : Lugia event with alola firls. == 1
 16654/0x410E: Trainers in Olivine Gym, Set 1 when giving medicine in lighthouse. Unused
 
 16563-16577 : Rocket HQ encounters. Unused (16562 is used)

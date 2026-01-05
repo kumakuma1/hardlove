@@ -634,12 +634,14 @@ _0510: // Trainer 677
 
 _051C: // Trainer 297
     trainertextentry 297, TEXT_NOTICE_IN_OVERWORLD, "Sorry about being away.\nLet’s get on with it!\r"
-    trainertextentry 297, TEXT_DEFEATED_IN_BATTLE, "I give up!\nYou’re the winner!\n"
+    trainertextentry 297, TEXT_DEFEATED_IN_BATTLE, "...\n"
     trainertextentry 297, TEXT_DEFEATED_IN_OVERWORLD, "I’ll be swimming quietly.\n"
 
 _0528: // Trainer 298
     trainertextentry 298, TEXT_NOTICE_IN_OVERWORLD, "Don’t get nervous watching my\nmagnificent swimming!\r"
-    trainertextentry 298, TEXT_DEFEATED_IN_BATTLE, "You’re not nervous at all.\nCool and confident...!\n"
+    trainertextentry 298, TEXT_LAST_MON_SENT_OUT, "It’s not over yet!\n"
+    trainertextentry 298, TEXT_LAST_MON_CRITICAL, "Ugh... What are you?!\n"
+    trainertextentry 298, TEXT_DEFEATED_IN_BATTLE, "...\n"
     trainertextentry 298, TEXT_DEFEATED_IN_OVERWORLD, "Swimming is very good for both\nbeauty and health!\rJust look at Misty, you’ll see.\n"
 
 _0534: // Trainer 678
