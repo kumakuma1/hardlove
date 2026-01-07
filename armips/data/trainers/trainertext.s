@@ -1422,7 +1422,7 @@ _0C98: // Trainer 85
 
 _0CA4: // Trainer 95
     trainertextentry  95, TEXT_NOTICE_IN_OVERWORLD, "The water’s warm here. I’m loose and\nlimber. Sure, I’ll take you on!\r"
-    trainertextentry  95, TEXT_DEFEATED_IN_BATTLE, "Yikes! I’ve got prune skin!\n"
+    trainertextentry  95, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "Yikes! I’ve got prune skin!\n"
     trainertextentry  95, TEXT_DEFEATED_IN_OVERWORLD, "Isn’t it relaxing, just floating\nlike this?\n"
 
 _0CB0: // Trainer 96
