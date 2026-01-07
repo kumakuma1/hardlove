@@ -1412,7 +1412,7 @@ _0C80: // Trainer 86
 
 _0C8C: // Trainer 9
     trainertextentry   9, TEXT_NOTICE_IN_OVERWORLD, "Are you going to Cianwood?\rHow about a quick battle first?\r"
-    trainertextentry   9, TEXT_DEFEATED_IN_BATTLE, "I lost that one!\n"
+    trainertextentry   9, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "I lost that one!\n"
     trainertextentry   9, TEXT_DEFEATED_IN_OVERWORLD, "I’d say I’m a better swimmer than you.\nYeah!\n"
 
 _0C98: // Trainer 85
@@ -1467,7 +1467,7 @@ _0D04: // Trainer 93
 
 _0D10: // Trainer 94
     trainertextentry  94, TEXT_NOTICE_IN_OVERWORLD, "At night, STARYU gather near the\nwater’s surface.\r"
-    trainertextentry  94, TEXT_DEFEATED_IN_BATTLE, "Oh, dear...\n"
+    trainertextentry  94, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "Oh, dear...\n"
     trainertextentry  94, TEXT_DEFEATED_IN_OVERWORLD, "The clusters of STARYU light up at the\nsame time. It’s so beautiful,\fit’s scary.\n"
 
 _0D1C: // Trainer 123
