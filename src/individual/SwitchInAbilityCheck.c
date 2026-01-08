@@ -91,6 +91,24 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     sp->koban_counter = 2;
                                     break;
                                 case 3://no switch
+                                    break;
+                                case 4:
+                                    sp->koban_counter = 4;
+                                    sp->addeffect_type = ADD_EFFECT_ABILITY; // need to restore the current move index after the animation has played
+                                    sp->current_move_index = MOVE_GRASSY_TERRAIN; // need this for UpdateTerrainOverlay
+                                    switch (BattleRand(bw) % 4)
+                                    {
+                                    case 0:
+                                        sp->current_move_index = MOVE_PSYCHIC_TERRAIN;
+                                        break;
+                                    case 1:
+                                        sp->current_move_index = MOVE_MISTY_TERRAIN;
+                                        break;
+                                    case 2:
+                                        sp->current_move_index = MOVE_ELECTRIC_TERRAIN;
+                                        break;
+                                    }
+                                    
                                 default:
                                     break;
                                 }

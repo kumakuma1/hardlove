@@ -4,6 +4,7 @@
 
 _000:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_PAY_DAY_COUNT, 2, _spikesWeather
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_PAY_DAY_COUNT, 4, _randomTerrain
 
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_TRICK_ROOM
     PlayMoveAnimation BATTLER_CATEGORY_MSG_TEMP
@@ -43,6 +44,16 @@ _spikesWeather:
     WaitButtonABTime 30
     UpdateVar OPCODE_SET, BSCRIPT_VAR_PAY_DAY_COUNT, 0
     End 
+
+_randomTerrain:
+    // strange energy
+    PrintMessage 621, TAG_NONE_SIDE
+    Wait 
+    WaitButtonABTime 30
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_PAY_DAY_COUNT, 0
+    Call BATTLE_SUBSCRIPT_CREATE_TERRAIN_OVERLAY
+    End
+
 
 _010:
     End
