@@ -20580,9 +20580,9 @@ trainerdata 420, "Grunt"
     endparty
 
 trainerdata 421, "Bret" //moved to Olivine Gym
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_GENTLEMAN
-    nummons 1
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -20592,13 +20592,78 @@ trainerdata 421, "Bret" //moved to Olivine Gym
     endentry
 
     party 421
-        // mon 0
-        ivs 50
+        ivs 0
         abilityslot 0
-        level 41
-        pokemon SPECIES_TAILLOW
+        level LEVEL_JASMINE-3
+        pokemon SPECIES_GLIMMORA
+        item ITEM_POWER_HERB
+        move MOVE_METEOR_BEAM
+        move MOVE_SLUDGE_BOMB
+        move MOVE_EARTH_POWER
+        move MOVE_ENERGY_BALL
+        ability ABILITY_TOXIC_DEBRIS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
-    endparty
+				
+	    ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-3
+        pokemon SPECIES_ORTHWORM
+        item ITEM_LEFTOVERS
+        move MOVE_IRON_HEAD
+        move MOVE_BODY_PRESS
+        move MOVE_SAND_TOMB
+        move MOVE_PROTECT
+        ability ABILITY_EARTH_EATER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-4
+        pokemon SPECIES_DOUBLADE
+        item ITEM_EVIOLITE
+        move MOVE_SHADOW_CLAW
+        move MOVE_SHADOW_SNEAK
+        move MOVE_IRON_HEAD
+        move MOVE_SACRED_SWORD
+        ability ABILITY_NO_GUARD
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-3
+        pokemon SPECIES_EMPOLEON
+        item ITEM_WATER_GEM
+        move MOVE_HYDRO_PUMP
+        move MOVE_AQUA_JET
+        move MOVE_FLASH_CANNON
+        move MOVE_YAWN
+        ability ABILITY_COMPETITIVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_HASTY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+   endparty
 
 trainerdata 422, "Rodney"
     trainermontype TRAINER_DATA_TYPE_NOTHING
@@ -26247,9 +26312,9 @@ trainerdata 562, "Ariana"  //moved to route 48
     endparty
 
 trainerdata 563, "Ginger" //moved to Olivine Gym
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_PICNICKER
-    nummons 1
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -26259,13 +26324,78 @@ trainerdata 563, "Ginger" //moved to Olivine Gym
     endentry
 
     party 563
-        // mon 0
         ivs 0
         abilityslot 0
-        level 41
-        pokemon SPECIES_WHISMUR
+        level LEVEL_JASMINE-3
+        pokemon SPECIES_HIPPOWDON
+        item ITEM_SITRUS_BERRY
+        move MOVE_EARTHQUAKE
+        move MOVE_STONE_EDGE
+        move MOVE_STEALTH_ROCK
+        move MOVE_ROAR
+        ability ABILITY_SAND_STREAM
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
-    endparty
+				
+	    ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-2
+        pokemon SPECIES_RAMPARDOS
+        item ITEM_LUM_BERRY //TODO blunder policy
+        move MOVE_HEAD_SMASH
+        move MOVE_STOMPING_TANTRUM
+        move MOVE_FIRE_PUNCH
+        move MOVE_ROCK_POLISH
+        ability ABILITY_SHEER_FORCE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-2
+        monwithform SPECIES_AVALUGG, 1
+        item ITEM_LOADED_DICE
+        move MOVE_ROCK_BLAST
+        move MOVE_ICICLE_SPEAR
+        move MOVE_BODY_PRESS
+        move MOVE_MIRROR_COAT
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-2
+        pokemon SPECIES_EXCADRILL
+        item ITEM_LIFE_ORB
+        move MOVE_EARTHQUAKE
+        move MOVE_IRON_HEAD
+        move MOVE_X_SCISSOR
+        move MOVE_SWORDS_DANCE
+        ability ABILITY_SAND_RUSH
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+   endparty
 
 trainerdata 564, "Grunt #1"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES

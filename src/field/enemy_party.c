@@ -340,7 +340,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             if(level > 30)
             {
                 level = level - 2;
-            } else if (level > 1){
+            } else if (level > 5){
                 level = level - 1;
             }
         }
