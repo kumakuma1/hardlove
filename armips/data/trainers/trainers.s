@@ -18890,7 +18890,7 @@ trainerdata 385, "Dara & Dia"
 trainerdata 386, "Greg"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_PSYCHIC_M
-    nummons 3
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -18932,6 +18932,24 @@ trainerdata 386, "Greg"
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_MORTY-4
+        pokemon SPECIES_WIGGLYTUFF
+        item ITEM_SITRUS_BERRY
+        move MOVE_BLIZZARD
+        move MOVE_FIRE_BLAST
+        move MOVE_THUNDER
+        move MOVE_TRI_ATTACK
+        ability ABILITY_COMPETITIVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -30792,7 +30810,7 @@ trainerdata 678, "Joy"
 trainerdata 679, "Callie"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_BEAUTY
-    nummons 5
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -30802,38 +30820,20 @@ trainerdata 679, "Callie"
     endentry
 
     party 679
-		ivs 0
+        ivs 0
         abilityslot 0
         level LEVEL_MORTY-4
-        pokemon SPECIES_WIGGLYTUFF
-        item ITEM_SITRUS_BERRY
-        move MOVE_BLIZZARD
-        move MOVE_FIRE_BLAST
-        move MOVE_THUNDER
-        move MOVE_TRI_ATTACK
-        ability ABILITY_COMPETITIVE
+        pokemon SPECIES_SPINDA
+        item ITEM_LUM_BERRY
+        move MOVE_FAKE_OUT
+        move MOVE_SUPERPOWER
+        move MOVE_ICE_PUNCH
+        move MOVE_TEETER_DANCE
+        ability ABILITY_CONTRARY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_MODEST
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
-		ivs 0
-        abilityslot 0
-        level LEVEL_MORTY-4
-        pokemon SPECIES_MILOTIC
-        item ITEM_LEFTOVERS
-        move MOVE_SCALD
-        move MOVE_BULLDOZE
-        move MOVE_REST
-        move MOVE_SLEEP_TALK
-        ability ABILITY_COMPETITIVE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_RELAXED
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -30859,17 +30859,17 @@ trainerdata 679, "Callie"
         ivs 0
         abilityslot 0
         level LEVEL_MORTY-4
-        pokemon SPECIES_BISHARP
-        item ITEM_CHOPLE_BERRY
-        move MOVE_IRON_HEAD
-        move MOVE_POISON_JAB
-        move MOVE_X_SCISSOR
-        move MOVE_KNOCK_OFF
-        ability ABILITY_DEFIANT
+        pokemon SPECIES_MALAMAR
+        item ITEM_TANGA_BERRY
+        move MOVE_NIGHT_SLASH
+        move MOVE_PSYCHO_CUT
+        move MOVE_SUPERPOWER
+        move MOVE_BULLDOZE
+        ability ABILITY_CONTRARY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -30877,17 +30877,17 @@ trainerdata 679, "Callie"
         ivs 0
         abilityslot 0
         level LEVEL_MORTY-4
-        pokemon SPECIES_SPINDA
-        item ITEM_LUM_BERRY
-        move MOVE_SUPERPOWER
-        move MOVE_TEETER_DANCE
-        move MOVE_RETURN
-        move MOVE_FAKE_OUT
-        ability ABILITY_CONTRARY
+        pokemon SPECIES_MILOTIC
+        item ITEM_LEFTOVERS
+        move MOVE_SCALD
+        move MOVE_BULLDOZE
+        move MOVE_REST
+        move MOVE_SLEEP_TALK
+        ability ABILITY_COMPETITIVE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_BOLD
         shinylock 0
         additionalflags 0
         ballseal 0
