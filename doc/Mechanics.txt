@@ -20,7 +20,7 @@ Critical hit chance: 1/16.
 Critical hit damage multiplier: 1.5.
 
 Protean/Libero work as Gen8.
-Defiant/Competitive can be triggered by allys.
+Moody can change Accuracy and Evasion.
 Hail has been replaced by Snow.
 Weather abilities/moves: Will set Weather permanently.
 Terrain abilities/moves: Will set Terrain permanently. Cannot be removed by Defog.

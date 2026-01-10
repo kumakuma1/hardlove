@@ -1689,24 +1689,24 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     if (sp->battlemon[battlerId].hp) {
                                         // Use % 7 instead of %5 and pass FALSE to AreAnyStatsNotAtValue to include accuracy/evasion like earlier gens.
 
-                                        int temp = BattleRand(bw) % 5;
+                                        int temp = BattleRand(bw) % 7;
 
-                                        if (AreAnyStatsNotAtValue(sp, battlerId, 12, TRUE))  // if any stat can be lowered
+                                        if (AreAnyStatsNotAtValue(sp, battlerId, 12, FALSE))  // if any stat can be lowered
                                         {
                                             while (sp->battlemon[battlerId].states[temp] == 12) {
-                                                temp = BattleRand(bw) % 5;
+                                                temp = BattleRand(bw) % 7;
                                             }
                                         } else {
                                             sp->calc_work = 8;  // skip the raising if this is the case
                                         }
                                         sp->calc_work = temp;
 
-                                        temp = BattleRand(bw) % 5;
+                                        temp = BattleRand(bw) % 7;
 
-                                        if (AreAnyStatsNotAtValue(sp, battlerId, 0, TRUE))  // if any stat can be raised
+                                        if (AreAnyStatsNotAtValue(sp, battlerId, 0, FALSE)) // if any stat can be raised
                                         {
                                             while (sp->battlemon[battlerId].states[temp] == 0 || temp == sp->calc_work) {
-                                                temp = BattleRand(bw) % 5;
+                                                temp = BattleRand(bw) % 7;
                                             }
                                         } else {
                                             sp->tokusei_work = 8;  // skip the lowering if this is the case
