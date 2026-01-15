@@ -50,12 +50,16 @@
 520   -                                - Frieda on R32
 579   -                                - Lugia in whirl islands
 581   -                                - Alola girls in whirl islands
-591   -              :                 - Aprikoko Guy in Route 30. Used for Healing in Gyms
+591   -                                - Aprikoko Guy in Route 30. Used for Healing in Gyms
 598   -                                - Hide Misty on Route 25
 640   -                                - Giovnni NPC hiding Petrel in TR HQ. Used for Petrel+Archer. FLag is unset
 650   -                                - hide Ace trainer lois at lake of rage, flag is set. Used for leftovers trader in goldenrod game hall
 651   -                                - lake of rage ?
 652   -                                - lake of rage ?
+720   -                                - Groudon in embedded tower
+721   -                                - Kyogre in embedded tower
+723   -                                - Groudon NPC in embedded tower
+724   -                                - Kyogre NPC in embedded tower
 752   -                                - Hide Lt. Surge Gym in Vermilion  
 777   -                                - Hide Brad on Route 25
 794   -                                - Barrier in Lt. Surge Gym in Vermilion. Flag gets set when entering  
@@ -86,15 +90,16 @@ Variables
 16520    : Misty/Eusine/Suicune event on Route 25
 16521    : Misty/Eusine/Suicune event on Route 25
 16587/0x40CB : SS Aqua event line with little girl.  Set to 7 after completion
-0x40EA   : Headbutt Event in Ilex, removed
+16618/0x40EA   : Headbutt Event in Ilex, removed. Used for Legendary in embedded tower
 0x40F4   : Student with Cut In Ilex
 0x40FA/16634 : Alola Girls event in Whirl islands
 0x4114   : Spearow/kenya delivery progress
 0x410F/16655 : Trigger for TR taking money in Route 43 passage. Unused
 16535/0x4097: Gauntlet on Route 34
+16633/0x40f9 : Kyogre
 16634/      : Lugia event with alola firls. == 1
 16654/0x410E: Trainers in Olivine Gym, Set 1 when giving medicine in lighthouse. Unused
 
 16563-16577 : Rocket HQ encounters. Unused (16562 is used)
 
-0x412D/16685 : Route 25 Bills Grandfather showed pokemons 
+16685/0x412D : Route 25 Bills Grandfather showed pokemons 
