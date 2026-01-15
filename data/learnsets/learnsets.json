@@ -39380,78 +39380,82 @@
   },
   "SPECIES_ENTEI": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_EXTREME_SPEED"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_BITE"
-      },
-      {
-        "Level": 6,
-        "Move": "MOVE_FLAME_WHEEL"
-      },
-      {
-        "Level": 8,
-        "Move": "MOVE_EMBER"
-      },
-      {
-        "Level": 12,
-        "Move": "MOVE_BITE"
-      },
-      {
-        "Level": 19,
-        "Move": "MOVE_ROAR"
-      },
-      {
-        "Level": 22,
-        "Move": "MOVE_FIRE_SPIN"
-      },
-      {
-        "Level": 29,
-        "Move": "MOVE_STOMP"
-      },
-      {
-        "Level": 36,
-        "Move": "MOVE_SCARY_FACE"
-      },
-      {
-        "Level": 39,
-        "Move": "MOVE_FIRE_FANG"
-      },
-      {
-        "Level": 42,
-        "Move": "MOVE_CRUNCH"
-      },
-      {
-        "Level": 52,
-        "Move": "MOVE_SWAGGER"
-      },
-      {
-        "Level": 55,
-        "Move": "MOVE_EXTRASENSORY"
-      },
-      {
-        "Level": 55,
-        "Move": "MOVE_LAVA_PLUME"
-      },
-      {
-        "Level": 66,
-        "Move": "MOVE_STONE_EDGE"
-      },
-      {
-        "Level": 71,
-        "Move": "MOVE_FLAMETHROWER"
-      },
-      {
-        "Level": 76,
-        "Move": "MOVE_ERUPTION"
-      },
-      {
-        "Level": 81,
-        "Move": "MOVE_SACRED_FIRE"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_EXTREME_SPEED"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_IRON_HEAD"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_FLARE_BLITZ"
+        },
+        {
+            "Level": 6,
+            "Move": "MOVE_FLAME_WHEEL"
+        },
+        {
+            "Level": 8,
+            "Move": "MOVE_EMBER"
+        },
+        {
+            "Level": 12,
+            "Move": "MOVE_BITE"
+        },
+        {
+            "Level": 19,
+            "Move": "MOVE_ROAR"
+        },
+        {
+            "Level": 22,
+            "Move": "MOVE_FIRE_SPIN"
+        },
+        {
+            "Level": 29,
+            "Move": "MOVE_STOMP"
+        },
+        {
+            "Level": 36,
+            "Move": "MOVE_SCARY_FACE"
+        },
+        {
+            "Level": 39,
+            "Move": "MOVE_FIRE_FANG"
+        },
+        {
+            "Level": 42,
+            "Move": "MOVE_CRUNCH"
+        },
+        {
+            "Level": 52,
+            "Move": "MOVE_SWAGGER"
+        },
+        {
+            "Level": 55,
+            "Move": "MOVE_EXTRASENSORY"
+        },
+        {
+            "Level": 55,
+            "Move": "MOVE_LAVA_PLUME"
+        },
+        {
+            "Level": 66,
+            "Move": "MOVE_STONE_EDGE"
+        },
+        {
+            "Level": 71,
+            "Move": "MOVE_FLAMETHROWER"
+        },
+        {
+            "Level": 76,
+            "Move": "MOVE_ERUPTION"
+        },
+        {
+            "Level": 81,
+            "Move": "MOVE_SACRED_FIRE"
+        }
     ],
     "MachineMoves": [
       "MOVE_FLAMETHROWER",
