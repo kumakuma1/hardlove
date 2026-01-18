@@ -670,7 +670,7 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
         break;
     case MOVE_TERRAIN_PULSE:
         type = TYPE_NORMAL;
-        if (ctx->terrainOverlay.numberOfTurnsLeft > 0) {
+        if (ctx->terrainOverlay.numberOfTurnsLeft > 0 && attacker->isGrounded) {
             switch (ctx->terrainOverlay.type) {
             case GRASSY_TERRAIN:
                 type = TYPE_GRASS;

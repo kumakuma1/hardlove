@@ -268,6 +268,14 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         movepower = pow;
         break;
     case MOVE_TRUMP_CARD:
+        break;
+    case MOVE_TERRAIN_PULSE:
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0
+            && sp->terrainOverlay.type
+            && attacker->isGrounded) {
+            movepower *= 2;
+        }
+        break;
     default:
         break;
     }
