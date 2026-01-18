@@ -15,7 +15,7 @@
 #include "../../include/types.h"
 
 // this has been moved to src/battle/other_battle_calculators.c so it can be used
-extern u8 TypeEffectivenessTable[][3];
+
 
 int GetHiddenPowerType(u32 hp_iv, u32 atk_iv, u32 def_iv, u32 spe_iv, u32 spatk_iv, u32 spdef_iv)
 {
