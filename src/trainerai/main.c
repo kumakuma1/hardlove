@@ -1398,6 +1398,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
+    case MOVE_EFFECT_SHED_TAIL
     case MOVE_EFFECT_SET_SUBSTITUTE:
         moveScore += 6;
         if (ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE) {
