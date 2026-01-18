@@ -805,6 +805,13 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
         break;
     }
+    case MOVE_DRAGON_TAIL:
+    case MOVE_CIRCLE_THROW:
+        if (ai->attackerMovesFirst)
+        {
+            moveScore -= 2;
+        }
+        break;
     case MOVE_EARTHQUAKE:
     case MOVE_MAGNITUDE: {
         if (ai->isDoubleBattle) {
