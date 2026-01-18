@@ -2490,7 +2490,7 @@ trainerdata 33, "Jasmine"
         move MOVE_STONE_EDGE
         move MOVE_IRON_HEAD
         move MOVE_BODY_PRESS
-        move MOVE_AQUA_TAIL //TODO DRAGON TAIL
+        move MOVE_DRAGON_TAIL
         ability ABILITY_STURDY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
