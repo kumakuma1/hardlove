@@ -16,22 +16,6 @@
 #include "../../include/q412.h"
 #include "../../include/custom/custom_ai.h"
 
-const u8 StatBoostModifiersLocal[][2] = {
-    // numerator, denominator
-    { 2, 8 },
-    { 2, 7 },
-    { 2, 6 },
-    { 2, 5 },
-    { 2, 4 },
-    { 2, 3 },
-    { 2, 2 },
-    { 3, 2 },
-    { 4, 2 },
-    { 5, 2 },
-    { 6, 2 },
-    { 7, 2 },
-    { 8, 2 },
-};
 
 u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, struct PartyPokemon *partyMon, int flag)
 {
@@ -92,8 +76,8 @@ u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, 
     // debug_printf("[CalcSpeed] %s's base speed: %d\n", client2Nickname, sp->battlemon[client2].speed);
 #endif
 
-    speed1 = (sp->battlemon[client1].speed * StatBoostModifiersLocal[stat_stage_spd1][0] / StatBoostModifiersLocal[stat_stage_spd1][1]) % 65536;
-    speedPartyMon = (GetMonData(partyMon, MON_DATA_SPEED, 0) * StatBoostModifiersLocal[stat_stage_spd2][0] / StatBoostModifiersLocal[stat_stage_spd2][1]) % 65536;
+    speed1 = (sp->battlemon[client1].speed * StatBoostModifiers[stat_stage_spd1][0] / StatBoostModifiers[stat_stage_spd1][1]) % 65536;
+    speedPartyMon = (GetMonData(partyMon, MON_DATA_SPEED, 0) * StatBoostModifiers[stat_stage_spd2][0] / StatBoostModifiers[stat_stage_spd2][1]) % 65536;
 
 #ifdef DEBUG_SPEED_CALC
     debug_printf("\n=================\n");

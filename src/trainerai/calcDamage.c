@@ -16,40 +16,6 @@
 
 //#define DEBUG_DAMAGE_CALC_AI 1
 
-// this has been moved to src/battle/other_battle_calculators.c so it can be used in
-extern const u8 HeldItemPowerUpTable[36][2];
-
-extern const u16 PunchingMovesTable[24];
-
-extern const u16 StrongJawMovesTable[10];
-
-extern const u16 MegaLauncherMovesTable[7];
-
-extern const u16 SharpnessMovesTable[24];
-
-extern const u16 sLowKickWeightToPower[6][2];
-
-static const u8 StatBoostModifiersTemp[][2] = {
-    // numerator, denominator
-    { 2, 8 },
-    { 2, 7 },
-    { 2, 6 },
-    { 2, 5 },
-    { 2, 4 },
-    { 2, 3 },
-    { 2, 2 },
-    { 3, 2 },
-    { 4, 2 },
-    { 5, 2 },
-    { 6, 2 },
-    { 7, 2 },
-    { 8, 2 },
-};
-
-extern const int typeToBerryMapping[18];
-
-extern u8 TypeEffectivenessTable[][3];
-
 int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED, u32 field_cond, u16 pow, u8 type UNUSED, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
     u8 i = 0;
@@ -720,12 +686,12 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 #endif
 
     // Step 3.4. Attack boosts/drops
-    attack = attacker->attack * StatBoostModifiersTemp[attacker->states[STAT_ATTACK] + 6][0];
-    attack /= StatBoostModifiersTemp[attacker->states[STAT_ATTACK] + 6][1];
+    attack = attacker->attack * StatBoostModifiers[attacker->states[STAT_ATTACK] + 6][0];
+    attack /= StatBoostModifiers[attacker->states[STAT_ATTACK] + 6][1];
     attack = attack % 65536;
 
-    sp_attack = attacker->sp_attack * StatBoostModifiersTemp[attacker->states[STAT_SPATK] + 6][0];
-    sp_attack /= StatBoostModifiersTemp[attacker->states[STAT_SPATK] + 6][1];
+    sp_attack = attacker->sp_attack * StatBoostModifiers[attacker->states[STAT_SPATK] + 6][0];
+    sp_attack /= StatBoostModifiers[attacker->states[STAT_SPATK] + 6][1];
     sp_attack = sp_attack % 65536;
 
 #ifdef DEBUG_DAMAGE_CALC_AI
@@ -988,12 +954,12 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 #endif
 
     // Step 4.6. Defense boosts/drops
-    defense = defender->defense * StatBoostModifiersTemp[defender->states[STAT_DEFENSE] + 6][0];
-    defense /= StatBoostModifiersTemp[defender->states[STAT_DEFENSE] + 6][1];
+    defense = defender->defense * StatBoostModifiers[defender->states[STAT_DEFENSE] + 6][0];
+    defense /= StatBoostModifiers[defender->states[STAT_DEFENSE] + 6][1];
     defense = defense % 65536;
 
-    sp_defense = defender->sp_defense * StatBoostModifiersTemp[defender->states[STAT_SPDEF] + 6][0];
-    sp_defense /= StatBoostModifiersTemp[defender->states[STAT_SPDEF] + 6][1];
+    sp_defense = defender->sp_defense * StatBoostModifiers[defender->states[STAT_SPDEF] + 6][0];
+    sp_defense /= StatBoostModifiers[defender->states[STAT_SPDEF] + 6][1];
     sp_defense = sp_defense % 65536;
 
 #ifdef DEBUG_DAMAGE_CALC_AI
@@ -1218,6 +1184,9 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         return 0;
     }
     if (moveno == MOVE_STEEL_ROLLER && sp->terrainOverlay.type == TERRAIN_NONE) {
+        return 0;
+    }
+    if (moveno == MOVE_BELCH && defender->canBelch == FALSE) {
         return 0;
     }
 
