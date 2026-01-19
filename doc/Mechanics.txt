@@ -19,7 +19,7 @@ Fly works between Johto and Kanto.
 Critical hit chance: 1/16.
 Critical hit damage multiplier: 1.5.
 
-Protean/Libero work as Gen8.
+Protean/Libero work as in Gen8.
 Moody can change Accuracy and Evasion.
 Hail has been replaced by Snow.
 Weather abilities/moves: Will set Weather permanently.
