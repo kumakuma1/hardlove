@@ -15403,7 +15403,7 @@ trainerdata 282, "Ned"
         pokemon SPECIES_MAGMORTAR
         item ITEM_SITRUS_BERRY
         move MOVE_LAVA_PLUME
-        move MOVE_THUNDER_PUNCH
+        move MOVE_BELCH
         move MOVE_SOLAR_BEAM
         move MOVE_SCORCHING_SANDS
         ability ABILITY_FLAME_BODY
@@ -27103,9 +27103,9 @@ trainerdata 563, "Ginger" //moved to Olivine Gym
         abilityslot 0
         level LEVEL_JASMINE-2
         pokemon SPECIES_RAMPARDOS
-        item ITEM_LUM_BERRY //TODO blunder policy
-        move MOVE_HEAD_SMASH
-        move MOVE_STOMPING_TANTRUM
+        item ITEM_LIFE_ORB //TODO blunder policy
+        move MOVE_ROCK_SLIDE
+        move MOVE_ZEN_HEADBUTT
         move MOVE_FIRE_PUNCH
         move MOVE_ROCK_POLISH
         ability ABILITY_SHEER_FORCE
@@ -27139,7 +27139,7 @@ trainerdata 563, "Ginger" //moved to Olivine Gym
         abilityslot 0
         level LEVEL_JASMINE-2
         pokemon SPECIES_EXCADRILL
-        item ITEM_LIFE_ORB
+        item ITEM_AIR_BALLOON
         move MOVE_EARTHQUAKE
         move MOVE_IRON_HEAD
         move MOVE_X_SCISSOR
@@ -34220,9 +34220,9 @@ trainerdata 731, "Devin"
     endparty
 
 trainerdata 732, "Grant"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_CAMPER
-    nummons 1
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -34232,11 +34232,76 @@ trainerdata 732, "Grant"
     endentry
 
     party 732
-        // mon 0
         ivs 0
         abilityslot 0
-        level 21
-        pokemon SPECIES_SKIPLOOM
+        level LEVEL_PROTON_2-3
+        pokemon SPECIES_SWANNA
+        item ITEM_FLYING_GEM
+        move MOVE_BRAVE_BIRD
+        move MOVE_FLIP_TURN
+        move MOVE_AQUA_JET
+        move MOVE_WEATHER_BALL
+        ability ABILITY_KEEN_EYE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_HASTY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PROTON_2-4
+        pokemon SPECIES_PALOSSAND
+        item ITEM_LIFE_ORB
+        move MOVE_EARTH_POWER
+        move MOVE_SHADOW_BALL
+        move MOVE_ENERGY_BALL
+        move MOVE_SHORE_UP
+        ability ABILITY_SAND_VEIL
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PROTON_2-4
+        pokemon SPECIES_ESPATHRA
+        item ITEM_SAFETY_GOGGLES
+        move MOVE_LUMINA_CRASH
+        move MOVE_DAZZLING_GLEAM
+        move MOVE_CALM_MIND
+        move MOVE_BATON_PASS
+        ability ABILITY_SPEED_BOOST
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PROTON_2-4
+        pokemon SPECIES_PROBOPASS
+        item ITEM_POWER_HERB
+        move MOVE_METEOR_BEAM
+        move MOVE_FLASH_CANNON
+        move MOVE_DISCHARGE
+        move MOVE_THUNDER_WAVE
+        ability ABILITY_SAND_FORCE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 

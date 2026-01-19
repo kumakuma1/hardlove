@@ -162,6 +162,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         // case MOVE_ICE_BALL:
         // case MOVE_SPIT_UP:
         // case MOVE_PUNISHMENT:
+    case MOVE_POWER_TRIP:
     case MOVE_STORED_POWER:
         positiveStatBoosts = 0;
         for (int stat = 0; stat < 8; stat++) {
