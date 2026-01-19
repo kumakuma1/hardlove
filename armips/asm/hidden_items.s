@@ -263,22 +263,22 @@
 .halfword ITEM_STARDUST
 
 .org 0x02000000 + 0xFA800 //Whirl Islands
-.halfword ITEM_RARE_CANDY
+.halfword ITEM_ICE_GEM
 
 .org 0x02000000 + 0xFA808 //Whirl Islands
-.halfword ITEM_ULTRA_BALL
+.halfword ITEM_DRAGON_GEM
 
 .org 0x02000000 + 0xFA810 //Whirl Islands
-.halfword ITEM_SUPER_REPEL
+.halfword ITEM_FAIRY_GEM
 
 .org 0x02000000 + 0xFA818 //Whirl Islands
-.halfword ITEM_PEARL
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA820 //Whirl Islands
-.halfword ITEM_REVIVE
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA828 //Whirl Islands
-.halfword ITEM_FULL_RESTORE
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA830 //Cianwood E
 .halfword ITEM_REVIVE

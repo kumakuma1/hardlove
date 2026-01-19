@@ -798,7 +798,8 @@ scr_seq_0141_091:
 	goto scr_seq_0141_255
 
 scr_seq_0141_092:
-	setvar VAR_SPECIAL_x8008, 2
+	// Whirls Islands, Northeast island entrance, 1161
+	setvar VAR_SPECIAL_x8008, ITEM_ULTRA_BALL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -809,47 +810,56 @@ scr_seq_0141_093:
 	goto scr_seq_0141_255
 
 scr_seq_0141_094:
-	setvar VAR_SPECIAL_x8008, 78
+	// Whirls Islands B1F, South central, 1163
+	setvar VAR_SPECIAL_x8008, ITEM_ELIXIR
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_095:
-	setvar VAR_SPECIAL_x8008, 48
+	// Whirls Islands B1F, Southwest, 1164
+	setvar VAR_SPECIAL_x8008, ITEM_GYARADOSITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_096:
-	setvar VAR_SPECIAL_x8008, 23
+	// Whirls Islands B1F, Northwest, 1165
+	setvar VAR_SPECIAL_x8008, ITEM_FULL_RESTOE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_097:
-	setvar VAR_SPECIAL_x8008, 92
+	// Whirls Islands B1F, North central, 1166
+	setvar VAR_SPECIAL_x8008, ITEM_NUGGET
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_098:
-	setvar VAR_SPECIAL_x8008, 49
+	// Whirls Islands B1F, Southeast, 1167
+	setvar VAR_SPECIAL_x8008, ITEM_SWAMPERTITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_099:
-	setvar VAR_SPECIAL_x8008, 29
+	// Whirls Islands B2F, north, 1168
+	setvar VAR_SPECIAL_x8008, ITEM_MAX_REVIVE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_100:
-	setvar VAR_SPECIAL_x8008, 23
+	// Whirls Islands B2F, central, 1169
+	setvar VAR_SPECIAL_x8008, ITEM_FULL_RESTORE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_101:
-	setvar VAR_SPECIAL_x8008, 41
+	// Whirls Islands B2F, south, 1170
+	setvar VAR_SPECIAL_x8008, ITEM_MAX_ELIXIR
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_102:
-	setvar VAR_SPECIAL_x8008, 50
+	// Whirls Islands B3F, ledge, 1171
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
