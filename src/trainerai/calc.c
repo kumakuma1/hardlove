@@ -242,28 +242,6 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
 }
 
 
-
-BOOL LONG_CALL BattleAI_IsContactBeingMade(struct BattleStruct *sp, u32 ability, u32 itemHoldEffect, u32 moveno)
-{
-    if (ability == ABILITY_LONG_REACH) {
-        return FALSE;
-    }
-
-    if (itemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS || (itemHoldEffect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG && IsMovePunchingMove(moveno))) {
-        return FALSE;
-    }
-
-    if (itemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS) {
-        return FALSE;
-    }
-
-    if (sp->moveTbl[moveno].flag & FLAG_CONTACT) {
-        return TRUE;
-    }
-
-    return FALSE;
-}
-
 BOOL IsMoveBoostedBySheerForce(u32 moveno, u32 moveeffect)
 {
     BOOL isBoosted = FALSE;

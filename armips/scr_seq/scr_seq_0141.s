@@ -823,7 +823,7 @@ scr_seq_0141_095:
 
 scr_seq_0141_096:
 	// Whirls Islands B1F, Northwest, 1165
-	setvar VAR_SPECIAL_x8008, ITEM_FULL_RESTOE
+	setvar VAR_SPECIAL_x8008, ITEM_FULL_RESTORE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

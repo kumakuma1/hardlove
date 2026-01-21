@@ -476,7 +476,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     }
 
     // handle Tough Claws
-    if ((attacker->ability == ABILITY_TOUGH_CLAWS) && (BattleAI_IsContactBeingMade(sp, attacker->ability, attacker->item_held_effect, moveno))) {
+    if ((attacker->ability == ABILITY_TOUGH_CLAWS) && (IsContactBeingMade(attacker->ability, attacker->item_held_effect, defender->item_held_effect, moveno, sp->moveTbl[moveno].flag))) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
     }
 
@@ -1478,7 +1478,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
     if (!attackerHasMoldBreaker && defender->ability == ABILITY_FLUFFY) {
         // 6.9.6 Fluffy (contact moves)
-        if (BattleAI_IsContactBeingMade(sp, attacker->ability, attacker->item_held_effect, moveno)) {
+        if (IsContactBeingMade(attacker->ability, attacker->item_held_effect, defender->item_held_effect, moveno, sp->moveTbl[moveno].flag)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
         }
 
