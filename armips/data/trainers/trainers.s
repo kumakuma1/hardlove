@@ -931,7 +931,7 @@ trainerdata 13, "Grunt"
 trainerdata 14, "Duncan"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_BURGLAR
-    nummons 3
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -942,20 +942,6 @@ trainerdata 14, "Duncan"
 
     party 14
         // mon 0
-        ivs 0
-        abilityslot 0
-        level 23
-        pokemon SPECIES_KOFFING
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 0
-        level 25
-        pokemon SPECIES_MAGMAR
-        ballseal 0
-
-        // mon 2
         ivs 0
         abilityslot 0
         level 23
@@ -10018,7 +10004,7 @@ trainerdata 184, "Krise"
 trainerdata 185, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10034,19 +10020,12 @@ trainerdata 185, "Grunt"
         level 24
         pokemon SPECIES_RATICATE
         ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 32
-        level 24
-        pokemon SPECIES_RATICATE
-        ballseal 0
     endparty
 
 trainerdata 186, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 3
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10062,26 +10041,12 @@ trainerdata 186, "Grunt"
         level 23
         pokemon SPECIES_GRIMER
         ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 0
-        level 23
-        pokemon SPECIES_GRIMER
-        ballseal 0
-
-        // mon 2
-        ivs 30
-        abilityslot 0
-        level 25
-        pokemon SPECIES_MUK
-        ballseal 0
     endparty
 
 trainerdata 187, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 5
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10097,40 +10062,12 @@ trainerdata 187, "Grunt"
         level 21
         pokemon SPECIES_RATTATA
         ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 32
-        level 21
-        pokemon SPECIES_RATTATA
-        ballseal 0
-
-        // mon 2
-        ivs 30
-        abilityslot 32
-        level 23
-        pokemon SPECIES_RATTATA
-        ballseal 0
-
-        // mon 3
-        ivs 30
-        abilityslot 32
-        level 23
-        pokemon SPECIES_RATTATA
-        ballseal 0
-
-        // mon 4
-        ivs 30
-        abilityslot 32
-        level 23
-        pokemon SPECIES_RATTATA
-        ballseal 0
     endparty
 
 trainerdata 188, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10146,19 +10083,12 @@ trainerdata 188, "Grunt"
         level 26
         pokemon SPECIES_ZUBAT
         ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 0
-        level 26
-        pokemon SPECIES_ZUBAT
-        ballseal 0
     endparty
 
 trainerdata 189, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 4
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10173,27 +10103,6 @@ trainerdata 189, "Grunt"
         abilityslot 0
         level 23
         pokemon SPECIES_KOFFING
-        ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 0
-        level 23
-        pokemon SPECIES_GRIMER
-        ballseal 0
-
-        // mon 2
-        ivs 30
-        abilityslot 0
-        level 23
-        pokemon SPECIES_ZUBAT
-        ballseal 0
-
-        // mon 3
-        ivs 30
-        abilityslot 32
-        level 23
-        pokemon SPECIES_RATTATA
         ballseal 0
     endparty
 
@@ -10221,7 +10130,7 @@ trainerdata 190, "Grunt"
 trainerdata 191, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10237,19 +10146,12 @@ trainerdata 191, "Grunt"
         level 24
         pokemon SPECIES_RATICATE
         ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 0
-        level 26
-        pokemon SPECIES_KOFFING
-        ballseal 0
     endparty
 
 trainerdata 192, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 3
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10265,26 +10167,12 @@ trainerdata 192, "Grunt"
         level 22
         pokemon SPECIES_ZUBAT
         ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 0
-        level 24
-        pokemon SPECIES_GOLBAT
-        ballseal 0
-
-        // mon 2
-        ivs 30
-        abilityslot 0
-        level 22
-        pokemon SPECIES_GRIMER
-        ballseal 0
     endparty
 
 trainerdata 193, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 3
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10299,20 +10187,6 @@ trainerdata 193, "Grunt"
         abilityslot 0
         level 23
         pokemon SPECIES_MUK
-        ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 0
-        level 23
-        pokemon SPECIES_KOFFING
-        ballseal 0
-
-        // mon 2
-        ivs 30
-        abilityslot 32
-        level 25
-        pokemon SPECIES_RATTATA
         ballseal 0
     endparty
 
@@ -10361,7 +10235,7 @@ trainerdata 195, "Grunt"
 trainerdata 196, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10377,19 +10251,12 @@ trainerdata 196, "Grunt"
         level 24
         pokemon SPECIES_RATICATE
         ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 0
-        level 24
-        pokemon SPECIES_GOLBAT
-        ballseal 0
     endparty
 
 trainerdata 197, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10404,13 +10271,6 @@ trainerdata 197, "Grunt"
         abilityslot 0
         level 26
         pokemon SPECIES_GRIMER
-        ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 0
-        level 23
-        pokemon SPECIES_WEEZING
         ballseal 0
     endparty
 
@@ -10438,7 +10298,7 @@ trainerdata 198, "Grunt"
 trainerdata 199, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET_F
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -10449,13 +10309,6 @@ trainerdata 199, "Grunt"
 
     party 199
         // mon 0
-        ivs 30
-        abilityslot 0
-        level 25
-        pokemon SPECIES_GLOOM
-        ballseal 0
-
-        // mon 1
         ivs 30
         abilityslot 0
         level 25
@@ -12093,7 +11946,7 @@ trainerdata 226, "Mickey"
 trainerdata 227, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -12109,19 +11962,12 @@ trainerdata 227, "Grunt"
         level 25
         pokemon SPECIES_KOFFING
         ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 0
-        level 25
-        pokemon SPECIES_KOFFING
-        ballseal 0
     endparty
 
 trainerdata 228, "Grunt"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -12136,13 +11982,6 @@ trainerdata 228, "Grunt"
         abilityslot 0
         level 24
         pokemon SPECIES_KOFFING
-        ballseal 0
-
-        // mon 1
-        ivs 30
-        abilityslot 0
-        level 24
-        pokemon SPECIES_MUK
         ballseal 0
     endparty
 
@@ -15437,7 +15276,7 @@ trainerdata 282, "Ned"
 trainerdata 283, "Orson"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_BURGLAR
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -15456,17 +15295,6 @@ trainerdata 283, "Orson"
         move MOVE_FLAME_WHEEL
         move MOVE_LEER
         move MOVE_BITE
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 0
-        level 24
-        pokemon SPECIES_KOFFING
-        move MOVE_TACKLE
-        move MOVE_SMOG
-        move MOVE_SLUDGE
-        move MOVE_SMOKESCREEN
         ballseal 0
     endparty
 
@@ -22866,7 +22694,7 @@ trainerdata 470, "Gregg"
 trainerdata 471, "Garett"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_SCIENTIST_GS
-    nummons 3
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -22879,20 +22707,6 @@ trainerdata 471, "Garett"
         // mon 0
         ivs 0
         abilityslot 32
-        level 27
-        pokemon SPECIES_MAGNEMITE
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 0
-        level 27
-        pokemon SPECIES_MAGNEMITE
-        ballseal 0
-
-        // mon 2
-        ivs 0
-        abilityslot 0
         level 27
         pokemon SPECIES_MAGNEMITE
         ballseal 0
@@ -23070,7 +22884,7 @@ trainerdata 477, "Mickey"
 trainerdata 478, "Ariana"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_EXECUTIVE_ARIANA
-    nummons 3
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -23089,28 +22903,6 @@ trainerdata 478, "Ariana"
         move MOVE_POISON_STING
         move MOVE_CRUNCH
         move MOVE_GLARE
-        ballseal 0
-
-        // mon 1
-        ivs 100
-        abilityslot 0
-        level 32
-        pokemon SPECIES_VILEPLUME
-        move MOVE_MEGA_DRAIN
-        move MOVE_SWEET_SCENT
-        move MOVE_SLEEP_POWDER
-        move MOVE_ACID
-        ballseal 0
-
-        // mon 2
-        ivs 100
-        abilityslot 32
-        level 32
-        pokemon SPECIES_MURKROW
-        move MOVE_WING_ATTACK
-        move MOVE_PURSUIT
-        move MOVE_ASTONISH
-        move MOVE_NIGHT_SHADE
         ballseal 0
     endparty
 
@@ -23506,7 +23298,7 @@ trainerdata 486, "Proton"
 trainerdata 487, "Petrel"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_EXECUTIVE_PETREL
-    nummons 6
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -23523,61 +23315,6 @@ trainerdata 487, "Petrel"
         pokemon SPECIES_KOFFING
         move MOVE_TACKLE
         move MOVE_SELF_DESTRUCT
-        move MOVE_SLUDGE
-        move MOVE_SMOKESCREEN
-        ballseal 0
-
-        // mon 1
-        ivs 100
-        abilityslot 0
-        level 30
-        pokemon SPECIES_KOFFING
-        move MOVE_TACKLE
-        move MOVE_SELF_DESTRUCT
-        move MOVE_SLUDGE
-        move MOVE_SMOKESCREEN
-        ballseal 0
-
-        // mon 2
-        ivs 100
-        abilityslot 0
-        level 30
-        pokemon SPECIES_KOFFING
-        move MOVE_TACKLE
-        move MOVE_SELF_DESTRUCT
-        move MOVE_SLUDGE
-        move MOVE_SMOKESCREEN
-        ballseal 0
-
-        // mon 3
-        ivs 100
-        abilityslot 0
-        level 32
-        pokemon SPECIES_WEEZING
-        move MOVE_TACKLE
-        move MOVE_EXPLOSION
-        move MOVE_SLUDGE
-        move MOVE_SMOKESCREEN
-        ballseal 0
-
-        // mon 4
-        ivs 100
-        abilityslot 0
-        level 30
-        pokemon SPECIES_KOFFING
-        move MOVE_TACKLE
-        move MOVE_SELF_DESTRUCT
-        move MOVE_SLUDGE
-        move MOVE_SMOKESCREEN
-        ballseal 0
-
-        // mon 5
-        ivs 100
-        abilityslot 0
-        level 30
-        pokemon SPECIES_KOFFING
-        move MOVE_TACKLE
-        move MOVE_SMOG
         move MOVE_SLUDGE
         move MOVE_SMOKESCREEN
         ballseal 0
@@ -32540,7 +32277,7 @@ trainerdata 705, "Karen"
 trainerdata 706, "Proton"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_EXECUTIVE_PROTON
-    nummons 2
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -32559,17 +32296,6 @@ trainerdata 706, "Proton"
         move MOVE_BITE
         move MOVE_CONFUSE_RAY
         move MOVE_WING_ATTACK
-        ballseal 0
-
-        // mon 1
-        ivs 100
-        abilityslot 0
-        level 33
-        pokemon SPECIES_WEEZING
-        move MOVE_DOUBLE_HIT
-        move MOVE_SLUDGE
-        move MOVE_SMOKESCREEN
-        move MOVE_SMOG
         ballseal 0
     endparty
 
