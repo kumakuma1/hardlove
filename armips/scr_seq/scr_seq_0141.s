@@ -555,7 +555,7 @@ scr_seq_0141_048:
 
 scr_seq_0141_049:
 	//Goldenrod rocket basement central, 1078
-	setvar VAR_SPECIAL_x8008, 409
+	setvar VAR_SPECIAL_x8008, ITEM_HEART_SCALE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -597,13 +597,13 @@ scr_seq_0141_055:
 
 scr_seq_0141_056:
 	//goldenrod rocket labyrinth, north, 1095
-	setvar VAR_SPECIAL_x8008, 27
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_057:
 	//goldenrod rocket labyrinth, south, 1096
-	setvar VAR_SPECIAL_x8008, 228
+	setvar VAR_SPECIAL_x8008, ITEM_TM076
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

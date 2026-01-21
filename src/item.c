@@ -88,7 +88,7 @@ static const u16 sMachineMoves[] = {
     MOVE_THUNDER_WAVE,     // TM073
     MOVE_GYRO_BALL,        // TM074
     MOVE_SWORDS_DANCE,     // TM075
-    MOVE_STEALTH_ROCK,     // TM076
+    MOVE_FOUL_PLAY,     // TM076
     MOVE_PSYCH_UP,         // TM077
     MOVE_CAPTIVATE,        // TM078
     MOVE_DARK_PULSE,       // TM079
