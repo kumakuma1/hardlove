@@ -561,7 +561,7 @@ scr_seq_0141_049:
 
 scr_seq_0141_050:
 	//Goldenrod rocket basement south, 1079
-	setvar VAR_SPECIAL_x8008, 39
+	setvar VAR_SPECIAL_x8008, ITEM_AMULET_COIN
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -579,7 +579,7 @@ scr_seq_0141_052:
 
 scr_seq_0141_053:
 	//goldenrod Department Store basement, north east, 1091
-	setvar VAR_SPECIAL_x8008, 223
+	setvar VAR_SPECIAL_x8008, ITEM_MASTER_BALL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

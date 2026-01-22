@@ -3709,6 +3709,9 @@ Function 2:
 	Message 26
 	CloseMessage 
 	SetVar 0x4024 10
+	SetVar 0x40EA 1 //legendary in embedded tower
+	GetRandom 0x800C 8 //random legendary
+	SetVarFromVariable 0x40B3 0x800C
 	ReleaseAll 
 End 
 
@@ -4031,3 +4034,113 @@ There is no Team Rocket!\rI thought you were different!\r
 I feel so stupid and embarrassed for\ncoming to this date!\r...\r
 55: No! You know what?\nThis is your fault!\fI am furious right now!\rI’ll let the boys handle you!\r
 56: Whitney: You are so strong!\r...\rI have to think about it...\rBut you can have this souvenir!\nThat way, you’ll always be thinking\fabout me!\r
+
+
+
+
+##legendary in embedded tower
+OW 0 - 7
+Trigger 16618/0x40EA  == 1
+Legendary is set by  16563/0x40B3
+
+Script 4:
+	CheckFlag 721
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x40B3 0
+	CallIf EQUAL Function#6
+	CompareVarValue 0x40B3 1
+	CallIf EQUAL Function#7
+	CompareVarValue 0x40B3 2
+	CallIf EQUAL Function#8
+	CompareVarValue 0x40B3 3
+	CallIf EQUAL Function#9
+	CompareVarValue 0x40B3 4
+	CallIf EQUAL Function#10
+	CompareVarValue 0x40B3 5
+	CallIf EQUAL Function#11
+	CompareVarValue 0x40B3 6
+	CallIf EQUAL Function#12
+	CompareVarValue 0x40B3 7
+	CallIf EQUAL Function#13
+End 
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 0x4005 0
+	Message 0
+	WaitCry 
+	CloseMessage 
+	SetVarFromVariable 0x8005 0x416F
+	SetFlag 164
+	WildBattleSp 0x4005 0x8005 0
+	ClearFlag 164
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	SetFlag 721
+	SetVar 0x40EA 0
+	ReleaseAll 
+End 
+
+Script 6:
+	CheckFlag 164
+	JumpIf EQUAL Function#14
+End 
+
+Function 5:
+End 
+
+Function 6:
+	SetVar 0x4005 244
+	SetOWPosition Overworld.0 16 0 11 Down
+End 
+
+Function 7:
+	SetVar 0x4005 381
+	SetOWPosition Overworld.1 16 0 11 Down
+End 
+
+Function 8:
+	SetVar 0x4005 380
+	SetOWPosition Overworld.2 16 0 11 Down
+End 
+
+Function 9:
+	SetVar 0x4005 488
+	SetOWPosition Overworld.3 16 0 11 Down
+End 
+
+Function 10:
+	SetVar 0x4005 691
+	SetOWPosition Overworld.4 16 0 11 Down
+End 
+
+Function 11:
+	SetVar 0x4005 692
+	SetOWPosition Overworld.5 16 0 11 Down
+End 
+
+Function 12:
+	SetVar 0x4005 695
+	SetOWPosition Overworld.6 16 0 11 Down
+End 
+
+Function 13:
+	SetVar 0x4005 955
+	SetOWPosition Overworld.7 16 0 11 Down
+End 
+
+Function 14:
+    SetFlag 721
+	RemoveOW Overworld.0
+	RemoveOW Overworld.1
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+    RemoveOW Overworld.4
+	RemoveOW Overworld.5
+	RemoveOW Overworld.6
+	RemoveOW Overworld.7
+	ClearFlag 164
+End 

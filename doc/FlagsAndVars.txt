@@ -90,7 +90,7 @@ Variables
 16520    : Misty/Eusine/Suicune event on Route 25
 16521    : Misty/Eusine/Suicune event on Route 25
 16587/0x40CB : SS Aqua event line with little girl.  Set to 7 after completion
-16618/0x40EA   : Headbutt Event in Ilex, removed. Used for Legendary in embedded tower
+16618/0x40EA   : Headbutt Event in Ilex, removed. Used for Legendary in embedded tower, use 16563/0x40B3 for pokemon
 0x40F4   : Student with Cut In Ilex
 0x40FA/16634 : Alola Girls event in Whirl islands
 0x4114   : Spearow/kenya delivery progress
