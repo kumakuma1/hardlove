@@ -842,7 +842,7 @@ trainerdata 12, "Ariana"
         ballseal 0
     endparty
 
-trainerdata 13, "Grunt"
+trainerdata 13, "Grunt #2"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 4
@@ -6935,7 +6935,7 @@ trainerdata 100, "Anthony"
         ballseal 0
     endparty
 
-trainerdata 101, "Grunt"
+trainerdata 101, "Grunt #1"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 3
@@ -7712,7 +7712,7 @@ trainerdata 121, "Kelly"
 
 trainerdata 122, "Marvin"
     trainermontype TRAINER_DATA_TYPE_MOVES
-    trainerclass TRAINERCLASS_FISHERMAN
+    trainerclass TRAINERCLASS_ACE_TRAINER_M
     nummons 3
     item ITEM_NONE
     item ITEM_NONE
@@ -9553,7 +9553,7 @@ trainerdata 178, "Jack"
         ballseal 0
    endparty
 
-trainerdata 179, "Grunt #1"
+trainerdata 179, "Grunt #19"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 4
@@ -9948,7 +9948,7 @@ trainerdata 184, "Krise"
         ballseal 0
     endparty
 
-trainerdata 185, "Grunt"
+trainerdata 185, "Grunt #26"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -9969,7 +9969,7 @@ trainerdata 185, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 186, "Grunt"
+trainerdata 186, "Grunt #30"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -9990,7 +9990,7 @@ trainerdata 186, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 187, "Grunt"
+trainerdata 187, "Grunt #28"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -10011,7 +10011,7 @@ trainerdata 187, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 188, "Grunt"
+trainerdata 188, "Grunt #29"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -10032,7 +10032,7 @@ trainerdata 188, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 189, "Grunt"
+trainerdata 189, "Grunt #31"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -10053,7 +10053,7 @@ trainerdata 189, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 190, "Grunt"
+trainerdata 190, "Grunt #32"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -10074,7 +10074,7 @@ trainerdata 190, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 191, "Grunt"
+trainerdata 191, "Grunt #41"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -10095,7 +10095,7 @@ trainerdata 191, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 192, "Grunt"
+trainerdata 192, "Grunt #33"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -10116,7 +10116,7 @@ trainerdata 192, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 193, "Grunt"
+trainerdata 193, "Grunt #34"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -10158,7 +10158,7 @@ trainerdata 194, "Mickey"
         ballseal 0
     endparty
 
-trainerdata 195, "Grunt"
+trainerdata 195, "Grunt #36"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -10179,7 +10179,7 @@ trainerdata 195, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 196, "Grunt"
+trainerdata 196, "Grunt #38"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -10200,7 +10200,7 @@ trainerdata 196, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 197, "Grunt"
+trainerdata 197, "Grunt #39"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -10221,7 +10221,7 @@ trainerdata 197, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 198, "Grunt"
+trainerdata 198, "Grunt #27"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 1
@@ -10242,7 +10242,7 @@ trainerdata 198, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 199, "Grunt"
+trainerdata 199, "Grunt #37"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 1
@@ -11309,7 +11309,7 @@ trainerdata 215, "Connie"
         ballseal 0
     endparty
 
-trainerdata 216, "Grunt #8"
+trainerdata 216, "Grunt #14"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -11380,7 +11380,7 @@ trainerdata 217, "Denis"
         ballseal 0
     endparty
 
-trainerdata 218, "Grunt #3"
+trainerdata 218, "Grunt #18"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 5
@@ -11487,7 +11487,7 @@ trainerdata 218, "Grunt #3"
         ballseal 0
     endparty
 
-trainerdata 219, "Grunt #2"
+trainerdata 219, "Grunt #20"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 5
@@ -11592,7 +11592,7 @@ trainerdata 219, "Grunt #2"
         ballseal 0
     endparty
 
-trainerdata 220, "Grunt #1"
+trainerdata 220, "Grunt #16"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 4
@@ -11806,7 +11806,7 @@ trainerdata 222, "Admin Sheldon"
         ballseal 0
     endparty
 
-trainerdata 223, "Grunt #2"
+trainerdata 223, "Grunt #8"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -11827,7 +11827,7 @@ trainerdata 223, "Grunt #2"
         ballseal 0
     endparty
 
-trainerdata 224, "Grunt #3"
+trainerdata 224, "Grunt #9"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -11890,7 +11890,7 @@ trainerdata 226, "Mickey"
         ballseal 0
     endparty
 
-trainerdata 227, "Grunt"
+trainerdata 227, "Grunt #40"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -11911,7 +11911,7 @@ trainerdata 227, "Grunt"
         ballseal 0
     endparty
 
-trainerdata 228, "Grunt"
+trainerdata 228, "Grunt #35"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -12222,9 +12222,9 @@ trainerdata 234, "Eoin"
     endparty
 
 trainerdata 235, "Noland"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_HIKER
-    nummons 2
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -12233,19 +12233,77 @@ trainerdata 235, "Noland"
     battletype SINGLE_BATTLE
     endentry
 
-    party 235
-        // mon 0
+     party 235
         ivs 0
         abilityslot 0
-        level 39
-        pokemon SPECIES_BRONZOR
+        level LEVEL_JASMINE-4
+        pokemon SPECIES_BOMBIRDIER
+        item ITEM_CHOICE_SCARF
+        move MOVE_DUAL_WINGBEAT
+        move MOVE_KNOCK_OFF
+        move MOVE_ROCK_SLIDE
+        move MOVE_PARTING_SHOT
+        ability ABILITY_ROCKY_PAYLOAD
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0 
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
-        abilityslot 32
-        level 42
-        pokemon SPECIES_GOLEM
+        abilityslot 0
+        level LEVEL_JASMINE-4
+        pokemon SPECIES_MUDSDALE
+        item ITEM_ASSAULT_VEST
+        move MOVE_EARTHQUAKE
+        move MOVE_BODY_PRESS
+        move MOVE_IRON_HEAD
+        move MOVE_ROCK_SLIDE
+        ability ABILITY_STAMINA
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-4
+        pokemon SPECIES_LUXRAY
+        item ITEM_CHOICE_BAND
+        move MOVE_WILD_CHARGE
+        move MOVE_PSYCHIC_FANGS
+        move MOVE_CRUNCH
+        move MOVE_PLAY_ROUGH
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-4
+        pokemon SPECIES_SIMISAGE
+        item ITEM_CHOICE_SPECS
+        move MOVE_ENERGY_BALL
+        move MOVE_FOCUS_BLAST
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_OVERGROW
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -15906,7 +15964,7 @@ trainerdata 296, "Nikki"
         ballseal 0
     endparty
 
-trainerdata 297, "Grunt #1"
+trainerdata 297, "Grunt #24"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -15984,7 +16042,7 @@ trainerdata 299, "Hank"
         ballseal 0
     endparty
 
-trainerdata 300, "Grunt #3"
+trainerdata 300, "Grunt #23"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 4
@@ -16970,7 +17028,7 @@ trainerdata 327, "Danny"
         ballseal 0
     endparty
 
-trainerdata 328, "Grunt #4"
+trainerdata 328, "Grunt #10"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -17522,7 +17580,8 @@ trainerdata 348, "Robert"
         ballseal 0
     endparty
 
-trainerdata 349, "Grunt" //moved to route 47
+//moved to route 47
+trainerdata 349, "Grunt #3" 
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 4
@@ -18680,7 +18739,7 @@ trainerdata 381, "Jason"
         ballseal 0
     endparty
 
-trainerdata 382, "Grunt #5"
+trainerdata 382, "Grunt #11"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -19728,23 +19787,88 @@ trainerdata 398, "Valerie"
 	endparty
 
 trainerdata 399, "Lyle"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_FIREBREATHER
-    nummons 1
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_EVALUATE_ATTACKS | 0
-    battletype SINGLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
-    party 399
-        // mon 0
+     party 399
         ivs 0
         abilityslot 0
-        level 36
-        pokemon SPECIES_KOFFING
+        level LEVEL_JASMINE-4
+        pokemon SPECIES_ARCANINE
+        item ITEM_FIRE_GEM
+        move MOVE_BURN_UP
+        move MOVE_WILD_CHARGE
+        move MOVE_CLOSE_COMBAT
+        move MOVE_EXTREME_SPEED
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0 
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-4
+        pokemon SPECIES_CRABOMINABLE
+        item ITEM_FOCUS_SASH
+        move MOVE_CLOSE_COMBAT
+        move MOVE_ICE_HAMMER
+        move MOVE_CRABHAMMER
+        move MOVE_IRON_HEAD
+        ability ABILITY_ANGER_POINT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-3
+        pokemon SPECIES_OINKOLOGNE
+        item ITEM_SALAC_BERRY
+        move MOVE_BODY_SLAM
+        move MOVE_BODY_PRESS
+        move MOVE_PLAY_ROUGH
+        move MOVE_STUFF_CHEEKS
+        ability ABILITY_GLUTTONY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-4
+        monwithform SPECIES_WEEZING, 1
+        item ITEM_LIFE_ORB
+        move MOVE_PLAY_ROUGH
+        move MOVE_GUNK_SHOT
+        move MOVE_EXPLOSION
+        move MOVE_DESTINY_BOND
+        ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -20665,7 +20789,7 @@ trainerdata 419, "Ellen"
         ballseal 0
     endparty
 
-trainerdata 420, "Grunt"
+trainerdata 420, "Grunt #6"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 5
@@ -20930,9 +21054,9 @@ trainerdata 424, "Colin"
     endparty
 
 trainerdata 425, "Meg & Peg"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TWINS
-    nummons 2
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -20941,19 +21065,77 @@ trainerdata 425, "Meg & Peg"
     battletype DOUBLE_BATTLE
     endentry
 
-    party 425
-        // mon 0
-        ivs 0
-        abilityslot 32
-        level 39
-        pokemon SPECIES_TEDDIURSA
-        ballseal 0
-
-        // mon 1
+     party 425
         ivs 0
         abilityslot 0
-        level 39
-        pokemon SPECIES_PHANPY
+        level LEVEL_JASMINE-3
+        pokemon SPECIES_URSARING
+        item ITEM_TOXIC_ORB
+        move MOVE_FACADE
+        move MOVE_CRUNCH
+        move MOVE_PLAY_ROUGH
+        move MOVE_SWORDS_DANCE
+        ability ABILITY_QUICK_FEET
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0 
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-4
+        pokemon SPECIES_AMOONGUSS
+        item ITEM_SITRUS_BERRY
+        move MOVE_BODY_SLAM
+        move MOVE_FOUL_PLAY
+        move MOVE_RAGE_POWDER
+        move MOVE_SPORE
+        ability ABILITY_EFFECT_SPORE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_BOLD
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-4
+        pokemon SPECIES_INCINEROAR
+        item ITEM_SITRUS_BERRY
+        move MOVE_FLARE_BLITZ
+        move MOVE_KNOCK_OFF
+        move MOVE_FAKE_OUT
+        move MOVE_CROSS_CHOP
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-4
+        pokemon SPECIES_MIMIKYU
+        item ITEM_LIFE_ORB
+        move MOVE_SHADOW_CLAW
+        move MOVE_SHADOW_SNEAK
+        move MOVE_PLAY_ROUGH
+        move MOVE_SWORDS_DANCE
+        ability ABILITY_DISGUISE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -23602,7 +23784,8 @@ trainerdata 491, "Silver"
         ballseal 0
     endparty
 
-trainerdata 492, "Grunt" //moved to route 47
+ //moved to route 47
+trainerdata 492, "Grunt #4"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 4
@@ -26407,7 +26590,8 @@ trainerdata 559, "Tim & Sue"
         ballseal 0
     endparty
 
-trainerdata 560, "Grunt" //moved to route 47
+//moved to route 47
+trainerdata 560, "Grunt #5"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 4
@@ -26805,7 +26989,7 @@ trainerdata 563, "Ginger" //moved to Olivine Gym
         ballseal 0
    endparty
 
-trainerdata 564, "Grunt #1"
+trainerdata 564, "Grunt #7"
     trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_TEAM_ROCKET_F
     nummons 2
@@ -26843,7 +27027,7 @@ trainerdata 564, "Grunt #1"
         ballseal 0
     endparty
 
-trainerdata 565, "Grunt #2"
+trainerdata 565, "Grunt #22"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 4
@@ -26929,7 +27113,7 @@ trainerdata 565, "Grunt #2"
         ballseal 0
     endparty
 
-trainerdata 566, "Grunt #2"
+trainerdata 566, "Grunt #17"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 5
@@ -27036,7 +27220,7 @@ trainerdata 566, "Grunt #2"
         ballseal 0
     endparty
 
-trainerdata 567, "Grunt #9"
+trainerdata 567, "Grunt #15"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -27057,7 +27241,8 @@ trainerdata 567, "Grunt #9"
         ballseal 0
     endparty
 
-trainerdata 568, "Grunt #1" //School Kid Travis
+//School Kid Travis
+trainerdata 568, "Grunt #21"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 4
@@ -27179,7 +27364,7 @@ trainerdata 569, "Kay & Tia"
         ballseal 0
     endparty
 
-trainerdata 570, "Grunt #7"
+trainerdata 570, "Grunt #13"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -27200,7 +27385,7 @@ trainerdata 570, "Grunt #7"
         ballseal 0
     endparty
 
-trainerdata 571, "Grunt #6"
+trainerdata 571, "Grunt #12"
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
@@ -30895,7 +31080,7 @@ trainerdata 675, "Lance"
         ballseal 0
     endparty
 
-trainerdata 676, "Grunt #2"
+trainerdata 676, "Grunt #25"
     trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_TEAM_ROCKET
     nummons 1
