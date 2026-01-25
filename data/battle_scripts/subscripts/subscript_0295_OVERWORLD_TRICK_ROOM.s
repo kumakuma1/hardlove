@@ -5,6 +5,8 @@
 _000:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_PAY_DAY_COUNT, 2, _spikesWeather
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_PAY_DAY_COUNT, 4, _randomTerrain
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_PAY_DAY_COUNT, 6, _enemyTailwind
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_PAY_DAY_COUNT, 8, _enemyTailwind
 
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_TRICK_ROOM
     PlayMoveAnimation BATTLER_CATEGORY_MSG_TEMP
@@ -54,6 +56,18 @@ _randomTerrain:
     Call BATTLE_SUBSCRIPT_CREATE_TERRAIN_OVERLAY
     End
 
+_enemyTailwind:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_TAILWIND
+    PlayMoveAnimation BATTLER_CATEGORY_MSG_TEMP
+    Wait
+
+    // The Tailwind blew from behind your team!
+    PrintMessage 1230, TAG_NONE_SIDE, BATTLER_CATEGORY_ENEMY
+    Wait 
+    WaitButtonABTime 30
+    SetTailwindCounter BATTLER_CATEGORY_ENEMY
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_PAY_DAY_COUNT, 0
+    End
 
 _010:
     End

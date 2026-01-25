@@ -81,7 +81,11 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         default:
                             if (CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG))
                             {
+                                scriptnum = SUB_SEQ_OVERWORLD_TRICK_ROOM;
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+
                                 u32 weatherCase = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE);
+                                debug_printf("weather %d\n", weatherCase);
                                 switch (weatherCase)
                                 {
                                 case 0: // OW trick room
@@ -108,13 +112,21 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                         sp->current_move_index = MOVE_ELECTRIC_TERRAIN;
                                         break;
                                     }
-                                    
+                                    break;
+                                case 5:
+                                    scriptnum = SUB_SEQ_OVERWORLD_FOG;
+                                    break;
+                                case 6:
+                                    sp->koban_counter = 6; //tailwind
+                                    break;
+                                case 7: //crit
+                                    break;
+                                case 8:
+                                    sp->koban_counter = 8; //crit + tailwind
+                                    break;
                                 default:
                                     break;
                                 }
-
-                                scriptnum = SUB_SEQ_OVERWORLD_TRICK_ROOM;
-                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             }
                             break;
                     }

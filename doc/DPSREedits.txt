@@ -2383,11 +2383,11 @@ Script 27:
     Message 15
     Message 16
 	CloseMessage 
-	SetFlag 2591  // permanent OW weather
+	SetFlag 2598  // permanent OW weather
     SetVar 16421 1
 	TrainerBattle 255 0 0 0
     SetVar 16421 0
-    ClearFlag 2591
+    ClearFlag 2598
 	CheckBattleIsLost 0x800C
 	CompareVarValue 0x800C 0
 	JumpIf EQUAL Function#10
@@ -4144,3 +4144,26 @@ Function 14:
 	RemoveOW Overworld.7
 	ClearFlag 164
 End 
+
+
+
+
+
+
+#### Rival Fight
+Clear flags before fight
+ClearFlag 2598
+SetVar 0x4025 0
+
+After fights
+SetFlag 2598
+SetVar 0x4025 5
+
+\v0103ぁ\x0000\x0000: Hold it!\rAre you still wasting your time\nbeating those Rocket goons?\r
+You will never defeat Archer anyway...\rNot with those silly lessons from\nLance about love and trust.\r
+What a joke. I found that power is\nmuch simpler. I'll finally get back\fat you for standing in my way!\r
+
+
+
+
+### Archer

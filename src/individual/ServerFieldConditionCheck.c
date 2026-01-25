@@ -1368,6 +1368,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                             if (sp->tailwindCount[side])  // update tailwind to use a separate counter so it can be larger
                             {
+                                if (side == 1 && CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG) && GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE) == 6) {
+                                    sp->tailwindCount[side] = 4;
+                                }
                                 if (--sp->tailwindCount[side] == 0) {
                                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TAILWIND_END);
                                     sp->next_server_seq_no = sp->server_seq_no;

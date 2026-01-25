@@ -1203,11 +1203,33 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         return 0;
     }
 
-    if (attacker->item == ITEM_SCOPE_LENS && attacker->ability == ABILITY_SUPER_LUCK && defender->ability != ABILITY_SHELL_ARMOR && defender->ability != ABILITY_BATTLE_ARMOR) {
-        if (move.effect == MOVE_EFFECT_HIGH_CRITICAL) {
+    u32 critCondition = 1;
+    if (attacker->condition2 & STATUS2_FOCUS_ENERGY || (attacker->item_held_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP && attacker->species == SPECIES_SIRFETCHD)) {
+        critCondition += 2;
+    }
+    if (attacker->item_held_effect == HOLD_EFFECT_CRITRATE_UP) {
+        critCondition++;
+    }
+    if (attacker->ability == ABILITY_SUPER_LUCK) {
+        critCondition++;
+    }
+    if (move.effect == MOVE_EFFECT_HIGH_CRITICAL) {
+        critCondition++;
+    }
+
+    u32 weather = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE);
+    if (CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG) && (weather == 7 || weather == 8) && (attackerSlot == 1 || attackerSlot == 3)) {
+        critCondition++;
+    }
+
+    if (critCondition >= 4) { // guaranteed crit
+        if (!attackerHasMoldBreaker && (defender->ability == ABILITY_SHELL_ARMOR || defender->ability == ABILITY_BATTLE_ARMOR)) {
+            ; // do nothing, crit is prevented
+        } else {
             critical = 2;
         }
-    }
+     }
+        
     damage = BattleAI_CalcBaseDamage(bw, sp, moveno, side_cond, field_cond, pow, movetype, critical, attackerSlot, defenderSlot, attacker, defender);
 
     //=====Step 6. General Damage Modifiers=====
