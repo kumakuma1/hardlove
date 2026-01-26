@@ -95,6 +95,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     sp->koban_counter = 2;
                                     break;
                                 case 3://no switch
+                                    scriptnum = 0;
                                     break;
                                 case 4:
                                     sp->koban_counter = 4;
@@ -120,6 +121,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     sp->koban_counter = 6; //tailwind
                                     break;
                                 case 7: //crit
+                                    scriptnum = 0;
                                     break;
                                 case 8:
                                     sp->koban_counter = 8; //crit + tailwind
