@@ -300,7 +300,7 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         moveScore -= IMPOSSIBLE_MOVE; // taunted, so no status moves
     }
     if ((IsPowderMove(ai->attackerMove) || ai->attackerMove == MOVE_LEECH_SEED) && HasType(ctx, ai->defender, TYPE_GRASS)) {
-        moveScore -= IMPOSSIBLE_MOVE;
+        moveScore -= IMMUNE_TO_MOVE;
     }
 
     // if (ctx->clientPriority[ctx->attack_client] > 0 && GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_PRANKSTER && HasType(ctx, defender, TYPE_DARK) && (ctx->attack_client & 1) != (defender & 1)) // used on an enemy
@@ -331,21 +331,20 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_SET_SPIKES:
-        if (ctx->scw[ai->defenderSide].spikesLayers >= 3) {
+        if (ctx->scw[ai->defenderSide].spikesLayers >= 3 || ai->livingMembersDefender == 1) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
     case MOVE_EFFECT_TOXIC_SPIKES:
-        if (ctx->scw[ai->defenderSide].toxicSpikesLayers >= 2) {
+        if (ctx->scw[ai->defenderSide].toxicSpikesLayers >= 2 || ai->livingMembersDefender == 1) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
     case MOVE_EFFECT_STICKY_WEB:
-        if (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_STICKY_WEB) {
+        if (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_STICKY_WEB || ai->livingMembersDefender == 1) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
-        //case MOVE_STEEL_ROLLER && ctx->terrainOverlay.type == TERRAIN_NONE //TODO
     case MOVE_EFFECT_APPLY_TERRAINS: {
         switch (ai->attackerMove) {
         case MOVE_GRASSY_TERRAIN:

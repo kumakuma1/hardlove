@@ -85,6 +85,7 @@ Variables
 
                 10: Set at rocket event in whirl island
                 11: set by whitney rematch in goldenrod, needs trigger == 10
+                12: set by archer even in radio tower
 
 0x4057   : Boaboa and Safari Zone tests
 16520    : Misty/Eusine/Suicune event on Route 25
