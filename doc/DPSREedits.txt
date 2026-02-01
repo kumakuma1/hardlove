@@ -4167,3 +4167,199 @@ What a joke. I found that power is\nmuch simpler. I'll finally get back\fat you 
 
 
 ### Archer
+Script 1:
+	SetFlag 439
+	SetFlag 440
+	SetVar 0x4125 0
+	CompareVarValue 0x4077 4
+	JumpIf DIFFERENT Function#1
+	ClearFlag 439
+	ClearFlag 440
+End 
+
+Script 2:
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+Jump Function#2
+
+Script 3:
+	LockAll 
+	Movement Player Action#2
+	WaitMovement 
+Jump Function#2
+
+Script 4:
+	LockAll 
+	Movement Player Action#3
+	WaitMovement 
+Jump Function#2
+
+Function 1:
+End 
+
+Function 2:
+	TextPlayerName 0
+	Message 10
+	CloseMessage 
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	Message 12
+	CloseMessage 
+	Movement Overworld.0 Action#5
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	Movement Overworld.0 Action#6
+	WaitMovement 
+	Message 14
+	CloseMessage 
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Message 15
+	CloseMessage 
+	Movement Overworld.0 Action#8
+	WaitMovement 
+	Message 16
+	CloseMessage 
+	Movement Overworld.0 Action#9
+	WaitMovement 
+	Message 17
+	CloseMessage 
+	Movement Overworld.0 Action#10
+	WaitMovement 
+	Message 18
+	CloseMessage 
+	Movement Overworld.0 Action#11
+	WaitMovement 
+	Message 19
+	CloseMessage 
+	Movement Overworld.0 Action#12
+	WaitMovement 
+	Message 20
+	CloseMessage 
+	Movement Player Action#13
+	WaitMovement 
+	TrainerBattle 485 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	Message 1
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.0
+	PlayFanfare 1538
+	WaitFanfare 1538
+	ClearFlag 2459
+	FadeOutMusic 0 30
+	StopMusic 0
+	WaitTime 15 0x800C
+	PlayDefaultMusic 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetOWPosition Overworld.1 8 1 12 Down
+	Movement Overworld.1 Action#14
+Jump Function#4
+
+Function 3:
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 4:
+	WaitMovement 
+	Movement Player Action#15
+	WaitMovement 
+	Message 2
+	SetVar 0x8004 483
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 147
+	Message 5
+	CloseMessage 
+	Movement Overworld.1 Action#16
+	WaitMovement 
+	PlayFanfare 1543
+	WaitFanfare 1543
+	WaitTime 8 0x800C
+	RemoveOW Overworld.1
+	PlayFanfare 1538
+	WaitFanfare 1538
+	SetVar 0x4077 5
+	SetFlag 198
+	ClearFlag 710
+	SetFlag 711
+	CompareVarValue 0x40F8 2
+	JumpIf DIFFERENT Function#5
+	SetVar 0x40F8 0
+	SetVar 0x407A 1
+	ClearFlag 487
+	SetFlag 512
+	ClearFlag 513
+	SetFlag 2456
+	SetFlag 2429
+	SetVar 0x4024 12
+	ReleaseAll 
+End 
+
+Function 5:
+	SetVar 0x407A 1
+	ClearFlag 487
+	SetFlag 512
+	ClearFlag 513
+	SetFlag 2456
+	SetFlag 2429
+	SetVar 0x4024 12
+	ReleaseAll 
+End 
+
+10: Archer: \v0103ぁ\x0000\x0000. I knew you’d come.\nYou’ve shown yourself to be so...\fresourceful. A shame, really.\r
+Right here, today, you will witness\nhistory. I have just returned from a\fmost exquisite transaction.\r
+Right here, today, you will witness\nhistory. I have just returned from a\fmost exquisite transaction.\r
+Some rich and powerful people were\nready to pay any price for the\fMahogany blueprints.\r
+It’s not money I was after, but rather\nthis ancient artifact. The key to a\fdoor locked for eons.\rIt does not just command a beast,\nit commands the very foundations of\fthe earth.\r
+\v0103ぁ\x0000\x0000, I have looked into the eyes\nof a god, and I did not blink.\r
+But do not despair. I do not seek\nruin. I seek order.\r
+Look at this rotting world.\nThe hunger, the wars, the weak\fleaders.\rIt is screaming for a steady hand.\rMy hand.\r
+Through this tower, my message will be\nthe last the old world ever hears:\rSurrender and thrive, or resist and\nvanish.\r
+I have rebuilt Team Rocket to save\nthe world from itself.\r
+20: Are you ready, \v0103ぁ\x0000\x0000?\nStep forward and experience the birth\fof a new paradigm!\r
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Dark cave mawilite
+CheckFlag 223
+	JumpIf EQUAL Function#1
+	Message 0
+	SetVar 0x8004 240 -> 681
+	SetVar 0x8005 1

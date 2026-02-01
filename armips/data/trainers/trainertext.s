@@ -628,7 +628,7 @@ _0504: // Trainer 676
     trainertextentry 676, TEXT_DEFEATED_IN_OVERWORLD, "Misty says I have gotten much better\nin the past few years.\rBut there are still Trainers who are\nstronger than me.\n"
 
 _0510: // Trainer 677
-    trainertextentry 677, TEXT_NOTICE_IN_OVERWORLD, "I’ve been relaxing poolside, so I’ve got\nenough strength!\r"
+    trainertextentry 677, TEXT_NOTICE_IN_OVERWORLD, "Sailors have huge strength!\r"
     trainertextentry 677, TEXT_DEFEATED_IN_BATTLE, "You can’t win with strength alone.\n"
     trainertextentry 677, TEXT_DEFEATED_IN_OVERWORLD, "Hey, let’s go for a swim!\nSailors have to be able to swim!\n"
 
@@ -776,7 +776,7 @@ _065C: // Trainer 299
 _0668: // Trainer 152
     trainertextentry 152, TEXT_NOTICE_IN_OVERWORLD, "I have a feeling that I can win.\nLet’s see if I’m right!\r"
     trainertextentry 152, TEXT_DEFEATED_IN_BATTLE, "Aww, you are too strong.\n"
-    trainertextentry 152, TEXT_DEFEATED_IN_OVERWORLD, "I heard CLEFAIRY appear at Mt. Moon.\nBut where could they be?\n"
+    trainertextentry 152, TEXT_DEFEATED_IN_OVERWORLD, "...\r...I’ll go train some more...\n"
 
 _0674: // Trainer 153
     trainertextentry 153, TEXT_NOTICE_IN_OVERWORLD, "Um...\nI...\r"
