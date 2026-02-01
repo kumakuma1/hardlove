@@ -380,7 +380,7 @@
 .halfword ITEM_REVIVE
 
 .org 0x02000000 + 0xFA938 //Ice Path B2F
-.halfword ITEM_CARBOS
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA940 //Dragons Den NW 
 .halfword ITEM_REVIVE
@@ -698,6 +698,6 @@
 .halfword ITEM_DEEP_SEA_SCALE
 
 .org 0x02000000 + 0xFAC88 //R46
-.halfword ITEM_PP_MAX
+.halfword ITEM_HEART_SCALE
 
 .close

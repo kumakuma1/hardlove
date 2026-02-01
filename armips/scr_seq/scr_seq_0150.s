@@ -32,6 +32,11 @@
 	scrdef scr_seq_0150_016 //r42, surf
 	scrdef scr_seq_0150_017 //r42, surf
 	scrdef scr_seq_0150_018 //r43, surf
+	scrdef scr_seq_0150_019 //r44
+	scrdef scr_seq_0150_020 //r45
+	scrdef scr_seq_0150_021 //r46
+	scrdef scr_seq_0150_022 //r46
+	//scrdef scr_seq_0150_023 //r26
 	scrdef_end
 
 scr_seq_0150_000:
@@ -388,6 +393,87 @@ scr_seq_0150_018:
 	//wait_fanfare
 	setflag 2588
 	goto _goaway
+
+
+scr_seq_0150_019:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	npc_msg 10 //its  a berry tree
+	closemsg
+	goto_if_set 2589, _noberries
+	call _harvest
+	anim_apricorn_tree VAR_SPECIAL_RESULT
+	GetRandom 0x800C, 30
+	setvar VAR_SPECIAL_x8004, ITEM_LUM_BERRY
+	setvar VAR_SPECIAL_x8005, 50
+	IncrementVar VAR_SPECIAL_x8005, 0x800C 
+	CommonScript 2008
+	//play_fanfare SEQ_ME_ITEM
+	//wait_fanfare
+	setflag 2589
+	goto _goaway
+
+
+scr_seq_0150_020:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	npc_msg 10 //its  a berry tree
+	closemsg
+	goto_if_set 2590, _noberries
+	call _harvest
+	anim_apricorn_tree VAR_SPECIAL_RESULT
+	GetRandom 0x800C, 30
+	setvar VAR_SPECIAL_x8004, ITEM_SITRUS_BERRY
+	setvar VAR_SPECIAL_x8005, 50
+	IncrementVar VAR_SPECIAL_x8005, 0x800C 
+	CommonScript 2008
+	//play_fanfare SEQ_ME_ITEM
+	//wait_fanfare
+	setflag 2590
+	goto _goaway
+
+
+scr_seq_0150_021:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	npc_msg 10 //its  a berry tree
+	closemsg
+	goto_if_set 2591, _noberries
+	call _harvest
+	anim_apricorn_tree VAR_SPECIAL_RESULT
+	GetRandom 0x800C, 30
+	setvar VAR_SPECIAL_x8004, ITEM_SITRUS_BERRY
+	setvar VAR_SPECIAL_x8005, 50
+	IncrementVar VAR_SPECIAL_x8005, 0x800C 
+	CommonScript 2008
+	//play_fanfare SEQ_ME_ITEM
+	//wait_fanfare
+	setflag 2591
+	goto _goaway
+
+
+scr_seq_0150_022:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	npc_msg 10 //its  a berry tree
+	closemsg
+	goto_if_set 2592, _noberries
+	call _harvest
+	anim_apricorn_tree VAR_SPECIAL_RESULT
+	GetRandom 0x800C, 30
+	setvar VAR_SPECIAL_x8004, ITEM_SITRUS_BERRY
+	setvar VAR_SPECIAL_x8005, 50
+	IncrementVar VAR_SPECIAL_x8005, 0x800C 
+	CommonScript 2008
+	//play_fanfare SEQ_ME_ITEM
+	//wait_fanfare
+	setflag 2592
+	goto _goaway
+
 
 _noberries:
 	npc_msg 11 //no berries

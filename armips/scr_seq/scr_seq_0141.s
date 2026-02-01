@@ -1121,111 +1121,133 @@ scr_seq_0141_145:
 	goto scr_seq_0141_255
 
 scr_seq_0141_146:
+	//route 44, west, 1201
 	setvar VAR_SPECIAL_x8008, 77
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_147:
+	//route 44, central, surf, 1202
 	setvar VAR_SPECIAL_x8008, 29
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_148:
+	//route 44, north east, 1203
 	setvar VAR_SPECIAL_x8008, 2
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_149:
+	//ice path 1f, central, 1111 tm waterfall
 	setvar VAR_SPECIAL_x8008, 426
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_150:
-	setvar VAR_SPECIAL_x8008, 46
+	//ice path 1f, central west, 1204 protein
+	setvar VAR_SPECIAL_x8008, ITEM_TM079
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_151:
-	setvar VAR_SPECIAL_x8008, 51
+	//ice path 1f, central north, 1205 pp up
+	setvar VAR_SPECIAL_x8008, ITEM_EXPERT_BELT
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_152:
+	//ice path B2f, central, 1206 full heal
 	setvar VAR_SPECIAL_x8008, 27
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_153:
+	//ice path B2f, west, 1207 full potion
 	setvar VAR_SPECIAL_x8008, 24
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_154:
-	setvar VAR_SPECIAL_x8008, 246
+	//ice path B3f, central, 1208 never melt ice
+	setvar VAR_SPECIAL_x8008, ITEM_TM074
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_155:
+	//ice path B2f, central, 1110 tm 72
 	setvar VAR_SPECIAL_x8008, 399
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_156:
-	setvar VAR_SPECIAL_x8008, 47
+	//ice path 1f, central, 1209 iron
+	setvar VAR_SPECIAL_x8008, ITEM_LOADED_DICE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_157:
+	//dragon den, north east, 1210 calcium
 	setvar VAR_SPECIAL_x8008, 49
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_158:
+	//dragon den, north east, 1211 max exlixier
 	setvar VAR_SPECIAL_x8008, 41
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_159:
-	setvar VAR_SPECIAL_x8008, 250
+	//dragon den, east, whirlpool, 1112 dragon fang
+	setvar VAR_SPECIAL_x8008, ITEM_CHARIZARDITE_X
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_160:
+	//route 45 north west, 1212 elixier
 	setvar VAR_SPECIAL_x8008, 40
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_161:
+	//route 45 north east, 1213 max potion
 	setvar VAR_SPECIAL_x8008, 24
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_162:
+	//route 45 central west, 1214 full heal
 	setvar VAR_SPECIAL_x8008, 27
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_163:
+	//route 45 south aest, 1215 nugget
 	setvar VAR_SPECIAL_x8008, 92
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_164:
-	setvar VAR_SPECIAL_x8008, 28
+	//Route 45 south, rockclimb, 1216 revive
+	setvar VAR_SPECIAL_x8008, ITEM_SCIZORITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_165:
-	setvar VAR_SPECIAL_x8008, 59
+	//Route 46 west, 1217
+	setvar VAR_SPECIAL_x8008, ITEM_VENUSAURITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_166:
+	//dark cave 45side, west, 1113 tm54
 	setvar VAR_SPECIAL_x8008, 381
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_167:
+	//dark cave 45side, east, 1114
 	setvar VAR_SPECIAL_x8008, 28
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
@@ -1250,7 +1272,7 @@ scr_seq_0141_170:
 
 scr_seq_0141_171:
 	//Dark Cave south, 1221
-	setvar VAR_SPECIAL_x8008, 56
+	setvar VAR_SPECIAL_x8008, ITEM_AERODACTYLITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1504,7 +1526,8 @@ scr_seq_0141_219:
 	goto scr_seq_0141_255
 
 scr_seq_0141_220:
-	setvar VAR_SPECIAL_x8008, 45
+	//route 4, south, 1240
+	setvar VAR_SPECIAL_x8008, ITEM_TM075
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
