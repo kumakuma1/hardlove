@@ -923,9 +923,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->attackerMon.speed = ctx->effectiveSpeed[attacker];
     ai->defenderMon.speed = ctx->effectiveSpeed[defender];
 
-#ifdef BATTLE_DEBUG_OUTPUT
-    debug_printf("SpeedCalc %d, defMovesFirst %d, attMovesFirst %d \n", speedCalc, ai->defenderMovesFirst, ai->attackerMovesFirst);
-#endif // BATTLE_DEBUG_OUTPUT
+    debug_printf("SpeedCalc %d, defMovesFirst %d, atkSpeed %d, defSpeed %d\n", speedCalc, ai->defenderMovesFirst, ai->attackerMon.speed, ai->defenderMon.speed);
 
     ai->isDefenderIncapacitated = FALSE;
     if ((ai->defenderMon.condition & STATUS_SLEEP)

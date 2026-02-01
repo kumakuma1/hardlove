@@ -1511,10 +1511,12 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
          + (2 * ((hold_effect == HOLD_EFFECT_CHANSEY_CRITRATE_UP) && (species == SPECIES_CHANSEY)))
          + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_FARFETCHD || species == SPECIES_SIRFETCHD)));
 
+#ifdef HLG_CUSTOM_WEATHER
     u32 weather = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE);
     if (CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG) && (weather == 7 || weather == 8) && (attacker == 1 || attacker == 3)) {
         temp++;
     }
+#endif
 
     if (temp > 4)
     {

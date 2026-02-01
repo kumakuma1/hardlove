@@ -1217,10 +1217,12 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         critCondition++;
     }
 
+#ifdef HLG_CUSTOM_WEATHER
     u32 weather = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE);
     if (CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG) && (weather == 7 || weather == 8) && (attackerSlot == 1 || attackerSlot == 3)) {
         critCondition++;
     }
+#endif //HLG_CUSTOM_WEATHER
 
     if (critCondition >= 4) { // guaranteed crit
         if (!attackerHasMoldBreaker && (defender->ability == ABILITY_SHELL_ARMOR || defender->ability == ABILITY_BATTLE_ARMOR)) {

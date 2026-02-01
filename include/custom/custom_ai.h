@@ -3,6 +3,7 @@
 #include "../battle.h"
 
 //#define BATTLE_DEBUG_OUTPUT 1
+#define HLG_CUSTOM_WEATHER 1
 
 struct PACKED AI_sDamageCalc {
     u16 species;
