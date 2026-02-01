@@ -374,18 +374,18 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_PARALYZE_HIT:
         if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100) // nuzzle
         {
-            if (ai->defenderImmuneToParalysis || ai->attackerRolledMoveDamages[i] == 0) {
+            if (ai->defenderImmuneToParalysis || ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT) {
                 moveScore -= NEVER_USE_MOVE_20;
             }
         }
         break;
     case MOVE_EFFECT_STATUS_PARALYZE:
-        if (ai->defenderImmuneToParalysis) {
+        if (ai->defenderImmuneToParalysis || ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
     case MOVE_EFFECT_STATUS_BURN:
-        if (ai->defenderImmuneToBurn) {
+        if (ai->defenderImmuneToBurn || ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
