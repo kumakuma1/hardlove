@@ -691,7 +691,8 @@ _0945:
 scr_seq_0146_005:
 	play_se SEQ_SE_DP_SELECT
 	lockall
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_WATERFALL
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_WATERFALL
 	compare VAR_SPECIAL_RESULT, 6
 	goto_if_eq _0997
 	check_badge BADGE_RISING, VAR_SPECIAL_RESULT
@@ -713,7 +714,8 @@ _0997:
 	goto _0941
 
 _09A6:
-	get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_WATERFALL
+	GetFirstAlivePokemonSlot VAR_SPECIAL_RESULT
+	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_WATERFALL
 	copyvar VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
 	bufferpartymonnick 0, VAR_SPECIAL_RESULT
 	npc_msg 25
