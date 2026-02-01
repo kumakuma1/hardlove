@@ -310,7 +310,7 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         moveScore -= IMPOSSIBLE_MOVE; // TODO check
     }
 
-    if (ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT) // immunity
+    if (ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT && ctx->moveTbl[ai->attackerMove].split != SPLIT_STATUS) // immunity
     {
         moveScore -= IMMUNE_TO_MOVE;
     }
