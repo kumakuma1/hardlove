@@ -1941,7 +1941,7 @@ BOOL LONG_CALL HasMovePranksterPriority(struct BattleSystem *bsys, u8 attacker, 
 
     if (attackerAbility == ABILITY_PRANKSTER
         && attackerMoveStruct.split == SPLIT_STATUS
-        && ctx->clientPriority[attacker] > 0
+        //&& ctx->clientPriority[attacker] > 0
         && (attackerMoveStruct.target == RANGE_ADJACENT_OPPONENTS
             || (attackerMoveStruct.target == RANGE_SINGLE_TARGET
                 && BATTLERS_ON_DIFFERENT_SIDE(attacker, defender))))

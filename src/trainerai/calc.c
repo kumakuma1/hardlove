@@ -1024,15 +1024,12 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         u32 defenderMoveno = ctx->battlemon[defender].move[k];
         struct BattleMove defenderMove = ctx->moveTbl[defenderMoveno];
 
-        u8 movetype = GetAdjustedMoveTypeBasics(ctx, defenderMoveno, ai->defenderMon.ability, defenderMove.type);
-        u32 effectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, defenderMoveno, movetype, &effectivenessFlag, &ai->defenderMon, &ai->attackerMon);
-
         if (defenderMove.split != SPLIT_STATUS && defenderMove.power && ctx->battlemon[defender].pp[k]) {
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, defenderMoveno, ctx->side_condition[BATTLER_IS_ENEMY(defender)], ctx->field_condition, defenderMove.power, defenderMove.type, critical, defender, attacker, &damages, &ai->defenderMon, &ai->attackerMon);
 
-            damages.damageRoll = BattleAI_AdjustUnusualMoveDamage(&ai->defenderMon, &ai->attackerMon, damages.damageRoll, defenderMove.effect, defenderMoveno, effectiveness);
+            damages.damageRoll = BattleAI_AdjustUnusualMoveDamage(&ai->defenderMon, &ai->attackerMon, damages.damageRoll, defenderMove.effect, defenderMoveno, damages.moveEffectiveness);
             for (int u = 0; u < 16; u++) {
-                damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(&ai->defenderMon, &ai->attackerMon, damages.damageRange[u], defenderMove.effect, defenderMoveno, effectiveness);
+                damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(&ai->defenderMon, &ai->attackerMon, damages.damageRange[u], defenderMove.effect, defenderMoveno, damages.moveEffectiveness);
             }
 
             BOOL playerCanOneShotAiMon = CanAttackerOneShotDefender(damages.damageRoll, defenderMove.split, defenderMoveno, &ai->defenderMon, &ai->attackerMon);
@@ -1047,10 +1044,12 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
                 highestDamageMoveIndex = k;
 #endif
             }
-            if (defenderMove.split == SPLIT_SPECIAL) {
-                ai->defenderHasAtleastOneSpecialMove = 1;
-            } else {
-                ai->defenderHasAtleastOnePhysicalMove = 1;
+            if (damages.moveEffectiveness >= TYPE_MUL_NORMAL) {
+                if (defenderMove.split == SPLIT_SPECIAL) {
+                    ai->defenderHasAtleastOneSpecialMove = 1;
+                } else {
+                    ai->defenderHasAtleastOnePhysicalMove = 1;
+                }
             }
             if (IsMoveUsefulSoundMove(defenderMoveno) && (defenderMove.split == SPLIT_STATUS || damages.moveEffectiveness >= TYPE_MUL_NORMAL)) {
                 ai->defenderHasAtleastOneUsefulSoundMove = TRUE;
@@ -1128,7 +1127,6 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
     u16 switchInScore[6] = { 0 };
     int partySize = 0;
     int picked = 6; // in Order
-    u32 effectivenessFlag = 0;
 
     slot1 = attacker;
     slot2 = slot1;
@@ -1169,16 +1167,13 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                 if (moveno != MOVE_NONE && pp) {
                     struct BattleMove attackerMove = ctx->moveTbl[moveno];
 
-                    u8 movetype = GetAdjustedMoveTypeBasics(ctx, moveno, attackerMon.ability, attackerMove.type);
-                    u32 effectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, moveno, movetype, &effectivenessFlag, &attackerMon, &defenderMon);
-
                     if (attackerMove.split != SPLIT_STATUS && attackerMove.power) {
                         damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, moveno, ctx->side_condition[BATTLER_IS_ENEMY(attacker)], ctx->field_condition, attackerMove.power, attackerMove.type, critical, attacker, defender, &damages, &attackerMon, &defenderMon);
                         damages.damageRoll = damages.damageRange[15]; //max Damage
 
-                        damages.damageRoll = BattleAI_AdjustUnusualMoveDamage(&attackerMon, &defenderMon, damages.damageRoll, attackerMove.effect, moveno, effectiveness);
+                        damages.damageRoll = BattleAI_AdjustUnusualMoveDamage(&attackerMon, &defenderMon, damages.damageRoll, attackerMove.effect, moveno, damages.moveEffectiveness);
                         for (int u = 0; u < 16; u++) {
-                            damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(&attackerMon, &defenderMon, damages.damageRange[u], attackerMove.effect, moveno, effectiveness);
+                            damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(&attackerMon, &defenderMon, damages.damageRange[u], attackerMove.effect, moveno, damages.moveEffectiveness);
                         }
 
                         if (damages.damageRoll > monDealsRolledDamage[i]) {
@@ -1195,16 +1190,13 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                 u32 defenderMoveno = ctx->battlemon[defender].move[k];
                 struct BattleMove defenderMove = ctx->moveTbl[defenderMoveno];
 
-                u8 movetype = GetAdjustedMoveTypeBasics(ctx, defenderMoveno, defenderMon.ability, defenderMove.type);
-                u32 effectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, defenderMoveno, movetype, &effectivenessFlag, &defenderMon, &attackerMon);
-
                 if (defenderMove.split != SPLIT_STATUS && defenderMove.power && ctx->battlemon[defender].pp[k]) {
                     damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, defenderMoveno, ctx->side_condition[BATTLER_IS_ENEMY(defender)], ctx->field_condition, defenderMove.power, defenderMove.type, critical, defender, attacker, &damages, &defenderMon, &attackerMon);
                     damages.damageRoll = damages.damageRange[15]; // max Damage
 
-                    damages.damageRoll = BattleAI_AdjustUnusualMoveDamage(&defenderMon, &attackerMon, damages.damageRoll, defenderMove.effect, defenderMoveno, effectiveness);
+                    damages.damageRoll = BattleAI_AdjustUnusualMoveDamage(&defenderMon, &attackerMon, damages.damageRoll, defenderMove.effect, defenderMoveno, damages.moveEffectiveness);
                     for (int u = 0; u < 16; u++) {
-                        damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(&defenderMon, &attackerMon, damages.damageRange[u], defenderMove.effect, defenderMoveno, effectiveness);
+                        damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(&defenderMon, &attackerMon, damages.damageRange[u], defenderMove.effect, defenderMoveno, damages.moveEffectiveness);
                     }
 
                     if (damages.damageRoll > monReceivesDamage[i]) {
