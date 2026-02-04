@@ -1634,15 +1634,22 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     case MOVE_EFFECT_ATK_DOWN_2:
     case MOVE_EFFECT_ATK_DOWN_3:
     case MOVE_EFFECT_ATK_DEF_DOWN:
-        if (ai->defenderHasAtleastOnePhysicalMove) {
+        if (ai->defenderHasAtleastOnePhysicalMove)
+        {
             moveScore += 5;
-            if (!ai->defenderImmuneToStatDrop) {
-                if (ai->attackerMon.hasMoldBreaker || ai->defenderMon.ability != ABILITY_HYPER_CUTTER) {
-                    moveScore += 1;
+            if (2 * ai->maxDamageReceived < ai->attackerMon.hp && 2 * ai->attackerRolledMaxDamage < ai->defenderMon.hp)
+            {
+                if (!ai->defenderImmuneToStatDrop)
+                {
+                    if (ai->attackerMon.hasMoldBreaker || ai->defenderMon.ability != ABILITY_HYPER_CUTTER)
+                    {
+                        moveScore += 1;
+                    }
                 }
-            }
-            if (ai->defenderMovesFirst) {
-                moveScore -= 1;
+                if (ai->defenderMovesFirst)
+                {
+                    moveScore -= 1;
+                }
             }
         } else {
             moveScore -= NEVER_USE_MOVE_20;
@@ -1655,13 +1662,18 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     case MOVE_EFFECT_ATK_SP_ATK_DOWN:
         if (ai->defenderHasAtleastOneSpecialMove) {
             moveScore += 5;
-            if (!ai->defenderImmuneToStatDrop) {
-                if (ai->defenderMon.ability != ABILITY_BULLETPROOF || ai->attackerMon.hasMoldBreaker) {
-                    moveScore += 1;
+            if (2 * ai->maxDamageReceived < ai->attackerMon.hp && 2 * ai->attackerRolledMaxDamage < ai->defenderMon.hp)
+            {
+                if (!ai->defenderImmuneToStatDrop) {
+                    if (ai->defenderMon.ability != ABILITY_BULLETPROOF || ai->attackerMon.hasMoldBreaker)
+                    {
+                        moveScore += 1;
+                    }
                 }
-            }
-            if (ai->defenderMovesFirst) {
-                moveScore -= 1;
+                if (ai->defenderMovesFirst)
+                {
+                    moveScore -= 1;
+                }
             }
         } else {
             moveScore -= NEVER_USE_MOVE_20;

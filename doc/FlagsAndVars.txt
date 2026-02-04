@@ -1,6 +1,7 @@
 117   - 061-T20R0201 : Script File 845 - prev. Old Rod Flag. Used for level caps
 122   -                                - getting kings rock in Slowpoke well. ->Slowbronite Limited by badge check after 7th badge
 131   -                                - Get White Herb from Butterfree Lady on Route 34 Passage
+147   -                                - get wing from director in radio tower
 156   -                                - Pokegear Flag
 164   -                                - General Flag for engaging static pokemon like lugia
 165   -                                - Flag for getting Magnet from Sunny on Route 37
@@ -14,6 +15,10 @@
 215   -                                - Flag for getting Sharp Beak from Monica on Route 40
 216   -                                - Flag for getting Twisted spoon on Route 29, used in olivine restaurant to give spoon.
 223   -                                - Flag for getting black glasses in dark cave. used for mawilite
+259   -                                - got item from kimono gauntlet in ecruteak dance theater
+264   -                                - after story fight against ho-oh
+266   -                                - kimono dance in bell tower done
+278   -                                - caught ho-oh
 279   -                                - caught lugia
 305   -                                - Flag for getting Cleanse Tag on Route 5. Lady gives Spell Tag.
 308   -                                - Flag for getting Nugget on Route 2. Used for gift in cerulean city.
@@ -49,7 +54,12 @@
 510   -                                - hide Ace trainer Alton inside lake at lake of rage, flag is set. Unused
 511   -                                - hide Fisherman at lake of rage, flag is set. Unused
 520   -                                - Frieda on R32
+572   -                                - kimono girls in dance theater
+576   -                                - little girl after kimono gauntlet. Flag is set. Unused
+
+578   -                                - Ho-oH in bell tower
 579   -                                - Lugia in whirl islands
+580   -                                - kimono girls in bell tower. Flag is set. Unused
 581   -                                - Alola girls in whirl islands
 591   -                                - Aprikoko Guy in Route 30. Used for Healing in Gyms
 598   -                                - Hide Misty on Route 25

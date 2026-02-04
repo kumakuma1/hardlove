@@ -83,11 +83,15 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
             trade_dat->heldItem = ITEM_COBA_BERRY;
         }
         trade_dat->gender = POKEMON_GENDER_MALE;
+    } else if (tradeno == NPC_TRADE_PAUL_XATU) {
+        trade_dat->give_species = SPECIES_LILLIGANT;
+        ability = ABILITY_CHLOROPHYLL;
+        trade_dat->gender = POKEMON_GENDER_MALE;
     }
 #endif
     randomIV(trade_dat);
     PokeParaSet(mon, trade_dat->give_species, level, 32, FALSE, gf_rand() /* trade_dat->pid */, OT_ID_PRESET, trade_dat->otId); // OT_ID_PRESET, trade_dat->otId);
-    if (trade_dat->give_species == SPECIES_ARCANINE || trade_dat->give_species == SPECIES_ELECTRODE)
+    if (trade_dat->give_species == SPECIES_ARCANINE || trade_dat->give_species == SPECIES_ELECTRODE || trade_dat->give_species == SPECIES_LILLIGANT)
     {
         int form = 1;
         SetMonData(mon, MON_DATA_FORM, &form);

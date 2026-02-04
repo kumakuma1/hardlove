@@ -4244,7 +4244,11 @@ Function 2:
 	CheckBattleIsLost 0x800C
 	CompareVarValue 0x800C 0
 	JumpIf EQUAL Function#3
-	Message 1
+	Message 22
+    Message 23
+    Message 24
+    Message 25
+    Message 26
 	CloseMessage 
 	FadeScreen 6 1 0 0
 	WaitFadeScreen 
@@ -4271,13 +4275,18 @@ Function 4:
 	WaitMovement 
 	Movement Player Action#15
 	WaitMovement 
-	Message 2
-	SetVar 0x8004 483
-	SetVar 0x8005 1
-	CommonScript 2033
-	SetFlag 147
-	Message 5
-	CloseMessage 
+
+	//SetVar 0x8004 483
+	//SetVar 0x8005 1
+	//CommonScript 2033
+	//SetFlag 147
+	Message 28
+    Message 29
+    Message 30
+    Message 31
+    Message 32
+	CloseMessage
+    SetFlag 147
 	Movement Overworld.1 Action#16
 	WaitMovement 
 	PlayFanfare 1543
@@ -4326,6 +4335,17 @@ Through this tower, my message will be\nthe last the old world ever hears:\rSurr
 I have rebuilt Team Rocket to save\nthe world from itself.\r
 20: Are you ready, \v0103ぁ\x0000\x0000?\nStep forward and experience the birth\fof a new paradigm!\r
 
+22:Archer: Impossible...\nMy plan...\rMy destiny...\rEclipsed by a child in shorts....\r...\r
+You choose this chaos?\nThis ’freedom’ to suffer?\r
+You haven’t just defeated Team Rocket\ntoday, you have extinguished a\fbeacon of order.\r
+But Team Rocket is no longer just a\ngroup of thieves. It is an idea.\rIt will live on and hold on to a\nnew world order.\r
+One day, you will realize that\nfreedom is a heavy burden.\r
+
+28:Director: Oh...!\r You have already defeated\nTeam Rocket?!\r
+How in the world did you do this?\nThis is phantastic! You are a hero!\r
+\v0103ぁ\x0000\x0000, your courages actions\nhave saved Goldenrod City and maybe\feven all of Johto.\r
+I had already given up when you found\nme, but all it needs is the courages\factions of one person.\r
+A young kid standing up for what’s\nright.\rThank you for your help.\nI will let you enjoy this moment.\r
 
 
 
@@ -4350,11 +4370,33 @@ I have rebuilt Team Rocket to save\nthe world from itself.\r
 
 
 
+### lilligant trade in blackthorn
 
+Function 2:
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PartyPokemonTradeScreen 
+	GetSelectedPartySlot 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#3
+	InitTrade 9
+	SetVarFromVariable 0x8004 0x800C
+	TradePokemonScreen 0x8004
+	EndTrade 
+	SetFlag 208
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
 
-
-
-
+Hey, do you want to take care of Paul?\nHe needs to get out a bit more...\rWe could trade our mons? \v0200\x0001\x0000
+Take good care of Paul.\nHe always wanted to see the world!
+How is Paul doing?\rDid you show him some places?
 
 
 ### Dark cave mawilite
@@ -4363,3 +4405,321 @@ CheckFlag 223
 	Message 0
 	SetVar 0x8004 240 -> 681
 	SetVar 0x8005 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Lyra event in new bark preventing to go to kanto
+make event trigger once
+Script 13:
+	MecScript 
+	LockAll 
+	Movement Overworld.8 Action#10
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 27 28
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.8 Action#11
+	Movement Player Action#24
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	GenderMessage 29 30
+	CloseMessage 
+	WaitMovement 
+	ReleaseAll 
+    SetVar 0x4081 3 set at kimono event
+	SetFlag 418
+	SetFlag 417
+	SetFlag 744
+	ClearFlag 741
+	ClearFlag 577
+End 
+
+SetFlag 744 removes lyra+marill
+
+Where do you think you’re going,\n\v0103ぁ\x0000\x0000?\rDon’t you want to check out what\nthe Kimono Girls want from you?\r
+
+####
+rival in front of theater
+Script 6:
+			MecScript 
+			LockAll 
+			ClearFlag 575
+			AddOW Overworld.6
+			LockFollowingPoke 0
+			WaitFollowingPoke 
+			SetFollowingPokeMovement 56
+			Movement Overworld.6 Action#1
+			Movement Player Action#2
+			WaitMovement 
+			WaitFollowingPoke 
+			LockFollowingPoke 1
+			SetFollowingPokeMovement 48
+			PlayFanfare 1537
+			Message 16
+			WaitTime 30 0x800C
+			TextRivalName 1
+			Message 17
+			CloseMessage 
+			Movement Overworld.6 Action#3
+			WaitMovement 
+			TextPlayerName 0
+			TextRivalName 1
+			Message 18
+			CloseMessage 
+			PlayFanfare 1537
+			LockFollowingPoke 0
+			WaitFollowingPoke 
+			SetFollowingPokeMovement 56
+			Movement Overworld.6 Action#4
+			Movement Player Action#2
+			WaitMovement 
+			WaitFollowingPoke 
+			LockFollowingPoke 1
+			SetFollowingPokeMovement 48
+			Movement Overworld.6 Action#5
+			Movement Player Action#6
+			WaitMovement 
+			RemoveOW Overworld.6
+			SetFlag 575
+			ReleaseAll 
+	SetVar 0x4079 4
+	SetVar 0x410C 4
+	ClearFlag 572
+	SetFlag 577
+End 
+
+Action 1:
+	LockDir 0x1
+	WalkDownVeryFast 0x1
+	WalkUpVeryFastSite 0x1
+	ReleaseDir 0x1
+End
+
+Action 2:
+	LookUp 0x1
+	LockDir 0x1
+	WalkDownVeryFast 0x1
+	ReleaseDir 0x1
+End
+
+Action 3:
+	Exclamation 0x1
+	Freeze8 0x1
+	WalkDownFastSite 0x1
+End
+
+Action 4:
+	WalkDownVeryFast 0x1
+	WalkDownVeryFastSite 0x1
+End
+
+Action 5:
+	WalkLeft 0x3
+	Freeze8 0x3
+	WalkLeftVeryFast 0x6
+End
+
+Action 6:
+	Freeze8 0x3
+	WalkLeftFastSite 0x1
+End
+
+
+
+#### kimono gauntlet
+cleaned up the code to have event and NPC script run into function#14
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x8000 77
+	CheckFlag 264
+	JumpIf EQUAL Function#11
+	CheckFlag 265
+	JumpIf EQUAL Function#11
+	Message 13
+	OpenTouchScreen 
+	YesNoTouchScreen 0x8004
+	CloseTouchScreen 
+	CompareVarValue 0x8004 1
+	JumpIf EQUAL Function#12
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	CallIf DIFFERENT Function#13
+Jump Function#14
+
+Script 17:
+	MecScript 
+	LockAll 
+	SetVar 0x8000 11
+	SetVar 0x410C 5
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#15
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 11
+	OpenTouchScreen 
+	YesNoTouchScreen 0x8004
+	CloseTouchScreen 
+	CompareVarValue 0x8004 1
+	JumpIf EQUAL Function#12
+	CloseMessage 
+Jump Function#14
+
+Function 14:
+	StopMusic 30
+	PlayMusic 1111
+	Movement Overworld.10 Action#19
+	WaitMovement 
+	Message 45
+	CloseMessage 
+	WaitTime 10 0x800C
+	TrainerBattle 162 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.10 Action#20
+	WaitMovement 
+	StopMusic 30
+	PlayMusic 1111
+	Movement Overworld.4 Action#21
+	WaitMovement 
+	Message 15
+	CloseMessage 
+	TrainerBattle 160 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.4 Action#22
+	WaitMovement 
+	StopMusic 30
+	PlayMusic 1111
+	Movement Overworld.8 Action#23
+	WaitMovement 
+	Message 16
+	CloseMessage 
+	TrainerBattle 164 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.8 Action#24
+	WaitMovement 
+	StopMusic 30
+	PlayMusic 1111
+	Movement Overworld.5 Action#25
+	WaitMovement 
+	Message 17
+	CloseMessage 
+	TrainerBattle 161 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.5 Action#26
+	WaitMovement 
+	StopMusic 30
+	PlayMusic 1111
+	Movement Overworld.7 Action#27
+	WaitMovement 
+	Message 18
+	CloseMessage 
+	TrainerBattle 163 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.7 Action#28
+	WaitMovement 
+	Movement Overworld.10 Action#29
+	WaitMovement 
+	Message 20
+	SetVar 0x8004 474 //TODO selection of reward
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 259
+
+	//SetFlag 572 kimono girls
+	//SetFlag 576 little girl
+	ReleaseAll
+	SetVar 0x410C 6
+	SetVar 0x40FA 1
+	//ClearFlag 580  kimono girls in bell tower
+
+	SetFlag 266
+	SetFlag 264
+	SetVar 0x4081 3
+	SetFlag 418   // lyra+ marill in new bark
+	SetFlag 417    // lyra+ marill in new bark
+	SetFlag 744  //lyra in new bark blocking path to elite four
+	ClearFlag 741
+	ClearFlag 577 //npcs in theater
+End
