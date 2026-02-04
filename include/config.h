@@ -209,6 +209,6 @@
 
 // BLOCK_LEARNING_UNIMPLEMENTED_MOVES prevents learning moves that are not implemented
 // based on the move having FLAG_UNUSABLE_UNIMPLEMENTED
-#define BLOCK_LEARNING_UNIMPLEMENTED_MOVES
+//#define BLOCK_LEARNING_UNIMPLEMENTED_MOVES
 
 #endif
