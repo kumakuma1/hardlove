@@ -699,29 +699,27 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
-    if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT) { //TODO Parting shot
+    if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT) { // TODO Parting shot
         if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) { // no immunity
-            moveScore += 6;
-        }
-        /*
-        u8 switchThreshold = 1;
-        if (ai->monWithMegaInParty) {
-            switchThreshold = 2;
-        }
-        if (ai->livingMembersAttacker > switchThreshold && ai->attackerRolledMoveDamages[i] > 0) // no immunity
-        {
-            moveScore += 6;
-            if (ai->playerCanOneShotMonWithAnyMove && ai->attackerMovesFirst) {
-                moveScore += 1;
+
+            u8 switchThreshold = 1;
+            if (ai->monWithMegaInParty) {
+                switchThreshold = 2;
             }
-            if (BattleRand(bsys) % 10 < 2) {
-                moveScore += 1;
+            if (ai->livingMembersAttacker > switchThreshold) // no immunity
+            {
+                if (ai->playerCanOneShotMonWithAnyMove && ai->attackerMovesFirst)
+                {
+                    moveScore += 1;
+                }
+                if (2 * ai->attackerRolledMaxDamage < ai->defenderMon.hp)
+                {
+                    moveScore += 6;
+                }
             }
-        }*/
-        /*
+        }
         if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67)
             moveScore += 1;
-        */
     }
 
     switch (ai->attackerMove) {
