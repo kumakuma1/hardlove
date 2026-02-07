@@ -39,6 +39,8 @@ int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
 BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender);
 BOOL LONG_CALL HasMovePranksterPriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender);
 
+int LONG_CALL ScoreSwitchingMove(struct AIContext *ai, int index);
+
 enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
 {
 #ifdef BATTLE_DEBUG_OUTPUT
@@ -316,6 +318,10 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     }
 
     if (ai->attackerMove == MOVE_BELCH && ai->attackerMon.canBelch == FALSE) {
+        moveScore -= IMPOSSIBLE_MOVE;
+    }
+
+    if (ai->attackerMove == MOVE_STUFF_CHEEKS && !IS_ITEM_BERRY(ai->attackerMon.item)) {
         moveScore -= IMPOSSIBLE_MOVE;
     }
 
@@ -700,26 +706,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     }
 
     if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT) { // TODO Parting shot
-        if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) { // no immunity
-
-            u8 switchThreshold = 1;
-            if (ai->monWithMegaInParty) {
-                switchThreshold = 2;
-            }
-            if (ai->livingMembersAttacker > switchThreshold) // no immunity
-            {
-                if (ai->playerCanOneShotMonWithAnyMove && ai->attackerMovesFirst)
-                {
-                    moveScore += 1;
-                }
-                if (2 * ai->attackerRolledMaxDamage < ai->defenderMon.hp)
-                {
-                    moveScore += 6;
-                }
-            }
-        }
-        if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67)
-            moveScore += 1;
+        moveScore += ScoreSwitchingMove(ai, i);
     }
 
     switch (ai->attackerMove) {
@@ -965,6 +952,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     }
+    case MOVE_EFFECT_LASER_FOCUS:
     case MOVE_EFFECT_EVA_UP:
     case MOVE_EFFECT_EVA_UP_2:
     case MOVE_EFFECT_EVA_UP_3:
@@ -1103,7 +1091,6 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER: //defense curl
     case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER: // Charge
     case MOVE_EFFECT_DEF_SP_DEF_UP: // cosmic power
-        // case MOVE_EFFECT_STUFF_CHEEKS:
         if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 11 || ctx->battlemon[attacker].states[STAT_SPDEF] > 11) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
@@ -1191,6 +1178,9 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
     switch (ai->attackerMoveEffect) {
+    case MOVE_EFFECT_PARTING_SHOT:
+        moveScore += ScoreSwitchingMove(ai, i);
+        break;
     case MOVE_EFFECT_TAUNT: //TODO
         if (ctx->battlemon[ai->defender].moveeffect.tauntTurns > 0)
         {
@@ -1959,4 +1949,30 @@ BOOL LONG_CALL HasMovePranksterPriority(struct BattleSystem *bsys, u8 attacker, 
         return TRUE;
     }
     return FALSE;
+}
+
+
+int LONG_CALL ScoreSwitchingMove(struct AIContext* ai, int i)
+{
+    int moveScore = 0;
+    if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) { // no immunity
+
+        u8 switchThreshold = 1;
+        if (ai->monWithMegaInParty) {
+            switchThreshold = 2;
+        }
+        if (ai->livingMembersAttacker > switchThreshold)
+        {
+            if (ai->playerCanOneShotMonWithAnyMove && ai->attackerMovesFirst) {
+                moveScore += 2;
+            }
+            if (2 * ai->attackerRolledMaxDamage < ai->defenderMon.hp) {
+                moveScore += 6;
+            }
+        }
+    }
+    if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67) {
+        moveScore += 1;
+    }
+    return moveScore;
 }
