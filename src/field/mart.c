@@ -49,7 +49,8 @@ u16 sVioletCityMart[] = {
 };
 
 u16 sAzaleaCityMart[] = {
-    ITEM_TM010, 
+    ITEM_TM010,
+    ITEM_TM054,    
     ITEM_TM070, 
     ITEM_TM088, 
     0xFFFF
