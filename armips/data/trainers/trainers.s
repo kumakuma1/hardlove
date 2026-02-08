@@ -8492,9 +8492,9 @@ trainerdata 146, "Timothy"
     endparty
 
 trainerdata 147, "Rad"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_ACE_TRAINER_M
-    nummons 1
+    nummons 6
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -8503,12 +8503,113 @@ trainerdata 147, "Rad"
     battletype SINGLE_BATTLE
     endentry
 
-    party 147
-        // mon 0
+    party 154
         ivs 0
-        abilityslot 32
-        level 17
-        pokemon SPECIES_MANKEY
+        abilityslot 0
+        level LEVEL_CLAIR-2
+        pokemon SPECIES_PIKACHU
+        item ITEM_LIGHT_BALL
+        move MOVE_THUNDER
+        move MOVE_GRASS_KNOT
+        move MOVE_SURF
+        move MOVE_NUZZLE
+        ability ABILITY_STATIC
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CLAIR-2
+        pokemon SPECIES_ESPEON
+        item ITEM_FOCUS_SASH
+        move MOVE_PSYCHIC
+        move MOVE_DRAINING_KISS
+        move MOVE_WEATHER_BALL
+        move MOVE_CALM_MIND
+        ability ABILITY_MAGIC_BOUNCE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CLAIR-2
+        pokemon SPECIES_SNORLAX
+        item ITEM_LEFTOVERS
+        move MOVE_BODY_SLAM
+        move MOVE_CRUNCH
+        move MOVE_EARTHQUAKE
+        move MOVE_CURSE
+        ability ABILITY_THICK_FAT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CLAIR-2
+        pokemon SPECIES_VENUSAUR
+        item ITEM_VENUSAURITE
+        move MOVE_ENERGY_BALL
+        move MOVE_SLUDGE_BOMB
+        move MOVE_WEATHER_BALL
+        move MOVE_SLEEP_POWDER
+        ability ABILITY_OVERGROW
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CLAIR-2
+        pokemon SPECIES_CHARIZARD
+        item ITEM_LIFE_ORB
+        move MOVE_HURRICANE
+        move MOVE_FOCUS_BLAST
+        move MOVE_WEATHER_BALL
+        move MOVE_WILL_O_WISP
+        ability ABILITY_BLAZE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CLAIR-2
+        pokemon SPECIES_BLASTOISE
+        item ITEM_WHITE_HERB
+        move MOVE_LIQUIDATION
+        move MOVE_AQUA_JET
+        move MOVE_ICE_SPINNER
+        move MOVE_SHELL_SMASH
+        ability ABILITY_RAIN_DISH
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -8768,9 +8869,9 @@ trainerdata 153, "Sharon"
     endparty
 
 trainerdata 154, "Bailey"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_HIKER
-    nummons 1
+    nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -8780,11 +8881,94 @@ trainerdata 154, "Bailey"
     endentry
 
     party 154
-        // mon 0
         ivs 0
-        abilityslot 32
-        level 13
-        pokemon SPECIES_GEODUDE
+        abilityslot 0
+        level LEVEL_CLAIR-2
+        pokemon SPECIES_CRUSTLE
+        item ITEM_RED_CARD
+        move MOVE_ROCK_SLIDE
+        move MOVE_X_SCISSOR
+        move MOVE_STEALTH_ROCK
+        move MOVE_SPIKES
+        ability ABILITY_STUDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CLAIR-2
+        pokemon SPECIES_OMASTAR
+        item ITEM_FOCUS_SASH
+        move MOVE_SURF
+        move MOVE_POWER_GEM
+        move MOVE_ICE_BEAM
+        move MOVE_SHELL_SMASH
+        ability ABILITY_SWIFT_SWIM
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CLAIR-2
+        pokemon SPECIES_ELECTIVIRE
+        item ITEM_ASSAULT_VEST
+        move MOVE_WILD_CHARGE
+        move MOVE_CROSS_CHOP
+        move MOVE_EARTHQUAKE
+        move MOVE_WEATHER_BALL
+        ability ABILITY_MOTOR_DRIVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_HASTY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CLAIR-2
+        pokemon SPECIES_LUDICOLO
+        item ITEM_LIFE_ORB
+        move MOVE_SCALD
+        move MOVE_ENERGY_BALL
+        move MOVE_ICE_BEAM
+        move MOVE_SUBSTITUTE
+        ability ABILITY_SWIFT_SWIM
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CLAIR-2
+        pokemon SPECIES_SCIZOR
+        item ITEM_SCIZORITE
+        move MOVE_BULLET_PUNCH
+        move MOVE_BUG_BITE
+        move MOVE_DUAL_WINGBEAT
+        move MOVE_PURSUIT
+        ability ABILITY_TECHNICIAN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
