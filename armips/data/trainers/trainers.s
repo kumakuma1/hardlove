@@ -8503,7 +8503,7 @@ trainerdata 147, "Rad"
     battletype SINGLE_BATTLE
     endentry
 
-    party 154
+    party 147
         ivs 0
         abilityslot 0
         level LEVEL_CLAIR-2
@@ -8890,7 +8890,7 @@ trainerdata 154, "Bailey"
         move MOVE_X_SCISSOR
         move MOVE_STEALTH_ROCK
         move MOVE_SPIKES
-        ability ABILITY_STUDY
+        ability ABILITY_STURDY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
