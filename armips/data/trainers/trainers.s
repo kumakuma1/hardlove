@@ -26643,9 +26643,10 @@ trainerdata 537, "Harrison"
     endparty
 
 trainerdata 538, "Hugh"
-    trainermontype TRAINER_DATA_TYPE_MOVES
     trainerclass TRAINERCLASS_SUPER_NERD
-    nummons 1
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
+    trainerclass TRAINERCLASS_SUPER_NERD
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -26655,15 +26656,113 @@ trainerdata 538, "Hugh"
     endentry
 
     party 538
-        // mon 0
         ivs 0
         abilityslot 0
-        level 39
-        pokemon SPECIES_SEADRA
-        move MOVE_SMOKESCREEN
-        move MOVE_TWISTER
-        move MOVE_SURF
-        move MOVE_WATERFALL
+        level LEVEL_ELITE_FOUR-2
+        monwithform SPECIES_INDEEDEE, 1
+        item ITEM_LIGHT_CLAY
+        move MOVE_EXPANDING_FORCE
+        move MOVE_HYPER_VOICE
+        move MOVE_CALM_MIND
+        move MOVE_REFLECT
+        ability ABILITY_PSYCHIC_SURGE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELITE_FOUR-2
+        pokemon SPECIES_FORRETRESS
+        item ITEM_ROCKY_HELMET
+        move MOVE_LUNGE
+        move MOVE_BODY_PRESS
+        move MOVE_EXPLOSION
+        move MOVE_SPIKES
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_IMPISH
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELITE_FOUR-2
+        pokemon SPECIES_PRIMARINA
+        item ITEM_FOCUS_SASH
+        move MOVE_MOONBLAST
+        move MOVE_HYPER_VOICE
+        move MOVE_ICE_BEAM
+        move MOVE_CALM_MIND
+        ability ABILITY_LIQUID_VOICE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        //mon 3
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELITE_FOUR-2
+        pokemon SPECIES_BOLTUND
+        item ITEM_LIFE_ORB
+        move MOVE_THUNDER_FANG
+        move MOVE_ICE_FANG
+        move MOVE_PSYCHIC_FANGS
+        move MOVE_CRUNCH
+        ability ABILITY_STRONG_JAW
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELITE_FOUR-2
+        pokemon SPECIES_DRAPION
+        item ITEM_ASSAULT_VEST
+        move MOVE_POISON_JAB
+        move MOVE_THROAT_CHOP
+        move MOVE_LEECH_LIFE
+        move MOVE_AQUA_TAIL
+        ability ABILITY_BATTLE_ARMOR
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_ELITE_FOUR-2
+        pokemon SPECIES_GALLADE
+        item ITEM_GALLADITE
+        move MOVE_CLOSE_COMBAT
+        move MOVE_ZEN_HEADBUTT
+        move MOVE_KNOCK_OFF
+        move MOVE_TRIPLE_AXEL
+        ability ABILITY_STEADFAST
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
