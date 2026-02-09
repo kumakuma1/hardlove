@@ -17543,7 +17543,7 @@ trainerdata 330, "Joe"
 trainerdata 331, "Hannelore" //school kid billy
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_SKIER
-    nummons 3
+    nummons 1
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -17558,20 +17558,6 @@ trainerdata 331, "Hannelore" //school kid billy
         abilityslot 32
         level 39
         pokemon SPECIES_PARASECT
-        ballseal 0
-
-        // mon 1
-        ivs 0
-        abilityslot 0
-        level 37
-        pokemon SPECIES_POLIWHIRL
-        ballseal 0
-
-        // mon 2
-        ivs 0
-        abilityslot 0
-        level 35
-        pokemon SPECIES_DITTO
         ballseal 0
     endparty
 
@@ -18811,9 +18797,9 @@ trainerdata 365, "Tyrone"
     endparty
 
 trainerdata 366, "Pat"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_SUPER_NERD
-    nummons 1
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -18823,16 +18809,76 @@ trainerdata 366, "Pat"
     endentry
 
     party 366
-        // mon 0
-        ivs 50
-        abilityslot 32
-        level 47
-        pokemon SPECIES_PORYGON
-        item ITEM_NONE
-        move MOVE_CHARGE_BEAM
-        move MOVE_SIGNAL_BEAM
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-2
+        pokemon SPECIES_UMBREON
+        item ITEM_LEFTOVERS
+        move MOVE_FOUL_PLAY
+        move MOVE_NIGHT_SHADE
+        move MOVE_MOONLIGHT
+        move MOVE_TOXIC
+        ability ABILITY_SYNCHRONIZE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_BOLD
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-3
+        pokemon SPECIES_HATTERENE
+        item ITEM_ASSAULT_VEST
+        move MOVE_PSYCHIC
+        move MOVE_DAZZLING_GLEAM
+        move MOVE_MYSTICAL_FIRE
+        move MOVE_NUZZLE
+        ability ABILITY_MAGIC_BOUNCE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_BOLD
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-3
+        pokemon SPECIES_PORYGON_Z
+        item ITEM_LIFE_ORB
+        move MOVE_TRI_ATTACK
         move MOVE_ICE_BEAM
-        move MOVE_SOLAR_BEAM
+        move MOVE_PSYCHIC
+        move MOVE_RECOVER
+        ability ABILITY_DOWNLOAD
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+		
+	    ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-3
+        pokemon SPECIES_BRAVIARY
+        item ITEM_CHOICE_SCARF
+        move MOVE_BRAVE_BIRD
+        move MOVE_NONE
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_DEFIANT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
