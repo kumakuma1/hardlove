@@ -154,6 +154,9 @@ BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct BattleSystem *bsys, u8 slo
 
 BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokemon *pp);
 
+BOOL LONG_CALL IsMoveUsefulSoundMove(u32 moveno);
+BOOL LONG_CALL IsMoveForceSwitching(u32 moveno);
+
 
 
 int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem *bsys, u32 battler, struct AIContext *ai UNUSED);

@@ -4092,4 +4092,7 @@ void LONG_CALL BattleController_EmitPrintAttackMessage(struct BattleSystem *bw, 
 
 void LONG_CALL BattleMon_AddVar(struct BattlePokemon *mon, u32 varId, int data);
 
+
+
+BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM *msg);
 #endif // BATTLE_H

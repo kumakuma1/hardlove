@@ -9,17 +9,55 @@
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
 
-BOOL TrainerAI_ShouldSwitch(struct BattleSystem *battleSys, int battler);
+BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, int attacker);
 
-int TrainerAI_PickCommand(struct BattleSystem *battleSys, int battler)
+int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 {
-    if (TrainerAI_ShouldSwitch(battleSys, battler))
-        return PLAYER_INPUT_PARTY;
+    u32 battleType = BattleTypeGet(bsys);
+    if (battleType == BATTLE_TYPE_TRAINER || (battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))) {
+        if (TrainerAI_ShouldSwitch(bsys, attacker)) {
+            return PLAYER_INPUT_PARTY;
+        }
+    }
+
     return PLAYER_INPUT_FIGHT;
 }
 
-BOOL TrainerAI_ShouldSwitch(struct BattleSystem *battleSys UNUSED, int battler UNUSED)
+BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, int attacker)
 {
+    debug_printf("TrainerAI_ShouldSwitch:\n");
+    struct BattleStruct *ctx = bsys->sp;
+    //u32 battleType = BattleTypeGet(bsys);
+
+    //if (battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) {
+    //    return FALSE;
+    //}
+
+    if (CantEscape(bsys, ctx, attacker, NULL)) {
+        return FALSE;
+    }
+
+    //if (slot == first) //attacker = 1 else attacker = 3
+    /*
+    calc postKo score
+    setup AiContext for attacker
+    calc scores
+
+    if singles
+        decide if switching/attacking
+
+    if double
+    calc postKo score
+    setup AiContext for attacker2
+    calc scores
+
+    consolidate targets and divert if necessary
+    choose moves
+
+    store in bsys->sp
+    set bsys->sp state to skip calc
+    */
+
     return FALSE;
 }
 

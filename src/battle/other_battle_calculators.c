@@ -1873,7 +1873,8 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
  *  @param msg msg param to fill with values for printing a message that results from running
  *  @return TRUE if the battler can not escape; FALSE if the battler can escape
  */
-BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM *msg) {
+BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM *msg)
+{
     int battlerIdAbility;
     int maxBattlers UNUSED;
     u8 side UNUSED;
