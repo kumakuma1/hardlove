@@ -60,6 +60,9 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->defenderHasAtleastOneUsefulSoundMove = FALSE;
     ai->defenderCanForceSwitching = FALSE;
 
+    ai->postKoScoringPosition = BattleAI_PostKOSwitchIn_Internal(bsys, attacker, &ai->highestPostKoScoreFromParty, TRUE);
+    debug_printf("PostKo: position %d with score %d\n", ai->postKoScoringPosition, ai->highestPostKoScoreFromParty);
+
     speedCalc = CalcSpeed(bsys, ctx, defender, attacker, CALCSPEED_FLAG_NO_PRIORITY); // checks actual turn order with field state considered
     // evaluates to 0 if ai->defender > attacker (false)
     // and 1 if ai->defender < attacker (true)

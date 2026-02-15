@@ -5,6 +5,14 @@
 //#define BATTLE_DEBUG_OUTPUT 1
 #define HLG_CUSTOM_WEATHER 1
 
+struct PACKED AI_turnState {
+    int moveScores[4][4]; // account for BATTLER_OPPONENT (0), attacker (1), BATTLER_ACROSS(2), BATTLER_ALLY(3),  4 moves each or
+                          // account for BATTLER_OPPONENT (2), attacker (3), BATTLER_ACROSS(0), BATTLER_ALLY(1),  4 moves each
+    int damages[4][4]; // rolled damage for each move against each target
+
+    int highestScoredMove[4];
+};
+
 struct PACKED AI_sDamageCalc {
     u16 species;
     u16 hp;
@@ -54,6 +62,9 @@ struct PACKED AIContext {
     struct AI_sDamageCalc attackerMon;
     struct AI_sDamageCalc defenderMon; //"player"
     struct AI_sDamageCalc defenderAlly;
+
+    int highestPostKoScoreFromParty;
+    int postKoScoringPosition;
 
     BOOL isAllyAlive;
     BOOL isDoubleBattle;
@@ -123,6 +134,11 @@ struct PACKED AI_damage {
 };
 
 void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *ai);
+
+
+int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext *ai);
+int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext *ai);
+
 
 int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker);
 int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int attacker, int *score, BOOL calcWithHighestDamageHit);
