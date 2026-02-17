@@ -1224,7 +1224,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     }
 #endif //HLG_CUSTOM_WEATHER
 
-    if (critCondition >= 4) { // guaranteed crit
+    if (critCondition >= 4 || sp->moveConditionsFlags[attackerSlot].laserFocusTimer) { // guaranteed crit
         if (!attackerHasMoldBreaker && (defender->ability == ABILITY_SHELL_ARMOR || defender->ability == ABILITY_BATTLE_ARMOR)) {
             ; // do nothing, crit is prevented
         } else {
@@ -1283,6 +1283,9 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     debug_printf("[AI_Damage] damage: %d\n", damage);
 #endif
     // 6.3.5 Glaive Rush
+    if (sp->moveConditionsFlags[defenderSlot].glaiveRush) {
+        damage = damage * 200 / 100;
+    }
 
     // 6.4 Critical hit modifier
     if (critical > 1) {

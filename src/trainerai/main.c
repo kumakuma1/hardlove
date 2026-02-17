@@ -314,7 +314,7 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         moveScore -= IMMUNE_TO_MOVE;
     }
 
-    if (ai->attackerMove == MOVE_BELCH && ai->attackerMon.canBelch == FALSE) {
+    if (ctx->moveConditionsFlags[ai->attacker].throatChopTimer && IsMoveSoundBased(ai->attackerMove)) {
         moveScore -= IMPOSSIBLE_MOVE;
     }
 
@@ -325,6 +325,16 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     }
 
     switch (ai->attackerMoveEffect) {
+    case MOVE_EFFECT_STUFF_CHEEKS:
+        if (!IS_ITEM_BERRY(ai->attackerMon.item)) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        break;
+    case MOVE_EFFECT_BELCH:
+        if (ai->attackerMon.canBelch == FALSE) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        break;
     case MOVE_EFFECT_STEALTH_ROCK:
         if (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_STEALTH_ROCK || ai->livingMembersDefender == 1) {
             moveScore -= NEVER_USE_MOVE_20;
@@ -1102,7 +1112,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER: //defense curl
     case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER: // Charge
     case MOVE_EFFECT_DEF_SP_DEF_UP: // cosmic power
-        // case MOVE_EFFECT_STUFF_CHEEKS:
+    case MOVE_EFFECT_STUFF_CHEEKS:
         if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 11 || ctx->battlemon[attacker].states[STAT_SPDEF] > 11) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
@@ -1861,6 +1871,10 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
     struct BattleStruct *ctx = bsys->sp;
     BOOL isHealingMove = TRUE;
 
+    if (ctx->battlemon[attacker].moveeffect.healBlockTurns) {
+        return 0;
+    }
+
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
@@ -1870,7 +1884,7 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
     }
 
     switch (ai->attackerMoveEffect) {
-    // case MOVE_EFFECT_HIT_STRENGTH_SAP //TODO
+    case MOVE_EFFECT_STRENGTH_SAP:
     case MOVE_EFFECT_HEAL_IN_3_TURNS:
     case MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE:
     case MOVE_EFFECT_RESTORE_HALF_HP:
