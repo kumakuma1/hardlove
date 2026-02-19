@@ -596,6 +596,10 @@ arm9 GetItemAttr_PreloadedItemData 02077DAC 2
 0001 SetOverworldRequestFlags_hook 021E6982 0
 # hook from near beginning of function
 0001 CheckOverworldRequestFlags_hook 021E6AF6 3
+0001 CheckRockSmashItemDrop 02204CF8 2
+
+
+
 
 
 

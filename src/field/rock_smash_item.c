@@ -53,9 +53,14 @@ const u16 RockSmashItemTable[][NUM_ROCK_SMASH_ITEMS_PER_TABLE] =
 
 u32 DetermineRockSmashItem(u32 tableIndex, u32 index)
 {
-    //if (tableIndex >= NELEMS(RockSmashItemTable) || index >= NUM_ROCK_SMASH_ITEMS_PER_TABLE)
+    if (tableIndex >= NELEMS(RockSmashItemTable) || index >= NUM_ROCK_SMASH_ITEMS_PER_TABLE)
     {
         return ITEM_NONE;
     }
     return RockSmashItemTable[tableIndex][index];
+}
+
+BOOL LONG_CALL CheckRockSmashItemDrop(void *fieldSystem UNUSED, void *env UNUSED)
+{
+    return FALSE;
 }
