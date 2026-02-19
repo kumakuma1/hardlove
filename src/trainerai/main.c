@@ -263,9 +263,9 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
         }
 
         if (skillSwapPosition < 5) {
-            if ((ai->attackerMon.ability == ABILITY_FLASH_FIRE && ai->defenderAlly.ability != ABILITY_FLASH_FIRE && ai->defenderAlly.species == SPECIES_DURANT)
-                || (ai->attackerMon.ability == ABILITY_TECHNICIAN && ai->defenderAlly.ability != ABILITY_TECHNICIAN && ai->defenderAlly.species == SPECIES_DURANT)
-                || (ai->attackerMon.ability == ABILITY_PRANKSTER && ai->defenderAlly.ability != ABILITY_PRANKSTER && ai->defenderAlly.species == SPECIES_BRELOOM)) {
+            if ((ai->attackerMon.ability == ABILITY_FLASH_FIRE && ai->aimonAlly.ability != ABILITY_FLASH_FIRE && ai->aimonAlly.species == SPECIES_DURANT)
+                || (ai->attackerMon.ability == ABILITY_TECHNICIAN && ai->aimonAlly.ability != ABILITY_TECHNICIAN && ai->aimonAlly.species == SPECIES_DURANT)
+                || (ai->attackerMon.ability == ABILITY_PRANKSTER && ai->aimonAlly.ability != ABILITY_PRANKSTER && ai->aimonAlly.species == SPECIES_BRELOOM)) {
                 highestScoredMove = 1000;
                 highestScoredMove += 14;
                 moveScores[target][skillSwapPosition] += highestScoredMove;

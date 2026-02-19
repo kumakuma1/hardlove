@@ -30,7 +30,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->isAllyAlive = FALSE;
     if (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp) {
         ai->isAllyAlive = TRUE;
-        FillDamageStructFromBattleMon(bsys, ctx, &ai->defenderAlly, BATTLER_ALLY(attacker));
+        FillDamageStructFromBattleMon(bsys, ctx, &ai->aimonAlly, BATTLER_ALLY(attacker));
     }
 
     ai->attacker = attacker;
