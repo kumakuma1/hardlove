@@ -1198,6 +1198,9 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     if (moveno == MOVE_BELCH && defender->canBelch == FALSE) {
         return 0;
     }
+    if (moveno == MOVE_POLTERGEIST && defender->item == ITEM_NONE) {
+        return 0;
+    }
 
     if (!attackerHasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0 && !(defender->condition2 & STATUS2_TRANSFORMED) && movesplit == SPLIT_PHYSICAL) { // SPECIES_EISCUE
         return 0;

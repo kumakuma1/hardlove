@@ -1526,14 +1526,13 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_SWITCH_HELD_ITEMS:
-        moveScore += 5;
         if ((ai->attackerMon.item == ITEM_TOXIC_ORB && !ai->defenderImmuneToPoison) || (ai->attackerMon.item == ITEM_FLAME_ORB && !ai->defenderImmuneToBurn) || (ai->attackerMon.item == ITEM_BLACK_SLUDGE && !HasType(ctx, ai->defender, TYPE_POISON))) {
-            moveScore += 1;
+            moveScore += 6;
             if (BattleRand(bsys) % 2) { // 50%
                 moveScore += 1;
             }
         } else if (ai->attackerMon.item == ITEM_IRON_BALL || ai->attackerMon.item == ITEM_LAGGING_TAIL || ai->attackerMon.item == ITEM_STICKY_BARB) {
-            moveScore += 2;
+            moveScore += 7;
         }
         break;
     case MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION:
