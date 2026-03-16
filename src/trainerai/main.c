@@ -1339,7 +1339,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         } else {
             moveScore += 5;
         }
-        if (ctx->side_condition[ai->attackerSide] & SIDE_STATUS_TAILWIND) {
+        if (ctx->tailwindCount[ai->attackerSide])
+        {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
