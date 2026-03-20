@@ -4129,5 +4129,5 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
 
 
 
-BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, MESSAGE_PARAM *msg);
+BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg);
 #endif // BATTLE_H
