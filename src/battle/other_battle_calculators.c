@@ -1499,7 +1499,7 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
 
 const u8 CriticalRateTable[] =
 {
-     24,
+     16,
      8,
      2,
      1,
@@ -1530,7 +1530,14 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 
     temp = (((condition2 & STATUS2_FOCUS_ENERGY) != 0) * 2) + (hold_effect == HOLD_EFFECT_CRITRATE_UP) + critical_count + (ability == ABILITY_SUPER_LUCK)
          + (2 * ((hold_effect == HOLD_EFFECT_CHANSEY_CRITRATE_UP) && (species == SPECIES_CHANSEY)))
-         + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_FARFETCHD)));
+         + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_FARFETCHD || species == SPECIES_SIRFETCHD)));
+
+#ifdef HLG_CUSTOM_WEATHER
+    u32 weather = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE);
+    if (CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG) && (weather == 7 || weather == 8) && (attacker == 1 || attacker == 3)) {
+        temp++;
+    }
+#endif
 
 
     if (temp > 4 || sp->moveConditionsFlags[attacker].laserFocusTimer)
@@ -1955,7 +1962,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
  *  @param msg msg param to fill with values for printing a message that results from running
  *  @return TRUE if the battler can not escape; FALSE if the battler can escape
  */
-BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg) {
+BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg) {
     int battlerIdAbility;
     int maxBattlers UNUSED;
     u8 side UNUSED;
@@ -2550,6 +2557,13 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     // toxic when used by a poison type
     if (move == MOVE_TOXIC
         && HasType(sp, battlerIdAttacker, TYPE_POISON)) {
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        return TRUE;
+    }
+
+    // thunder wave when used by a electric type
+    if (move == MOVE_THUNDER_WAVE
+        && HasType(sp, battlerIdAttacker, TYPE_ELECTRIC)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
         return TRUE;
     }
@@ -3574,7 +3588,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->param[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
     }
-
+    /*
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSED_MOVE) {
 #ifdef DEBUG_ENABLE_UNIMPLEMENTED_MOVES
         debug_printf("Move %d at position %d for battler %d is not implemented/dexited\n", ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]], movePos, battlerId);
@@ -3584,7 +3598,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->id = BATTLE_MSG_MOVE_IS_UNIMPLEMENTED;
         ret = FALSE;
     }
-
+    */
     return ret;
 }
 

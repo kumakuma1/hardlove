@@ -18,6 +18,17 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
 #include "../../include/constants/generated/learnsets.h"
+#include "../../include/map_events_internal.h"
+
+void shuffle(u8 array[], int n)
+{
+    for (int i = n - 1; i > 0; i--) {
+        int j = gf_rand() % (i + 1);
+        u8 temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
 
 /**
  *  @brief script command to give an egg adapted to set the hidden ability
@@ -73,9 +84,9 @@ BOOL ScrCmd_GiveEgg(SCRIPTCONTEXT *ctx)
  *  @return FALSE
  */
 BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
-    s32 i;
-    u8 pp;
-    u16 moveData;
+    //s32 i;
+    //u8 pp;
+    //u16 moveData;
     struct PartyPokemon *togepi;
     void *profile;
     struct Party *party;
@@ -90,14 +101,21 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 
     togepi = AllocMonZeroed(11);
     ZeroMonData(togepi);
-
-    SetEggStats(togepi, SPECIES_TOGEPI, 1, profile, 3, sub_02017FE4(1, 13));
+    int species = gf_rand() % 3;
+    if (species == 0) {
+        species = SPECIES_MAGBY;
+    } else if (species == 1) {
+        species = SPECIES_ELEKID;
+    } else {
+        species = SPECIES_SMOOCHUM;
+    }
+    SetEggStats(togepi, species, 1, profile, 3, sub_02017FE4(1, 13));
 
     //SetMonData(togepi, MON_DATA_FORM, &form); // add form capability
 
     //ClearMonMoves(pokemon);
     //InitBoxMonMoveset(&pokemon->box);
-
+    /*
     for (i = 0; i < 4; i++) {
         if (!GetMonData(togepi, MON_DATA_MOVE1 + i, 0)) {
             break;
@@ -113,13 +131,24 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx) {
 
     pp = GetMonData(togepi, MON_DATA_MOVE1MAXPP + i, 0);
     SetMonData(togepi, MON_DATA_MOVE1PP + i, &pp);
-
+    */
     if (CheckScriptFlag(HIDDEN_ABILITIES_FLAG) == 1) // add HA capability
     {
         SET_MON_HIDDEN_ABILITY_BIT(togepi)
         ResetPartyPokemonAbility(togepi);
         ClearScriptFlag(HIDDEN_ABILITIES_FLAG);
     }
+#ifdef RANDOM_3_MAX_IVS
+    u8 array[] = { 0, 1, 2, 3, 4, 5 };
+    shuffle(array, 6);
+
+    int iv = 31;
+    // Randomly chooses 3 stats
+    for (int i = 0; i < 3; i++) {
+        u8 selectedValue = array[i];
+        SetMonData(togepi, MON_DATA_HP_IV + selectedValue, &iv);
+    }
+#endif
 
 
     PokeParty_Add(party, togepi);
@@ -314,4 +343,84 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
         }
     }
     return FALSE;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ *  @brief clear overworld request flags
+ *
+ *  @param req OVERWORLD_REQUEST_FLAGS structure to clear
+ */
+void LONG_CALL ClearOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req)
+{
+    req->TalkCheck = 0;
+    req->StepCheck = 0;
+    req->MenuOpen = 0;
+    req->unk0_0018 = 0;
+    req->CnvButton = 0;
+    req->MatCheck = 0;
+    req->PushCheck = 0;
+    req->MoveCheck = 0;
+    req->FloatCheck = 0;
+    req->DebugMenu = 0;
+    req->DebugBattle = 0;
+    req->DebugHook = 0;
+    req->DebugKeyPush = 0;
+
+    req->OpenPCCheck = 0; // new:  check if pc should be opened
+    req->ToggleRepel = 0;
+
+    req->Site = 0xFF;
+    req->PushSite = 0xFF;
+}
+
+/**
+ *  @brief set new overworld request flags depending on buttons pressed
+ *
+ *  @param req OVERWORLD_REQUEST_FLAGS structure to set flags in
+ *  @param trg buttons that are pressed on this frame
+ */
+void LONG_CALL SetOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req, u16 trg)
+{
+    if (trg & PAD_BUTTON_L) {
+        req->ToggleRepel = TRUE;
+    }
+    if (trg & PAD_BUTTON_R) {
+        //    req->OpenPCCheck = TRUE;
+    }
+}
+
+/**
+ *  @brief handle overworld request flags
+ *
+ *  @param req OVERWORLD_REQUEST_FLAGS structure to set flags in
+ */
+void LONG_CALL CheckOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req, FieldSystem *fsys)
+{
+    if (req->ToggleRepel) {
+        EventSet_Script(fsys, 2094, NULL);
+    }
+
+    /* if (req->OpenPCCheck) {
+         SetScriptFlag(0x18F); // some random flag that should be set by script 2010 (file 3 script 10)
+         EventSet_Script(fsys, 2010, NULL); // set up script 2010
+     }*/
 }

@@ -11,6 +11,7 @@ void Repel_SetCurrentType();
 u16 ALIGN4 CurrentRepelType = 0;
 
 bool32 PlayerStepEvent_RepelCounterDecrement(SaveData *saveData, FieldSystem *fieldSystem) {
+    /*
     void *roamerSaveData = EncDataSave_GetSaveDataPtr(saveData);
     u8* repel_addr = SaveData_GetRepelPtr(roamerSaveData);
 
@@ -29,7 +30,7 @@ bool32 PlayerStepEvent_RepelCounterDecrement(SaveData *saveData, FieldSystem *fi
             return TRUE;
         }
     }
-
+    */
     return FALSE;
 }
 

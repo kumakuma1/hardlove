@@ -59,3 +59,8 @@ u32 DetermineRockSmashItem(u32 tableIndex, u32 index)
     }
     return RockSmashItemTable[tableIndex][index];
 }
+
+BOOL LONG_CALL CheckRockSmashItemDrop(void *fieldSystem UNUSED, void *env UNUSED)
+{
+    return FALSE;
+}

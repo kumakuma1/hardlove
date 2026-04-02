@@ -142,8 +142,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 sprintf(buf, "In ENDTURN_WEATHER_SUBSIDING\n");
                 debug_printf(buf);
                 #endif
-
+                
                 if (sp->field_condition & WEATHER_RAIN) {
+                    sp->fcc.weather_count = 5; // infinite weather
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RAIN_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -154,6 +155,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 }
 
                 if (sp->field_condition & WEATHER_SANDSTORM) {
+                    sp->fcc.weather_count = 5; // infinite weather
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SANDSTORM_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -164,6 +166,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 }
 
                 if (sp->field_condition & WEATHER_SUNNY) {
+                    sp->fcc.weather_count = 5; // infinite weather
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUN_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -174,6 +177,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 }
 
                 if (sp->field_condition & WEATHER_HAIL) {
+                    sp->fcc.weather_count = 5; // infinite weather
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HAIL_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -184,6 +188,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 }
 
                 if (sp->field_condition & WEATHER_SNOW) {
+                    sp->fcc.weather_count = 5; // infinite weather
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SNOW_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -1394,6 +1399,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                             if (sp->tailwindCount[side])  // update tailwind to use a separate counter so it can be larger
                             {
+                                if (side == 1 && CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG) && GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE) == 6) {
+                                    sp->tailwindCount[side] = 4;
+                                }
                                 if (--sp->tailwindCount[side] == 0) {
                                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TAILWIND_END);
                                     sp->next_server_seq_no = sp->server_seq_no;
@@ -1522,7 +1530,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 #endif
 
                 if (sp->field_condition & FIELD_STATUS_TRICK_ROOM) {
-                    sp->field_condition -= 1 << FIELD_CONDITION_TRICK_ROOM_SHIFT;
+
+                    if (CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG)) {
+                        // u32 w = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE); //check if more
+                    }
+                    else {
+                        sp->field_condition -= 1 << FIELD_CONDITION_TRICK_ROOM_SHIFT;
+                    }
                     if (!(sp->field_condition & FIELD_STATUS_TRICK_ROOM)) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, 251);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -1600,7 +1614,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 if (sp->terrainOverlay.type != TERRAIN_NONE) {
                     if (sp->terrainOverlay.numberOfTurnsLeft < TERRAIN_TURNS_INFINITE) {
-                        sp->terrainOverlay.numberOfTurnsLeft--;
+                        //sp->terrainOverlay.numberOfTurnsLeft--; //infinite terrain
                     }
                     if (sp->terrainOverlay.numberOfTurnsLeft <= 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_TERRAIN_END);
@@ -1719,24 +1733,24 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     if (sp->battlemon[battlerId].hp) {
                                         // Use % 7 instead of %5 and pass FALSE to AreAnyStatsNotAtValue to include accuracy/evasion like earlier gens.
 
-                                        int temp = BattleRand(bw) % 5;
+                                        int temp = BattleRand(bw) % 7;
 
-                                        if (AreAnyStatsNotAtValue(sp, battlerId, 12, TRUE))  // if any stat can be lowered
+                                        if (AreAnyStatsNotAtValue(sp, battlerId, 12, FALSE))  // if any stat can be lowered
                                         {
                                             while (sp->battlemon[battlerId].states[temp] == 12) {
-                                                temp = BattleRand(bw) % 5;
+                                                temp = BattleRand(bw) % 7;
                                             }
                                         } else {
                                             sp->calc_work = 8;  // skip the raising if this is the case
                                         }
                                         sp->calc_work = temp;
 
-                                        temp = BattleRand(bw) % 5;
+                                        temp = BattleRand(bw) % 7;
 
-                                        if (AreAnyStatsNotAtValue(sp, battlerId, 0, TRUE))  // if any stat can be raised
+                                        if (AreAnyStatsNotAtValue(sp, battlerId, 0, FALSE)) // if any stat can be raised
                                         {
                                             while (sp->battlemon[battlerId].states[temp] == 0 || temp == sp->calc_work) {
-                                                temp = BattleRand(bw) % 5;
+                                                temp = BattleRand(bw) % 7;
                                             }
                                         } else {
                                             sp->tokusei_work = 8;  // skip the lowering if this is the case
