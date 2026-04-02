@@ -1,0 +1,81 @@
+//Elder Li
+156 D15R0103 : Event File 151 - Script File 18 : Script 3: Text Archive 56
+CheckFlag 117
+CallIf EQUAL Function#4 
+
+Function 4:
+	SetVar 0x416F 16
+Return 
+
+//Falkner
+	CheckFlag 117
+	CallIf EQUAL Function#16
+	...
+Function 16:
+	SetVar 0x416F 20
+Return 
+
+
+//Slopoke Well
+//Proton
+    CheckFlag 117
+	CallIf EQUAL Function#5
+
+Function 5:
+	SetVar 0x416F 25
+Return 
+
+//Bugsy
+    CheckFlag 117
+	CallIf EQUAL Function#9
+
+Function 9:
+	SetVar 0x416F 30
+Return 
+
+Route 36 //TODO
+
+
+//Whitney
+    CheckFlag 117
+	CallIf EQUAL Function#22
+
+Function 22:
+	SetVar 0x416F 39
+Return 
+
+//Morty
+	CheckFlag 117
+	CallIf EQUAL Function#16
+
+Function 16:
+	SetVar 0x416F 47
+Return 
+
+
+//Chuck
+script 1:
+
+	CheckFlag 117
+	CallIf EQUAL Function#11
+
+Function 11:
+	SetVar 0x416F 54
+Return
+
+
+
+
+Jasmine
+Script 1:
+	HealPokemon 
+	TrainerBattle 33 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+    CheckFlag 117
+	CallIf EQUAL Function#37
+
+Function 37:
+    SetVar 0x416F 60
+Return

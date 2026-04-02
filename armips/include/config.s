@@ -9,7 +9,7 @@ GEN_LATEST equ 9
 START_ADDRESS equ 0x10
 
 // DISALLOW_DEXIT_GEN controls whether to disallow selection of dexited moves in later generations. Choose any Generation below 8 for none. 0 will instead disable any unimplemented moves.
-DISALLOW_DEXIT_GEN equ 0
+DISALLOW_DEXIT_GEN equ 7
 
 // FAIRY_TYPE_IMPLEMENTED defines whether or not the Fairy type is to be implemented as type 9 or not.
 // If you do not want this change, then set it to 0.
@@ -33,7 +33,7 @@ SNOW_WARNING_GENERATION equ GEN_LATEST
 CRY_PSEUDOBANK_START equ 778
 
 // BATTLE_MODE_FORCE_SET defines whether or not players will be able to switch out mons when the opponent sends out their next mon. The player will be able to choose themselves like normal if the following is 0, 1 if the player will be forced to use "set"
-BATTLE_MODE_FORCE_SET equ 0
+BATTLE_MODE_FORCE_SET equ 1
 
 // ALWAYS_HAVE_NATIONAL_DEX defines whether or not the player will always have the national dex unlocked.
 ALWAYS_HAVE_NATIONAL_DEX equ 0

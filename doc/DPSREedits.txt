@@ -1,0 +1,4731 @@
+﻿### Remove trainers asking for phone number script file 953
+Function 22:
+	CMD_461 0 0x8004 0x8005 //removed
+	CMD_440 0x8004 0x8005 //removed
+Jump Function#35  -> return
+
+Function 17:
+	Call Function#32 //?
+	ReleaseAll 
+End 
+
+
+###Mom gives Shoes, pokegear, Level caps
+063 T20R0201 : Event File 60 - Script File 845 : Script 1:
+	TextPlayerName 0
+	GenderMessage 0 1
+	SetFlag 283
+	SetFlag 284
+	SetFlag 285
+	SetFlag 286
+	SetFlag 408
+	SetFlag 440 //radio tower Lady
+    SetFlag 792 //radio tower whitney
+	ClearFlag 117
+	SetFlag 156
+	PlaySound 1185
+	WaitSound
+	UpgradePokegear 1
+	SetFlag 138
+	SetVar 0x4073 2
+    Message 4
+    GiveShoes
+	Message 5
+	Call Function#26
+	CloseMessage
+	SetVar 0x4024 0
+
+
+
+Function 26:
+	Message 39
+	SetVar 0x416F 100
+	YesNoBox 0x800C
+	CloseMessage 
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#27
+	CheckFlag 117
+	CallIf DIFFERENT Function#28
+	CloseTouchScreen 
+Return 
+
+Function 27:
+	Message 40
+	SetFlag 117
+	SetVar 0x416F 12
+Return 
+
+Function 28:
+	Message 41
+Return 
+
+By the way, would you like to\nplay with Hard Level Caps?\r
+That’s my fearless little adventurer!\rHard caps are on.\r
+That’s okay honey. You just go at your\nown pace.\r
+
+### easy mode
+
+Call Function#30
+
+Function 30:
+	Message 43
+	YesNoBox 0x800C
+	CloseMessage 
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#31
+	CheckFlag 2597
+	CallIf DIFFERENT Function#32
+	CloseTouchScreen 
+Return 
+
+Function 31:
+	Message 44
+	SetFlag 2597
+Return
+
+Function 32:
+	Message 45
+Return 
+
+43:
+Do you want to play on Easy?\r
+44:
+I will make sure that the other kids\nplay fairly with you, honey.\r
+45: Hard mode it is!\nGo get them sweetie!\r
+
+###Remove Mom Saving money
+063 T20R0201 : Event File 60 - Script File 845 : Script 2:
+	CheckFlag 2404 GAME_CLEAR
+	JumpIf EQUAL Function#2  -> SS_Ticket -> Function#3
+	CompareVarValue 0x4108 4
+	JumpIf GREATER/EQUAL Function#3
+	CheckFlag 106
+	JumpIf EQUAL Function#4 -> GetPokeGear, go to Mr. Pokemon
+
+
+Function 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 167
+	JumpIf EQUAL Function#7 -> Withdraw,etc
+	CheckBadge 0 0x4000
+	CompareVarValue 0x4000 0
+	JumpIf DIFFERENT Function#8 - "I will save money"
+	Message 15
+Jump Function#9
+
+add new script for Mom
+Script 8:
+	PlayFanfare 1500
+	LockAll
+    FacePlayer
+	Message 42 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+42:Hi! Welcome home!\nYou’re doing fine, I see.\rI’ve kept your room tidy and clean.\rGive it all you got!\r
+
+
+
+### Remove Lyra Scene in Newbark
+060 - T20 : even file 57, script file 842, lvel script file 615:
+Clear Script 4 (first scene), Script 9, script 10
+
+Add to Mom's script in 845
+	SetFlag 417
+	SetFlag 418
+	SetVar 0x4106 2
+	SetVar 0x4072 2
+
+
+Remove Professor coming for pokegear number
+Script 3:
+	MecScript 
+	LockAll 
+				CheckFlag 156 //remove
+				JumpIf EQUAL Function#5 //remove
+	Movement Overworld.1 Action#2
+
+
+###Starter Hidden Ability, 3x31 IVs
+Header 061 T20R0101 - Script File 843 : Script 13
+Script 13:
+	...
+    SetFlag 2601
+	SetFlag 2599
+	StarterSelectionScreen 
+	...
+### Register Prof Elm number
+	...
+	TextPlayerName 0
+	GenderMessage 12 13 (add \r)
+    RecordPokegearNumber 1
+	TextPlayerName 0
+	Message 106
+	PlaySound 1206
+	WaitSound 
+	SetVar 0x407E 1
+
+\v0103ぁ\x0000\x0000 registered Professor Elm\nin the Pokégear!\r	
+
+
+### Professor gives balls
+script 3/Function 12:
+	GenderMessage 38 39
+    SetVar 0x8004 4	
+    SetVar 0x8005 50
+    CommonScript 2008
+
+38/39:And take these!\r
+
+
+
+### Assistant gives Old Rod/Infinite Candy
+Function15:
+	SetVar 0x8004 445
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 2558
+	SetVar 0x8005 1
+	CommonScript 2033
+	CloseMessage 
+
+	20/21:
+Pokémon are weak in the beginning.\rDon’t hesitate to use a Potion if you\nthink yours is in danger.\r
+Pokémon are weak in the beginning.\rDon’t hesitate to use Items to help\nthem grow stronger.\r
+
+#### Debug
+065 - T20R0301 - script file 847
+I am the Creator.\nDo you want to debug? \v0200\x0001\x0000
+Make some space in your Bag and Team.\r
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 0
+	WaitButton 
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 0
+	JumpIf DIFFERENT Function#1
+	TakeItem 50 900 0x800C
+	TakeItem 93 900 0x800C
+	SetVar 0x8004 50
+	SetVar 0x8005 900
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	SetVar 0x8004 50
+	SetVar 0x8005 900
+	CommonScript 2008
+	SetVar 0x8004 93
+	SetVar 0x8005 900
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	SetVar 0x8004 93
+	SetVar 0x8005 900
+	CommonScript 2008
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#1
+	GivePokemon 384 100 0 0 0 0x800C
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 1:
+	Message 1
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+
+#### Remove Catch Tutorial Scene
+033 R29 : Script File 225 : Clear script 1 and 2
+Move overworlds out of way
+
+
+
+### Cherrygrove Guide
+Remove events triggerd by 0x4073/16499
+Clear Script 1,2,3
+Mom Sets flag 408
+
+###Cherry Grove Rocksmash Rocks
+OW 85, Flag 20/21, Script 10001
+
+
+
+###Route 30 Events
+Remove Aprikoko Guy event
+Clear Script 3
+Move OW out of way
+Remove event triggered by 0x408C/16524 == 0
+
+### Mom Calling on Route 30
+034 - R30 Remove call
+Script 5:   0x4095/16533 == 1
+	MecScript 
+	LockAll 
+	SetVar 0x8004 0
+	SetVar 0x8005 2
+	SetVar 0x8006 0
+		//CommonScript 2039
+	SetVar 0x4095 0
+	SetFlag 167
+	ReleaseAll 
+End 
+
+
+### Remove Lyra/VS Recorder in R31
+Clear script 1,2 triggered by 0x4132/16690 == 0
+Delete OWs
+Delete Level Script
+
+
+
+### Sprout Tower 3F  Blocker
+Bellsprout OW
+Script 4:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer
+    Message 9 
+    ReleaseAll 
+End
+
+### Elder Li gives Coba Berry
+	Message 10
+    SetVar 0x8004 192
+	SetVar 0x8005 1
+	CommonScript 2033
+
+###Falkner gives Defog
+Function 8:
+	SetVar 0x8004 370
+	SetVar 0x8005 1
+
+Falkner: With that Badge, you can use\nthe hidden move Rock Smash anytime\foutside of battle.\r
+Falkner: By using a TM, a Pokémon will\ninstantly learn a new move.\rThink before you act--a TM can be\nused only once.\rTM43 contains Defog.\nIt removes Hazards in battle.\rThere are Pokémon Gyms in cities and\ntowns ahead. Make good use of them!\rAs for your next move...\fI would suggest Azalea Town.
+
+
+### Athur giving Hard Stone on R36 after beating  whitney
+Whitney beaten, Flag 547 cleared
+Route 36:
+OW 6, FLag 452, Script 2 -> Flag 547, script 12
+clear script 2
+
+script 12:
+    LockAll 
+	FacePlayer 
+    CheckFlag 177
+    JumpIf EQUAL Function#36
+    Message 19
+	SetVar 0x8004 238
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#22
+	CommonScript 2033
+	SetFlag 177
+Jump Function#36
+
+Function 36:
+	Message 20
+	CloseMessage 
+	ReleaseAll 
+End 
+
+19	Who are you?\rI’m Arthur of Thursday.\nHere, take this!\r
+20	It raises the strength of Rock-type\nmoves.\r
+
+##### Utility in Pokecenter
+Add OW  ID 6
+Script 7:
+	SetVar 0x8007 0
+	CommonScript 2093
+End 
+
+#### Block RoA entries with OWs
+Flag 127 clear. Got TM from Bugsy
+Block smaller caves with OWs without Flag
+\vFF01\x0001ｃKEVIN!\vFF01\x0001コ\r
+
+### Clodsire Trade in Violet
+	InitTrade 0 ->3
+	SetVarFromVariable 0x8004 0x800C
+	GetPartyPokemonID 0x8004 0x8005
+	//GetRequestedPokemon 0x800C
+	CompareVars 0x8005 0x800C -> CompareVarValue 0x8005 28
+
+
+### Move trainers
+Move goldenod underground Teru to RoA
+	sprout tower chow to violet gym
+	sprout tower jin to violet gym
+
+###Remove Old Rod guy
+R32 PC, clear script 2, move OW out of way
+
+### Remove weekly sibling Frieda
+R32, clear script 5, 6, move OW out of way, clear flag 520
+
+### Block the pier on Route 32
+Add 3 OWs
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	Message 20
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 12:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 21
+	CloseMessage 
+	ReleaseAll 
+End 
+
+20 Pssst!\rDon’t scare the fish!\r
+21 Poli...\r
+
+### Double battle in Union Cave, blocker
+add Graveler OW
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 75 0
+	Message 0
+    WaitCry
+	CloseMessage 
+	ReleaseAll 
+End 
+0:GRAVELER:Gryyaaa!\r     
+
+###Union Cave Aggronite
+Move OW item to patch accessable with surf
+Move Trainer as guard
+Move Hiker Philipp 203 to National Park
+
+### Slowbronite at well
+
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 122
+	JumpIf EQUAL Function#1
+    CheckBadge 6 0x800C
+	CompareVarValue 0x800C 0
+    JumpIf EQUAL Function#3
+	Message 0
+	WaitAB 
+	CloseMessage 
+	SetVar 0x8004 760
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CommonScript 2033
+	SetFlag 122
+Jump Function#1
+
+Function 3:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Slowbro is the best Pokémon!\rBut only if you have this!
+The secret to the unlimited power of\nSlowbro is...\r...
+Make use of the mighty Slowbro!
+
+###Gauntlet in Slowpoke Well
+Change Grunt OW to Ariana, Move Proton
+clear script 3
+
+Trigger var:
+SetVar 0x40F4/16628 1
+
+Script 4:
+    MecScript 
+	PlayFanfare 1500
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#3
+	Movement Overworld.4 Action#4
+	WaitMovement 
+	Message 6
+	CloseMessage 
+	Movement Overworld.2 Action#5
+	Movement Overworld.4 Action#5
+	WaitMovement 
+	Message 7
+	Message 8
+	CloseMessage 
+	TrainerBattle 12 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	Message 9
+	CloseMessage 
+	TrainerBattle 486 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#2
+	CheckFlag 117
+	CallIf EQUAL Function#3
+	Message 2
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.1
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	RemoveOW Overworld.4
+	SetFlag 425
+	WaitTime 20 0x8004
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetOWPosition Overworld.7 36 0 7 Left
+	Movement Overworld.7 Action#1
+	Movement Player Action#2
+Jump Function#5
+
+Function 5:
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	Message 0
+	CloseMessage 
+	ClearFlag 414
+	ClearFlag 427
+	SetFlag 123
+	SetVar 0x4075 1
+	SetVar 0x4080 2
+	SetVar 0x4099 1
+	SetVar 0x409B 1
+	SetVar 0x409E 1
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 164 0 4 5 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetFlag 426
+	SetFlag 469
+	SetFlag 428 //hides OW in cutter house
+	ClearFlag 429 //places cutter OW ilex
+	ClearFlag 423
+	ClearFlag 424
+	SetVar 0x4024 1 //story Flag
+	SetVar 0x40F4 1 // Cut in Ilex
+	ReleaseAll 
+End 
+
+Action 1:
+	WalkLeftFast 0x2
+	WalkDownFast 0x2
+	WalkLeftFast 0x3
+	WalkUpFast 0x2
+	Freeze4 0x4
+	WalkLeftFast 0x1
+	WalkUpFast 0x3
+	LookLeft 0x1
+End
+
+Action 2:
+	Freeze8 0x1
+	WalkLeftFast 0x1
+	WalkUpFast 0x5
+	Freeze8 0x4
+	LookDown 0x1
+	Freeze8 0x5
+	LookRight 0x1
+End
+
+Action 3:
+	WalkLeftFast 0x1
+End
+
+Action 4:
+	Exclamation 0x1
+End
+
+Action 5:
+	WalkRightFast 0x2
+End
+
+6 Proton: What do we have here?\r
+7 Proton: Lost, kid? Or just too dumb\nto stay away from Team Rocket?\r
+8 Ariana: Tsk. Guess we’ll have to\nteach this brat a painful lesson.\r
+9 Proton: Seriously, Ariana? It’s just\na kid!\rUgh, fine...\rI’ll handle this myself.\r
+
+### Bugbite Teacher in Azalea
+ADD OW Id 3
+
+Script 18:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 0x28CA
+	ReleaseAll 
+End 
+
+### Kurt gives Moonstone, Quick Balls
+script 6:
+	...
+	Message 1
+	SetVar 0x8004 492 -> 15
+	SetVar 0x8005 10
+	CommonScript 2008
+	Message 2
+    SetVar 0x8004 81
+	SetVar 0x8005 1
+	CommonScript 2008
+
+2:Kurt: I also found this in the Well.\nYou might have a use for it.\r
+
+
+
+### Azalea Rival
+Move Slowpoke OW out of way
+Move event in front of Gym
+SetVar 0x40F4/16628 2
+
+Script 3:
+	MecScript 
+	LockAll 
+    LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	..
+	//GetPlayerPosition 0x8004 0x8005
+	//CompareVarValue 0x8005 462
+	//JumpIf DIFFERENT Function#1
+	SetOWPosition Overworld.9 404 0 463 Left -> 414 0 472 Left
+	Movement Overworld.9 Action#2
+	Movement Player Action#3
+Jump Function#1
+
+Function 1:
+	WaitMovement 
+	TextRivalName 0
+	Message 1
+	CloseMessage 
+	Movement Player Action#7
+	WaitMovement 
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 387
+	JumpIf DIFFERENT Function#6
+	TrainerBattle 266 0 0 0
+Jump Function#7
+
+Function 6:
+	CompareVarValue 0x800C 775
+	JumpIf DIFFERENT Function#8
+	TrainerBattle 269 0 0 0
+Jump Function#7
+
+Function 7:
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	CommonScript 2070
+	TextRivalName 0
+	Message 2
+	CloseMessage 
+	SetVar 0x4075 2
+Jump Function#10
+
+Function 8:
+	TrainerBattle 1 0 0 0
+Jump Function#7
+
+Function 9:
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 10:
+	Movement Overworld.9 Action#8
+	WaitMovement 
+	RemoveOW Overworld.9
+	CommonScript 2071
+	SetVar 0x4024 2
+	ReleaseAll 
+End 
+
+
+Action 2:
+	WalkLeftFast 0x7
+End
+
+Action 3:
+	LookRight 0x1
+End
+
+Action 7:
+	WalkRightSlow 0x1
+End
+
+Action 8:
+	LookRight 0x1
+	WalkRightFast 0x9
+End
+
+
+
+### Getting Cut in Ilex
+Remove all OWs, clear scripts regarding Ilex Events
+
+Script 17:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 10
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 18:
+	MecScript 
+	LockAll 
+	Movement Overworld.3 Action#3
+	Movement Player Action#4
+	WaitMovement 
+	Message 0
+	SetVar 0x8004 420
+	SetVar 0x8005 1
+	CommonScript 2033
+	CloseMessage 
+	ClearFlag 428 //places OW in cutter house
+	SetFlag 429
+	SetVar 0x40F4 0
+	ReleaseAll 
+End 
+
+
+0: Hey!\rYou need Cut to go any further!\rTake this!\r
+10: Do you want to apprentice as a charcoal\nmaker with me?\rYou’ll be first-rate in ten years!\rWe cut wood all day, everyday.\r
+
+
+###Charcoal after Bugsy
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer
+    CheckFlag 127 //Bugsy TM
+    JumpIf EQUAL Function#2
+	CheckFlag 128
+	JumpIf EQUAL Function#3
+
+
+### White Herb Route 34 Passage
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 131
+	JumpIf EQUAL Function#1
+	Message 0
+	WaitAB 
+	SetVar 0x8004 315 -> 214
+	SetVar 0x8005 1
+
+It’s a White Herb.\rUse it to restore a Pokémon’s\ndecreased stat in battle.\n
+
+### Remove SPearow/kenya delivery
+101 - R35R0101 : Script File 241 : Clear Script 1
+
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 6
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+### Always lose goldenrod Store lottery
+196 - T25R1006 : Event File 189
+move ladies OW out of way
+
+
+### radio quiz after schorsch
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CheckFlag 345
+    JumpIf EQUAL Function#8
+	CheckFlag 138
+	JumpIf EQUAL Function#8
+
+### Always lose goldenrod radio lottery
+112 - D23R0101 : Script File 29
+Function 6:
+...
+	CheckWinLotto 0x8001 0x8002 0x8003 0x8000
+    SetVar 0x8002 0
+	CompareVarValue 0x8002 0
+	JumpIf EQUAL Function#19
+
+### Remove Berry Pot
+040 - R36 - Script file 243 - Script 1 -> Function 26/27
+Function 26:
+	Movement Overworld.5 Action#8
+	WaitMovement 
+	Message 15
+	//SetVar 0x8004 470
+	//SetVar 0x8005 1
+	//CommonScript 2033
+	//Message 16
+	//Message 17
+	SetVar 0x8004 155
+	SetVar 0x8005 3
+	CommonScript 2033
+
+### gives salac/custap berry
+
+Function 30:
+	Movement Overworld.5 Action#12
+	WaitMovement 
+	Message 15
+	SetVar 0x8004 210
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 203
+	SetVar 0x8005 1
+	CommonScript 2033
+
+Function 31:
+	Message 15
+	SetVar 0x8004 210
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetVar 0x8004 203
+	SetVar 0x8005 1
+	CommonScript 2033
+
+###Quiz in Radio tower
+112 - D23R0101 : Script File 29, Textfile 65
+script 3:
+
+Message 6
+	YesNoTouchScreen 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	//PlayFanfare 1521
+	//WaitFanfare 1521
+	//Message 7
+	//YesNoTouchScreen 0x800C
+	//CompareVarValue 0x800C 1
+	//JumpIf EQUAL Function#10
+	//PlayFanfare 1521
+	//WaitFanfare 1521
+	//Message 8
+	//YesNoTouchScreen 0x800C
+	//CompareVarValue 0x800C 0
+	//JumpIf EQUAL Function#10
+	WaitTime 30 0x800C
+
+We have a special Quiz campaign!\rAnswer five -> three questions correctly in a\nrow to win a Radio Card!\rWhen you load it into the Pokégear, you\nwill be able to listen to the radio...\fanytime, anywhere!\rWould you like to try our Quiz? \v0200\x0001\x0000
+The first question!\rCan you check the Town Map with\nyour Pokégear? \v0200\x0001\x0000
+You are correct.\nThe second question!\rNIDORINA can only be female.\nTrue? \v0200\x0001\x0000
+You are correct.\nThe third question!\rKurt, the Poké Ball creator, uses\napricots as ingredients? \v0200\x0001\x0000
+
+
+### Add new Mart guy in 5F
+Add OW 334, FLag 189 cleared by Chuck
+Move old lady in underground
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CommonScript 2011
+	FreezeMessage 
+	SetVar 0x8004 8 //golden rod underground medicine mart.
+	CommonScript 2052
+	ReleaseAll 
+End 
+
+###Remove TM Frustration in goldenrod mart 5f
+Script 7:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 142
+	JumpIf DIFFERENT Function#12
+Jump Function#11
+
+### Bill Eevee -> porygon
+
+Function 2:
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#7
+	Message 1
+	GivePokemon 137 15 0 0 0 0x800C
+
+
+###Randomize Trainer positions on Route 34
+CHange Brandon OW 328 -> 317, change trainer.s too
+Trigger when Event 16420/0x4024 == 2
+script 14:
+    GetRandom 0x800C 6
+    CompareVarValue 0x800C 1
+	CallIf EQUAL Function#49
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#50
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#51
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#52
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#53
+End
+
+Function 49:
+	SetOWPosition Overworld.2 381 0 431 Left
+    SetOWPosition Overworld.0 381 0 432 Left
+    SetOWPosition Overworld.13 381 0 433 Left
+Return 
+
+Function 50:
+    SetOWPosition Overworld.13 381 0 431 Left
+	SetOWPosition Overworld.2 381 0 432 Left
+	SetOWPosition Overworld.0 381 0 433 Left
+Return 
+
+Function 51:
+	SetOWPosition Overworld.2 381 0 431 Left
+    SetOWPosition Overworld.13 381 0 432 Left
+	SetOWPosition Overworld.0 381 0 433 Left
+Return 
+
+Function 52:
+    SetOWPosition Overworld.13 381 0 431 Left
+    SetOWPosition Overworld.0 381 0 432 Left
+	SetOWPosition Overworld.2 381 0 433 Left
+Return 
+
+Function 53:
+    SetOWPosition Overworld.0 381 0 431 Left
+    SetOWPosition Overworld.13 381 0 432 Left
+	SetOWPosition Overworld.2 381 0 433 Left  
+Return 
+
+### Gauntlet on Route 34
+038 R34: Script File 237 : Event File 35: Text Archive 384
+Delete second event, clear script 6
+Script 6:
+End
+
+Script 5:
+	MecScript 
+	LockAll 
+	//CountAlivePokemonExceptFirst 0x4003 6
+	//CompareVarValue 0x4003 1
+	//JumpIf DIFFERENT Function#5
+Jump Function#6
+
+Function 6:
+	Movement Overworld.5 Action#16
+	StopMusic 0
+	PlayMusic 1107
+	WaitMovement 
+	...
+	Message 26
+	WaitButton 
+	CloseMessage 
+    Movement Overworld.7 Action#12
+	StopMusic 0
+	PlayMusic 1107
+	WaitMovement
+    Movement Player Action#47
+	WaitMovement 
+    Message 28
+    CloseMessage 
+	StopMusic 0
+	TrainerBattle 118 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#7
+	SetVar 0x4097 2
+    Message 30
+	SetVar 0x8004 665
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#8
+	CommonScript 2033
+	SetVar 0x4097 3
+	Message 32
+	WaitButton 
+	CloseMessage
+	ReleaseAll 
+End
+
+
+###Block short cut around park on Route 35
+Add OW
+But I am so afraid of high grass!\r
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 30
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+### Schorsch on ROute 36
+Event 16420 == 2, script 13
+
+script 13:
+	PlayFanfare 1500
+	LockAll 
+	Message 23
+	CloseMessage 
+	SetOWPosition Overworld.9 415 0 248 Left
+	Movement Overworld.9 Action#11
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8005 248
+	JumpIf EQUAL Function#30
+	Movement Overworld.9 Action#12
+	Movement Player Action#1
+	WaitMovement 
+Jump Function#31
+
+Function 30:
+	Movement Overworld.9 Action#13
+	Movement Player Action#14
+	WaitMovement 
+Jump Function#31
+
+Function 31:
+	Message 24
+	CloseMessage 
+	TrainerBattle 233 0 0 0 //super Nerd Eric from Gouldenrod Tunnel
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	CheckFlag 117
+	CallIf EQUAL Function#33
+	ClearFlag 345
+	Message 25
+	SetVar 0x8004 157
+	SetVar 0x8005 1
+	CommonScript 2008
+	Message 26
+	CloseMessage 
+	Movement Overworld.9 Action#11
+	WaitMovement 
+	SetOWPosition Overworld.9 413 0 225 Left
+	SetVar 0x4024 3
+	ClearFlag 440 //radio tower lady
+    ClearFlag 792 //radio tower whitney
+	ReleaseAll 
+End 
+
+Function 32:
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 33:
+	SetVar 0x416F 35
+Return 
+
+Servus!\rDu do!\rWos glaabst, wo d’ hiralafst?\r
+Do kimmst ned weida, Freindal.\nIrgenda Stoana blockiert ’n Weg.\rSo a Schweinerei, Kreizkruzefix!\rJetzt kimm i nimma gscheid hoam.\rI bin so angfressn, do muass\ni mir erst amoi Luft macha.\rOh! You no unnerstand Gherman, ja?\nVee bat-tell now!\r
+Hoho, wos fia a Gaudi.\rDo kriagst no a Leckerl.\r
+Und jetzt eascht amoi ins Brauheisl.\nPfia God!\r
+
+#### Random gift route 36
+
+27: I can give you a really strong Pokémon\nWhat do you say? \v0200\x0001\x0000
+I understand.\r
+Please make some space.\r
+There you go.\r
+\v0103ぁ\x0000\x0000 received\n\v0100ぁ\x0001\x0000!\r
+
+Script 14:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 27
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#34
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#35
+	GetRandom 0x800C 21
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#36
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#37
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#38
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#39
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#40
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#41
+	CompareVarValue 0x800C 6
+	CallIf EQUAL Function#42
+	CompareVarValue 0x800C 7
+	CallIf EQUAL Function#43
+	CompareVarValue 0x800C 8
+	CallIf EQUAL Function#44
+	CompareVarValue 0x800C 9
+	CallIf EQUAL Function#45
+	CompareVarValue 0x800C 10
+	CallIf EQUAL Function#46
+    CompareVarValue 0x800C 11
+	CallIf EQUAL Function#47
+    CompareVarValue 0x800C 12
+	CallIf EQUAL Function#48
+	CompareVarValue 0x800C 13
+	CallIf EQUAL Function#49
+	CompareVarValue 0x800C 14
+	CallIf EQUAL Function#50
+	CompareVarValue 0x800C 15
+	CallIf EQUAL Function#51
+	CompareVarValue 0x800C 16
+	CallIf EQUAL Function#52
+	CompareVarValue 0x800C 17
+	CallIf EQUAL Function#53
+	CompareVarValue 0x800C 18
+	CallIf EQUAL Function#54
+	CompareVarValue 0x800C 19
+	CallIf EQUAL Function#55
+	CompareVarValue 0x800C 20
+	CallIf EQUAL Function#56
+	Message 30
+    TextPlayerName 0
+	TextPokemon 1 0x4002 0 0
+    Message 31
+    GivePokemon 0x4002 5 0 0 0 0x800C
+Jump Function#34
+
+
+Function 34:
+	Message 28
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 35:
+	Message 29
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 36:
+    SetVarFromFlexible 0x4002 874
+Return 
+
+Function 37:
+    SetVarFromFlexible 0x4002 418
+Return 
+
+Function 38:
+    SetVarFromFlexible 0x4002 341
+Return 
+
+Function 39:
+    SetVarFromFlexible 0x4002 928
+Return 
+
+Function 40:
+    SetVarFromFlexible 0x4002 635
+Return 
+
+Function 41:
+    SetVarFromFlexible 0x4002 23
+Return 
+
+Function 42:
+    SetVarFromFlexible 0x4002 74
+Return 
+
+Function 43:
+    SetVarFromFlexible 0x4002 58
+Return 
+
+Function 44:
+    SetVarFromFlexible 0x4002 116
+Return 
+
+Function 45:
+    SetVarFromFlexible 0x4002 98
+Return 
+
+Function 46:
+    SetVarFromFlexible 0x4002 43
+Return 
+
+Function 47:
+    SetVarFromFlexible 0x4002 261
+Return 
+
+Function 48:
+    SetVarFromFlexible 0x4002 871
+Return 
+
+Function 49:
+    SetVarFromFlexible 0x4002 807
+Return 
+
+Function 50:
+    SetVarFromFlexible 0x4002 27
+Return 
+
+Function 51:
+    SetVarFromFlexible 0x4002 714
+Return 
+
+Function 52:
+    SetVarFromFlexible 0x4002 300
+Return 
+
+Function 53:
+    SetVarFromFlexible 0x4002 218
+Return 
+
+Function 54:
+    SetVarFromFlexible 0x4002 363
+Return 
+
+Function 55:
+    SetVarFromFlexible 0x4002 167
+Return 
+
+Function 56:
+    SetVarFromFlexible 0x4002 396
+Return 
+
+
+###National Park Beedrillite
+OW item accessable with rockclimb
+Move Hiker Philipp 203 from Union Cave to National Park
+
+
+###Turtwig Trade in Goldenrod, Candy for others, additional Heartscale for litten
+
+Textfile 200 : Muscle -> Princess
+Script 4:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 345
+	JumpIf EQUAL Function#5
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 387
+    JumpIf DIFFERENT Function#15
+	CheckFlag 141
+	JumpIf EQUAL Function#14
+	Message 9
+	Message 23
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#5
+Jump Function#7
+
+Function 5:
+	Message 20
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 7:
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PartyPokemonTradeScreen 
+	GetSelectedPartySlot 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#8
+	InitTrade 1
+	SetVarFromVariable 0x8004 0x800C
+	TradePokemonScreen 0x8004
+	EndTrade 
+	SetFlag 141
+	Message 10
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End  
+
+Function 8:
+	Message 12
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+
+Function 14:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 15:
+    CheckFlag 141
+	JumpIf EQUAL Function#5
+    CheckStarter 0x800C
+	CompareVarValue 0x800C 775
+	JumpIf DIFFERENT Function#16
+	Message 21
+	SetVar 0x8004 50
+	SetVar 0x8005 1
+	CommonScript 2008
+	SetVar 0x8004 93
+	SetVar 0x8005 1
+	CommonScript 2008
+	SetFlag 141
+Jump Function#5
+
+
+Function 16:
+	Message 22
+	SetVar 0x8004 50
+	SetVar 0x8005 1
+	CommonScript 2008
+	SetVar 0x8004 2559 // Starter Card
+	SetVar 0x8005 1
+	CommonScript 2008
+	SetFlag 141
+Jump Function#5
+
+
+###Whitney clear vendor flag
+    ClearFlag 346
+End 
+Shorten message 7
+
+
+### BLack glasses in national park
+Script 1:
+	...
+	SetVar 0x8004 217 -> 240
+	SetVar 0x8005 1
+
+### Block Pokeathlon Dome
+
+Script 14:
+	PlayFanfare 1500
+	LockAll 
+	Message 11
+	CloseMessage 
+	ReleaseAll 
+End 
+I AM FIRST IN LINE!\r
+
+
+
+
+
+
+
+
+
+
+
+
+### Magnet from Sunny Route 37
+Remove Flag 451
+Set script 5
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CheckFlag 165
+    JumpIf EQUAL Function#11
+    Message 3
+    SetVar 0x8004 242
+	SetVar 0x8005 1
+	CommonScript 2033
+    SetFlag 165
+    Message 4
+    CloseMessage 
+	ReleaseAll 
+End
+
+Function 11:
+    Message 4
+    CloseMessage 
+	ReleaseAll 
+End
+
+3: Sunny: Hey! I am Sunny.\rToday is a beautiful day, so I want\nyou to have this!\r
+4: Sunny: What a beautiful day!\r
+
+
+#### Shed Shell/Surf in Ecruteak Theater
+script 12:
+script 13:
+SetVar 0x8004 422 -> 295
+SetVar 0x8005 1
+
+That’s a Shed Shell.\nIt can be useful fighting Ghost-type\nPokémon.\r
+That’s Surf.\nIt’s a move that lets Pokémon swim\facross water with ease.\r
+
+
+### Block Route 42
+Add OWs 222, FLag 194 TM from Jasmine
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 1
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Team Rocket is currently building a\nsecret base in Mahagony.\rI mean business.\nIt is a business.\r
+
+### Block Route 39
+Add 3 OWs, Flag 166 TM from morty
+script 9:
+	PlayFanfare 1500
+	LockAll 
+	Message 15 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+script 10:
+	PlayFanfare 1500
+	LockAll 
+	Message 17
+	CloseMessage 
+	ReleaseAll 
+End 
+
+script 11:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 16
+	CloseMessage 
+	ReleaseAll 
+End 
+
+### Morty clears vendor flag
+Script 2:
+	....
+	Message 3
+    ClearFlag 347
+
+
+
+
+
+
+
+
+### Facade at Moomoo Farm
+Text: 10: That there’s Facade.\rIts Power will increase if yer Pokémon\nhas a status condition.\rYou best think how you ought to\nuse it, hon.
+
+Function 2:
+	CheckFlag 171
+	JumpIf EQUAL Function#4
+	Message 8
+	WaitAB 
+	SetVar 0x8004 410 -> 369
+	SetVar 0x8005 1
+
+### Sharp Beak Route 40
+Remove Flag 518
+
+### Trade in Olivine:
+228 - T26R010 - script file 916, text file 608
+Krabby -> Kingler
+Voltorb -> "Billy"
+
+SetVarFromVariable 0x8004 0x800C
+	GetPartyPokemonID 0x8004 0x8005
+	// GetRequestedPokemon 0x800C
+	CompareVars 0x8005 0x800C -> CompareVarValue 0x8005 99
+	JumpIf DIFFERENT Function#4
+
+#define SPECIES_KINGLER        99
+
+### Remove Rod in Olivine
+230: T26R0601
+Add 
+Script 2:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer
+Jump Function#1
+
+Make OW use script 2
+
+### Remove Guy blocking route 40
+16528 == 0, script 9, clear script 9
+remove event
+
+
+### Twisted spoon in Olivine Restaurant
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+    CheckFlag 216
+    JumpIf EQUAL Function#23
+	Message 1
+	WaitButton 
+	CloseMessage
+    SetVar 0x8004 248
+	SetVar 0x8005 1
+    CommonScript 2033
+    CloseMessage
+    SetFlag 216
+	ReleaseAll 
+End 
+
+Function 23:
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End
+
+1: I can't use that for eating.
+2: I’ve heard that Kanto Gym Leaders give\nchallengers a Mega Ring if they excel\fin the fight.\rCan you believe that?
+
+### Sharp Beak from Monica Route 40
+Remove Flag 451
+Set script 11
+
+Script 11:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CheckFlag 215
+    JumpIf EQUAL Function#20
+    Message 1
+    SetVar 0x8004 244
+	SetVar 0x8005 1
+	CommonScript 2033
+    SetFlag 215
+    Message 2
+    CloseMessage 
+	ReleaseAll 
+End
+
+Function 20:
+    Message 2
+    CloseMessage 
+	ReleaseAll 
+End
+
+3: Monica: Hey! I am Monica.\rToday is a beautiful day, so I want\nyou to have this!\r
+4: Monica: What a beautiful day!\r
+
+
+#### Dragon Tail in Lighthouse
+ADD OW script 4:
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CheckFlag 309
+    JumpIf EQUAL Function#1
+	Message 2
+    CloseMessage
+    SetVar 0x8004 387	
+    SetVar 0x8005 1
+    CommonScript 2008
+    Message 3
+	CloseMessage 
+	SetFlag 309
+	ReleaseAll 
+End 
+
+Function 1:
+    Message 4
+	CloseMessage 
+	ReleaseAll 
+End 
+
+2 Hey! I used to be a heavy hitter\nin Baseball!\rHere a is little technique I came up\nwith back in my glory days.\r
+3 This move hits hard and forces\nthe other guy to ride the bench!\rUse it well\r
+4 Swing for the fences!\r
+
+### Chuck Mentions Mega Ring, gives Aura Sphere
+Function 6:
+	SetVar 0x8004 328 //changed to Aura Sphere
+	SetVar 0x8005 1
+	...
+	Message 6
+	WaitButton
+	TextPlayerName 0
+    Message 15
+
+8: Chuck: How to get a Mega Ring?!\rHmm..\rI dont know.\nI got mine in Kanto as a young\ftrainer.
+15: Chuck: \v0103ぁ\x0000\x0000!\nYou are strong enough the wield\fthe Mega Ring.\rI feel it in my bones.\rAnd you will need one if you want to\nchallenge the Pokémon League!\rWahahah!\r
+
+### EUsine gives Manectite, Life Orb
+
+TextPlayerName 0
+	Message 16
+    SetVar 0x8004 270
+	SetVar 0x8005 1
+	CommonScript 2033
+    SetVar 0x8004 682
+	SetVar 0x8005 1
+	CommonScript 2033
+    Message 23
+	CloseMessage 
+	Movement Overworld.6 Action#9
+	WaitMovement 
+	RemoveOW Overworld.6
+	SetFlag 482
+	ClearFlag 670
+	SetVar 0x4092 1
+	ReleaseAll 
+End 
+
+16:You’re amazing, \v0103ぁ\x0000\x0000!\rI’m starting to understand why SUICUNE\nwas keeping an eye on you.\r
+I want you to have this.\nIt will help you on your journey.\r
+23:I’m going to keep searching\nfor SUICUNE.\rI have a feeling we’ll see each other\nagain. See you around!\r
+
+
+
+### Mart in Cianwood:
+
+Function 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetFlag 367
+	Message 3
+	FreezeMessage 
+	//SetVar 0x8004 11
+	//CommonScript 2052
+    SetVar 0x8004 1
+	CommonScript 2048
+
+
+### Fossil in Cianwood
+385-T24R0801
+Add 2 Fossil OWs
+Hi there!\rI sometimes find Fossils at the beach\nand make them come back to life\fas real Pokémon.\rWould like such a Pokémon? \v0200\x0001\x0000
+Oh I understand.\r
+Sadly you don’t have space.\r
+How delightful! Here is your new friend.\r
+Soon I will go out searching for more Fossils!\r
+\v0103ぁ\x0000\x0000 received\n\v0100ぁ\x0001\x0000!\r
+OMANYTE: Ommaa...\r
+KABUTO: Kaa...\r
+
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x4005 1
+	JumpIf EQUAL Function#1
+	Message 0
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#2
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#3
+	SetFlag 2599
+	GetRandom 0x800C 11
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#4
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#5
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#6
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#7
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#8
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#9
+	CompareVarValue 0x800C 6
+	CallIf EQUAL Function#10
+	CompareVarValue 0x800C 7
+	CallIf EQUAL Function#11
+	CompareVarValue 0x800C 8
+	CallIf EQUAL Function#12
+	CompareVarValue 0x800C 9
+	CallIf EQUAL Function#13
+	CompareVarValue 0x800C 10
+	CallIf EQUAL Function#14
+	SetVar 0x4005 1
+	Message 3
+    TextPlayerName 0
+	TextPokemon 1 0x4002 0 0
+    Message 5
+    GivePokemon 0x4002 30 0 0 0 0x800C
+Jump Function#1
+
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    Message 6
+    CloseMessage
+    ReleaseAll
+End
+
+Script 3:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    Message 7
+    CloseMessage
+    ReleaseAll
+End
+
+Function 1:
+	Message 4
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 2:
+	Message 1
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 3:
+	Message 2
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 4:
+    SetVarFromFlexible 0x4002 138
+Return 
+
+Function 5:
+    SetVarFromFlexible 0x4002 140
+Return 
+
+Function 6:
+    SetVarFromFlexible 0x4002 142
+Return 
+
+Function 7:
+    SetVarFromFlexible 0x4002 345
+Return 
+
+Function 8:
+    SetVarFromFlexible 0x4002 347
+Return 
+
+Function 9:
+    SetVarFromFlexible 0x4002 410
+Return 
+
+Function 10:
+    SetVarFromFlexible 0x4002 408
+Return 
+
+Function 11:
+    SetVarFromFlexible 0x4002 614
+Return 
+
+Function 12:
+    SetVarFromFlexible 0x4002 616
+Return 
+
+Function 13:
+    SetVarFromFlexible 0x4002 746
+Return 
+
+Function 14:
+    SetVarFromFlexible 0x4002 748
+Return 
+
+
+### Giving Medicine Lighthouse
+
+	SetFlag 2410
+	SetVar 0x40A5 2
+	SetVar 0x410E 1
+	SetFlag 471
+	ClearFlag 473
+	//SetFlag 474
+	//SetFlag 475
+	//ClearFlag 476
+	//ClearFlag 477
+	SetFlag 2456
+End 
+
+
+#### Jasmine fights with mega stone
+Add Trainers to Gym 421,563
+Remove triggers with 16654 == 1/2
+Clear scripts  2,3,4,5
+
+
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckBadge 5 0x800C
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#1
+    CheckFlag 2518
+	JumpIf LESS Function#50
+
+Function 50:
+    Message 25
+	Message 26
+	CloseMessage 
+	ReleaseAll 
+End 
+
+25: Jasmine: Thank you for your help\nat the Lighthouse.\rYou’ve come for a gym battle,\nhaven’t you?\rAs the Steel-type Gym Leader, I must\nbe sure both trainer and Pokémon are\f
+equipped for the League road ahead.\r
+26: It wouldn’t be fair to accept the\nfight if you don’t yet have\fa Key Stone.\rYou should secure that first.\nI heard the Safari Zone attracts all\fsorts of rare things\rPerhaps you should look there.\r
+
+
+#### SS Aqua drives after getting ticket in Safari Zone
+DOcks: 240-P01R01 - script file 152
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	//CheckFlag 2404 //GAME CLEAR FLAG
+	CompareVarValue 16420 6
+	JumpIf LESS Function#1
+	CompareVarValue 0x4002 1
+
+
+
+
+
+#### Rocket Cutscene on Route 47
+ADD OWS 222 rocket grunt x2
+Event 16420 == 3, script 6
+
+13: Aha!\nWe found it!\rThis has to be the place,\nno doubt about it!\r
+14: Grunt 2: Hold on, you sure?\nThis looks like...\rjust a hole in the wall.\rThe legends talked about whirlpools\nand a deep-sea cavern, didn’t they?\r
+Grunt 1: Oh, come on.\nFolk stories are for kids and\ftourists!\rThe boss said it is hiding somewhere around here.\rJust think of our reward!\nHe’s been chasing this thing for ages!\rHe searched amost all of Johto!\r
+Grunt 1: You scope out the cavern,\nwhile I secure the entry.\r
+Grunt 2: What? I don’t...\rDAMN!\r
+
+
+Script 6:
+	MecScript 
+	PlayFanfare 1500
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#3
+	WaitMovement 
+	SetOWPosition Overworld.13 88 0 390 Left
+    SetOWPosition Overworld.14 87 0 390 Up
+	Movement Overworld.13 Action#11  //to make them appear correctly
+	WaitMovement 
+    Movement Overworld.14 Action#12
+	WaitMovement
+	Message 13
+	CloseMessage 
+	Movement Player Action#4
+	WaitMovement 
+	Movement Overworld.14 Action#5
+	WaitMovement 
+	Message 14
+	CloseMessage
+    Movement Overworld.14 Action#12
+	WaitMovement 
+	Message 15
+	Message 16
+	CloseMessage 
+	Movement Overworld.14 Action#6
+	WaitMovement 
+	Message 17
+	CloseMessage 
+	Movement Overworld.14 Action#7
+	WaitMovement 
+	SetOWPosition Overworld.14 65 0 385 Up
+	Movement Overworld.13 Action#8
+	WaitMovement 
+	Movement Overworld.13 Action#7
+	WaitMovement 
+	SetOWPosition Overworld.13 65 0 386 Left
+	SetVar 0x4024 4
+	ReleaseAll 
+End 
+
+
+
+
+Action 3:
+	Exclamation 0x1
+End
+
+Action 4:
+	WalkLeftSlow 0x3
+	WalkDownSlow 0x1
+	LookLeft 0x1
+End
+
+Action 5:
+	LookRight 0x1
+End
+
+Action 6:
+	LookUp 0x1
+End
+
+Action 7:
+	WalkUpSlow 0x1
+End
+
+Action 8:
+	WalkLeftSlow 0x1
+	LookUp 0x1
+End
+
+Action 11:
+    WalkLeftFastSite 0x1
+End
+
+Action 12:
+    WalkUpFastSite 0x1
+End
+
+
+### Route 47 Rockets
+distribute trainer from route 13 to route 47
+ID 15,16,17  OW  222/221
+
+
+
+
+
+### Route 48, Proton fight
+
+Script 4:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	Movement Overworld.4 Action#4
+	WaitMovement 
+	Message 2
+	CloseMessage 
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 3
+	CloseMessage 
+	Movement Overworld.4 Action#5
+	Movement Overworld.5 Action#5
+	Movement Overworld.9 Action#5
+	WaitMovement 
+	TextPlayerName 0
+	Message 4
+	Message 5
+	CloseMessage 
+	Movement Player Action#6
+	WaitMovement 
+	GetPlayerPosition 0x8004 0x8005
+	CompareVarValue 0x8004 87
+	CallIf EQUAL Function#6
+	CompareVarValue 0x8004 88
+	CallIf EQUAL Function#7
+	CompareVarValue 0x8004 90
+	CallIf EQUAL Function#8
+	Message 6
+	Message 7
+	CloseMessage 
+	TrainerBattle 561 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+	CheckFlag 117
+	CallIf EQUAL Function#10
+	Message 8
+	CloseMessage 
+	Movement Overworld.9 Action#4
+	WaitMovement 
+	Message 9
+	CloseMessage 
+	Movement Overworld.5 Action#3
+	WaitMovement 
+	Message 10
+	CloseMessage 
+	Movement Overworld.5 Action#7
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+	RemoveOW Overworld.5
+	RemoveOW Overworld.7
+	RemoveOW Overworld.9
+	SetFlag 474
+	WaitTime 20 0x8004
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Movement Overworld.4 Action#8
+	WaitMovement 
+	Message 11
+	Message 12
+	CloseMessage 
+	Movement Overworld.4 Action#9
+	WaitMovement 
+	RemoveOW Overworld.4
+	SetVar 0x4024 5
+	ReleaseAll 
+End 
+
+Action 3:
+	WalkLeftFastSite 0x1
+End
+
+Action 4:
+	WalkRightFastSite 0x1
+End
+
+Action 5:
+	Exclamation 0x1
+	LookDown 0x1
+End
+
+Action 6:
+	WalkUpFast 0x3
+End
+
+Action 7:
+	LookDown 0x1
+End
+
+Action 8:
+	WalkRightSlow 0x1
+	LookDown 0x1
+End
+
+Action 9:
+	WalkUpSlow 0x10
+End
+
+1: Proton: Stop playing dumb, old man!\rTeam Rocket’s intel is flawless.\nWe know it is in this area.\rStop hiding it!\r
+Baoba: Your rumor is wrong.\rThe Safari Zone only has a tedious\nand grindy block system to lure in\frarer Pok...\r
+\vFF01\x0001ｃSHUT UP!\vFF01\x0001コ\rProton: Show us the cave or...\r
+Baoba: \v0103ぁ\x0000\x0000!\r
+Proton: What is the kid doing here?\r
+Proton: That little pest from the\nWell!\rWhere is Ariana?\nShe should have...\rWhatever...\rI am busy trying to secure an asset\nthat will change the fate of Johto.\rGet lost!\r
+Proton: Oh, I see. You are trying\nto play the hero after you got\flucky once.\rWell, this time, kid, you are out\nof your league.\r
+Proton: How is this possible?\r...\rIt does not matter.\nWe got what we came for.\r
+Grunt: But Executive Proton, the Boss\nwanted us to...\r
+Proton: We are done here.\nWe leave.\r
+Baoba: \v0103ぁ\x0000\x0000!\rThat was phenomenal!\nYou saved the Safari Zone!\rI have no idea what they were looking\nfor. But there is nothing hidden in\fthe Safari Zone.\rAnd why is Team Rocket even active\nagain?!\r
+This could have been a PR nightmare!\rBut thankfully you showed up!\rCome on, we talk inside.\rI will wait inside the Gate.\r
+13: But Team Rocket will prevail!\r
+
+
+### Safari Zone NPCs comment on TR
+Add to several scripts
+
+CompareVarValue 0x4024 6
+JumpIf LESS Function#14/15/16
+
+Function 14:
+	Message 18
+	CloseMessage
+	ReleaseAll
+End
+
+Function 15:
+	Message 19
+	CloseMessage
+	ReleaseAll
+End
+
+Function 16:
+	Message 20
+	CloseMessage
+	ReleaseAll
+End
+
+18:Team Rocket at the Safari Zone?!\r
+19:Team Plasma attacked the Safari Zone!?\r
+20:Masked thugs attacked Baoba?!\r
+
+
+### Random starter in Safari Zone
+21: I cought so many Pokémon in the\nSafari Zone, that I am handing out\fsome rare ones.\rDo you want a rare Pokémon? \v0200\x0001\x0000
+Alright.\r
+Sadly you don’t have space.\r
+Haha.\nHere you go.\r
+\v0103ぁ\x0000\x0000 received\n\v0100ぁ\x0001\x0000!\r
+
+Script 18:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 21
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#17
+	GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#18
+	SetFlag 2599
+	GetRandom 0x800C 21
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#19
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#20
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#21
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#22
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#23
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#24
+	CompareVarValue 0x800C 6
+	CallIf EQUAL Function#25
+	CompareVarValue 0x800C 7
+	CallIf EQUAL Function#26
+	CompareVarValue 0x800C 8
+	CallIf EQUAL Function#27
+	CompareVarValue 0x800C 9
+	CallIf EQUAL Function#28
+	CompareVarValue 0x800C 10
+	CallIf EQUAL Function#29
+    CompareVarValue 0x800C 11
+	CallIf EQUAL Function#30
+    CompareVarValue 0x800C 12
+	CallIf EQUAL Function#31
+	CompareVarValue 0x800C 13
+	CallIf EQUAL Function#32
+	CompareVarValue 0x800C 14
+	CallIf EQUAL Function#33
+	CompareVarValue 0x800C 15
+	CallIf EQUAL Function#34
+	CompareVarValue 0x800C 16
+	CallIf EQUAL Function#35
+	CompareVarValue 0x800C 17
+	CallIf EQUAL Function#36
+	CompareVarValue 0x800C 18
+	CallIf EQUAL Function#37
+	CompareVarValue 0x800C 19
+	CallIf EQUAL Function#38
+	CompareVarValue 0x800C 20
+	CallIf EQUAL Function#39
+	Message 24
+    TextPlayerName 0
+	TextPokemon 1 0x4002 0 0
+    Message 25
+    GivePokemon 0x4002 5 0 0 0 0x800C
+Jump Function#17
+
+Function 17:
+	Message 22
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 18:
+	Message 23
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 19:
+    SetVarFromFlexible 0x4002 1
+Return 
+
+Function 20:
+    SetVarFromFlexible 0x4002 4
+Return 
+
+Function 21:
+    SetVarFromFlexible 0x4002 7
+Return 
+
+Function 22:
+    SetVarFromFlexible 0x4002 152
+Return 
+
+Function 23:
+    SetVarFromFlexible 0x4002 155
+Return 
+
+Function 24:
+    SetVarFromFlexible 0x4002 158
+Return 
+
+Function 25:
+    SetVarFromFlexible 0x4002 252
+Return 
+
+Function 26:
+    SetVarFromFlexible 0x4002 255
+Return 
+
+Function 27:
+    SetVarFromFlexible 0x4002 258
+Return 
+
+Function 28:
+    SetVarFromFlexible 0x4002 390
+Return 
+
+Function 29:
+    SetVarFromFlexible 0x4002 393
+Return 
+
+Function 30:
+    SetVarFromFlexible 0x4002 545
+Return 
+
+Function 31:
+    SetVarFromFlexible 0x4002 548
+Return 
+
+Function 32:
+    SetVarFromFlexible 0x4002 551
+Return 
+
+Function 33:
+    SetVarFromFlexible 0x4002 700
+Return 
+
+Function 34:
+    SetVarFromFlexible 0x4002 703
+Return 
+
+Function 35:
+    SetVarFromFlexible 0x4002 772
+Return 
+
+Function 36:
+    SetVarFromFlexible 0x4002 778
+Return 
+
+Function 37:
+    SetVarFromFlexible 0x4002 860
+Return 
+
+Function 38:
+    SetVarFromFlexible 0x4002 863
+Return 
+
+Function 39:
+    SetVarFromFlexible 0x4002 866
+Return 
+
+
+
+
+### Baoba gives SS Ticket at Safari Zone
+173 - D47R0101 : Script File 119 - Text File 135
+Trigger script 9 16471 == 1
+
+Script 9:
+	MecScript 
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.5 Action#5
+	Movement Player Action#6
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 29
+	//OpenTouchScreen 
+	//YesNoTouchScreen 0x800C
+	//CloseTouchScreen 
+	//CompareVarValue 0x800C 1
+	//JumpIf EQUAL Function#26
+	Message 30
+	//WaitButton 
+	CloseMessage 
+	SetVar 0x4057 2
+	ReleaseAll 
+End 
+
+
+    TextPlayerName 0
+	Message 29
+	Message 30
+    SetVar 0x8004 456
+	SetVar 0x8005 1
+	CommonScript 2008
+	Message 33 
+	CloseMessage 
+	SetVar 0x4057 2
+    SetVar 16420 6
+	ReleaseAll 
+End 
+.equ ITEM_SS_TICKET,                    456
+
+29: Baoba: Ah \v0103ぁ\x0000\x0000!\rOur hero! You saved the Safari Zone!\nWe can’t thank you enough for driving\foff Team Rocket.\rThose thugs would have turned my\nwonderful Zone into a barren wasteland!\r
+30: A mere ’thank you’ isn’t enough, is it?\rYou deserve something grand...\r...\r...something adventurous!\rI know!\rTake my ticket!\nIt’s for the S.S. Aqua!\r
+33: Go on, take a proper vacation!\rHave you tried the Safari Zone yet,\nby the way?\fIt’s better than ever!\r
+
+
+### SS Aqua Gentleman gives Metronome
+Script 4:
+	...
+	SetVar 0x8004 233 -> 277
+	SetVar 0x8005 1
+
+
+
+
+#### After traveling to Kanto via SS Aqua, fast travel from vermilion port to olivine port and vice versa
+Vermillion:
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CompareVarValue 0x40CB 7  //little girl story line
+	JumpIf GREATER/EQUAL Function#12
+
+Function 12:
+    Message 4
+	PlayFanfare 1538
+	WaitFanfare 1538
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	Warp 240 0 7 7 Up
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+    ReleaseAll
+End
+
+
+Olvine:
+Function 16:
+	Message 16
+	...
+	Warp 386 0 7 7 Up
+
+4: Welcome to the S.S. Aqua!\rWe offer fast travel to Johto.\nYou will be in Olivine City in\fno time.\r
+16:Welcome to the S.S. Aqua!\rWe offer fast travel to Kanto.\nYou will be in Vermilion City in\fno time.\r
+
+
+#### Lt. Surge fight
+Move OWs, Move triggers, move barrier
+
+Script 27:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer
+	CheckFlag 385
+    JumpIf EQUAL Function#27
+    Message 15
+    Message 16
+	CloseMessage 
+	SetFlag 2598  // permanent OW weather
+    SetVar 16421 1
+	TrainerBattle 255 0 0 0
+    SetVar 16421 0
+    ClearFlag 2598
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+    Message 17
+    SetVar 0x8004 1120
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#22
+	CommonScript 2033
+	SetFlag 385
+	Message 18
+	CloseMessage 
+	ReleaseAll 
+End
+.equ ITEM_HEAVY_DUTY_BOOTS,             1120
+
+Function 27:
+	Message 18
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 22:
+    SetFlag 794 //deactivate barrier in level script
+
+Add Event 16421 == 0
+
+Script 28:
+	LockAll 
+	CheckFlag 2470
+	JumpIf EQUAL Function#17
+	VermillionGymAnimation 0
+	VermillionGymAnimation 1
+	SetFlag 2470
+	ReleaseAll 
+End 
+
+
+15: Lt. Surge: Hey challenger!\nThe Vermilion Gym isn’t active.\rMy Arena is currently undergoing\nsome tactical changes.\r...\r
+So, you are from Johto...\rThen this is a perfect opportunity\nfor a field test.\rPrepare for an electric surprise!\nLet the exercise commence!\r
+You’ve earned the victory, like a\ntrue soldier!\rHere, take this.\nIt’s a crucial piece of gear in\fany battle.\r
+18: Dismissed!\r
+
+
+### Block Saffron, Route 9
+OWs ID 40
+
+Move OWs on Route 5,6
+
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 1
+	CloseMessage 
+	ReleaseAll 
+End 
+The road is closed until the problem at\nthe Power Plant is solved.\r
+
+
+
+
+
+
+
+
+
+
+#### Spell tag on Route 5 from old Lady
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 305
+	JumpIf EQUAL Function#1
+	Message 0
+	SetVar 0x8004 224 -> 247
+	SetVar 0x8005 1
+.equ ITEM_SPELL_TAG,                    247
+
+
+
+### Cerulean Cave blocker
+This is...\nThe notorious Cerulean Cave!\rHorribly powerful Pokémon live here.\nOnly the strongest trainers are\fallowed to challenge it.
+
+
+### Clear Amulet for Incineror
+429 - T04R0101 - script file 763
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+    CheckFlag 308 // Flag for getting Nugget on Route 2 in Kanto
+	JumpIf EQUAL Function#2
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 775 //TODO change to turtwig
+	JumpIf DIFFERENT Function#1
+	Message 0
+    YesNoBox 0x800C
+	CloseMessage 
+	CompareVarValue 0x800C 0
+    JumpIf DIFFERENT Function#3
+    GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#4
+	SetFlag 2599
+    FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetFlag 308
+    RemoveOW Overworld.1
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+    SetVar 0x4002 956
+    TextPlayerName 0
+	TextPokemon 1 0x4002 0 0
+    Message 7
+    GivePokemon 0x4002 5 0 0 0 0x800C
+    Message 8
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Script 2:
+    PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 6
+	CloseMessage 
+	ReleaseAll 
+End
+
+Function 1:
+	Message 1
+	SetVar 0x8004 1882
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 308
+	Message 3
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 2:
+	Message 2
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 3:
+	Message 4
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 4:
+	Message 5
+	CloseMessage 
+	ReleaseAll 
+End 
+
+.equ ITEM_CLEAR_AMULET,                 1882
+
+0:Oh! You’re collecting\nJohto Gym Badges!\rI found this little fellow\nthe other day, but I’m not\fmuch of a battler.\rWould you be willing to\nto take care of it?\r
+1:Oh! You’re collecting\nJohto Gym Badges!\rThen this will surely help you.\r
+How are those Badges coming?\r
+Go ahead. Take it!\r
+Oh, okay...\r
+Sadly you don’t have space.\r
+6: SPRIGATITO:Spriii...\r
+7: \v0103ぁ\x0000\x0000 received\n\v0100ぁ\x0001\x0000!\r
+8: Take good care of that little guy!\r
+
+
+#### Route 25 Bills grandfather wants to see Arceus:
+Can show any pokemon. Gives rock climb HM.
+
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 334
+	JumpIf EQUAL Function#1
+	Message 0
+	Message 1
+Jump Function#2
+
+Function 1:
+	Message 19
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 2:
+	Message 11
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#3
+	Message 12
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	CMD_349 
+	GetSelectedPartySlot 0x8000
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x8000 255
+	JumpIf EQUAL Function#3
+	Message 20
+	SetVar 0x8004 427
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 21
+	CloseMessage 
+	SetFlag 334
+Jump Function#1
+
+Function 3:
+	Message 13
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+1: Ah, my grandson mentioned a Pokémon he\ncaught the other day.\rHe talked about a big white Pokémon\nthat has golden hooves and looks\flike a centaur with a golden cross.\r
+19: Thank you for showing me that\nlittle fellow. Bill always showed me\fhis cute Pokémon.\rDo you catch nice Pokémon like\nmy grandson?\r 
+20: Hoah, that is a cute litte one!\rAs a token of my appreciation,\nI would like to give this to you!\r
+21: This is a TM. You can use it to cut\ntrees or destroy boulders!\r
+
+
+#### TM on Route 25 Gauntlet
+Script 2:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CheckFlag 290
+	JumpIf EQUAL Function#1
+	Message 11
+	SetVar 0x8004 92 -> 350
+	SetVar 0x8005 1
+
+.equ ITEM_TM023,                        350
+
+
+### Misty Event on Route 25
+Clear script 1, 5,6,7,8,9,10, delete event
+
+Brad
+Script 11:
+    PlayFanfare 1500
+	LockAll 
+	Message 20
+	CloseMessage 
+	ReleaseAll 
+End 
+
+20: Brad: Oh Misty, we have such a strong\nbond. Our relationship will overcome\fanything!\r
+Misty: Fine, you won.\rBut I will not give you my number.\r
+Misty: Oh Brad.\r
+Misty: Who are you?!\rWe are in the middle of something...\r...\r...\rA Ring?!\rI don’t want a Ring!\r
+Brad: But Misty!\rI...\rWe...\r
+Misty: Brad!\rHow do I say this...\rI like my independence.\rIt’s over.\nYou can go now.\r
+Brad: But Misty!\r
+Misty: And you.\rWhat Ring are you talking about?\r
+Misty: Brad!\rI am\r\vFF01\x0001ｃBUSY!\vFF01\x0001コ\r
+Brad: This is the worst day of\nmy life!\r
+Misty: Anyway.\rYou are looking for a Mega Ring?\rFine.\rHere take my old one.\rI got new one.\nA blue one.\rIt matches my eye color so well.\nDon’t you think so?\r
+Misty: But wait a second.\rAs a Gym Leader I have to test your\nskill and resolve.\rAre you even worthy of wielding\nthe Mega Ring?\rBut I must warn you.\nI am a pretty strong Leader.\r
+Misty: You really are good...\rI’ll admit that you are skilled...\rHere is another memento from this\nbattle.\r
+33: Misty: Just stop bragging about this.\rI had a long day.\r
+
+Script 12:
+    PlayFanfare 1500
+	LockAll 
+    CompareVarValue 16420 7
+	JumpIf GREATER/EQUAL Function#16
+    Movement Overworld.9 Action#1
+	WaitMovement
+    Message 20
+    CloseMessage
+    Movement Overworld.8 Action#2
+	WaitMovement
+    Message 22
+    CloseMessage
+    Movement Overworld.8 Action#3
+    WaitMovement
+    Message 23
+    CloseMessage
+    Movement Overworld.9 Action#1
+	WaitMovement
+    Message 24
+    CloseMessage
+    Movement Overworld.8 Action#4
+    WaitMovement
+    Message 25
+    CloseMessage
+    Movement Overworld.9 Action#1
+	WaitMovement
+    Message 26
+    CloseMessage
+    Movement Overworld.8 Action#5
+	WaitMovement
+    Message 27
+    CloseMessage
+    Movement Overworld.9 Action#1
+	WaitMovement
+    Message 26
+    CloseMessage
+    Movement Overworld.8 Action#5
+	WaitMovement
+    Message 28
+    CloseMessage
+    Movement Overworld.9 Action#5
+	WaitMovement
+    Message 29
+    CloseMessage
+    Movement Overworld.9 Action#6
+	WaitMovement    
+    RemoveOW Overworld.9
+    Message 30
+    CloseMessage
+    Movement Overworld.8 Action#5
+	WaitMovement
+    SetVar 0x8004 696
+	SetVar 0x8005 1
+	CommonScript 2008
+    SetFlag 2518
+    Message 31
+    CloseMessage 
+	TrainerBattle 254 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#17
+    Message 32
+    CloseMessage
+    SetVar 0x8004 661
+	SetVar 0x8005 1
+	CommonScript 2008
+    Message 33
+    CloseMessage
+    SetVar 16420 7
+    SetFlag 475
+    ClearFlag 476 //shows trainer in olivine gym/ move tutor #2 in goldenrod
+    ClearFlag 477
+    ReleaseAll
+End
+
+
+Function 16:
+    Message 21
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 17:
+    ClearFlag 2518
+    TakeItem 696 1 0x800C
+    LostBattle 
+	ReleaseAll 
+End 
+
+Action 1:
+	WalkRightFastSite 0x1
+End
+
+Action 2:
+	WalkDownFastSite 0x1
+End
+
+Action 3:
+	Exclamation 0x1
+	WalkUpFastSite 0x1
+End
+
+Action 4:
+	WalkLeftFastSite 0x1
+End
+
+Action 5:
+	WalkUpFastSite 0x1
+End
+
+Action 6:
+    WalkLeftSlow 0x1
+	WalkUpSlow 0x5
+    Freeze8 0x8
+    LookDown 0x1
+    Freeze8 0x8
+    WalkLeftFastSite 0x1
+    WalkLeftFast 0x10
+End
+
+
+### CHange Mega Ring Description
+
+Misty's old Mega Ring. It has lots\nof scratches and the pink colour\nis slighty faded.
+File 838: 58:This ring contains an unknown power\nthat somehow enables a Pokémon\ncarrying a Mega Stone to Mega Evolve\rin battle.
+File 222: 697: Mega Ring
+Misty's Mega Ring
+
+### Jasmine gives Rock Climb
+.equ ITEM_HM08,                         427
+.equ ITEM_STEELIXITE,                   761
+
+Script 1:
+	...
+	Message 27
+    Message 28
+	CloseMessage 
+	TrainerBattle 33 0 0 0
+	...
+	Message 3
+	SetVar 0x8004 761
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 4
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 194
+End 
+
+Function 4:
+	Message 3
+	SetVar 0x8004 761
+	SetVar 0x8005 1
+	CommonScript 2033
+	Message 4
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 194
+End 
+
+Function 16:
+	SetVar 0x8004 427
+	SetVar 0x8005 1
+	CheckItemSpace 0x8004 0x8005 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	CommonScript 2033
+	Message 5
+	WaitButton
+    SetVar 0x8004 761
+	SetVar 0x8005 1
+    CommonScript 2033
+    Message 4
+	CloseMessage 
+	ReleaseAll 
+	SetFlag 194
+End 
+
+3: Jasmine: It is Rock Climb.\rWith that your Pokémon will be able\nto reach hidden spots.\rBest of luck on your journey\nto the Pokémon League.\r
+4: Jasmine: I hope it will help you on\nyour journey to the Pokémon League.\rBest of luck.\r
+5: Jasmine: With that Badge,\nPokémon will be able to use Rock Climb.\rPlease take this, too.\r
+27: Jasmine: Thank you for your help\nat the Lighthouse.\r...\r
+28: Ah, you have it. The Mega Ring.\rThis is an important milestone on your\njourney to the Pokémon League.\rNow, show me that you can wield\nthat power wisely, Trainer.\r
+
+
+
+### Route 43 Rocket passage
+Clear Scripts, Levelscripts, Clear OW flags, remove TR OW
+Script 1:
+End 
+
+Script 2:
+End
+
+Script 3:
+End 
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 7
+	CloseMessage 
+	ReleaseAll 
+End 
+
+7:I have heard that something is strange\nis going on at the Lake of Rage...\rI even saw Team Rocket stalking around.\r
+
+### remove trainer flags at lake of rage
+remove all setFLag/ClearFlag 650,  651/652? //TODO
+
+### Lance Text at lake
+split message
+
+	TextPlayerName 0
+	GenderMessage 3 4
+    TextPlayerName 0
+	GenderMessage 19 20
+
+3:Did you come here because of the\nwild tales?\rYou’re \v0103ぁ\x0000\x0000?\nI’m Lance, a former Champion and a\fcurrent member of the Elite Four.\r
+4:...
+19: I heard some rumblings...
+20: I heard some rumblings...
+
+### Skill swap at lake of Rage house
+0:I am the inventor of Hidden Power!\nBut nowadays you buy the move as TM\feverywhere...\rSo...\rI invented a new move.\nSomething more pristine...\r
+
+2:Skill Swap!\rThis move allows advanced strategies\nin battle.\rBut now let me focus on my next\ninvention...\r
+Message 0
+	SetVar 0x8004 337 -> 375
+	SetVar 0x8005 1
+
+#define ITEM_TM048                        375
+
+
+
+
+#### ROcket HQ B1F
+remove some random encounters
+clear 15-29 scripts
+16562-16577, 16563-16577 unused
+
+
+Script 14:
+	MecScript 
+	LockAll 
+	FloorTrapAnimation 1
+	PlayFanfare 2175
+    GetRandom 0x800C 11
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#57
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#58
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#59
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#60
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#61
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#62
+	CompareVarValue 0x800C 6
+	CallIf EQUAL Function#63
+	CompareVarValue 0x800C 7
+	CallIf EQUAL Function#64
+	CompareVarValue 0x800C 8
+	CallIf EQUAL Function#65
+	CompareVarValue 0x800C 9
+	CallIf EQUAL Function#66
+	CompareVarValue 0x800C 10
+	CallIf EQUAL Function#67
+	WildBattle 0x4002 60
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#20
+	SetVar 0x40B2 1
+	ReleaseAll 
+End 
+
+Forms are 2048 * 1 + 89 (id)
+
+Function 57:
+    SetVarFromFlexible 0x4002 2076
+Return 
+
+Function 58:
+    SetVarFromFlexible 0x4002 110
+Return 
+
+Function 59:
+    SetVarFromFlexible 0x4002 2158
+Return 
+
+Function 60:
+    SetVarFromFlexible 0x4002 2124
+Return 
+
+Function 61:
+    SetVarFromFlexible 0x4002 2137
+Return 
+
+Function 62:
+    SetVarFromFlexible 0x4002 426
+Return 
+
+Function 63:
+    SetVarFromFlexible 0x4002 205
+Return 
+
+Function 64:
+    SetVarFromFlexible 0x4002 761
+Return 
+
+Function 65:
+    SetVarFromFlexible 0x4002 344
+Return 
+
+Function 66:
+    SetVarFromFlexible 0x4002 435
+Return 
+
+Function 67:
+    SetVarFromFlexible 0x4002 665
+Return
+
+
+###Electrodes -> Hisui
+Script 5,6,7
+WildBattleSp 2149 60 0
+
+### Traps in HQ B1F
+Switch:
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	CompareVarValue 0x40AC 9
+	JumpIf GREATER/EQUAL Function#5
+	CheckFlag 214
+	JumpIf EQUAL Function#5
+
+CompareVarValue 0x40AD 2
+JumpIf GREATER/EQUAL Function#8
+...
+// remove 
+Function 6:
+	PlayFanfare 1646
+	Message 7
+	CloseMessage 
+	SetFlag 214
+	SetVar 0x40AD 1
+	Movement Overworld.0 Action#3
+	SetVar 0x40AE 1
+	Movement Overworld.2 Action#3
+	SetVar 0x40AF 1
+	Movement Overworld.3 Action#3
+	SetVar 0x40B0 1
+	Movement Overworld.4 Action#3
+	SetVar 0x40B1 1
+	Movement Overworld.5 Action#3
+
+Level Script 32 when entering
+
+Script 32:
+	CheckFlag 214
+	CallIf EQUAL Function#24
+	CheckFlag 214
+	CallIf DIFFERENT Function#25
+	CompareVarValue 0x40AC 4
+	JumpIf EQUAL Function#26
+	CompareVarValue 0x40AC 5
+	JumpIf EQUAL Function#26
+	CompareVarValue 0x40AC 6
+	JumpIf EQUAL Function#26
+	CompareVarValue 0x40AC 7
+	JumpIf EQUAL Function#26
+End 
+
+Function 24:
+	SetVar 0x40AD 2
+	SetOWDefaultDirection Overworld.0 Down
+	SetVar 0x40AE 2
+	SetOWDefaultDirection Overworld.2 Down //blue eyes
+	SetOWDefaultDirection Overworld.13 Left // grey eyes
+	SetVar 0x40AF 2
+	SetOWDefaultDirection Overworld.3 Down
+	SetOWDefaultDirection Overworld.14 Left
+	SetVar 0x40B0 2
+	SetOWDefaultDirection Overworld.4 Down
+	SetVar 0x40B1 2
+	SetOWDefaultDirection Overworld.5 Down
+Return 
+
+Function 25:
+	SetVar 0x40AD 0
+	SetOWDefaultDirection Overworld.0 Up
+	SetVar 0x40AE 0
+	SetOWDefaultDirection Overworld.2 Up
+	SetOWDefaultDirection Overworld.13 Up
+	SetVar 0x40AF 0
+	SetOWDefaultDirection Overworld.3 Up
+	SetOWDefaultDirection Overworld.14 Up
+	SetVar 0x40B0 0
+	SetOWDefaultDirection Overworld.4 Up
+	SetVar 0x40B1 0
+	SetOWDefaultDirection Overworld.5 Up
+Return 
+
+ADD new persian OW since the old ones cannot be moved
+Make old ones use this script
+
+Script 34:
+	PlayFanfare 1500
+	LockAll 
+    CheckFlag 214
+    CallIf DIFFERENT Function#56
+	Message 2
+Jump Function#4
+
+Function 56:
+	Message 4
+Jump Function#4
+ 
+script 1: Battle 223,224
+script 6: Battle 328,382
+script 7: Battle 571,570
+
+
+###
+b3f
+Lance: \v0103ぁ\x0000\x0000, this place\nis full of traps and strange effects.\fBut we must push further!\rLet’s give our\nbest for Pokémon.\r
+
+
+### spikes weather in b3f
+b2f Add Levelscript when entering
+Script 16:
+	ClearFlag 2598
+	SetVar 0x4025 0
+End
+
+
+b3f add to level script when entering
+Script 7:
+	SetFlag 2598
+	SetVar 0x4025 2
+
+Mahogany Town: Add Levelscript when entering
+Script 10: 
+    ClearFlag 2598
+	SetVar 0x4025 0
+End
+
+
+
+#### Archer + Petrel event
+Add Archer OW
+Script 4:
+	MecScript 
+	LockAll 
+    ClearFlag 2598
+	SetVar 0x4025 0
+	SendBackFollowingPoke 
+	Movement Player Action#2
+	WaitMovement 
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 24
+	CallIf EQUAL Function#3
+	Movement Player Action#8
+	WaitMovement 
+	Movement Overworld.8 Action#9
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	Movement Overworld.22 Action#10
+	WaitMovement 
+	Message 14
+	CloseMessage 
+	Movement Overworld.8 Action#9
+	WaitMovement 
+	Message 15
+	CloseMessage 
+	Movement Overworld.22 Action#10
+	WaitMovement 
+	Message 16
+	CloseMessage 
+	Movement Overworld.22 Action#2
+	Movement Overworld.8 Action#2
+	WaitMovement 
+	Movement Overworld.22 Action#11
+	Movement Overworld.8 Action#11
+	WaitMovement 
+	Message 17
+	CloseMessage 
+	Movement Overworld.8 Action#11
+	WaitMovement 
+	Message 18
+	CloseMessage 
+	Movement Overworld.22 Action#11
+	WaitMovement 
+	Message 19
+	CloseMessage 
+	Movement Overworld.8 Action#11
+	WaitMovement 
+	Message 25
+	CloseMessage 
+	Movement Overworld.22 Action#12
+	Movement Overworld.8 Action#12
+	WaitMovement 
+	Message 20
+	CloseMessage 
+	Movement Overworld.22 Action#13
+	Movement Overworld.8 Action#13
+	WaitMovement 
+	Movement Overworld.22 Action#10
+	Movement Overworld.8 Action#9
+	WaitMovement 
+	Message 21
+	CloseMessage 
+	Movement Overworld.22 Action#10
+	WaitMovement 
+	Message 22
+	Message 23
+	CloseMessage 
+	Movement Overworld.22 Action#14
+	WaitMovement 
+	RemoveOW Overworld.22
+Jump Function#4
+
+
+Function 4:
+	ClearFlag 500
+	SetFlag 640
+	Movement Overworld.8 Action#11
+	WaitMovement 
+	Message 24
+	CloseMessage 
+	TrainerBattle 488 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#10
+	Movement Overworld.8 Action#25
+	WaitMovement 
+	Message 26
+	Message 27
+	CloseMessage 
+	Movement Overworld.8 Action#26
+	WaitMovement 
+	RemoveOW Overworld.8
+	SetFlag 500
+	Movement Overworld.9 Action#27
+	WaitMovement 
+	Message 8
+	CloseMessage 
+	Message 9
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.9 Action#28
+	Movement Player Action#29
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetVar 0x40AC 4
+	RemoveOW Overworld.9
+	SetFlag 586
+	ClearFlag 587
+	SetFlag 214
+	BallResetFollowingPoke 
+	ReleaseAll 
+End 
+
+13: Petrel: Phase 1 is complete.\rThe prototype is a success, and\nthe buyer agreed to our terms.\fThe meeting is now set.\r
+Archer: Outstanding.\r
+Petrel: About phase 2...\r
+Archer: They will find it...\nanytime now.\r
+Archer: Ah, the sidekick.\rI didn’t expect Lance would so\ncowardly send a child on his crusade.\rOur fortifications must be occupying\nthe old Champion.\r
+Petrel: Haha, he is getting old.\rWhat do we do with this one?\r
+Archer: I take no pleasure in\nbeating up a child, but some lessons\fare only learned through pain.\r
+\vFF01\x0001ｃ*bing*\vFF01\x0001コ\r\vFF01\x0001ｃ*bing*\vFF01\x0001コ\vFF01\x0001ｃ*bing*\vFF01\x0001コ\r
+Petrel: A message from the team in\nOlivine City!\r
+Archer: They found it.\nExcellent.\rFinally...\r
+Archer: Petrel, you will finish up here.\nAbandon everything once you are done.\rI’m heading to Olivine City and taking\nthe blueprints with me.\rMeet me at the buyer’s place.\rAnd deal with our little hero here.\r
+Petrel: Muhahaha, unlike Archer I will\ntake pleasure in this!\fLance sent you into the abyss!\r
+Petrel: Hehe, it’s gonna be a painful\nlesson!\r
+Petrel: FUCK!\nHOW?!\rYou must be cheating!\r...\rArgh, but it doesn’t matter.\nWe’ve already gotten what we need!\rThe blueprints for the prototype are\nwith Archer and you can’t even turn\foff the generator of this facility!\r
+27: We locked the generator behind a door\nthat only reacts to my voice!\rGo ahead, try play the hero while\nwe leave this dumpster!\rTeam Rocket has far higher plans!\r
+
+
+
+
+### Lance Ariana Proton battle
+Add Proton OW, change trainer type
+
+Script 4:
+	MecScript 
+	LockAll 
+	Message 3
+	Movement Player Action#6
+	WaitMovement 
+	CloseMessage 
+	ClearFlag 499
+	AddOW Overworld.8
+	AddOW Overworld.7
+	SetOWPosition Overworld.8 32 1 30 Right
+	SetOWPosition Overworld.7 31 1 30 Up  //moved from 30
+	StopMusic 0
+	PlayMusic 1112
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	GetPlayerPosition 0x4000 0x4001
+	CompareVarValue 0x4000 30
+	JumpIf DIFFERENT Function#4
+	Movement Player Action#7
+Jump Function#5
+
+Function 4:
+	Movement Player Action#16
+	Movement Overworld.8 Action#17
+	Movement Overworld.7 Action#18
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+Jump Function#18
+
+Function 5:
+	Movement Overworld.8 Action#17
+	Movement Overworld.7 Action#18
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+Jump Function#18
+
+Function 18:
+	Movement Overworld.8 Action#21
+	WaitMovement 
+	Message 4
+	CloseMessage 
+	Movement Overworld.7 Action#21
+	WaitMovement 
+	Message 28
+	CloseMessage 
+	Movement Overworld.8 Action#21
+	WaitMovement 
+	Message 29
+	CloseMessage 
+	Movement Overworld.7 Action#21
+	WaitMovement 
+	Message 30
+    Message 5
+	CloseMessage 
+	ClearFlag 485
+	AddOW Overworld.0
+	AddOW Overworld.1
+	SetOWPosition Overworld.0 20 1 25 Right
+	SetOWPosition Overworld.1 19 1 25 Up
+	Movement Overworld.0 Action#22
+	Movement Overworld.1 Action#23
+	WaitMovement 
+	Message 33
+	CloseMessage 
+	Movement Overworld.1 Action#24
+	PlayCry 149 0
+	WaitCry 
+	Movement Overworld.7 Action#21
+	WaitMovement 
+	Message 31
+	CloseMessage 
+	Movement Overworld.8 Action#21
+	WaitMovement 
+	Message 6
+	CloseMessage 
+	Movement Overworld.8 Action#25
+	Movement Overworld.7 Action#25
+	WaitMovement 
+	Battle2vs2 675 479 499 1
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#23
+	CheckFlag 117
+	CallIf EQUAL Function#24
+	Movement Overworld.8 Action#21
+	WaitMovement 
+	Message 8
+	CloseMessage 
+	Movement Overworld.7 Action#21
+	WaitMovement 
+	Message 7
+	Message 32
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	SetOWPosition Overworld.0 28 1 24 Down
+	SetOWPosition Overworld.1 27 1 24 Right
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#27
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	RemoveOW Overworld.8
+	RemoveOW Overworld.7
+	RemoveOW Overworld.3
+	RemoveOW Overworld.4
+	RemoveOW Overworld.2
+	SetFlag 499
+	SetFlag 498
+	SetFlag 488
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Movement Overworld.0 Action#28
+	Movement Overworld.1 Action#29
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 10 11
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#30
+	Movement Overworld.0 Action#31
+	Movement Overworld.1 Action#32
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	PlayCry 149 0
+	WaitCry 
+	Movement Overworld.0 Action#33
+	Movement Overworld.1 Action#34
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 12 13
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#35
+	Movement Overworld.0 Action#36
+	Movement Overworld.1 Action#37
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetOWPosition Overworld.0 39 0 18 Up
+	SetOWPosition Overworld.1 40 0 18 Up
+	ReleaseAll 
+	SetVar 0x40AC 9
+	SetVar 0x40A9 4
+	SetFlag 2456
+End 
+
+3: Proton: Hold it right there!
+Ariana: We can’t let a brat like you\ndo as you please forever.\r
+Lance: Stop right there!\r
+Ariana: We will kick your ass too,\ngrandpa!\r
+Proton: Argh, but it does not matter.\nThis hideout is no longer needed.\rThe broadcast experiment was a\ntotal success.\r 
+8: Ariana: Unbeleavable!\nSheer endless luck!\r
+
+28: Proton: You’ve already interfered in\nTeam Rocket’s business too much.\fBut you’ve run out of luck this time!\r
+Ariana: We knew you’d come to shut\ndown the generator.\rYou ran right into our ambush!\nGet ready to be trashed.\r
+Proton: Yeah, feel the full extent of\nTeam Rocket’s wrath!\r
+31: Proton: Oh, the other so-called ’hero’\nhas arrived. What a clown show!\r
+32: We have much bigger plans. You’ll come\nto appreciate Team Rocket’s true power\fsoon enough.\rEnjoy yourself while you can...\nHee hee hee...\r
+33: Lance: I won’t let you follow through\nwith your plans!\r
+
+
+
+#### Lance Ariana Proton battle TODO
+When clearing the elctrodes:
+Function 21/24:
+	// ClearFlag 507  (removed)
+	// SetFlag 506
+
+
+#### Pryce
+	SetTrainerFlag 483
+	ClearFlag 507  // Block radio tower to block whitney rematch after whirl islands
+	ClearFlag 650  // Sets Leftovers trader in goldenrod
+	...
+	SetVar 0x8004 334 -> 340
+	SetVar 0x8005 1
+	...
+    CommonScript 2033
+    SetVar 0x8004 763
+	SetVar 0x8005 1
+	CommonScript 2033
+
+Function 3:
+	....
+
+.equ ITEM_GLALITITE,                    763
+
+### Whitney rematch:
+Add rocket OW Flag 507 on event when entering radio tower 
+
+##whirl islands
+use flag 506, set 506, 507 after events
+Move Blocker OW, remove level scripts
+
+### Lugia room
+
+Keep for flags
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x400A 249
+	PlayCry 0x400A 0
+	Message 4
+	WaitCry 
+	CloseMessage 
+	CheckVersion 0x800C
+	CompareVarValue 0x800C 7
+	JumpIf DIFFERENT Function#1
+	SetVar 0x8004 70
+Jump Function#2
+
+Script 2
+	SetFlag 267
+	SetVar 0x40FA 2
+End 
+
+Script 3:
+	SetVar 0x4003 111
+	SetFlag 261
+End 
+
+### lugia room rocket event
+
+
+Script 4:
+	MecScript 
+	LockAll 
+	StopMusic 0
+	PlayMusic 1112
+	Movement Overworld.8 Action#1
+	WaitMovement 
+	RemoveOW Overworld.8
+	Movement Overworld.2 Action#2
+	Movement Overworld.1 Action#3
+	WaitMovement 
+	Message 0
+	CloseMessage 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	Message 1
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	Message 2
+	CloseMessage 
+	Movement Player Action#5
+	WaitMovement 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	TextPlayerName 0
+	Message 3
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	TextPlayerName 0
+	Message 4
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	Message 5
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	Message 6
+	Message 7
+	CloseMessage 
+	Movement Overworld.2 Action#2
+	WaitMovement 
+	Message 8
+	CloseMessage 
+	Movement Overworld.2 Action#6
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Message 9
+	CloseMessage 
+	Movement Overworld.2 Action#8
+	Movement Overworld.4 Action#9
+	Movement Overworld.5 Action#10
+	WaitMovement 
+	RemoveOW Overworld.2
+	RemoveOW Overworld.4
+	RemoveOW Overworld.5
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	Message 10
+	CloseMessage 
+	Message 11
+	CloseMessage 
+	SetOWPosition Overworld.6 18 1 34 Up
+	Movement Overworld.0 Action#11
+	Movement Overworld.1 Action#11
+	Movement Player Action#11
+	Movement Overworld.6 Action#12
+	WaitMovement 
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	TextRivalName 0
+	Message 12
+	CloseMessage 
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Message 14
+	CloseMessage 
+	Movement Overworld.1 Action#13
+	Movement Overworld.3 Action#14
+	Movement Overworld.7 Action#15
+	Movement Overworld.10 Action#16
+	Movement Overworld.6 Action#17
+	WaitMovement 
+Jump Function#2
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 27
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 1:
+	SetFlag 164
+	WildBattleSp 0x400A 0x8004 0
+	ClearFlag 164
+	GetBattleOutcome 0x4005
+	CompareVarValue 0x4005 2
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x4005 3
+	JumpIf EQUAL Function#3
+	CompareVarValue 0x4005 4
+	CallIf EQUAL Function#4
+	ReleaseAll 
+	SetFlag 265
+	SetVar 0x4081 3
+	SetFlag 418
+	SetFlag 417
+	SetFlag 744
+	ClearFlag 741
+	SetFlag 581
+	ClearFlag 572
+	ClearFlag 577
+End 
+
+Function 2:
+	TrainerBattle 297 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	Movement Overworld.3 Action#18
+	Movement Overworld.10 Action#19
+	WaitMovement 
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Message 15
+	CloseMessage 
+	Movement Player Action#20
+	Movement Overworld.6 Action#6
+	WaitMovement 
+	SetVar 0x4005 285
+	CheckStarter 0x800C
+	CompareVarValue 0x800C 387
+	CallIf DIFFERENT Function#6
+	CompareVarValue 0x800C 775
+	CallIf DIFFERENT Function#7
+	Battle2vs2 0x4005 298 676 1
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#5
+	Movement Overworld.0 Action#2
+	WaitMovement 
+	Message 16
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.0
+	RemoveOW Overworld.3
+	RemoveOW Overworld.7
+	RemoveOW Overworld.9
+	RemoveOW Overworld.10
+	SetFlag 507
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	Movement Player Action#21
+	Movement Overworld.6 Action#2
+	Movement Overworld.1 Action#22
+	WaitMovement 
+	Message 17
+	CloseMessage 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	TextRivalName 0
+	Message 18
+	CloseMessage 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	Message 19
+	CloseMessage 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	TextRivalName 0
+	Message 20
+	CloseMessage 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	Message 21
+	CloseMessage 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	TextRivalName 0
+	Message 22
+	CloseMessage 
+	Movement Overworld.1 Action#4
+	WaitMovement 
+	TextRivalName 0
+	Message 23
+	CloseMessage 
+	Movement Overworld.6 Action#2
+	WaitMovement 
+	TextRivalName 0
+	Message 24
+	CloseMessage 
+	Movement Overworld.6 Action#8
+	Movement Overworld.1 Action#23
+	WaitMovement 
+	Message 25
+	Message 26
+	CloseMessage 
+	SetVar 0x4024 10
+	SetVar 0x40EA 1 //legendary in embedded tower
+	GetRandom 0x800C 8 //random legendary
+	SetVarFromVariable 0x40B3 0x800C
+	ReleaseAll 
+End 
+
+Function 3:
+	ClearFlag 579
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 4:
+	SetFlag 279
+Return 
+
+Function 5:
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 6:
+	SetVar 0x4005 286
+Return 
+
+Function 7:
+	SetVar 0x4005 287
+Return 
+
+
+
+Action 1:
+	JumpRightSite 0x1
+	JumpRightSite 0x1
+End
+
+Action 2:
+	WalkLeftFastSite 0x1
+End
+
+Action 3:
+	LockDir 0x1
+	WalkLeftSlow 0x1
+	ReleaseDir 0x1
+End
+
+Action 4:
+	WalkRightFastSite 0x1
+End
+
+Action 5:
+	WalkUpFast 0x1
+	WalkLeftFast 0x3
+	WalkUpFast 0x6
+	WalkRightFast 0x1
+End
+
+Action 6:
+	WalkUpFastSite 0x1
+End
+
+Action 7:
+	WalkDownFastSite 0x1
+End
+
+Action 8:
+	WalkRightFast 0x2
+	LookDown 0x1
+	Freeze8 0x1
+	WalkDownFast 0x5
+	WalkLeftFast 0x2
+	WalkDownFast 0x2
+End
+
+Action 9:
+	Freeze8 0x2
+	WalkDownFast 0x1
+	WalkRightFast 0x1
+	WalkLeftFastSite 0x1
+	WalkLeftFast 0x1
+	WalkDownFast 0x3
+	WalkLeftFast 0x2
+	WalkDownFast 0x2
+End
+
+Action 10:
+	Freeze8 0x2
+	WalkLeftFastSite 0x1
+	Freeze8 0x2
+	WalkLeftFast 0x1
+	WalkDownFast 0x4
+	WalkLeftFast 0x2
+	WalkDownFast 0x2
+End
+
+Action 11:
+	Exclamation 0x1
+	WalkDownFastSite 0x1
+	WalkRightFastSite 0x1
+End
+
+Action 12:
+	Freeze8 0x1
+	Freeze8 0x1
+	Freeze8 0x1
+	WalkUpFast 0x6
+	WalkLeftFast 0x2
+	LookUp 0x1
+End
+
+Action 13:
+	WalkLeftFast 0x1
+End
+
+Action 14:
+	WalkDownFast 0x1
+	LookLeft 0x1
+End
+
+Action 15:
+	WalkDownFast 0x1
+End
+
+Action 16:
+	WalkLeftFast 0x3
+End
+
+Action 17:
+	Freeze8 0x1
+	WalkRightFastSite 0x1
+End
+
+Action 18:
+	LookDown 0x1
+	LockDir 0x1
+	WalkUpSlow 0x1
+	ReleaseDir 0x1
+End
+
+Action 19:
+	LockDir 0x1
+	WalkRightSlow 0x1
+	ReleaseDir 0x1
+End
+
+Action 20:
+	WalkRight 0x1
+End
+
+Action 21:
+	WalkRightFast 0x1
+	LookLeft 0x1
+End
+
+Action 22:
+	WalkRightFast 0x2
+End
+
+Action 23:
+	WalkUpFast 0x1
+	WalkRightFastSite 0x1
+End
+
+0	Archer: This was a very underwhelming\nperformance, Lance. Unworthy of a\fformer Champion.\r
+1	Lance: You... ugh... \nYou are messing ancients forces!\fThat Pokémon... cannot be controlled!\r
+2	Archer: Do not lecture me on what\nI can or cannot do.\r
+3	Lance: \v0103ぁ\x0000\x0000!\nThis is a dire situation...\r
+4	Archer: Not a surprise to see you\nhere, \v0103ぁ\x0000\x0000.\rI have already heard about Petrel’s\ndisappointing failure at your hands.\r
+5	Archer: But once again, you are too\nlate. I have what I came for.\rAnd while I would love to demonstrate\nmy newly gained power once more,\fI have other business to attend to.\r
+6	Archer: You see, although you shut it\ndown, the technology of the prototype\fgenerator we built in Mahogany Town\falready proved its success.\rMy buyer is quite eager to finalize\nthe exchange.\r
+7	You cannot imagine the exquisiteness\nof the prize.\r
+8	Archer: But enough of this.\nAriana, take care of them.\r
+9	Archer: Take this one.\rNo complications this time.\nI expect them to be buried in this\fcave.\r
+10	Ariana: Haha, this is the end for you.\nYou are outmatched and alone.\r
+11	???: He is not alone!\r
+12	\v0103ぁ\x0000\x0000: I did not come to save you,\nbut I won’t let Team Rocket hide\fbehind numbers to get a win.\r
+13	Ariana: You! The brat who has been\nsniffing around our heels...\r
+14	Ariana: We will bury all of you!\r
+15	Ariana: God damn it!\r
+16	Ariana: This means nothing!\rTeam Rocket has become unstoppable!\nArcher is already in Goldenrod city!\r
+17	Lance: Ugh... I can’t believe it...\nI couldn’t stop them.\r
+18	\v0103ぁ\x0000\x0000: Not so much of a Champion\nafter all...\r
+19	Lance: Hmph. Team Rocket has become\nincredibly strong.\rIf you both hadn’t come...\r
+20	\v0103ぁ\x0000\x0000: Don’t get it twisted.\nI only came to find out what legendary\fPokémon Team Rocket was after.\r
+21	Lance: Archer is on a dangerous path.\nHe seeks power without heart.\r
+22	\v0103ぁ\x0000\x0000: Maybe he is right after all?\nIf I want to be the best, I need\flegendary Pokémon and a Mega Ring.\fJust like him.\r
+23	Lance: \v0103ぁ\x0000\x0000, you still have a\nlong road ahead of you to understand\fwhat true strength is.\r
+24	\v0103ぁ\x0000\x0000: Whatever. Keep your lectures.\nI’m out of here.\r
+25	Lance: \v0103ぁ\x0000\x0000, Archer has become\nvery dangerous. I urge you not to face\fhim alone.\r
+26	I will go and assemble the remaining\nElite Four. We have to stop Archer\fand Team Rocket, or else...\r
+27	Lance: I still can’t believe it...\r
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Whitney Rematch
+Place Whitney OW.22
+When entering Radio Tower add trigger
+16420 == 10 - Script 34
+
+Script 34:
+	MecScript 
+	PlayFanfare 1538
+	LockAll 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	TextPlayerName 0
+	Message 47
+	CloseMessage 
+	Movement Player Action#4
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	SetOWPosition Overworld.22 356 0 353 Left
+	Movement Overworld.22 Action#5
+	WaitMovement 
+	Message 48
+    Message 49
+    Movement Player Action#6
+	WaitMovement 
+    Movement Player Action#6
+	WaitMovement 
+    Movement Overworld.22 Action#11
+	WaitMovement 
+    WaitButton
+    Message 50
+	Message 49
+    Movement Player Action#6
+	WaitMovement 
+    Movement Player Action#6
+	WaitMovement
+    Movement Overworld.22 Action#11
+	WaitMovement 
+    WaitButton
+    Message 51
+	Message 49
+    Movement Player Action#6
+    WaitMovement
+    Movement Overworld.22 Action#11
+	WaitMovement 
+    WaitButton
+    Message 52
+    CloseMessage 
+    Movement Overworld.22 Action#31
+    WaitMovement 
+    Message 53
+    CloseMessage
+    Movement Overworld.22 Action#6
+    WaitMovement 
+    Message 54
+    CloseMessage 
+    Movement Overworld.22 Action#11
+	WaitMovement 
+    Message 55
+    CloseMessage
+	TrainerBattle 714 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#56
+    CheckFlag 117
+    CallIf EQUAL Function#57 
+    Message 56
+    SetVar 0x8004 657
+    SetVar 0x8005 1
+	CommonScript 2033
+    CloseMessage
+    Movement Overworld.22 Action#30
+    WaitMovement
+    SetOWPosition Overworld.22 386 0 353 Left
+    SetVar 0x4024 11
+	ReleaseAll 
+End 
+
+Function 56:
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 57:
+	SetVar 0x416F 71
+Return 
+
+Action 5:
+	WalkLeftFast 0xD
+End
+
+Action 30:
+	WalkRightFast 0x9
+End
+
+Action 31:
+    WalkUpSite 0x1
+    Freeze8 0x1
+	WalkRightSite 0x1
+    Freeze8 0x1
+	WalkDownSite 0x1
+    Freeze8 0x1
+    WalkLeftSite 0x1
+End
+
+47: Whitney: Hey, \v0103ぁ\x0000\x0000!\r
+Whitney: What a surprise!\nYou came all the way to see me?!\rThat’s so cute!\rI have some free time right now.\nSo, where are we gonna go...?\r
+49: ...
+What do you mean, ’other reasons’...?\rWhat about Team Rocket?!\r
+Lance? The Dragon dude?\nI don’t quite understand what\fyou’re talking about...\r...Team Rocket, huh?\r
+Oh my gosh!\nStop with all that nonsense!\r
+There is no Team Rocket!\rI thought you were different!\r
+I feel so stupid and embarrassed for\ncoming to this date!\r...\r
+55: No! You know what?\nThis is your fault!\fI am furious right now!\rI’ll let the boys handle you!\r
+56: Whitney: You are so strong!\r...\rI have to think about it...\rBut you can have this souvenir!\nThat way, you’ll always be thinking\fabout me!\r
+
+
+
+
+##legendary in embedded tower
+OW 0 - 7
+Trigger 16618/0x40EA  == 1
+Legendary is set by  16563/0x40B3
+
+Script 4:
+	CheckFlag 721
+	JumpIf EQUAL Function#5
+	CompareVarValue 0x40B3 0
+	CallIf EQUAL Function#6
+	CompareVarValue 0x40B3 1
+	CallIf EQUAL Function#7
+	CompareVarValue 0x40B3 2
+	CallIf EQUAL Function#8
+	CompareVarValue 0x40B3 3
+	CallIf EQUAL Function#9
+	CompareVarValue 0x40B3 4
+	CallIf EQUAL Function#10
+	CompareVarValue 0x40B3 5
+	CallIf EQUAL Function#11
+	CompareVarValue 0x40B3 6
+	CallIf EQUAL Function#12
+	CompareVarValue 0x40B3 7
+	CallIf EQUAL Function#13
+End 
+
+Script 5:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	PlayCry 0x4005 0
+	Message 0
+	WaitCry 
+	CloseMessage 
+	SetVarFromVariable 0x8005 0x416F
+	SetFlag 164
+	WildBattleSp 0x4005 0x8005 0
+	ClearFlag 164
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#1
+	SetFlag 721
+	SetVar 0x40EA 0
+	ReleaseAll 
+End 
+
+Script 6:
+	CheckFlag 164
+	JumpIf EQUAL Function#14
+End 
+
+Function 5:
+End 
+
+Function 6:
+	SetVar 0x4005 244
+	SetOWPosition Overworld.0 16 0 11 Down
+End 
+
+Function 7:
+	SetVar 0x4005 381
+	SetOWPosition Overworld.1 16 0 11 Down
+End 
+
+Function 8:
+	SetVar 0x4005 380
+	SetOWPosition Overworld.2 16 0 11 Down
+End 
+
+Function 9:
+	SetVar 0x4005 488
+	SetOWPosition Overworld.3 16 0 11 Down
+End 
+
+Function 10:
+	SetVar 0x4005 691
+	SetOWPosition Overworld.4 16 0 11 Down
+End 
+
+Function 11:
+	SetVar 0x4005 692
+	SetOWPosition Overworld.5 16 0 11 Down
+End 
+
+Function 12:
+	SetVar 0x4005 695
+	SetOWPosition Overworld.6 16 0 11 Down
+End 
+
+Function 13:
+	SetVar 0x4005 955
+	SetOWPosition Overworld.7 16 0 11 Down
+End 
+
+Function 14:
+    SetFlag 721
+	RemoveOW Overworld.0
+	RemoveOW Overworld.1
+	RemoveOW Overworld.2
+	RemoveOW Overworld.3
+    RemoveOW Overworld.4
+	RemoveOW Overworld.5
+	RemoveOW Overworld.6
+	RemoveOW Overworld.7
+	ClearFlag 164
+End 
+
+
+
+
+
+
+#### Rival Fight
+Clear flags before fight
+ClearFlag 2598
+SetVar 0x4025 0
+
+After fights
+SetFlag 2598
+SetVar 0x4025 5
+
+\v0103ぁ\x0000\x0000: Hold it!\rAre you still wasting your time\nbeating those Rocket goons?\r
+You will never defeat Archer anyway...\rNot with those silly lessons from\nLance about love and trust.\r
+What a joke. I found that power is\nmuch simpler. I'll finally get back\fat you for standing in my way!\r
+
+
+
+
+### Archer
+Script 1:
+	SetFlag 439
+	SetFlag 440
+	SetVar 0x4125 0
+	CompareVarValue 0x4077 4
+	JumpIf DIFFERENT Function#1
+	ClearFlag 439
+	ClearFlag 440
+End 
+
+Script 2:
+	LockAll 
+	Movement Player Action#1
+	WaitMovement 
+Jump Function#2
+
+Script 3:
+	LockAll 
+	Movement Player Action#2
+	WaitMovement 
+Jump Function#2
+
+Script 4:
+	LockAll 
+	Movement Player Action#3
+	WaitMovement 
+Jump Function#2
+
+Function 1:
+End 
+
+Function 2:
+	TextPlayerName 0
+	Message 10
+	CloseMessage 
+	Movement Overworld.0 Action#4
+	WaitMovement 
+	Message 12
+	CloseMessage 
+	Movement Overworld.0 Action#5
+	WaitMovement 
+	Message 13
+	CloseMessage 
+	Movement Overworld.0 Action#6
+	WaitMovement 
+	Message 14
+	CloseMessage 
+	Movement Overworld.0 Action#7
+	WaitMovement 
+	Message 15
+	CloseMessage 
+	Movement Overworld.0 Action#8
+	WaitMovement 
+	Message 16
+	CloseMessage 
+	Movement Overworld.0 Action#9
+	WaitMovement 
+	Message 17
+	CloseMessage 
+	Movement Overworld.0 Action#10
+	WaitMovement 
+	Message 18
+	CloseMessage 
+	Movement Overworld.0 Action#11
+	WaitMovement 
+	Message 19
+	CloseMessage 
+	Movement Overworld.0 Action#12
+	WaitMovement 
+	Message 20
+	CloseMessage 
+	Movement Player Action#13
+	WaitMovement 
+	TrainerBattle 485 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#3
+	CheckFlag 117
+	CallIf EQUAL Function#6
+	Message 22
+    Message 23
+    Message 24
+    Message 25
+    Message 26
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	RemoveOW Overworld.0
+	PlayFanfare 1538
+	WaitFanfare 1538
+	ClearFlag 2459
+	FadeOutMusic 0 30
+	StopMusic 0
+	WaitTime 15 0x800C
+	PlayDefaultMusic 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	SetOWPosition Overworld.1 8 1 12 Down
+	Movement Overworld.1 Action#14
+Jump Function#4
+
+Function 3:
+	LostBattle 
+	ReleaseAll 
+End 
+
+Function 4:
+	WaitMovement 
+	Movement Player Action#15
+	WaitMovement 
+
+	//SetVar 0x8004 483
+	//SetVar 0x8005 1
+	//CommonScript 2033
+	//SetFlag 147
+	Message 28
+    Message 29
+    Message 30
+    Message 31
+    Message 32
+	CloseMessage
+    SetFlag 147
+	Movement Overworld.1 Action#16
+	WaitMovement 
+	PlayFanfare 1543
+	WaitFanfare 1543
+	WaitTime 8 0x800C
+	RemoveOW Overworld.1
+	PlayFanfare 1538
+	WaitFanfare 1538
+	SetVar 0x4077 5
+	SetFlag 198
+	ClearFlag 710
+	SetFlag 711
+	CompareVarValue 0x40F8 2
+	JumpIf DIFFERENT Function#5
+	SetVar 0x40F8 0
+	SetVar 0x407A 1
+	ClearFlag 487
+	//SetFlag 512 //removes blocker for blackthron gym
+	//ClearFlag 513  //sets blocker 1 tile next to entry
+	SetFlag 2456
+	SetFlag 2429
+	SetVar 0x4024 12
+	ReleaseAll 
+End 
+
+Function 5:
+	SetVar 0x407A 1
+	ClearFlag 487
+	//SetFlag 512 //removes blocker for blackthron gym
+	//ClearFlag 513  //sets blocker 1 tile next to entry
+	SetFlag 2456
+	SetFlag 2429
+	SetVar 0x4024 12
+	ReleaseAll 
+End 
+
+Function 6:
+	SetVar 0x416F 76
+Return 
+
+10: Archer: \v0103ぁ\x0000\x0000. I knew you’d come.\nYou’ve shown yourself to be so...\fresourceful. A shame, really.\r
+Right here, today, you will witness\nhistory. I have just returned from a\fmost exquisite transaction.\r
+Right here, today, you will witness\nhistory. I have just returned from a\fmost exquisite transaction.\r
+Some rich and powerful people were\nready to pay any price for the\fMahogany blueprints.\r
+It’s not money I was after, but rather\nthis ancient artifact. The key to a\fdoor locked for eons.\rIt does not just command a beast,\nit commands the very foundations of\fthe earth.\r
+\v0103ぁ\x0000\x0000, I have looked into the eyes\nof a god, and I did not blink.\r
+But do not despair. I do not seek\nruin. I seek order.\r
+Look at this rotting world.\nThe hunger, the wars, the weak\fleaders.\rIt is screaming for a steady hand.\rMy hand.\r
+Through this tower, my message will be\nthe last the old world ever hears:\rSurrender and thrive, or resist and\nvanish.\r
+I have rebuilt Team Rocket to save\nthe world from itself.\r
+20: Are you ready, \v0103ぁ\x0000\x0000?\nStep forward and experience the birth\fof a new paradigm!\r
+
+22:Archer: Impossible...\nMy plan...\rMy destiny...\rEclipsed by a child in shorts....\r...\r
+You choose this chaos?\nThis ’freedom’ to suffer?\r
+You haven’t just defeated Team Rocket\ntoday, you have extinguished a\fbeacon of order.\r
+But Team Rocket is no longer just a\ngroup of thieves. It is an idea.\rIt will live on and hold on to a\nnew world order.\r
+One day, you will realize that\nfreedom is a heavy burden.\r
+
+28:Director: Oh...!\r You have already defeated\nTeam Rocket?!\r
+How in the world did you do this?\nThis is phantastic! You are a hero!\r
+\v0103ぁ\x0000\x0000, your courages actions\nhave saved Goldenrod City and maybe\feven all of Johto.\r
+I had already given up when you found\nme, but all it needs is the courages\factions of one person.\r
+A young kid standing up for what’s\nright.\rThank you for your help.\nI will let you enjoy this moment.\r
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### lilligant trade in blackthorn
+
+Function 2:
+	CloseMessage 
+	FadeScreen 6 1 0 0
+	WaitFadeScreen 
+	PartyPokemonTradeScreen 
+	GetSelectedPartySlot 0x800C
+	ReturnScreen 
+	FadeScreen 6 1 1 0
+	WaitFadeScreen 
+	CompareVarValue 0x800C 255
+	JumpIf EQUAL Function#3
+	InitTrade 9
+	SetVarFromVariable 0x8004 0x800C
+	TradePokemonScreen 0x8004
+	EndTrade 
+	SetFlag 208
+	Message 1
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Hey, do you want to take care of Paul?\nHe needs to get out a bit more...\rWe could trade our mons? \v0200\x0001\x0000
+Take good care of Paul.\nHe always wanted to see the world!
+How is Paul doing?\rDid you show him some places?
+
+
+### Dark cave mawilite
+CheckFlag 223
+	JumpIf EQUAL Function#1
+	Message 0
+	SetVar 0x8004 240 -> 681
+	SetVar 0x8005 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### Lyra event in new bark preventing to go to kanto
+make event trigger once
+Script 13:
+	MecScript 
+	LockAll 
+	Movement Overworld.8 Action#10
+	WaitMovement 
+	TextPlayerName 0
+	GenderMessage 27 28
+	CloseMessage 
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Overworld.8 Action#11
+	Movement Player Action#24
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	TextPlayerName 0
+	GenderMessage 29 30
+	CloseMessage 
+	WaitMovement 
+	ReleaseAll 
+    SetVar 0x4081 3 set at kimono event
+	SetFlag 418
+	SetFlag 417
+	SetFlag 744
+	ClearFlag 741
+	ClearFlag 577
+End 
+
+SetFlag 744 removes lyra+marill
+
+Where do you think you’re going,\n\v0103ぁ\x0000\x0000?\rDon’t you want to check out what\nthe Kimono Girls want from you?\r
+
+####
+rival in front of theater
+Script 6:
+			MecScript 
+			LockAll 
+			ClearFlag 575
+			AddOW Overworld.6
+			LockFollowingPoke 0
+			WaitFollowingPoke 
+			SetFollowingPokeMovement 56
+			Movement Overworld.6 Action#1
+			Movement Player Action#2
+			WaitMovement 
+			WaitFollowingPoke 
+			LockFollowingPoke 1
+			SetFollowingPokeMovement 48
+			PlayFanfare 1537
+			Message 16
+			WaitTime 30 0x800C
+			TextRivalName 1
+			Message 17
+			CloseMessage 
+			Movement Overworld.6 Action#3
+			WaitMovement 
+			TextPlayerName 0
+			TextRivalName 1
+			Message 18
+			CloseMessage 
+			PlayFanfare 1537
+			LockFollowingPoke 0
+			WaitFollowingPoke 
+			SetFollowingPokeMovement 56
+			Movement Overworld.6 Action#4
+			Movement Player Action#2
+			WaitMovement 
+			WaitFollowingPoke 
+			LockFollowingPoke 1
+			SetFollowingPokeMovement 48
+			Movement Overworld.6 Action#5
+			Movement Player Action#6
+			WaitMovement 
+			RemoveOW Overworld.6
+			SetFlag 575
+			ReleaseAll 
+	SetVar 0x4079 4
+	SetVar 0x410C 4
+	ClearFlag 572
+	SetFlag 577
+End 
+
+Action 1:
+	LockDir 0x1
+	WalkDownVeryFast 0x1
+	WalkUpVeryFastSite 0x1
+	ReleaseDir 0x1
+End
+
+Action 2:
+	LookUp 0x1
+	LockDir 0x1
+	WalkDownVeryFast 0x1
+	ReleaseDir 0x1
+End
+
+Action 3:
+	Exclamation 0x1
+	Freeze8 0x1
+	WalkDownFastSite 0x1
+End
+
+Action 4:
+	WalkDownVeryFast 0x1
+	WalkDownVeryFastSite 0x1
+End
+
+Action 5:
+	WalkLeft 0x3
+	Freeze8 0x3
+	WalkLeftVeryFast 0x6
+End
+
+Action 6:
+	Freeze8 0x3
+	WalkLeftFastSite 0x1
+End
+
+
+
+#### kimono gauntlet
+cleaned up the code to have event and NPC script run into function#14
+
+
+Script 8:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	SetVar 0x8000 77
+	CheckFlag 264
+	JumpIf EQUAL Function#11
+	CheckFlag 265
+	JumpIf EQUAL Function#11
+	Message 13
+	OpenTouchScreen 
+	YesNoTouchScreen 0x8004
+	CloseTouchScreen 
+	CompareVarValue 0x8004 1
+	JumpIf EQUAL Function#12
+	CloseMessage 
+	GetPlayerDirection 0x800C
+	CompareVarValue 0x800C 0
+	CallIf DIFFERENT Function#13
+Jump Function#14
+
+Script 17:
+	MecScript 
+	LockAll 
+	SetVar 0x8000 11
+	SetVar 0x410C 5
+	LockFollowingPoke 0
+	WaitFollowingPoke 
+	SetFollowingPokeMovement 55
+	Movement Player Action#15
+	WaitMovement 
+	WaitFollowingPoke 
+	LockFollowingPoke 1
+	SetFollowingPokeMovement 48
+	Message 11
+	OpenTouchScreen 
+	YesNoTouchScreen 0x8004
+	CloseTouchScreen 
+	CompareVarValue 0x8004 1
+	JumpIf EQUAL Function#12
+	CloseMessage 
+Jump Function#14
+
+Function 14:
+	StopMusic 30
+	PlayMusic 1111
+	Movement Overworld.10 Action#19
+	WaitMovement 
+	Message 45
+	CloseMessage 
+	WaitTime 10 0x800C
+	TrainerBattle 162 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.10 Action#20
+	WaitMovement 
+	StopMusic 30
+	PlayMusic 1111
+	Movement Overworld.4 Action#21
+	WaitMovement 
+	Message 15
+	CloseMessage 
+	TrainerBattle 160 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.4 Action#22
+	WaitMovement 
+	StopMusic 30
+	PlayMusic 1111
+	Movement Overworld.8 Action#23
+	WaitMovement 
+	Message 16
+	CloseMessage 
+	TrainerBattle 164 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.8 Action#24
+	WaitMovement 
+	StopMusic 30
+	PlayMusic 1111
+	Movement Overworld.5 Action#25
+	WaitMovement 
+	Message 17
+	CloseMessage 
+	TrainerBattle 161 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.5 Action#26
+	WaitMovement 
+	StopMusic 30
+	PlayMusic 1111
+	Movement Overworld.7 Action#27
+	WaitMovement 
+	Message 18
+	CloseMessage 
+	TrainerBattle 163 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#32
+	Movement Overworld.7 Action#28
+	WaitMovement 
+	Movement Overworld.10 Action#29
+	WaitMovement 
+	Message 20
+	SetVar 0x8004 474 //TODO selection of reward
+	SetVar 0x8005 1
+	CommonScript 2033
+	SetFlag 259
+
+	//SetFlag 572 kimono girls
+	//SetFlag 576 little girl
+	ReleaseAll
+	SetVar 0x410C 6
+	SetVar 0x40FA 1
+	//ClearFlag 580  kimono girls in bell tower
+
+	SetFlag 266
+	SetFlag 264
+	SetVar 0x4081 3
+	SetFlag 418   // lyra+ marill in new bark
+	SetFlag 417    // lyra+ marill in new bark
+	SetFlag 744  //lyra in new bark blocking path to elite four
+	ClearFlag 741
+	ClearFlag 577 //npcs in theater
+End

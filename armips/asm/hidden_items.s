@@ -11,16 +11,16 @@
 .halfword ITEM_POTION
 
 .org 0x02000000 + 0xFA560 //Cherrygrove
-.halfword ITEM_NUGGET
+.halfword ITEM_BIG_NUGGET
 
 .org 0x02000000 + 0xFA568 //Cherrygrove
-.halfword ITEM_NUGGET
+.halfword ITEM_BIG_NUGGET
 
 .org 0x02000000 + 0xFA570 //R30
 .halfword ITEM_POTION
 
 .org 0x02000000 + 0xFA578 //Dark Cave
-.halfword ITEM_POKE_BALL
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA580 //Dark Cave
 .halfword ITEM_MAX_ETHER
@@ -35,7 +35,7 @@
 .halfword ITEM_ELIXIR
 
 .org 0x02000000 + 0xFA5A0 //Violet
-.halfword ITEM_HYPER_POTION
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA5A8 //Violet
 .halfword ITEM_POKE_BALL
@@ -65,16 +65,16 @@
 .halfword ITEM_BIG_PEARL
 
 .org 0x02000000 + 0xFA5F0 //Union Cave B1F S
-.halfword ITEM_X_SPEED
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA5F8 //Union Cave B1F E
 .halfword ITEM_REVIVE
 
 .org 0x02000000 + 0xFA600 //Union Cave B2F SW
-.halfword ITEM_ULTRA_BALL
+.halfword ITEM_GRASS_GEM
 
 .org 0x02000000 + 0xFA608 //Union Cave B2F W
-.halfword ITEM_CALCIUM
+.halfword ITEM_ROCK_GEM
 
 .org 0x02000000 + 0xFA610 //R32 E
 .halfword ITEM_HEART_SCALE
@@ -95,7 +95,7 @@
 .halfword ITEM_SUPER_POTION
 
 .org 0x02000000 + 0xFA640 //Slowpoke Well B1F Ladder
-.halfword ITEM_FULL_HEAL
+.halfword ITEM_PSYCHIC_GEM
 
 .org 0x02000000 + 0xFA648 //Ilex Forest W
 .halfword ITEM_ANTIDOTE
@@ -113,10 +113,10 @@
 .halfword ITEM_TINY_MUSHROOM
 
 .org 0x02000000 + 0xFA670 //Ilex Forest
-.halfword ITEM_REPEL
+.halfword ITEM_BIG_MUSHROOM
 
 .org 0x02000000 + 0xFA678 //Ilex Forest W Surf
-.halfword ITEM_BIG_MUSHROOM
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA680 //Ilex Forest
 .halfword ITEM_TINY_MUSHROOM
@@ -125,7 +125,7 @@
 .halfword ITEM_TINY_MUSHROOM
 
 .org 0x02000000 + 0xFA690 //R34 Centre
-.halfword ITEM_RARE_CANDY
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA698 //R34 E
 .halfword ITEM_SUPER_POTION
@@ -149,7 +149,7 @@
 .halfword ITEM_REVIVE
 
 .org 0x02000000 + 0xFA6D0 //R35 NW
-.halfword ITEM_NUGGET
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA6D8 //R36 W
 .halfword ITEM_AWAKENING
@@ -176,19 +176,19 @@
 .halfword ITEM_RARE_CANDY
 
 .org 0x02000000 + 0xFA718 //Ecruteak W
-.halfword ITEM_ULTRA_BALL
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA720 //Burned Tower Entrance N
-.halfword ITEM_ETHER
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA728 //Burned Tower Entrance SW
 .halfword ITEM_ULTRA_BALL
 
 .org 0x02000000 + 0xFA730 //Burned Tower Basement NW
-.halfword ITEM_ANTIDOTE
+.halfword ITEM_FIGHTING_GEM
 
 .org 0x02000000 + 0xFA738 //Burned Tower Basement S
-.halfword ITEM_REVIVE
+.halfword ITEM_DARK_GEM
 
 .org 0x02000000 + 0xFA740 //Bellchime Trail
 .halfword ITEM_TINY_MUSHROOM
@@ -214,17 +214,17 @@
 .org 0x02000000 + 0xFA778 //Bell Tower 8F
 .halfword ITEM_CARBOS
 
-.org 0x02000000 + 0xFA780 //R38
-.halfword ITEM_HP_UP
+.org 0x02000000 + 0xFA780 //R38 //hp up
+.halfword ITEM_FULL_HEAL
 
 .org 0x02000000 + 0xFA788 //R39 Centre SE
 .halfword ITEM_NUGGET
 
-.org 0x02000000 + 0xFA790 //R39 W
-.halfword ITEM_PP_UP
+.org 0x02000000 + 0xFA790 //R39 W //pp up
+.halfword ITEM_ULTRA_BALL
 
-.org 0x02000000 + 0xFA798 //R39 Centre NE
-.halfword ITEM_X_ATTACK
+.org 0x02000000 + 0xFA798 //R39 Centre NE //x attack
+.halfword ITEM_ULTRA_BALL
 
 .org 0x02000000 + 0xFA7A0 //Olivine Rock Climb
 .halfword ITEM_RARE_CANDY
@@ -235,8 +235,8 @@
 .org 0x02000000 + 0xFA7B0 //Olivine
 .halfword ITEM_HYPER_POTION
 
-.org 0x02000000 + 0xFA7B8 //Olivine
-.halfword ITEM_PROTEIN
+.org 0x02000000 + 0xFA7B8 //Olivine //protein
+.halfword ITEM_ULTRA_BALL
 
 .org 0x02000000 + 0xFA7C0 //Olivine Dock
 .halfword ITEM_PEARL
@@ -263,22 +263,22 @@
 .halfword ITEM_STARDUST
 
 .org 0x02000000 + 0xFA800 //Whirl Islands
-.halfword ITEM_RARE_CANDY
+.halfword ITEM_ICE_GEM
 
 .org 0x02000000 + 0xFA808 //Whirl Islands
-.halfword ITEM_ULTRA_BALL
+.halfword ITEM_DRAGON_GEM
 
 .org 0x02000000 + 0xFA810 //Whirl Islands
-.halfword ITEM_SUPER_REPEL
+.halfword ITEM_FAIRY_GEM
 
 .org 0x02000000 + 0xFA818 //Whirl Islands
-.halfword ITEM_PEARL
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA820 //Whirl Islands
-.halfword ITEM_REVIVE
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA828 //Whirl Islands
-.halfword ITEM_FULL_RESTORE
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA830 //Cianwood E
 .halfword ITEM_REVIVE
@@ -308,7 +308,7 @@
 .halfword ITEM_TINY_MUSHROOM
 
 .org 0x02000000 + 0xFA878 //R42
-.halfword ITEM_MAX_POTION
+.halfword ITEM_BUG_GEM
 
 .org 0x02000000 + 0xFA880 //Mt Mortar Entrance W
 .halfword ITEM_HYPER_POTION
@@ -316,14 +316,14 @@
 .org 0x02000000 + 0xFA888 //Mt Mortar Entrance E
 .halfword ITEM_REVIVE
 
-.org 0x02000000 + 0xFA890 //Mt Mortar Back
+.org 0x02000000 + 0xFA890 //Mt Mortar Back //waterfall
 .halfword ITEM_MAX_REPEL
 
 .org 0x02000000 + 0xFA898 //Mt Mortar Back
 .halfword ITEM_ETHER
 
 .org 0x02000000 + 0xFA8A0 //Mt Mortar Back
-.halfword ITEM_RARE_CANDY
+.halfword ITEM_STEEL_GEM
 
 .org 0x02000000 + 0xFA8A8 //Mt Mortar Back
 .halfword ITEM_ULTRA_BALL
@@ -335,7 +335,7 @@
 .halfword ITEM_FULL_RESTORE
 
 .org 0x02000000 + 0xFA8C0 //Mt Mortar 2F
-.halfword ITEM_HP_UP
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA8C8 //Mt Mortar 2F
 .halfword ITEM_HYPER_POTION
@@ -347,25 +347,25 @@
 .halfword ITEM_MAX_REVIVE
 
 .org 0x02000000 + 0xFA8E0 //Mt Mortar B1F
-.halfword ITEM_ULTRA_BALL
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA8E8 //Rocket HQ B1F E
-.halfword ITEM_REVIVE
+.halfword ITEM_GHOST_GEM
 
 .org 0x02000000 + 0xFA8F0 //Rocket HQ B2F S
-.halfword ITEM_FULL_HEAL
+.halfword ITEM_POISON_GEM
 
 .org 0x02000000 + 0xFA8F8 //Rocket HQ B2F E
-.halfword ITEM_X_SP_DEF
+.halfword ITEM_ELECTRIC_GEM
 
-.org 0x02000000 + 0xFA900 //Lake of Rage SW
+.org 0x02000000 + 0xFA900 //Lake of Rage SW, not flooded
 .halfword ITEM_FULL_RESTORE
 
 .org 0x02000000 + 0xFA908 //Lake of Rage E
 .halfword ITEM_RARE_CANDY
 
 .org 0x02000000 + 0xFA910 //Lake of Rage NE
-.halfword ITEM_MAX_POTION
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA918 //R44
 .halfword ITEM_ELIXIR
@@ -380,7 +380,7 @@
 .halfword ITEM_REVIVE
 
 .org 0x02000000 + 0xFA938 //Ice Path B2F
-.halfword ITEM_CARBOS
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA940 //Dragons Den NW 
 .halfword ITEM_REVIVE
@@ -434,7 +434,7 @@
 .halfword ITEM_IRON
 
 .org 0x02000000 + 0xFA9C8 //Vermillion
-.halfword ITEM_FULL_HEAL
+.halfword ITEM_GROUND_GEM
 
 .org 0x02000000 + 0xFA9D0 //Vermillion
 .halfword ITEM_HEART_SCALE
@@ -455,10 +455,10 @@
 .halfword ITEM_CALCIUM
 
 .org 0x02000000 + 0xFAA00 //Underground Path
-.halfword ITEM_FULL_RESTORE
+.halfword ITEM_FIRE_GEM
 
 .org 0x02000000 + 0xFAA08 //Underground Path
-.halfword ITEM_X_SP_ATK
+.halfword ITEM_WATER_GEM
 
 .org 0x02000000 + 0xFAA10 //R11
 .halfword ITEM_REVIVE
@@ -482,10 +482,10 @@
 .halfword ITEM_ETHER
 
 .org 0x02000000 + 0xFAA48 //Cerulean
-.halfword ITEM_NUGGET
+.halfword ITEM_RAGE_CANDY_BAR
 
 .org 0x02000000 + 0xFAA50 //R25
-.halfword ITEM_REVIVE
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFAA58 //Celadon
 .halfword ITEM_PP_UP
@@ -502,8 +502,8 @@
 .org 0x02000000 + 0xFAA78 //R13
 .halfword ITEM_CALCIUM
 
-.org 0x02000000 + 0xFAA80 //R12
-.halfword ITEM_ELIXIR
+.org 0x02000000 + 0xFAA80 //R12, Moved to SS Aqua
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFAA88 //Viridian Forest
 .halfword ITEM_MAX_ETHER
@@ -698,6 +698,6 @@
 .halfword ITEM_DEEP_SEA_SCALE
 
 .org 0x02000000 + 0xFAC88 //R46
-.halfword ITEM_PP_MAX
+.halfword ITEM_HEART_SCALE
 
 .close

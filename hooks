@@ -480,8 +480,7 @@ arm9 GF_AssertFail 0202551C 0
 0012 BattleController_LoopMultiHit 0224CF14 3
 0012 ov12_02252D14 02252D14 3
 
-# fix trainer ai being able to switch illegally when binded
-0010 ai_switch_ban_for_bind_hook 022203B4 2
+
 
 0012 GetDynamicMoveType 02258688 4
 
@@ -588,3 +587,64 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 
 # determine rock smash table to use for items
 0001 DetermineRockSmashItem_hook 02204E28 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# AI
+0012 TrainerAI_PickCommand_hook 0225E10C 0
+0012 BattleAI_PostKOSwitchIn 02258800 2
+#repel
+0001 ClearOverworldRequestFlags 021E6880 1
+#hook from where y button is checked
+0001 SetOverworldRequestFlags_hook 021E6982 0
+#hook from near beginning of function
+0001 CheckOverworldRequestFlags_hook 021E6AF6 3
+#rocksmash
+0001 CheckRockSmashItemDrop 02204CF8 2
+#fly
+0101 ov101_021EA804 021EA804 3
+#mom
+arm9 PhoneCallPersistentState_MomGiftQueue_IsFull 0202F240 2
