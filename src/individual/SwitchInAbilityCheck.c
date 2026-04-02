@@ -102,13 +102,13 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                     switch (BattleRand(bw) % 4)
                                     {
                                     case 0:
-                                        UpdateTerrainOverlay(sp, client_no, MOVE_PSYCHIC_TERRAIN);
+                                        UpdateTerrainOverlay(sp, client_no, PSYCHIC_TERRAIN);
                                         break;
                                     case 1:
-                                        UpdateTerrainOverlay(sp, client_no, MOVE_MISTY_TERRAIN);
+                                        UpdateTerrainOverlay(sp, client_no, MISTY_TERRAIN);
                                         break;
                                     case 2:
-                                        UpdateTerrainOverlay(sp, client_no, MOVE_ELECTRIC_TERRAIN);
+                                        UpdateTerrainOverlay(sp, client_no, ELECTRIC_TERRAIN);
                                         break;
                                     default:
                                         UpdateTerrainOverlay(sp, client_no, GRASSY_TERRAIN);
