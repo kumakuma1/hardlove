@@ -79,7 +79,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
                         default:
-                        default:
                             if (CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG))
                             {
                                 scriptnum = SUB_SEQ_OVERWORLD_TRICK_ROOM;
