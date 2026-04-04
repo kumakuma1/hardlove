@@ -841,5 +841,6 @@ sButtonWindowIDs = 0x021016B4;
 PartyMenu_DisableMainScreenBlend_AfterYesNo = 0x0207CB90 | 1;
 sBattleBgProfileTable = 0x0226E70C;
 UpdateFriendshipFainted = 0x02248558 | 1;
+CanSwitchMon = 0x02252890 | 1;
 
 StringExpandPlaceholders = 0x0200CBBC | 1;
