@@ -5320,7 +5320,7 @@ BOOL BtlCmd_TryFaintMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
 BOOL BtlCmd_TryReplaceFaintedMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    debug_printf("TryReplaceFaintedMon\n");
+    debug_printf("TryReplaceFaintedMon %d\n", BattleTypeGet(bsys));
     IncrementBattleScriptPtr(ctx, 1);
 
     int side = read_battle_script_param(ctx);
@@ -5328,6 +5328,18 @@ BOOL BtlCmd_TryReplaceFaintedMon(struct BattleSystem *bsys, struct BattleStruct 
     int adrs = read_battle_script_param(ctx);
 
     int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+
+    debug_printf("selMons %d, %d\n", ctx->sel_mons_no[battlerId], ctx->sel_mons_no[BATTLER_ALLY(battlerId)]);
+    for (int i = 0; i < Battle_GetClientPartySize(bsys, battlerId); i++) {
+        struct PartyPokemon *mon = Battle_GetClientPartyMon(bsys, battlerId, i);
+        if (GetMonData(mon, MON_DATA_SPECIES, NULL) != SPECIES_NONE
+            && !GetMonData(mon, MON_DATA_IS_EGG, NULL)
+            && GetMonData(mon, MON_DATA_HP, NULL) != 0)
+        {
+            debug_printf("selMons %d, %d\n", i, GetMonData(mon, MON_DATA_SPECIES, NULL));
+        }
+    }
 
     if (!CanSwitchMon(bsys, ctx, battlerId)) {
         debug_printf("cant switch\n");
