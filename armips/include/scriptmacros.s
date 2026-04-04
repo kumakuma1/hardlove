@@ -397,13 +397,18 @@ DIR_EAST equ 3
 .endmacro
 
 // Waits for A or B button
-.macro wait_button
+.macro wait_ab_press
 .halfword 49
 .endmacro
 
 // Waits for A,B,or dpad. On pressing dpad,does a turn frame.
-.macro wait_button_or_walk_away
+.macro wait_button
 .halfword 50
+.endmacro
+
+// old compatibility for the moment
+.macro wait_button_or_walk_away
+wait_button
 .endmacro
 
 // Waits for A,B,or dpad. No turn frame.
