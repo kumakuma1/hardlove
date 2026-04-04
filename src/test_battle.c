@@ -606,9 +606,7 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
 // send out pokemon in order
 int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys, int battler)
 {
-    struct PartyPokemon *mon = Battle_GetClientPartyMon(bsys, attacker, i);
-    attackerMon.species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
-    debug_printf("Slot %d:%d hp:%d,\n", i, attackerMon.species, GetMonData(mon, MON_DATA_HP, 0));
+    struct BattleStruct *ctx = bsys->sp;
 
     partySize = Battle_GetClientPartySize(bsys, battler);
     for (int i = 0; i < partySize; i++)
@@ -617,7 +615,7 @@ int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys, int battler)
         struct PartyPokemon *mon = Battle_GetClientPartyMon(bsys, battler, i);
         debug_printf("partySlot %d, species %d, hp %d\n", i, GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0), GetMonData(mon, MON_DATA_HP, 0));
         debug_printf("sel_m1 %d, sel_m2 %d, switchSl1 %d, switchSl1 %d\n", ctx->sel_mons_no[battler], ctx->sel_mons_no[slot2], ctx->ai_reshuffle_sel_mons_no[battler], ctx->ai_reshuffle_sel_mons_no[slot2]);
-        debug_printf("fainting %d, shuffle %d, shuffle temp %d\n", fainting_client, reshuffle_client, reshuffle_client_temp);
+        debug_printf("fainting %d, shuffle %d, shuffle temp %d\n", ctx->fainting_client, ctx->reshuffle_client, ctx->reshuffle_client_temp);
     }
     return 6;
 }
