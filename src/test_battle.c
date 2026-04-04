@@ -608,7 +608,7 @@ int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys, int battler)
 {
     struct BattleStruct *ctx = bsys->sp;
 
-    partySize = Battle_GetClientPartySize(bsys, battler);
+    int partySize = Battle_GetClientPartySize(bsys, battler);
     for (int i = 0; i < partySize; i++)
     {
         int slot2 = BATTLER_ALLY(battler);

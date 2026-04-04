@@ -981,6 +981,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
                     break;
                 }
+                FALLTHROUGH;
             }
             case SWITCH_IN_CHECK_ENTRY_EFFECT_OPPORTUNIST: {
                 for (i = 0; i < client_set_max; i++) {
