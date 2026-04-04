@@ -958,6 +958,30 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
             }
                 break;
+            case SWITCH_IN_CHECK_ENTRY_EFFECT_EJECT_PACK: {
+                for (i = 0; i < client_set_max; i++) {
+                    client_no = sp->turnOrder[i];
+
+                    if (HeldItemHoldEffectGet(sp, client_no) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP) {
+                        if (//sp->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING
+                            /*&&*/ sp->moveConditionsFlags[client_no].anyStatLoweredThisTurn) {
+                            sp->addeffect_type = ADD_EFFECT_STICKY_WEB;
+                            sp->battlerIdTemp = client_no;
+                            sp->state_client = client_no;
+                            scriptnum = SUB_SEQ_HANDLE_SWITCHING_ITEMS;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+                }
+                //only one Eject Pack can trigger
+                sp->switch_in_check_seq_no++;
+
+                 // Need to trigger script
+                if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                    break;
+                }
+            }
             case SWITCH_IN_CHECK_ENTRY_EFFECT_OPPORTUNIST: {
                 for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];

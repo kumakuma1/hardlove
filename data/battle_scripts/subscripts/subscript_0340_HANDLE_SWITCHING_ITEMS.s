@@ -38,6 +38,6 @@ _end:
     End 
 
 _completeSwitch:
-    SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_DONE
+    //SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_DONE
     GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
     End
