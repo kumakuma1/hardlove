@@ -867,7 +867,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     // handle Thick Club
     if ((attacker->item_held_effect == HOLD_EFFECT_CUBONE_ATK_UP)
         && ((attacker->species == SPECIES_CUBONE) || (attacker->species == SPECIES_MAROWAK))
-        // it’s not a Ditto/Smeargle/Mew Transformed into the species
+        // itâ€™s not a Ditto/Smeargle/Mew Transformed into the species
         && !(attacker->condition2 & STATUS2_TRANSFORMED)
         && (movesplit == SPLIT_PHYSICAL)) {
         attackModifier = QMul_RoundUp(attackModifier, UQ412__2_0);
@@ -876,7 +876,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     // handle Deep Sea Tooth
     if ((attacker->item_held_effect == HOLD_EFFECT_CLAMPERL_SPATK)
         && (attacker->species == SPECIES_CLAMPERL)
-        // it’s not a Ditto/Smeargle/Mew Transformed into the species
+        // itâ€™s not a Ditto/Smeargle/Mew Transformed into the species
         && !(attacker->condition2 & STATUS2_TRANSFORMED)
         && (movesplit == SPLIT_SPECIAL)) {
         attackModifier = QMul_RoundUp(attackModifier, UQ412__2_0);
@@ -885,7 +885,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     // handle Light Ball
     if ((attacker->item_held_effect == HOLD_EFFECT_PIKA_SPATK_UP)
         && (attacker->species == SPECIES_PIKACHU)
-        // it’s not a Ditto/Smeargle/Mew Transformed into the species
+        // itâ€™s not a Ditto/Smeargle/Mew Transformed into the species
         && !(attacker->condition2 & STATUS2_TRANSFORMED)) {
         attackModifier = QMul_RoundUp(attackModifier, UQ412__2_0);
     }
@@ -1046,8 +1046,8 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
         ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, speciesWithForm);
 
-        // If a Pokémon has any evolutions, there should be an entry at the top that isn't EVO_NONE.
-        // In that case, the Pokémon is capable of evolving, and so the effect of Eviolite should apply.
+        // If a PokÃ©mon has any evolutions, there should be an entry at the top that isn't EVO_NONE.
+        // In that case, the PokÃ©mon is capable of evolving, and so the effect of Eviolite should apply.
         if (evoTable[0].method != EVO_NONE) {
             defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
         }
@@ -1063,7 +1063,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     // handle Deep Sea Scale
     if ((defender->item_held_effect == HOLD_EFFECT_CLAMPERL_SPDEF)
         && (defender->species == SPECIES_CLAMPERL)
-        // it’s not a Ditto/Smeargle/Mew Transformed into the species
+        // itâ€™s not a Ditto/Smeargle/Mew Transformed into the species
         && !(defender->condition2 & STATUS2_TRANSFORMED)
         && (movesplit == SPLIT_SPECIAL)) {
         defenseModifier = QMul_RoundUp(defenseModifier, UQ412__2_0);
@@ -1072,7 +1072,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     // handle Metal Powder
     if ((defender->item_held_effect == HOLD_EFFECT_DITTO_DEF_UP)
         && (defender->species == SPECIES_DITTO)
-        // it’s not a Ditto/Smeargle/Mew Transformed into the species
+        // itâ€™s not a Ditto/Smeargle/Mew Transformed into the species
         && !(defender->condition2 & STATUS2_TRANSFORMED)
         && (movesplit == SPLIT_PHYSICAL)) {
         defenseModifier = QMul_RoundUp(defenseModifier, UQ412__2_0);
@@ -1201,6 +1201,10 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     if (moveno == MOVE_POLTERGEIST && defender->item == ITEM_NONE) {
         return 0;
     }
+    if (move.effect == MOVE_EFFECT_ONE_HIT_KO && defender->ability == ABILITY_STURDY) {
+        return 0;
+    }
+
 
     if (!attackerHasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0 && !(defender->condition2 & STATUS2_TRANSFORMED) && movesplit == SPLIT_PHYSICAL) { // SPECIES_EISCUE
         return 0;

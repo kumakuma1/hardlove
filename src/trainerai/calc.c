@@ -415,7 +415,7 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(struct AI_sDamageCalc *attacker, 
     }
     case MOVE_EFFECT_ONE_HIT_KO: // sheer cold, guillotine, horn drill, fissure
     {
-        if (attacker->level <= defender->level) {
+        if (attacker->level <= defender->level || defender->ability == ABILITY_STURDY) {
             return 0;
         }
     }
@@ -640,12 +640,12 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
                 break;
 
             default:
-                // Aura Wheel can only be successfully used by Morpeko (or a Pokémon that has transformed into Morpeko). This line does not prevent the move from being used!!!
+                // Aura Wheel can only be successfully used by Morpeko (or a PokÃ©mon that has transformed into Morpeko). This line does not prevent the move from being used!!!
                 type = TYPE_TYPELESS;
                 break;
             }
         } else {
-            // Aura Wheel can only be successfully used by Morpeko (or a Pokémon that has transformed into Morpeko). This line does not prevent the move from being used!!!
+            // Aura Wheel can only be successfully used by Morpeko (or a PokÃ©mon that has transformed into Morpeko). This line does not prevent the move from being used!!!
             type = TYPE_TYPELESS;
         }
         break;
