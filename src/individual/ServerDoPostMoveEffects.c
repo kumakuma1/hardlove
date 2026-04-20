@@ -891,7 +891,7 @@ int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp)
                 sp->clientLoopForAbility++;
                 if (sp->battlemon[BATTLER_OPPONENT_SIDE_LEFT(sp->defence_client)].species) {
                     sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
-                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+                    sp->addeffect_type = ADD_STATUS_ABILITY;
                     sp->state_client = BATTLER_OPPONENT_SIDE_LEFT(sp->defence_client);
                     sp->battlerIdTemp = sp->defence_client;
                     return TRUE;
@@ -901,7 +901,7 @@ int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp)
                 sp->clientLoopForAbility++;
                 if (sp->battlemon[BATTLER_OPPONENT_SIDE_RIGHT(sp->defence_client)].species) {
                     sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
-                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+                    sp->addeffect_type = ADD_STATUS_ABILITY;
                     sp->state_client = BATTLER_OPPONENT_SIDE_RIGHT(sp->defence_client);
                     sp->battlerIdTemp = sp->defence_client;
                     return TRUE;
@@ -911,7 +911,7 @@ int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp)
                 sp->clientLoopForAbility++;
                 if (sp->battlemon[BATTLER_ALLY(sp->defence_client)].species) {
                     sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
-                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+                    sp->addeffect_type = ADD_STATUS_ABILITY;
                     sp->state_client = BATTLER_ALLY(sp->defence_client);
                     sp->battlerIdTemp = sp->defence_client;
                     return TRUE;

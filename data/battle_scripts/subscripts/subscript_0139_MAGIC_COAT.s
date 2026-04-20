@@ -12,6 +12,7 @@ _000:
     GoTo _020
 
 _015:
+    AbilityPopup BATTLER_CATEGORY_DEFENDER
     // {0}’s {1} was bounced back by Magic Bounce!
     PrintMessage 1336, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_ATTACKER
     // TODO: add ability popup
