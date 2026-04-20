@@ -1,15 +1,16 @@
-#include "../include/types.h"
 #include "../include/item.h"
-#include "../include/message.h"
-#include "../include/script.h"
+
 #include "../include/config.h"
 #include "../include/constants/file.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
+#include "../include/message.h"
+#include "../include/script.h"
+#include "../include/types.h"
 
-#define GFX_ITEM_DUMMY_ID ((MAX_TOTAL_ITEM_NUM) * 2 + 2)
-#define GFX_ITEM_RETURN_ID ((MAX_TOTAL_ITEM_NUM+1) * 2 + 4)
-#define NEW_ITEM_GFX (797)
+#define GFX_ITEM_DUMMY_ID  ((MAX_TOTAL_ITEM_NUM) * 2 + 2)
+#define GFX_ITEM_RETURN_ID ((MAX_TOTAL_ITEM_NUM + 1) * 2 + 4)
+#define NEW_ITEM_GFX       (797)
 
 static const u16 sMachineMoves[] = {
     // vanilla TMs
@@ -107,17 +108,17 @@ static const u16 sMachineMoves[] = {
     MOVE_TRICK_ROOM,       // TM092
 
     // vanilla HMs
-    MOVE_CUT,              // HM01
-    MOVE_FLY,              // HM02
-    MOVE_SURF,             // HM03
-    MOVE_STRENGTH,         // HM04
-    MOVE_WHIRLPOOL,        // HM05
-    MOVE_ROCK_SMASH,       // HM06
-    MOVE_WATERFALL,        // HM07
-    MOVE_ROCK_CLIMB,       // HM08
+    MOVE_CUT, // HM01
+    MOVE_FLY, // HM02
+    MOVE_SURF, // HM03
+    MOVE_STRENGTH, // HM04
+    MOVE_WHIRLPOOL, // HM05
+    MOVE_ROCK_SMASH, // HM06
+    MOVE_WATERFALL, // HM07
+    MOVE_ROCK_CLIMB, // HM08
 
     // HM07 (ORAS)
-    MOVE_DIVE,             // HM07_ORAS
+    MOVE_DIVE, // HM07_ORAS
 
     // expansion TMs
     MOVE_TACKLE,       // TM00
@@ -366,7 +367,7 @@ static const u16 sMachineMoves[] = {
 u16 GetItemIndex(u16 item, u16 type);
 void *GetItemArcData(u16 item, u16 type, u32 heap_id);
 u16 ItemToMachineMove(u16 itemId);
-//void *LONG_CALL ItemDataTableLoad(int heapID);
+// void *LONG_CALL ItemDataTableLoad(int heapID);
 void ItemMenuUseFunc_RevealGlass(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
 BOOL ItemFieldUseFunc_RevealGlass(struct ItemFieldUseData *data);
 void *_CreateRevealGlassWork(FieldSystem *fieldSystem);
@@ -421,49 +422,43 @@ const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
 u16 GetItemIndex(u16 item, u16 type)
 {
     u16 ret = 0;
-    switch (type)
-    {
+    switch (type) {
     case ITEM_GET_DATA:
-        if (item == ITEM_DUMMY_ID || item == ITEM_RETURN_ID)
-        {
+        if (item == ITEM_DUMMY_ID || item == ITEM_RETURN_ID) {
             break;
         }
         ret = item;
         return ret;
 
     case ITEM_GET_ICON_CGX:
-        if (item == ITEM_DUMMY_ID)
-        {
-            return (GFX_ITEM_DUMMY_ID);
+        if (item == ITEM_DUMMY_ID) {
+            return GFX_ITEM_DUMMY_ID;
         }
-        if (item == ITEM_RETURN_ID)
-        {
-            return (GFX_ITEM_RETURN_ID);
+        if (item == ITEM_RETURN_ID) {
+            return GFX_ITEM_RETURN_ID;
         }
         ret = item * 2 + 2;
         return ret;
 
     case ITEM_GET_ICON_PAL:
-        if (item == ITEM_DUMMY_ID)
-        {
-            return (GFX_ITEM_DUMMY_ID+1);
+        if (item == ITEM_DUMMY_ID) {
+            return GFX_ITEM_DUMMY_ID + 1;
         }
-        if (item == ITEM_RETURN_ID)
-        {
-            return (GFX_ITEM_RETURN_ID+1);
+        if (item == ITEM_RETURN_ID) {
+            return GFX_ITEM_RETURN_ID + 1;
         }
         ret = item * 2 + 3;
         return ret;
 
     case ITEM_GET_AGB_NUM: // for pal park purposes
-        if (item == ITEM_DUMMY_ID || item == ITEM_RETURN_ID)
-        {
+        if (item == ITEM_DUMMY_ID || item == ITEM_RETURN_ID) {
             break;
         }
-        if (item > MAX_TOTAL_ITEM_NUM)
+        if (item > MAX_TOTAL_ITEM_NUM) {
             ret = 0;
-        else
+        } else {
             ret = ItemDataIndex[item].agb_id;
+        }
         return ret;
     }
     return 0;
@@ -471,14 +466,13 @@ u16 GetItemIndex(u16 item, u16 type)
 
 void *GetItemArcData(u16 item, u16 type, u32 heap_id)
 {
-    int dataid, picid,palid;
+    int dataid, picid, palid;
 
     dataid = item;
     picid = item * 2 + 2;
     palid = item * 2 + 3;
 
-    switch (type)
-    {
+    switch (type) {
     case ITEM_GET_DATA:
         return ArchiveDataLoadMalloc(ARC_ITEM_DATA, dataid, heap_id);
     case ITEM_GET_ICON_CGX:
@@ -489,7 +483,8 @@ void *GetItemArcData(u16 item, u16 type, u32 heap_id)
     return NULL;
 }
 
-void LONG_CALL GetItemDescIntoString(String *dest, u16 itemId, u16 heapId) {
+void LONG_CALL GetItemDescIntoString(String *dest, u16 itemId, u16 heapId)
+{
     enum ItemGeneration gen = ITEM_GENERATION(itemId);
     u32 fileId = (gen == CUSTOM)
         ? MSG_DATA_ITEM_DESCRIPTION_CUSTOM
@@ -506,16 +501,17 @@ void *LONG_CALL ItemDataTableLoad(int heapID)
 
     max = GetItemIndex(MAX_TOTAL_ITEM_NUM, ITEM_GET_DATA);
 
-    return ArchiveDataLoadMallocOfs(ARC_ITEM_DATA, 0, heapID, 0, sizeof(ITEMDATA) * max);//800757Ch
+    return ArchiveDataLoadMallocOfs(ARC_ITEM_DATA, 0, heapID, 0, sizeof(ITEMDATA) * max); // 800757Ch
 }
 
 /**
  * @brief converts an item id to its corresponding TM/HM/TR index within sMachineMoves
  * @see   pret/pokeheartgold ItemToTMHMId
  */
-u16 ItemToMachineMoveIndex(u16 itemId) {
+u16 ItemToMachineMoveIndex(u16 itemId)
+{
     if (itemId >= ITEM_TM001 && itemId <= ITEM_HM08) {
-        return (itemId - ITEM_TM001);
+        return itemId - ITEM_TM001;
     }
     if (itemId == ITEM_HM07_ORAS) {
         return 100;
@@ -543,7 +539,8 @@ u16 ItemToMachineMoveIndex(u16 itemId) {
  * @brief converts an item id to its corresponding TM/HM/TR move id
  * @see   pret/pokeheartgold TMHMGetMove
  */
-u16 ItemToMachineMove(u16 itemId) {
+u16 ItemToMachineMove(u16 itemId)
+{
     if (itemId < ITEM_TM001) {
         return MOVE_NONE;
     }
@@ -555,7 +552,8 @@ u16 ItemToMachineMove(u16 itemId) {
     return sMachineMoves[index];
 }
 
-BOOL MoveIsHM(u16 moveId) {
+BOOL MoveIsHM(u16 moveId)
+{
     for (u8 i = 0; i < NUM_HMS; i++) {
         if (sMachineMoves[i + ITEM_HM01 - ITEM_TM001] == moveId) {
 #if /* defined(REUSABLE_TMS) &&*/ defined(DELETABLE_HMS)
@@ -568,7 +566,8 @@ BOOL MoveIsHM(u16 moveId) {
     return FALSE;
 }
 
-s32 LONG_CALL GetItemAttr_PreloadedItemData(ITEMDATA *itemData, u16 attrno) {
+s32 LONG_CALL GetItemAttr_PreloadedItemData(ITEMDATA *itemData, u16 attrno)
+{
     switch (attrno) {
     case ITEM_PARAM_PRICE:
         return (u32)((itemData)->price) | ((u32)((itemData)->price_high) << 16);
@@ -614,8 +613,8 @@ s32 LONG_CALL GetItemAttr_PreloadedItemData(ITEMDATA *itemData, u16 attrno) {
 
 void ItemMenuUseFunc_RevealGlass(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
 {
-    FieldSystem *fieldSystem = data->taskManager->fieldSystem; //TaskManager_GetFieldSystem(data->taskManager);
-    struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    FieldSystem *fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
+    struct BagViewAppWork *env = data->taskManager->env; // TaskManager_GetEnvironment(data->taskManager);
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_REVEAL_GLASS);
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
@@ -634,7 +633,7 @@ void *_CreateRevealGlassWork(FieldSystem *fieldSystem)
 void ItemMenuUseFunc_DNASplicers(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
 {
     FieldSystem *fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
-    struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    struct BagViewAppWork *env = data->taskManager->env; // TaskManager_GetEnvironment(data->taskManager);
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_DNA_SPLICERS_FUSE); // TODO: handle correct item
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
@@ -653,7 +652,7 @@ void *_CreateDNASplicersWork(FieldSystem *fieldSystem)
 void ItemMenuUseFunc_AbilityCapsule(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
 {
     FieldSystem *fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
-    struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    struct BagViewAppWork *env = data->taskManager->env; // TaskManager_GetEnvironment(data->taskManager);
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_ABILITY_CAPSULE);
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
@@ -661,15 +660,15 @@ void ItemMenuUseFunc_AbilityCapsule(struct ItemMenuUseData *data, const struct I
 void ItemMenuUseFunc_Mint(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
 {
     FieldSystem *fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
-    struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    struct BagViewAppWork *env = data->taskManager->env; // TaskManager_GetEnvironment(data->taskManager);
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, data->itemId);
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
 
 void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
 {
-    FieldSystem *fieldSystem = data->taskManager->fieldSystem; //TaskManager_GetFieldSystem(data->taskManager);
-    struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    FieldSystem *fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
+    struct BagViewAppWork *env = data->taskManager->env; // TaskManager_GetEnvironment(data->taskManager);
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, data->itemId);
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
@@ -677,8 +676,8 @@ void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheck
 void ItemMenuUseFunc_RotomCatalog(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
 {
 
-    FieldSystem *fieldSystem = data->taskManager->fieldSystem; //TaskManager_GetFieldSystem(data->taskManager);
-    struct BagViewAppWork *env = data->taskManager->env; //TaskManager_GetEnvironment(data->taskManager);
+    FieldSystem *fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);
+    struct BagViewAppWork *env = data->taskManager->env; // TaskManager_GetEnvironment(data->taskManager);
     env->atexit_TaskEnv = sub_0203FAE8(fieldSystem, HEAPID_WORLD, ITEM_ROTOM_CATALOG);
     sub_0203C8F0(env, 0x0203CA9C | 1);
 }
