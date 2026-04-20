@@ -3,6 +3,7 @@
 .data
 
 _000:
+    AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
     // {1}’s {0} made it shudder!
     PrintMessage 1106, TAG_ABILITY_NICKNAME, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_MSG_TEMP
     Wait 

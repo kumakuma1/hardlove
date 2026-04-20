@@ -3,6 +3,7 @@
 .data
 
 _000:
+    AbilityPopup BATTLER_CATEGORY_MSG_TEMP
     // {0} cured its {2} status with its {1}!
     PrintMessage 740, TAG_NICKNAME_ABILITY_STATUS, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP
     Wait 

@@ -35,6 +35,7 @@ _056:
     End 
 
 _069:
+    AbilityPopup BATTLER_CATEGORY_DEFENDER
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MAGIC_GUARD, _082
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // It sucked up the liquid ooze!

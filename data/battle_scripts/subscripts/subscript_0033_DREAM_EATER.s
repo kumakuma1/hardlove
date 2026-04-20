@@ -35,6 +35,7 @@ _059:
     End
 
 _DamageInstead:
+    AbilityPopup BATTLER_CATEGORY_DEFENDER
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // It sucked up the liquid ooze!
     PrintMessage 720, TAG_NONE

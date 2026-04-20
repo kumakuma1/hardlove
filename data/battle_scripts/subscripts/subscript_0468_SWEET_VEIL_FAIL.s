@@ -7,9 +7,9 @@ _000:
     Wait
     WaitButtonABTime 30
 
-    // ability popup
+    AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
 
-    // {0} can’t fall asleep due to a veil of sweetness!
+    // {0} canâ€™t fall asleep due to a veil of sweetness!
     PrintMessage 1594, TAG_NICKNAME, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     Wait
     WaitButtonABTime 30

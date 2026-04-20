@@ -7,6 +7,7 @@ _000:
     Wait 
     WaitButtonABTime 15
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BMON_DATA_FLASH_FIRE, 0, _023
+    AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
     // {0}’s {1} raised the power of its Fire-type moves!
     PrintMessage 656, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     Wait 

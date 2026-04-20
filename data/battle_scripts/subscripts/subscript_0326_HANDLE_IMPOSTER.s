@@ -5,6 +5,7 @@
 _000:
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
+    AbilityPopup BATTLER_CATEGORY_ATTACKER
     // {0} transformed into {1}!
     PrintMessage 345, TAG_NICKNAME_POKE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_DEFENDER
     Wait 
