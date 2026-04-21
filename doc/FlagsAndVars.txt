@@ -19,6 +19,8 @@
 264   -                                - after story fight against ho-oh
 266   -                                - kimono dance in bell tower done
 278   -                                - caught ho-oh
+280   -                                - checked in vermillion city fan club
+281   -                                - checked in vermillion city fan club
 279   -                                - caught lugia
 305   -                                - Flag for getting Cleanse Tag on Route 5. Lady gives Spell Tag.
 308   -                                - Flag for getting Nugget on Route 2. Used for gift in cerulean city.
@@ -72,6 +74,8 @@
 723   -                                - Groudon NPC in embedded tower
 724   -                                - Kyogre NPC in embedded tower
 752   -                                - Hide Lt. Surge Gym in Vermilion  
+764   -                                - CLefairy doll in vermillion city. Flag is set
+765   -                                - CLefairy doll in vermillion city  
 777   -                                - Hide Brad on Route 25
 794   -                                - Barrier in Lt. Surge Gym in Vermilion. Flag gets set when entering  
 
@@ -112,6 +116,9 @@ Variables
 16634/      : Lugia event with alola firls. == 1
 16654/0x410E: Trainers in Olivine Gym, Set 1 when giving medicine in lighthouse. Unused
 
-16563-16577 : Rocket HQ encounters. Unused (16562 is used)
+16563-16577 : Rocket HQ encounters.
+(16562 is used)
+(16577/0x40C1 is used) : victreebelite in vermillion city
+
 
 16685/0x412D : Route 25 Bills Grandfather showed pokemons 

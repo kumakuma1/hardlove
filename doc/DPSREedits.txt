@@ -1,4 +1,4 @@
-﻿### Remove trainers asking for phone number script file 953
+### Remove trainers asking for phone number script file 953
 Function 22:
 	CMD_461 0 0x8004 0x8005 //removed
 	CMD_440 0x8004 0x8005 //removed
@@ -2431,6 +2431,63 @@ End
 So, you are from Johto...\rThen this is a perfect opportunity\nfor a field test.\rPrepare for an electric surprise!\nLet the exercise commence!\r
 You’ve earned the victory, like a\ntrue soldier!\rHere, take this.\nIt’s a crucial piece of gear in\fany battle.\r
 18: Dismissed!\r
+
+
+### victreebelite in vermillion fanclub
+
+Script 4:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer 
+	Message 14
+	OpenTouchScreen 
+	YesNoTouchScreen 0x800C
+	CloseTouchScreen 
+	CompareVarValue 0x800C 1
+	JumpIf EQUAL Function#8
+	Message 19
+	CloseMessage 
+    TrainerBattle 12 0 0 0
+	CheckBattleIsLost 0x800C
+	CompareVarValue 0x800C 0
+	JumpIf EQUAL Function#9
+    Message 21
+    CompareVarValue 0x40C1 0
+	JumpIf DIFFERENT Function#10
+    SetVar 0x40C1 1
+    Message 22
+    SetVar 0x8004 2
+	SetVar 0x8005 1
+	CommonScript 2033
+	CloseMessage
+	ReleaseAll 
+End 
+
+Function 7:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 8:
+	Message 20
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 9:
+	Message 7
+	WaitButton 
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 10:
+    CloseMessage
+	ReleaseAll 
+End 
+
 
 
 ### Block Saffron, Route 9

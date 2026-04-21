@@ -2793,7 +2793,7 @@ trainerdata 37, "Preston"
         ballseal 0
     endparty
 
-trainerdata 38, "Colette"
+trainerdata 38, "Colette" //moved to vermillion
     trainermontype TRAINER_DATA_TYPE_NOTHING
     trainerclass TRAINERCLASS_TEACHER
     nummons 1
@@ -2802,7 +2802,7 @@ trainerdata 38, "Colette"
     item ITEM_NONE
     item ITEM_NONE
     aiflags F_EVALUATE_ATTACKS | 0
-    battletype SINGLE_BATTLE
+    battletype DOUBLE_BATTLE
     endentry
 
     party 38

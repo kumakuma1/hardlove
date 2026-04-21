@@ -315,6 +315,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
 
 #ifdef IMPLEMENT_LEVEL_CAP
         switch (bp->trainer_id[1]) {
+        case 38: // Trainer Colette Route 15 -> Vermillion
         case 118: // Ace Trainer Irene Route 34
         case 120: // Ace Trainer Kate Route 34
         case 417: // Ace Trainer Jenn Route 34
