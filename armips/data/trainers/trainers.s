@@ -2794,9 +2794,9 @@ trainerdata 37, "Preston"
     endparty
 
 trainerdata 38, "Colette" //moved to vermillion
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEACHER
-    nummons 1
+    nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -2806,11 +2806,94 @@ trainerdata 38, "Colette" //moved to vermillion
     endentry
 
     party 38
-        // mon 0
         ivs 0
-        abilityslot 32
-        level 45
-        pokemon SPECIES_CLEFAIRY
+        abilityslot 0
+        level LEVEL_JASMINE-2
+        pokemon SPECIES_GALVANTULA
+        item ITEM_FOCUS_SASH
+        move MOVE_THUNDERBOLT
+        move MOVE_BUG_BUZZ
+        move MOVE_GIGA_DRAIN
+        move MOVE_STICKY_WEB
+        ability ABILITY_UNNERVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-2
+        pokemon SPECIES_CINDERACE
+        item ITEM_FLYING_GEM
+        move MOVE_PYRO_BALL
+        move MOVE_ACROBATICS
+        move MOVE_U_TURN
+        move MOVE_LOW_SWEEP
+        ability ABILITY_LIBERO
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-2
+        pokemon SPECIES_SCRAFTY
+        item ITEM_SITRUS_BERRY
+        move MOVE_KNOCK_OFF
+        move MOVE_DRAIN_PUNCH
+        move MOVE_HELPING_HAND
+        move MOVE_BULK_UP
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-2
+        pokemon SPECIES_MILOTIC
+        item ITEM_LEFTOVERS
+        move MOVE_SCALD
+        move MOVE_ICY_WIND
+        move MOVE_HIDDEN_POWER //FIRE
+        move MOVE_RECOVER
+        ability ABILITY_COMPETITIVE
+        ball ITEM_POKE_BALL
+        setivs 31, 30, 31, 30, 30, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_BOLD
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-2
+        pokemon SPECIES_VICTREEBEL
+        item ITEM_NONE //TODO mega
+        move MOVE_ENERGY_BALL
+        move MOVE_SLUDGE_BOMB
+        move MOVE_SUCKER_PUNCH
+        move MOVE_STRENGTH_SAP
+        ability ABILITY_CHLOROPHYLL
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -11163,7 +11246,7 @@ trainerdata 205, "Nick"
 trainerdata 206, "Gwen"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_ACE_TRAINER_F
-    nummons 2
+    nummons 3
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -11201,6 +11284,24 @@ trainerdata 206, "Gwen"
         move MOVE_COIL
         move MOVE_ION_DELUGE
         ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PRYCE-2
+        pokemon SPECIES_MUK
+        item ITEM_BLACK_SLUDGE
+        move MOVE_POISON_JAB
+        move MOVE_FIRE_PUNCH
+        move MOVE_ZEN_HEADBUTT
+        move MOVE_HELPING_HAND
+        ability ABILITY_POISON_TOUCH
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0

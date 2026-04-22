@@ -19,13 +19,15 @@ Fly works between Johto and Kanto.
 Critical hit chance: 1/16.
 Critical hit damage multiplier: 1.5.
 
+Gem boosts: 1.5x.
+Unseen Fist completely ignores Protect.
 Protean/Libero work as in Gen8.
 Moody can change Accuracy and Evasion.
 Hail has been replaced by Snow.
 Weather abilities/moves: Will set Weather permanently.
 Terrain abilities/moves: Will set Terrain permanently. Cannot be removed by Defog.
 
-Held items: Items that get consumed or removed from your Pokémon in any way during battle will not be restored.
+Held items: Items that get consumed or removed from your PokÃ©mon in any way during battle will not be restored.
 
 Apricorn trees can be harvested once, to obtain Berries.
 
@@ -38,7 +40,7 @@ Litten      Heart Scale          Sprigatito
 Froakie     Starter Card         Clear Amulet       Battle Bond
 
 Level Cap
-Once a Pokémon reaches a level cap the Infinite Candy item will no longer work and the Pokémon will not gain any experience in battles or Day Care.
+Once a PokÃ©mon reaches a level cap the Infinite Candy item will no longer work and the PokÃ©mon will not gain any experience in battles or Day Care.
 The level cap is tied boss fights and raised as you defeat them, progressing through the story.
 The boss fights are noted in documentation and are also noticeable by the battle transition as they start.
 You can overcome the cap by using Rare Candies, but those are rare and limited.
