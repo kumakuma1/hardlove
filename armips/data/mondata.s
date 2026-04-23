@@ -16616,7 +16616,7 @@ mondata SPECIES_CRABOMINABLE, "Crabomnabl"
     basefriendship 70
     growthrate GROWTH_MEDIUM_FAST
     egggroups EGG_GROUP_WATER_3, EGG_GROUP_WATER_3
-    abilities ABILITY_HYPER_CUTTER, ABILITY_IRON_FIST
+    abilities ABILITY_HYPER_CUTTER, ABILITY_NONE
     runchance 0
     colorflip BODY_COLOR_WHITE, 0
     mondexentry SPECIES_CRABOMINABLE, "It stores coldness in its pincers and\npummels its foes. It can even smash\nthick walls of ice to bits!"

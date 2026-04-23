@@ -274,7 +274,29 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
         break;
     }
     default:
-        break;
+        {
+            if (ai->aimonAlly.item != ITEM_WEAKNESS_POLICY) {
+                break;
+            }
+
+            u8 priorityMovePosition = 5;
+            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++)
+            {
+                int move = ctx->battlemon[attacker].move[j];
+                if (ctx->moveTbl[move].priority > 0 && ctx->moveTbl[move].power <= 40) {
+                    priorityMovePosition = j;
+                    break;
+                }
+            }
+            if (skillSwapPosition < 5)
+            {
+                highestScoredMove = 1000;
+                highestScoredMove += 14;
+                moveScores[target][skillSwapPosition] += highestScoredMove;
+            }
+
+            break;
+        }
     }
 
     return highestScoredMove;
@@ -1219,6 +1241,15 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore += 5;
         }
         break;
+    case MOVE_EFFECT_GRAVITY:
+    {
+        if (ctx->field_condition & FIELD_STATUS_GRAVITY) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            moveScore += 6;
+        }
+        break;
+    }
     case MOVE_EFFECT_STEALTH_ROCK:
     case MOVE_EFFECT_SET_SPIKES:
     case MOVE_EFFECT_TOXIC_SPIKES:
