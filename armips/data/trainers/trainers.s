@@ -915,7 +915,7 @@ trainerdata 13, "Grunt #2"
         pokemon SPECIES_VANILLISH
         item ITEM_WHITE_HERB
         move MOVE_ICY_WIND
-        move MOVE_AUTOTOMIZE
+        move MOVE_MIRROR_COAT
         move MOVE_ENDURE
         move MOVE_WATER_PULSE
         ability ABILITY_WEAK_ARMOR
@@ -1714,13 +1714,13 @@ trainerdata 25, "Russel"
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-2
-        pokemon SPECIES_PSYDUCK
-        item ITEM_WATER_GEM
-        move MOVE_PSYBEAM
-        move MOVE_WATER_PULSE
-        move MOVE_YAWN
-        move MOVE_VACUUM_WAVE
-        ability ABILITY_DAMP
+        pokemon SPECIES_GULPIN
+        item ITEM_SALAC_BERRY
+        move MOVE_BELCH
+        move MOVE_STUFF_CHEEKS
+        move MOVE_BODY_SLAM
+        move MOVE_GIGA_DRAIN
+        ability ABILITY_GLUTTONY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
