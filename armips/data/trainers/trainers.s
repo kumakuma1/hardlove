@@ -17612,7 +17612,7 @@ trainerdata 329, "Dudley"
     party 329
         ivs 0
         abilityslot 0
-        level LEVEL_JASMINE-4
+        level LEVEL_JASMINE-3
         pokemon SPECIES_KLANG
         item ITEM_EVIOLITE
         move MOVE_GEAR_GRIND
@@ -17630,7 +17630,7 @@ trainerdata 329, "Dudley"
 
         ivs 0
         abilityslot 0
-        level LEVEL_JASMINE-4
+        level LEVEL_JASMINE-3
         pokemon SPECIES_MUSHARNA
         item ITEM_LUM_BERRY
         move MOVE_PSYCHIC
@@ -17648,7 +17648,7 @@ trainerdata 329, "Dudley"
 
         ivs 0
         abilityslot 0
-        level LEVEL_JASMINE-4
+        level LEVEL_JASMINE-3
         pokemon SPECIES_MAGMORTAR
         item ITEM_SITRUS_BERRY
         move MOVE_FIRE_BLAST
@@ -17666,7 +17666,7 @@ trainerdata 329, "Dudley"
 
         ivs 0
         abilityslot 0
-        level LEVEL_JASMINE-4
+        level LEVEL_JASMINE-3
         pokemon SPECIES_CONKELDURR
         item ITEM_LIFE_ORB
         move MOVE_DYNAMIC_PUNCH
@@ -18850,24 +18850,6 @@ trainerdata 361, "Kevin"
 
         ivs 0
         abilityslot 0
-        level LEVEL_JASMINE-1
-        pokemon SPECIES_CHIMECHO
-        item ITEM_EXPERT_BELT //TODO mega
-        move MOVE_PSYSHOCK
-        move MOVE_BOOMBURST
-        move MOVE_DAZZLING_GLEAM
-        move MOVE_RECOVER
-        ability ABILITY_LEVITATE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_MODEST
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
         level LEVEL_JASMINE-2
         monwithform SPECIES_GOURGEIST, 1
         item ITEM_FOCUS_SASH
@@ -18880,6 +18862,24 @@ trainerdata 361, "Kevin"
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_JASMINE-1
+        pokemon SPECIES_CHIMECHO
+        item ITEM_EXPERT_BELT //TODO mega
+        move MOVE_PSYSHOCK
+        move MOVE_BOOMBURST
+        move MOVE_DAZZLING_GLEAM
+        move MOVE_RECOVER
+        ability ABILITY_LEVITATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
         shinylock 0
         additionalflags 0
         ballseal 0

@@ -117339,7 +117339,7 @@
       },
       {
         "Level": 17,
-        "Move": "MOVE_PROTECT"
+        "Move": "MOVE_FROST_BREATH"
       },
       {
         "Level": 22,
@@ -117347,7 +117347,7 @@
       },
       {
         "Level": 25,
-        "Move": "MOVE_SLAM"
+        "Move": "MOVE_DIZZY_PUNCH"
       },
       {
         "Level": 29,
@@ -117363,7 +117363,7 @@
       },
       {
         "Level": 42,
-        "Move": "MOVE_IRON_DEFENSE"
+        "Move": "MOVE_ZEN_HEADBUTT"
       },
       {
         "Level": 45,
@@ -117441,17 +117441,11 @@
       "MOVE_WIDE_GUARD"
     ],
     "TutorMoves": [
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_DUAL_CHOP",
-      "MOVE_ENDEAVOR",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_ICE_PUNCH",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_SNORE",
-      "MOVE_SUPERPOWER",
-      "MOVE_THUNDER_PUNCH",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_BRICK_BREAK",
+        "MOVE_FIRE_PUNCH",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_CRABOMINABLE": {
@@ -117463,10 +117457,6 @@
       {
         "Level": 1,
         "Move": "MOVE_LEER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_PROTECT"
       },
       {
         "Level": 1,
@@ -117482,7 +117472,7 @@
       },
       {
         "Level": 25,
-        "Move": "MOVE_SLAM"
+        "Move": "MOVE_DIZZY_PUNCH"
       },
       {
         "Level": 29,
@@ -117494,18 +117484,18 @@
       },
       {
         "Level": 37,
-        "Move": "MOVE_ICE_HAMMER"
-      },
-      {
-        "Level": 42,
-        "Move": "MOVE_IRON_DEFENSE"
-      },
-      {
-        "Level": 45,
         "Move": "MOVE_DYNAMIC_PUNCH"
       },
       {
-        "Level": 49,
+        "Level": 42,
+        "Move": "MOVE_ZEN_HEADBUTT"
+      },
+        {
+            "Level": 51,
+            "Move": "MOVE_ICE_HAMMER"
+        },
+      {
+        "Level": 55,
         "Move": "MOVE_CLOSE_COMBAT"
       }
     ],
@@ -117588,19 +117578,11 @@
       "MOVE_WIDE_GUARD"
     ],
     "TutorMoves": [
-      "MOVE_BLOCK",
-      "MOVE_DRAIN_PUNCH",
-      "MOVE_DUAL_CHOP",
-      "MOVE_ENDEAVOR",
-      "MOVE_FOCUS_PUNCH",
-      "MOVE_ICE_PUNCH",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_SNORE",
-      "MOVE_SUPERPOWER",
-      "MOVE_THUNDER_PUNCH",
-      "MOVE_ZEN_HEADBUTT"
+        "MOVE_BLIZZARD",
+        "MOVE_BRICK_BREAK",
+        "MOVE_HEADBUTT",
+        "MOVE_ICE_PUNCH",
+        "MOVE_THUNDER_PUNCH"
     ]
   },
   "SPECIES_ORICORIO": {
