@@ -3502,6 +3502,71 @@ Function 21/24:
 	// SetFlag 506
 
 
+####  starter gift in Mahogany Town after TR is defeated
+NPC oak aide flag 487
+Script 6:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer
+    CompareVarValue 0x40C0 0
+    JumpIf DIFFERENT Function#1
+    TextPlayerName 0
+	Message 3
+    CheckStarter 0x800C
+	CompareVarValue 0x800C 387
+    JumpIf DIFFERENT Function#2
+    GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#4
+    TextPlayerName 0
+	TextPokemon 1 152 0 0
+    Message 6
+    SetFlag 2599
+    GivePokemon 152 5 0 0 0 0x800C //TODO megastone
+Jump Function#1
+
+Function 1:
+	SetVar 0x40C0 1
+	Message 5
+	CloseMessage 
+	ReleaseAll 
+End 
+
+Function 2:
+    CompareVarValue 0x800C 775
+	JumpIf DIFFERENT Function#3
+    GetPartyCount 0x8005
+	CompareVarValue 0x8005 6
+	JumpIf EQUAL Function#4
+    TextPlayerName 0
+	TextPokemon 1 703 0 0
+    Message 6
+    SetFlag 2599
+    GivePokemon 703 5 0 0 0 0x800C
+Jump Function#1
+
+Function 3:
+	SetVar 0x8004 2  //todo greninjite
+	SetVar 0x8005 1
+	CommonScript 2033
+    SetVar 0x40C0 1
+Jump Function#1
+
+Function 4:
+	Message 4
+	CloseMessage 
+	ReleaseAll 
+End 
+
+
+So you are \v0103ぁ\x0000\x0000?\rProfessor Oak sent me to find you.\nHe wanted me to give you this gift.\r
+You don’t have space in your party.\r
+May it help you on your journey!\r
+\v0103ぁ\x0000\x0000 received\n\v0100ぁ\x0001\x0000!\r
+
+
+
+
 #### Pryce
 	SetTrainerFlag 483
 	ClearFlag 507  // Block radio tower to block whitney rematch after whirl islands

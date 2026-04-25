@@ -6,6 +6,18 @@
 #include "../include/pokemon.h"
 #include "../include/types.h"
 
+void getRandomBerry()
+{
+    int i = gf_rand() % 18;
+    if (i == 17) {
+        return ITEM_ROSELI_BERRY;
+    }
+    else
+    {
+        return ITEM_OCCA_BERRY + i;
+    }
+}
+
 void randomIV(struct NPCTrade *trade_dat)
 {
     u8 array[] = { 31, 31, 31, 0, 0, 0 };
@@ -66,7 +78,7 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
     else if (tradeno == NPC_TRADE_SHUCKIE_SHUCKLE) {
         trade_dat->give_species = SPECIES_PIDGEY;
 
-        trade_dat->heldItem = ITEM_CHARTI_BERRY;
+        trade_dat->heldItem = getRandomBerry();
         trade_dat->gender = POKEMON_GENDER_MALE;
         level = 5;
     }
@@ -74,16 +86,15 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
         nature = gf_rand() % 3;
         if (nature == 0) {
             trade_dat->give_species = SPECIES_ELECTRODE;
-            trade_dat->heldItem = ITEM_YACHE_BERRY;
         } else if (nature == 1) {
             trade_dat->give_species = SPECIES_PAWMOT;
-            trade_dat->heldItem = ITEM_SHUCA_BERRY;
         } else {
             trade_dat->give_species = SPECIES_SCOVILLAIN;
-            trade_dat->heldItem = ITEM_COBA_BERRY;
         }
+        trade_dat->heldItem = getRandomBerry();
         trade_dat->gender = POKEMON_GENDER_MALE;
     } else if (tradeno == NPC_TRADE_PAUL_XATU) {
+        trade_dat->heldItem = getRandomBerry();
         trade_dat->give_species = SPECIES_LILLIGANT;
         ability = ABILITY_CHLOROPHYLL;
         trade_dat->gender = POKEMON_GENDER_MALE;

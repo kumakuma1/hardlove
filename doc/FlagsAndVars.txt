@@ -118,6 +118,7 @@ Variables
 
 16563-16577 : Rocket HQ encounters.
 (16562 is used)
+(16576/0x40C0 is used) : starter gift in Mahogany Town
 (16577/0x40C1 is used) : victreebelite in vermillion city
 
 

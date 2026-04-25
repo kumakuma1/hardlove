@@ -2,7 +2,7 @@
 Mechanic Changes
 ----------------
 
-For any mechanic that's not described in here, assume a wild mix of Gen4 and Gen9 mechanics.
+For any mechanic that's not described in here, assume Gen9 mechanics.
 
 Easy mode will reduce enemy trainer level by 1 for lvl <= 30, and 2 by lvl > 30. 
 Button L will toggle the repel.
@@ -13,7 +13,6 @@ EVs are removed from the game.
 TMs are consumed on use.
 HMs do not need to be taught, obtaining them plus the required badge for use is enough.
 Rock Climb does not require a specfic Badge.
-Whirlpool/Waterfall require a Water Pokemon.
 Fly works between Johto and Kanto.
 
 Critical hit chance: 1/16.
@@ -34,10 +33,10 @@ Apricorn trees can be harvested once, to obtain Berries.
 Starter Choice
 The starter choice determines a few unique traits and gifts throughout the game. 
 
-            Goldenrod City       Cerulean City      Blackthorn City
-Turtwig     Random Trade         Clear Amulet       Flutter Mane Trade
-Litten      Heart Scale          Sprigatito         
-Froakie     Starter Card         Clear Amulet       Battle Bond
+            Goldenrod City       Cerulean City      Mahogany Town           Blackthorn City
+Turtwig     Random Trade         Clear Amulet       Chikorita/Meganiumite   Flutter Mane Trade
+Litten      Heart Scale          Sprigatito         Fennekin                Delphoxite
+Froakie     Starter Card         Clear Amulet       Greninjite              Battle Bond
 
 Level Cap
 Once a Pokémon reaches a level cap the Infinite Candy item will no longer work and the Pokémon will not gain any experience in battles or Day Care.

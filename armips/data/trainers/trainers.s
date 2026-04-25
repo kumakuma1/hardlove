@@ -8122,10 +8122,10 @@ trainerdata 128, "Jonah"
         ballseal 0
     endparty
 
-trainerdata 129, "Shane"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+trainerdata 129, "Wolfey"
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_POKE_MANIAC
-    nummons 2
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -8135,18 +8135,76 @@ trainerdata 129, "Shane"
     endentry
 
     party 129
-        // mon 0
         ivs 0
         abilityslot 0
-        level 17
-        pokemon SPECIES_NIDORINA
+        level LEVEL_PRYCE-8
+        pokemon SPECIES_INCINEROAR
+        item ITEM_FOCUS_SASH
+        move MOVE_OVERHEAT
+        move MOVE_SUPERPOWER
+        move MOVE_DOUBLE_TEAM
+        move MOVE_SUNNY_DAY
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
         ivs 0
         abilityslot 0
-        level 17
-        pokemon SPECIES_NIDORINO
+        level LEVEL_PRYCE-8
+        pokemon SPECIES_INCINEROAR
+        item ITEM_LIFE_ORB
+        move MOVE_FLARE_BLITZ
+        move MOVE_KNOCK_OFF
+        move MOVE_LEECH_LIFE
+        move MOVE_PARTING_SHOT
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PRYCE-8
+        pokemon SPECIES_INCINEROAR
+        item ITEM_CHOICE_SCARF
+        move MOVE_FLARE_BLITZ
+        move MOVE_DARKEST_LARIAT
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PRYCE-8
+        pokemon SPECIES_INCINEROAR
+        item ITEM_AIR_BALLOON
+        move MOVE_FLARE_BLITZ
+        move MOVE_ACROBATICS
+        move MOVE_TRAILBLAZE
+        move MOVE_SWORDS_DANCE
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -13661,7 +13719,7 @@ trainerdata 251, "Nob"
         pokemon SPECIES_PAWMOT
         item ITEM_LUM_BERRY
         move MOVE_CLOSE_COMBAT
-        move MOVE_THUNDER_PUNCH
+        move MOVE_DOUBLE_SHOCK
         move MOVE_PLAY_ROUGH
         move MOVE_NUZZLE
         ability ABILITY_IRON_FIST
@@ -26836,11 +26894,11 @@ trainerdata 537, "Harrison"
         move MOVE_LUNGE
         move MOVE_ACROBATICS
         move MOVE_SWORDS_DANCE
-        ability ABILITY_SHEER_FORCE
+        ability ABILITY_SHARPNESS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_ADAMANT
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0

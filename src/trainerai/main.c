@@ -15,6 +15,7 @@
 #include "../../include/overlay.h"
 #include "../../include/constants/file.h"
 
+#define EXPLOSION_ON_LAST_MON 0
 #define SKILL_SWAP_SCORING 1
 #define BATTLE_DEBUG_OUTPUT 1
 // #define ATTRACT_WORK_ON_ALL_SEXES 1
@@ -275,26 +276,41 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
     }
     default:
         {
-            if (ai->aimonAlly.item != ITEM_WEAKNESS_POLICY) {
-                break;
-            }
+        if (ai->aimonAlly.item == ITEM_WEAKNESS_POLICY) {
 
             u8 priorityMovePosition = 5;
-            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++)
-            {
+            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
                 int move = ctx->battlemon[attacker].move[j];
                 if (ctx->moveTbl[move].priority > 0 && ctx->moveTbl[move].power <= 40) {
                     priorityMovePosition = j;
                     break;
                 }
             }
-            if (skillSwapPosition < 5)
-            {
+            if (priorityMovePosition < 5) {
                 highestScoredMove = 1000;
                 highestScoredMove += 14;
-                moveScores[target][skillSwapPosition] += highestScoredMove;
+                moveScores[target][priorityMovePosition] += highestScoredMove;
             }
-
+        }
+        
+        {
+            u8 acupressureMovePosition = 5;
+            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
+                int move = ctx->battlemon[attacker].move[j];
+                if (move == MOVE_ACUPRESSURE) {
+                    acupressureMovePosition = j;
+                    break;
+                }
+            }
+            if (acupressureMovePosition < 5) {
+                highestScoredMove = 1000;
+                highestScoredMove += 6;
+                if (BattleRand(bsys) % 2 == 0) {
+                    highestScoredMove += 2;
+                }
+                moveScores[target][acupressureMovePosition] += highestScoredMove;
+            }
+        }
             break;
         }
     }
@@ -316,6 +332,9 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         moveScore -= IMPOSSIBLE_MOVE;
     }
     if (ctx->battlemon[ai->attacker].moveeffect.disabledTurns && ai->attackerMove == ctx->battlemon[ai->attacker].moveeffect.disabledMove) {
+        moveScore -= IMPOSSIBLE_MOVE;
+    }
+    if (ctx->battlemon[ai->attacker].condition2 & STATUS2_TORMENT && ai->attackerMove == ai->attackerLastUsedMove) {
         moveScore -= IMPOSSIBLE_MOVE;
     }
     if (ctx->battlemon[ai->attacker].moveeffect.tauntTurns > 0 && ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS) {
@@ -347,6 +366,21 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     }
 
     switch (ai->attackerMoveEffect) {
+    case MOVE_EFFECT_FLING:
+        if (ai->attackerMon.item == ITEM_NONE) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        break;
+    case MOVE_EFFECT_REMOVE_USER_FIRE_TYPE_HIT:
+        if (!HasType(ctx, ai->attacker, TYPE_FIRE)) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        break;
+    case MOVE_EFFECT_REMOVE_USER_ELECTRIC_TYPE_HIT:
+        if (!HasType(ctx, ai->attacker, TYPE_ELECTRIC)) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        break;
     case MOVE_EFFECT_STUFF_CHEEKS:
         if (!IS_ITEM_BERRY(ai->attackerMon.item)) {
             moveScore -= IMPOSSIBLE_MOVE;
@@ -472,11 +506,16 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
+        case 
     default:
         break;
     }
 
     if (ai->attackerMove == MOVE_STEEL_ROLLER && ctx->terrainOverlay.type == TERRAIN_NONE) {
+        moveScore -= IMPOSSIBLE_MOVE;
+    }
+
+    if (ai->attackerMove == MOVE_GIGATON_HAMMER && ai->attackerLastUsedMove == MOVE_GIGATON_HAMMER) {
         moveScore -= IMPOSSIBLE_MOVE;
     }
 
@@ -536,13 +575,14 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem *bsys, u32 attacker, in
                     moveScore += 7;
                 }
             }
-
+#if EXPLOSION_ON_LAST_MON
             if (ai->livingMembersAttacker == 1 && ai->livingMembersDefender > 1) {
                 moveScore -= NEVER_USE_MOVE_20;
             }
             if (ai->livingMembersAttacker == 1 && ai->livingMembersDefender == 1) {
                 moveScore -= 1;
             }
+#endif
         }
         break;
     case MOVE_FINAL_GAMBIT:

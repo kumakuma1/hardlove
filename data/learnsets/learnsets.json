@@ -152687,66 +152687,46 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_DEFENSE_CURL"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_ROLLOUT"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
-      },
-      {
-        "Level": 7,
         "Move": "MOVE_BULLDOZE"
       },
       {
-        "Level": 14,
+        "Level": 1,
         "Move": "MOVE_TAUNT"
       },
       {
-        "Level": 21,
+        "Level": 10,
         "Move": "MOVE_RAPID_SPIN"
       },
       {
-        "Level": 28,
-        "Move": "MOVE_BRICK_BREAK"
+        "Level": 20,
+        "Move": "MOVE_ICE_SPINNER"
+      },
+        {
+            "Level": 30,
+            "Move": "MOVE_KNOCK_OFF"
+        },
+      {
+        "Level": 40,
+        "Move": "MOVE_HIGH_HORSEPOWER"
       },
       {
-        "Level": 35,
-        "Move": "MOVE_STOMPING_TANTRUM"
+        "Level": 50,
+        "Move": "MOVE_PLAY_ROUGH"
       },
       {
-        "Level": 42,
-        "Move": "MOVE_KNOCK_OFF"
-      },
-      {
-        "Level": 49,
+        "Level": 60,
         "Move": "MOVE_EARTHQUAKE"
       },
       {
-        "Level": 56,
-        "Move": "MOVE_GIGA_IMPACT"
-      },
-      {
-        "Level": 63,
+        "Level": 70,
         "Move": "MOVE_CLOSE_COMBAT"
       },
       {
-        "Level": 70,
-        "Move": "MOVE_ENDEAVOR"
-      },
-      {
-        "Level": 77,
-        "Move": "MOVE_MEGAHORN"
-      },
-      {
-        "Level": 84,
+        "Level": 80,
         "Move": "MOVE_HEAD_SMASH"
       },
       {
-        "Level": 91,
+        "Level": 82,
         "Move": "MOVE_HEADLONG_RUSH"
       }
     ],
@@ -152804,7 +152784,10 @@
       "MOVE_ZEN_HEADBUTT"
     ],
     "EggMoves": [],
-    "TutorMoves": []
+    "TutorMoves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_POISON_JAB"
+    ]
   },
   "SPECIES_SCREAM_TAIL": {
     "LevelMoves": [
@@ -153074,14 +153057,6 @@
   "SPECIES_FLUTTER_MANE": {
     "LevelMoves": [
       {
-        "Level": 0,
-        "Move": "MOVE_SUNNY_DAY"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
-      },
-      {
         "Level": 1,
         "Move": "MOVE_CONFUSE_RAY"
       },
@@ -153094,55 +153069,39 @@
         "Move": "MOVE_ASTONISH"
       },
       {
-        "Level": 7,
+        "Level": 10,
         "Move": "MOVE_PSYBEAM"
       },
       {
-        "Level": 14,
-        "Move": "MOVE_MEAN_LOOK"
-      },
-      {
-        "Level": 21,
+        "Level": 20,
         "Move": "MOVE_MEMENTO"
       },
       {
-        "Level": 28,
-        "Move": "MOVE_WISH"
-      },
-      {
-        "Level": 35,
+        "Level": 30,
         "Move": "MOVE_DAZZLING_GLEAM"
       },
       {
-        "Level": 42,
-        "Move": "MOVE_SHADOW_BALL"
-      },
-      {
-        "Level": 49,
-        "Move": "MOVE_MYSTICAL_FIRE"
-      },
-      {
-        "Level": 56,
+        "Level": 40,
         "Move": "MOVE_POWER_GEM"
       },
+        {
+            "Level": 50,
+            "Move": "MOVE_MYSTICAL_FIRE"
+        },
       {
-        "Level": 63,
-        "Move": "MOVE_PSYSHOCK"
-      },
-      {
-        "Level": 70,
+        "Level": 60,
         "Move": "MOVE_PHANTOM_FORCE"
       },
+        {
+            "Level": 70,
+            "Move": "MOVE_SHADOW_BALL"
+        },
       {
-        "Level": 77,
-        "Move": "MOVE_PAIN_SPLIT"
-      },
-      {
-        "Level": 84,
+        "Level": 80,
         "Move": "MOVE_MOONBLAST"
       },
       {
-        "Level": 91,
+        "Level": 82,
         "Move": "MOVE_PERISH_SONG"
       }
     ],
@@ -153191,7 +153150,9 @@
       "MOVE_TRICK_ROOM"
     ],
     "EggMoves": [],
-    "TutorMoves": []
+    "TutorMoves": [
+        "MOVE_THUNDER"
+    ]
   },
   "SPECIES_SLITHER_WING": {
     "LevelMoves": [
@@ -157237,63 +157198,47 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_ROCK_THROW"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_ELECTRIC_TERRAIN"
-      },
-      {
-        "Level": 7,
         "Move": "MOVE_QUICK_ATTACK"
       },
       {
-        "Level": 14,
-        "Move": "MOVE_SLASH"
-      },
-      {
-        "Level": 21,
-        "Move": "MOVE_AGILITY"
-      },
-      {
-        "Level": 28,
+        "Level": 1,
         "Move": "MOVE_PSYCHO_CUT"
       },
       {
-        "Level": 35,
+        "Level": 10,
         "Move": "MOVE_COUNTER"
       },
       {
-        "Level": 42,
+        "Level": 20,
         "Move": "MOVE_ROCK_TOMB"
       },
       {
-        "Level": 49,
-        "Move": "MOVE_SACRED_SWORD"
+        "Level": 30,
+        "Move": "MOVE_CLOSE_COMBAT"
       },
       {
-        "Level": 56,
-        "Move": "MOVE_MIGHTY_CLEAVE"
-      },
-      {
-        "Level": 63,
-        "Move": "MOVE_SWORDS_DANCE"
-      },
-      {
-        "Level": 70,
+        "Level": 40,
         "Move": "MOVE_MEGAHORN"
       },
       {
-        "Level": 77,
-        "Move": "MOVE_QUICK_GUARD"
+        "Level": 50,
+        "Move": "MOVE_IRON_HEAD"
+      },
+        {
+            "Level": 60,
+            "Move": "MOVE_SACRED_SWORD"
+        },
+      {
+        "Level": 70,
+        "Move": "MOVE_ZEN_HEADBUTT"
       },
       {
-        "Level": 84,
-        "Move": "MOVE_STONE_EDGE"
+        "Level": 80,
+        "Move": "MOVE_MIGHTY_CLEAVE"
       },
       {
-        "Level": 91,
-        "Move": "MOVE_GIGA_IMPACT"
+        "Level": 82,
+        "Move": "MOVE_SOLAR_BLADE"
       }
     ],
     "MachineMoves": [
@@ -157337,18 +157282,13 @@
       "MOVE_ZEN_HEADBUTT"
     ],
     "EggMoves": [],
-    "TutorMoves": []
+    "TutorMoves": [
+        "MOVE_BRICK_BREAK",
+        "MOVE_POISON_JAB"
+    ]
   },
   "SPECIES_IRON_CROWN": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_LEER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_ELECTRIC_TERRAIN"
-      },
       {
         "Level": 1,
         "Move": "MOVE_CONFUSION"
@@ -157358,57 +157298,41 @@
         "Move": "MOVE_METAL_CLAW"
       },
       {
-        "Level": 7,
+        "Level": 10,
         "Move": "MOVE_SMART_STRIKE"
       },
       {
-        "Level": 14,
-        "Move": "MOVE_SLASH"
-      },
-      {
-        "Level": 21,
-        "Move": "MOVE_IRON_DEFENSE"
-      },
-      {
-        "Level": 28,
+        "Level": 20,
         "Move": "MOVE_PSYSHOCK"
       },
       {
-        "Level": 35,
-        "Move": "MOVE_PSYCHO_CUT"
+        "Level": 30,
+        "Move": "MOVE_PSYCHIC"
       },
       {
-        "Level": 42,
+        "Level": 40,
         "Move": "MOVE_FLASH_CANNON"
       },
       {
-        "Level": 49,
+        "Level": 50,
         "Move": "MOVE_SACRED_SWORD"
       },
       {
-        "Level": 56,
+        "Level": 60,
         "Move": "MOVE_TACHYON_CUTTER"
       },
       {
-        "Level": 63,
+        "Level": 70,
         "Move": "MOVE_FUTURE_SIGHT"
       },
       {
-        "Level": 70,
+        "Level": 80,
         "Move": "MOVE_VOLT_SWITCH"
       },
       {
-        "Level": 77,
-        "Move": "MOVE_QUICK_GUARD"
-      },
-      {
-        "Level": 84,
+        "Level": 82,
         "Move": "MOVE_METAL_BURST"
       },
-      {
-        "Level": 91,
-        "Move": "MOVE_HYPER_BEAM"
-      }
     ],
     "MachineMoves": [
       "MOVE_AGILITY",
@@ -157454,7 +157378,9 @@
       "MOVE_ZEN_HEADBUTT"
     ],
     "EggMoves": [],
-    "TutorMoves": []
+    "TutorMoves": [
+        "MOVE_BRICK_BREAK"
+    ]
   },
   "SPECIES_TERAPAGOS": {
     "LevelMoves": [
