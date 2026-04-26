@@ -506,7 +506,6 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
-        case 
     default:
         break;
     }

@@ -6,7 +6,7 @@
 #include "../include/pokemon.h"
 #include "../include/types.h"
 
-void getRandomBerry()
+int getRandomBerry()
 {
     int i = gf_rand() % 18;
     if (i == 17) {
