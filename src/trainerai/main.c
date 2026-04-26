@@ -884,7 +884,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     case MOVE_EARTHQUAKE:
     case MOVE_MAGNITUDE: {
         if (ai->isDoubleBattle) {
-            if (ai->isPartnerGrounded) // TODO: or about to use magnetrise && faster
+            if (ai->isPartnerGrounded && ai->aimonAlly.ability != ABILITY_TELEPATHY) // TODO: or about to use magnetrise && faster
             {
                 if (ctx->battlemon[BATTLER_ALLY(ai->attacker)].hp) {
                     if (HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_POISON) || HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_STEEL) || HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_FIRE) || HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_ROCK)) {
