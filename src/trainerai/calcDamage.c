@@ -1244,11 +1244,22 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     //=====Step 6. General Damage Modifiers=====
 
     // 6.1 Spread Move Modifier
-    // TODO: the vanilla implementation is probably wrong
     BOOL isDoubleBattle = (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG));
+    BOOL countPossibleHits = 0;
     if (isDoubleBattle) {
-        // TODO check if 2 battlers can be hit
-        if (move.target == RANGE_ADJACENT_OPPONENTS || move.target == RANGE_ALL_ADJACENT) {
+        for (unsigned i = 0; i < CLIENT_MAX; ++i) {
+            if (i == attackerSlot) {
+                continue;
+            }
+            if (move.target == RANGE_ALL_ADJACENT && i == BATTLER_ALLY(attackerSlot) && ctx->battlemon[i].hp) {
+                countPossibleHits++;
+                continue;
+            }
+            if (move.target == RANGE_ADJACENT_OPPONENTS && i != BATTLER_ALLY(attackerSlot) && ctx->battlemon[i].hp) {
+                countPossibleHits++;
+            }
+        }
+        if (countPossibleHits > 1) {
             damage = QMul_RoundDown(damage, UQ412__0_75);
         }
     }

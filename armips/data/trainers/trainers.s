@@ -604,7 +604,7 @@ trainerdata 9, "Elaine"
         move MOVE_HURRICANE
         move MOVE_HYDRO_PUMP
         move MOVE_TAILWIND
-        move MOVE_REST
+        move MOVE_ROOST
         ability ABILITY_HYDRATION
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -809,7 +809,7 @@ trainerdata 12, "Ariana"
         abilityslot 0
         level LEVEL_PROTON_1-2
         pokemon SPECIES_TANGELA
-        item ITEM_MIRACLE_SEED
+        item ITEM_ROCK_GEM
         move MOVE_MEGA_DRAIN
         move MOVE_STUN_SPORE
         move MOVE_ANCIENT_POWER
@@ -1558,14 +1558,14 @@ trainerdata 23, "Larry"
         // mon 1
         ivs 0
         abilityslot 0
-        level LEVEL_PROTON_1-4
-        pokemon SPECIES_THWACKEY
-        item ITEM_MIRACLE_SEED
-        move MOVE_RAZOR_LEAF
-        move MOVE_FAKE_OUT
-        move MOVE_KNOCK_OFF
+        level LEVEL_PROTON_1-2
+        pokemon SPECIES_GIBLE
+        item ITEM_EVIOLITE
+        move MOVE_SCALE_SHOT
+        move MOVE_SAND_TOMB
+        move MOVE_ROCK_SLIDE
         move MOVE_NONE
-        ability ABILITY_GRASSY_SURGE
+        ability ABILITY_ROUGH_SKIN
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1577,14 +1577,14 @@ trainerdata 23, "Larry"
         //mon 2
         ivs 0
         abilityslot 0
-        level LEVEL_PROTON_1-3
-        pokemon SPECIES_GRAVELER
-        item ITEM_HARD_STONE
-        move MOVE_ROCK_SLIDE
-        move MOVE_THUNDER_PUNCH
-        move MOVE_FIRE_PUNCH
+        level LEVEL_PROTON_1-4
+        monwithform SPECIES_SNEASEL
+        item ITEM_SITRUS_BERRY
+        move MOVE_POISON_TAIL
+        move MOVE_ROCK_SMASH
+        move MOVE_FAKE_OUT
         move MOVE_NONE
-        ability ABILITY_STURDY
+        ability ABILITY_INNER_FOCUS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -1832,17 +1832,17 @@ trainerdata 27, "Liz"
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-4
-        pokemon SPECIES_SEEL
-        item ITEM_SITRUS_BERRY
-        move MOVE_FROST_BREATH
-        move MOVE_WATER_PULSE
-        move MOVE_FAKE_OUT
-        move MOVE_ICY_WIND
-        ability ABILITY_THICK_FAT
+        pokemon SPECIES_FRIGIBAX
+        item ITEM_DRAGON_GEM
+        move MOVE_DRAGON_BREATH
+        move MOVE_ICE_FANG
+        move MOVE_FOCUS_ENERGY
+        move MOVE_NONE
+        ability ABILITY_THERMAL_EXCHANGE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_QUIET
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -2941,7 +2941,7 @@ trainerdata 39, "Eugene"
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_NAIVE
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -4324,9 +4324,9 @@ trainerdata 61, "Anthony"
         pokemon SPECIES_LUVDISC
         item ITEM_LUM_BERRY
         move MOVE_WATER_PULSE
-        move MOVE_FLIP_TURN
         move MOVE_DRAINING_KISS
-        move MOVE_ATTRACT
+        move MOVE_TOXIC
+        move MOVE_AQUA_RING
         ability ABILITY_SWIFT_SWIM
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -4357,17 +4357,17 @@ trainerdata 61, "Anthony"
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-2
-        pokemon SPECIES_SMOOCHUM
-        item ITEM_COLBUR_BERRY
-        move MOVE_ICY_WIND
-        move MOVE_WATER_PULSE
-        move MOVE_DRAINING_KISS
-        move MOVE_CHARM
+        pokemon SPECIES_DRATINI
+        item ITEM_FLAME_ORB
+        move MOVE_HYDRO_PUMP
+        move MOVE_AQUA_JET
+        move MOVE_THUNDER
+        move MOVE_FACADE
         ability ABILITY_HYDRATION
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -5829,7 +5829,7 @@ trainerdata 82, "Toby"
         move MOVE_AIR_SLASH
         move MOVE_ESPER_WING
         move MOVE_HEAT_WAVE
-        move MOVE_VACUUM_WAVE
+        move MOVE_HYPER_BEAM
         ability ABILITY_TINTED_LENS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -10447,7 +10447,7 @@ trainerdata 184, "Krise"
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_SASSY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -17594,18 +17594,18 @@ trainerdata 319, "Bill"
         // mon 1
         ivs 0
         abilityslot 0
-        level LEVEL_PROTON_1-3
-        pokemon SPECIES_PONYTA
-        item ITEM_ORAN_BERRY
-        move MOVE_FLAME_WHEEL
-        move MOVE_STOMP
+        level LEVEL_PROTON_1-4
+        pokemon SPECIES_TORRACAT
+        item ITEM_SITRUS_BERRY
+        move MOVE_INCINERATE
         move MOVE_DOUBLE_KICK
+        move MOVE_FAKE_OUT
         move MOVE_NONE
-        ability ABILITY_FLASH_FIRE
+        ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
+        nature NATURE_NAIVE
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -17613,18 +17613,18 @@ trainerdata 319, "Bill"
         //mon 2
         ivs 0
         abilityslot 0
-        level LEVEL_PROTON_1-2
-        pokemon SPECIES_SNOVER
-        item ITEM_NEVER_MELT_ICE
-        move MOVE_RAZOR_LEAF
-        move MOVE_ICY_WIND
-        move MOVE_ICE_SHARD
-        move MOVE_WATER_PULSE
-        ability ABILITY_SOUNDPROOF
+        level LEVEL_PROTON_1-3
+        pokemon SPECIES_FLOETTE
+        item ITEM_LEFTOVERS
+        move MOVE_DAZZLING_GLEAM
+        move MOVE_HELPING_HAND
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_FLOWER_VEIL
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_HASTY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
