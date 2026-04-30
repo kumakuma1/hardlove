@@ -1644,7 +1644,6 @@ int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bsys, struct BattleS
             // Defender is alive after the attack
             if ((ctx->battlemon[client_no].hp)
                 && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
-                && (ctx->ejectPackActivated == FALSE)
                 // Any Sat lowered
                 && ctx->moveConditionsFlags[client_no].anyStatLoweredThisTurn) {
 

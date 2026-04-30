@@ -1022,10 +1022,10 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
                 break;
             case SWITCH_IN_CHECK_ENTRY_EFFECT_EJECT_PACK: {
-#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
-                debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_EJECT_PACK %d\n", sp->switch_in_check_seq_no);
+//#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+                debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_EJECT_PACK %d, status %d\n", sp->switch_in_check_seq_no, sp->currentMoveSwitchStatus);
                 debug_printf("faintClient %d, switchClient %d\n", sp->fainting_client, sp->reshuffle_client);
-#endif
+//#endif
                 // only one eject pack can activate
                 sp->switch_in_check_seq_no++;
                  for (i = 0; i < client_set_max; i++) {
