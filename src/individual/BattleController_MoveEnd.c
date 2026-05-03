@@ -23,10 +23,10 @@
 void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struct BattleStruct *ctx) {
      debug_printf("In BattleController_MoveEnd\n");
 
-     if (ctx->magicBounceQueue.HitFoesCount > 0 && ctx->magicBounceQueue.HitFoesCount == ctx->magicBounceQueue.hitFoesCounter)
+     if (ctx->magicBounceQueue.hitFoesCount > 0 && ctx->magicBounceQueue.hitFoesCount == ctx->magicBounceQueue.hitFoesCounter)
      {
          ctx->attack_client = ctx->magicBounceQueue.originalAttacker;
-     } else if (ctx->magicBounceQueue.HitFoesCount > 0) {
+     } else if (ctx->magicBounceQueue.hitFoesCount > 0) {
 
          ctx->wb_seq_no = BEFORE_MOVE_STATE_PRIMAL_WEATHER;
          ctx->defence_client = ctx->attack_client;
