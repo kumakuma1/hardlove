@@ -21,6 +21,6 @@ _015:
 _020:
     Wait 
     WaitButtonABTime 30
-    //MagicCoat 
+    MagicCoat 
     UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF
     End 

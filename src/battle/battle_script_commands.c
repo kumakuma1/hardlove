@@ -146,6 +146,7 @@ BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx)
 BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TryConversion2(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_MagicCoat(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintGlobalMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -5332,6 +5333,21 @@ BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ct
     int *data = BattleScriptGetVarPointer(bsys, ctx, varNo);
 
     *data = DivideRoundUp(*data, denom);
+
+    return FALSE;
+}
+
+BOOL BtlCmd_MagicCoat(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    ctx->defence_client = ctx->attack_client;
+    ctx->attack_client = ctx->magicBounceQueue.hitFoes[ctx->magicBounceQueue.hitFoesCounter];
+
+    ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
+    ctx->server_seq_no = CONTROLLER_COMMAND_23;
+
+    ctx->magicBounceQueue.hitFoesCounter++;
 
     return FALSE;
 }
