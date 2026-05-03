@@ -1326,7 +1326,8 @@ typedef struct MovePerformanceContext {
 
 typedef struct MagicBounceQueue {
     u8 hitFoesCount : 2;
-    u8 padding : 6;
+    u8 hitFoesCounter : 2;
+    u8 padding : 4;
     int hitFoes[2];
     int originalAttacker;
     int originalDefender;

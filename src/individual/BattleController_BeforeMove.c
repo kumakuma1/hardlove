@@ -203,7 +203,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In BattleController_BeforeMove %d\n", ctx->current_move_index);
 #endif
-
+    debug_printf("In BattleController_BeforeMove %d\n", ctx->current_move_index);
     CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
 
     if (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) {
@@ -4816,7 +4816,7 @@ BOOL BattleController_MagicBounceCheck(struct BattleSystem* bsys UNUSED, struct 
             // if magic bounce then activate only if it hasn't already activated this move
             || (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_MAGIC_BOUNCE) && !ctx->magicBounceTracker))
         && (ctx->moveTbl[ctx->current_move_index].flag & FLAG_MAGIC_COAT)) {
-        ctx->moveStatusFlagForSpreadMoves[defender] |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->moveStatusFlagForSpreadMoves[defender] |= MOVE_STATUS_FLAG_FAILED;
         ctx->magicBounceQueue.hitFoesCount++;
         ctx->magicBounceQueue.hitFoes[ctx->magicBounceQueue.hitFoesCount - 1] = defender;
         ctx->magicBounceQueue.originalAttacker = ctx->attack_client;

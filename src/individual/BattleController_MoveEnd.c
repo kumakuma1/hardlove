@@ -21,7 +21,25 @@
  * https://github.com/pret/pokeplatinum/blob/447c17a0f12b4a7656dded8aaa6e41ae9694cd09/src/battle/battle_controller.c#L3965
  */
 void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    // debug_printf("In BattleController_MoveEnd\n");
+     debug_printf("In BattleController_MoveEnd\n");
+
+     if (ctx->magicBounceQueue.HitFoesCount > 0 && ctx->magicBounceQueue.HitFoesCount == ctx->magicBounceQueue.hitFoesCounter)
+     {
+         ctx->attack_client = ctx->magicBounceQueue.originalAttacker;
+     } else if (ctx->magicBounceQueue.HitFoesCount > 0) {
+
+         ctx->wb_seq_no = BEFORE_MOVE_STATE_PRIMAL_WEATHER;
+         ctx->defence_client = ctx->attack_client;
+         ctx->attack_client = ctx->magicBounceQueue.hitFoes[ctx->magicBounceQueue.hitFoesCounter];
+
+         LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MAGIC_COAT);
+         ctx->next_server_seq_no = CONTROLLER_COMMAND_24;
+         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+
+         ctx->magicBounceQueue.hitFoesCounter++;
+         return;
+     }
+
     int script;
     u32 battleType = BattleTypeGet(bsys);
 
