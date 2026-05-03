@@ -135,6 +135,7 @@ BOOL BattleController_CheckStrongWindsWeaken(struct BattleSystem *bw, struct Bat
 BOOL BattleController_CheckTeraShell(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED);
 BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 void BattleController_ResetGeneralMoveFailureFlags(struct BattleStruct *ctx, int attack_client, BOOL setsMoveConditionalFailureFlag);
+BOOL BattleController_MagicBounceCheck(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 
 
 
@@ -798,6 +799,7 @@ void __attribute__((section (".init"))) BattleController_BeforeMove(struct Battl
             debug_printf("In BEFORE_MOVE_STATE_MAGIC_COAT\n");
 #endif
 
+            LoopCheckFunctionForSpreadMove(bsys, ctx, BattleController_MagicBounceCheck)
             ctx->wb_seq_no++;
             FALLTHROUGH;
         }
@@ -4799,4 +4801,40 @@ void BattleController_ResetGeneralMoveFailureFlags(struct BattleStruct *ctx, int
         ctx->moveConditionsFlags[attack_client].moveFailureThisTurn = TRUE;
     }
     //TODO: end bide, bide no target, Telekinesis
+}
+
+
+BOOL BattleController_MagicBounceCheck(struct BattleSystem* bsys UNUSED, struct BattleStruct* ctx, int defender)
+{
+    if (defender == 0xFF || defender == BATTLER_ALLY(ctx->attack_client)) {
+        return FALSE;
+    }
+
+    if (ctx->current_move_index != MOVE_TEETER_DANCE
+        && IS_VALID_MOVE_TARGET(ctx, defender)
+        && (ctx->oneTurnFlag[defender].magic_cort_flag
+            // if magic bounce then activate only if it hasn't already activated this move
+            || (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_MAGIC_BOUNCE) && !ctx->magicBounceTracker))
+        && (ctx->moveTbl[ctx->current_move_index].flag & FLAG_MAGIC_COAT)) {
+        ctx->moveStatusFlagForSpreadMoves[defender] |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->magicBounceQueue.hitFoesCount++;
+        ctx->magicBounceQueue.hitFoes[ctx->magicBounceQueue.hitFoesCount - 1] = defender;
+        ctx->magicBounceQueue.originalAttacker = ctx->attack_client;
+        ctx->magicBounceQueue.originalDefender = defender;
+        CheckPressureForPPDecrease(ctx, defender, ctx->attack_client);
+        /* ctx->oneTurnFlag[defender].magic_cort_flag = 0;
+        ctx->magicBounceTracker = TRUE;
+        ctx->moveProtect[ctx->attack_client] = 0;
+        ctx->waza_no_old[ctx->attack_client] = ctx->moveNoTemp;
+        ctx->lastClientMoveType[ctx->attack_client] = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->moveNoTemp);
+        ctx->waza_no_last = ctx->moveNoTemp;
+        ctx->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
+        LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MAGIC_COAT);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = 22;
+        CheckPressureForPPDecrease(ctx, ctx->defence_client, ctx->attack_client);
+        */
+    }
+
+    return FALSE;
 }

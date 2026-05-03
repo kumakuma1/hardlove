@@ -1,4 +1,4 @@
-// Test: Magic Bounce - Bounce Single Target Move
+// Test: Magic Bounce - Bounce Spread Move in doubles
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -15,7 +15,7 @@ const struct TestBattleScenario BattleTests[] = {
 #endif
 
     {
-        .battleType = BATTLE_TYPE_SINGLE,
+        .battleType = BATTLE_TYPE_DOUBLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
@@ -26,13 +26,24 @@ const struct TestBattleScenario BattleTests[] = {
                 .form = 0,
                 .ability = ABILITY_SHED_SKIN,
                 .item = ITEM_NONE,
-                .moves = { MOVE_GLARE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
-            { .species = SPECIES_NONE },
+            {
+                .species = SPECIES_PINSIR,
+                .level = 50,
+                .form = 0,
+                .ability = ABILITY_HYPER_CUTTER,
+                .item = ITEM_NONE,
+                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
+                .status = 0,
+                .condition2 = 0,
+                .moveEffectFlags = 0,
+            },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
@@ -49,7 +60,18 @@ const struct TestBattleScenario BattleTests[] = {
                             .condition2 = 0,
                             .moveEffectFlags = 0,
                         },
-            { .species = SPECIES_NONE },
+            {
+                .species = SPECIES_HATTERENE,
+                .level = 50,
+                .form = 0,
+                .ability = ABILITY_MAGIC_BOUNCE,
+                .item = ITEM_NONE,
+                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
+                .status = 0,
+                .condition2 = 0,
+                .moveEffectFlags = 0,
+            },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
@@ -65,7 +87,7 @@ const struct TestBattleScenario BattleTests[] = {
                               { ACTION_NONE, 0 },
                           },
             {
-                { ACTION_NONE, 0 },
+                { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -85,7 +107,7 @@ const struct TestBattleScenario BattleTests[] = {
                              { ACTION_NONE, 0 },
                          },
             {
-                { ACTION_NONE, 0 },
+                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },

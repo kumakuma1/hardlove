@@ -1,4 +1,4 @@
-// Test: Magic Bounce - Bounce Single Target Move
+// Test: Magic Bounce - Bounce and fail
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -21,10 +21,10 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_ARBOK,
+                .species = SPECIES_HELIOLISK,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_SHED_SKIN,
+                .ability = ABILITY_DRY_SKIN,
                 .item = ITEM_NONE,
                 .moves = { MOVE_GLARE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
