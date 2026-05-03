@@ -29,7 +29,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
      } else if (ctx->magicBounceQueue.hitFoesCount > 0) {
 
          ctx->magicBounceTracker = TRUE;
-         ctx->wb_seq_no = BEFORE_MOVE_STATE_PRIMAL_WEATHER;
+        // ctx->wb_seq_no = BEFORE_MOVE_STATE_PRIMAL_WEATHER;
          ctx->defence_client = ctx->attack_client;
          ctx->attack_client = ctx->magicBounceQueue.hitFoes[ctx->magicBounceQueue.hitFoesCounter];
 
