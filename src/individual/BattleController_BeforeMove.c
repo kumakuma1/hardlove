@@ -4818,7 +4818,7 @@ BOOL BattleController_MagicBounceCheck(struct BattleSystem* bsys UNUSED, struct 
             // if magic bounce then activate only if it hasn't already activated this move
             || (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_MAGIC_BOUNCE)))
         && (ctx->moveTbl[ctx->current_move_index].flag & FLAG_MAGIC_COAT)) {
-        //ctx->moveStatusFlagForSpreadMoves[defender] |= MOVE_STATUS_FLAG_FAILED;
+        ctx->moveStatusFlagForSpreadMoves[defender] |= MOVE_STATUS_FLAG_FAILED;
         ctx->moveConditionsFlags[defender].magicBounced = TRUE;
         ctx->magicBounceQueue.hitFoesCount++;
         ctx->magicBounceQueue.hitFoes[ctx->magicBounceQueue.hitFoesCount - 1] = defender;
