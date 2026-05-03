@@ -33,7 +33,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
          ctx->attack_client = ctx->magicBounceQueue.hitFoes[ctx->magicBounceQueue.hitFoesCounter];
 
          LoadBattleSubSeqScript(ctx, 1, SUB_SEQ_MAGIC_COAT);
-         ctx->next_server_seq_no = CONTROLLER_COMMAND_24;
+         ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
          ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
 
          ctx->magicBounceQueue.hitFoesCounter++;

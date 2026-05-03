@@ -1293,7 +1293,7 @@ typedef struct OnceOnlyMoveConditionFlags {
 } OnceOnlyMoveConditionFlags;
 
 typedef struct MoveConditionsFlags {
-    u8 unused : 1;
+    u8 magicBounced : 1;
     u8 moveFailureLastTurn : 1;
     u8 moveFailureThisTurn : 1;
     u8 soakFlag : 1;
