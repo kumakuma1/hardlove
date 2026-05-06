@@ -1214,8 +1214,6 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     case MOVE_EXPLOSION:
     case MOVE_MISTY_EXPLOSION:
     case MOVE_FINAL_GAMBIT:
-    case MOVE_METEOR_BEAM:
-    case MOVE_ELECTRO_SHOT:
         return 0;
     default:
         break;
