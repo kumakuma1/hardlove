@@ -27194,86 +27194,82 @@
   },
   "SPECIES_ARIADOS": {
     "LevelMoves": [
-      {
-        "Level": 0,
-        "Move": "MOVE_SUCKER_PUNCH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SUCKER_PUNCH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_TOXIC"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_STICKY_WEB"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_FELL_STINGER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_POISON_STING"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_STRING_SHOT"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_CONSTRICT"
-      },
-      {
-        "Level": 5,
-        "Move": "MOVE_ABSORB"
-      },
-      {
-        "Level": 8,
-        "Move": "MOVE_INFESTATION"
-      },
-      {
-        "Level": 12,
-        "Move": "MOVE_SCARY_FACE"
-      },
-      {
-        "Level": 15,
-        "Move": "MOVE_BUG_BITE"
-      },
-      {
-        "Level": 19,
-        "Move": "MOVE_SHADOW_SNEAK"
-      },
-      {
-        "Level": 23,
-        "Move": "MOVE_TWINEEDLE"
-      },
-      {
-        "Level": 27,
-        "Move": "MOVE_POISON_JAB"
-      },
-      {
-        "Level": 30,
-        "Move": "MOVE_SPIDER_WEB"
-      },
-      {
-        "Level": 34,
-        "Move": "MOVE_LUNGE"
-      },
-      {
-        "Level": 36,
-        "Move": "MOVE_CROSS_POISON"
-      },
-      {
-        "Level": 40,
-        "Move": "MOVE_LEECH_LIFE"
-      },
-      {
-        "Level": 44,
-        "Move": "MOVE_RAGE_POWDER"
-      },
+        {
+            "Level": 1,
+            "Move": "MOVE_TOXIC"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_STICKY_WEB"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_FELL_STINGER"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_POISON_STING"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_STRING_SHOT"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_CONSTRICT"
+        },
+        {
+            "Level": 5,
+            "Move": "MOVE_ABSORB"
+        },
+        {
+            "Level": 8,
+            "Move": "MOVE_INFESTATION"
+        },
+        {
+            "Level": 12,
+            "Move": "MOVE_SCARY_FACE"
+        },
+        {
+            "Level": 15,
+            "Move": "MOVE_BUG_BITE"
+        },
+        {
+            "Level": 19,
+            "Move": "MOVE_SHADOW_SNEAK"
+        },
+        {
+            "Level": 21,
+            "Move": "MOVE_SUCKER_PUNCH"
+        },
+        {
+            "Level": 23,
+            "Move": "MOVE_TWINEEDLE"
+        },
+        {
+            "Level": 27,
+            "Move": "MOVE_POISON_JAB"
+        },
+        {
+            "Level": 30,
+            "Move": "MOVE_SPIDER_WEB"
+        },
+        {
+            "Level": 34,
+            "Move": "MOVE_LUNGE"
+        },
+        {
+            "Level": 36,
+            "Move": "MOVE_CROSS_POISON"
+        },
+        {
+            "Level": 40,
+            "Move": "MOVE_LEECH_LIFE"
+        },
+        {
+            "Level": 44,
+            "Move": "MOVE_RAGE_POWDER"
+        },
         {
             "Level": 48,
             "Move": "MOVE_MEGAHORN"

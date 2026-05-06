@@ -157,15 +157,6 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->canBelch = 0; // sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, numSlot)][sp->sel_mons_no[numSlot]].berryEatenAndCanBelch;
 }
 
-u8 LONG_CALL BattleAI_UpdateTypeEffectiveness(u32 move_no, u32 held_effect UNUSED, u8 defender_type, u8 defaultEffectiveness)
-{
-    if (move_no == MOVE_FREEZE_DRY && defender_type == TYPE_WATER) {
-        defaultEffectiveness = TYPE_MUL_SUPER_EFFECTIVE;
-    }
-
-    return defaultEffectiveness;
-}
-
 int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, int moveno, int move_type, u32 *flag UNUSED, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
     int typeTableEntryNo = 0; // Used to cycle through all (non-neutral) type interactions.
@@ -204,17 +195,17 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1))
                 {
                     //no ring target
-                    type1Effectiveness = UpdateTypeEffectiveness(moveno, HOLD_EFFECT_NONE, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
+                    type1Effectiveness = UpdateTypeEffectiveness(moveno, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
             } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2) {
                 if (AI_ShouldUseNormalTypeEffCalc(sp, defender->item_held_effect, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2)) {
-                    type2Effectiveness = UpdateTypeEffectiveness(moveno, HOLD_EFFECT_NONE, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
+                    type2Effectiveness = UpdateTypeEffectiveness(moveno, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
             } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3) {
                 if (AI_ShouldUseNormalTypeEffCalc(sp, defender->item_held_effect, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3)) {
-                    type3Effectiveness = UpdateTypeEffectiveness(moveno, HOLD_EFFECT_NONE, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
+                    type3Effectiveness = UpdateTypeEffectiveness(moveno, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
             }
         }

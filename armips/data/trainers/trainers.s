@@ -877,7 +877,7 @@ trainerdata 13, "Grunt #2"
         abilityslot 0
         level LEVEL_PROTON_1-2
         pokemon SPECIES_GOTHORITA
-        item ITEM_SITRUS_BERRY
+        item ITEM_RED_CARD
         move MOVE_DREAM_EATER
         move MOVE_HYPNOSIS
         move MOVE_SHOCK_WAVE
@@ -28391,7 +28391,7 @@ trainerdata 560, "Grunt #5"
         abilityslot 0
         level LEVEL_PROTON_2-2
         pokemon SPECIES_ESPEON
-        item ITEM_LIFE_ORB
+        item ITEM_RED_CARD
         move MOVE_PSYCHIC
         move MOVE_DRAINING_KISS
         move MOVE_SHADOW_BALL

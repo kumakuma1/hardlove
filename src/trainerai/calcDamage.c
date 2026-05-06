@@ -1204,6 +1204,23 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     if (move.effect == MOVE_EFFECT_ONE_HIT_KO && defender->ability == ABILITY_STURDY) {
         return 0;
     }
+    if ((moveno == MOVE_BURN_UP && !HasType(sp, attackerSlot, TYPE_FIRE))
+        || (moveno == MOVE_DOUBLE_SHOCK && !HasType(sp, attackerSlot, TYPE_ELECTRIC))) {
+        return 0;
+    }
+
+    switch (moveno) {
+    case MOVE_SELF_DESTRUCT:
+    case MOVE_EXPLOSION:
+    case MOVE_MISTY_EXPLOSION:
+    case MOVE_FINAL_GAMBIT:
+    case MOVE_METEOR_BEAM:
+    case MOVE_ELECTRO_SHOT:
+        return 0;
+    default:
+        break;
+    }
+
 
 
     if (!attackerHasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0 && !(defender->condition2 & STATUS2_TRANSFORMED) && movesplit == SPLIT_PHYSICAL) { // SPECIES_EISCUE

@@ -376,16 +376,6 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
             moveScore -= IMPOSSIBLE_MOVE;
         }
         break;
-    case MOVE_EFFECT_REMOVE_USER_FIRE_TYPE_HIT:
-        if (!HasType(ctx, ai->attacker, TYPE_FIRE)) {
-            moveScore -= IMPOSSIBLE_MOVE;
-        }
-        break;
-    case MOVE_EFFECT_REMOVE_USER_ELECTRIC_TYPE_HIT:
-        if (!HasType(ctx, ai->attacker, TYPE_ELECTRIC)) {
-            moveScore -= IMPOSSIBLE_MOVE;
-        }
-        break;
     case MOVE_EFFECT_STUFF_CHEEKS:
         if (!IS_ITEM_BERRY(ai->attackerMon.item)) {
             moveScore -= IMPOSSIBLE_MOVE;
