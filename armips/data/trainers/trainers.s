@@ -1578,7 +1578,7 @@ trainerdata 23, "Larry"
         ivs 0
         abilityslot 0
         level LEVEL_PROTON_1-4
-        monwithform SPECIES_SNEASEL
+        monwithform SPECIES_SNEASEL, 1
         item ITEM_SITRUS_BERRY
         move MOVE_POISON_TAIL
         move MOVE_ROCK_SMASH
