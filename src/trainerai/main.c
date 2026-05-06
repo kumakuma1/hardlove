@@ -282,8 +282,13 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
             for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
                 int move = ctx->battlemon[attacker].move[j];
                 if (ctx->moveTbl[move].priority > 0 && ctx->moveTbl[move].power <= 40) {
-                    priorityMovePosition = j;
-                    break;
+                    int movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, move);
+                    u32 flag = 0;
+                    u32 moveEffectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, move, movetype, &flag, &ai->attackerMon, &ai->aimonAlly);
+                    if (moveEffectiveness >= TYPE_MUL_SUPER_EFFECTIVE) {
+                        priorityMovePosition = j;
+                        break;
+                    }
                 }
             }
             if (priorityMovePosition < 5) {

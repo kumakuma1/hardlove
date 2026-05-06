@@ -1251,11 +1251,11 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
             if (i == attackerSlot) {
                 continue;
             }
-            if (move.target == RANGE_ALL_ADJACENT && i == BATTLER_ALLY(attackerSlot) && ctx->battlemon[i].hp) {
+            if (move.target == RANGE_ALL_ADJACENT && i == BATTLER_ALLY(attackerSlot) && sp->battlemon[i].hp) {
                 countPossibleHits++;
                 continue;
             }
-            if (move.target == RANGE_ADJACENT_OPPONENTS && i != BATTLER_ALLY(attackerSlot) && ctx->battlemon[i].hp) {
+            if (move.target == RANGE_ADJACENT_OPPONENTS && i != BATTLER_ALLY(attackerSlot) && sp->battlemon[i].hp) {
                 countPossibleHits++;
             }
         }
