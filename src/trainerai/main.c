@@ -790,7 +790,12 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     switch (ai->attackerMove) {
     case MOVE_RELIC_SONG: // TODO
         break;
+    case MOVE_DOOM_DESIRE:
     case MOVE_FUTURE_SIGHT:
+        if (ctx->fcc.future_prediction_count[ai->defender] != 0) {
+            moveScore -= IMPOSSIBLE_MOVE;
+            break;
+        }
         if (ai->attackerMovesFirst && ai->playerCanOneShotMonWithAnyMove) {
             moveScore += 8;
         } else {
@@ -1949,8 +1954,19 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
     }
 
     switch (ai->attackerMoveEffect) {
-    case MOVE_EFFECT_STRENGTH_SAP:
+    case MOVE_EFFECT_STRENGTH_SAP: //TODO
+        if (aiShouldRecover) {
+            moveScore += 7;
+        } else {
+            moveScore += 5;
+        }
+        break;
     case MOVE_EFFECT_HEAL_IN_3_TURNS:
+        if (ctx->fcc.future_prediction_count[ai->attacker] != 0) {
+            moveScore -= IMPOSSIBLE_MOVE;
+            break;
+        }
+        FALLTHROUGH;
     case MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE:
     case MOVE_EFFECT_RESTORE_HALF_HP:
         if (aiShouldRecover) {

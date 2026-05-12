@@ -122342,66 +122342,62 @@
   },
   "SPECIES_DRAMPA": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_PLAY_NICE"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_ECHOED_VOICE"
-      },
-      {
-        "Level": 5,
-        "Move": "MOVE_TWISTER"
-      },
-      {
-        "Level": 9,
-        "Move": "MOVE_PROTECT"
-      },
-      {
-        "Level": 14,
-        "Move": "MOVE_GLARE"
-      },
-      {
-        "Level": 21,
-        "Move": "MOVE_DRAGON_RAGE"
-      },
-      {
-        "Level": 25,
-        "Move": "MOVE_NATURAL_GIFT"
-      },
-      {
-        "Level": 26,
-        "Move": "MOVE_SAFEGUARD"
-      },
-      {
-        "Level": 26,
-        "Move": "MOVE_DRAGON_BREATH"
-      },
-      {
-        "Level": 29,
-        "Move": "MOVE_LIGHT_SCREEN"
-      },
-      {
-        "Level": 33,
-        "Move": "MOVE_EXTRASENSORY"
-      },
-      {
-        "Level": 37,
-        "Move": "MOVE_DRAGON_PULSE"
-      },
-      {
-        "Level": 45,
-        "Move": "MOVE_FLY"
-      },
-      {
-        "Level": 49,
-        "Move": "MOVE_HYPER_VOICE"
-      },
-      {
-        "Level": 54,
-        "Move": "MOVE_OUTRAGE"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_PLAY_NICE"
+        },
+        {
+            "Level": 5,
+            "Move": "MOVE_SWIFT"
+        },
+        {
+            "Level": 9,
+            "Move": "MOVE_DRAGON_BREATH"
+        },
+        {
+            "Level": 14,
+            "Move": "MOVE_GLARE"
+        },
+        {
+            "Level": 21,
+            "Move": "MOVE_DRAGON_RAGE"
+        },
+        {
+            "Level": 25,
+            "Move": "MOVE_NATURAL_GIFT"
+        },
+        {
+            "Level": 26,
+            "Move": "MOVE_SAFEGUARD"
+        },
+        {
+            "Level": 33,
+            "Move": "MOVE_EXTRASENSORY"
+        },
+        {
+            "Level": 37,
+            "Move": "MOVE_SIGNAL_BEAM"
+        },
+        {
+            "Level": 45,
+            "Move": "MOVE_DRAGON_PULSE"
+        },
+        {
+            "Level": 49,
+            "Move": "MOVE_FLAMETHROWER"
+        },
+        {
+            "Level": 55,
+            "Move": "MOVE_OUTRAGE"
+        },
+        {
+            "Level": 61,
+            "Move": "MOVE_HYPER_VOICE"
+        },
+        {
+            "Level": 65,
+            "Move": "MOVE_DRACO_METEOR"
+        }
     ],
     "MachineMoves": [
       "MOVE_AMNESIA",
@@ -122440,6 +122436,7 @@
       "MOVE_ICY_WIND",
       "MOVE_LIGHT_SCREEN",
       "MOVE_NATURE_POWER",
+      "MOVE_NATURAL_GIFT",
       "MOVE_OUTRAGE",
       "MOVE_PLAY_ROUGH",
       "MOVE_PROTECT",
@@ -122473,31 +122470,14 @@
       "MOVE_WORK_UP"
     ],
     "EggMoves": [
-      "MOVE_DRAGON_RUSH",
-      "MOVE_MIST",
-      "MOVE_TICKLE"
     ],
     "TutorMoves": [
-      "MOVE_BLOCK",
-      "MOVE_DEFOG",
-      "MOVE_DRACO_METEOR",
-      "MOVE_DRAGON_PULSE",
-      "MOVE_ENDEAVOR",
-      "MOVE_HEAT_WAVE",
-      "MOVE_HELPING_HAND",
-      "MOVE_HYPER_VOICE",
-      "MOVE_ICY_WIND",
-      "MOVE_LASH_OUT",
-      "MOVE_OUTRAGE",
-      "MOVE_SCALE_SHOT",
-      "MOVE_SHOCK_WAVE",
-      "MOVE_SIGNAL_BEAM",
-      "MOVE_SNORE",
-      "MOVE_STOMPING_TANTRUM",
-      "MOVE_SUPERPOWER",
-      "MOVE_TAILWIND",
-      "MOVE_UPROAR",
-      "MOVE_WATER_PULSE"
+        "MOVE_BLIZZARD",
+        "MOVE_FIRE_BLAST",
+        "MOVE_HEADBUTT",
+        "MOVE_HURRICANE",
+        "MOVE_HYDRO_PUMP",
+        "MOVE_THUNDER"
     ]
   },
   "SPECIES_DHELMISE": {

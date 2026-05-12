@@ -14,6 +14,35 @@
 #include "../../include/q412.h"
 #include "../../include/types.h"
 
+u32 calcPlayerAsAttacker(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender, int attacker, struct AI_sDamageCalc *attackerMon, struct AI_sDamageCalc *defenderMon, u32 monReceivesDamage[6], u32 partySlot)
+{
+    u32 monReceivingHighestDamageMoveno = 0;
+    u8 critical = 0;
+    for (int k = 0; k < GetBattlerLearnedMoveCount(bsys, ctx, defender); ++k) {
+        struct AI_damage damages = { 0 };
+        u32 defenderMoveno = ctx->battlemon[defender].move[k];
+        struct BattleMove defenderMove = ctx->moveTbl[defenderMoveno];
+
+        if (defenderMove.split != SPLIT_STATUS && defenderMove.power && ctx->battlemon[defender].pp[k]) {
+            damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, defenderMoveno, ctx->side_condition[BATTLER_IS_ENEMY(defender)], ctx->field_condition, defenderMove.power, defenderMove.type, critical, defender, attacker, &damages, defenderMon, attackerMon);
+            damages.damageRoll = damages.damageRange[15]; // max Damage
+
+            damages.damageRoll = BattleAI_AdjustUnusualMoveDamage(defenderMon, attackerMon, damages.damageRoll, defenderMove.effect, defenderMoveno, damages.moveEffectiveness);
+            for (int u = 0; u < 16; u++) {
+                damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(defenderMon, attackerMon, damages.damageRange[u], defenderMove.effect, defenderMoveno, damages.moveEffectiveness);
+            }
+
+            if (damages.damageRoll > monReceivesDamage[partySlot]) {
+                monReceivingHighestDamageMoveno = defenderMoveno;
+                monReceivesDamage[partySlot] = damages.damageRoll;
+            }
+        }
+        debug_printf("Receiving from move %d: %3d is [%4d-%4d], roll %4d > att.HP %d\n", k, defenderMoveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, attackerMon->hp);
+    }
+
+    return monReceivingHighestDamageMoveno;
+}
+
 int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int attacker, int *score, BOOL calcWithHighestDamageHit)
 {
     debug_printf("BattleAI_PostKOSwitchIn_Internal %d\n", attacker);

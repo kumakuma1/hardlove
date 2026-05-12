@@ -424,13 +424,13 @@ _0310: // Trainer 482
 
 _031C: // Trainer 483
     trainertextentry 483, TEXT_NOTICE_IN_OVERWORLD, "This Gym has a slippery floor.\nIt’s fun, isn’t it?\rBut hey--we’re not playing games here!\r"
-    trainertextentry 483, TEXT_DEFEATED_IN_BATTLE, "Do you see how serious we are?\n"
+    trainertextentry 483, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "Do you see how serious we are?\n"
     trainertextentry 483, TEXT_DEFEATED_IN_OVERWORLD, "This Gym is great.\nI love snowboarding with my Pokémon!\n"
 
 _0328: // Trainer 484
-    trainertextentry 484, TEXT_NOTICE_IN_OVERWORLD, "I know Pryce’s secret.\r"
-    trainertextentry 484, TEXT_DEFEATED_IN_BATTLE, "OK. I’ll tell you Pryce’s secret.\n"
-    trainertextentry 484, TEXT_DEFEATED_IN_OVERWORLD, "The reason Pryce is strong...\rIt’s because every day he sits on top\nof very cold ice and trains his body\fand spirit!\n"
+    trainertextentry 484, TEXT_NOTICE_IN_OVERWORLD, "Chama!\r"
+    trainertextentry 484, TEXT_DEFEATED_IN_BATTLE, "Chama!\n"
+    trainertextentry 484, TEXT_DEFEATED_IN_OVERWORLD, "Chama!\n"
 
 _0334: // Trainer 110
     trainertextentry 110, TEXT_NOTICE_IN_OVERWORLD, "Your first battle against dragons?\nI’ll show you how tough they are!\r"
