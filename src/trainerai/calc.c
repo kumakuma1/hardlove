@@ -212,7 +212,7 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
         typeTableEntryNo++;
     }
   
-    int typeMul = type1Effectiveness * type2Effectiveness * type3Effectiveness;
+    int typeMul = type1Effectiveness * type2Effectiveness * type3Effectiveness * (TYPE_MUL_NORMAL * TYPE_MUL_NORMAL * TYPE_MUL_NORMAL);
     switch (typeMul) {
     case EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE:
         return TYPE_MUL_TRIPLE_SUPER_EFFECTIVE; // 40
