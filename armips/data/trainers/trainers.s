@@ -19377,7 +19377,7 @@ trainerdata 361, "Kevin"
         pokemon SPECIES_HAWLUCHA
         item ITEM_FLYING_GEM
         move MOVE_ACROBATICS
-        move MOVE_CLOSE_COMBAT
+        move MOVE_FLYING_PRESS
         move MOVE_POISON_JAB
         move MOVE_THROAT_CHOP
         ability ABILITY_UNBURDEN
@@ -25878,7 +25878,7 @@ trainerdata 492, "Grunt #4"
         move MOVE_MUDDY_WATER
         move MOVE_SUCKER_PUNCH
         move MOVE_SLACK_OFF
-        ability ABILITY_STATIC
+        ability ABILITY_ELECTROMORPHOSIS
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0

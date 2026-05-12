@@ -36865,86 +36865,70 @@
   },
   "SPECIES_SKARMORY": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_PECK"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_LEER"
-      },
-      {
-        "Level": 4,
-        "Move": "MOVE_SAND_ATTACK"
-      },
-      {
-        "Level": 10,
-        "Move": "MOVE_METAL_CLAW"
-      },
-      {
-        "Level": 12,
-        "Move": "MOVE_FURY_ATTACK"
-      },
-      {
-        "Level": 12,
-        "Move": "MOVE_AIR_CUTTER"
-      },
-      {
-        "Level": 20,
-        "Move": "MOVE_WING_ATTACK"
-      },
-      {
-        "Level": 20,
-        "Move": "MOVE_FEINT"
-      },
-      {
-        "Level": 23,
-        "Move": "MOVE_AGILITY"
-      },
-      {
-        "Level": 23,
-        "Move": "MOVE_SWIFT"
-      },
-      {
-        "Level": 30,
-        "Move": "MOVE_STEEL_WING"
-      },
-      {
-        "Level": 31,
-        "Move": "MOVE_SLASH"
-      },
-      {
-        "Level": 36,
-        "Move": "MOVE_DRILL_PECK"
-      },
-      {
-        "Level": 36,
-        "Move": "MOVE_SPIKES"
-      },
-      {
-        "Level": 40,
-        "Move": "MOVE_AUTOTOMIZE"
-      },
-      {
-        "Level": 40,
-        "Move": "MOVE_METAL_SOUND"
-      },
-      {
-        "Level": 45,
-        "Move": "MOVE_AIR_SLASH"
-      },
-      {
-        "Level": 48,
-        "Move": "MOVE_IRON_DEFENSE"
-      },
-      {
-        "Level": 52,
-        "Move": "MOVE_BRAVE_BIRD"
-      },
-      {
-        "Level": 53,
-        "Move": "MOVE_NIGHT_SLASH"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_PECK"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_LEER"
+        },
+        {
+            "Level": 4,
+            "Move": "MOVE_ROOST"
+        },
+        {
+            "Level": 10,
+            "Move": "MOVE_METAL_CLAW"
+        },
+        {
+            "Level": 12,
+            "Move": "MOVE_WHIRLWIND"
+        },
+        {
+            "Level": 20,
+            "Move": "MOVE_WING_ATTACK"
+        },
+        {
+            "Level": 20,
+            "Move": "MOVE_FEINT"
+        },
+        {
+            "Level": 30,
+            "Move": "MOVE_STEEL_WING"
+        },
+        {
+            "Level": 31,
+            "Move": "MOVE_SLASH"
+        },
+        {
+            "Level": 36,
+            "Move": "MOVE_DRILL_RUN"
+        },
+        {
+            "Level": 45,
+            "Move": "MOVE_DRILL_PECK"
+        },
+        {
+            "Level": 48,
+            "Move": "MOVE_NIGHT_SLASH"
+        },
+        {
+            "Level": 55,
+            "Move": "MOVE_IRON_HEAD"
+        },
+        {
+            "Level": 61,
+            "Move": "MOVE_BRAVE_BIRD"
+        },
+        {
+            "Level": 65,
+            "Move": "MOVE_BODY_PRESS"
+        },
+        {
+            "Level": 72,
+            "Move": "MOVE_SPIKES"
+        }
     ],
     "MachineMoves": [
       "MOVE_AERIAL_ACE",
@@ -37020,41 +37004,10 @@
       "MOVE_X_SCISSOR"
     ],
     "EggMoves": [
-      "MOVE_WHIRLWIND",
-      "MOVE_SKY_ATTACK",
-      
-      "MOVE_AIR_CUTTER",
-      "MOVE_ROOST",
-      "MOVE_FEINT",
-      "MOVE_NIGHT_SLASH"
     ],
     "TutorMoves": [
-      "MOVE_AIR_CUTTER",
-      "MOVE_COUNTER",
-      "MOVE_DARK_PULSE",
-      "MOVE_DEFOG",
-      "MOVE_DOUBLE_EDGE",
-      "MOVE_DUAL_WINGBEAT",
-      "MOVE_ENDURE",
-      "MOVE_FURY_CUTTER",
-      "MOVE_ICY_WIND",
-      "MOVE_IRON_DEFENSE",
-      "MOVE_IRON_HEAD",
-      "MOVE_MIMIC",
-      "MOVE_MUD_SLAP",
-      "MOVE_OMINOUS_WIND",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_ROOST",
-      "MOVE_SKY_ATTACK",
-      "MOVE_SLEEP_TALK",
-      "MOVE_SNORE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_STEEL_BEAM",
-      "MOVE_SUBSTITUTE",
-      "MOVE_SWAGGER",
-      "MOVE_SWIFT",
-      "MOVE_TAILWIND",
-      "MOVE_TWISTER"
+        "MOVE_HEADBUTT",
+        "MOVE_HURRICANE"
     ]
   },
   "SPECIES_HOUNDOUR": {

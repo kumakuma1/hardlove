@@ -2847,7 +2847,7 @@ movedata MOVE_AEROBLAST, "Aeroblast"
     pss SPLIT_SPECIAL
     basepower 100
     type TYPE_FLYING
-    accuracy 100
+    accuracy 95
     pp 5
     effectchance 0
     target RANGE_SINGLE_TARGET
