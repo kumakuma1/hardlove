@@ -1057,7 +1057,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 #ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
                 debug_printf("in SWITCH_IN_CHECK_END %d\n", sp->switch_in_check_seq_no);
 #endif
-                sp->ejectPackActivated = FALSE;
                 sp->switch_in_check_seq_no = 0;
                 ret = SWITCH_IN_CHECK_CHECK_END;
                 break;
