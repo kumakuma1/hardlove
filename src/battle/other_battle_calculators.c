@@ -1646,6 +1646,10 @@ u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u8 defender_type, u8 defaultEf
 // TODO: Refactor this function
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag)
 {
+    if (sp->current_move_index == MOVE_STRUGGLE) {
+        return TYPE_MUL_NORMAL;
+    }
+
     int typeTableEntryNo = 0; // Used to cycle through all (non-neutral) type interactions.
 
     // https://xcancel.com/Sibuna_Switch/status/1827463371383328877#m
@@ -4171,21 +4175,15 @@ u32 LONG_CALL CheckSubstitute(struct BattleStruct *ctx, int client_no)
     return ret;
 }
 
+#ifdef DISABLE_CRITICAL_HP_WARNING
 u8 BattleSystem_GetCriticalHpMusicFlag(struct BattleSystem *battleSystem UNUSED) {
-	#ifdef DISABLE_CRITICAL_HP_WARNING
 	return 2;
-	#else
-	return battleSystem->criticalHpMusic;
-	#endif
 }
 
 void BattleSystem_SetCriticalHpMusicFlag(struct BattleSystem *battleSystem, u8 flag UNUSED) {
-	#ifdef DISABLE_CRITICAL_HP_WARNING
 	battleSystem->criticalHpMusic = 2;
-	#else
-	battleSystem->criticalHpMusic = flag;
-	#endif
 }
+#endif
 
 BOOL LONG_CALL GetTypeEffectivenessData(struct BattleSystem *bsys, int index, u8 *typeMove, u8 *typeMon, u8 *eff) {
     BOOL ret = TRUE;
