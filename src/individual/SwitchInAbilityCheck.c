@@ -1033,6 +1033,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                     if (HeldItemHoldEffectGet(sp, client_no) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP
                         && sp->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING
+                        && sp->reshuffle_client == client_no
                         && sp->ejectPackActivated == FALSE) {
                         if (sp->moveConditionsFlags[client_no].anyStatLoweredThisTurn) {
                             sp->ejectPackActivated = TRUE;
