@@ -24,7 +24,7 @@ Saving a lot of data...\nDon’t turn off the power.
 
 
 Obtained {STRVAR_1 8, 0, 0}!
-
+Your party has been healed!\r
 Too bad!\nThe Bag is full...
 {STRVAR_1 3, 0, 0} obtained\n{COLOR 2}{STRVAR_1 8, 1, 0}{COLOR 0}!
 {STRVAR_1 3, 0, 0} obtained\n{COLOR 1}{STRVAR_1 8, 1, 0}{COLOR 0}!

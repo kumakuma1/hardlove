@@ -821,20 +821,24 @@ _0A82:
 
 _0A8C:
     menu_item_add 64, 255, 2
-    menu_item_add 66, 255, 3
+    menu_item_add 60, 255, 3
+    menu_item_add 66, 255, 4
     menu_exec
     switch VAR_SPECIAL_x8006
     case 0, _0B01
     case 1, _0C23
     case 2, _0DBA
+    case 3, _healParty
     goto _0DF0
 
 _0AD1:
-    menu_item_add 66, 255, 2
+    menu_item_add 60, 255, 2
+    menu_item_add 66, 255, 3
     menu_exec
     switch VAR_SPECIAL_x8006
     case 0, _0B01
     case 1, _0C23
+    case 2, _healParty
     goto _0DF0
 
 _0B01:
@@ -1020,6 +1024,11 @@ _0DBA:
 
 _0DE7:
     npc_msg 94
+    goto _0A2E
+
+_healParty:
+    npc_msg 26
+    HealPokemon
     goto _0A2E
 
 _0DF0:
