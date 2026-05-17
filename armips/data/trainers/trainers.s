@@ -4363,7 +4363,7 @@ trainerdata 61, "Anthony"
         move MOVE_AQUA_JET
         move MOVE_THUNDER
         move MOVE_FACADE
-        ability ABILITY_HYDRATION
+        ability ABILITY_MARVEL_SCALE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
