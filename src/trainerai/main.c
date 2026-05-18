@@ -1169,6 +1169,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_DEF_UP_3: //cotton guard
         if (ai->defenderHasAtleastOnePhysicalMove == FALSE) {
             break;
+        }
             FALLTHROUGH;
     case MOVE_EFFECT_SP_DEF_UP:
     case MOVE_EFFECT_SP_DEF_UP_2: //amnesia
