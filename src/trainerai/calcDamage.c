@@ -1226,7 +1226,10 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     }
 
     u32 critCondition = 1;
-    if (attacker->condition2 & STATUS2_FOCUS_ENERGY || (attacker->item_held_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP && attacker->species == SPECIES_SIRFETCHD)) {
+    if (attacker->condition2 & STATUS2_FOCUS_ENERGY 
+        || (attacker->item_held_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP 
+            && (attacker->species == SPECIES_SIRFETCHD
+                || attacker->species == SPECIES_FARFETCHD))) {
         critCondition += 2;
     }
     if (attacker->item_held_effect == HOLD_EFFECT_CRITRATE_UP) {

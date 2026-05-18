@@ -164,7 +164,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                 }
             }
 
-            if (!playerCanOneShotAiMon && (attackerMon.species == SPECIES_WYNAUT || attackerMon.species == SPECIES_WOBBUFFET)) {
+            if (!calcWithHighestDamageHit && !playerCanOneShotAiMon && (attackerMon.species == SPECIES_WYNAUT || attackerMon.species == SPECIES_WOBBUFFET)) {
                 switchInScore[i] += 2;
             }
 
@@ -177,8 +177,11 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                     switchInScore[i] += 1;
                 }
 
-                if (attackerMon.species == SPECIES_DITTO) {
+                if (!calcWithHighestDamageHit && attackerMon.species == SPECIES_DITTO) {
                     switchInScore[i] += 2;
+                }
+                if (!calcWithHighestDamageHit && attackerMon.species == SPECIES_ZOROARK) {
+                    switchInScore[i] += (BattleRand(bsys) % 3);
                 }
             } else {
                 if (aiMonCanOneshotPlayer && !playerCanOneShotAiMon) {
