@@ -3293,6 +3293,8 @@ enum
     BTL_PARAM_BATTLER_ACROSS             = 0x2000,
 };
 
+int LONG_CALL GetBattlerVar(struct BattleStruct *ctx, int battlerId, u32 varId, void *data);
+
 /**
  *  @brief resolve read battle script parameter into a specific battler type.  determined by BTL_PARAM_* consts right above func definition
  *
