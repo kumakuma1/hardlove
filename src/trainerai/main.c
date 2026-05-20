@@ -914,7 +914,7 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
     }
     if (ai->attackerMovesFirst) {
         if (!ai->playerCanOneShotMonWithAnyMove) {
-            moveScore += 3;
+            moveScore += 2;
         }
     } else {
         if (2 * ai->maxDamageReceived >= ai->attackerMon.hp) {
