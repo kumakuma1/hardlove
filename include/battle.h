@@ -1277,7 +1277,9 @@ typedef union ConditionType
 
 typedef struct FutureCondition {
     ConditionType conditionType;
-    u8 affectedClient;
+    u8 defenderSlot;
+    u8 futureSightSTAB : 1;
+    u8 padding : 7;
 } FutureCondition;
 
 typedef struct OnceOnlyAbilityFlags {
@@ -1557,7 +1559,10 @@ struct BattleStruct {
                u8 enemySideHasFaintedTeammateLastTurn : 2;
 
                u8 gemBoostingMove: 1;
-               u8 gemBoostingMovePadding : 7;
+               u8 futureSightHitTurn: 1;
+               u8 futureSightNoAttacker : 1;
+               u8 futureSightSTAB : 1;
+               u8 gemBoostingMovePadding : 4;
 
                int currentMoveSwitchStatus;
                
@@ -2011,7 +2016,8 @@ enum
     MOVE_PERFORMANCE_STEP_8_STURDY_FOCUS_SASH_FOES,
     MOVE_PERFORMANCE_STEP_9_SECONDARY_EFFECTS_FOES,
     MOVE_PERFORMANCE_STEP_10_ADDITIONAL_EFFECTS_FOES,
-    MOVE_PERFORMANCE_STEP_11_0_FAINTING,
+    MOVE_PERFORMANCE_STEP_11_0_FINAL_GAMBIT,
+    MOVE_PERFORMANCE_STEP_11_1_FAINTING,
     MOVE_PERFORMANCE_STEP_12_0_RESET_UNNERVE_NEUTRALIZING_GAS_IF_FAINTED,
     MOVE_PERFORMANCE_STEP_13_0_MULTIHIT_MOVE_ATTACKER_ITEMS_4,
     MOVE_PERFORMANCE_STEP_13_1_MULTIHIT_MOVE_DEFENDER_ITEMS_4,
@@ -2232,6 +2238,10 @@ struct PACKED sDamageCalc
     u16 item;
     u16 item_held_effect;
     u8  item_power;
+
+    u8 type1;
+    u8 type2;
+    u8 type3;
 
     u32 condition;
     u32 condition2;
@@ -4360,7 +4370,7 @@ u32 LONG_CALL sub_0200E3D8(void);
 void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSystem, MsgData *data, BattleMessage *msg);
 
 BOOL LONG_CALL IsBattlerSlotValid(struct BattleSystem *battleSystem, int battlerId);
-
 BOOL LONG_CALL GetTypeEffectivenessData(struct BattleSystem *bsys, int index, u8 *typeMove, u8 *typeMon, u8 *eff);
+BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx);
 
 #endif // BATTLE_H
