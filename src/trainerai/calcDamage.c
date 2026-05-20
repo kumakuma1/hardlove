@@ -452,6 +452,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         || (move.effect == MOVE_EFFECT_RECOIL_BURN_HIT)
         || (move.effect == MOVE_EFFECT_RECOIL_PARALYZE_HIT)
         || (move.effect == MOVE_EFFECT_RECOIL_HALF)
+        || (move.effect == MOVE_EFFECT_RECOIL_HALF_MAX_HP)
         || (move.effect == MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS))) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
     }
