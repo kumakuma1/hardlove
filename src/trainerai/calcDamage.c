@@ -1133,6 +1133,46 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     struct BattleMove move = sp->moveTbl[moveno];
     movetype = BattleAI_GetDynamicMoveType(bw, sp, attacker, moveno);
 
+    moveCanHit = TRUE;
+    if (defender->effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)
+    {
+        moveCanHit = FALSE;
+        switch (ctx->current_move_index) {
+        case MOVE_SURF:
+        case MOVE_WHIRLPOOL:
+            if (defender->effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING) {
+                moveCanHit = TRUE;
+            }
+            break;
+        case MOVE_EARTHQUAKE:
+        case MOVE_FISSURE:
+        case MOVE_MAGNITUDE:
+            if (defender->effect_of_moves & MOVE_EFFECT_FLAG_DIGGING) {
+                moveCanHit = TRUE;
+            }
+            break;
+        case MOVE_SKY_UPPERCUT:
+        case MOVE_GUST:
+        case MOVE_TWISTER:
+        case MOVE_HURRICANE:
+        case MOVE_THUNDER:
+        case MOVE_SMACK_DOWN:
+        case MOVE_THOUSAND_ARROWS:
+            if (defender->effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR) {
+                moveCanHit = TRUE;
+            }
+            break;
+        default:
+            break;
+        }
+    }
+    if (moveCanHit == FALSE
+        && defender->ability != ABILITY_NO_GUARD
+        && attacker->ability != ABILITY_NO_GUARD
+        && (move.priority > 0 || attacker->speed > defender->speed)) {
+        return 0;
+    }
+
     if (!attackerHasMoldBreaker) {
         switch (defender->ability) {
         case ABILITY_FLASH_FIRE:

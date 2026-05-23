@@ -912,24 +912,39 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
     if (ai->isDefenderIncapacitated) {
         moveScore += 3;
     }
-    if (ai->attackerMovesFirst) {
-        if (!ai->playerCanOneShotMonWithAnyMove) {
-            moveScore += 2;
+    BOOl shouldSetup = TRUE;
+    if (defender->hp == defender->maxhp) {
+        if (ai->defenderMon.item == ITEM_FOCUS_SASH) {
+            shouldSetup = FALSE;
         }
-    } else {
-        if (2 * ai->maxDamageReceived >= ai->attackerMon.hp) {
-            moveScore -= 5;
+        if (ai->defenderMon.ability == ABILITY_STURDY && !ai->attackerMon.hasMoldBreaker) {
+            shouldSetup = FALSE;
         }
     }
-    if (3 * ai->maxDamageReceived < ai->attackerMon.hp) {
-        moveScore += 3;
+
+    if (shouldSetup) {
         if (ai->attackerMovesFirst) {
-            moveScore += 1;
+            if (!ai->playerCanOneShotMonWithAnyMove) {
+                moveScore += 2;
+            }
+        }
+
+        if (3 * ai->maxDamageReceived < ai->attackerMon.hp) {
+            moveScore += 3;
+            if (ai->attackerMovesFirst) {
+                moveScore += 1;
+            }
         }
     }
+
+    if (!ai->attackerMovesFirst && (2 * ai->maxDamageReceived >= ai->attackerMon.hp)) {
+        moveScore -= 5;
+    }
+
     debug_printf(", score %d\n", moveScore);
     return moveScore;
 }
+
 int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai)
 {
     debug_printf("Def: incap %d, movesFirst %d, is1H %d, maxRec %d, hp %d", ai->isDefenderIncapacitated, ai->attackerMovesFirst, ai->playerCanOneShotMonWithAnyMove, ai->maxDamageReceived, ai->attackerMon.hp);
