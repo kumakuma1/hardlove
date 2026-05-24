@@ -4478,9 +4478,42 @@ A young kid standing up for what’s\nright.\rThank you for your help.\nI will l
 
 
 
+#### Lance in Blackthorn
 
+Lance: \v0103ぁ\x0000\x0000!\nIt was reckless to face Archer alone!\rIf things had gone differently...\r
+But I will not look down on your\nvictory. You saved Johto and perhaps\fthe entire world.\rYou stepped up, when I couldn’t...\r
+For that, you have my deepest\ngratitude.\r
+DRAGONITE: Gyafooha!
+I knew Archer when he was younger.\nHe even challenged the League at\fone time.\r
+The defeat must have crushed him.\nMaybe it made him turn to Team Rocket.\rBut I digress...\r
+About Clair...She can be...\nShe has quite the temper.\rBut at this point I am certain\nwe will see each other at\fthe Pokémon League!\rFarewell!\r
+OWs FLag 512
 
-
+Script 1:
+	PlayFanfare 1500
+	LockAll 
+	FacePlayer
+    TextPlayerName 0
+	Message 15
+    CloseMessage 
+    Movement Overworld.1 Action#6
+    Movement Overworld.10 Action#7
+    WaitMovement
+	Message 16
+    CloseMessage 
+    Movement Overworld.1 Action#8
+    Movement Overworld.10 Action#8
+    WaitMovement
+	Message 17
+	Message 19
+	Message 20
+	Message 21
+	CloseMessage 
+	SetFlag 512
+	ClearFlag 513
+	CMD_775 0 10
+	ReleaseAll 
+End 
 
 
 
@@ -4715,6 +4748,16 @@ Action 6:
 	Freeze8 0x3
 	WalkLeftFastSite 0x1
 End
+
+
+
+
+
+
+
+
+
+
 
 
 

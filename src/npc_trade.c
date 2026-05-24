@@ -98,6 +98,9 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
         trade_dat->give_species = SPECIES_LILLIGANT;
         ability = ABILITY_CHLOROPHYLL;
         trade_dat->gender = POKEMON_GENDER_MALE;
+    } else if (tradeno == NPC_TRADE_MAGGIE_MAGNETON) {
+        trade_dat->give_species = SPECIES_FLUTTER_MANE;
+        trade_dat->gender = POKEMON_GENDER_FEMALE;
     }
 #endif
     randomIV(trade_dat);
