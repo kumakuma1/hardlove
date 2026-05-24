@@ -232,6 +232,10 @@
         {
             "Level": 55,
             "Move": "MOVE_PETAL_BLIZZARD"
+        },
+        {
+            "Level": 66,
+            "Move": "MOVE_GIGA_DRAIN"
         }
     ],
     "MachineMoves": [
