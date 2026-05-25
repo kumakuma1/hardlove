@@ -117,15 +117,23 @@ Variables
 16634/      : Lugia event with alola firls. == 1
 16654/0x410E: Trainers in Olivine Gym, Set 1 when giving medicine in lighthouse. Unused
 
-16563-16577 : Rocket HQ encounters.
-(16562 is used)
+16562-16577 : Rocket HQ encounters.
+(16562/0x40B2 is used for encounter)
+(16563 is unused)
+(16564 is unused)
+(16565 is unused)
+(16566 is unused)
+(16567 is unused)
+(16568 is unused)
+(16569 is unused)
+(16570 is unused)
+(16571/0x40BB is unused): Roamer1
+(16572/0x40BC is unused): Roamer2
+(16573/0x40BD is unused): Roamer3
+(16574/0x40BE is unused): Roamer4
+(16575/0x40BF is used) : Portable PC enabled if 0, else disabled
 (16576/0x40C0 is used) : starter gift in Mahogany Town
 (16577/0x40C1 is used) : victreebelite in vermillion city
-(16578/0x40C2 is used) : Portable PC enabled if 0, else disabled
-(16579/0x40C3 is used) : Roamer1
-(16580/0x40C4 is used) : Roamer2
-(16581/0x40C5 is used) : Roamer3
-(16582/0x40C6 is used) : Roamer4
 
 
 16685/0x412D : Route 25 Bills Grandfather showed pokemons 

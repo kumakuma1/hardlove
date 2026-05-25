@@ -57610,7 +57610,7 @@
     "LevelMoves": [
         {
             "Level": 1,
-            "Move": "MOVE_HEALING_WISH"
+            "Move": "MOVE_THUNDER_WAVE"
         },
         {
             "Level": 1,
@@ -57672,10 +57672,13 @@
             "Level": 51,
             "Move": "MOVE_HEAL_PULSE"
         },
-
         {
             "Level": 55,
-            "Move": "MOVE_BOOMBURST"
+            "Move": "MOVE_FLASH_CANNON"
+        },
+        {
+            "Level": 61,
+            "Move": "MOVE_ENDURE"
         }
     ],
     "MachineMoves": [
