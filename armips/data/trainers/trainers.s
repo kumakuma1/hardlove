@@ -1525,7 +1525,7 @@ trainerdata 22, "Carrie"
 
         ivs 0
         abilityslot 0
-        level LEVEL_WHITNEY-4
+        level LEVEL_WHITNEY-3
         pokemon SPECIES_SNORLAX
         item ITEM_SALAC_BERRY
         move MOVE_BODY_SLAM
@@ -5265,7 +5265,7 @@ trainerdata 74, "Ivan"
 
         ivs 0
         abilityslot 0
-        level LEVEL_SCHORSCH-3
+        level LEVEL_SCHORSCH-4
         pokemon SPECIES_AZUMARILL
         item ITEM_SITRUS_BERRY
         move MOVE_AQUA_JET
@@ -7925,9 +7925,9 @@ trainerdata 122, "Marvin"
     endparty
 
 trainerdata 123, "Tully"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_FISHERMAN
-    nummons 1
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -7937,11 +7937,76 @@ trainerdata 123, "Tully"
     endentry
 
     party 123
-        // mon 0
         ivs 0
         abilityslot 0
-        level 19
-        pokemon SPECIES_QWILFISH
+        level LEVEL_PRYCE-9
+        pokemon SPECIES_TENTACRUEL
+        item ITEM_GRASS_GEM
+        move MOVE_SLUDGE_BOMB
+        move MOVE_WEATHER_BALL
+        move MOVE_GIGA_DRAIN
+        move MOVE_MIRROR_COAT
+        ability ABILITY_CLEAR_BODY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PRYCE-9
+        pokemon SPECIES_SALAZZLE
+        item ITEM_BLACK_SLUDGE
+        move MOVE_FLAMETHROWER
+        move MOVE_SLUDGE_BOMB
+        move MOVE_SUBSTITUTE
+        move MOVE_TOXIC
+        ability ABILITY_CORROSION
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PRYCE-9
+        monwithform SPECIES_LILLIGANT, 1
+        item ITEM_FOCUS_SASH
+        move MOVE_SOLAR_BLADE
+        move MOVE_AXE_KICK
+        move MOVE_ICE_SPINNER
+        move MOVE_VICTORY_DANCE
+        ability ABILITY_CHLOROPHYLL
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PRYCE-9
+        pokemon SPECIES_CAMERUPT
+        item ITEM_ROCK_GEM
+        move MOVE_FLAMETHROWER
+        move MOVE_EARTH_POWER
+        move MOVE_ANCIENT_POWER
+        move MOVE_YAWN
+        ability ABILITY_SOLID_ROCK
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -8155,13 +8220,13 @@ trainerdata 129, "Wolfey"
     party 129
         ivs 0
         abilityslot 0
-        level LEVEL_PRYCE-8
+        level LEVEL_PRYCE-9
         pokemon SPECIES_INCINEROAR
         item ITEM_FOCUS_SASH
         move MOVE_OVERHEAT
         move MOVE_SUPERPOWER
+        move MOVE_KNOCK_OFF
         move MOVE_DOUBLE_TEAM
-        move MOVE_SUNNY_DAY
         ability ABILITY_INTIMIDATE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
@@ -8173,7 +8238,7 @@ trainerdata 129, "Wolfey"
 
         ivs 0
         abilityslot 0
-        level LEVEL_PRYCE-8
+        level LEVEL_PRYCE-9
         pokemon SPECIES_INCINEROAR
         item ITEM_LIFE_ORB
         move MOVE_FLARE_BLITZ
@@ -8191,7 +8256,7 @@ trainerdata 129, "Wolfey"
 
         ivs 0
         abilityslot 0
-        level LEVEL_PRYCE-8
+        level LEVEL_PRYCE-9
         pokemon SPECIES_INCINEROAR
         item ITEM_CHOICE_SCARF
         move MOVE_FLARE_BLITZ
@@ -8209,7 +8274,7 @@ trainerdata 129, "Wolfey"
 
         ivs 0
         abilityslot 0
-        level LEVEL_PRYCE-8
+        level LEVEL_PRYCE-9
         pokemon SPECIES_INCINEROAR
         item ITEM_AIR_BALLOON
         move MOVE_FLARE_BLITZ
@@ -8325,9 +8390,9 @@ trainerdata 133, "Morgan"
     endparty
 
 trainerdata 134, "Benjamin"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_HIKER
-    nummons 3
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -8337,25 +8402,76 @@ trainerdata 134, "Benjamin"
     endentry
 
     party 134
-        // mon 0
         ivs 0
         abilityslot 0
-        level 15
-        pokemon SPECIES_DIGLETT
+        level LEVEL_PRYCE-9
+        pokemon SPECIES_TANGROWTH
+        item ITEM_OCCA_BERRY
+        move MOVE_SOLAR_BEAM
+        move MOVE_KNOCK_OFF
+        move MOVE_SLEEP_POWDER
+        move MOVE_LEECH_SEED
+        ability ABILITY_CHLOROPHYLL
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
+        shinylock 0
+        additionalflags 0
         ballseal 0
 
-        // mon 1
-        ivs 0
-        abilityslot 32
-        level 15
-        pokemon SPECIES_GEODUDE
-        ballseal 0
-
-        // mon 2
         ivs 0
         abilityslot 0
-        level 17
+        level LEVEL_PRYCE-9
+        pokemon SPECIES_COALOSSAL
+        item ITEM_SHUCA_BERRY
+        move MOVE_ANCIENT_POWER
+        move MOVE_BURN_UP
+        move MOVE_SOLAR_BEAM
+        move MOVE_ROCK_POLISH
+        ability ABILITY_STEAM_ENGINE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_MODEST
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PRYCE-9
         pokemon SPECIES_DUGTRIO
+        item ITEM_CHOICE_BAND
+        move MOVE_EARTHQUAKE
+        move MOVE_STONE_EDGE
+        move MOVE_NIGHT_SLASH
+        move MOVE_NONE
+        ability ABILITY_ARENA_TRAP
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PRYCE-9
+        pokemon SPECIES_TALONFLAME
+        item ITEM_FLYING_GEM
+        move MOVE_ACROBATICS
+        move MOVE_FLARE_BLITZ
+        move MOVE_BULK_UP
+        move MOVE_ROOST
+        ability ABILITY_GALE_WINGS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -11676,7 +11792,7 @@ trainerdata 212, "Terrell"
 
         ivs 0
         abilityslot 0
-        level LEVEL_CHUCK-6
+        level LEVEL_CHUCK-5
         pokemon SPECIES_LINOONE
         item ITEM_SITRUS_BERRY
         move MOVE_EXTREME_SPEED

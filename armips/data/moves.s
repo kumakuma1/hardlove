@@ -5279,7 +5279,7 @@ movedata MOVE_SHEER_COLD, "Sheer Cold"
     pss SPLIT_SPECIAL
     basepower 1
     type TYPE_ICE
-    accuracy 30
+    accuracy 35
     pp 5
     effectchance 0
     target RANGE_SINGLE_TARGET

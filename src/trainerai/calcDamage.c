@@ -670,7 +670,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     }
     if (moveno == MOVE_BODY_PRESS) {
         attacker->attack = attacker->defense;
-        attacker->states[STAT_DEFENSE] = defender->states[STAT_DEFENSE];
+        attacker->states[STAT_ATTACK] = attacker->states[STAT_DEFENSE];
     }
 
 #ifdef DEBUG_DAMAGE_CALC_AI
@@ -1243,8 +1243,8 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     if (move.effect == MOVE_EFFECT_ONE_HIT_KO && defender->ability == ABILITY_STURDY) {
         return 0;
     }
-    if ((moveno == MOVE_BURN_UP && !HasType(sp, attackerSlot, TYPE_FIRE))
-        || (moveno == MOVE_DOUBLE_SHOCK && !HasType(sp, attackerSlot, TYPE_ELECTRIC))) {
+    if ((moveno == MOVE_BURN_UP && attacker->type1 != TYPE_FIRE && attacker->type2 != TYPE_FIRE && attacker->type3 != TYPE_FIRE)
+        || (moveno == MOVE_DOUBLE_SHOCK && attacker->type1 != TYPE_ELECTRIC && attacker->type2 != TYPE_ELECTRIC && attacker->type3 != TYPE_ELECTRIC )) {
         return 0;
     }
 

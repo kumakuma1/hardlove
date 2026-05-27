@@ -77,6 +77,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
                         case WEATHER_SYS_HIGH_SUN:
+                        case 20:
                             scriptnum = SUB_SEQ_OVERWORLD_SUN;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
