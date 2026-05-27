@@ -736,8 +736,9 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 
     if (!isMoveHighestDamage 
         && ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SPEED_HIT 
-        && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100) {
-        if (ai->defenderMovesFirst && !ai->defenderImmuneToStatDrop) {
+        && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100
+        && !ai->defenderImmuneToStatDrop) {
+        if (ai->defenderMovesFirst) {
             moveScore += 6;
         } else {
             moveScore += 5;
@@ -748,21 +749,24 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             }
         }
     }
-
-    if (!isMoveHighestDamage && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100
-        && ((ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SP_ATK_HIT && ai->defenderHasAtleastOneSpecialMove)
-            || (ai->attackerMoveEffect == MOVE_EFFECT_LOWER_ATTACK_HIT && ai->defenderHasAtleastOnePhysicalMove))) {
-        if (!ai->defenderImmuneToStatDrop) {
+    if (!isMoveHighestDamage && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100)
+    {
+        if (!ai->defenderImmuneToStatDrop
+            && ((ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SP_ATK_HIT && ai->defenderHasAtleastOneSpecialMove)
+                || (ai->attackerMoveEffect == MOVE_EFFECT_LOWER_ATTACK_HIT && ai->defenderHasAtleastOnePhysicalMove)))
+        {
             moveScore += 6;
         } else {
             moveScore += 5;
         }
+
         if (ai->isDoubleBattle) {
             if (ctx->moveTbl[ai->attackerMove].target == RANGE_ADJACENT_OPPONENTS) {
                 moveScore += 1;
             }
         }
     }
+
 
     if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT) { // TODO Parting shot
         if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) { // no immunity
@@ -914,7 +918,7 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
     }
 
     BOOL shouldSetup = TRUE;
-    if (defender->hp == defender->maxhp) {
+    if (ai->defenderMon.hp == ai->defenderMon.maxhp) {
         if (ai->defenderMon.item == ITEM_FOCUS_SASH) {
             shouldSetup = FALSE;
         }

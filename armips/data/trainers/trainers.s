@@ -7378,7 +7378,7 @@ trainerdata 108, "Ryan"
 trainerdata 109, "Alton"
     trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_ACE_TRAINER_M
-    nummons 4
+    nummons 5
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -7393,15 +7393,15 @@ trainerdata 109, "Alton"
         level 100
         pokemon SPECIES_CHARMANDER
         item ITEM_CHOICE_SPECS
-        move MOVE_FIRE_BLAST
         move MOVE_WEATHER_BALL
         move MOVE_FOCUS_BLAST
+        move MOVE_NONE
         move MOVE_NONE
         ability ABILITY_BLAZE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_HASTY
+        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -7430,7 +7430,7 @@ trainerdata 109, "Alton"
         pokemon SPECIES_SQUIRTLE
         item ITEM_EVIOLITE
         move MOVE_HYDRO_PUMP
-        move MOVE_BLIZZARD
+        move MOVE_TERRAIN_PULSE
         move MOVE_SUBSTITUTE
         move MOVE_YAWN
         ability ABILITY_RAIN_DISH
@@ -7455,7 +7455,25 @@ trainerdata 109, "Alton"
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_NAIVE
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level 100
+        pokemon SPECIES_PICHU
+        item ITEM_EXPERT_BELT
+        move MOVE_VOLT_TACKLE
+        move MOVE_SURF
+        move MOVE_REVERSAL
+        move MOVE_ENDURE
+        ability ABILITY_STATIC
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_HASTY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -9452,24 +9470,6 @@ trainerdata 159, "Lung"
     endentry
 
     party 159
-        ivs 0
-        abilityslot 0
-        level LEVEL_CHUCK-4
-        pokemon SPECIES_HAXORUS
-        item ITEM_FOCUS_SASH
-        move MOVE_CLOSE_COMBAT
-        move MOVE_DRAGON_CLAW
-        move MOVE_EARTHQUAKE
-        move MOVE_DRAGON_DANCE
-        ability ABILITY_UNNERVE
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_JOLLY
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-		
 	    ivs 0
         abilityslot 0
         level LEVEL_CHUCK-3
@@ -9480,6 +9480,24 @@ trainerdata 159, "Lung"
         move MOVE_LUNGE
         move MOVE_ROOST
         ability ABILITY_SCRAPPY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_CHUCK-4
+        pokemon SPECIES_HAXORUS
+        item ITEM_FOCUS_SASH
+        move MOVE_CLOSE_COMBAT
+        move MOVE_DRAGON_CLAW
+        move MOVE_EARTHQUAKE
+        move MOVE_DRAGON_DANCE
+        ability ABILITY_UNNERVE
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -11916,9 +11934,9 @@ trainerdata 215, "Connie"
     endparty
 
 trainerdata 216, "Grunt #14"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 1
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -11928,11 +11946,78 @@ trainerdata 216, "Grunt #14"
     endentry
 
     party 216
-        // mon 0
-        ivs 30
-        abilityslot 32
-        level 16
+        // mon 1
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-4
+        pokemon SPECIES_WIGGLYTUFF
+        item ITEM_FOCUS_BAND
+        move MOVE_MISTY_EXPLOSION
+        move MOVE_PSYCHIC
+        move MOVE_FLAMETHROWER
+        move MOVE_SING
+        ability ABILITY_CUTE_CHARM
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        //mon 2
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-4
+        monwithform SPECIES_SLOWKING, 1 
+        item ITEM_EJECT_BUTTON
+        move MOVE_FUTURE_SIGHT
+        move MOVE_FLAMETHROWER
+        move MOVE_SCALD
+        move MOVE_THUNDER_WAVE
+        ability ABILITY_REGENERATOR
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_BOLD
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level 1
         pokemon SPECIES_RATTATA
+        item ITEM_FOCUS_SASH
+        move MOVE_QUICK_ATTACK
+        move MOVE_ENDEAVOR
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_GUTS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-4
+        pokemon SPECIES_HOUNDOOM
+        item ITEM_DARK_GEM
+        move MOVE_FIRE_BLAST
+        move MOVE_DARK_PULSE
+        move MOVE_PURSUIT
+        move MOVE_PSYCHIC_FANGS
+        ability ABILITY_UNNERVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_HASTY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -12413,9 +12498,9 @@ trainerdata 222, "Admin Sheldon"
     endparty
 
 trainerdata 223, "Grunt #8"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 1
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -12425,18 +12510,49 @@ trainerdata 223, "Grunt #8"
     endentry
 
     party 223
-        // mon 0
-        ivs 30
+        // mon 1
+        ivs 0
         abilityslot 0
-        level 17
-        pokemon SPECIES_DROWZEE
+        level LEVEL_PETREL-4
+        pokemon SPECIES_AMPHAROS
+        item ITEM_SHUCA_BERRY
+        move MOVE_DISCHARGE
+        move MOVE_FOCUS_BLAST
+        move MOVE_HIDDEN_POWER //ICE
+        move MOVE_AGILITY
+        ability ABILITY_STATIC
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 30, 31, 31, 31 // hp, atk, def, spd, spatk, spdef //ICE
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        //mon 2
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-3
+        pokemon SPECIES_SWAMPERT
+        item ITEM_CHOICE_SCARF
+        move MOVE_LIQUIDATION
+        move MOVE_NONE
+        move MOVE_NONE
+        move MOVE_NONE
+        ability ABILITY_TORRENT
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
 trainerdata 224, "Grunt #9"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 1
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -12446,11 +12562,42 @@ trainerdata 224, "Grunt #9"
     endentry
 
     party 224
-        // mon 0
-        ivs 30
+        // mon 1
+        ivs 0
         abilityslot 0
-        level 16
-        pokemon SPECIES_ZUBAT
+        level LEVEL_PETREL-4
+        pokemon SPECIES_LOKIX
+        item ITEM_LIFE_ORB
+        move MOVE_FIRST_IMPRESSION
+        move MOVE_SUCKER_PUNCH
+        move MOVE_AXE_KICK
+        move MOVE_AGILITY
+        ability ABILITY_TINTED_LENS
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        //mon 2
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-3
+        pokemon SPECIES_SPINDA
+        item ITEM_CHOPLE_BERRY
+        move MOVE_BODY_SLAM
+        move MOVE_SUPERPOWER
+        move MOVE_PSYCHO_CUT
+        move MOVE_HYPNOSIS
+        ability ABILITY_CONTRARY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -17956,9 +18103,9 @@ trainerdata 327, "Danny"
     endparty
 
 trainerdata 328, "Grunt #10"
-    trainermontype TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 1
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -17968,15 +18115,42 @@ trainerdata 328, "Grunt #10"
     endentry
 
     party 328
-        // mon 0
+        // mon 1
         ivs 0
         abilityslot 0
-        level 41
-        pokemon SPECIES_XATU
-        move MOVE_CONFUSE_RAY
-        move MOVE_NIGHT_SHADE
-        move MOVE_FLY
-        move MOVE_PSYCHIC
+        level LEVEL_PETREL-4
+        pokemon SPECIES_CLODSIRE
+        item ITEM_QUICK_CLAW
+        move MOVE_EARTHQUAKE
+        move MOVE_GUNK_SHOT
+        move MOVE_TOXIC_SPIKES
+        move MOVE_RECOVER
+        ability ABILITY_WATER_ABSORB
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_RELAXED
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        //mon 2
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-3
+        pokemon SPECIES_VESPIQUEN
+        item ITEM_FLYING_GEM
+        move MOVE_FELL_STINGER
+        move MOVE_ACROBATICS
+        move MOVE_REVENGE
+        move MOVE_ROOST
+        ability ABILITY_UNNERVE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -20208,9 +20382,9 @@ trainerdata 381, "Jason"
     endparty
 
 trainerdata 382, "Grunt #11"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 1
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -20220,11 +20394,42 @@ trainerdata 382, "Grunt #11"
     endentry
 
     party 382
-        // mon 0
+        // mon 1
         ivs 0
-        abilityslot 32
-        level 41
-        pokemon SPECIES_SUNKERN
+        abilityslot 0
+        level LEVEL_PETREL-4
+        pokemon SPECIES_SAWK
+        item ITEM_WEAKNESS_POLICY
+        move MOVE_CLOSE_COMBAT
+        move MOVE_STONE_EDGE
+        move MOVE_ZEN_HEADBUTT
+        move MOVE_THROAT_CHOP
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        //mon 2
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-3
+        pokemon SPECIES_MAUSHOLD
+        item ITEM_KINGS_ROCK
+        move MOVE_POPULATION_BOMB
+        move MOVE_BULLET_SEED
+        move MOVE_LOW_KICK
+        move MOVE_TIDY_UP
+        ability ABILITY_TECHNICIAN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -24460,17 +24665,17 @@ trainerdata 470, "Gregg"
         ivs 0
         abilityslot 0
         level LEVEL_PETREL-4
-        monWithForm SPECIES_ZOROARK, 1
-        item ITEM_FOCUS_BAND
-        move MOVE_BITTER_MALICE
-        move MOVE_HYPER_VOICE
-        move MOVE_FOCUS_BLAST
+        pokemon SPECIES_COFAGRIGUS
+        item ITEM_LEFTOVERS
+        move MOVE_HEX
+        move MOVE_BODY_PRESS
         move MOVE_WILL_O_WISP
-        ability ABILITY_ILLUSION
+        move MOVE_REST
+        ability ABILITY_MUMMY
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_BOLD
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -24495,18 +24700,18 @@ trainerdata 470, "Gregg"
 
         ivs 0
         abilityslot 0
-        level LEVEL_PETREL-4
-        pokemon SPECIES_ZOROARK
-        item ITEM_FOCUS_SASH
-        move MOVE_DARK_PULSE
-        move MOVE_SLUDGE_BOMB
-        move MOVE_PSYCHIC
-        move MOVE_NASTY_PLOT
-        ability ABILITY_ILLUSION
+        level LEVEL_PETREL-3
+        pokemon SPECIES_SKUNTANK
+        item ITEM_DARK_GEM
+        move MOVE_KNOCK_OFF
+        move MOVE_POISON_JAB
+        move MOVE_PLAY_ROUGH
+        move MOVE_PURSUIT
+        ability ABILITY_AFTERMATH
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
+        nature NATURE_JOLLY
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -26231,7 +26436,7 @@ trainerdata 498, "Eusine"
         level LEVEL_CHUCK-2
         pokemon SPECIES_KILOWATTREL
         item ITEM_FLYING_GEM
-        move MOVE_AIR_CUTTER
+        move MOVE_AIR_SLASH
         move MOVE_DISCHARGE
         move MOVE_TAILWIND
         move MOVE_ROOST
@@ -26262,6 +26467,24 @@ trainerdata 498, "Eusine"
         additionalflags 0
         ballseal 0
 		
+        ivs 0
+        abilityslot 0
+        level LEVEL_CHUCK-2
+        pokemon SPECIES_MANECTRIC
+        item ITEM_MANECTITE
+        move MOVE_DISCHARGE
+        move MOVE_VOLT_SWITCH
+        move MOVE_FLAME_BURST
+        move MOVE_HIDDEN_POWER //GRASS
+        ability ABILITY_LIGHTNING_ROD
+        ball ITEM_POKE_BALL
+        setivs 30, 31, 31, 31, 30, 31 // hp, atk, def, spd, spatk, spdef //GRASS
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
 	    ivs 0
         abilityslot 0
         level LEVEL_CHUCK-2
@@ -26276,24 +26499,6 @@ trainerdata 498, "Eusine"
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
         nature NATURE_MODEST
-        shinylock 0
-        additionalflags 0
-        ballseal 0
-
-        ivs 0
-        abilityslot 0
-        level LEVEL_CHUCK-2
-        pokemon SPECIES_MANECTRIC
-        item ITEM_MANECTITE
-        move MOVE_DISCHARGE
-        move MOVE_VOLT_SWITCH
-        move MOVE_FLAME_BURST
-        move MOVE_SNARL
-        ability ABILITY_LIGHTNING_ROD
-        ball ITEM_POKE_BALL
-        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
-        setevs 0, 0, 0, 0, 0, 0
-        nature NATURE_TIMID
         shinylock 0
         additionalflags 0
         ballseal 0
@@ -29181,9 +29386,9 @@ trainerdata 563, "Ginger" //moved to Olivine Gym
    endparty
 
 trainerdata 564, "Grunt #7"
-    trainermontype TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_MOVES
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET_F
-    nummons 2
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -29193,28 +29398,79 @@ trainerdata 564, "Grunt #7"
     endentry
 
     party 564
-        // mon 0
-        ivs 0
-        abilityslot 32
-        level 41
-        pokemon SPECIES_ZIGZAGOON
-        item ITEM_SITRUS_BERRY
-        move MOVE_BELLY_DRUM
-        move MOVE_FLAIL
-        move MOVE_RETURN
-        move MOVE_IRON_TAIL
-        ballseal 0
-
         // mon 1
         ivs 0
-        abilityslot 32
-        level 43
-        pokemon SPECIES_ROSELIA
-        item ITEM_NONE
-        move MOVE_INGRAIN
-        move MOVE_SYNTHESIS
-        move MOVE_TOXIC
-        move MOVE_PETAL_DANCE
+        abilityslot 0
+        level LEVEL_PETREL-4
+        pokemon SPECIES_CRUSTLE
+        item ITEM_RED_CARD
+        move MOVE_STONE_EDGE
+        move MOVE_X_SCISSOR
+        move MOVE_SPIKES
+        move MOVE_STEALTH_ROCK
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        //mon 2
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-4
+        pokemon SPECIES_SERPERIOR
+        item ITEM_LEFTOVERS
+        move MOVE_LEAF_STORM
+        move MOVE_DRAGON_PULSE
+        move MOVE_GLARE
+        move MOVE_SUBSTITUTE
+        ability ABILITY_CONTRARY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        //mon 3
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-4
+        pokemon SPECIES_GOLEM
+        item ITEM_QUICK_CLAW
+        move MOVE_STONE_EDGE
+        move MOVE_EARTHQUAKE
+        move MOVE_EXPLOSION
+        move MOVE_THUNDER_PUNCH
+        ability ABILITY_STURDY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-4
+        pokemon SPECIES_GRAFAIAI
+        item ITEM_MICLE_BERRY
+        move MOVE_GUNK_SHOT
+        move MOVE_TAKE_DOWN
+        move MOVE_KNOCK_OFF
+        move MOVE_SWORDS_DANCE
+        ability ABILITY_UNBURDEN
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_ADAMANT
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -29412,9 +29668,9 @@ trainerdata 566, "Grunt #17"
     endparty
 
 trainerdata 567, "Grunt #15"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 1
+    nummons 4
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -29424,11 +29680,76 @@ trainerdata 567, "Grunt #15"
     endentry
 
     party 567
-        // mon 0
         ivs 0
         abilityslot 0
-        level 41
-        pokemon SPECIES_SANDSLASH
+        level LEVEL_PETREL-3
+        pokemon SPECIES_QWILFISH
+        item ITEM_FOCUS_BAND
+        move MOVE_POISON_JAB
+        move MOVE_WATERFALL
+        move MOVE_EXPLOSION
+        move MOVE_TOXIC_SPIKES
+        ability ABILITY_INTIMIDATE
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-4
+        pokemon SPECIES_GLISCOR
+        item ITEM_TOXIC_ORB
+        move MOVE_EARTHQUAKE
+        move MOVE_FACADE
+        move MOVE_PROTECT
+        move MOVE_ROOST
+        ability ABILITY_POISON_HEAL
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-4
+        monWithForm SPECIES_ZOROARK, 1
+        item ITEM_FOCUS_SASH
+        move MOVE_BITTER_MALICE
+        move MOVE_HYPER_VOICE
+        move MOVE_FLAMETHROWER
+        move MOVE_WILL_O_WISP
+        ability ABILITY_ILLUSION
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-4
+        pokemon SPECIES_BARBARACLE
+        item ITEM_WHITE_HERB
+        move MOVE_STONE_EDGE
+        move MOVE_RAZOR_SHELL
+        move MOVE_CROSS_CHOP
+        move MOVE_SHELL_SMASH
+        ability ABILITY_SNIPER
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
@@ -29556,9 +29877,9 @@ trainerdata 569, "Kay & Tia"
     endparty
 
 trainerdata 570, "Grunt #13"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 1
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -29568,18 +29889,49 @@ trainerdata 570, "Grunt #13"
     endentry
 
     party 570
-        // mon 0
+        // mon 1
         ivs 0
         abilityslot 0
-        level 43
-        pokemon SPECIES_SPINDA
+        level LEVEL_PETREL-4
+        pokemon SPECIES_PACHIRISU
+        item ITEM_SITRUS_BERRY
+        move MOVE_THUNDERBOLT
+        move MOVE_NUZZLE
+        move MOVE_ALLURING_VOICE
+        move MOVE_SUPER_FANG
+        ability ABILITY_VOLT_ABSORB
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_TIMID
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        //mon 2
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-3
+        pokemon SPECIES_SWALOT
+        item ITEM_STARF_BERRY
+        move MOVE_BELCH
+        move MOVE_BODY_PRESS
+        move MOVE_SEED_BOMB
+        move MOVE_STUFF_CHEEKS
+        ability ABILITY_GLUTTONY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_NAIVE
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 
 trainerdata 571, "Grunt #12"
-    trainermontype TRAINER_DATA_TYPE_NOTHING
+    trainermontype TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK | TRAINER_DATA_TYPE_ADDITIONAL_FLAGS
     trainerclass TRAINERCLASS_TEAM_ROCKET
-    nummons 1
+    nummons 2
     item ITEM_NONE
     item ITEM_NONE
     item ITEM_NONE
@@ -29589,11 +29941,42 @@ trainerdata 571, "Grunt #12"
     endentry
 
     party 571
-        // mon 0
+        // mon 1
         ivs 0
         abilityslot 0
-        level 43
-        pokemon SPECIES_SPINDA
+        level LEVEL_PETREL-4
+        pokemon SPECIES_WUGTRIO
+        item ITEM_FOCUS_SASH
+        move MOVE_LIQUIDATION
+        move MOVE_AQUA_JET
+        move MOVE_THROAT_CHOP
+        move MOVE_FACADE
+        ability ABILITY_GOOEY
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
+        ballseal 0
+
+        //mon 2
+        ivs 0
+        abilityslot 0
+        level LEVEL_PETREL-3
+        pokemon SPECIES_DODRIO
+        item ITEM_WIKI_BERRY
+        move MOVE_THRASH
+        move MOVE_DRILL_PECK
+        move MOVE_STOMPING_TANTRUM
+        move MOVE_ENDURE
+        ability ABILITY_TANGLED_FEET
+        ball ITEM_POKE_BALL
+        setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
+        setevs 0, 0, 0, 0, 0, 0
+        nature NATURE_JOLLY
+        shinylock 0
+        additionalflags 0
         ballseal 0
     endparty
 

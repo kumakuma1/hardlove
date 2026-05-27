@@ -1135,7 +1135,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     BOOL moveCanHit = TRUE;
     if (defender->effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) {
         moveCanHit = FALSE;
-        switch (ctx->current_move_index) {
+        switch (sp->current_move_index) {
         case MOVE_SURF:
         case MOVE_WHIRLPOOL:
             if (defender->effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING) {
