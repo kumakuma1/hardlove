@@ -3,6 +3,8 @@
 
 // FLAGS 2570-2590 berry trees
 
+#define HLG_CUSTOM_WEATHER 1
+
 #define CUSTOM_EASY_MODE          2597
 #define PERMANENT_OW_WEATHER_FLAG 2598
 // 16421
@@ -118,7 +120,7 @@
 
 // UPDATE_OVERWORLD_POISON will remove overworld poison if enabled
 // comment the line out below to retain overworld poison
-#define UPDATE_OVERWORLD_POISON
+//#define UPDATE_OVERWORLD_POISON
 
 // DISABLE_END_OF_TURN_WEATHER_MESSAGE removes the weather messages at the end of the turn.  instead the bottom screen icon can be used
 // uncomment the line out to get this functionality

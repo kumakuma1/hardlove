@@ -3,7 +3,7 @@
 #include "../battle.h"
 
 //#define BATTLE_DEBUG_OUTPUT 1
-#define HLG_CUSTOM_WEATHER 1
+
 
 struct PACKED AI_turnState {
     int moveScores[4][4]; // account for BATTLER_OPPONENT (0), attacker (1), BATTLER_ACROSS(2), BATTLER_ALLY(3),  4 moves each or

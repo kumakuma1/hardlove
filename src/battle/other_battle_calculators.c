@@ -1525,7 +1525,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
 #endif
 
 
-    if (temp > 4 || sp->moveConditionsFlags[attacker].laserFocusTimer)
+    if (temp > 4 || attackerHasLaserFocus)
     {
         temp = 4;
     }
