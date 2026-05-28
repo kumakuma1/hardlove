@@ -2330,10 +2330,10 @@ End
 33: Go on, take a proper vacation!\rHave you tried the Safari Zone yet,\nby the way?\fIt’s better than ever!\r
 
 
-### SS Aqua Gentleman gives Metronome
+### SS Aqua Gentleman gives Metronome/chimechonite
 Script 4:
 	...
-	SetVar 0x8004 233 -> 277
+	SetVar 0x8004 233 -> 277  -> 2637
 	SetVar 0x8005 1
 
 
