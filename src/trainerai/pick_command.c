@@ -34,10 +34,6 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, int attacker);
 int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 {
     u32 battleType = BattleTypeGet(bsys);
-    struct BattleStruct *ctx = bsys->sp;
-    if (battleType == BATTLE_TYPE_ROAMER && !CantEscape(bsys, ctx, attacker, NULL)) {
-        return PLAYER_INPUT_RUN;
-    }
     if (battleType == BATTLE_TYPE_TRAINER || (battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))) {
         if (TrainerAI_ShouldSwitch(bsys, attacker)) {
             return PLAYER_INPUT_PARTY;

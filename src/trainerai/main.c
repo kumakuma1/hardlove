@@ -69,6 +69,13 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
     u32 defender = BATTLER_OPPONENT(attacker); // default for singles
     target = defender;
 
+    if (BattleTypeGet(bsys) == BATTLE_TYPE_ROAMER && !CantEscape(bsys, ctx, attacker, NULL)) {
+        return AI_ENEMY_ESCAPE;
+    }
+    if (BattleTypeGet(bsys) == BATTLE_TYPE_SAFARI) {
+        return AI_ENEMY_SAFARI;
+    }
+
     if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
     {
 #ifdef BATTLE_DEBUG_OUTPUT
