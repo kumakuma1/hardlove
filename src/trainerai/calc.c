@@ -466,6 +466,7 @@ BOOL LONG_CALL BattleAI_IsKnockOffPoweredUp(struct AI_sDamageCalc *defender)
 int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct *ctx, struct AI_sDamageCalc *attacker, int moveNo)
 {
     int type = ctx->moveTbl[moveNo].type;
+    u32 weatherAttacker = BattleAI_GetWeather(bsys, ctx, attacker->ability);
 
     switch (moveNo) {
     case MOVE_NATURAL_GIFT:
@@ -536,28 +537,26 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
         type = attacker->hiddenPowerType;
         break;
     case MOVE_WEATHER_BALL:
-        if (!CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) && !CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-            if (ctx->field_condition & FIELD_CONDITION_WEATHER) {
-                if (ctx->field_condition & WEATHER_RAIN_ANY) {
-                    type = TYPE_WATER;
-                }
-                if (ctx->field_condition & WEATHER_SANDSTORM_ANY) {
-                    type = TYPE_ROCK;
-                }
-                if (ctx->field_condition & WEATHER_SUNNY_ANY) {
-                    type = TYPE_FIRE;
-                }
-                if (ctx->field_condition & WEATHER_HAIL_ANY) {
-                    type = TYPE_ICE;
-                }
-                // BUG: If the weather is foggy, then type doesn't get set properly before being returned
-                // BUGFIX
-                if (ctx->field_condition & FIELD_STATUS_FOG) {
-                    type = TYPE_NORMAL;
-                }
-                if (ctx->field_condition & WEATHER_SHADOWY_AURA_ANY) {
-                    type = TYPE_TYPELESS;
-                }
+        if (weatherAttacker & FIELD_CONDITION_WEATHER) {
+            if (weatherAttacker & WEATHER_RAIN_ANY) {
+                type = TYPE_WATER;
+            }
+            if (weatherAttacker & WEATHER_SANDSTORM_ANY) {
+                type = TYPE_ROCK;
+            }
+            if (weatherAttacker & WEATHER_SUNNY_ANY) {
+                type = TYPE_FIRE;
+            }
+            if (weatherAttacker & WEATHER_HAIL_ANY) {
+                type = TYPE_ICE;
+            }
+            // BUG: If the weather is foggy, then type doesn't get set properly before being returned
+            // BUGFIX
+            if (weatherAttacker & FIELD_STATUS_FOG) {
+                type = TYPE_NORMAL;
+            }
+            if (weatherAttacker & WEATHER_SHADOWY_AURA_ANY) {
+                type = TYPE_TYPELESS;
             }
         }
         break;
@@ -758,7 +757,10 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
             typeLocal = TYPE_FLYING;
         } else if (attacker->ability == ABILITY_GALVANIZE) {
             typeLocal = TYPE_ELECTRIC;
-        } else // needs to be for sure initialized
+        } else if (attacker->ability == ABILITY_DRAGONIZE) {
+            typeLocal = TYPE_DRAGON;
+        }
+        else // needs to be for sure initialized
         {
             typeLocal = TYPE_NORMAL;
         }
@@ -878,3 +880,15 @@ BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokem
     return FALSE;
 }
 
+u32 LONG_CALL BattleAI_GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int ability)
+{
+    if (ability == ABILITY_MEGA_SOL) {
+        return WEATHER_SUNNY;
+    }
+
+    if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) || CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
+        return WEATHER_NONE;
+    }
+
+    return ctx->field_condition & FIELD_CONDITION_WEATHER;
+}

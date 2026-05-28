@@ -187,7 +187,7 @@ Function15:
 	SetVar 0x8004 445
 	SetVar 0x8005 1
 	CommonScript 2033
-	SetVar 0x8004 2558
+	SetVar 0x8004 2558 // 2685 
 	SetVar 0x8005 1
 	CommonScript 2033
 	CloseMessage 
@@ -1331,7 +1331,7 @@ Function 16:
 	SetVar 0x8004 50
 	SetVar 0x8005 1
 	CommonScript 2008
-	SetVar 0x8004 2559 // Starter Card
+	SetVar 0x8004 2559 // Starter Card  2686
 	SetVar 0x8005 1
 	CommonScript 2008
 	SetFlag 141

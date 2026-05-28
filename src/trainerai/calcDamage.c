@@ -34,9 +34,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     u32 attackModifier = UQ412__1_0;
     u32 defenseModifier = UQ412__1_0;
     u32 baseDamage = 0;
-    BOOL noCloudNineAndAirLock = (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0);
     BOOL isDoubleBattle = (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG));
     BOOL attackerHasMoldBreaker = attacker->hasMoldBreaker;
+    u32 weatherAttacker = BattleAI_GetWeather(bsys, sp, attacker->ability);
 
     struct BattleMove move = sp->moveTbl[moveno];
     movepower = move.power;
@@ -217,13 +217,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         }
         break;
     case MOVE_WEATHER_BALL:
-        if (noCloudNineAndAirLock)
-        {
-            if ((sp->field_condition & FIELD_CONDITION_WEATHER)
-                && !(sp->field_condition & (WEATHER_STRONG_WINDS | WEATHER_SNOW_ANY)))
-            {
-                movepower *= 2;
-            }
+        if ((weatherAttacker & FIELD_CONDITION_WEATHER)
+            && !(weatherAttacker & (WEATHER_STRONG_WINDS | WEATHER_SNOW_ANY))) {
+            movepower *= 2;
         }
         break;
     case MOVE_WATER_SHURIKEN:
@@ -368,11 +364,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
     }
 
-    if (noCloudNineAndAirLock) {
-        if ((field_cond & (FIELD_STATUS_FOG | WEATHER_HAIL_ANY | WEATHER_SANDSTORM_ANY | WEATHER_RAIN_ANY | WEATHER_SNOW_ANY))
-            && (moveno == MOVE_SOLAR_BEAM || moveno == MOVE_SOLAR_BLADE)) {
-            basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__0_5);
-        }
+    if ((weatherAttacker & (FIELD_STATUS_FOG | WEATHER_HAIL_ANY | WEATHER_SANDSTORM_ANY | WEATHER_RAIN_ANY | WEATHER_SNOW_ANY))
+        && (moveno == MOVE_SOLAR_BEAM || moveno == MOVE_SOLAR_BLADE)) {
+        basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__0_5);
     }
 
     // handle Terrain overlays
@@ -435,6 +429,10 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
             basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
         }
 
+        if (attacker->ability == ABILITY_DRAGONIZE && movetype == TYPE_DRAGON && move.type == TYPE_NORMAL) {
+            basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
+        }
+
         if (attacker->ability == ABILITY_NORMALIZE && movetype == TYPE_NORMAL) {
             basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
         }
@@ -452,6 +450,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         || (move.effect == MOVE_EFFECT_RECOIL_BURN_HIT)
         || (move.effect == MOVE_EFFECT_RECOIL_PARALYZE_HIT)
         || (move.effect == MOVE_EFFECT_RECOIL_HALF)
+        || (move.effect == MOVE_EFFECT_RECOIL_HALF_MAX_HP)
         || (move.effect == MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS))) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
     }
@@ -463,7 +462,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
     // Sand Force boosts damage in sand for certain move types
     if ((attacker->ability == ABILITY_SAND_FORCE)
-        && (field_cond & WEATHER_SANDSTORM_ANY)
+        && (weatherAttacker & WEATHER_SANDSTORM_ANY)
         && (movetype == TYPE_GROUND || movetype == TYPE_ROCK || movetype == TYPE_STEEL)) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
     }
@@ -746,15 +745,16 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     }
 
     // handle weather boosts
-    if (noCloudNineAndAirLock) {
-        if (field_cond & WEATHER_SUNNY_ANY) {
-            if (attacker->ability == ABILITY_SOLAR_POWER && movesplit == SPLIT_SPECIAL) {
-                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
-            }
-            if ((attacker->ability == ABILITY_FLOWER_GIFT || (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(attackerSlot)) == ABILITY_FLOWER_GIFT))
-                && (movesplit == SPLIT_PHYSICAL)) {
-                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
-            }
+    if (weatherAttacker & WEATHER_SUNNY_ANY) {
+        if (attacker->ability == ABILITY_SOLAR_POWER && movesplit == SPLIT_SPECIAL) {
+            attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
+        }
+        if ((attacker->ability == ABILITY_FLOWER_GIFT || (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(attackerSlot)) == ABILITY_FLOWER_GIFT))
+            && (movesplit == SPLIT_PHYSICAL)) {
+            attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
+        }
+        if (attacker->ability == ABILITY_ORICHALCUM_PULSE && movesplit == SPLIT_PHYSICAL) {
+            attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3333);
         }
     }
 
@@ -979,13 +979,11 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 #endif
 
     // Step 4.7. Sandstorm + Rock-type
-    if (noCloudNineAndAirLock) {
-        if ((field_cond & WEATHER_SANDSTORM_ANY) && ((defender->type1 == TYPE_ROCK) || (defender->type2 == TYPE_ROCK))) {
-            sp_defense = QMul_RoundDown(sp_defense, UQ412__1_5);
-        }
-        if ((field_cond & WEATHER_SNOW_ANY) && ((defender->type1 == TYPE_ICE) || (defender->type2 == TYPE_ICE))) {
-            defense = QMul_RoundDown(defense, UQ412__1_5);
-        }
+    if ((weatherAttacker & WEATHER_SANDSTORM_ANY) && ((defender->type1 == TYPE_ROCK) || (defender->type2 == TYPE_ROCK))) {
+        sp_defense = QMul_RoundDown(sp_defense, UQ412__1_5);
+    }
+    if ((weatherAttacker & WEATHER_SNOW_ANY) && ((defender->type1 == TYPE_ICE) || (defender->type2 == TYPE_ICE))) {
+        defense = QMul_RoundDown(defense, UQ412__1_5);
     }
 
 #ifdef DEBUG_DAMAGE_CALC
@@ -1012,12 +1010,10 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
     // Abilities
     // handle weather boosts
-    if (noCloudNineAndAirLock) {
-        if ((field_cond & WEATHER_SUNNY_ANY) && movesplit == SPLIT_SPECIAL) {
-            if ((!attackerHasMoldBreaker && defender->ability == ABILITY_FLOWER_GIFT)
-                || (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot)) == ABILITY_FLOWER_GIFT)) {
-                defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
-            }
+    if ((weatherAttacker & WEATHER_SUNNY_ANY) && movesplit == SPLIT_SPECIAL) {
+        if ((!attackerHasMoldBreaker && defender->ability == ABILITY_FLOWER_GIFT)
+            || (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot)) == ABILITY_FLOWER_GIFT)) {
+            defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
         }
     }
     // handle Marvel Scale
@@ -1128,6 +1124,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     u32 moveEffectiveness;
     u32 finalModifier = UQ412__1_0;
     BOOL attackerHasMoldBreaker = attacker->hasMoldBreaker;
+    u32 weatherAttacker = BattleAI_GetWeather(bsys, sp, attacker->ability);
 
     struct BattleMove move = sp->moveTbl[moveno];
     movetype = BattleAI_GetDynamicMoveType(bw, sp, attacker, moveno);
@@ -1324,34 +1321,33 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     // handle parental bond
 
     // 6.3 Weather Modifier
-    if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0) && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
-        if (sp->field_condition & WEATHER_RAIN_ANY) {
-            switch (type) {
-            case TYPE_FIRE:
-                damage = QMul_RoundDown(damage, UQ412__0_5);
-                break;
-            case TYPE_WATER:
-                damage = QMul_RoundDown(damage, UQ412__1_5);
-                break;
-            }
-        }
-
-        if (sp->field_condition & WEATHER_SUNNY_ANY) {
-            switch (type) {
-            case TYPE_FIRE:
-                damage = QMul_RoundDown(damage, UQ412__1_5);
-                break;
-            case TYPE_WATER:
-                // If the current weather is Sunny Day and the user is not holding Utility Umbrella, this move's damage is multiplied by 1.5 instead of halved for being Water type.
-                if (moveno == MOVE_HYDRO_STEAM && attacker->item != ITEM_UTILITY_UMBRELLA) {
-                    damage = QMul_RoundDown(damage, UQ412__1_5);
-                } else {
-                    damage = QMul_RoundDown(damage, UQ412__0_5);
-                }
-                break;
-            }
+    if (weatherAttacker & WEATHER_RAIN_ANY) {
+        switch (type) {
+        case TYPE_FIRE:
+            damage = QMul_RoundDown(damage, UQ412__0_5);
+            break;
+        case TYPE_WATER:
+            damage = QMul_RoundDown(damage, UQ412__1_5);
+            break;
         }
     }
+
+    if (weatherAttacker & WEATHER_SUNNY_ANY) {
+        switch (type) {
+        case TYPE_FIRE:
+            damage = QMul_RoundDown(damage, UQ412__1_5);
+            break;
+        case TYPE_WATER:
+            // If the current weather is Sunny Day and the user is not holding Utility Umbrella, this move's damage is multiplied by 1.5 instead of halved for being Water type.
+            if (moveno == MOVE_HYDRO_STEAM && attacker->item != ITEM_UTILITY_UMBRELLA) {
+                damage = QMul_RoundDown(damage, UQ412__1_5);
+            } else {
+                damage = QMul_RoundDown(damage, UQ412__0_5);
+            }
+            break;
+        }
+    }
+
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
     debug_printf("[AI_Damage] 6.3 Weather Modifier\n");

@@ -173,6 +173,8 @@ BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokem
 BOOL LONG_CALL IsMoveUsefulSoundMove(u32 moveno);
 BOOL LONG_CALL IsMoveForceSwitching(u32 moveno);
 
+u32 LONG_CALL BattleAI_GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int ability);
+
 
 
 int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem *bsys, u32 battler, struct AIContext *ai UNUSED);
