@@ -798,8 +798,8 @@ scr_seq_0141_091:
 	goto scr_seq_0141_255
 
 scr_seq_0141_092:
-	// Whirls Islands, Northeast island entrance, 1161
-	setvar VAR_SPECIAL_x8008, ITEM_ULTRA_BALL
+	// Whirls Islands, Northeast island entrance, 1161 //ITEM_ULTRA_BALL
+	setvar VAR_SPECIAL_x8008, ITEM_FERALIGITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -822,8 +822,8 @@ scr_seq_0141_095:
 	goto scr_seq_0141_255
 
 scr_seq_0141_096:
-	// Whirls Islands B1F, Northwest, 1165
-	setvar VAR_SPECIAL_x8008, ITEM_FULL_RESTORE
+	// Whirls Islands B1F, Northwest, 1165 //ITEM_FULL_RESTORE
+	setvar VAR_SPECIAL_x8008, ITEM_EMBOARITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

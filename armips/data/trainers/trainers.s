@@ -2882,7 +2882,7 @@ trainerdata 38, "Colette" //moved to vermillion
         abilityslot 0
         level LEVEL_JASMINE-2
         pokemon SPECIES_VICTREEBEL
-        item ITEM_NONE //TODO mega
+        item ITEM_VICTREEBELITE
         move MOVE_ENERGY_BALL
         move MOVE_SLUDGE_BOMB
         move MOVE_SUCKER_PUNCH
@@ -19737,7 +19737,7 @@ trainerdata 361, "Kevin"
         abilityslot 0
         level LEVEL_JASMINE-1
         pokemon SPECIES_CHIMECHO
-        item ITEM_EXPERT_BELT //TODO mega
+        item ITEM_CHIMECHITE
         move MOVE_PSYSHOCK
         move MOVE_BOOMBURST
         move MOVE_DAZZLING_GLEAM

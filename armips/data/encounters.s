@@ -2314,7 +2314,7 @@ pokemon SPECIES_HERDIER		//10%
 pokemon SPECIES_TOGEDEMARU	//10%
 pokemon SPECIES_TEDDIURSA	//10%
 pokemon SPECIES_MAGNEMITE	//10%
-pokemon SPECIES_LITLEO		//10%
+pokemon SPECIES_CRABRAWLER	//10%
 pokemon SPECIES_BUNEARY	    //5%
 pokemon SPECIES_HERDIER	    //5%
 pokemon SPECIES_ROCKRUFF	//5%
@@ -2328,7 +2328,7 @@ pokemon SPECIES_HERDIER		//10%
 pokemon SPECIES_TOGEDEMARU	//10%
 pokemon SPECIES_TEDDIURSA	//10%
 pokemon SPECIES_MAGNEMITE	//10%
-pokemon SPECIES_LITLEO		//10%
+pokemon SPECIES_CRABRAWLER	//10%
 pokemon SPECIES_BUNEARY	    //5%
 pokemon SPECIES_HERDIER	    //5%
 pokemon SPECIES_ROCKRUFF	//5%
@@ -2342,7 +2342,7 @@ pokemon SPECIES_HERDIER		//10%
 pokemon SPECIES_TOGEDEMARU	//10%
 pokemon SPECIES_TEDDIURSA	//10%
 pokemon SPECIES_MAGNEMITE	//10%
-pokemon SPECIES_LITLEO		//10%
+pokemon SPECIES_CRABRAWLER	//10%
 pokemon SPECIES_BUNEARY	    //5%
 pokemon SPECIES_HERDIER	    //5%
 pokemon SPECIES_ROCKRUFF	//5%
@@ -2730,7 +2730,7 @@ pokemon SPECIES_MIGHTYENA           //10%
 pokemon SPECIES_FOONGUS    	        //10%  
 pokemon SPECIES_MURKROW	            //10%  
 pokemon SPECIES_DEERLING            //10% 
-pokemon SPECIES_TEDDIURSA 	        //10% 
+pokemon SPECIES_CHIMECHO	        //10%
 pokemon SPECIES_PORYGON	            //5%
 pokemon SPECIES_MIGHTYENA	        //5%
 pokemon SPECIES_CORVISQUIRE 	    //5%
@@ -2744,7 +2744,7 @@ pokemon SPECIES_MIGHTYENA           //10%
 pokemon SPECIES_FOONGUS    	        //10%  
 pokemon SPECIES_MURKROW	            //10%  
 pokemon SPECIES_DEERLING            //10% 
-pokemon SPECIES_TEDDIURSA 	        //10% 
+pokemon SPECIES_CHIMECHO	        //10%
 pokemon SPECIES_PORYGON	            //5%
 pokemon SPECIES_MIGHTYENA	        //5%
 pokemon SPECIES_CORVISQUIRE 	    //5%
@@ -2758,7 +2758,7 @@ pokemon SPECIES_MIGHTYENA           //10%
 pokemon SPECIES_FOONGUS    	        //10%  
 pokemon SPECIES_MURKROW	            //10%  
 pokemon SPECIES_DEERLING            //10% 
-pokemon SPECIES_TEDDIURSA 	        //10% 
+pokemon SPECIES_CHIMECHO	        //10%
 pokemon SPECIES_PORYGON	            //5%
 pokemon SPECIES_MIGHTYENA	        //5%
 pokemon SPECIES_CORVISQUIRE 	    //5%
@@ -5953,8 +5953,8 @@ pokemon SPECIES_GRIMMSNARL		//10%
 pokemon	SPECIES_SHIFTRY         //10%
 pokemon SPECIES_TORKOAL	        //10%
 pokemon SPECIES_FLORGES		    //10%
-pokemon SPECIES_NIDOKING	    //10%
-pokemon SPECIES_NIDOQUEEN 		//10%
+pokemon SPECIES_DRAMPA  	    //10%
+pokemon SPECIES_CHESNAUGHT 		//10%
 pokemon SPECIES_GRIMMSNARL    	//5%
 pokemon SPECIES_SHIFTRY  		//5%
 pokemon SPECIES_TYPHLOSION		//5%
@@ -5967,8 +5967,8 @@ pokemon SPECIES_GRIMMSNARL		//10%
 pokemon	SPECIES_SHIFTRY         //10%
 pokemon SPECIES_TORKOAL	        //10%
 pokemon SPECIES_FLORGES		    //10%
-pokemon SPECIES_NIDOKING	    //10%
-pokemon SPECIES_NIDOQUEEN 		//10%
+pokemon SPECIES_DRAMPA  	    //10%
+pokemon SPECIES_CHESNAUGHT 		//10%
 pokemon SPECIES_GRIMMSNARL    	//5%
 pokemon SPECIES_SHIFTRY  		//5%
 pokemon SPECIES_TYPHLOSION		//5%
@@ -5981,8 +5981,8 @@ pokemon SPECIES_GRIMMSNARL		//10%
 pokemon	SPECIES_SHIFTRY         //10%
 pokemon SPECIES_TORKOAL	        //10%
 pokemon SPECIES_FLORGES		    //10%
-pokemon SPECIES_NIDOKING	    //10%
-pokemon SPECIES_NIDOQUEEN 		//10%
+pokemon SPECIES_DRAMPA  	    //10%
+pokemon SPECIES_CHESNAUGHT 		//10%
 pokemon SPECIES_GRIMMSNARL    	//5%
 pokemon SPECIES_SHIFTRY  		//5%
 pokemon SPECIES_TYPHLOSION		//5%
@@ -10634,7 +10634,7 @@ pokemon	SPECIES_DRUDDIGON       //10%
 pokemon SPECIES_TURTONATOR	    //10%
 pokemon SPECIES_CAMERUPT		//10%
 pokemon SPECIES_CENTISKORCH	    //10%
-pokemon SPECIES_CHARIZARD 		//10%
+pokemon SPECIES_CHIMECHO 		//10%
 pokemon SPECIES_PORYGON2    	//5%
 pokemon SPECIES_PINSIR  		//5%
 pokemon SPECIES_SCYTHER		    //5%
@@ -10648,7 +10648,7 @@ pokemon	SPECIES_DRUDDIGON       //10%
 pokemon SPECIES_TURTONATOR	    //10%
 pokemon SPECIES_CAMERUPT		//10%
 pokemon SPECIES_CENTISKORCH	    //10%
-pokemon SPECIES_CHARIZARD 		//10%
+pokemon SPECIES_CHIMECHO 		//10%
 pokemon SPECIES_PORYGON2    	//5%
 pokemon SPECIES_PINSIR  		//5%
 pokemon SPECIES_SCYTHER		    //5%
@@ -10662,7 +10662,7 @@ pokemon	SPECIES_DRUDDIGON       //10%
 pokemon SPECIES_TURTONATOR	    //10%
 pokemon SPECIES_CAMERUPT		//10%
 pokemon SPECIES_CENTISKORCH	    //10%
-pokemon SPECIES_CHARIZARD 		//10%
+pokemon SPECIES_CHIMECHO 		//10%
 pokemon SPECIES_PORYGON2    	//5%
 pokemon SPECIES_PINSIR  		//5%
 pokemon SPECIES_SCYTHER		    //5%
@@ -12133,7 +12133,7 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 // surf encounters
-encounter SPECIES_MILOTIC, 45, 45
+encounter SPECIES_CRABOMINABLE, 45, 45
 encounterwithform SPECIES_MUK, 1,  45, 45
 encounter SPECIES_OVERQWIL, 45, 45
 encounter SPECIES_ALTARIA, 45, 45
