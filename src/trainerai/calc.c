@@ -432,6 +432,7 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(struct AI_sDamageCalc *attacker, 
         if (attacker->level <= defender->level || defender->ability == ABILITY_STURDY) {
             return 0;
         }
+        damage = defender->hp;
     }
     default:
         break;

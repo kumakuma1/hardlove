@@ -846,14 +846,14 @@ scr_seq_0141_099:
 	goto scr_seq_0141_255
 
 scr_seq_0141_100:
-	// Whirls Islands B2F, central, 1169
-	setvar VAR_SPECIAL_x8008, ITEM_FULL_RESTORE
+	// Whirls Islands B2F, central, 1169 // full restore
+	setvar VAR_SPECIAL_x8008, ITEM_TM079
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_101:
-	// Whirls Islands B2F, south, 1170
-	setvar VAR_SPECIAL_x8008, ITEM_MAX_ELIXIR
+	// Whirls Islands B2F, south, 1170 //max elixier
+	setvar VAR_SPECIAL_x8008, ITEM_TM077
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
