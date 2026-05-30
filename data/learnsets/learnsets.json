@@ -59597,10 +59597,14 @@
         "Level": 60,
         "Move": "MOVE_DUAL_WINGBEAT"
       },
-      {
-        "Level": 65,
-        "Move": "MOVE_OUTRAGE"
-      }
+        {
+            "Level": 65,
+            "Move": "MOVE_OUTRAGE"
+        },
+        {
+            "Level": 77,
+            "Move": "MOVE_RETURN"
+        }
     ],
     "MachineMoves": [
       "MOVE_AERIAL_ACE",
@@ -104429,10 +104433,18 @@
         "Level": 64,
         "Move": "MOVE_FUTURE_SIGHT"
       },
-      {
-        "Level": 66,
-        "Move": "MOVE_OVERHEAT"
-      }
+        {
+            "Level": 66,
+            "Move": "MOVE_OVERHEAT"
+        },
+        {
+            "Level": 72,
+            "Move": "MOVE_EXPANDING_FORCE"
+        },
+        {
+            "Level": 82,
+            "Move": "MOVE_ENCORE"
+        }
     ],
     "MachineMoves": [
         "MOVE_AGILITY",
