@@ -29350,7 +29350,7 @@ trainerdata 562, "Ariana"  //moved to route 48
         move MOVE_HEAD_SMASH
         move MOVE_FLARE_BLITZ
         move MOVE_EXTREME_SPEED
-        move MOVE_FLAME_CHARGE
+        move MOVE_WILD_CHARGE
         ability ABILITY_ROCK_HEAD
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
