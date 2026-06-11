@@ -27,6 +27,7 @@ Moody can change Accuracy and Evasion.
 Hail has been replaced by Snow.
 Weather abilities/moves: Will set Weather permanently.
 Terrain abilities/moves: Will set Terrain permanently. Cannot be removed by Defog.
+Sleep works as in Gen4. (2-5 turns of sleep.)
 
 Held items: Items that get consumed or removed from your Pokémon in any way during battle will not be restored.
 
