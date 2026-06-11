@@ -1401,9 +1401,9 @@ _0C68: // Trainer 39
     trainertextentry  39, TEXT_DEFEATED_IN_OVERWORLD, "My Pokémon were caught and raised\noverseas. They’re my companions on\fthose long voyages.\n"
 
 _0C74: // Trainer 16
-    trainertextentry  16, TEXT_NOTICE_IN_OVERWORLD, "You have to warm up before going into\nthe water.\rThat’s basic.\r"
+    trainertextentry  16, TEXT_NOTICE_IN_OVERWORLD, "If only Fire Spin was buffed to 90\nbase power.\rThat would make a great game!\r"
     trainertextentry  16, TEXT_DOUBLE_DEFEATED_IN_BATTLE_1, "OK! I give up!\n"
-    trainertextentry  16, TEXT_DEFEATED_IN_OVERWORLD, "Cianwood City is a good distance away\nfrom here.\n"
+    trainertextentry  16, TEXT_DEFEATED_IN_OVERWORLD, "I would have won with buffed\nFire Spin...\n"
 
 _0C80: // Trainer 86
     trainertextentry  86, TEXT_NOTICE_IN_OVERWORLD, "Hey, you’re young and fit!\nDon’t ride your Pokémon! Swim!\r"

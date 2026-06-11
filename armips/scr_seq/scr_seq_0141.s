@@ -1146,7 +1146,7 @@ scr_seq_0141_149:
 
 scr_seq_0141_150:
 	//ice path 1f, central west, 1204 protein
-	setvar VAR_SPECIAL_x8008, ITEM_TM079
+	setvar VAR_SPECIAL_x8008, ITEM_COVERT_CLOAK
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
