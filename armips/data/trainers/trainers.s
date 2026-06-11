@@ -19417,7 +19417,7 @@ trainerdata 354, "Laura"
         move MOVE_SLUDGE_BOMB
         move MOVE_NONE
         move MOVE_NONE
-        ability ABILITY_WEAK_ARMOR
+        ability ABILITY_STENCH
         ball ITEM_POKE_BALL
         setivs 31, 31, 31, 31, 31, 31 // hp, atk, def, spd, spatk, spdef
         setevs 0, 0, 0, 0, 0, 0
@@ -19824,8 +19824,8 @@ trainerdata 361, "Kevin"
         level LEVEL_JASMINE-1
         pokemon SPECIES_CHIMECHO
         item ITEM_CHIMECHITE
-        move MOVE_PSYSHOCK
-        move MOVE_BOOMBURST
+        move MOVE_PSYCHIC
+        move MOVE_FLASH_CANNON
         move MOVE_DAZZLING_GLEAM
         move MOVE_RECOVER
         ability ABILITY_LEVITATE
