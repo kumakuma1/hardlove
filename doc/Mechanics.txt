@@ -15,6 +15,7 @@ TMs are consumed on use.
 HMs do not need to be taught, obtaining them plus the required badge for use is enough.
 Rock Climb does not require a specfic Badge.
 Fly works between Johto and Kanto.
+Safari Balls have 100% catch rate.
 
 Critical hit chance: 1/16.
 Critical hit damage multiplier: 1.5.

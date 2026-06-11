@@ -97,7 +97,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #if SAFARI_BALL_GENERATION == 4
     case ITEM_SAFARI_BALL:
         if (BattleTypeGet(bw) & BATTLE_TYPE_SAFARI) {
-            ballCaptureRatio = 0x1800;
+            return 4;
         }
         break;
 #endif

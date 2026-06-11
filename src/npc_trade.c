@@ -49,7 +49,10 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
 #ifdef CUSTOM_TRADES
     if (tradeno == NPC_TRADE_DORIS_DODRIO) {
         trade_dat->give_species = SPECIES_CLODSIRE;
-
+        ability = ABILITY_UNAWARE;
+        if (gf_rand() % 2 == 0) {
+            ability = ABILITY_POISON_POINT;
+        }
         trade_dat->heldItem = ITEM_NONE;
         trade_dat->gender = POKEMON_GENDER_FEMALE;
         // random ability
