@@ -22,7 +22,7 @@ There is already a saved game file.\nIt is impossible to save.\rPlease refer to 
 Saving a lot of data...\nDon’t turn off the power.
 
 
-
+Current level cap: {STRVAR_1 55, 0, 0}\nCurrent patch version: 0.4.3\r
 Obtained {STRVAR_1 8, 0, 0}!
 Your party has been healed!\r
 Too bad!\nThe Bag is full...

@@ -822,23 +822,27 @@ _0A82:
 _0A8C:
     menu_item_add 64, 255, 2
     menu_item_add 60, 255, 3
-    menu_item_add 66, 255, 4
+    menu_item_add 58, 255, 4
+    menu_item_add 66, 255, 5
     menu_exec
     switch VAR_SPECIAL_x8006
     case 0, _0B01
     case 1, _0C23
     case 2, _0DBA
     case 3, _healParty
+    case 3, _info
     goto _0DF0
 
 _0AD1:
     menu_item_add 60, 255, 2
-    menu_item_add 66, 255, 3
+    menu_item_add 58, 255, 3
+    menu_item_add 66, 255, 4
     menu_exec
     switch VAR_SPECIAL_x8006
     case 0, _0B01
     case 1, _0C23
     case 2, _healParty
+    case 3, _info
     goto _0DF0
 
 _0B01:
@@ -1030,6 +1034,13 @@ _healParty:
     npc_msg 26
     HealPokemon
     goto _0A2E
+
+_info:
+    SetVarFromVariable VAR_SPECIAL_x8005, 0x416F
+    TextNumber 0, VAR_SPECIAL_x8005
+    npc_msg 24
+    goto _0A2E
+
 
 _0DF0:
     closemsg
