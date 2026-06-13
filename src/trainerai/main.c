@@ -1274,15 +1274,14 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_NEXT_ATTACK_ALWAYS_HITS: // mind reader, lock on
-        if (ctx->field_condition & FIELD_STATUS_FOG 
+        if (ctx->field_condition & FIELD_STATUS_FOG
             && (BattlerKnowsMove(bsys, ai->defender, MOVE_DEFOG, ai) == FALSE)
             && (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON) == 0) {
 
-                moveScore += 6;
-                if (ai->aiMovesFirst) {
-                    if (!ai->playerCanOneShotMonWithAnyMove) {
-                        moveScore += 3;
-                    }
+            moveScore += 6;
+            if (ai->aiMovesFirst) {
+                if (!ai->playerCanOneShotMonWithAnyMove) {
+                    moveScore += 3;
                 }
             }
         }
@@ -1290,6 +1289,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         {
             moveScore -= NEVER_USE_MOVE_20;
         }
+        break;
     default:
         isSetupMove = FALSE;
         break;
