@@ -1209,9 +1209,9 @@ _0A80: // Trainer 60
     trainertextentry  60, TEXT_DEFEATED_IN_OVERWORLD, "Freshly caught Pokémon are no match\nfor properly raised ones.\n"
 
 _0A8C: // Trainer 27
-    trainertextentry  27, TEXT_NOTICE_IN_OVERWORLD, "Uh-huh. Yeah, and you know...\rPardon? Pokémon battle?\nI’m on the phone.\rOh, all right.\nI’ll accept your challenge!\r"
+    trainertextentry  27, TEXT_NOTICE_IN_OVERWORLD, "Create a list with single celebrities\nI could date.\rHey! It’s rude to eavesdrop on\nsomeone’s AI convo!\r"
     trainertextentry  27, TEXT_DEFEATED_IN_BATTLE, "Pfft.\nBefore I could get serious, I lost!\n"
-    trainertextentry  27, TEXT_DEFEATED_IN_OVERWORLD, "At least I can complain over the phone.\n"
+    trainertextentry  27, TEXT_DEFEATED_IN_OVERWORLD, "You interrupted my thought process!\n"
     trainertextentry  27, TEXT_REMATCH_IN_OVERWORLD, "You’re late! Let’s get started now!\r"
 
 _0A9C: // Trainer 49
@@ -1284,9 +1284,9 @@ _0B3C: // Trainer 72
     trainertextentry  72, TEXT_DEFEATED_IN_OVERWORLD, "Some Pokémon flee right away.\nTry catching them with Kurt’s Fast Ball.\rWhenever I find a Wht. Apricorn,\nI take it to Kurt. He turns it into a\fcustom Ball.\n"
 
 _0B48: // Trainer 74
-    trainertextentry  74, TEXT_NOTICE_IN_OVERWORLD, "I’ve been getting Pokémon data off my\nradio. I think I’m good.\r"
-    trainertextentry  74, TEXT_DEFEATED_IN_BATTLE, "I give up!\n"
-    trainertextentry  74, TEXT_DEFEATED_IN_OVERWORLD, "Music on the radio changes the moods of\nwild Pokémon.\n"
+    trainertextentry  74, TEXT_NOTICE_IN_OVERWORLD, "My dad installed a filter at home.\rI am back at watching\nSquat University Shorts.\r"
+    trainertextentry  74, TEXT_DEFEATED_IN_BATTLE, "I could not handle the load!\n"
+    trainertextentry  74, TEXT_DEFEATED_IN_OVERWORLD, "I’m just into it...\n"
 
 _0B54: // Trainer 75
     trainertextentry  75, TEXT_NOTICE_IN_OVERWORLD, "I’m gonna show my girlfriend I’m\nhot stuff!\r"

@@ -1101,12 +1101,12 @@ pokemon SPECIES_HATENNA			//5%
 pokemon SPECIES_RALTS			//5%
 
 // hoenn encounter slots
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_UNOWN
-pokemon SPECIES_UNOWN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -1141,7 +1141,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_UNOWN
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -1245,7 +1245,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_UNOWN
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -1349,7 +1349,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_UNOWN
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -1453,7 +1453,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_UNOWN
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -2597,7 +2597,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_CATERPIE
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -3181,12 +3181,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ZIGZAGOON
-pokemon SPECIES_SPINDA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_CHATOT
-pokemon SPECIES_MEDITITE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -3221,7 +3221,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -3285,12 +3285,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ZIGZAGOON
-pokemon SPECIES_SPINDA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_CHATOT
-pokemon SPECIES_MEDITITE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -3325,7 +3325,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -3389,12 +3389,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ZIGZAGOON
-pokemon SPECIES_SPINDA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_CHATOT
-pokemon SPECIES_MEDITITE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -3429,7 +3429,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -3493,12 +3493,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ZIGZAGOON
-pokemon SPECIES_SPINDA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_CHATOT
-pokemon SPECIES_MEDITITE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -3533,7 +3533,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -3597,12 +3597,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ZIGZAGOON
-pokemon SPECIES_SPINDA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_CHATOT
-pokemon SPECIES_MEDITITE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -3637,7 +3637,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -3701,12 +3701,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ZIGZAGOON
-pokemon SPECIES_SPINDA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_CHATOT
-pokemon SPECIES_MEDITITE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -3741,7 +3741,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -3805,12 +3805,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ZIGZAGOON
-pokemon SPECIES_SPINDA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_CHATOT
-pokemon SPECIES_MEDITITE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -3845,7 +3845,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -3909,12 +3909,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ZIGZAGOON
-pokemon SPECIES_SPINDA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_CHATOT
-pokemon SPECIES_MEDITITE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -3949,7 +3949,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -4677,7 +4677,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_KRABBY
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -5053,12 +5053,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -5093,7 +5093,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_KRABBY
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -6197,12 +6197,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_LINOONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_POLIWAG, 20, 30
@@ -6237,13 +6237,13 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_TANGELA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
 pokemon SPECIES_NONE
 // swarm super rod
-pokemon SPECIES_REMORAID
+pokemon SPECIES_NONE
 
 .close
 
@@ -6301,12 +6301,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -6341,7 +6341,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_SWINUB
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -6405,12 +6405,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -6445,7 +6445,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_SWINUB
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -6509,12 +6509,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -6549,7 +6549,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_SWINUB
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -6613,12 +6613,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -6653,7 +6653,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_SWINUB
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -6969,7 +6969,7 @@ pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_DRATINI
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -7029,12 +7029,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_LINOONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_MAGIKARP, 15, 25
@@ -7069,7 +7069,7 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_SWABLU
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -7341,12 +7341,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_MAGIKARP, 10, 20
@@ -7381,11 +7381,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_GEODUDE
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -7757,12 +7757,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -7797,7 +7797,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -7861,12 +7861,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -7901,7 +7901,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_SEEL
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -7965,12 +7965,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -8005,7 +8005,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_SEEL
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -8069,12 +8069,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -8109,7 +8109,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_DEWGONG
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -8173,12 +8173,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -8213,11 +8213,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_SEEL
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_SEEL
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_HORSEA
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -8277,12 +8277,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -8317,11 +8317,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_QUAGSIRE
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_SEAKING
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -8381,12 +8381,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -8421,11 +8421,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_QUAGSIRE
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_SEAKING
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -8485,12 +8485,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -8525,11 +8525,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_SNEASEL
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_SEAKING
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -8539,11 +8539,11 @@ pokemon SPECIES_NONE
 encounterdata  82   // Cliff Edge Gate
 
 walkrate 0
-surfrate 15
+surfrate 0
 rocksmashrate 0
-oldrodrate 100
-goodrodrate 50
-superrodrate 75
+oldrodrate 0
+goodrodrate 0
+superrodrate 0
 walklevels 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 // morning encounter slots
@@ -8631,7 +8631,7 @@ encounter SPECIES_GOLDEEN, 20, 20
 // swarm grass
 pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_WOOPER
+pokemon SPECIES_NONE
 // swarm good rod
 pokemon SPECIES_NONE
 // swarm super rod
@@ -8797,12 +8797,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ZIGZAGOON
-pokemon SPECIES_SPINDA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_CHATOT
-pokemon SPECIES_MEDITITE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -8837,7 +8837,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -8901,12 +8901,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_LINOONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_POLIWHIRL, 30, 40
@@ -8941,9 +8941,9 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_TANGELA
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_POLIWHIRL
+pokemon SPECIES_NONE
 // swarm good rod
 pokemon SPECIES_NONE
 // swarm super rod
@@ -9005,12 +9005,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -9045,11 +9045,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_ONIX
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_SEAKING
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GYARADOS
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -9109,12 +9109,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -9149,7 +9149,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_GOLBAT
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -9213,12 +9213,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -9253,7 +9253,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_QUAGSIRE
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -9317,12 +9317,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -9357,11 +9357,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_SNEASEL
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_SEAKING
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -9483,54 +9483,54 @@ superrodrate 100
 walklevels 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20
 
 // morning encounter slots
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // day encounter slots
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // night encounter slots
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // hoenn encounter slots
-pokemon SPECIES_ZIGZAGOON
-pokemon SPECIES_ZIGZAGOON
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BIDOOF
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 10, 20
@@ -9565,13 +9565,13 @@ encounter SPECIES_GOLDEEN, 10, 20
 encounter SPECIES_GOLDEEN, 10, 20
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm super rod
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 
 .close
 
@@ -9671,11 +9671,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 // swarm grass
 pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_TENTACOOL
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_TENTACOOL
+pokemon SPECIES_NONE
 // swarm super rod
-pokemon SPECIES_RELICANTH
+pokemon SPECIES_NONE
 
 .close
 
@@ -9775,9 +9775,9 @@ encounter SPECIES_GOLDEEN, 20, 20
 // swarm grass
 pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_CLAMPERL
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_STARYU
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -9879,9 +9879,9 @@ encounter SPECIES_GOLDEEN, 20, 20
 // swarm grass
 pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_TENTACOOL
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_SHELLDER
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -9983,9 +9983,9 @@ encounter SPECIES_GOLDEEN, 20, 20
 // swarm grass
 pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_TENTACOOL
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_SHELLDER
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -10191,9 +10191,9 @@ encounter SPECIES_GOLDEEN, 20, 20
 // swarm grass
 pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -10399,7 +10399,7 @@ encounter SPECIES_NONE, 0, 0
 // swarm grass
 pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_GRIMER
+pokemon SPECIES_NONE
 // swarm good rod
 pokemon SPECIES_NONE
 // swarm super rod
@@ -10505,7 +10505,7 @@ pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GYARADOS
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -10607,9 +10607,9 @@ encounter SPECIES_GOLDEEN, 20, 20
 // swarm grass
 pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_TENTACOOL
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_SHELLDER
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -10669,12 +10669,12 @@ pokemon SPECIES_SCYTHER		    //5%
 pokemon SPECIES_KECLEON		    //5%
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_SHINX
-pokemon SPECIES_SHINX
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -10709,7 +10709,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_TAUROS
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -10773,12 +10773,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_LINOONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -10813,11 +10813,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_DODUO
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_TENTACOOL
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_SHELLDER
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -10877,12 +10877,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_LINOONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -10917,11 +10917,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_DODUO
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_LUVDISC
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_SHELLDER
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -10981,12 +10981,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_LINOONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_POLIWAG, 40, 40
@@ -11021,7 +11021,7 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_TANGELA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -11085,12 +11085,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -11125,7 +11125,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -11189,12 +11189,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -11229,7 +11229,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -11293,12 +11293,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -11333,7 +11333,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_CUBONE
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -11397,12 +11397,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -11437,7 +11437,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_CUBONE
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -11501,12 +11501,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -11541,7 +11541,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_GRAVELER
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -11605,12 +11605,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_SHINX
-pokemon SPECIES_SHINX
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -11645,7 +11645,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_POOCHYENA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -11709,12 +11709,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_SHINX
-pokemon SPECIES_SHINX
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -11749,7 +11749,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_CATERPIE
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -11813,12 +11813,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_SHINX
-pokemon SPECIES_SHINX
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -11853,7 +11853,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_BALTOY
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -12229,12 +12229,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_SHINX
-pokemon SPECIES_SHINX
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -12269,7 +12269,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -12333,12 +12333,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_SHINX
-pokemon SPECIES_SHINX
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -12373,7 +12373,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_PIDGEOTTO
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -12437,12 +12437,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_LINOONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -12477,11 +12477,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_SABLEYE
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -12541,12 +12541,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_LINOONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -12581,11 +12581,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_SPEAROW
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -12645,12 +12645,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_SHINX
-pokemon SPECIES_SHINX
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -12685,7 +12685,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_DROWZEE
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -12749,12 +12749,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_LINOONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -12789,11 +12789,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_CHANSEY
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_TENTACOOL
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_TENTACOOL
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -12853,12 +12853,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_SHINX
-pokemon SPECIES_SHINX
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -12893,7 +12893,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_NIDORINA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -13061,12 +13061,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_SHINX
-pokemon SPECIES_SHINX
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -13101,7 +13101,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_GRIMER
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -13165,8 +13165,8 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
 pokemon SPECIES_SHINX
@@ -13205,7 +13205,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_FEAROW
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -13269,12 +13269,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_SHINX
-pokemon SPECIES_SHINX
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -13309,7 +13309,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_GRIMER
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -13373,12 +13373,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_LINOONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -13413,11 +13413,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_TANGELA
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_TENTACOOL
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_SHELLDER
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -13477,12 +13477,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_WHISMUR
-pokemon SPECIES_LINOONE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -13517,7 +13517,7 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_RATTATA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -13689,8 +13689,8 @@ pokemon SPECIES_NONE
 pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUIZEL
-pokemon SPECIES_BIDOOF
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_SHARPEDO, 45, 45
@@ -13789,12 +13789,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -13829,11 +13829,11 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_ZUBAT
+pokemon SPECIES_NONE
 // swarm surf
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm good rod
-pokemon SPECIES_GOLDEEN
+pokemon SPECIES_NONE
 // swarm super rod
 pokemon SPECIES_NONE
 
@@ -13893,12 +13893,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -13933,7 +13933,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_DIGLETT
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -13997,12 +13997,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -14037,7 +14037,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_GRAVELER
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -14101,12 +14101,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -14141,7 +14141,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_GRAVELER
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -14205,12 +14205,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_PLUSLE
-pokemon SPECIES_MINUN
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_SHINX
-pokemon SPECIES_SHINX
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -14245,7 +14245,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_CATERPIE
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -14309,12 +14309,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_SPOINK
-pokemon SPECIES_NUMEL
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BUDEW
-pokemon SPECIES_CARNIVINE
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_NONE, 0, 0
@@ -14349,7 +14349,7 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // swarm grass
-pokemon SPECIES_KRICKETOT
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -14517,12 +14517,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -14557,7 +14557,7 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_GOLBAT
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
@@ -14621,12 +14621,12 @@ pokemon SPECIES_GOLDEEN
 pokemon SPECIES_GOLDEEN
 
 // hoenn encounter slots
-pokemon SPECIES_ABSOL
-pokemon SPECIES_MAKUHITA
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // sinnoh encounter slots
-pokemon SPECIES_BRONZOR
-pokemon SPECIES_CHINGLING
+pokemon SPECIES_NONE
+pokemon SPECIES_NONE
 
 // surf encounters
 encounter SPECIES_GOLDEEN, 20, 20
@@ -14661,7 +14661,7 @@ encounter SPECIES_GOLDEEN, 20, 20
 encounter SPECIES_GOLDEEN, 20, 20
 
 // swarm grass
-pokemon SPECIES_KADABRA
+pokemon SPECIES_NONE
 // swarm surf
 pokemon SPECIES_NONE
 // swarm good rod
