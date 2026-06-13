@@ -44,8 +44,8 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->defenderTurnsOnField = ctx->total_turn - ctx->battlemon[ai->defender].moveeffect.fakeOutCount;
     ai->attackerTurnsOnField = ctx->total_turn - ctx->battlemon[attacker].moveeffect.fakeOutCount;
 
-    ai->defenderMovesFirst = 0;
-    ai->attackerMovesFirst = 0;
+    ai->playerMovesFirst = 0;
+    ai->aiMovesFirst = 0;
     ai->isSpeedTie = 0;
     ai->maxDamageReceived = 0;
     ai->attackerRolledMaxDamage = 0;
@@ -69,17 +69,17 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     // if speed tie, then 2.
 
     if (speedCalc == 0) {
-        ai->defenderMovesFirst = 1;
+        ai->playerMovesFirst = 1;
     } else {
-        ai->attackerMovesFirst = 1;
-        if (speedCalc == 2) {
+        ai->aiMovesFirst = 1;
+        if (ctx->effectiveSpeed[attacker] == ctx->effectiveSpeed[defender]) {
             ai->isSpeedTie = 1;
         }
     }
     ai->attackerMon.speed = ctx->effectiveSpeed[attacker];
     ai->defenderMon.speed = ctx->effectiveSpeed[defender];
 
-    debug_printf("SpeedCalc %d, defMovesFirst %d, atkSpeed %d, defSpeed %d\n", speedCalc, ai->defenderMovesFirst, ai->attackerMon.speed, ai->defenderMon.speed);
+    debug_printf("SpeedCalc %d, defMovesFirst %d, atkSpeed %d, defSpeed %d\n", speedCalc, ai->playerMovesFirst, ai->attackerMon.speed, ai->defenderMon.speed);
 
     ai->isDefenderIncapacitated = FALSE;
     if ((ai->defenderMon.condition & STATUS_SLEEP)

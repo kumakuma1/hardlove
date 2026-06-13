@@ -784,10 +784,10 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
 
 BOOL LONG_CALL CanAttackerOneShotDefender(u32 attackerDamage, u8 split, u32 moveno, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
-    BOOL isMoveMultihit = IsMultiHitMove(moveno);
+    //BOOL isMoveMultihit = IsMultiHitMove(moveno);
     BOOL canOneShot = TRUE;
 
-    if (attackerDamage >= defender->hp) {
+    if (attackerDamage >= defender->hp) { /*
         if (defender->hp == defender->maxhp) {
 
             if (!isMoveMultihit
@@ -800,7 +800,7 @@ BOOL LONG_CALL CanAttackerOneShotDefender(u32 attackerDamage, u8 split, u32 move
                 canOneShot = FALSE;
             }
         }
-
+        */
     } else {
         canOneShot = FALSE;
     }

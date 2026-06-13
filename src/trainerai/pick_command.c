@@ -127,7 +127,7 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, int attacker)
         defender = BATTLER_OPPONENT(attacker);
         CalcTurnStateDamagesAndScores(bsys, attacker, defender, aiAlly1, aiAlly2, turnStateAlly);
 
-        //if (ai1->monCanOneShotPlayerWithAnyMove && ai1->attackerMovesFirst)
+        //if (ai1->monCanOneShotPlayerWithAnyMove && ai1->aiMovesFirst)
 
     }
 

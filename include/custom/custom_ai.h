@@ -76,8 +76,8 @@ struct PACKED AIContext {
     BOOL defenderImmuneToSleep;
     BOOL defenderImmuneToStatDrop;
 
-    u8 attackerMovesFirst;
-    u8 defenderMovesFirst;
+    u8 aiMovesFirst;
+    u8 playerMovesFirst;
     u8 isSpeedTie;
 
     int attacker;
