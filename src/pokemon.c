@@ -1805,6 +1805,21 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
         SetBoxMonData(boxmon,MON_DATA_SPATK_IV,(u8 *)&j);
         j=(i&(0x001f<<10))>>10;
         SetBoxMonData(boxmon,MON_DATA_SPDEF_IV,(u8 *)&j);
+
+#ifdef RANDOM_3_MAX_IVS
+        if (CheckScriptFlag(RANDOM_3_MAX_IVS_FLAG) == 1 && CheckScriptFlag(164) == 1) {
+            u8 array[] = { 0, 1, 2, 3, 4, 5 };
+            arrayShuffle(array, 6);
+
+            int iv = 31;
+            // Randomly chooses 3 stats
+            for (int kk = 0; kk < 3; kk++) {
+                u8 selectedValue = array[kk];
+                SetBoxMonData(boxmon, MON_DATA_HP_IV + selectedValue, &iv);
+            }
+            ClearScriptFlag(RANDOM_3_MAX_IVS_FLAG);
+        }
+#endif
     }
 
     i = PokePersonalParaGet(species,PERSONAL_ABILITY_1);
