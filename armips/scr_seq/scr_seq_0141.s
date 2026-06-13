@@ -319,7 +319,7 @@ scr_seq_0141_006:
 
 scr_seq_0141_007:
 	//sprout tower 1F, 1061
-	setvar VAR_SPECIAL_x8008, 22
+	setvar VAR_SPECIAL_x8008, ITEM_QUICK_CLAW
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -567,7 +567,7 @@ scr_seq_0141_050:
 
 scr_seq_0141_051:
 	//Goldenrod rocket basement north west, 1094
-	setvar VAR_SPECIAL_x8008, 2
+	setvar VAR_SPECIAL_x8008, ITEM_GOLURKITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -841,7 +841,7 @@ scr_seq_0141_098:
 
 scr_seq_0141_099:
 	// Whirls Islands B2F, north, 1168
-	setvar VAR_SPECIAL_x8008, ITEM_MAX_REVIVE
+	setvar VAR_SPECIAL_x8008, ITEM_SKARMORITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
