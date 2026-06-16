@@ -1482,9 +1482,9 @@ _0D2C: // Trainer 129
     trainertextentry 129, TEXT_DEFEATED_IN_OVERWORLD, "You’re working on a Pokédex?\rWow, you must know some pretty\nrare Pokémon!\fMay I please see it? Please?\n"
 
 _0D38: // Trainer 134
-    trainertextentry 134, TEXT_NOTICE_IN_OVERWORLD, "What’s the other side of Mt. Mortar\nlike, do you know?\rIf you can beat me, I’ll let you know.\r"
-    trainertextentry 134, TEXT_DEFEATED_IN_BATTLE, "Gwah ha ha!\nI lost!\n"
-    trainertextentry 134, TEXT_DEFEATED_IN_OVERWORLD, "I said a pretty boastful lie. I’m sorry!\rThere’s this huge waterfall in the way,\nso I’ve never been on the other side of\fMt. Mortar!\n"
+    trainertextentry 134, TEXT_NOTICE_IN_OVERWORLD, "Imagine losing against an overleveled\nJigglypuff. Would you be salty\?"
+    trainertextentry 134, TEXT_DEFEATED_IN_BATTLE, "I am salty now!\n"
+    trainertextentry 134, TEXT_DEFEATED_IN_OVERWORLD, "Maybe an unfair jumpscare?\n"
 
 _0D44: // Trainer 403
     trainertextentry 403, TEXT_NOTICE_IN_OVERWORLD, "I can do so much with my Pokémon!\nIt’s super fun!\r"
