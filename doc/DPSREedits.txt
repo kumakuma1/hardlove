@@ -4570,8 +4570,80 @@ CheckFlag 223
 
 
 
+	#### Dragon Den random pseudo
 
+	Function 13:
+    GetRandom 0x800C 11
+	CompareVarValue 0x800C 0
+	CallIf EQUAL Function#25
+	CompareVarValue 0x800C 1
+	CallIf EQUAL Function#26
+	CompareVarValue 0x800C 2
+	CallIf EQUAL Function#27
+	CompareVarValue 0x800C 3
+	CallIf EQUAL Function#28
+	CompareVarValue 0x800C 4
+	CallIf EQUAL Function#29
+	CompareVarValue 0x800C 5
+	CallIf EQUAL Function#30
+	CompareVarValue 0x800C 6
+	CallIf EQUAL Function#31
+	CompareVarValue 0x800C 7
+	CallIf EQUAL Function#32
+	CompareVarValue 0x800C 8
+	CallIf EQUAL Function#33
+	CompareVarValue 0x800C 9
+	CallIf EQUAL Function#34
+    CompareVarValue 0x800C 10
+	CallIf EQUAL Function#34
+	TextPlayerName 0
+    TextPokemon 1 0x4002 0 0
+	Message 27
+	PlaySound 1188
+	WaitSound 
+    SetFlag 2599
+	GivePokemon 0x4002 5 0 0 0 0x800C
+Jump Function#2
 
+Function 25:
+    SetVarFromFlexible 0x4002 147
+Return 
+
+Function 26:
+    SetVarFromFlexible 0x4002 246
+Return 
+
+Function 27:
+    SetVarFromFlexible 0x4002 371
+Return 
+
+Function 28:
+    SetVarFromFlexible 0x4002 374
+Return 
+
+Function 29:
+    SetVarFromFlexible 0x4002 443
+Return 
+
+Function 30:
+    SetVarFromFlexible 0x4002 683
+Return 
+
+Function 31:
+    SetVarFromFlexible 0x4002 754
+Return 
+
+Function 32:
+    SetVarFromFlexible 0x4002 832
+Return 
+
+Function 33:
+    SetVarFromFlexible 0x4002 935
+Return 
+
+Function 34:
+    SetVarFromFlexible 0x4002 1046
+Return 
 
 
 
@@ -4848,6 +4920,7 @@ Function 14:
 	WaitMovement 
 	StopMusic 30
 	PlayMusic 1111
+	// cut down to 3 fights
 	Movement Overworld.5 Action#25
 	WaitMovement 
 	Message 17
@@ -4870,6 +4943,7 @@ Function 14:
 	JumpIf EQUAL Function#32
 	Movement Overworld.7 Action#28
 	WaitMovement 
+	//
 	Movement Overworld.10 Action#29
 	WaitMovement 
 	Message 20
@@ -4894,3 +4968,65 @@ Function 14:
 	ClearFlag 741
 	ClearFlag 577 //npcs in theater
 End
+
+No longer needed
+Action 25:
+	LookRight 0x1
+	Freeze2 0x1
+	LookUp 0x1
+	Freeze2 0x1
+	LookLeft 0x1
+	Freeze2 0x1
+	WalkDownFastSite 0x1
+	WalkDownFast 0x1
+	WalkRightFast 0x3
+	WalkDownFastSite 0x1
+End
+
+Action 26:
+	WalkLeftFast 0x3
+	WalkUpFast 0x1
+	WalkDownFastSite 0x1
+End
+
+Action 27:
+	LookLeft 0x1
+	Freeze2 0x1
+	LookUp 0x1
+	Freeze2 0x1
+	LookRight 0x1
+	Freeze2 0x1
+	WalkDownFastSite 0x1
+	WalkDownFast 0x1
+	WalkLeftFast 0x3
+	WalkDownFastSite 0x1
+End
+
+Action 28:
+	WalkRightFast 0x3
+	WalkUpFast 0x1
+	WalkDownFastSite 0x1
+End
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### tm31 bodypress gift on R27
+
+Function 2:
+	Message 1
+	SetVar 0x8004 364 -> 358
+	SetVar 0x8005 1
+
+2: This is Body Press.\nGood defense is good offense!\rBut I’ll let you figure that out.

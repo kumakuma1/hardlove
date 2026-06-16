@@ -29,7 +29,7 @@
 .halfword ITEM_MAX_REVIVE
 
 .org 0x02000000 + 0xFA590 //Dark Cave
-.halfword ITEM_HYPER_POTION
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA598 //Dark Cave
 .halfword ITEM_ELIXIR
@@ -326,7 +326,7 @@
 .halfword ITEM_STEEL_GEM
 
 .org 0x02000000 + 0xFA8A8 //Mt Mortar Back
-.halfword ITEM_ULTRA_BALL
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA8B0 //Mt Mortar Back
 .halfword ITEM_NUGGET
@@ -368,7 +368,7 @@
 .halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA918 //R44
-.halfword ITEM_ELIXIR
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA920 //Ice Path 1F W
 .halfword ITEM_MAX_POTION
@@ -386,7 +386,7 @@
 .halfword ITEM_REVIVE
 
 .org 0x02000000 + 0xFA948 //Dragons Den S
-.halfword ITEM_MAX_POTION
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA950 //Dragons Den W
 .halfword ITEM_MAX_ELIXIR
@@ -398,7 +398,7 @@
 .halfword ITEM_REVIVE
 
 .org 0x02000000 + 0xFA968 //R27
-.halfword ITEM_BIG_MUSHROOM
+.halfword ITEM_RARE_CANDY
 
 .org 0x02000000 + 0xFA970 //R27
 .halfword ITEM_NUGGET
@@ -428,7 +428,7 @@
 .halfword ITEM_ZINC
 
 .org 0x02000000 + 0xFA9B8 //Indigo Plateau
-.halfword ITEM_RARE_CANDY
+.halfword ITEM_HEART_SCALE
 
 .org 0x02000000 + 0xFA9C0 //Vermillion
 .halfword ITEM_IRON

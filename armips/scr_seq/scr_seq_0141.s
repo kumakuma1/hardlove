@@ -1121,8 +1121,8 @@ scr_seq_0141_145:
 	goto scr_seq_0141_255
 
 scr_seq_0141_146:
-	//route 44, west, 1201
-	setvar VAR_SPECIAL_x8008, 77
+	//route 44, west, 1201 // max repel
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1188,7 +1188,7 @@ scr_seq_0141_156:
 
 scr_seq_0141_157:
 	//dragon den, north east, 1210 calcium
-	setvar VAR_SPECIAL_x8008, 49
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1288,67 +1288,80 @@ scr_seq_0141_173:
 	goto scr_seq_0141_255
 
 scr_seq_0141_174:
-	setvar VAR_SPECIAL_x8008, 50
+	// Route 27 west, 1117 //candy
+	setvar VAR_SPECIAL_x8008, ITEM_TM026
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_175:
-	setvar VAR_SPECIAL_x8008, 329
+	// Route 27 middle, 1118, whirlpool //tm002
+	setvar VAR_SPECIAL_x8008, ITEM_CHANDELURITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_176:
-	setvar VAR_SPECIAL_x8008, 280
+	// Route 27 east, 1293 //destiny knot
+	setvar VAR_SPECIAL_x8008, ITEM_BOOSTER_ENERGY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_177:
+	// Route 26 north, 1115 //max elixier
 	setvar VAR_SPECIAL_x8008, 41
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_178:
+	// Victory road 1F, north, 1119 //max revive
 	setvar VAR_SPECIAL_x8008, 29
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_179:
+	// Victory road 1F, central, 1120 //full heal
 	setvar VAR_SPECIAL_x8008, 27
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_180:
-	setvar VAR_SPECIAL_x8008, 17
+	// Victory road 1F, east, 1121 //potion
+	setvar VAR_SPECIAL_x8008, ITEM_ROCKY_HELMET
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_181:
+	// Victory road 2F, north west, 1122 //tm26
 	setvar VAR_SPECIAL_x8008, 353
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_182:
+	// Victory road 2F, south, 1123 //hp up
 	setvar VAR_SPECIAL_x8008, 45
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_183:
+	// Victory road 2F, Northeast, 1124 //full restore
 	setvar VAR_SPECIAL_x8008, 23
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_184:
+	// Victory road 3F, north rocksmash, 1125 //ultra ball
 	setvar VAR_SPECIAL_x8008, 2
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_185:
+	// Victory road 3F, central rocksmash, 1126 //tm79
 	setvar VAR_SPECIAL_x8008, 406
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_186:
-	setvar VAR_SPECIAL_x8008, 50
+	// Victory road 3F, north west, 1125 //rare candy
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1481,7 +1494,8 @@ scr_seq_0141_210:
 	goto scr_seq_0141_255
 
 scr_seq_0141_211:
-	setvar VAR_SPECIAL_x8008, 413
+	// route 11, west, 1307, //tm086 moved to route 26 house
+	setvar VAR_SPECIAL_x8008, ITEM_RAICHUNITE_Y
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
