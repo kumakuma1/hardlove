@@ -1307,7 +1307,7 @@ scr_seq_0141_176:
 
 scr_seq_0141_177:
 	// Route 26 north, 1115 //max elixier
-	setvar VAR_SPECIAL_x8008, 41
+	setvar VAR_SPECIAL_x8008, ITEM_ALAKAZITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
