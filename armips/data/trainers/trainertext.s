@@ -461,11 +461,13 @@ _0370: // Trainer 245
     trainertextentry 245, TEXT_LAST_MON_SENT_OUT, "We Psychics don’t give up even when\nwe’re down to the last Pokémon.\rThat’s what makes us so formidable!\n"
     trainertextentry 245, TEXT_LAST_MON_CRITICAL, "Until we hit zero, our power is limitless.\nI’m not giving up yet!\n"
     trainertextentry 245, TEXT_DEFEATED_IN_BATTLE, "I... I can’t...believe it...\n"
+    trainertextentry 245, TEXT_PLAYER_LOSES, "Right at the start...\n"
 
 _037C: // Trainer 247
     trainertextentry 247, TEXT_LAST_MON_SENT_OUT, "One Pokémon left?\rHa ha ha! I’ve been counting on this\none from the very beginning!\n"
     trainertextentry 247, TEXT_LAST_MON_CRITICAL, "Ooooof...\n"
     trainertextentry 247, TEXT_DEFEATED_IN_BATTLE, "Ah!\nYou have proven your worth!\n"
+    trainertextentry 247, TEXT_PLAYER_LOSES, "Hahahahaha...\n"
 
 _0388: // Trainer 418
     trainertextentry 418, TEXT_LAST_MON_SENT_OUT, "Fight as hard as you can ’til you faint!\n"
@@ -476,21 +478,25 @@ _0394: // Trainer 246
     trainertextentry 246, TEXT_LAST_MON_SENT_OUT, "This is far from being backed into\na corner!\n"
     trainertextentry 246, TEXT_LAST_MON_CRITICAL, "You’re no ordinary Trainer to have\ngotten this far.\n"
     trainertextentry 246, TEXT_DEFEATED_IN_BATTLE, "Well, aren’t you good.\nI like that in a Trainer.\n"
+    trainertextentry 246, TEXT_PLAYER_LOSES, "Oh how tragic!\n"
 
 _03A0: // Trainer 244
     trainertextentry 244, TEXT_LAST_MON_SENT_OUT, "All right!\nI thought this would never happen!\n"
     trainertextentry 244, TEXT_LAST_MON_CRITICAL, "I never give up, no matter what.\nYou must be the same?\n"
-    trainertextentry 244, TEXT_DEFEATED_IN_BATTLE, "...It’s over.\rBut it’s an odd feeling. I’m not angry\nthat I lost. In fact, I feel happy.\rHappy that I witnessed the rise\nof a great new Champion!\n"
+    trainertextentry 244, TEXT_DEFEATED_IN_BATTLE, "...It’s over.\rBut it’s an odd feeling. I’m not angry\nthat I lost. In fact, I feel happy.\rHappy that I witnessed the birth\nof a true legend!\n"
+    trainertextentry 244, TEXT_PLAYER_LOSES, "Disappointing...\n"
 
 _03AC: // Trainer 702
     trainertextentry 702, TEXT_LAST_MON_SENT_OUT, "We Psychics don’t give up even when\nwe’re down to the last Pokémon.\rThat’s what makes us so formidable!\n"
     trainertextentry 702, TEXT_LAST_MON_CRITICAL, "Until we hit zero, our power is limitless.\nI’m not giving up yet!\n"
     trainertextentry 702, TEXT_DEFEATED_IN_BATTLE, "I... I can’t...believe it...\n"
+    trainertextentry 702, TEXT_PLAYER_LOSES, "Right at the start...\n"
 
 _03B8: // Trainer 703
     trainertextentry 703, TEXT_LAST_MON_SENT_OUT, "One Pokémon left?\rHa ha ha! I’ve been counting on this\none from the very beginning!\n"
     trainertextentry 703, TEXT_LAST_MON_CRITICAL, "Ooooof...\n"
     trainertextentry 703, TEXT_DEFEATED_IN_BATTLE, "Ah!\nYou have proven your worth!\n"
+    trainertextentry 703, TEXT_PLAYER_LOSES, "Hahahahaha...\n"
 
 _03C4: // Trainer 704
     trainertextentry 704, TEXT_LAST_MON_SENT_OUT, "Fight as hard as you can ’til you faint!\n"
@@ -501,11 +507,13 @@ _03D0: // Trainer 705
     trainertextentry 705, TEXT_LAST_MON_SENT_OUT, "This is far from being backed into\na corner!\n"
     trainertextentry 705, TEXT_LAST_MON_CRITICAL, "You’re no ordinary Trainer to have\ngotten this far.\n"
     trainertextentry 705, TEXT_DEFEATED_IN_BATTLE, "Well, aren’t you good.\nI like that in a Trainer.\n"
+    trainertextentry 705, TEXT_PLAYER_LOSES, "Oh how tragic!\n"
 
 _03DC: // Trainer 701
     trainertextentry 701, TEXT_LAST_MON_SENT_OUT, "All right!\nI thought this would never happen!\n"
     trainertextentry 701, TEXT_LAST_MON_CRITICAL, "I never give up, no matter what.\nYou must be the same?\n"
     trainertextentry 701, TEXT_DEFEATED_IN_BATTLE, "...It’s over.\rBut it’s an odd feeling. I’m not angry\nthat I lost. In fact, I feel happy.\rHappy that I witnessed the rise\nof a great new Champion!\n"
+    trainertextentry 701, TEXT_PLAYER_LOSES, "Disappointing...\n"
 
 _03E8: // Trainer 261
     trainertextentry 261, TEXT_LAST_MON_SENT_OUT, "Heh heh heh... You’re unprepared\nfor this. We’ll knock you down!\n"
@@ -551,6 +559,7 @@ _0448: // Trainer 727
     trainertextentry 727, TEXT_LAST_MON_SENT_OUT, "Heh heh heh... You’re unprepared\nfor this. We’ll knock you down!\n"
     trainertextentry 727, TEXT_LAST_MON_CRITICAL, "Perhaps I’m the one who was\nunprepared?\n"
     trainertextentry 727, TEXT_DEFEATED_IN_BATTLE, "Just as I expected! No wonder you’ve\nbecome the Champion...\n"
+    trainertextentry 727, TEXT_PLAYER_LOSES, "You are not good enough\nto be Champion!\n"
 
 _0454: // Trainer 720
     trainertextentry 720, TEXT_LAST_MON_SENT_OUT, "Ah ha ha! It itches! It itches!\n"
@@ -1482,9 +1491,9 @@ _0D2C: // Trainer 129
     trainertextentry 129, TEXT_DEFEATED_IN_OVERWORLD, "You’re working on a Pokédex?\rWow, you must know some pretty\nrare Pokémon!\fMay I please see it? Please?\n"
 
 _0D38: // Trainer 134
-    trainertextentry 134, TEXT_NOTICE_IN_OVERWORLD, "Imagine losing against an overleveled\nJigglypuff. Would you be salty\?"
+    trainertextentry 134, TEXT_NOTICE_IN_OVERWORLD, "Imagine losing against an overleveled\nJigglypuff. Would you be salty\r?"
     trainertextentry 134, TEXT_DEFEATED_IN_BATTLE, "I am salty now!\n"
-    trainertextentry 134, TEXT_DEFEATED_IN_OVERWORLD, "Maybe an unfair jumpscare?\n"
+    trainertextentry 134, TEXT_DEFEATED_IN_OVERWORLD, "Outrages!\n"
 
 _0D44: // Trainer 403
     trainertextentry 403, TEXT_NOTICE_IN_OVERWORLD, "I can do so much with my Pokémon!\nIt’s super fun!\r"

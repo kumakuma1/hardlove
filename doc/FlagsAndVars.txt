@@ -102,6 +102,11 @@ Variables
                 10: Set at rocket event in whirl island
                 11: set by whitney rematch in goldenrod, needs trigger == 10
                 12: set by archer even in radio tower
+                13: set by Will for E4 explanation
+                14: set by Koga for E4 explanation
+                15: set by Karen for E4 explanation
+                16: set by Lance for E4 explanation
+                17: winning E4
 
 0x4057   : Boaboa and Safari Zone tests
 16520    : Misty/Eusine/Suicune event on Route 25
@@ -117,6 +122,7 @@ Variables
 16634/      : Lugia event with alola firls. == 1
 16654/0x410E: Trainers in Olivine Gym, Set 1 when giving medicine in lighthouse. Unused
 
+16656/0x4110 : acces to Mt silver
 16562-16577 : Rocket HQ encounters.
 (16562/0x40B2 is used for encounter)
 (16563 is unused)
@@ -126,14 +132,14 @@ Variables
 (16567 is unused)
 (16568 is unused)
 (16569 is unused)
-(16570 is unused)
+(16570/0x40BA is used)  : Elite Four Battle Style Counter for singles
 (16571/0x40BB is unused): Roamer1
 (16572/0x40BC is unused): Roamer2
 (16573/0x40BD is unused): Roamer3
 (16574/0x40BE is unused): Roamer4
-(16575/0x40BF is used) : Portable PC enabled if 0, else disabled
-(16576/0x40C0 is used) : starter gift in Mahogany Town
-(16577/0x40C1 is used) : victreebelite in vermillion city
+(16575/0x40BF is used)  : Portable PC enabled if 0, else disabled
+(16576/0x40C0 is used)  : starter gift in Mahogany Town
+(16577/0x40C1 is used)  : victreebelite in vermillion city
 
 
 16685/0x412D : Route 25 Bills Grandfather showed pokemons 
