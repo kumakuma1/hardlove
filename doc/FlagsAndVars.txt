@@ -142,4 +142,5 @@ Variables
 (16577/0x40C1 is used)  : victreebelite in vermillion city
 
 
+/0x4110 : access to Mt silver, set to 2 for access after elite four.Archer in Mt Silver sets to 3
 16685/0x412D : Route 25 Bills Grandfather showed pokemons 

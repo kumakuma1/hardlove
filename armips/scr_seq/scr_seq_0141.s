@@ -829,7 +829,7 @@ scr_seq_0141_096:
 
 scr_seq_0141_097:
 	// Whirls Islands B1F, North central, 1166
-	setvar VAR_SPECIAL_x8008, ITEM_NUGGET
+	setvar VAR_SPECIAL_x8008, ITEM_PYROARITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -919,7 +919,7 @@ scr_seq_0141_111:
 
 scr_seq_0141_112:
 	// mortar 1F entrance, east, 1174 //revive
-	setvar VAR_SPECIAL_x8008, 28
+	setvar VAR_SPECIAL_x8008, ITEM_SCOLIPITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -937,7 +937,7 @@ scr_seq_0141_114:
 
 scr_seq_0141_115:
 	// mortar 1F back, north, waterfall, 1177 //iron ball
-	setvar VAR_SPECIAL_x8008, 278
+	setvar VAR_SPECIAL_x8008, ITEM_ULTRA_BALL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -949,7 +949,7 @@ scr_seq_0141_116:
 
 scr_seq_0141_117:
 	// mortar 1F back, north, waterfall, 1179 //iron
-	setvar VAR_SPECIAL_x8008, 47
+	setvar VAR_SPECIAL_x8008, ITEM_ULTRA_BALL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -961,7 +961,7 @@ scr_seq_0141_118:
 
 scr_seq_0141_119:
 	// mortar 1F back, west, strength, 1181 //ultra ball
-	setvar VAR_SPECIAL_x8008, 2
+	setvar VAR_SPECIAL_x8008, ITEM_THROAT_SPRAY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -979,7 +979,7 @@ scr_seq_0141_121:
 
 scr_seq_0141_122:
 	// mortar 2F, south west, waterfall, 1182 //Rare Candy
-	setvar VAR_SPECIAL_x8008, 50
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -991,7 +991,7 @@ scr_seq_0141_123:
 
 scr_seq_0141_124:
 	// mortar 2F, west, waterfall, 1184 //TM40
-	setvar VAR_SPECIAL_x8008, 367
+	setvar VAR_SPECIAL_x8008, ITEM_ULTRA_BALL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1003,13 +1003,13 @@ scr_seq_0141_125:
 
 scr_seq_0141_126:
 	// mortar 2F, north, waterfall, 1186 //dragon scale
-	setvar VAR_SPECIAL_x8008, 235
+	setvar VAR_SPECIAL_x8008, ITEM_ULTRA_BALL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_127:
 	// mortar 2F, north east, waterfall, 1187 //escape rope
-	setvar VAR_SPECIAL_x8008, 78
+	setvar VAR_SPECIAL_x8008, ITEM_ULTRA_BALL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

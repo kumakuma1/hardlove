@@ -179,7 +179,7 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
     }
     u8 tieMoveIndex = (BattleRand(bsys) % tieMoveCount);
 
-    result = tiedMoveIndices[tieMoveIndex % 4]; // randomly pick a move among the tie
+    result = tiedMoveIndices[tieMoveIndex]; // % 4]; // randomly pick a move among the tie
 #ifdef BATTLE_DEBUG_OUTPUT
     debug_printf("got tieMoveIndex %d -> Resulting move: %d\n", tieMoveIndex, result);
 #endif // BATTLE_DEBUG_OUTPUT

@@ -445,7 +445,7 @@ scr_seq_0150_021:
 	call _harvest
 	anim_apricorn_tree VAR_SPECIAL_RESULT
 	GetRandom 0x800C, 30
-	setvar VAR_SPECIAL_x8004, ITEM_SITRUS_BERRY
+	setvar VAR_SPECIAL_x8004, ITEM_LUM_BERRY
 	setvar VAR_SPECIAL_x8005, 50
 	IncrementVar VAR_SPECIAL_x8005, 0x800C 
 	CommonScript 2008
@@ -465,7 +465,7 @@ scr_seq_0150_022:
 	call _harvest
 	anim_apricorn_tree VAR_SPECIAL_RESULT
 	GetRandom 0x800C, 30
-	setvar VAR_SPECIAL_x8004, ITEM_SITRUS_BERRY
+	setvar VAR_SPECIAL_x8004, ITEM_LEPPA_BERRY
 	setvar VAR_SPECIAL_x8005, 50
 	IncrementVar VAR_SPECIAL_x8005, 0x800C 
 	CommonScript 2008
