@@ -120,7 +120,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 18,
             .type = TYPE_NORMAL,
-            .accuracy = 85,
+            .accuracy = 90,
             .pp = 15,
             .effectChance = 0,
         },
@@ -147,7 +147,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 80,
             .type = TYPE_NORMAL,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 0,
         },
@@ -417,7 +417,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 50,
             .type = TYPE_NORMAL,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 30,
             .effectChance = 0,
         },
@@ -525,7 +525,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 90,
             .type = TYPE_FLYING,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 0,
         },
@@ -552,7 +552,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 15,
             .type = TYPE_NORMAL,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 0,
         },
@@ -579,7 +579,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 80,
             .type = TYPE_NORMAL,
-            .accuracy = 75,
+            .accuracy = 90,
             .pp = 20,
             .effectChance = 0,
         },
@@ -687,7 +687,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 120,
             .type = TYPE_NORMAL,
-            .accuracy = 75,
+            .accuracy = 85,
             .pp = 5,
             .effectChance = 0,
         },
@@ -741,7 +741,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 60,
             .type = TYPE_FIGHTING,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 30,
         },
@@ -769,7 +769,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_GROUND,
             .accuracy = 100,
-            .pp = 15,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -849,7 +849,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 15,
             .type = TYPE_NORMAL,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 0,
         },
@@ -957,7 +957,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 15,
             .type = TYPE_NORMAL,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 0,
         },
@@ -984,7 +984,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 90,
             .type = TYPE_NORMAL,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 0,
         },
@@ -1146,7 +1146,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 25,
             .type = TYPE_BUG,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 0,
         },
@@ -1174,7 +1174,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 100,
-            .pp = 30,
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -1228,7 +1228,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 100,
-            .pp = 40,
+            .pp = 20,
             .effectChance = 0,
         },
         .battle = {
@@ -1281,7 +1281,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_NORMAL,
-            .accuracy = 55,
+            .accuracy = 70,
             .pp = 15,
             .effectChance = 0,
         },
@@ -1308,7 +1308,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_NORMAL,
-            .accuracy = 55,
+            .accuracy = 70,
             .pp = 20,
             .effectChance = 0,
         },
@@ -1335,7 +1335,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 1,
             .type = TYPE_NORMAL,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 0,
         },
@@ -1524,7 +1524,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 110,
             .type = TYPE_WATER,
-            .accuracy = 80,
+            .accuracy = 85,
             .pp = 5,
             .effectChance = 0,
         },
@@ -1605,7 +1605,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 110,
             .type = TYPE_ICE,
-            .accuracy = 70,
+            .accuracy = 80,
             .pp = 5,
             .effectChance = 10,
         },
@@ -1713,7 +1713,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 150,
             .type = TYPE_NORMAL,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 0,
         },
@@ -1794,7 +1794,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 80,
             .type = TYPE_FIGHTING,
-            .accuracy = 80,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 0,
         },
@@ -1927,7 +1927,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT,
             .split = SPLIT_SPECIAL,
-            .power = 20,
+            .power = 40,
             .type = TYPE_GRASS,
             .accuracy = 100,
             .pp = 25,
@@ -1954,7 +1954,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT,
             .split = SPLIT_SPECIAL,
-            .power = 40,
+            .power = 60,
             .type = TYPE_GRASS,
             .accuracy = 100,
             .pp = 15,
@@ -1983,7 +1983,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_GRASS,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -2009,7 +2009,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .effect = MOVE_EFFECT_SP_ATK_UP,
             .split = SPLIT_STATUS,
             .power = 0,
-            .type = ((CHAMPIONS_TYPE_CHANGES) ? (TYPE_GRASS) : (TYPE_NORMAL)),
+            .type = TYPE_GRASS,
             .accuracy = 0,
             .pp = 20,
             .effectChance = 0,
@@ -2037,7 +2037,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 55,
             .type = TYPE_GRASS,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 25,
             .effectChance = 0,
         },
@@ -2091,7 +2091,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_POISON,
-            .accuracy = 75,
+            .accuracy = 90,
             .pp = 35,
             .effectChance = 0,
         },
@@ -2118,7 +2118,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_GRASS,
-            .accuracy = 75,
+            .accuracy = 90,
             .pp = 30,
             .effectChance = 0,
         },
@@ -2145,7 +2145,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_GRASS,
-            .accuracy = 75,
+            .accuracy = 80,
             .pp = 15,
             .effectChance = 0,
         },
@@ -2253,7 +2253,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 35,
             .type = TYPE_FIRE,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 0,
         },
@@ -2361,7 +2361,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 110,
             .type = TYPE_ELECTRIC,
-            .accuracy = 70,
+            .accuracy = 80,
             .pp = 10,
             .effectChance = 30,
         },
@@ -2388,7 +2388,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 50,
             .type = TYPE_ROCK,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 0,
         },
@@ -2577,7 +2577,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_PSYCHIC,
-            .accuracy = 60,
+            .accuracy = 70,
             .pp = 20,
             .effectChance = 0,
         },
@@ -2793,7 +2793,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_NORMAL,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 40,
             .effectChance = 0,
         },
@@ -2875,7 +2875,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 0,
-            .pp = 30,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -2929,7 +2929,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 100,
-            .pp = 20,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -2983,7 +2983,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_WATER,
             .accuracy = 0,
-            .pp = 40,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -3037,7 +3037,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_PSYCHIC,
             .accuracy = 0,
-            .pp = 20,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -3064,7 +3064,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_PSYCHIC,
             .accuracy = 0,
-            .pp = 30,
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -3118,7 +3118,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_PSYCHIC,
             .accuracy = 0,
-            .pp = 20,
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -3145,7 +3145,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 0,
-            .pp = 30,
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -3304,7 +3304,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_PARALYZE_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = 30,
+            .power = 40,
             .type = TYPE_GHOST,
             .accuracy = 100,
             .pp = 30,
@@ -3333,9 +3333,9 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 30,
             .type = TYPE_POISON,
-            .accuracy = 70,
+            .accuracy = 90,
             .pp = 20,
-            .effectChance = 40,
+            .effectChance = 100,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -3387,7 +3387,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 65,
             .type = TYPE_GROUND,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 10,
         },
@@ -3468,7 +3468,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 35,
             .type = TYPE_WATER,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 0,
         },
@@ -3630,7 +3630,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_PSYCHIC,
-            .accuracy = 80,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 0,
         },
@@ -3712,7 +3712,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 100,
-            .pp = 30,
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -3792,7 +3792,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 15,
             .type = TYPE_NORMAL,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 0,
         },
@@ -3846,7 +3846,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_NORMAL,
-            .accuracy = 75,
+            .accuracy = 80,
             .pp = 10,
             .effectChance = 0,
         },
@@ -3873,7 +3873,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 140,
             .type = TYPE_FLYING,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 30,
         },
@@ -3925,7 +3925,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_SPEED_HIT,
             .split = SPLIT_SPECIAL,
-            .power = 40,
+            .power = 20,
             .type = TYPE_WATER,
             .accuracy = 100,
             .pp = 30,
@@ -4008,8 +4008,8 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_NORMAL,
-            .accuracy = 100,
-            .pp = 20,
+            .accuracy = 70,
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -4116,7 +4116,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 100,
             .type = TYPE_WATER,
-            .accuracy = ((CHAMPIONS_ACC_CHANGES) ? (95) : (90)),
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -4170,7 +4170,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 18,
             .type = TYPE_NORMAL,
-            .accuracy = 80,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 0,
         },
@@ -4197,7 +4197,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 50,
             .type = TYPE_GROUND,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -4251,7 +4251,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 75,
             .type = TYPE_ROCK,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 30,
         },
@@ -4278,7 +4278,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 80,
             .type = TYPE_NORMAL,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 10,
         },
@@ -4385,8 +4385,8 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .effect = MOVE_EFFECT_HALVE_HP,
             .split = SPLIT_PHYSICAL,
             .power = 1,
-            .type = TYPE_NORMAL,
-            .accuracy = 90,
+            .type = TYPE_DARK,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -4544,7 +4544,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Thief",
         },
         .data = {
-            .effect = MOVE_EFFECT_STEAL_HELD_ITEM,
+            .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
             .power = 60,
             .type = TYPE_DARK,
@@ -4927,7 +4927,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -5034,7 +5034,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_FAIRY,
-            .accuracy = 75,
+            .accuracy = 80,
             .pp = 10,
             .effectChance = 0,
         },
@@ -5140,11 +5140,11 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_ACCURACY_HIT,
             .split = SPLIT_SPECIAL,
-            .power = 65,
+            .power = 80,
             .type = TYPE_WATER,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 10,
-            .effectChance = 50,
+            .effectChance = 30,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -5304,7 +5304,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 55,
             .type = TYPE_ICE,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 100,
         },
@@ -5356,7 +5356,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_MULTI_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (30) : (25)),
+            .power = 30,
             .type = TYPE_GROUND,
             .accuracy = 90,
             .pp = 10,
@@ -5440,7 +5440,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_ROCK,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -5521,7 +5521,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_FAIRY,
             .accuracy = 100,
-            .pp = 20,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -5601,7 +5601,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_NORMAL,
-            .accuracy = 85,
+            .accuracy = 90,
             .pp = 15,
             .effectChance = 0,
         },
@@ -5709,7 +5709,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 70,
             .type = TYPE_STEEL,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 25,
             .effectChance = 10,
         },
@@ -5840,9 +5840,9 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Return",
         },
         .data = {
-            .effect = MOVE_EFFECT_POWER_BASED_ON_FRIENDSHIP,
+            .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = 1,
+            .power = 102,
             .type = TYPE_NORMAL,
             .accuracy = 100,
             .pp = 20,
@@ -5894,9 +5894,9 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Frustration",
         },
         .data = {
-            .effect = MOVE_EFFECT_POWER_BASED_ON_LOW_FRIENDSHIP,
+            .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = 1,
+            .power = 102,
             .type = TYPE_NORMAL,
             .accuracy = 100,
             .pp = 20,
@@ -5949,10 +5949,10 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         },
         .data = {
             .effect = MOVE_EFFECT_AVERAGE_HP,
-            .split = SPLIT_STATUS,
-            .power = 0,
-            .type = TYPE_NORMAL,
-            .accuracy = 0,
+            .split = SPLIT_PHYSICAL,
+            .power = 1,
+            .type = TYPE_DARK,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 0,
         },
@@ -5979,7 +5979,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 100,
             .type = TYPE_FIRE,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 50,
         },
@@ -6060,7 +6060,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 120,
             .type = TYPE_BUG,
-            .accuracy = 85,
+            .accuracy = 90,
             .pp = 10,
             .effectChance = 0,
         },
@@ -6249,7 +6249,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 100,
             .type = TYPE_STEEL,
-            .accuracy = 75,
+            .accuracy = 85,
             .pp = 15,
             .effectChance = 30,
         },
@@ -6276,7 +6276,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 50,
             .type = TYPE_STEEL,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 35,
             .effectChance = 10,
         },
@@ -6438,7 +6438,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 100,
             .type = TYPE_FIGHTING,
-            .accuracy = 80,
+            .accuracy = 90,
             .pp = 5,
             .effectChance = 0,
         },
@@ -6737,7 +6737,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .type = TYPE_FIGHTING,
             .accuracy = 100,
             .pp = 15,
-            .effectChance = 50,
+            .effectChance = 100,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -6762,7 +6762,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 35,
             .type = TYPE_WATER,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 0,
         },
@@ -6817,7 +6817,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 40,
             .type = TYPE_NORMAL,
             .accuracy = 100,
-            .pp = 10,
+            .pp = 5,
             .effectChance = 100,
         },
         .battle = {
@@ -6951,7 +6951,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 95,
             .type = TYPE_FIRE,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 10,
         },
@@ -6979,7 +6979,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_ICE,
             .accuracy = 0,
-            .pp = 10,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -8032,7 +8032,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_FLYING,
             .accuracy = 100,
-            .pp = 15,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -8085,7 +8085,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 85,
             .type = TYPE_FIRE,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 10,
         },
@@ -8328,7 +8328,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 150,
             .type = TYPE_WATER,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 0,
         },
@@ -8355,7 +8355,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 90,
             .type = TYPE_STEEL,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 20,
         },
@@ -8380,7 +8380,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_FLINCH_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = 30,
+            .power = 40,
             .type = TYPE_GHOST,
             .accuracy = 100,
             .pp = 15,
@@ -8464,7 +8464,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_DARK,
             .accuracy = 100,
-            .pp = 20,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -8490,7 +8490,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 60,
             .type = TYPE_FLYING,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 25,
             .effectChance = 0,
         },
@@ -8517,7 +8517,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 130,
             .type = TYPE_FIRE,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 100,
         },
@@ -8571,7 +8571,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 60,
             .type = TYPE_ROCK,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 100,
         },
@@ -8625,8 +8625,8 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_STEEL,
-            .accuracy = 85,
-            .pp = 40,
+            .accuracy = 100,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -8652,7 +8652,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_GRASS,
-            .accuracy = 55,
+            .accuracy = 70,
             .pp = 15,
             .effectChance = 0,
         },
@@ -8680,7 +8680,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 100,
-            .pp = 20,
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -8841,7 +8841,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 85,
             .type = TYPE_FIGHTING,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 0,
         },
@@ -8868,7 +8868,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 35,
             .type = TYPE_GROUND,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 0,
         },
@@ -8895,7 +8895,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 1,
             .type = TYPE_ICE,
-            .accuracy = 30,
+            .accuracy = 35,
             .pp = 5,
             .effectChance = 0,
         },
@@ -8922,7 +8922,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 90,
             .type = TYPE_WATER,
-            .accuracy = 85,
+            .accuracy = 95,
             .pp = 10,
             .effectChance = 30,
         },
@@ -9138,7 +9138,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 150,
             .type = TYPE_GRASS,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 0,
         },
@@ -9192,7 +9192,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 85,
             .type = TYPE_FLYING,
-            .accuracy = 85,
+            .accuracy = 95,
             .pp = 5,
             .effectChance = 30,
         },
@@ -9219,7 +9219,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 55,
             .type = TYPE_GROUND,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 100,
         },
@@ -9269,10 +9269,10 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Covet",
         },
         .data = {
-            .effect = MOVE_EFFECT_STEAL_HELD_ITEM,
+            .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
             .power = 60,
-            .type = TYPE_NORMAL,
+            .type = TYPE_FAIRY,
             .accuracy = 100,
             .pp = 25,
             .effectChance = 0,
@@ -9462,7 +9462,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 25,
             .type = TYPE_ROCK,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -9570,7 +9570,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 140,
             .type = TYPE_PSYCHIC,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 100,
         },
@@ -9705,7 +9705,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 100,
             .type = TYPE_FIGHTING,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -10813,7 +10813,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 70,
             .type = TYPE_DARK,
             .accuracy = 100,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (20) : (15)),
+            .pp = 20,
             .effectChance = 0,
         },
         .battle = {
@@ -10839,7 +10839,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 90,
             .type = TYPE_WATER,
-            .accuracy = 90,
+            .accuracy = 95,
             .pp = 10,
             .effectChance = 0,
         },
@@ -10893,7 +10893,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 75,
             .type = TYPE_FLYING,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 30,
         },
@@ -11001,7 +11001,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 100,
             .type = TYPE_DRAGON,
-            .accuracy = 75,
+            .accuracy = 85,
             .pp = 10,
             .effectChance = 20,
         },
@@ -11109,7 +11109,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 120,
             .type = TYPE_FIGHTING,
-            .accuracy = 70,
+            .accuracy = 80,
             .pp = 5,
             .effectChance = 10,
         },
@@ -11244,7 +11244,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 150,
             .type = TYPE_NORMAL,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 0,
         },
@@ -11406,7 +11406,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 65,
             .type = TYPE_ELECTRIC,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 10,
         },
@@ -11433,7 +11433,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 65,
             .type = TYPE_ICE,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 10,
         },
@@ -11460,7 +11460,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 65,
             .type = TYPE_FIRE,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 10,
         },
@@ -11514,9 +11514,9 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 65,
             .type = TYPE_GROUND,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 10,
-            .effectChance = 30,
+            .effectChance = 20,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -11568,7 +11568,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 80,
             .type = TYPE_PSYCHIC,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 20,
         },
@@ -11595,9 +11595,9 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 65,
             .type = TYPE_STEEL,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 10,
-            .effectChance = 30,
+            .effectChance = 20,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -11649,7 +11649,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 90,
             .type = TYPE_NORMAL,
-            .accuracy = 85,
+            .accuracy = 95,
             .pp = 20,
             .effectChance = 20,
         },
@@ -11730,7 +11730,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 130,
             .type = TYPE_DRAGON,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 100,
         },
@@ -11811,7 +11811,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 130,
             .type = TYPE_GRASS,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 100,
         },
@@ -11838,7 +11838,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 120,
             .type = TYPE_GRASS,
-            .accuracy = 85,
+            .accuracy = 90,
             .pp = 10,
             .effectChance = 0,
         },
@@ -11865,7 +11865,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 150,
             .type = TYPE_ROCK,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 0,
         },
@@ -11919,7 +11919,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 120,
             .type = TYPE_POISON,
-            .accuracy = 80,
+            .accuracy = 85,
             .pp = 5,
             .effectChance = 30,
         },
@@ -11948,7 +11948,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .type = TYPE_STEEL,
             .accuracy = 100,
             .pp = 15,
-            .effectChance = ((CHAMPIONS_EFFECT_CHANCE_CHANGES) ? (20) : (30)),
+            .effectChance = 20,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -12000,7 +12000,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 100,
             .type = TYPE_ROCK,
-            .accuracy = 80,
+            .accuracy = 85,
             .pp = 5,
             .effectChance = 0,
         },
@@ -12028,7 +12028,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 100,
-            .pp = 20,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -12187,11 +12187,11 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_RAISE_SP_ATK_HIT,
             .split = SPLIT_SPECIAL,
-            .power = 50,
+            .power = 40,
             .type = TYPE_ELECTRIC,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
-            .effectChance = 70,
+            .effectChance = 100,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -12351,7 +12351,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 150,
             .type = TYPE_ROCK,
-            .accuracy = 80,
+            .accuracy = 85,
             .pp = 5,
             .effectChance = 0,
         },
@@ -12378,7 +12378,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 35,
             .type = TYPE_NORMAL,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -12405,7 +12405,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 150,
             .type = TYPE_DRAGON,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 0,
         },
@@ -12432,7 +12432,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 100,
             .type = TYPE_DRAGON,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 0,
         },
@@ -12513,7 +12513,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 100,
             .type = TYPE_FIRE,
-            .accuracy = 75,
+            .accuracy = 90,
             .pp = 5,
             .effectChance = 0,
         },
@@ -12540,7 +12540,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_DARK,
-            .accuracy = 50,
+            .accuracy = 80,
             .pp = 10,
             .effectChance = 0,
         },
@@ -12567,7 +12567,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 120,
             .type = TYPE_GRASS,
-            .accuracy = 85,
+            .accuracy = 90,
             .pp = 5,
             .effectChance = 40,
         },
@@ -12844,7 +12844,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_USER,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED,
+            .flags = FLAG_MIRROR_MOVE,
         },
         .contest = {
             .appeal = 0,
@@ -12979,7 +12979,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -13006,7 +13006,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_USER,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED,
+            .flags = FLAG_MIRROR_MOVE,
         },
         .contest = {
             .appeal = 0,
@@ -13033,7 +13033,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED,
+            .flags = FLAG_MIRROR_MOVE,
         },
         .contest = {
             .appeal = 0,
@@ -13195,7 +13195,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ALL_ADJACENT,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -13492,7 +13492,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -13519,7 +13519,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -13654,7 +13654,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_USER,
             .priority = 2,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED,
+            .flags = FLAG_KEEP_HP_BAR,
         },
         .contest = {
             .appeal = 0,
@@ -13789,7 +13789,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_CONTACT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT,
         },
         .contest = {
             .appeal = 0,
@@ -13836,7 +13836,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 60,
             .type = TYPE_FIGHTING,
-            .accuracy = 90,
+            .accuracy = 95,
             .pp = 10,
             .effectChance = 0,
         },
@@ -13951,7 +13951,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_SNATCH,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_SNATCH,
         },
         .contest = {
             .appeal = 0,
@@ -14021,7 +14021,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Bestow",
         },
         .data = {
-            .effect = MOVE_EFFECT_GIVE_HELD_ITEM,
+            .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_NORMAL,
@@ -14032,13 +14032,13 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9,
+            .flags = FLAG_KEEP_HP_BAR,
         },
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
         },
-        .description = "The user passes its\\nheld item to the\\ntarget when the\\ntarget isn’t holding\\nan item.",
+        .description = "The user passes its\\nheld item to the\\ntarget when the\\ntarget isn’t\\nholding an item.",
     },
 
     [MOVE_INFERNO] = {
@@ -14086,7 +14086,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -14113,7 +14113,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -14140,7 +14140,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -14188,7 +14188,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 50,
             .type = TYPE_BUG,
             .accuracy = 100,
-            .pp = 20,
+            .pp = 10,
             .effectChance = 100,
         },
         .battle = {
@@ -14241,7 +14241,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 60,
             .type = TYPE_ICE,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -14268,7 +14268,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 60,
             .type = TYPE_DRAGON,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -14322,7 +14322,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 55,
             .type = TYPE_ELECTRIC,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 100,
         },
@@ -14376,7 +14376,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 80,
             .type = TYPE_GROUND,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -14403,7 +14403,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 40,
             .type = TYPE_DRAGON,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 0,
         },
@@ -14511,7 +14511,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 75,
             .type = TYPE_WATER,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 50,
         },
@@ -14565,9 +14565,9 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 65,
             .type = TYPE_GRASS,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
-            .effectChance = 50,
+            .effectChance = 30,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -14644,11 +14644,11 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_ACCURACY_HIT,
             .split = SPLIT_SPECIAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (85)),
+            .power = 90,
             .type = TYPE_DARK,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 10,
-            .effectChance = 40,
+            .effectChance = 30,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -14700,7 +14700,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 25,
             .type = TYPE_NORMAL,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -14727,7 +14727,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 110,
             .type = TYPE_FLYING,
-            .accuracy = 70,
+            .accuracy = 80,
             .pp = 10,
             .effectChance = 30,
         },
@@ -14779,9 +14779,9 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT_TWICE,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (60) : (50)),
+            .power = 60,
             .type = TYPE_STEEL,
-            .accuracy = ((CHAMPIONS_POWER_CHANGES) ? (90) : (85)),
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 0,
         },
@@ -14916,7 +14916,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 65,
             .type = TYPE_ICE,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 100,
         },
@@ -14943,7 +14943,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 130,
             .type = TYPE_ELECTRIC,
-            .accuracy = 85,
+            .accuracy = 90,
             .pp = 5,
             .effectChance = 20,
         },
@@ -14970,7 +14970,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 130,
             .type = TYPE_FIRE,
-            .accuracy = 85,
+            .accuracy = 90,
             .pp = 5,
             .effectChance = 20,
         },
@@ -15024,7 +15024,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 140,
             .type = TYPE_ICE,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 30,
         },
@@ -15051,7 +15051,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 140,
             .type = TYPE_ICE,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 30,
         },
@@ -15078,7 +15078,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 55,
             .type = TYPE_DARK,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 100,
         },
@@ -15105,7 +15105,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 85,
             .type = TYPE_ICE,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 30,
         },
@@ -15166,7 +15166,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -15193,7 +15193,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -15213,7 +15213,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 100,
             .type = TYPE_FIGHTING,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -15267,7 +15267,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 120,
             .type = TYPE_POISON,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -15301,7 +15301,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ALL_ADJACENT | RANGE_USER,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -15328,7 +15328,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_OPPONENT_SIDE,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -15415,7 +15415,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
         },
-        .description = "The user takes the\\ntarget trick-or-\\ntreating.\\nThis adds Ghost type\\nto the target’s type.",
+        .description = "The user takes the\\ntarget\\ntrick-or-treating.\\nThis adds Ghost type\\nto the target’s type.",
     },
 
     [MOVE_NOBLE_ROAR] = {
@@ -15430,7 +15430,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 100,
-            .pp = 30,
+            .pp = 10,
             .effectChance = 100,
         },
         .battle = {
@@ -15523,7 +15523,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
         },
-        .description = "The user puts a\\nforest curse on the\\ntarget.\\nThis adds Grass type\\nto the target’s type.",
+        .description = "The user puts a forest\\ncurse on the target.\\nThis adds Grass type\\nto the target’s type.",
     },
 
     [MOVE_PETAL_BLIZZARD] = {
@@ -15652,7 +15652,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -15733,7 +15733,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ALL_ADJACENT | RANGE_USER,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -15814,7 +15814,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -15834,7 +15834,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 90,
             .type = TYPE_FAIRY,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 10,
         },
@@ -15890,7 +15890,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .type = TYPE_FAIRY,
             .accuracy = 100,
             .pp = 15,
-            .effectChance = ((CHAMPIONS_EFFECT_CHANCE_CHANGES) ? (10) : (30)),
+            .effectChance = 10,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -15949,7 +15949,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_FIELD,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -15970,7 +15970,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_STEEL,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -15997,7 +15997,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 0,
-            .pp = 20,
+            .pp = 10,
             .effectChance = 100,
         },
         .battle = {
@@ -16019,18 +16019,18 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Confide",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_SP_ATK_DOWN,
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 0,
-            .pp = 20,
+            .pp = 10,
             .effectChance = 100,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -16050,7 +16050,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 100,
             .type = TYPE_ROCK,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 50,
         },
@@ -16077,7 +16077,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 110,
             .type = TYPE_WATER,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 30,
         },
@@ -16186,7 +16186,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_GRASS,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -16219,7 +16219,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ALLY,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -16240,7 +16240,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_ELECTRIC,
             .accuracy = 100,
-            .pp = 15,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -16354,7 +16354,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_USER_SIDE,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -16510,7 +16510,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_FAIRY,
             .accuracy = 100,
-            .pp = 30,
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -16678,7 +16678,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ADJACENT_OPPONENTS,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -16752,7 +16752,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 140,
             .type = TYPE_FAIRY,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 0,
         },
@@ -16779,7 +16779,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 110,
             .type = TYPE_WATER,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -16806,7 +16806,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 120,
             .type = TYPE_GROUND,
-            .accuracy = 85,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -17911,7 +17911,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_FIRST_TURN_ONLY,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (100) : (90)),
+            .power = 100,
             .type = TYPE_BUG,
             .accuracy = 100,
             .pp = 10,
@@ -17941,7 +17941,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_POISON,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -17965,7 +17965,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_PREVENT_ESCAPE_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (80)),
+            .power = 90,
             .type = TYPE_GHOST,
             .accuracy = 100,
             .pp = 10,
@@ -18048,7 +18048,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 100,
             .type = TYPE_ICE,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 100,
         },
@@ -18082,7 +18082,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -18102,7 +18102,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 95,
             .type = TYPE_GROUND,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -18298,7 +18298,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_USER_SIDE,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -18370,7 +18370,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_PREVENT_ESCAPE_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (80)),
+            .power = 90,
             .type = TYPE_STEEL,
             .accuracy = 100,
             .pp = 20,
@@ -18451,7 +18451,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_DEFENSE_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (80)),
+            .power = 90,
             .type = TYPE_FIRE,
             .accuracy = 100,
             .pp = 15,
@@ -18541,7 +18541,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -18589,13 +18589,13 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_POISON,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (20)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -18613,7 +18613,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_SPECIAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (100) : (90)),
+            .power = 100,
             .type = TYPE_NORMAL,
             .accuracy = 100,
             .pp = 15,
@@ -18649,7 +18649,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ADJACENT_OPPONENTS,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -18667,7 +18667,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_ATTACK_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (85) : (70)),
+            .power = 85,
             .type = TYPE_GRASS,
             .accuracy = 100,
             .pp = 15,
@@ -18703,7 +18703,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -18721,16 +18721,16 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (120) : (100)),
+            .power = 120,
             .type = TYPE_FLYING,
             .accuracy = 100,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (15)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = -3,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -18775,7 +18775,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (100) : (90)),
+            .power = 100,
             .type = TYPE_DRAGON,
             .accuracy = 100,
             .pp = 15,
@@ -19102,13 +19102,13 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 150,
             .type = TYPE_FIRE,
             .accuracy = 100,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (10) : (5)),
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
             .target = RANGE_ADJACENT_OPPONENTS,
             .priority = -3,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -19128,7 +19128,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 130,
             .type = TYPE_FAIRY,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 100,
         },
@@ -19324,7 +19324,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_CONTACT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT,
         },
         .contest = {
             .appeal = 0,
@@ -19351,7 +19351,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -19378,7 +19378,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -19399,7 +19399,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_NORMAL,
             .accuracy = 0,
-            .pp = 20,
+            .pp = 10,
             .effectChance = 100,
         },
         .battle = {
@@ -19452,7 +19452,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 0,
             .type = TYPE_FAIRY,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -19540,7 +19540,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ALL_ADJACENT,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20206,7 +20206,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIGH_CRITICAL,
             .split = SPLIT_SPECIAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (85) : (80)),
+            .power = 85,
             .type = TYPE_WATER,
             .accuracy = 100,
             .pp = 15,
@@ -20296,7 +20296,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_USER,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -20323,7 +20323,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -20404,7 +20404,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ALL_ADJACENT | RANGE_USER,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -20431,7 +20431,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -20449,7 +20449,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_DOUBLE_POWER_IF_FASTER,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (80) : (85)),
+            .power = 80,
             .type = TYPE_ELECTRIC,
             .accuracy = 100,
             .pp = 10,
@@ -20476,7 +20476,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_DOUBLE_POWER_IF_FASTER,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (80) : (85)),
+            .power = 80,
             .type = TYPE_WATER,
             .accuracy = 100,
             .pp = 10,
@@ -20512,7 +20512,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_FIELD,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -20539,7 +20539,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20566,7 +20566,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20593,7 +20593,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20620,7 +20620,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20647,7 +20647,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20674,7 +20674,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20701,7 +20701,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20728,7 +20728,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20755,7 +20755,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20782,7 +20782,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20809,7 +20809,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20836,7 +20836,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20863,7 +20863,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20890,7 +20890,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20917,7 +20917,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20944,7 +20944,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20971,7 +20971,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -20998,7 +20998,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -21122,10 +21122,10 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Snap Trap",
         },
         .data = {
-            .effect = MOVE_EFFECT_BIND_HIT,
+            .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
             .power = 35,
-            .type = ((CHAMPIONS_TYPE_CHANGES) ? (TYPE_STEEL) : (TYPE_GRASS)),
+            .type = TYPE_STEEL,
             .accuracy = 100,
             .pp = 15,
             .effectChance = 100,
@@ -21230,7 +21230,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Aura Wheel",
         },
         .data = {
-            .effect = MOVE_EFFECT_RAISE_SPEED_HIT,
+            .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
             .power = 110,
             .type = TYPE_ELECTRIC,
@@ -21340,7 +21340,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_SP_DEF_HIT,
             .split = SPLIT_SPECIAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (80)),
+            .power = 90,
             .type = TYPE_GRASS,
             .accuracy = 100,
             .pp = 10,
@@ -21367,7 +21367,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_LOWER_DEFENSE_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (80)),
+            .power = 90,
             .type = TYPE_GRASS,
             .accuracy = 100,
             .pp = 10,
@@ -21423,7 +21423,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 90,
             .type = TYPE_FAIRY,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 20,
         },
@@ -21478,7 +21478,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_DARK,
             .accuracy = 100,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -21585,14 +21585,14 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 140,
             .type = TYPE_STEEL,
-            .accuracy = 95,
+            .accuracy = 100,
             .pp = 5,
             .effectChance = 0,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -21666,7 +21666,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 25,
             .type = TYPE_DRAGON,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 20,
             .effectChance = 100,
         },
@@ -21693,7 +21693,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 120,
             .type = TYPE_ROCK,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 100,
         },
@@ -21727,7 +21727,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -21745,7 +21745,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HALVE_DEFENSE,
             .split = SPLIT_SPECIAL,
-            .power = 100,
+            .power = 200,
             .type = TYPE_FAIRY,
             .accuracy = 100,
             .pp = 5,
@@ -21855,7 +21855,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 70,
             .type = TYPE_BUG,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 100,
         },
@@ -21889,7 +21889,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ADJACENT_OPPONENTS,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -21970,7 +21970,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ALL_ADJACENT,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -22071,7 +22071,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_PHYSICAL,
             .power = 40,
             .type = TYPE_FLYING,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 10,
             .effectChance = 0,
         },
@@ -22132,7 +22132,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_USER_SIDE,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -22150,7 +22150,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_ALWAYS_CRITICAL,
             .split = SPLIT_PHYSICAL,
-            .power = 75,
+            .power = 80,
             .type = TYPE_DARK,
             .accuracy = 100,
             .pp = 5,
@@ -22202,11 +22202,11 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Thunder Cage",
         },
         .data = {
-            .effect = MOVE_EFFECT_BIND_HIT,
+            .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_SPECIAL,
             .power = 80,
             .type = TYPE_ELECTRIC,
-            .accuracy = 90,
+            .accuracy = 100,
             .pp = 15,
             .effectChance = 100,
         },
@@ -22219,7 +22219,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
         },
-        .description = "The user traps the\\ntarget inside a cage\\nof electricity that\\ninflicts damage for\\nfour to five turns.",
+        .description = "The user traps the\\ntarget inside a cage of\\nsparking electricity\\nthat inflicts damage\\nfor four to five turns.",
     },
 
     [MOVE_DRAGON_ENERGY] = {
@@ -22339,7 +22339,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = 120,
+            .power = 130,
             .type = TYPE_ICE,
             .accuracy = 100,
             .pp = 5,
@@ -22366,7 +22366,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_SPECIAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (110) : (120)),
+            .power = 110,
             .type = TYPE_GHOST,
             .accuracy = 100,
             .pp = 5,
@@ -22402,7 +22402,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -22424,7 +22424,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .type = TYPE_POISON,
             .accuracy = 100,
             .pp = 15,
-            .effectChance = ((CHAMPIONS_EFFECT_CHANCE_CHANGES) ? (30) : (50)),
+            .effectChance = 30,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
@@ -22447,7 +22447,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_RAISE_DEF_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (90) : (70)),
+            .power = 90,
             .type = TYPE_PSYCHIC,
             .accuracy = 90,
             .pp = 10,
@@ -22663,7 +22663,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_FLINCH_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (120) : (100)),
+            .power = 120,
             .type = TYPE_ICE,
             .accuracy = 85,
             .pp = 10,
@@ -22861,7 +22861,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -22879,7 +22879,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_BURN_HIT_DOUBLE_POWER_ON_STATUS,
             .split = SPLIT_SPECIAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (65) : (60)),
+            .power = 65,
             .type = TYPE_GHOST,
             .accuracy = 100,
             .pp = 15,
@@ -23023,7 +23023,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ALLY,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -23077,7 +23077,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -23158,7 +23158,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -23212,7 +23212,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -23287,7 +23287,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 100,
             .type = TYPE_STEEL,
             .accuracy = 100,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (10) : (5)),
+            .pp = 10,
             .effectChance = 0,
         },
         .battle = {
@@ -23401,7 +23401,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_USER,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -23428,7 +23428,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -23446,7 +23446,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT_THREE_TIMES,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (35) : (30)),
+            .power = 35,
             .type = TYPE_WATER,
             .accuracy = 95,
             .pp = 10,
@@ -23509,7 +23509,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -23691,7 +23691,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 120,
             .type = TYPE_STEEL,
-            .accuracy = ((CHAMPIONS_ACC_CHANGES) ? (95) : (100)),
+            .accuracy = 95,
             .pp = 5,
             .effectChance = 0,
         },
@@ -23887,7 +23887,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_FIELD,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -23935,7 +23935,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_ICE,
             .accuracy = 0,
-            .pp = ((CHAMPIONS_PP_CHANGES) ? (5) : (10)),
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
@@ -24040,7 +24040,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (120) : (100)),
+            .power = 120,
             .type = TYPE_NORMAL,
             .accuracy = 100,
             .pp = 5,
@@ -24094,7 +24094,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_PHYSICAL,
-            .power = 50,
+            .power = 100,
             .type = TYPE_GHOST,
             .accuracy = 100,
             .pp = 10,
@@ -24103,7 +24103,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_CONTACT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT,
         },
         .contest = {
             .appeal = 0,
@@ -24418,7 +24418,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .data = {
             .effect = MOVE_EFFECT_HIT,
             .split = SPLIT_SPECIAL,
-            .power = ((CHAMPIONS_POWER_CHANGES) ? (140) : (130)),
+            .power = 130,
             .type = TYPE_NORMAL,
             .accuracy = 100,
             .pp = 5,
@@ -24474,14 +24474,14 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .split = SPLIT_SPECIAL,
             .power = 60,
             .type = TYPE_GRASS,
-            .accuracy = ((CHAMPIONS_ACC_CHANGES) ? (90) : (85)),
+            .accuracy = 90,
             .pp = 10,
             .effectChance = 100,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -24562,7 +24562,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ADJACENT_OPPONENTS,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -24724,7 +24724,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_CONTACT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT,
         },
         .contest = {
             .appeal = 0,
@@ -24751,7 +24751,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_ALLY,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
@@ -24778,7 +24778,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -24886,7 +24886,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 3,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_CONTACT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT,
         },
         .contest = {
             .appeal = 0,
@@ -24945,6 +24945,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .contest = {
             .appeal = APPEAL_LOW_VOLTAGE_BOOST,
             .contestType = CONTEST_BEAUTY,
+            .padding02 = { 0, 0 },
         },
         .description = "",
     },
