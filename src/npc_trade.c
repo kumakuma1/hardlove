@@ -1,10 +1,11 @@
 #include "../include/npc_trade.h"
-
 #include "../include/constants/ability.h"
 #include "../include/constants/item.h"
 #include "../include/constants/species.h"
 #include "../include/pokemon.h"
 #include "../include/types.h"
+#include "../include/save.h"
+
 
 int getRandomBerry()
 {
@@ -20,7 +21,7 @@ int getRandomBerry()
 
 void randomIV(struct NPCTrade *trade_dat)
 {
-    u8 array[] = { 31, 31, 31, 0, 0, 0 };
+    int array[] = { 31, 31, 31, 0, 0, 0 };
 
     int i = gf_rand();
     array[3] = (i & (0x001f << 0)) >> 0;
