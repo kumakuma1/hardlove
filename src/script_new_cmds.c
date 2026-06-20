@@ -161,3 +161,10 @@ BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
     SetScriptVar(0x800C, 1);
     return TRUE;
 }
+
+BOOL LONG_CALL ScrCmd_CreateRoamer(SCRIPTCONTEXT *ctx)
+{
+    u8 roamerNo = ScriptReadByte(ctx);
+    Save_CreateRoamerByID(ctx->fsys->savedata, roamerNo);
+    return FALSE;
+}
