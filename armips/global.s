@@ -10,7 +10,6 @@
 
 //custom
 .include "armips/asm/custom/enable_surf_without_knowing_move.s"
-.include "armips/asm/custom/encounter_rates.s"
 
 .include "armips/asm/abilities.s" // ability expansion
 .include "armips/asm/moves.s" // repoints all the move table defines within the structure
