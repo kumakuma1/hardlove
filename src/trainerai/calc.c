@@ -429,26 +429,12 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(struct AI_sDamageCalc *attacker, 
     }
     case MOVE_EFFECT_ONE_HIT_KO: // sheer cold, guillotine, horn drill, fissure
     {
-        if (attacker->level <= defender->level || defender->ability == ABILITY_STURDY) {
-            return 0;
-        }
-        damage = defender->hp;
+        return defender->hp;
     }
     default:
         break;
     }
 
-    switch (moveno) {
-    case MOVE_SHEER_COLD:
-        if (defender->type1 == TYPE_ICE || defender->type2 == TYPE_ICE || defender->type3 == TYPE_ICE) {
-            return 0;
-        } else {
-            return defender->hp;
-        }
-        break;
-    default:
-        break;
-    }
     return damage;
 }
 

@@ -1408,8 +1408,24 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     // TODO: need to factor in Tera Shell
     u32 flag = 0;
     moveEffectiveness = BattleAI_GetTypeEffectiveness(bw, sp, moveno, movetype, &flag, attacker, defender);
-    damages->moveEffectiveness = moveEffectiveness;
+    
 
+    switch (moveno) {
+    case MOVE_SHEER_COLD:
+        if (defender->type1 == TYPE_ICE || defender->type2 == TYPE_ICE || defender->type3 == TYPE_ICE) {
+            moveEffectiveness = TYPE_MUL_NO_EFFECT;
+        }
+    case MOVE_FISSURE:
+    case MOVE_GUILLOTINE:
+    case MOVE_HORN_DRILL:
+        if (attacker->level <= defender->level || (!attackerHasMoldBreaker && defender->ability == ABILITY_STURDY)){
+            moveEffectiveness = TYPE_MUL_NO_EFFECT;
+        }
+    default:
+        break;
+    }
+
+    damages->moveEffectiveness = moveEffectiveness;
     switch (moveEffectiveness) {
     case TYPE_MUL_NO_EFFECT:
         damages->damageRoll = 0;
