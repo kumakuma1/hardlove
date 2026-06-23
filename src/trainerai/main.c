@@ -1333,6 +1333,14 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore += 5;
         }
         break;
+    case MOVE_EFFECT_RECYCLE: {
+        if (ai->attackerMon.item == ITEM_NONE && ctx->recycle_item[attacker] == ITEM_BERRY_JUICE) {
+            moveScore += 6;
+        } else {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+        break;
+    }
     case MOVE_EFFECT_GRAVITY:
     {
         if (ctx->field_condition & FIELD_STATUS_GRAVITY) {
@@ -1420,7 +1428,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         } else if (ctx->protectSuccessTurns[ai->attacker] > 1) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
-        if (monDiesEndTurn) {
+        if (monDiesEndTurn || ai->defenderMon.ability == ABILITY_UNSEEN_FIST) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
         break;
@@ -1960,7 +1968,7 @@ BOOL LONG_CALL shouldRecover(struct BattleSystem *bsys, u32 attacker UNUSED, u32
         recoverAmountHP = ai->attackerMon.maxhp - ai->attackerMon.hp; // prevent overheal
     }
 
-    if (ai->attackerMon.condition & STATUS_BAD_POISON) {
+    if (ai->attackerMon.condition & STATUS_BAD_POISON && attackerMoveEffect != MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP) {
         return FALSE;
     }
     if (ai->maxDamageReceived > recoverAmountHP) {
@@ -2043,6 +2051,7 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
         if (aiShouldRecover) {
             if (ai->attackerMon.item == ITEM_CHESTO_BERRY || ai->attackerMon.item == ITEM_LUM_BERRY
                 || ai->attackerMon.ability == ABILITY_EARLY_BIRD || ai->attackerMon.ability == ABILITY_SHED_SKIN
+                || (ai->isDoubleBattle && ai->aimonAlly.ability == ABILITY_HEALER)
                 || BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) || BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai)
                 || (ai->attackerMon.ability == ABILITY_HYDRATION && (ctx->field_condition & WEATHER_RAIN_ANY))) {
                 moveScore += 8;

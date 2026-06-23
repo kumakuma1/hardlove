@@ -1,5 +1,24 @@
 #include "../include/trainer_data.h"
 
+/*
+Elder Li                lvl 12
+Leader Falkner          lvl 16
+Slowpoke Well Proton    lvl 20
+Leader Bugsy            lvl 25
+Route 36 Schorsch       lvl 30
+Leader Whitney          lvl 35
+Leader Morty            lvl 39
+Leader Chuck            lvl 47
+Safari Zone Proton  	lvl 50
+Leader Jasmine          lvl 54
+Team Rocket Petrel      lvl 60
+Leader Pryce            lvl 64
+Rematch Whitney         lvl 66
+Team Rocket Archer      lvl 71
+Leader Clair            lvl 76
+Elite Four              lvl 81
+*/
+
 const TrainerData sTrainerData[] = {
     [0] = {
         .name = "-",
@@ -11513,7 +11532,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "I’ve been given strict orders.\\rI’m to crush anyone who challenges\\nTeam Rocket!\\r",
+                .text = "Now you’re gonna get it!\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -11521,7 +11540,23 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "I failed in my duties...\\nI’ll be docked pay for this...\\n",
+                .text = "Now you’re gonna get it!\\n",
+            },
+            {
+                .type = TRMSG_HIT_POKE_FIRST_TIME,
+                .text = "Now you’re gonna get it!\\n",
+            },
+            {
+                .type = TRMSG_CURRENT_POKE_HALF,
+                .text = "Now you’re gonna get it!\\n",
+            },
+            {
+                .type = TRMSG_LAST_POKE,
+                .text = "Now you’re gonna get it!\\n",
+            },
+            {
+                .type = TRMSG_LAST_POKE_HALF,
+                .text = "Now you’re gonna get it!\\n",
             },
         },
     },
@@ -11547,15 +11582,31 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "It feels great ordering Pokémon to\\ncommit crimes.\\r",
+                .text = "Now you’re gonna get it!\\r ",
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "You’re kidding!\\n",
+                .text = "!!!\\n",
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "I feel lousy over losing! Bah!\\nI hate useless Pokémon!\\n",
+                .text = "Now you’re gonna get it!\\n",
+            },
+            {
+                .type = TRMSG_HIT_POKE_FIRST_TIME,
+                .text = "Now you’re gonna get it!\\n",
+            },
+            {
+                .type = TRMSG_CURRENT_POKE_HALF,
+                .text = "Now you’re gonna get it!\\n",
+            },
+            {
+                .type = TRMSG_LAST_POKE,
+                .text = "Now you’re gonna get it!\\n",
+            },
+            {
+                .type = TRMSG_LAST_POKE_HALF,
+                .text = "Now you’re gonna get it!\\n",
             },
         },
     },
@@ -26095,7 +26146,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [478] = {
-        .name = "Ariana",
+        .name = "Brianna",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES,
             .trainerClass = TRAINERCLASS_EXECUTIVE_ARIANA,
@@ -26785,7 +26836,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_LAST_POKE,
-                .text = "We can’t have you getting in the way\\nbefore news of our resurgence\\freaches Giovanni!\\n",
+                .text = "I will not yield!\\n",
             },
             {
                 .type = TRMSG_LAST_POKE_HALF,
@@ -26793,7 +26844,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "No!\\nForgive me, Giovanni!\\n",
+                .text = "This cannot be...\\n",
             },
         },
     },
@@ -35562,7 +35613,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [706] = {
-        .name = "Proton",
+        .name = "Patrick",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES,
             .trainerClass = TRAINERCLASS_EXECUTIVE_PROTON,
