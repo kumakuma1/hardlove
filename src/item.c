@@ -103,7 +103,7 @@ static const u16 sMachineMoves[] = {
     MOVE_SWAGGER,          // TM087
     MOVE_PLUCK,            // TM088
     MOVE_U_TURN,           // TM089
-    MOVE_SUBSTITUTE,       // TM090
+    MOVE_PROTECT,       // TM090
     MOVE_FLASH_CANNON,     // TM091
     MOVE_TRICK_ROOM,       // TM092
 

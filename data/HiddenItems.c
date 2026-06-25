@@ -213,19 +213,19 @@ const HiddenItemData sHiddenItemParam[] = {
     { ITEM_PEARL, 1, 0, 0, 179 }, // R19
     { ITEM_REVIVE, 1, 0, 0, 207 }, // R19
     { ITEM_MAX_ELIXIR, 1, 0, 0, 208 }, // R19
-    { ITEM_RARE_CANDY, 1, 0, 0, 115 }, // R28
-    { ITEM_FULL_RESTORE, 1, 0, 0, 116 }, // Mt Silver PC
-    { ITEM_DIRE_HIT, 1, 0, 0, 76 }, // Mt Silver
-    { ITEM_ULTRA_BALL, 1, 0, 0, 77 }, // Mt Silver
-    { ITEM_REVIVE, 1, 0, 0, 201 }, // Mt Silver
-    { ITEM_RARE_CANDY, 1, 0, 0, 165 }, // Mt Silver
-    { ITEM_MAX_ETHER, 1, 0, 0, 204 }, // Mt Silver
-    { ITEM_HYPER_POTION, 1, 0, 0, 205 }, // Mt Silver
-    { ITEM_ULTRA_BALL, 1, 0, 0, 202 }, // Mt Silver
+    { ITEM_HEART_SCALE, 1, 0, 0, 115 }, // R28
+    { ITEM_HEART_SCALE, 1, 0, 0, 116 }, // Mt Silver PC
+    { ITEM_HEART_SCALE, 1, 0, 0, 76 }, // Mt Silver
+    { ITEM_HEART_SCALE, 1, 0, 0, 77 }, // Mt Silver
+    { ITEM_HEART_SCALE, 1, 0, 0, 201 }, // Mt Silver
+    { ITEM_HEART_SCALE, 1, 0, 0, 165 }, // Mt Silver
+    { ITEM_HEART_SCALE, 1, 0, 0, 204 }, // Mt Silver
+    { ITEM_HYPER_POTION, 1, 0, 0, 205 }, // Mt Silver lavados
+    { ITEM_ULTRA_BALL, 1, 0, 0, 202 }, // Mt Silver lavados
     { ITEM_HYPER_POTION, 1, 0, 0, 203 }, // Mt Silver
     { ITEM_MAX_POTION, 1, 0, 0, 78 }, // Mt Silver
     { ITEM_IRON, 1, 0, 0, 222 }, // Mt Silver
-    { ITEM_MAX_REVIVE, 1, 0, 0, 206 }, // Mt Silver
+    { ITEM_MAX_REVIVE, 1, 0, 0, 206 }, // Mt Silver  before Summit
     { ITEM_HYPER_POTION, 1, 0, 0, 93 }, // Cerulean Cave
     { ITEM_RARE_CANDY, 1, 0, 0, 94 }, // Cerulean Cave
     { ITEM_REVIVE, 1, 0, 0, 95 }, // Cerulean Cave

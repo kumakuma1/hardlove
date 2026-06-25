@@ -5030,3 +5030,92 @@ Function 2:
 	SetVar 0x8005 1
 
 2: This is Body Press.\nGood defense is good offense!\rBut I’ll let you figure that out.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Mt Silver
+Protect
+
+Function 10:
+	Movement Overworld.0 Action#1
+	WaitMovement
+	Message 1
+	SetVar 0x8004 417

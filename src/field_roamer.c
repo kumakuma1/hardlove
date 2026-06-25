@@ -106,19 +106,19 @@ void LONG_CALL Save_CreateRoamerByID(SaveData *saveData, u8 idx)
     case ROAMER_RAIKOU:
         drawRandomRoamer();
         species = GetScriptVar(0x40BB);
-        level = 75;
+        level = 65;
         break;
     case ROAMER_ENTEI:
         species = GetScriptVar(0x40BC);
-        level = 75;
+        level = 65;
         break;
     case ROAMER_LATIAS:
         species = GetScriptVar(0x40BD);
-        level = 75;
+        level = 65;
         break;
     case ROAMER_LATIOS:
         species = GetScriptVar(0x40BE);
-        level = 75;
+        level = 65;
         break;
     default:
         GF_ASSERT(FALSE);

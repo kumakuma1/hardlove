@@ -1101,7 +1101,7 @@ scr_seq_0141_142:
 	setvar VAR_SPECIAL_x8008, ITEM_TM036
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
-
+	
 scr_seq_0141_143:
 	//lake of rage, north west, 1288
 	setvar VAR_SPECIAL_x8008, ITEM_FLYING_GEM
@@ -1128,13 +1128,13 @@ scr_seq_0141_146:
 
 scr_seq_0141_147:
 	//route 44, central, surf, 1202
-	setvar VAR_SPECIAL_x8008, 29
+	setvar VAR_SPECIAL_x8008, ITEM_RED_CARD
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_148:
 	//route 44, north east, 1203
-	setvar VAR_SPECIAL_x8008, 2
+	setvar VAR_SPECIAL_x8008, ITEM_MAX_REVIVE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1176,7 +1176,7 @@ scr_seq_0141_154:
 
 scr_seq_0141_155:
 	//ice path B2f, central, 1110 tm 72
-	setvar VAR_SPECIAL_x8008, 399
+	setvar VAR_SPECIAL_x8008, ITEM_TM072
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1218,13 +1218,13 @@ scr_seq_0141_161:
 
 scr_seq_0141_162:
 	//route 45 central west, 1214 full heal
-	setvar VAR_SPECIAL_x8008, 27
+	setvar VAR_SPECIAL_x8008, ITEM_NUGGET
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_163:
 	//route 45 south aest, 1215 nugget
-	setvar VAR_SPECIAL_x8008, 92
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1591,61 +1591,73 @@ scr_seq_0141_229:
 	goto scr_seq_0141_255
 
 scr_seq_0141_230:
-	setvar VAR_SPECIAL_x8008, 362
+	//route 28, east, 1280, //tm35
+	setvar VAR_SPECIAL_x8008, ITEM_TM089
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_231:
-	setvar VAR_SPECIAL_x8008, 325
+	//Mt silver entry, west, 1231 //reaper cloth
+	setvar VAR_SPECIAL_x8008, ITEM_MASTER_BALL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_232:
-	setvar VAR_SPECIAL_x8008, 23
+	//Mt silver 1F northeast, 1241, //full restore
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_233:
-	setvar VAR_SPECIAL_x8008, 320
+	//Mt silver snowy outside, east, 1242, //full insence
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_234:
-	setvar VAR_SPECIAL_x8008, 109
+	//Mt silver  snowy outside, west, 1243, //dawn stone
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_235:
-	setvar VAR_SPECIAL_x8008, 78
+	//Mt silver  outside, west, 1244, //escape rope
+	setvar VAR_SPECIAL_x8008, ITEM_ABILITY_CAPSULE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_236:
+	//Mt silver  outside, west, 1245, //tm76
 	setvar VAR_SPECIAL_x8008, 403
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_237:
+	//Mt silver  1f small cave, 1246, //expert belt removed -> Archer
 	setvar VAR_SPECIAL_x8008, 268
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_238:
+	//Mt silver  2f, west, 1247, //max elixier
 	setvar VAR_SPECIAL_x8008, 41
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_239:
+	//Mt silver  2f, west, 1248, //calcium
 	setvar VAR_SPECIAL_x8008, 49
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_240:
+	//Mt silver  2f, west, 1249, //protein
 	setvar VAR_SPECIAL_x8008, 46
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_241:
+	//Mt silver  2f, west, 1250, //max revive
 	setvar VAR_SPECIAL_x8008, 29
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
