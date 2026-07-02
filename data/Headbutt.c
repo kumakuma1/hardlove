@@ -4360,7 +4360,7 @@ const HeadbuttArchiveData __data =
         {
             { SPECIES_SPINARAK, 1, 10 },
             { SPECIES_WEEDLE, 1, 10 },
-            { SPECIES_SPEAROW, 1, 10 },
+            { SPECIES_SENTRET, 1, 10 },
             { SPECIES_COMBEE, 1, 10 },
             { SPECIES_EXEGGCUTE, 1, 10 },
             { SPECIES_COMBEE, 1, 10 },

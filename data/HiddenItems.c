@@ -146,10 +146,10 @@ const HiddenItemData sHiddenItemParam[] = {
     { ITEM_MAX_POTION, 1, 0, 0, 79 }, // Victory Road
     { ITEM_FULL_HEAL, 1, 0, 0, 80 }, // Victory Road
     { ITEM_MAX_REVIVE, 1, 0, 0, 185 }, // Victory Road
-    { ITEM_PP_UP, 1, 0, 0, 186 }, // Victory Road
+    { ITEM_HEART_SCALE, 1, 0, 0, 186 }, // Victory Road
     { ITEM_ULTRA_BALL, 1, 0, 0, 189 }, // Victory Road
     { ITEM_HYPER_POTION, 1, 0, 0, 187 }, // Victory Road
-    { ITEM_ZINC, 1, 0, 0, 188 }, // Victory Road
+    { ITEM_MAX_REVIVE, 1, 0, 0, 188 }, // Victory Road
     { ITEM_HEART_SCALE, 1, 0, 0, 190 }, // Indigo Plateau
     { ITEM_IRON, 1, 0, 0, 84 }, // Vermillion
     { ITEM_GROUND_GEM, 1, 0, 0, 103 }, // Vermillion

@@ -593,7 +593,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_SWIMMER_F,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -899,7 +899,7 @@ const TrainerData sTrainerData[] = {
                 .level = 18,
                 .species = MON_WITH_FORM(SPECIES_RATICATE, 1),
                 .item = ITEM_LUM_BERRY,
-                .moves = { MOVE_FEINT_ATTACK, MOVE_QUICK_ATTACK, MOVE_BULK_UP, MOVE_NONE },
+                .moves = { MOVE_FEINT_ATTACK, MOVE_QUICK_ATTACK, MOVE_STOMPING_TANTRUM, MOVE_BULK_UP },
                 .ability = ABILITY_HUSTLE,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -1049,7 +1049,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_SWIMMER_M,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -2947,7 +2947,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_TEACHER,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -3349,7 +3349,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_POKEFAN_M,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -4945,7 +4945,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_CAMPER,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -5281,7 +5281,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_BEAUTY,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -7034,7 +7034,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_SWIMMER_F,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -7109,7 +7109,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_SWIMMER_M,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -8712,7 +8712,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_FISHERMAN,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = SINGLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -10181,7 +10181,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_BLACK_BELT,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -11311,7 +11311,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_LASS,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -12043,7 +12043,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_POKE_MANIAC,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -13540,7 +13540,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -26167,7 +26167,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "Ariana: Hey, you...\\nRemember me from the hideout in\\fMahogany Town?\\rThis time...\\rHee hee hee. This time...it looks like\\nyou’re really all alone. All alone...\\rSo it should be quite easy.\\nBring it! Let’s finish this!\\r\\n",
+                .text = "I am Brianna,\\na newly promoted Executive!\rI received this promotion because\\nI deliver results, not excuses.\\r",
             },
             {
                 .type = TRMSG_LAST_POKE,
@@ -26183,7 +26183,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "What a waste...\\nnot to use your strength to do\\fbad things!\\rFeh... People like you will never in a\\nmillion years understand our brilliance!\\rIt’s too bad... I’ve really come to\\nrespect your strength.\\n",
+                .text = "What a waste...\\rI was promised an easy job!\\n",
             },
         },
     },
@@ -26623,7 +26623,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_BOARDER,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -34520,7 +34520,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_BEAUTY,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -34611,7 +34611,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_BEAUTY,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -35634,11 +35634,11 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "Proton: Now, wait just one second!\\rAren’t you the one who got in\\nour way at the SLOWPOKE Well?\\rI see... You’re doing all this because\\nyou want to make me angry. Be careful!\\rBut since you seem to wish it, I’ll show\\nyou the full extent of a Team Rocket\\fExecutive’s wrath!\\r",
+                .text = "Ha, my predecessor failed the\\norganization, so I stepped up to clean\\fup this mess.\\rI was briefed about you!\\r",
             },
             {
                 .type = TRMSG_LAST_POKE,
-                .text = "Seriously, you’d chase me this far?!\\n",
+                .text = "What a mess!\\n",
             },
             {
                 .type = TRMSG_LAST_POKE_HALF,
@@ -35650,7 +35650,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "Proton: You may have won this time...\\nBut all you did was make Team Rocket’s\\fwrath grow...\\n",
+                .text = "I’m starting to see a pattern...\\n",
             },
         },
     },

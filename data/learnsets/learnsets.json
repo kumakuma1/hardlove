@@ -827,10 +827,14 @@
         "Level": 55,
         "Move": "MOVE_HYDRO_PUMP"
       },
-      {
-        "Level": 66,
-        "Move": "MOVE_WATER_SPOUT"
-      }
+        {
+            "Level": 66,
+            "Move": "MOVE_WATER_SPOUT"
+        },
+        {
+            "Level": 72,
+            "Move": "MOVE_AQUA_JET"
+        }
     ],
     "MachineMoves": [
       "MOVE_AURA_SPHERE",
@@ -19079,10 +19083,14 @@
         "Level": 53,
         "Move": "MOVE_PSYCHIC"
       },
-      {
-        "Level": 55,
-        "Move": "MOVE_HYDRO_PUMP"
-      }
+        {
+            "Level": 55,
+            "Move": "MOVE_HYDRO_PUMP"
+        },
+        {
+            "Level": 66,
+            "Move": "MOVE_SELF_DESTRUCT"
+        }
     ],
     "MachineMoves": [
       "MOVE_AGILITY",

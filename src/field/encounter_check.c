@@ -86,7 +86,7 @@ u8 LONG_CALL EncounterSlot_WildMonSlotRoll_RockSmash(void)
 {
     u8 rnd = LCRandRange(100);
 
-    return rnd >= 80 ? 1 : 0;
+    return rnd >= 60 ? 1 : 0;
 }
 
 u8 LONG_CALL EncounterSlot_WildMonSlotRoll_Headbutt(void)

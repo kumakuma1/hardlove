@@ -1640,25 +1640,25 @@ scr_seq_0141_237:
 
 scr_seq_0141_238:
 	//Mt silver  2f, west, 1247, //max elixier
-	setvar VAR_SPECIAL_x8008, 41
+	setvar VAR_SPECIAL_x8008, ITEM_LUCARIONITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_239:
 	//Mt silver  2f, west, 1248, //calcium
-	setvar VAR_SPECIAL_x8008, 49
+	setvar VAR_SPECIAL_x8008, ITEM_BLAZIKENITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_240:
 	//Mt silver  2f, west, 1249, //protein
-	setvar VAR_SPECIAL_x8008, 46
+	setvar VAR_SPECIAL_x8008, ITEM_SCEPTILITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_241:
 	//Mt silver  2f, west, 1250, //max revive
-	setvar VAR_SPECIAL_x8008, 29
+	setvar VAR_SPECIAL_x8008, ITEM_STARMINITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
