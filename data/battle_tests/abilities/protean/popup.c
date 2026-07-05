@@ -1,4 +1,4 @@
-// Test: Imposter - inherit stats
+// Test: Protean - Popup
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_DITTO,
-            .level = 53,
+            .species = SPECIES_GRENINJA,
+            .level = 50,
             .form = 0,
-            .ability = ABILITY_IMPOSTER,
-            .item = ITEM_CHOICE_SCARF, // 82 speed
-            .moves = { MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .ability = ABILITY_PROTEAN,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_SURF, MOVE_TOXIC, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -23,14 +23,15 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE } },
+        { .species = SPECIES_NONE }
+    },
     .enemyParty = { {
-                        .species = SPECIES_STARAPTOR,
+                        .species = SPECIES_HAXORUS,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_INTIMIDATE,
+                        .ability = ABILITY_RIVALRY,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_WING_ATTACK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -43,8 +44,8 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -63,8 +64,8 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -82,13 +83,9 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ditto's Attack fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ditto's Imposter" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ditto transformed into Staraptor!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Staraptor's Attack fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ditto used Wing Attack!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 54, 54, 55, 55, 57, 57, 58, 58, 58, 60, 60, 61, 61, 63, 63, 64 } },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 36, 36, 37, 37, 37, 39, 39, 39, 39, 40, 40, 40, 42, 42, 42, 43 } },
-    },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja's Protean" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja transformed into Water type!" },
+    }
 }
 END_TEST
