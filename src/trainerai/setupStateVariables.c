@@ -89,8 +89,20 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         ai->isDefenderIncapacitated = TRUE;
     }
 
+    ai->defenderAllyHasMagicBounce = FALSE;
+    if (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(defender)].hp 
+        && ctx->battlemon[BATTLER_ALLY(defender)].ability == ABILITY_MAGIC_BOUNCE && !ai->attackerMon.hasMoldBreaker) {
+        ai->defenderAllyHasMagicBounce = FALSE;
+    }
+
+    ai->defenderHasMagicBounce = FALSE;
+    if (ai->defenderMon.ability == ABILITY_MAGIC_BOUNCE && !ai->attackerMon.hasMoldBreaker) {
+        ai->defenderHasMagicBounce = TRUE;
+    }
+
     BOOL isDefenderImmuneToAnyStatus = FALSE;
     if ((ai->defenderMon.condition & STATUS_ALL)
+        || ai->defenderHasMagicBounce
         || (!ai->attackerMon.hasMoldBreaker
             && (ai->defenderMon.ability == ABILITY_GOOD_AS_GOLD
                 || ai->defenderMon.ability == ABILITY_PURIFYING_SALT

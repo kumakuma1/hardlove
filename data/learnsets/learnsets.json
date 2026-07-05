@@ -153303,7 +153303,7 @@
       },
       {
         "Level": 20,
-        "Move": "MOVE_DAZZLING_CLEAM"
+        "Move": "MOVE_DAZZLING_GLEAM"
       },
       {
         "Level": 30,
@@ -157333,7 +157333,7 @@
       },
         {
             "Level": 82,
-            "Move": "MOVE_THUNDER_CLAP"
+            "Move": "MOVE_THUNDERCLAP"
         },
         {
             "Level": 85,
@@ -157533,10 +157533,14 @@
         "Level": 80,
         "Move": "MOVE_VOLT_SWITCH"
       },
-      {
-        "Level": 82,
-        "Move": "MOVE_METAL_BURST"
-      }
+        {
+            "Level": 82,
+            "Move": "MOVE_METAL_BURST"
+        },
+        {
+            "Level": 85,
+            "Move": "MOVE_TRICK_ROOM"
+        }
     ],
     "MachineMoves": [
       "MOVE_AGILITY",

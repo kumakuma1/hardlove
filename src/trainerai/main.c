@@ -260,48 +260,55 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
     }
     int highestScoredMove = 0;
     switch (bsys->trainerId[BATTLER_ENEMY]) {
-    case 66: // trainer ID
-    {
-        u8 skillSwapPosition = 5;
-        for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
-            if (ctx->battlemon[attacker].move[j] == MOVE_SKILL_SWAP) {
-                skillSwapPosition = j;
-                break;
-            }
-        }
-
-        if (skillSwapPosition < 5) {
-            if ((ai->attackerMon.ability == ABILITY_FLASH_FIRE && ai->aimonAlly.ability != ABILITY_FLASH_FIRE && ai->aimonAlly.species == SPECIES_DURANT)
-                || (ai->attackerMon.ability == ABILITY_TECHNICIAN && ai->aimonAlly.ability != ABILITY_TECHNICIAN && ai->aimonAlly.species == SPECIES_DURANT)
-                || (ai->attackerMon.ability == ABILITY_PRANKSTER && ai->aimonAlly.ability != ABILITY_PRANKSTER && ai->aimonAlly.species == SPECIES_BRELOOM)) {
-                highestScoredMove = 1000;
-                highestScoredMove += 14;
-                moveScores[target][skillSwapPosition] += highestScoredMove;
-            }
-        }
-        break;
-    }
+    //case 66: // trainer ID
+    //case 714: // trainer ID
     default:
+    {
         {
-        if (ai->aimonAlly.item == ITEM_WEAKNESS_POLICY) {
-
-            u8 priorityMovePosition = 5;
+            u8 skillSwapPosition = 5;
             for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
-                int move = ctx->battlemon[attacker].move[j];
-                if (ctx->moveTbl[move].priority > 0 && ctx->moveTbl[move].power <= 40) {
-                    int movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, move);
-                    u32 flag = 0;
-                    u32 moveEffectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, move, movetype, &flag, &ai->attackerMon, &ai->aimonAlly);
-                    if (moveEffectiveness >= TYPE_MUL_SUPER_EFFECTIVE) {
-                        priorityMovePosition = j;
-                        break;
-                    }
+                if (ctx->battlemon[attacker].move[j] == MOVE_SKILL_SWAP) {
+                    skillSwapPosition = j;
+                    break;
                 }
             }
-            if (priorityMovePosition < 5) {
-                highestScoredMove = 1000;
-                highestScoredMove += 14;
-                moveScores[target][priorityMovePosition] += highestScoredMove;
+
+            if (skillSwapPosition < 5) {
+                if ((ai->attackerMon.ability == ABILITY_FLASH_FIRE && ai->aimonAlly.ability != ABILITY_FLASH_FIRE && ai->aimonAlly.species == SPECIES_DURANT)
+                    || (ai->attackerMon.ability == ABILITY_TECHNICIAN && ai->aimonAlly.ability != ABILITY_TECHNICIAN && ai->aimonAlly.species == SPECIES_DURANT)
+                    || (ai->attackerMon.ability == ABILITY_PRANKSTER && ai->aimonAlly.ability != ABILITY_PRANKSTER && ai->aimonAlly.species == SPECIES_BRELOOM)
+                    || (ai->aimonAlly.ability == ABILITY_TRUANT && ai->aimonAlly.species == SPECIES_SLAKING)
+                    || (ai->aimonAlly.ability == ABILITY_SLOW_START && ai->aimonAlly.species == SPECIES_REGIGIGAS)) {
+                    highestScoredMove = 1000;
+                    highestScoredMove += 14;
+                    moveScores[target][skillSwapPosition] += highestScoredMove;
+                }
+            }
+        }
+       // break;
+    //}
+    //default:
+        {
+            if (ai->aimonAlly.item == ITEM_WEAKNESS_POLICY) {
+
+                u8 priorityMovePosition = 5;
+                for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
+                    int move = ctx->battlemon[attacker].move[j];
+                    if (ctx->moveTbl[move].priority > 0 && ctx->moveTbl[move].power <= 40) {
+                        int movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, move);
+                        u32 flag = 0;
+                        u32 moveEffectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, move, movetype, &flag, &ai->attackerMon, &ai->aimonAlly);
+                        if (moveEffectiveness >= TYPE_MUL_SUPER_EFFECTIVE) {
+                            priorityMovePosition = j;
+                            break;
+                        }
+                    }
+                }
+                if (priorityMovePosition < 5) {
+                    highestScoredMove = 1000;
+                    highestScoredMove += 14;
+                    moveScores[target][priorityMovePosition] += highestScoredMove;
+                }
             }
         }
         
@@ -321,6 +328,25 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                     highestScoredMove += 2;
                 }
                 moveScores[target][acupressureMovePosition] += highestScoredMove;
+            }
+        }
+
+        {
+            u8 entrainementPosition = 5;
+            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
+                if (ctx->battlemon[attacker].move[j] == MOVE_ENTRAINMENT) {
+                    entrainementPosition = j;
+                    break;
+                }
+            }
+            if ((ai->attackerMon.ability == ABILITY_NO_GUARD
+                    && (BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_FISSURE, ai)
+                        || BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_HORN_DRILL, ai)))
+                || (ai->aimonAlly.ability == ABILITY_TRUANT && ai->aimonAlly.species == SPECIES_SLAKING)
+                || (ai->aimonAlly.ability == ABILITY_SLOW_START && ai->aimonAlly.species == SPECIES_REGIGIGAS)) {
+                highestScoredMove = 1000;
+                highestScoredMove += 14;
+                moveScores[target][entrainementPosition] += highestScoredMove;
             }
         }
             break;
@@ -394,22 +420,22 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_STEALTH_ROCK:
-        if (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_STEALTH_ROCK || ai->livingMembersDefender == 1) {
+        if (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_STEALTH_ROCK || ai->livingMembersDefender == 1 || ai->defenderHasMagicBounce || ai->defenderAllyHasMagicBounce) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
     case MOVE_EFFECT_SET_SPIKES:
-        if (ctx->scw[ai->defenderSide].spikesLayers >= 3 || ai->livingMembersDefender == 1) {
+        if (ctx->scw[ai->defenderSide].spikesLayers >= 3 || ai->livingMembersDefender == 1 || ai->defenderHasMagicBounce || ai->defenderAllyHasMagicBounce) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
     case MOVE_EFFECT_TOXIC_SPIKES:
-        if (ctx->scw[ai->defenderSide].toxicSpikesLayers >= 2 || ai->livingMembersDefender == 1) {
+        if (ctx->scw[ai->defenderSide].toxicSpikesLayers >= 2 || ai->livingMembersDefender == 1 || ai->defenderHasMagicBounce || ai->defenderAllyHasMagicBounce) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
     case MOVE_EFFECT_STICKY_WEB:
-        if (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_STICKY_WEB || ai->livingMembersDefender == 1) {
+        if (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_STICKY_WEB || ai->livingMembersDefender == 1 || ai->defenderHasMagicBounce || ai->defenderAllyHasMagicBounce) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
@@ -1428,7 +1454,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         } else if (ctx->protectSuccessTurns[ai->attacker] > 1) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
-        if (monDiesEndTurn || ai->defenderMon.ability == ABILITY_UNSEEN_FIST) {
+        if (monDiesEndTurn || ai->defenderMon.ability == ABILITY_UNSEEN_FIST || ai->attackerMon.ability == ABILITY_TRUANT) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
         break;

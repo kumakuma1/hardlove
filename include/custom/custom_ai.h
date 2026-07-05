@@ -70,6 +70,8 @@ struct PACKED AIContext {
     BOOL isDoubleBattle;
     BOOL isPartnerGrounded;
 
+    BOOL defenderHasMagicBounce;
+    BOOL defenderAllyHasMagicBounce;
     BOOL defenderImmuneToPoison;
     BOOL defenderImmuneToParalysis;
     BOOL defenderImmuneToBurn;
