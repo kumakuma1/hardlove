@@ -1,19 +1,31 @@
-// Test: Color Change - Trigger Paralysis, Heal with berry, get STAB
+// Test: Liquid Ooze - Damage + Popup
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_SINGLE,
+    .battleType = BATTLE_TYPE_DOUBLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_PIKACHU,
+            .species = SPECIES_ODDISH,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_STATIC,
+            .ability = ABILITY_CHLOROPHYLL,
+            .item = ITEM_LIFE_ORB,
+            .moves = { MOVE_ABSORB, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_BELLSPROUT,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_CHLOROPHYLL,
             .item = ITEM_NONE,
-            .moves = { MOVE_NUZZLE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_ABSORB, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -22,22 +34,32 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_KECLEON,
+                        .species = SPECIES_TENTACOOL,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_COLOR_CHANGE,
-                        .item = ITEM_CHERI_BERRY,
-                        .moves = { MOVE_THUNDER_PUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .ability = ABILITY_LIQUID_OOZE,
+                        .item = ITEM_AIR_BALLOON,
+                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_BELDUM,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_CLEAR_BODY,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
@@ -53,7 +75,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -73,7 +95,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -83,11 +105,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 10, 10, 10, 10, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Kecleon's Cheri Berry cured its paralysis!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Kecleon's Color Change" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Kecleon's type changed to Electric!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 39, 39, 39, 40, 41, 41, 42, 42, 42, 43, 43, 44, 45, 45, 45, 46 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish used Absorb!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 16 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Tentacool's Liquid Ooze" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle's Speed fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander's Speed fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Beldum's Speed fell!" },
     }
 }
 END_TEST
