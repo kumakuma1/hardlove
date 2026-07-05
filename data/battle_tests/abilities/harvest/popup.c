@@ -1,19 +1,19 @@
-// Test: Trace - Popup
+// Test: Harvest - Popup
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_SINGLE,
+    .battleType = BATTLE_TYPE_DOUBLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_KIRLIA,
+            .species = SPECIES_NINETALES,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_TRACE,
+            .ability = ABILITY_DROUGHT,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_EMBER, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -26,13 +26,13 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_HAXORUS,
+                        .species = SPECIES_EXEGGUTOR,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_MOLD_BREAKER,
-                        .item = ITEM_NONE,
+                        .ability = ABILITY_HARVEST,
+                        .item = ITEM_ORAN_BERRY,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .hp = 101,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -43,8 +43,8 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .playerScript = { {
-                          { ACTION_NONE, 0 },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -63,8 +63,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_NONE, 0 },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,9 +83,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Kirlia's Trace" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It traced the opposing Haxorus’s Mold Breaker!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Kirlia's Mold Breaker" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Exeggutor restored its health using its Oran Berry!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Exeggutor’s Harvest restored its Oran Berry!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Exeggutor restored its health using its Oran Berry!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Exeggutor’s Harvest restored its Oran Berry!" },
     }
 }
 END_TEST
