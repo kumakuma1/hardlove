@@ -1,4 +1,4 @@
-// Test: Magic Bounce - Bounce spread move in doubles against two Bouncer, slot ordered
+// Test: Magic Coat - Bounce spread move in doubles
 #include "../../battle_tests.h"
 BEGIN_TEST {
     .battleType = BATTLE_TYPE_DOUBLE,
@@ -19,10 +19,10 @@ BEGIN_TEST {
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_PINSIR,
+            .species = SPECIES_SNOM,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_HYPER_CUTTER,
+            .ability = ABILITY_ICE_SCALES,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -35,22 +35,22 @@ BEGIN_TEST {
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_HATTERENE,
+                        .species = SPECIES_ESPEON,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_MAGIC_BOUNCE,
+                        .ability = ABILITY_SYNCHRONIZE,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_MAGIC_COAT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_ESPEON,
+            .species = SPECIES_CHARMANDER,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_MAGIC_BOUNCE,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -104,12 +104,9 @@ BEGIN_TEST {
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok used Growl!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Attack" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Hatterene bounced the Growl back!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pinsir's Hyper Cutter" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Charmander's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Growl back!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Attack fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pinsir's Hyper Cutter" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snom's Attack fell!" },
     },
 } END_TEST

@@ -1,4 +1,4 @@
-// Test: Magic Bounce - Bounce spread move in doubles against two Bouncer, slot ordered
+// Test: Magic Bounce - Bounce single target move in doubles, no teeter dance
 #include "../../battle_tests.h"
 BEGIN_TEST {
     .battleType = BATTLE_TYPE_DOUBLE,
@@ -12,19 +12,19 @@ BEGIN_TEST {
             .form = 0,
             .ability = ABILITY_SHED_SKIN,
             .item = ITEM_NONE,
-            .moves = { MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_GLARE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_PINSIR,
+            .species = SPECIES_SPINDA,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_HYPER_CUTTER,
+            .ability = ABILITY_NO_GUARD,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_TEETER_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -35,7 +35,7 @@ BEGIN_TEST {
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_HATTERENE,
+                        .species = SPECIES_ESPEON,
                         .level = 50,
                         .form = 0,
                         .ability = ABILITY_MAGIC_BOUNCE,
@@ -47,7 +47,7 @@ BEGIN_TEST {
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_ESPEON,
+            .species = SPECIES_HATTERENE,
             .level = 50,
             .form = 0,
             .ability = ABILITY_MAGIC_BOUNCE,
@@ -103,13 +103,13 @@ BEGIN_TEST {
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok used Growl!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Attack" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Hatterene bounced the Growl back!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pinsir's Hyper Cutter" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok used Glare!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pinsir's Hyper Cutter" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Glare back!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok is paralyzed, so it may be unable to move!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Spinda used Teeter Dance!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok became confused!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon became confused!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Hatterene became confused!" },
     },
 } END_TEST
