@@ -1283,7 +1283,8 @@ scr_seq_0141_172:
 	goto scr_seq_0141_255
 
 scr_seq_0141_173:
-	setvar VAR_SPECIAL_x8008, 81
+	// Tohjo Falls, 1116 //moon stone
+	setvar VAR_SPECIAL_x8008, ITEM_EJECT_PACK
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1313,49 +1314,49 @@ scr_seq_0141_177:
 
 scr_seq_0141_178:
 	// Victory road 1F, north, 1119 //max revive
-	setvar VAR_SPECIAL_x8008, 29
+	setvar VAR_SPECIAL_x8008, ITEM_ROCKY_HELMET
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_179:
 	// Victory road 1F, central, 1120 //full heal
-	setvar VAR_SPECIAL_x8008, 27
+	setvar VAR_SPECIAL_x8008, ITEM_FULL_HEAL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_180:
 	// Victory road 1F, east, 1121 //potion
-	setvar VAR_SPECIAL_x8008, ITEM_ROCKY_HELMET
+	setvar VAR_SPECIAL_x8008, ITEM_GENGARITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_181:
 	// Victory road 2F, north west, 1122 //tm26
-	setvar VAR_SPECIAL_x8008, 353
+	setvar VAR_SPECIAL_x8008, ITEM_DRAGALGITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_182:
 	// Victory road 2F, south, 1123 //hp up
-	setvar VAR_SPECIAL_x8008, 45
+	setvar VAR_SPECIAL_x8008, ITEM_BANETTITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_183:
 	// Victory road 2F, Northeast, 1124 //full restore
-	setvar VAR_SPECIAL_x8008, 23
+	setvar VAR_SPECIAL_x8008, ITEM_ELECTROSSITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_184:
 	// Victory road 3F, north rocksmash, 1125 //ultra ball
-	setvar VAR_SPECIAL_x8008, 2
+	setvar VAR_SPECIAL_x8008, ITEM_EXCADRITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_185:
 	// Victory road 3F, central rocksmash, 1126 //tm79
-	setvar VAR_SPECIAL_x8008, 406
+	setvar VAR_SPECIAL_x8008, ITEM_FOCUS_SASH
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

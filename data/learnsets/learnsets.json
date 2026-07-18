@@ -153768,68 +153768,56 @@
   "SPECIES_IRON_BUNDLE": {
     "LevelMoves": [
       {
-        "Level": 0,
-        "Move": "MOVE_ELECTRIC_TERRAIN"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_ELECTRIC_TERRAIN"
-      },
-      {
         "Level": 1,
         "Move": "MOVE_PRESENT"
       },
       {
-        "Level": 7,
+        "Level": 1,
         "Move": "MOVE_POWDER_SNOW"
       },
       {
-        "Level": 14,
+        "Level": 10,
         "Move": "MOVE_WHIRLPOOL"
       },
       {
-        "Level": 21,
-        "Move": "MOVE_TAKE_DOWN"
-      },
-      {
-        "Level": 28,
+        "Level": 20,
         "Move": "MOVE_DRILL_PECK"
       },
       {
-        "Level": 35,
+        "Level": 30,
         "Move": "MOVE_HELPING_HAND"
       },
       {
-        "Level": 42,
+        "Level": 40,
         "Move": "MOVE_FREEZE_DRY"
       },
       {
-        "Level": 49,
-        "Move": "MOVE_FLIP_TURN"
+        "Level": 50,
+        "Move": "MOVE_SURF"
       },
       {
-        "Level": 56,
+        "Level": 60,
         "Move": "MOVE_ICE_BEAM"
       },
       {
-        "Level": 63,
-        "Move": "MOVE_AGILITY"
-      },
-      {
         "Level": 70,
-        "Move": "MOVE_SNOWSCAPE"
+        "Move": "MOVE_BLIZZARD"
       },
       {
-        "Level": 77,
+        "Level": 80,
         "Move": "MOVE_HYDRO_PUMP"
       },
       {
-        "Level": 84,
-        "Move": "MOVE_AURORA_VEIL"
+        "Level": 82,
+        "Move": "MOVE_U_TURN"
       },
       {
-        "Level": 91,
-        "Move": "MOVE_BLIZZARD"
+        "Level": 83,
+        "Move": "MOVE_FLIP_TURN"
+      },
+      {
+        "Level": 85,
+        "Move": "MOVE_ICE_SPINNER"
       }
     ],
     "MachineMoves": [
@@ -153871,7 +153859,10 @@
       "MOVE_WHIRLPOOL"
     ],
     "EggMoves": [],
-    "TutorMoves": []
+    "TutorMoves": [
+        "MOVE_BLIZZARD",
+        "MOVE_HYDRO_PUMP"
+    ]
   },
   "SPECIES_IRON_HANDS": {
     "LevelMoves": [
@@ -156025,90 +156016,62 @@
   },
   "SPECIES_IRON_LEAVES": {
     "LevelMoves": [
-      {
-        "Level": 0,
-        "Move": "MOVE_QUASH"
-      },
-      {
-        "Level": 0,
-        "Move": "MOVE_ELECTRIC_TERRAIN"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_QUASH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_ELECTRIC_TERRAIN"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_LEER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_QUICK_ATTACK"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_HELPING_HAND"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_WORK_UP"
-      },
-      {
-        "Level": 7,
-        "Move": "MOVE_MAGICAL_LEAF"
-      },
-      {
-        "Level": 14,
-        "Move": "MOVE_RETALIATE"
-      },
-      {
-        "Level": 21,
-        "Move": "MOVE_QUICK_GUARD"
-      },
-      {
-        "Level": 28,
-        "Move": "MOVE_NIGHT_SLASH"
-      },
-      {
-        "Level": 35,
-        "Move": "MOVE_SWORDS_DANCE"
-      },
-      {
-        "Level": 42,
-        "Move": "MOVE_SACRED_SWORD"
-      },
-      {
-        "Level": 49,
-        "Move": "MOVE_LEAF_BLADE"
-      },
-      {
-        "Level": 56,
-        "Move": "MOVE_PSYBLADE"
-      },
-      {
-        "Level": 63,
-        "Move": "MOVE_CLOSE_COMBAT"
-      },
-      {
-        "Level": 70,
-        "Move": "MOVE_IMPRISON"
-      },
-      {
-        "Level": 77,
-        "Move": "MOVE_MEGAHORN"
-      },
-      {
-        "Level": 84,
-        "Move": "MOVE_ALLY_SWITCH"
-      },
-      {
-        "Level": 91,
-        "Move": "MOVE_SOLAR_BLADE"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_LEER"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_QUICK_ATTACK"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_HELPING_HAND"
+        },
+        {
+            "Level": 10,
+            "Move": "MOVE_MAGICAL_LEAF"
+        },
+        {
+            "Level": 20,
+            "Move": "MOVE_RETALIATE"
+        },
+        {
+            "Level": 30,
+            "Move": "MOVE_THROAT_CHOP"
+        },
+        {
+            "Level": 40,
+            "Move": "MOVE_SACRED_SWORD"
+        },
+        {
+            "Level": 50,
+            "Move": "MOVE_LEAF_BLADE"
+        },
+        {
+            "Level": 60,
+            "Move": "MOVE_CLOSE_COMBAT"
+        },
+        {
+            "Level": 70,
+            "Move": "MOVE_MEGA_HORN"
+        },
+        {
+            "Level": 80,
+            "Move": "MOVE_PSYBLADE"
+        },
+        {
+            "Level": 82,
+            "Move": "MOVE_SOLAR_BLADE"
+        },
+        {
+            "Level": 83,
+            "Move": "MOVE_TAUNT"
+        },
+        {
+            "Level": 85,
+            "Move": "MOVE_ENDURE"
+        }
     ],
     "MachineMoves": [
       "MOVE_AERIAL_ACE",
@@ -157152,86 +157115,70 @@
   },
   "SPECIES_GOUGING_FIRE": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_DOUBLE_KICK"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_ANCIENT_POWER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_NOBLE_ROAR"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_STOMP"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_LEER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_INCINERATE"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SUNNY_DAY"
-      },
-      {
-        "Level": 7,
-        "Move": "MOVE_FIRE_FANG"
-      },
-      {
-        "Level": 14,
-        "Move": "MOVE_HOWL"
-      },
-      {
-        "Level": 21,
-        "Move": "MOVE_BITE"
-      },
-      {
-        "Level": 28,
-        "Move": "MOVE_DRAGON_CLAW"
-      },
-      {
-        "Level": 35,
-        "Move": "MOVE_CRUSH_CLAW"
-      },
-      {
-        "Level": 42,
-        "Move": "MOVE_MORNING_SUN"
-      },
-      {
-        "Level": 49,
-        "Move": "MOVE_BURNING_BULWARK"
-      },
-      {
-        "Level": 56,
-        "Move": "MOVE_DRAGON_RUSH"
-      },
-      {
-        "Level": 63,
-        "Move": "MOVE_FIRE_BLAST"
-      },
-      {
-        "Level": 70,
-        "Move": "MOVE_LAVA_PLUME"
-      },
-      {
-        "Level": 77,
-        "Move": "MOVE_OUTRAGE"
-      },
-      {
-        "Level": 84,
-        "Move": "MOVE_FLARE_BLITZ"
-      },
-      {
-        "Level": 91,
-        "Move": "MOVE_RAGING_FURY"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_DOUBLE_KICK"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_NOBLE_ROAR"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_STOMP"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_BURNING_BULWARK"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_INCINERATE"
+        },
+        {
+            "Level": 7,
+            "Move": "MOVE_TEMPER_FLARE"
+        },
+        {
+            "Level": 21,
+            "Move": "MOVE_CRUNCH"
+        },
+        {
+            "Level": 35,
+            "Move": "MOVE_IRON_HEAD"
+        },
+        {
+            "Level": 48,
+            "Move": "MOVE_MORNING_SUN"
+        },
+        {
+            "Level": 55,
+            "Move": "MOVE_DRAGON_RUSH"
+        },
+        {
+            "Level": 66,
+            "Move": "MOVE_DRAGON_TAIL"
+        },
+        {
+            "Level": 71,
+            "Move": "MOVE_DRAGON_CLAW"
+        },
+        {
+            "Level": 76,
+            "Move": "MOVE_OUTRAGE"
+        },
+        {
+            "Level": 81,
+            "Move": "MOVE_FLARE_BLITZ"
+        },
+        {
+            "Level": 82,
+            "Move": "MOVE_SCALE_SHOT"
+        },
+        {
+            "Level": 83,
+            "Move": "MOVE_RAGING_FURY"
+        }
     ],
     "MachineMoves": [
       "MOVE_BODY_SLAM",

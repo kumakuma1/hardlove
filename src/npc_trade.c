@@ -105,6 +105,7 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
     } else if (tradeno == NPC_TRADE_MAGGIE_MAGNETON) {
         trade_dat->give_species = SPECIES_FLUTTER_MANE;
         trade_dat->gender = POKEMON_GENDER_FEMALE;
+        trade_dat->heldItem = ITEM_NONE;
     }
 #endif
     randomIV(trade_dat);

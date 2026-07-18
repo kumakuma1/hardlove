@@ -86,8 +86,8 @@ void LONG_CALL RoamerLocationSetRandom(void *roamerSave, u8 roamer_idx, u32 last
 
 void LONG_CALL drawRandomRoamer()
 {
-    int array[] = { SPECIES_IRON_BOULDER, SPECIES_IRON_CROWN, SPECIES_IRON_HANDS, SPECIES_FLUTTER_MANE, SPECIES_GREAT_TUSK, SPECIES_RAGING_BOLT };
-    arrayShuffle(array, 6);
+    int array[] = { SPECIES_IRON_BOULDER, SPECIES_IRON_CROWN, SPECIES_IRON_HANDS, SPECIES_IRON_BUNDLE, SPECIES_IRON_LEAVES, SPECIES_FLUTTER_MANE, SPECIES_GREAT_TUSK, SPECIES_RAGING_BOLT };
+    arrayShuffle(array, 8);
 
     for (unsigned int i = 0; i < 4; i++) {
         SetScriptVar(0x40BB + i, array[i]); // 0x40BB, 0x40BC, 0x40BD, 0x40BE
@@ -106,19 +106,19 @@ void LONG_CALL Save_CreateRoamerByID(SaveData *saveData, u8 idx)
     case ROAMER_RAIKOU:
         drawRandomRoamer();
         species = GetScriptVar(0x40BB);
-        level = 65;
+        level = 75;
         break;
     case ROAMER_ENTEI:
         species = GetScriptVar(0x40BC);
-        level = 65;
+        level = 75;
         break;
     case ROAMER_LATIAS:
         species = GetScriptVar(0x40BD);
-        level = 65;
+        level = 75;
         break;
     case ROAMER_LATIOS:
         species = GetScriptVar(0x40BE);
-        level = 65;
+        level = 75;
         break;
     default:
         GF_ASSERT(FALSE);
