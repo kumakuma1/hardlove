@@ -1415,6 +1415,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         if (defender->type1 == TYPE_ICE || defender->type2 == TYPE_ICE || defender->type3 == TYPE_ICE) {
             moveEffectiveness = TYPE_MUL_NO_EFFECT;
         }
+        FALLTHROUGH;
     case MOVE_FISSURE:
     case MOVE_GUILLOTINE:
     case MOVE_HORN_DRILL:

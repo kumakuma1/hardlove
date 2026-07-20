@@ -951,13 +951,8 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
     }
 
     BOOL shouldSetup = TRUE;
-    if (ai->defenderMon.hp == ai->defenderMon.maxhp) {
-        if (ai->defenderMon.item == ITEM_FOCUS_SASH) {
-            shouldSetup = FALSE;
-        }
-        if (ai->defenderMon.ability == ABILITY_STURDY && !ai->attackerMon.hasMoldBreaker) {
-            shouldSetup = FALSE;
-        }
+    if (ai->defenderHasSturdyOrFocusSashActive) {
+        shouldSetup = FALSE;
     }
 
     if (shouldSetup) {
@@ -1894,23 +1889,35 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
+    case MOVE_EFFECT_METAL_BURST:
+        moveScore += 6;
+        if (ai->attackerHasSturdyOrFocusSashActive) {
+            moveScore += 2;
+        }
+        if (ai->aiMovesFirst && BattleRand(bsys) % 4 == 0) {
+            moveScore -= 1;
+        }
+        if (ai->defenderHasAtleastOneStatusMove && BattleRand(bsys) % 4 == 0) {
+            moveScore -= 1;
+        }
+        break;
     case MOVE_EFFECT_MIRROR_COAT:
     case MOVE_EFFECT_COUNTER:
         moveScore += 6;
-        if (ai->playerCanOneShotMonWithAnyMove) {
+        if (ai->playerCanOneShotMonWithAnyMove && !ai->attackerHasSturdyOrFocusSashActive) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         
         if (ai->attackerMoveEffect == MOVE_EFFECT_COUNTER  && !ai->defenderHasAtleastOneSpecialMove) {
             moveScore += 2;
-            if (ai->attackerMon.hp == ai->attackerMon.maxhp && ai->attackerMon.item == ITEM_FOCUS_SASH) {
+            if (ai->attackerHasSturdyOrFocusSashActive) {
                 moveScore += 2;
             }
         }
 
         if (ai->attackerMoveEffect == MOVE_EFFECT_MIRROR_COAT && !ai->defenderHasAtleastOnePhysicalMove) {
             moveScore += 2;
-            if (ai->attackerMon.hp == ai->attackerMon.maxhp && ai->attackerMon.item == ITEM_FOCUS_SASH) {
+            if (ai->attackerHasSturdyOrFocusSashActive) {
                 moveScore += 2;
             }
         }

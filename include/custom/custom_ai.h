@@ -113,6 +113,8 @@ struct PACKED AIContext {
     BOOL defenderKnowsThawingMove;
     BOOL defenderHasAtleastOneUsefulSoundMove;
     BOOL defenderCanForceSwitching;
+    BOOL defenderHasSturdyOrFocusSashActive;
+    BOOL attackerHasSturdyOrFocusSashActive;
 
     u32 maxDamageReceived;
 

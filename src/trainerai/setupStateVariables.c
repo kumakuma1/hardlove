@@ -60,6 +60,20 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->defenderHasAtleastOneUsefulSoundMove = FALSE;
     ai->defenderCanForceSwitching = FALSE;
 
+    ai->defenderHasSturdyOrFocusSashActive = FALSE;
+    if (ai->defenderMon.hp == ai->defenderMon.maxhp) {
+        if (ai->defenderMon.item == ITEM_FOCUS_SASH || (ai->defenderMon.ability == ABILITY_STURDY && !ai->attackerMon.hasMoldBreaker)) {
+            ai->defenderHasSturdyOrFocusSashActive = TRUE;
+        }
+    }
+
+    ai->attackerHasSturdyOrFocusSashActive = FALSE;
+    if (ai->attackerMon.hp == ai->attackerMon.maxhp) {
+        if (ai->attackerMon.item == ITEM_FOCUS_SASH || (ai->attackerMon.ability == ABILITY_STURDY && !ai->defenderMon.hasMoldBreaker)) {
+            ai->attackerHasSturdyOrFocusSashActive = TRUE;
+        }
+    }
+
     ai->postKoScoringPosition = BattleAI_PostKOSwitchIn_Internal(bsys, attacker, &ai->highestPostKoScoreFromParty, TRUE);
     debug_printf("PostKo: position %d with score %d\n", ai->postKoScoringPosition, ai->highestPostKoScoreFromParty);
 
