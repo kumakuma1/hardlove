@@ -6330,7 +6330,6 @@ const EncounterData __data[] =
                 SPECIES_MILTANK,
                 SPECIES_GOODRA,
                 MON_WITH_FORM(SPECIES_GOODRA, 1),
-                ,
             },
             .speciesDay = {
                 SPECIES_PYROAR,
