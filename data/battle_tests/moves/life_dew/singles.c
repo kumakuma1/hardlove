@@ -1,20 +1,19 @@
-// Test: Powder - trigger on Fire-type move
+// Test: Life Dew - Singles
 #include "../../battle_tests.h"
-BEGIN_TEST
-{
+BEGIN_TEST {
     .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_VIVILLON,
+            .species = SPECIES_POLIWAG,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_NO_GUARD,
+            .ability = ABILITY_WATER_ABSORB,
             .item = ITEM_NONE,
-            .moves = { MOVE_POWDER, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
+            .moves = { MOVE_LIFE_DEW, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 1,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -25,12 +24,12 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_FLAREON,
+                        .species = SPECIES_SQUIRTLE,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_FLASH_FIRE,
+                        .ability = ABILITY_TORRENT,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_FIRE_BLAST, MOVE_TACKLE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_LIFE_DEW, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -43,7 +42,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -63,7 +62,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+                         { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -82,13 +81,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Vivillon used Powder!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon is covered in powder!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon used Fire Blast!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "When the flame touched the powder on the Pokemon, it exploded!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Vivillon used Powder!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 33, 33, 33, 34, 34, 35, 35, 35, 36, 36, 37, 37, 37, 38, 38, 39 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Poliwag used Life Dew!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Poliwag had its HP restored." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Squirtle used Life Dew!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Squirtle's HP is full!" },
     },
 }
 END_TEST

@@ -1,4 +1,4 @@
-// Test: Powder - trigger on Fire-type move
+// Test: Howl - Singles, not blocked by Soundproof of user
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_VIVILLON,
-            .level = 50,
+            .species = SPECIES_GROWLITHE,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_NO_GUARD,
+            .ability = ABILITY_FLASH_FIRE,
             .item = ITEM_NONE,
-            .moves = { MOVE_POWDER, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_HOWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -25,12 +25,12 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_FLAREON,
-                        .level = 50,
+                        .species = SPECIES_ABOMASNOW,
+                        .level = 100,
                         .form = 0,
-                        .ability = ABILITY_FLASH_FIRE,
+                        .ability = ABILITY_SOUNDPROOF,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_FIRE_BLAST, MOVE_TACKLE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_HOWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -43,7 +43,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -63,7 +63,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+                         { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -82,13 +82,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Vivillon used Powder!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon is covered in powder!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon used Fire Blast!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "When the flame touched the powder on the Pokemon, it exploded!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Vivillon used Powder!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 33, 33, 33, 34, 34, 35, 35, 35, 36, 36, 37, 37, 37, 38, 38, 39 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Abomasnow used Howl!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Abomasnow's Attack rose!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Growlithe used Howl!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Growlithe's Attack rose!" },
     },
 }
 END_TEST
