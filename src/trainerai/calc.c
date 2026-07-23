@@ -391,6 +391,19 @@ BOOL LONG_CALL IsMoveUsefulSoundMove(u32 moveno)
     }
 }
 
+BOOL LONG_CALL IsMoveValidSwitchingMove(u32 moveno)
+{
+    switch (moveno) {
+    case MOVE_FLIP_TURN:
+    case MOVE_U_TURN:
+    case MOVE_VOLT_SWITCH:
+    case MOVE_PARTING_SHOT:
+        return TRUE;
+    default:
+        return FALSE;
+    }
+}
+
 BOOL LONG_CALL IsMoveForceSwitching(u32 moveno)
 {
     switch (moveno) {

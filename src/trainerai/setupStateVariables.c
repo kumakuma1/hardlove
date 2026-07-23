@@ -278,6 +278,14 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
             if (ai->attackerRolledMoveDamages[j] > ai->attackerRolledMaxDamage) {
                 ai->attackerRolledMaxDamage = ai->attackerRolledMoveDamages[j];
             }
+
+            if (ai->effectivenessOnPlayer[j] >= TYPE_MUL_NORMAL)
+            {
+                ai->attackerHasValidDamagingMove = TRUE;
+            }
+        }
+        if (IsMoveValidSwitchingMove(attackerMoveno) && ai->effectivenessOnPlayer[j] > TYPE_MUL_NO_EFFECT) {
+            ai->attackerHasValidSwitchingMove = TRUE;
         }
     }
 }

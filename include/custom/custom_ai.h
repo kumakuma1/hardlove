@@ -71,13 +71,14 @@ struct PACKED AIContext {
     BOOL isDoubleBattle;
     BOOL isPartnerGrounded;
 
-    BOOL defenderHasMagicBounce;
-    BOOL defenderAllyHasMagicBounce;
-    BOOL defenderImmuneToPoison;
-    BOOL defenderImmuneToParalysis;
-    BOOL defenderImmuneToBurn;
-    BOOL defenderImmuneToSleep;
-    BOOL defenderImmuneToStatDrop;
+    BOOL defenderHasMagicBounce : 1;
+    BOOL defenderAllyHasMagicBounce : 1;
+    BOOL defenderImmuneToPoison : 1;
+    BOOL defenderImmuneToParalysis : 1;
+    BOOL defenderImmuneToBurn : 1;
+    BOOL defenderImmuneToSleep : 1;
+    BOOL defenderImmuneToStatDrop : 1;
+    BOOL padding1 : 1;
 
     u8 aiMovesFirst;
     u8 playerMovesFirst;
@@ -110,21 +111,25 @@ struct PACKED AIContext {
     u32 attackerMove;
     u32 attackerMoveEffect;
 
-    BOOL isDefenderIncapacitated;
-    BOOL defenderKnowsThawingMove;
-    BOOL defenderHasAtleastOneUsefulSoundMove;
-    BOOL defenderCanForceSwitching;
-    BOOL defenderHasSturdyOrFocusSashActive;
-    BOOL attackerHasSturdyOrFocusSashActive;
+    BOOL isDefenderIncapacitated : 1;
+    BOOL defenderKnowsThawingMove : 1;
+    BOOL defenderHasAtleastOneUsefulSoundMove : 1;
+    BOOL defenderCanForceSwitching : 1;
+    BOOL defenderHasSturdyOrFocusSashActive : 1;
+    BOOL attackerHasSturdyOrFocusSashActive : 1;
+    BOOL padding2 : 2;
 
     u32 maxDamageReceived;
 
-    BOOL defenderHasAtleastOnePhysicalMove;
-    BOOL defenderHasAtleastOneSpecialMove;
-    BOOL defenderHasAtleastOneStatusMove;
     BOOL playerCanOneShotMonWithMove[4];
-    BOOL playerCanOneShotMonWithAnyMove;
-    BOOL monCanOneShotPlayerWithAnyMove;
+    BOOL playerCanOneShotMonWithAnyMove : 1;
+    BOOL monCanOneShotPlayerWithAnyMove : 1;
+    BOOL defenderHasAtleastOnePhysicalMove : 1;
+    BOOL defenderHasAtleastOneSpecialMove : 1;
+    BOOL defenderHasAtleastOneStatusMove : 1;
+    BOOL attackerHasValidSwitchingMove : 1;
+    BOOL attackerHasValidDamagingMove : 1;
+    BOOL padding3 : 1;
     
     BOOL monCanOneShotPlayerWithMove[4];
     u32 attackerRolledMoveDamages[4];
@@ -177,6 +182,7 @@ BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokem
 
 BOOL LONG_CALL IsMoveUsefulSoundMove(u32 moveno);
 BOOL LONG_CALL IsMoveForceSwitching(u32 moveno);
+BOOL LONG_CALL IsMoveValidSwitchingMove(u32 moveno);
 
 u32 LONG_CALL BattleAI_GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int ability);
 

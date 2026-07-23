@@ -20,8 +20,8 @@
 #define BATTLE_DEBUG_OUTPUT 1
 // #define ATTRACT_WORK_ON_ALL_SEXES 1
 
-#define IMMUNE_TO_MOVE    80
-#define IMPOSSIBLE_MOVE   40
+#define IMMUNE_TO_MOVE    40
+#define IMPOSSIBLE_MOVE   80
 #define NEVER_USE_MOVE_20 20
 
 void LONG_CALL SetupContexts(struct BattleSystem *bsys, u32 attacker, struct AIContext *ai1, struct AIContext *ai2, int damages[4][4]);
