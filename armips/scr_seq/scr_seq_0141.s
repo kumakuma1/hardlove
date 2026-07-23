@@ -1344,7 +1344,7 @@ scr_seq_0141_182:
 
 scr_seq_0141_183:
 	// Victory road 2F, Northeast, 1124 //full restore
-	setvar VAR_SPECIAL_x8008, ITEM_EELECTROSSITE
+	setvar VAR_SPECIAL_x8008, ITEM_EELEKTROSSITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
