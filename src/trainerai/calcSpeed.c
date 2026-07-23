@@ -169,6 +169,25 @@ u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, 
     debug_printf("[CalcSpeed] %s's speedModifier2: %d\n", client2Nickname, speedModifier2);
 #endif
 
+     if ((ability1 == ABILITY_PROTOSYNTHESIS || ability1 == ABILITY_QUARK_DRIVE)
+        && (sp->paradoxBoostedStat[client1] == STAT_SPEED)) {
+        speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__1_5);
+     }
+
+     if ((ability2 == ABILITY_PROTOSYNTHESIS && ((sp->field_condition & WEATHER_SUNNY_ANY) || hold_effect2 == HOLD_EFFECT_ACTIVATE_PARADOX_ABILITIES))
+         || (ability2 == ABILITY_QUARK_DRIVE && ((sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft) || hold_effect2 == HOLD_EFFECT_ACTIVATE_PARADOX_ABILITIES))) {
+         u16 atk = GetMonData(partyMon, MON_DATA_ATTACK, 0);
+         u16 def = GetMonData(partyMon, MON_DATA_DEFENSE, 0);
+         u16 spatk = GetMonData(partyMon, MON_DATA_SPECIAL_ATTACK, 0);
+         u16 spdef = GetMonData(partyMon, MON_DATA_SPECIAL_DEFENSE, 0);
+         u16 spe = GetMonData(partyMon, MON_DATA_SPEED, 0);
+         u8 paradoxBoostedStat = BattleAI_GetHighestParadoxStat(atk, def, spatk, spdef, spe);
+         if (paradoxBoostedStat == STAT_SPEED) {
+             speedModifier2 = QMul_RoundUp(speedModifier1, UQ412__1_5);
+         }
+     }
+
+
     // Step 4: Quick Powder
 
     if ((hold_effect1 == HOLD_EFFECT_DITTO_SPEED_UP) && (sp->battlemon[client1].species == SPECIES_DITTO)

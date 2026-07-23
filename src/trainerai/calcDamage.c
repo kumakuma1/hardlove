@@ -273,6 +273,11 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
             movepower *= 2;
         }
         break;
+    case MOVE_PSYBLADE:
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0 && sp->terrainOverlay.type == ELECTRIC_TERRAIN) {
+            movepower = 120;
+        }
+        break;
     default:
         break;
     }
@@ -439,7 +444,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     }
 
     // handle Iron Fist
-    if ((attacker->ability == ABILITY_IRON_FIST) && IsElementInArray(PunchingMovesTable, (u16 *)&moveno, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]))) {
+    if ((attacker->ability == ABILITY_IRON_FIST) && IsElementInArray(PunchingMoveTable, (u16 *)&moveno, NELEMS(PunchingMoveTable), sizeof(PunchingMoveTable[0]))) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
     }
 
@@ -495,17 +500,17 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     }
 
     // handle Strong Jaw
-    if ((attacker->ability == ABILITY_STRONG_JAW) && IsElementInArray(StrongJawMovesTable, (u16 *)&moveno, NELEMS(StrongJawMovesTable), sizeof(StrongJawMovesTable[0]))) {
+    if ((attacker->ability == ABILITY_STRONG_JAW) && IsElementInArray(BitingMoveTable, (u16 *)&moveno, NELEMS(BitingMoveTable), sizeof(BitingMoveTable[0]))) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
     }
 
     // handle Mega Launcher
-    if ((attacker->ability == ABILITY_MEGA_LAUNCHER) && IsElementInArray(MegaLauncherMovesTable, (u16 *)&moveno, NELEMS(MegaLauncherMovesTable), sizeof(MegaLauncherMovesTable[0]))) {
+    if ((attacker->ability == ABILITY_MEGA_LAUNCHER) && IsElementInArray(PulseMoveTable, (u16 *)&moveno, NELEMS(PulseMoveTable), sizeof(PulseMoveTable[0]))) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
     }
 
     // handle Sharpness
-    if ((attacker->ability == ABILITY_SHARPNESS) && IsElementInArray(SharpnessMovesTable, (u16 *)&moveno, NELEMS(SharpnessMovesTable), sizeof(SharpnessMovesTable[0]))) {
+    if ((attacker->ability == ABILITY_SHARPNESS) && IsElementInArray(SlicingMoveTable, (u16 *)&moveno, NELEMS(SlicingMoveTable), sizeof(SlicingMoveTable[0]))) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
     }
 
@@ -613,7 +618,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     }
 
     // handle Punching Glove
-    if ((attacker->item_held_effect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && IsElementInArray(PunchingMovesTable, (u16 *)&moveno, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]))) {
+    if ((attacker->item_held_effect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && IsElementInArray(PunchingMoveTable, (u16 *)&moveno, NELEMS(PunchingMoveTable), sizeof(PunchingMoveTable[0]))) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_1_BUT_HIGHER);
     }
 
@@ -833,6 +838,26 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
     }
 
+    // handle Protosynthesis and Quark Drive
+    // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-20#post-9423025
+    if ((attacker->ability == ABILITY_PROTOSYNTHESIS || attacker->ability == ABILITY_QUARK_DRIVE)
+        && ((movesplit == SPLIT_PHYSICAL && attacker->paradoxBoostedStat == STAT_ATTACK) || (movesplit == SPLIT_SPECIAL && attacker->paradoxBoostedStat == STAT_SPATK))) {
+        attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3);
+    }
+
+    if ((attacker->ability == ABILITY_HADRON_ENGINE)
+        && (movesplit == SPLIT_SPECIAL)
+        && (sp->terrainOverlay.type == ELECTRIC_TERRAIN)
+        && (sp->terrainOverlay.numberOfTurnsLeft > 0)) {
+        attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3333);
+    }
+
+     // handle Fire Mane
+    // TODO: confirm location
+    if (attacker->ability == ABILITY_FIRE_MANE && (movetype == TYPE_FIRE)) {
+        attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
+    }
+
     if ((movetype == TYPE_FIRE) && !attackerHasMoldBreaker && defender->ability == ABILITY_HEATPROOF) {
         attackModifier = QMul_RoundUp(attackModifier, UQ412__0_5);
     }
@@ -900,6 +925,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     debug_printf("[AI_Damage] Step 3.6. Attack Modifiers\n");
     debug_printf("[AI_Damage] attackModifier: %d\n", attackModifier);
     debug_printf("[AI_Damage] calculatedAttack: %d\n", calculatedAttack);
+    debug_printf("[Paradox Abilities] Attacker paradoxBoostedStat: %d\n", attacker->paradoxBoostedStat);
 #endif
 
     // TODO
@@ -1040,7 +1066,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
         struct Evolution *evoTable;
         evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
-        ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, speciesWithForm);
+        ReadWholeNarcMemberByIdPair(evoTable, ARC_EVOLUTIONS, speciesWithForm);
 
         // If a Pokémon has any evolutions, there should be an entry at the top that isn't EVO_NONE.
         // In that case, the Pokémon is capable of evolving, and so the effect of Eviolite should apply.
@@ -1197,6 +1223,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
             break;
         case ABILITY_LEVITATE:
         case ABILITY_EARTH_EATER:
+        case ABILITY_EELEVATE:
             if (movetype == TYPE_GROUND) {
                 return 0;
             }

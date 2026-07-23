@@ -546,6 +546,12 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         moveScore -= IMPOSSIBLE_MOVE;
     }
 
+    if (ai->attackerMove == MOVE_SOLAR_BEAM){
+        if (ai->attackerMon.ability != ABILITY_MEGA_SOL && ((ctx->field_condition & WEATHER_SUNNY_ANY) == 0) && ai->attackerMon.item != ITEM_POWER_HERB) {
+            moveScore -= NEVER_USE_MOVE_20;
+        }
+    }
+
     return moveScore;
 }
 
@@ -723,7 +729,9 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         } else if (ai->playerMovesFirst) {
             moveScore += 3;
         }
-        if (ai->attackerMon.ability == ABILITY_MOXIE || ai->attackerMon.ability == ABILITY_BEAST_BOOST || ai->attackerMon.ability == ABILITY_CHILLING_NEIGH || ai->attackerMon.ability == ABILITY_GRIM_NEIGH) {
+        if (ai->attackerMon.ability == ABILITY_MOXIE || ai->attackerMon.ability == ABILITY_BEAST_BOOST 
+            || ai->attackerMon.ability == ABILITY_CHILLING_NEIGH || ai->attackerMon.ability == ABILITY_GRIM_NEIGH
+            || ai->attackerMon.ability == ABILITY_EELEVATE) {
             moveScore += 1;
         }
     }
@@ -1449,7 +1457,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         } else if (ctx->protectSuccessTurns[ai->attacker] > 1) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
-        if (monDiesEndTurn || ai->defenderMon.ability == ABILITY_UNSEEN_FIST || ai->attackerMon.ability == ABILITY_TRUANT) {
+        if (monDiesEndTurn || ai->defenderMon.ability == ABILITY_UNSEEN_FIST || ai->defenderMon.ability == ABILITY_PIERCING_DRILL
+            || ai->attackerMon.ability == ABILITY_TRUANT) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
         break;

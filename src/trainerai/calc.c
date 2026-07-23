@@ -43,7 +43,6 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
     monStruct->type2 = GetMonData(pp, MON_DATA_TYPE_2, 0);
     monStruct->type3 = TYPE_TYPELESS;
 
-
     monStruct->condition = GetMonData(pp, MON_DATA_STATUS, 0);
     monStruct->condition2 = 0;
     monStruct->isGrounded = IsPartyPokemonGrounded(sp, pp);
@@ -86,6 +85,12 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
     monStruct->lastResortCount = 0;
     monStruct->attackerHasMoveFailureLastTurn = 0;
     monStruct->canBelch = 0; // sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, attackerPos)][partyPos].berryEatenAndCanBelch;
+    monStruct->paradoxBoostedStat = 0;
+    if ((monStruct->ability == ABILITY_PROTOSYNTHESIS && ((sp->field_condition & WEATHER_SUNNY_ANY) || monStruct->item == ITEM_BOOSTER_ENERGY))
+        || (monStruct->ability == ABILITY_QUARK_DRIVE && ((sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft) || monStruct->item == ITEM_BOOSTER_ENERGY)))
+    {
+        monStruct->paradoxBoostedStat = BattleAI_GetHighestParadoxStat(monStruct->attack, monStruct->defense, monStruct->sp_attack, monStruct->sp_defense, monStruct->speed);
+    }
 }
 
 void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int numSlot)
@@ -155,6 +160,31 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->lastResortCount = sp->battlemon[numSlot].moveeffect.lastResortCount;
     monStruct->attackerHasMoveFailureLastTurn = sp->moveConditionsFlags[numSlot].moveFailureLastTurn;
     monStruct->canBelch = 0; // sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, numSlot)][sp->sel_mons_no[numSlot]].berryEatenAndCanBelch;
+    monStruct->paradoxBoostedStat = sp->paradoxBoostedStat[numSlot];
+}
+
+u8 LONG_CALL BattleAI_GetHighestParadoxStat(u8 atk, u8 def, u8 spatk, u8 spdef, u8 speed)
+{
+    u8 highestId = STAT_ATTACK;
+    u16 highestStat = atk;
+
+    if (highestStat < def) {
+        highestId = STAT_DEFENSE;
+        highestStat = def;
+    }
+    if (highestStat < spatk) {
+        highestId = STAT_SPATK;
+        highestStat = spatk;
+    }
+    if (highestStat < spdef) {
+        highestId = STAT_SPDEF;
+        highestStat = spdef;
+    }
+    if (highestStat < speed) {
+        highestId = STAT_SPEED;
+        highestStat = speed;
+    }
+    return highestId;
 }
 
 int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, int moveno, int move_type, u32 *flag UNUSED, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
@@ -374,7 +404,7 @@ BOOL LONG_CALL IsMoveForceSwitching(u32 moveno)
     }
 }
 
-int LONG_CALL BattleAI_AdjustUnusualMoveDamage(struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender, u32 damage, u32 moveEffect, u32 moveno, u32 effectiveness)
+int LONG_CALL BattleAI_AdjustUnusualMoveDamage(struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender, u32 damage, u32 moveEffect, u32 moveno UNUSED, u32 effectiveness)
 {
     if (effectiveness == TYPE_MUL_NO_EFFECT) {
         return 0;
@@ -857,7 +887,7 @@ BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokem
 
     u8 holdeffect = BattleItemDataGet(sp, item, 1);
 
-    if ((GetMonData(pp, MON_DATA_ABILITY, 0) != ABILITY_LEVITATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
+    if ((GetMonData(pp, MON_DATA_ABILITY, 0) != ABILITY_LEVITATE && GetMonData(pp, MON_DATA_ABILITY, 0) != ABILITY_EELEVATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
             && !(GetMonData(pp, MON_DATA_TYPE_1, 0) == TYPE_FLYING) && !(GetMonData(pp, MON_DATA_TYPE_2, 0) == TYPE_FLYING))
         || (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED // holding Iron Ball
             || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
