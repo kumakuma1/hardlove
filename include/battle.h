@@ -10,6 +10,7 @@
 #include "sprite.h"
 #include "task.h"
 #include "types.h"
+#include "trainer_ai.h"
 
 #define CLIENT_MAX 4
 
@@ -1299,6 +1300,18 @@ typedef struct MagicBounceContext {
 } MagicBounceContext;
 
 
+enum AI_calcState {
+    Initial = 0,
+    CalcedEnemy_1_and_3,
+};
+
+typedef struct AI_turnScoring {
+    u8 targets[4];
+    u8 choice[4];
+    int calcState;
+} AI_turnScoring;
+
+
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
 /**
@@ -1546,6 +1559,20 @@ struct BattleStruct {
     PursuitContext pursuitContext;
     DancerContext dancerContext;
     MagicBounceContext magicBounceContext;
+
+
+
+
+
+
+
+
+
+
+
+
+
+    AI_turnScoring aiTurnScoring;
 };
 
 enum {

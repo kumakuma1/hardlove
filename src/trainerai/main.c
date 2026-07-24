@@ -24,8 +24,6 @@
 #define IMPOSSIBLE_MOVE   80
 #define NEVER_USE_MOVE_20 20
 
-void LONG_CALL SetupContexts(struct BattleSystem *bsys, u32 attacker, struct AIContext *ai1, struct AIContext *ai2, int damages[4][4]);
-
 
 int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai);
 int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i, struct AIContext *ai);
@@ -46,28 +44,10 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
 #endif // BATTLE_DEBUG_OUTPUT
 
     int score = 0;
+    struct BattleStruct *ctx = bsys->sp;
     if (attacker >= 10) {
         return BattleAI_PostKOSwitchIn_Internal(bsys, attacker - 10, &score, FALSE);
     }
-
-    struct BattleStruct *ctx = bsys->sp;
-    struct AIContext aiContextOp1 = { 0 };
-    struct AIContext aiContextOp2 = { 0 };
-    struct AIContext *ai1 = &aiContextOp1;
-    struct AIContext *ai2 = &aiContextOp2;
-    enum AIActionChoice result = AI_ENEMY_ATTACK_1;
-
-    int highestScoredMove = 0;
-    int highestScoredMoveAcross = 0;
-    int moveScores[4][4] = { 0 }; // account for BATTLER_OPPONENT (0), attacker (1), BATTLER_ACROSS(2), BATTLER_ALLY(3),  4 moves each or
-                                  // account for BATTLER_OPPONENT (2), attacker (3), BATTLER_ACROSS(0), BATTLER_ALLY(1),  4 moves each
-    int damages[4][4] = { 0 };    // rolled damage for each move against each target
-    int targets[4] = { 0 };
-    int tiedMoveIndices[4] = { 0 };
-    u32 target = 0;
-
-    u32 defender = BATTLER_OPPONENT(attacker); // default for singles
-    target = defender;
 
     if (BattleTypeGet(bsys) == BATTLE_TYPE_ROAMER && !CantEscape(bsys, ctx, attacker, NULL)) {
         return AI_ENEMY_ESCAPE;
@@ -76,145 +56,9 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
         return AI_ENEMY_SAFARI;
     }
 
-    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
-    {
-#ifdef BATTLE_DEBUG_OUTPUT
-        debug_printf("att %d(%d), ally %d(%d), defendOp %d(%d), defendCross %d(%d)\n", 
-            attacker,
-            ctx->battlemon[attacker].species,
-            BATTLER_ALLY(attacker),
-            ctx->battlemon[BATTLER_ALLY(attacker)].species,
-            BATTLER_OPPONENT(attacker),
-            ctx->battlemon[BATTLER_OPPONENT(attacker)].species,
-            BATTLER_ACROSS(attacker),
-            ctx->battlemon[BATTLER_ACROSS(attacker)].species);
-        //debug_printf("att %d, ally %d, defendOp %d, defendCross %d\n", ctx->battlemon[attacker].species, ctx->battlemon[BATTLER_ALLY(attacker)].species, ctx->battlemon[BATTLER_OPPONENT(attacker)].species, ctx->battlemon[BATTLER_ACROSS(attacker)].species);
-#endif // BATTLE_DEBUG_OUTPUT
+    ctx->aiWorkTable.ai_dir_select_client[attacker] = ctx->aiTurnScoring.targets[attacker];
 
-        SetupContexts(bsys, attacker, ai1, ai2, damages);
-        if (ctx->battlemon[defender].hp > 0)
-            highestScoredMove = ScoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai1);
-
-        defender = BATTLER_ACROSS(attacker);
-        if (ctx->battlemon[defender].hp > 0)
-        {
-            target = defender;
-            highestScoredMoveAcross = ScoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai2);
-            if (highestScoredMoveAcross > highestScoredMove)
-                highestScoredMove = highestScoredMoveAcross;
-        }
-
-        defender = BATTLER_ALLY(attacker);
-        target = defender;
-        highestScoredMoveAcross = ScoreMovesAgainstAlly(bsys, attacker, target, moveScores, ai1);
-        if (highestScoredMoveAcross > highestScoredMove)
-            highestScoredMove = highestScoredMoveAcross;
-
-        int targetsSize = 0;
-        for (u8 k = 0; k < 4; k++) // find targets with highestScoredMove
-        {
-            for (u8 i = 0; i < 4; i++) // movesScore
-            {
-                if (moveScores[k][i] == highestScoredMove) {
-                    debug_printf("found target %d with score %d, dmg %d\n", k, highestScoredMove, damages[k][i]);
-                    targets[targetsSize] = k;
-                    targetsSize++;
-                    break;
-                }
-            }
-        }
-
-        target = targets[(BattleRand(bsys) % targetsSize)];
-
-#ifdef BATTLE_DEBUG_OUTPUT
-        debug_printf("picked target slot %d\n", target);
-#endif // BATTLE_DEBUG_OUTPUT
-    } else // single battles
-    {
-        // BATTLER_OPPONENT
-        SetupStateVariables(bsys, attacker, defender, ai1);
-        for (u8 i = 0; i < 4; i++) {
-            damages[defender][i] = ai1->attackerRolledMoveDamages[i];
-        }
-        highestScoredMove = ScoreMovesAgainstDefender(bsys, attacker, target, moveScores, ai1);
-    }
-    ctx->aiWorkTable.ai_dir_select_client[attacker] = target;
-
-#ifdef BATTLE_DEBUG_OUTPUT
-    u8 j = 0;
-    for (int k = 0; k < 4; k++) {
-        for (u8 i = 0; i < 4; i++) // movesScore
-        {
-            debug_printf("%4d/%4d  ", moveScores[k][i], damages[k][i]);
-        }
-
-        if (targets[j] == k) {
-            j++;
-            debug_printf("x");
-        }
-        debug_printf("\n");
-    }
-#endif // BATTLE_DEBUG_OUTPUT
-
-    for (u8 i = 0; i < 4; i++) {
-        if (moveScores[target][i] == highestScoredMove) {
-            result = i;
-        }
-    }
-
-#ifdef BATTLE_DEBUG_OUTPUT
-    for (u8 i = 0; i < 4; i++) {
-        debug_printf("%i ", moveScores[target][i]);
-    }
-    debug_printf("-> highest %i:%i, dmg %d\n", result, highestScoredMove, damages[target][result]);
-#endif // BATTLE_DEBUG_OUTPUT
-
-    int tieMoveCount = 0;
-
-    for (u8 i = 0; i < 4; i++) { // check for ties
-        if (moveScores[target][i] == highestScoredMove) {
-            tiedMoveIndices[tieMoveCount] = i;
-            tieMoveCount++;
-        }
-    }
-    u8 tieMoveIndex = (BattleRand(bsys) % tieMoveCount);
-
-    result = tiedMoveIndices[tieMoveIndex]; // % 4]; // randomly pick a move among the tie
-#ifdef BATTLE_DEBUG_OUTPUT
-    debug_printf("got tieMoveIndex %d -> Resulting move: %d\n", tieMoveIndex, result);
-#endif // BATTLE_DEBUG_OUTPUT
-    return result;
-}
-
-void LONG_CALL SetupContexts(struct BattleSystem *bsys, u32 attacker, struct AIContext *ai1, struct AIContext *ai2, int damages[4][4])
-{
-    struct BattleStruct *ctx = bsys->sp;
-
-    u32 defender = BATTLER_OPPONENT(attacker);
-    if (ctx->battlemon[defender].hp > 0)
-    {
-        SetupStateVariables(bsys, attacker, defender, ai1);
-        for (u8 i = 0; i < 4; i++)
-        {
-            damages[defender][i] = ai1->attackerRolledMoveDamages[i];
-        }
-    }
-
-    defender = BATTLER_ACROSS(attacker);
-    if (ctx->battlemon[defender].hp > 0)
-    {
-        SetupStateVariables(bsys, attacker, defender, ai2);
-        for (u8 j = 0; j < 4; j++)
-        {
-            damages[defender][j] = ai2->attackerRolledMoveDamages[j];
-        }
-    }
-    if (ai1->playerCanOneShotMonWithAnyMove) {
-        ai2->playerCanOneShotMonWithAnyMove = TRUE;
-    }
-    if (ai2->playerCanOneShotMonWithAnyMove) {
-        ai1->playerCanOneShotMonWithAnyMove = TRUE;
-    }
+    return ctx->aiTurnScoring.choice[attacker];
 }
 
 
@@ -808,28 +652,17 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
-
-    if (!isMoveHighestDamage && ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT) { // TODO Parting shot
-        if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) { // no immunity
-
-            u8 switchThreshold = 1;
-            if (ai->monWithMegaInParty) {
-                switchThreshold = 2;
-            }
-            if (ai->livingMembersAttacker > switchThreshold) // no immunity
-            {
-                if (ai->playerCanOneShotMonWithAnyMove && ai->aiMovesFirst)
-                {
-                    moveScore += 1;
-                }
-                if (2 * ai->attackerRolledMaxDamage < ai->defenderMon.hp)
-                {
-                    moveScore += 6;
-                }
-            }
+    if (ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT && ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) {
+        if (!isMoveHighestDamage)
+        {
+            moveScore += 6;
         }
-        if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67)
+        if (ai->shouldSwitch) {
+            moveScore += 6;
+        }
+        if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67) {
             moveScore += 1;
+        }
     }
 
     switch (ai->attackerMove) {
@@ -1343,6 +1176,19 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
     switch (ai->attackerMoveEffect) {
+    case MOVE_EFFECT_PARTING_SHOT:
+    {
+        moveScore += 6;
+        if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) {
+            if (ai->shouldSwitch) {
+                moveScore += 6;
+            }
+            if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67) {
+                moveScore += 1;
+            }
+        }
+        break;
+    }
     case MOVE_EFFECT_TAUNT: //TODO
         if (ctx->battlemon[ai->defender].moveeffect.tauntTurns > 0)
         {

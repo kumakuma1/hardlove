@@ -1,8 +1,11 @@
 #ifndef CUSTOM_AI_H
 #define CUSTOM_AI_H
 #include "../battle.h"
+#include "../trainer_ai.h"
 
 //#define BATTLE_DEBUG_OUTPUT 1
+
+
 
 
 struct PACKED AI_turnState {
@@ -10,7 +13,7 @@ struct PACKED AI_turnState {
                           // account for BATTLER_OPPONENT (2), attacker (3), BATTLER_ACROSS(0), BATTLER_ALLY(1),  4 moves each
     int damages[4][4]; // rolled damage for each move against each target
 
-    int highestScoredMove[4];
+    int highestScoredMove;
 };
 
 struct PACKED AI_sDamageCalc {
@@ -122,14 +125,14 @@ struct PACKED AIContext {
     u32 maxDamageReceived;
 
     BOOL playerCanOneShotMonWithMove[4];
-    BOOL playerCanOneShotMonWithAnyMove : 1;
-    BOOL monCanOneShotPlayerWithAnyMove : 1;
-    BOOL defenderHasAtleastOnePhysicalMove : 1;
-    BOOL defenderHasAtleastOneSpecialMove : 1;
-    BOOL defenderHasAtleastOneStatusMove : 1;
-    BOOL attackerHasValidSwitchingMove : 1;
-    BOOL attackerHasValidDamagingMove : 1;
-    BOOL padding3 : 1;
+    BOOL playerCanOneShotMonWithAnyMove;
+    BOOL monCanOneShotPlayerWithAnyMove;
+    BOOL defenderHasAtleastOnePhysicalMove;
+    BOOL defenderHasAtleastOneSpecialMove;
+    BOOL defenderHasAtleastOneStatusMove;
+    BOOL attackerHasValidSwitchingMove;
+    BOOL attackerHasValidDamagingMove;
+    BOOL shouldSwitch;
     
     BOOL monCanOneShotPlayerWithMove[4];
     u32 attackerRolledMoveDamages[4];

@@ -10,165 +10,247 @@
 #include "../../include/constants/battle_message_constants.h"
 #include "../../include/custom/custom_ai.h"
 
+#define BATTLE_DEBUG_OUTPUT 1
 
-enum AiTurnProcessing {
-    Calculate = 0,
-    Calced_Attacker1,
-    Calced_Attacker2,
-    Picked_Attacker1,
-    Picked_Attacker2,
-    Picked
-};
-
-struct PACKED AI_turnStateStore {
-    u8 isDouble;
-    u8 isSwitch;
-    u8 switchPosition;
-    u8 target[2];
-};
-
-
-
-BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, int attacker);
+u8 LONG_CALL FindTargets(struct BattleStruct *ctx, u8 attacker, int targets[4], int moveScores[4][4], int damages[4][4], int highestScoredMove);
+u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, int moveScores[4][4], int highestScoredMove);
+BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defender UNUSED, struct AIContext *ai);
+void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *aiOp1, struct AIContext *aiOp2, struct AI_turnState *turnState);
 
 int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 {
-    u32 battleType = BattleTypeGet(bsys);
-    if (battleType == BATTLE_TYPE_TRAINER) {
-        if (TrainerAI_ShouldSwitch(bsys, attacker)) {
+    debug_printf("TrainerAI_PickCommand:\n");
+    struct BattleStruct *ctx = bsys->sp;
+    if (BattleTypeGet(bsys) == BATTLE_TYPE_SAFARI || (BattleTypeGet(bsys) == BATTLE_TYPE_ROAMER && !CantEscape(bsys, ctx, attacker, NULL))) {
+        return PLAYER_INPUT_FIGHT;
+    }
+    if ((BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER) == 0) {
+        return PLAYER_INPUT_FIGHT;
+    }
+    if (ctx->aiTurnScoring.calcState == CalcedEnemy_1_and_3 && (attacker == 1 || attacker == 3))
+        return PLAYER_INPUT_FIGHT;
+
+    int targets[4] = { 0 };
+    int targetsAlly[4] = { 0 };
+    enum AIActionChoice result = AI_ENEMY_ATTACK_1;
+
+    struct AIContext aiContext[4][2] = { 0 };
+    struct AI_turnState turnStateStruct[4] = { 0 };
+
+    u8 ally = BATTLER_ALLY(attacker);
+    u8 defender = BATTLER_OPPONENT(attacker);
+    struct AIContext *ai1 = &aiContext[attacker][0];
+    struct AIContext *ai2 = &aiContext[attacker][1];
+    struct AI_turnState *turnState = &turnStateStruct[attacker];
+
+    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) {
+#ifdef BATTLE_DEBUG_OUTPUT
+        debug_printf("att %d(%d), ally %d(%d), defendOp %d(%d), defendCross %d(%d)\n",
+            attacker,
+            ctx->battlemon[attacker].species,
+            ally,
+            ctx->battlemon[ally].species,
+            defender,
+            ctx->battlemon[defender].species,
+            BATTLER_ACROSS(attacker),
+            ctx->battlemon[BATTLER_ACROSS(attacker)].species);
+        // debug_printf("att %d, ally %d, defendOp %d, defendCross %d\n", ctx->battlemon[attacker].species, ctx->battlemon[BATTLER_ALLY(attacker)].species, ctx->battlemon[BATTLER_OPPONENT(attacker)].species, ctx->battlemon[BATTLER_ACROSS(attacker)].species);
+#endif // BATTLE_DEBUG_OUTPUT
+    }
+
+    CalcTurnStateDamagesAndScores(bsys, attacker, defender, ai1, ai2, turnState);
+
+    u8 allyTarget = 0;
+    enum AIActionChoice resultAlly = AI_ENEMY_ATTACK_1;
+    if (ai1->isDoubleBattle && ai1->isAllyAlive && (attacker == 1 || attacker == 3)) { // only enemy side
+        u8 defenderAlly = BATTLER_OPPONENT(ally);
+        struct AIContext *aiAlly1 = &aiContext[ally][0];
+        struct AIContext *aiAlly2 = &aiContext[ally][1];
+        struct AI_turnState *turnStateAlly = &turnStateStruct[ally];
+        CalcTurnStateDamagesAndScores(bsys, ally, defenderAlly, aiAlly1, aiAlly2, turnStateAlly);
+
+        u8 allyTargetSize = FindTargets(ctx, ally, targetsAlly, turnStateAlly->moveScores, turnStateAlly->damages, turnStateAlly->highestScoredMove);
+        allyTarget = targetsAlly[(BattleRand(bsys) % allyTargetSize)];
+        resultAlly = ChooseMove(bsys, allyTarget, turnStateAlly->moveScores, turnStateAlly->highestScoredMove);
+    }
+
+    u8 attackerTargetSize = FindTargets(ctx, attacker, targets, turnState->moveScores, turnState->damages, turnState->highestScoredMove);
+    u8 target = targets[(BattleRand(bsys) % attackerTargetSize)];
+    result = ChooseMove(bsys, target, turnState->moveScores, turnState->highestScoredMove);
+
+    if (BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER && ai1->isDoubleBattle == FALSE) {
+        if (ai1->shouldSwitch 
+            && (!ai1->attackerHasValidSwitchingMove || (ai1->playerMovesFirst && ai1->playerCanOneShotMonWithAnyMove)))
+        {
+            ctx->aiSwitchedPartySlot[attacker] = ai1->postKoScoringPosition;
             return PLAYER_INPUT_PARTY;
         }
+    }
+
+    ctx->aiTurnScoring.targets[attacker] = target;
+    ctx->aiTurnScoring.choice[attacker] = result;
+
+    if (ai1->isDoubleBattle && ai1->isAllyAlive && (attacker == 1 || attacker == 3)) {
+        ctx->aiTurnScoring.targets[ally] = allyTarget;
+        ctx->aiTurnScoring.choice[ally] = resultAlly;
+        ctx->aiTurnScoring.calcState = CalcedEnemy_1_and_3;
     }
 
     return PLAYER_INPUT_FIGHT;
 }
 
+u8 LONG_CALL FindTargets(struct BattleStruct *ctx, u8 attacker, int targets[4], int moveScores[4][4], int damages[4][4], int highestScoredMove)
+{
+    int targetsSize = 0;
+    for (u8 k = 0; k < 4; k++) //targets
+    {
+        for (u8 i = 0; i < 4; i++) // movesScore
+        {
+            if (moveScores[k][i] == highestScoredMove) {
+                debug_printf("found target %d with score %d, dmg %d\n", k, highestScoredMove, damages[k][i]);
+                targets[targetsSize] = k;
+                targetsSize++;
+                break;
+            }
+        }
+    }
+#ifdef BATTLE_DEBUG_OUTPUT
+    debug_printf("attacker %d (%d):\n", attacker, ctx->battlemon[attacker].species);
+    u8 j = 0;
+    for (int k = 0; k < 4; k++) {
+        for (u8 i = 0; i < 4; i++) // movesScore
+        {
+            debug_printf("%4d/%4d  ", moveScores[k][i], damages[k][i]);
+        }
 
+        if (targets[j] == k) {
+            j++;
+            debug_printf("x");
+        }
+        debug_printf("\n");
+    }
+#endif // BATTLE_DEBUG_OUTPUT
+
+    return targetsSize;
+}
+
+u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, int moveScores[4][4], int highestScoredMove)
+{
+    int tieMoveCount = 0;
+    int tiedMoveIndices[4] = { 0 };
+    for (u8 i = 0; i < 4; i++) { // check for ties
+        if (moveScores[target][i] == highestScoredMove) {
+            tiedMoveIndices[tieMoveCount] = i;
+            tieMoveCount++;
+        }
+    }
+    u8 tieMoveIndex = (BattleRand(bsys) % tieMoveCount);
+    u8 result = tiedMoveIndices[tieMoveIndex]; // % 4]; // randomly pick a move among the tie
+#ifdef BATTLE_DEBUG_OUTPUT
+    debug_printf("got tieMoveIndex %d -> Resulting move: %d\n", tieMoveIndex, result);
+#endif // BATTLE_DEBUG_OUTPUT
+    return result;
+}
+
+BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defender UNUSED, struct AIContext *ai)
+{
+    struct BattleStruct *ctx = bsys->sp;
+    if (CantEscape(bsys, ctx, attacker, NULL)) {
+        return FALSE;
+    }
+
+    if (ai->livingMembersAttacker < 2) {
+        return FALSE;
+    }
+
+    if (ai->monCanOneShotPlayerWithAnyMove && ai->aiMovesFirst) {
+        return FALSE;
+    }
+
+    if (ai->monCanOneShotPlayerWithAnyMove && ai->playerMovesFirst && !ai->playerCanOneShotMonWithAnyMove) {
+        return FALSE;
+    }
+
+    if (ai->attackerMon.percenthp < 67) {
+        return FALSE;
+    }
+    BOOL hasPerishSong = FALSE;
+    if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE) {
+        hasPerishSong = TRUE;
+    }
+
+    int switchScore = 0;
+    if (hasPerishSong) {
+        if (ai->highestPostKoScoreFromParty >= 103) {
+            switchScore = 33 * (ai->highestPostKoScoreFromParty - 102);
+        }
+    } else {
+        if (ai->highestPostKoScoreFromParty == 104) {
+            switchScore = 25;
+        }
+        if (ai->highestPostKoScoreFromParty >= 105) {
+            switchScore = 50;
+        }
+    }
+
+    int rand = BattleRand(bsys) % 100;
+    if (rand <= switchScore) {
+        return TRUE;
+    }
+
+    return FALSE;
+}
 
 void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *aiOp1, struct AIContext *aiOp2, struct AI_turnState *turnState)
 {
     struct BattleStruct *ctx = bsys->sp;
+    u32 ally = BATTLER_ALLY(attacker);
+    u32 defenderAcross = BATTLER_ACROSS(attacker);
     if (ctx->battlemon[defender].hp > 0) {
         SetupStateVariables(bsys, attacker, defender, aiOp1);
         for (u8 i = 0; i < 4; i++) {
             turnState->damages[defender][i] = aiOp1->attackerRolledMoveDamages[i];
         }
-        turnState->highestScoredMove[attacker] = ScoreMovesAgainstDefender(bsys, attacker, defender, turnState->moveScores, aiOp1);
+        aiOp1->shouldSwitch = CalculateSwitch(bsys, attacker, defender, aiOp1);
     }
 
-    if (aiOp2->isDoubleBattle) {
-        int highestScoredMoveAcross = 0;
-        defender = BATTLER_ACROSS(attacker);
-        if (ctx->battlemon[defender].hp > 0) {
-            SetupStateVariables(bsys, attacker, defender, aiOp2);
+    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) {
+        if (ctx->battlemon[defenderAcross].hp > 0) {
+            SetupStateVariables(bsys, attacker, defenderAcross, aiOp2);
             for (u8 i = 0; i < 4; i++) {
-                turnState->damages[defender][i] = aiOp2->attackerRolledMoveDamages[i];
+                turnState->damages[defenderAcross][i] = aiOp2->attackerRolledMoveDamages[i];
             }
-            highestScoredMoveAcross = ScoreMovesAgainstDefender(bsys, attacker, defender, turnState->moveScores, aiOp2);
-            if (highestScoredMoveAcross > turnState->highestScoredMove[attacker]) {
-                turnState->highestScoredMove[attacker] = highestScoredMoveAcross;
+            //aiOp2->shouldSwitch = CalculateSwitch(bsys, attacker, defenderAcross, aiOp2);
+        }
+    }
+
+    if (aiOp1->playerCanOneShotMonWithAnyMove) {
+        aiOp2->playerCanOneShotMonWithAnyMove = TRUE;
+    }
+    if (aiOp2->playerCanOneShotMonWithAnyMove) {
+        aiOp1->playerCanOneShotMonWithAnyMove = TRUE;
+    }
+
+    if (ctx->battlemon[defender].hp > 0) {
+        turnState->highestScoredMove = ScoreMovesAgainstDefender(bsys, attacker, defender, turnState->moveScores, aiOp1);
+    }
+
+    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) {
+        int highestScoredMoveAcross = 0;
+        if (ctx->battlemon[defenderAcross].hp > 0) {
+            highestScoredMoveAcross = ScoreMovesAgainstDefender(bsys, attacker, defenderAcross, turnState->moveScores, aiOp2);
+            if (highestScoredMoveAcross > turnState->highestScoredMove) {
+                turnState->highestScoredMove = highestScoredMoveAcross;
             }
         }
 
-        defender = BATTLER_ALLY(attacker);
-        highestScoredMoveAcross = ScoreMovesAgainstAlly(bsys, attacker, defender, turnState->moveScores, aiOp1);
-        if (highestScoredMoveAcross > turnState->highestScoredMove[attacker]) {
-            turnState->highestScoredMove[attacker] = highestScoredMoveAcross;
-        }
-
-        if (aiOp1->playerCanOneShotMonWithAnyMove) {
-            aiOp2->playerCanOneShotMonWithAnyMove = TRUE;
-        }
-        if (aiOp2->playerCanOneShotMonWithAnyMove) {
-            aiOp1->playerCanOneShotMonWithAnyMove = TRUE;
+        highestScoredMoveAcross = ScoreMovesAgainstAlly(bsys, attacker, ally, turnState->moveScores, aiOp1);
+        if (highestScoredMoveAcross > turnState->highestScoredMove) {
+            turnState->highestScoredMove = highestScoredMoveAcross;
         }
     }
 }
 
-BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, int attacker)
-{
-    return FALSE;
-    debug_printf("TrainerAI_ShouldSwitch:\n");
-    struct BattleStruct *ctx = bsys->sp;
-    u32 battleType = BattleTypeGet(bsys);
-
-    if (battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) {
-        return FALSE;
-    }
-
-    if (CantEscape(bsys, ctx, attacker, NULL)) {
-        return FALSE;
-    }
-    struct AI_turnState turnStateStruct = { 0 };
-    struct AI_turnState *turnState = &turnStateStruct;
-
-    struct AI_turnState turnStateStructAlly = { 0 };
-    struct AI_turnState *turnStateAlly = &turnStateStructAlly;
-
-    struct AIContext aiContextOp1 = { 0 };
-    struct AIContext aiContextOp2 = { 0 };
-    struct AIContext *ai1 = &aiContextOp1;
-    struct AIContext *ai2 = &aiContextOp2;
 
 
-    struct AIContext aiAllyOp1 = { 0 };
-    struct AIContext aiAllyOp2 = { 0 };
-    struct AIContext *aiAlly1 = &aiAllyOp1;
-    struct AIContext *aiAlly2 = &aiAllyOp2;
-
-    //if (slot == first) //attacker = 1 else attacker = 3
-
-    if (attacker == 1 || attacker == 3) {
-    } else {
-
-    }
-
-
-    u32 defender = BATTLER_OPPONENT(attacker);
-    CalcTurnStateDamagesAndScores(bsys, attacker, defender, ai1, ai2, turnState);
-
-    
-    if (ai1->isDoubleBattle && ai1->isAllyAlive) {
-        attacker = BATTLER_ALLY(attacker);
-        defender = BATTLER_OPPONENT(attacker);
-        CalcTurnStateDamagesAndScores(bsys, attacker, defender, aiAlly1, aiAlly2, turnStateAlly);
-
-        if (aiContextOp1.attackerMon.speed > aiContextOp1.aimonAlly.speed)
-        {
-            if (aiContextOp1.monCanOneShotPlayerWithAnyMove && aiContextOp1.aiMovesFirst)
-            {
-                //calc ally again, ignore fast ko mon
-            }
-        }
-        else
-        {
-            if (aiAllyOp1.monCanOneShotPlayerWithAnyMove && aiAllyOp1.aiMovesFirst)
-            {
-                // calc ally again, ignore fast ko mon
-            }
-        }
-
-    }
-
-    /*
-    setup AiContext for attacker
-    calc scores
-
-    if singles
-        calc postKo score
-        decide if switching/attacking
-
-    if double
-        setup AiContext for attacker2
-        calc scores
-
-    consolidate targets and divert if necessary
-    choose moves
-
-    store in bsys->sp
-    set bsys->sp state to skip calc
-    */
-
-    return FALSE;
-}
 
