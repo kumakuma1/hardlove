@@ -187,7 +187,7 @@ u8 LONG_CALL BattleAI_GetHighestParadoxStat(u8 atk, u8 def, u8 spatk, u8 spdef, 
     return highestId;
 }
 
-int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, int moveno, int move_type, u32 *flag UNUSED, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
+int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, int moveno, int move_type, u8 attackerSlot, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
     int typeTableEntryNo = 0; // Used to cycle through all (non-neutral) type interactions.
 
@@ -203,6 +203,10 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
     u32 type1Effectiveness_Dual = TYPE_MUL_NORMAL;
     u32 type2Effectiveness_Dual = TYPE_MUL_NORMAL;
     u32 type3Effectiveness_Dual = TYPE_MUL_NORMAL;
+
+    if (HasMovePranksterPriority(bw, attackerSlot, moveno, attacker->ability, defenderSlot) && HasType(sp, defenderSlot, TYPE_DARK)) {
+        return TYPE_MUL_NO_EFFECT;
+    }
 
     // [0]: Attacking type
     // [1]: Defending type
@@ -921,4 +925,21 @@ u32 LONG_CALL BattleAI_GetWeather(struct BattleSystem *bsys, struct BattleStruct
     }
 
     return ctx->field_condition & FIELD_CONDITION_WEATHER;
+}
+
+
+BOOL LONG_CALL HasMovePranksterPriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender)
+{
+    struct BattleStruct *ctx = bsys->sp;
+    struct BattleMove attackerMoveStruct = ctx->moveTbl[attackerMove];
+
+    if (attackerAbility == ABILITY_PRANKSTER
+        && attackerMoveStruct.split == SPLIT_STATUS
+        //&& ctx->clientPriority[attacker] > 0
+        && (attackerMoveStruct.target == RANGE_ADJACENT_OPPONENTS
+            || (attackerMoveStruct.target == RANGE_SINGLE_TARGET
+                && BATTLERS_ON_DIFFERENT_SIDE(attacker, defender)))) {
+        return TRUE;
+    }
+    return FALSE;
 }

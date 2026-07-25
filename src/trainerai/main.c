@@ -35,7 +35,7 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
 int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai);
 
 BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender);
-BOOL LONG_CALL HasMovePranksterPriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender);
+
 
 enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
 {
@@ -102,101 +102,88 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
     if (!ai->isDoubleBattle || !ai->isAllyAlive) {
         return 0;
     }
-    int highestScoredMove = 0;
-    switch (bsys->trainerId[BATTLER_ENEMY]) {
-    //case 66: // trainer ID
-    //case 714: // trainer ID
-    default:
-    {
-        {
-            u8 skillSwapPosition = 5;
-            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
-                if (ctx->battlemon[attacker].move[j] == MOVE_SKILL_SWAP) {
-                    skillSwapPosition = j;
-                    break;
-                }
-            }
 
-            if (skillSwapPosition < 5) {
+    int moveScore = 0;
+    int highestScoredMove = 0;
+    for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++) {
+        u32 attackerMove = ctx->battlemon[attacker].move[i];
+        if (attackerMove != MOVE_NONE) {
+
+            switch (attackerMove) {
+            case MOVE_HEAL_PULSE:
+            case MOVE_POLLEN_PUFF:
+            {
+                if (!IsBattleMonSlowerThanOpposition(bsys, attacker, ai->isDoubleBattle) && ai->aimonAlly.percenthp <=50) {
+                    moveScore += 7;
+                }
+                break;
+            }
+            case MOVE_SKILL_SWAP: {
                 if ((ai->attackerMon.ability == ABILITY_FLASH_FIRE && ai->aimonAlly.ability != ABILITY_FLASH_FIRE && ai->aimonAlly.species == SPECIES_DURANT)
                     || (ai->attackerMon.ability == ABILITY_TECHNICIAN && ai->aimonAlly.ability != ABILITY_TECHNICIAN && ai->aimonAlly.species == SPECIES_DURANT)
                     || (ai->attackerMon.ability == ABILITY_PRANKSTER && ai->aimonAlly.ability != ABILITY_PRANKSTER && ai->aimonAlly.species == SPECIES_BRELOOM)
                     || (ai->aimonAlly.ability == ABILITY_TRUANT && ai->aimonAlly.species == SPECIES_SLAKING)
                     || (ai->aimonAlly.ability == ABILITY_SLOW_START && ai->aimonAlly.species == SPECIES_REGIGIGAS)) {
-                    highestScoredMove = 1000;
-                    highestScoredMove += 14;
-                    moveScores[target][skillSwapPosition] += highestScoredMove;
+                    moveScore = 1000;
+                    moveScore += 12;
                 }
+                break;
             }
-        }
-       // break;
-    //}
-    //default:
-        {
-            if (ai->aimonAlly.item == ITEM_WEAKNESS_POLICY) {
+            case MOVE_DECORATE:
+            case MOVE_COACHING:
+            case MOVE_ACUPRESSURE: {
+                moveScore = 1000;
+                moveScore += 6;
+                if (BattleRand(bsys) % 2 == 0) {
+                    moveScore += 2;
+                }
+                break;
+            }
+            case MOVE_ROLE_PLAY:
+            {
+                if ((ai->aimonAlly.ability == ABILITY_HUGE_POWER || ai->aimonAlly.ability == ABILITY_PURE_POWER)
+                    && ai->attackerMon.ability != ABILITY_HUGE_POWER
+                    && ai->attackerMon.ability != ABILITY_PURE_POWER)
+                {
+                    moveScore += 9;
+                    if (BattleRand(bsys) % 4 == 0) {
+                        moveScore += 3;
+                    }
+                }
+                break;
+            }
+            case MOVE_ENTRAINMENT: {
 
-                u8 priorityMovePosition = 5;
-                for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
-                    int move = ctx->battlemon[attacker].move[j];
-                    if (ctx->moveTbl[move].priority > 0 && ctx->moveTbl[move].power <= 40) {
-                        int movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, move);
-                        u32 flag = 0;
-                        u32 moveEffectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, move, movetype, &flag, &ai->attackerMon, &ai->aimonAlly);
+                if ((ai->attackerMon.ability == ABILITY_NO_GUARD
+                        && (BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_FISSURE, ai)
+                            || BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_HORN_DRILL, ai)))
+                    || (ai->aimonAlly.ability == ABILITY_TRUANT && ai->aimonAlly.species == SPECIES_SLAKING)
+                    || (ai->aimonAlly.ability == ABILITY_SLOW_START && ai->aimonAlly.species == SPECIES_REGIGIGAS)) {
+                    moveScore = 1000;
+                    moveScore += 12;
+                }
+                break;
+            }
+            default: {
+                if (ai->aimonAlly.item == ITEM_WEAKNESS_POLICY) {
+                    if (ctx->moveTbl[attackerMove].priority > 0 && ctx->moveTbl[attackerMove].power <= 40) {
+                        int movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, attackerMove);
+                        u32 moveEffectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, attackerMove, movetype, attacker, target, &ai->attackerMon, &ai->aimonAlly);
                         if (moveEffectiveness >= TYPE_MUL_SUPER_EFFECTIVE) {
-                            priorityMovePosition = j;
-                            break;
+                            moveScore = 1000;
+                            moveScore += 12;
                         }
                     }
                 }
-                if (priorityMovePosition < 5) {
-                    highestScoredMove = 1000;
-                    highestScoredMove += 14;
-                    moveScores[target][priorityMovePosition] += highestScoredMove;
-                }
+                break;
             }
-        }
-        
-        {
-            u8 acupressureMovePosition = 5;
-            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
-                int move = ctx->battlemon[attacker].move[j];
-                if (move == MOVE_ACUPRESSURE) {
-                    acupressureMovePosition = j;
-                    break;
-                }
             }
-            if (acupressureMovePosition < 5) {
-                highestScoredMove = 1000;
-                highestScoredMove += 6;
-                if (BattleRand(bsys) % 2 == 0) {
-                    highestScoredMove += 2;
-                }
-                moveScores[target][acupressureMovePosition] += highestScoredMove;
+            moveScores[target][i] += moveScore;
+            if (highestScoredMove < moveScores[target][i]) {
+                highestScoredMove = moveScores[target][i];
             }
-        }
-
-        {
-            u8 entrainementPosition = 5;
-            for (int j = 0; j < GetBattlerLearnedMoveCount(bsys, ctx, attacker); j++) {
-                if (ctx->battlemon[attacker].move[j] == MOVE_ENTRAINMENT) {
-                    entrainementPosition = j;
-                    break;
-                }
-            }
-            if ((ai->attackerMon.ability == ABILITY_NO_GUARD
-                    && (BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_FISSURE, ai)
-                        || BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_HORN_DRILL, ai)))
-                || (ai->aimonAlly.ability == ABILITY_TRUANT && ai->aimonAlly.species == SPECIES_SLAKING)
-                || (ai->aimonAlly.ability == ABILITY_SLOW_START && ai->aimonAlly.species == SPECIES_REGIGIGAS)) {
-                highestScoredMove = 1000;
-                highestScoredMove += 14;
-                moveScores[target][entrainementPosition] += highestScoredMove;
-            }
-        }
-            break;
         }
     }
-
     return highestScoredMove;
 }
 
@@ -1986,21 +1973,4 @@ BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attac
         hasPriority = TRUE;
     }
     return hasPriority;
-}
-
-BOOL LONG_CALL HasMovePranksterPriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender)
-{
-    struct BattleStruct *ctx = bsys->sp;
-    struct BattleMove attackerMoveStruct = ctx->moveTbl[attackerMove];
-
-    if (attackerAbility == ABILITY_PRANKSTER
-        && attackerMoveStruct.split == SPLIT_STATUS
-        //&& ctx->clientPriority[attacker] > 0
-        && (attackerMoveStruct.target == RANGE_ADJACENT_OPPONENTS
-            || (attackerMoveStruct.target == RANGE_SINGLE_TARGET
-                && BATTLERS_ON_DIFFERENT_SIDE(attacker, defender))))
-    {
-        return TRUE;
-    }
-    return FALSE;
 }

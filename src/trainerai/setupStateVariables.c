@@ -19,7 +19,6 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     struct BattleStruct *ctx = bsys->sp;
     u8 critical = 0;
     u8 speedCalc;
-    u32 effectivenessFlag = 0;
 
     FillDamageStructFromBattleMon(bsys, ctx, &ai->attackerMon, attacker);
     FillDamageStructFromBattleMon(bsys, ctx, &ai->defenderMon, defender);
@@ -254,7 +253,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         struct BattleMove attackerMove = ctx->moveTbl[attackerMoveno];
         if (attackerMove.split == SPLIT_STATUS && ctx->battlemon[attacker].pp[j]) {
             u8 movetype = GetAdjustedMoveTypeBasics(ctx, attackerMoveno, ai->attackerMon.ability, attackerMove.type);
-            ai->effectivenessOnPlayer[j] = BattleAI_GetTypeEffectiveness(bsys, ctx, attackerMoveno, movetype, &effectivenessFlag, &ai->attackerMon, &ai->defenderMon);
+            ai->effectivenessOnPlayer[j] = BattleAI_GetTypeEffectiveness(bsys, ctx, attackerMoveno, movetype, attacker, defender, &ai->attackerMon, &ai->defenderMon);
         } else if (attackerMove.power && ctx->battlemon[attacker].pp[j]) {
             ai->attackerHasAttackingMoves = TRUE;
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, attackerMoveno, ctx->side_condition[BATTLER_IS_ENEMY(attacker)], ctx->field_condition, attackerMove.power, attackerMove.type, critical, attacker, defender, &damages, &ai->attackerMon, &ai->defenderMon);

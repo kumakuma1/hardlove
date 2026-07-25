@@ -166,7 +166,7 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
 void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int numSlot);
 
 BOOL LONG_CALL IsMoveBoostedBySheerForce(u32 moveno, u32 moveeffect);
-int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, int moveno, int move_type, u32 *flag UNUSED, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender);
+int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, int moveno, int move_type, u8 attackerSlot, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender);
 
 BOOL LONG_CALL BattleAI_AttackerHasOnlyIneffectiveMoves(struct BattleStruct *ctx, u32 attacker, int knownMoves, u32 effectiveness[4]);
 
@@ -190,6 +190,8 @@ BOOL LONG_CALL IsMoveValidSwitchingMove(u32 moveno);
 u32 LONG_CALL BattleAI_GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int ability);
 
 u8 LONG_CALL BattleAI_GetHighestParadoxStat(u8 atk, u8 def, u8 spatk, u8 spdef, u8 speed);
+
+BOOL LONG_CALL HasMovePranksterPriority(struct BattleSystem *bsys, u8 attacker, u32 attackerMove, u32 attackerAbility, u8 defender);
 
 
 int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem *bsys, u32 battler, struct AIContext *ai UNUSED);
