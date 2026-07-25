@@ -109,11 +109,12 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
         u32 attackerMove = ctx->battlemon[attacker].move[i];
         if (attackerMove != MOVE_NONE) {
 
+            moveScore = 1000;
             switch (attackerMove) {
             case MOVE_HEAL_PULSE:
             case MOVE_POLLEN_PUFF:
             {
-                if (!IsBattleMonSlowerThanOpposition(bsys, attacker, ai->isDoubleBattle) && ai->aimonAlly.percenthp <=50) {
+                if (!IsBattleMonSlowerThanOpposition(bsys, attacker, ai->isDoubleBattle) && ai->aimonAlly.percenthp <= 50) {
                     moveScore += 7;
                 }
                 break;
@@ -124,15 +125,35 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                     || (ai->attackerMon.ability == ABILITY_PRANKSTER && ai->aimonAlly.ability != ABILITY_PRANKSTER && ai->aimonAlly.species == SPECIES_BRELOOM)
                     || (ai->aimonAlly.ability == ABILITY_TRUANT && ai->aimonAlly.species == SPECIES_SLAKING)
                     || (ai->aimonAlly.ability == ABILITY_SLOW_START && ai->aimonAlly.species == SPECIES_REGIGIGAS)) {
-                    moveScore = 1000;
                     moveScore += 12;
                 }
                 break;
             }
-            case MOVE_DECORATE:
+            case MOVE_DECORATE: {
+                if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7) {
+                    moveScore -= 2;
+                }
+                moveScore += 6;
+                if (BattleRand(bsys) % 2 == 0) {
+                    moveScore += 2;
+                }
+                break;
+            }
             case MOVE_COACHING:
+            {
+                if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7) {
+                    moveScore -= 1;
+                }
+                if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 7) {
+                    moveScore -= 1;
+                }
+                moveScore += 6;
+                if (BattleRand(bsys) % 2 == 0) {
+                    moveScore += 2;
+                }
+                break;
+            }
             case MOVE_ACUPRESSURE: {
-                moveScore = 1000;
                 moveScore += 6;
                 if (BattleRand(bsys) % 2 == 0) {
                     moveScore += 2;
@@ -159,7 +180,6 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                             || BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_HORN_DRILL, ai)))
                     || (ai->aimonAlly.ability == ABILITY_TRUANT && ai->aimonAlly.species == SPECIES_SLAKING)
                     || (ai->aimonAlly.ability == ABILITY_SLOW_START && ai->aimonAlly.species == SPECIES_REGIGIGAS)) {
-                    moveScore = 1000;
                     moveScore += 12;
                 }
                 break;
@@ -170,7 +190,6 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                         int movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, attackerMove);
                         u32 moveEffectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, attackerMove, movetype, attacker, target, &ai->attackerMon, &ai->aimonAlly);
                         if (moveEffectiveness >= TYPE_MUL_SUPER_EFFECTIVE) {
-                            moveScore = 1000;
                             moveScore += 12;
                         }
                     }
