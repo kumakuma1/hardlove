@@ -108,8 +108,6 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
     for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++) {
         u32 attackerMove = ctx->battlemon[attacker].move[i];
         if (attackerMove != MOVE_NONE) {
-
-            moveScore = 1000;
             switch (attackerMove) {
             case MOVE_HEAL_PULSE:
             case MOVE_POLLEN_PUFF:
@@ -130,26 +128,26 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                 break;
             }
             case MOVE_DECORATE: {
-                if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7) {
-                    moveScore -= 2;
-                }
                 moveScore += 6;
                 if (BattleRand(bsys) % 2 == 0) {
                     moveScore += 2;
+                }
+                if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7) {
+                    moveScore -= 2;
                 }
                 break;
             }
             case MOVE_COACHING:
             {
+                moveScore += 6;
+                if (BattleRand(bsys) % 2 == 0) {
+                    moveScore += 2;
+                }
                 if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7) {
                     moveScore -= 1;
                 }
                 if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 7) {
                     moveScore -= 1;
-                }
-                moveScore += 6;
-                if (BattleRand(bsys) % 2 == 0) {
-                    moveScore += 2;
                 }
                 break;
             }
@@ -196,6 +194,9 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                 }
                 break;
             }
+            }
+            if (moveScore > 0) {
+                moveScore += 1000;
             }
             moveScores[target][i] += moveScore;
             if (highestScoredMove < moveScores[target][i]) {
@@ -256,11 +257,6 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     switch (ai->attackerMoveEffect) {
     case MOVE_EFFECT_FLING:
         if (ai->attackerMon.item == ITEM_NONE) {
-            moveScore -= IMPOSSIBLE_MOVE;
-        }
-        break;
-    case MOVE_EFFECT_STUFF_CHEEKS:
-        if (!IS_ITEM_BERRY(ai->attackerMon.item)) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
         break;
@@ -1027,6 +1023,9 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7) {
             moveScore -= 2;
         }
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 8 || ctx->battlemon[attacker].states[STAT_SPATK] > 8) {
+            moveScore -= 1;
+        }
         moveScore += 6;
         moveScore += OffensiveSetup(bsys, attacker, i, ai);
         break;
@@ -1040,6 +1039,9 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7 || ai->aiMovesFirst) {
             moveScore -= 2;
+        }
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 8 || ctx->battlemon[attacker].states[STAT_SPATK] > 8 || ai->aiMovesFirst) {
+            moveScore -= 1;
         }
         moveScore += 6;
         moveScore += OffensiveSetup(bsys, attacker, i, ai);
@@ -1084,6 +1086,12 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 7 || ctx->battlemon[attacker].states[STAT_SPDEF] > 7) {
             moveScore -= 3;
         }
+        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 8 || ctx->battlemon[attacker].states[STAT_SPDEF] > 8) {
+            moveScore -= 1;
+        }
+        if (ai->attackerMoveEffect == MOVE_EFFECT_STUFF_CHEEKS && !IS_ITEM_BERRY(ai->attackerMon.item)) {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
         moveScore += 6;
         moveScore += DefensiveSetup(bsys, attacker, i, ai);
         break;
@@ -1106,6 +1114,9 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         if (ctx->battlemon[attacker].states[STAT_SPATK] > 7 || ctx->battlemon[attacker].states[STAT_SPDEF] > 7) {
             moveScore -= 2;
         }
+        if (ctx->battlemon[attacker].states[STAT_SPATK] > 8 || ctx->battlemon[attacker].states[STAT_SPDEF] > 8) {
+            moveScore -= 1;
+        }
         if (ai->defenderHasAtleastOnePhysicalMove == FALSE && ai->defenderHasAtleastOneSpecialMove) {
             moveScore += DefensiveSetup(bsys, attacker, i, ai);
         } else {
@@ -1127,6 +1138,9 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_DEFENSE] > 7) {
             moveScore -= 2;
+        }
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 8 || ctx->battlemon[attacker].states[STAT_DEFENSE] > 8) {
+            moveScore -= 1;
         }
         if (ai->defenderHasAtleastOnePhysicalMove && ai->defenderHasAtleastOneSpecialMove == FALSE) {
             moveScore += DefensiveSetup(bsys, attacker, i, ai);
