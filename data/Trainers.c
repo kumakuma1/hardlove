@@ -2739,7 +2739,7 @@ const TrainerData sTrainerData[] = {
                 .level = 54,
                 .species = SPECIES_JIRACHI,
                 .item = ITEM_AIR_BALLOON,
-                .moves = { MOVE_FLASH_CANNON, MOVE_PSYCHIC, MOVE_ENERGY_BALL, MOVE_CALM_MIND },
+                .moves = { MOVE_DOOM_DESIRE, MOVE_PSYCHIC, MOVE_ENERGY_BALL, MOVE_CALM_MIND },
                 .ability = ABILITY_SERENE_GRACE,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -8804,7 +8804,7 @@ const TrainerData sTrainerData[] = {
                 .level = 74,
                 .species = SPECIES_CLAWITZER,
                 .item = ITEM_ROOM_SERVICE,
-                .moves = { MOVE_WATER_PULSE, MOVE_AURA_SPHERE, MOVE_TERRAIN_PULSE, MOVE_DARK_PULSE },
+                .moves = { MOVE_WATER_PULSE, MOVE_AURA_SPHERE, MOVE_TERRAIN_PULSE, MOVE_HEAL_PULSE },
                 .ability = ABILITY_MEGA_LAUNCHER,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -11603,6 +11603,22 @@ const TrainerData sTrainerData[] = {
                 .additionalFlags = 0,
                 .ballSeal = 0,
             },
+            {
+                .ivs = 0,
+                .abilitySlot = TRAINER_POKEMON_ABILITY_1,
+                .level = 74,
+                .species = SPECIES_VESPIQUEN,
+                .item = ITEM_SITRUS_BERRY,
+                .moves = { MOVE_POLLEN_PUFF, MOVE_HURRICANE, MOVE_ROOST, MOVE_HELPING_HAND },
+                .ability = ABILITY_UNNERVE,
+                .ball = ITEM_POKE_BALL,
+                .setIvs = { 31, 31, 31, 31, 31, 31 },
+                .setEvs = { 0, 0, 0, 0, 0, 0 },
+                .nature = NATURE_MODEST,
+                .shinyLock = 0,
+                .additionalFlags = 0,
+                .ballSeal = 0,
+            },
         },
         .text = {
             {
@@ -11788,7 +11804,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_HIKER,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = SINGLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -11871,6 +11887,22 @@ const TrainerData sTrainerData[] = {
                 .additionalFlags = 0,
                 .ballSeal = 0,
             },
+            {
+                .ivs = 0,
+                .abilitySlot = TRAINER_POKEMON_ABILITY_1,
+                .level = 74,
+                .species = SPECIES_TOXICROAK,
+                .item = ITEM_BLACK_SLUDGE,
+                .moves = { MOVE_CLOSE_COMBAT, MOVE_POISON_JAB, MOVE_FAKE_OUT, MOVE_COACHING },
+                .ability = ABILITY_DRY_SKIN,
+                .ball = ITEM_POKE_BALL,
+                .setIvs = { 31, 31, 31, 31, 31, 31 },
+                .setEvs = { 0, 0, 0, 0, 0, 0 },
+                .nature = NATURE_JOLLY,
+                .shinyLock = 0,
+                .additionalFlags = 0,
+                .ballSeal = 0,
+            },
         },
         .text = {
             {
@@ -11878,7 +11910,7 @@ const TrainerData sTrainerData[] = {
                 .text = "Awright! I’ll show you the power of\\nmountain Pokémon!\\r",
             },
             {
-                .type = TRMSG_LOSE,
+                .type = TRMSG_DBL_LOSE_1,
                 .text = "Mercy! You showed me your power!\\n",
             },
             {
