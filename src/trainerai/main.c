@@ -103,12 +103,27 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
         return 0;
     }
 
-    int moveScore = 0;
+    
     int highestScoredMove = 0;
     for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++) {
+        int moveScore = 0;
         u32 attackerMove = ctx->battlemon[attacker].move[i];
         if (attackerMove != MOVE_NONE) {
             switch (attackerMove) {
+            case MOVE_HELPING_HAND:
+            {
+                if (ai->ignoreTarget || ai->partnerMoveNo == MOVE_HELPING_HAND || !ai->partnerClicksAttackingMove) {
+                    moveScore -= NEVER_USE_MOVE_20;
+                }
+                else
+                {
+                    moveScore += 6;
+                    if (BattleRand(bsys) % 2 == 0) {
+                        moveScore += 2;
+                    }
+                }
+                break;
+            }
             case MOVE_HEAL_PULSE:
             case MOVE_POLLEN_PUFF:
             {
@@ -567,6 +582,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             moveScore += 2;
         }
     }
+    debug_printf("move %d is %s damage %d == %d\n", i, ((isMoveHighestDamage == TRUE) ? "highest" : "not highest"), ai->attackerRolledMaxDamage, ai->attackerRolledMoveDamages[i]);
 
     if (ai->monCanOneShotPlayerWithMove[i]) // if ai sees kill with this move
     {
@@ -1433,8 +1449,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             }
         }
         break;
-    case MOVE_EFFECT_BOOST_ALLY_POWER_BY_50_PERCENT: // TODO
-    case MOVE_EFFECT_MAKE_GLOBAL_TARGET:
+    case MOVE_EFFECT_BOOST_ALLY_POWER_BY_50_PERCENT: 
+    case MOVE_EFFECT_MAKE_GLOBAL_TARGET:// TODO
         if (ai->isDoubleBattle && ai->isAllyAlive) {
             moveScore += 6;
             if (BattleRand(bsys) % 10 < 2) {

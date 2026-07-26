@@ -49,6 +49,10 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->maxDamageReceived = 0;
     ai->attackerRolledMaxDamage = 0;
 
+    ai->partnerMoveNo = 0;
+    ai->partnerClicksAttackingMove = FALSE;
+    ai->ignoreTarget = FALSE;
+
     ai->defenderKnowsThawingMove = BattlerKnowsThawingMove(bsys, ai->defender, ai);
 
     ai->isPartnerGrounded = FALSE;
@@ -73,7 +77,11 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         }
     }
 
-    ai->postKoScoringPosition = BattleAI_PostKOSwitchIn_Internal(bsys, attacker, &ai->highestPostKoScoreFromParty, TRUE);
+    if (ai->highestPostKoScoreFromParty == 0) {
+        int score = 0;
+        ai->postKoScoringPosition = BattleAI_PostKOSwitchIn_Internal(bsys, attacker, &score, TRUE);
+        ai->highestPostKoScoreFromParty = score;
+    }
     debug_printf("PostKo: position %d with score %d\n", ai->postKoScoringPosition, ai->highestPostKoScoreFromParty);
 
     speedCalc = CalcSpeed(bsys, ctx, defender, attacker, CALCSPEED_FLAG_NO_PRIORITY); // checks actual turn order with field state considered
