@@ -13977,7 +13977,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = SINGLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -14060,6 +14060,22 @@ const TrainerData sTrainerData[] = {
                 .additionalFlags = 0,
                 .ballSeal = 0,
             },
+            {
+                .ivs = 0,
+                .abilitySlot = TRAINER_POKEMON_ABILITY_1,
+                .level = 68,
+                .species = SPECIES_RIBOMBEE,
+                .item = ITEM_FOCUS_SASH,
+                .moves = { MOVE_MOONBLAST, MOVE_POLLEN_PUFF, MOVE_STUN_SPORE, MOVE_QUIVER_DANCE },
+                .ability = ABILITY_SHIELD_DUST,
+                .ball = ITEM_POKE_BALL,
+                .setIvs = { 31, 31, 31, 31, 31, 31 },
+                .setEvs = { 0, 0, 0, 0, 0, 0 },
+                .nature = NATURE_TIMID,
+                .shinyLock = 0,
+                .additionalFlags = 0,
+                .ballSeal = 0,
+            },
         },
         .text = {
             {
@@ -14067,7 +14083,7 @@ const TrainerData sTrainerData[] = {
                 .text = "Why did the door open? Did you have\\nsomething to do with this?\\r",
             },
             {
-                .type = TRMSG_LOSE,
+                .type = TRMSG_DBL_LOSE_1,
                 .text = "Gulp! This is a bleak moment.\\n",
             },
             {
@@ -14508,6 +14524,22 @@ const TrainerData sTrainerData[] = {
                 .additionalFlags = 0,
                 .ballSeal = 0,
             },
+            {
+                .ivs = 0,
+                .abilitySlot = TRAINER_POKEMON_ABILITY_1,
+                .level = 68,
+                .species = SPECIES_TOGEDEMARU,
+                .item = ITEM_STEEL_GEM,
+                .moves = { MOVE_ZING_ZAP, MOVE_IRON_HEAD, MOVE_ENCORE, MOVE_ENDEAVOR },
+                .ability = ABILITY_STURDY,
+                .ball = ITEM_POKE_BALL,
+                .setIvs = { 31, 31, 31, 31, 31, 31 },
+                .setEvs = { 0, 0, 0, 0, 0, 0 },
+                .nature = NATURE_JOLLY,
+                .shinyLock = 0,
+                .additionalFlags = 0,
+                .ballSeal = 0,
+            },
         },
         .text = {
             {
@@ -14532,7 +14564,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = SINGLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -14595,6 +14627,22 @@ const TrainerData sTrainerData[] = {
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
                 .setEvs = { 0, 0, 0, 0, 0, 0 },
                 .nature = NATURE_TIMID,
+                .shinyLock = 0,
+                .additionalFlags = 0,
+                .ballSeal = 0,
+            },
+            {
+                .ivs = 0,
+                .abilitySlot = TRAINER_POKEMON_ABILITY_1,
+                .level = 68,
+                .species = SPECIES_MUSHARNA,
+                .item = ITEM_SITRUS_BERRY,
+                .moves = { MOVE_FUTURE_SIGHT, MOVE_MOONBLAST, MOVE_DREAM_EATER, MOVE_HYPNOSIS },
+                .ability = ABILITY_TELEPATHY,
+                .ball = ITEM_POKE_BALL,
+                .setIvs = { 31, 31, 31, 31, 31, 31 },
+                .setEvs = { 0, 0, 0, 0, 0, 0 },
+                .nature = NATURE_MODEST,
                 .shinyLock = 0,
                 .additionalFlags = 0,
                 .ballSeal = 0,
@@ -16989,6 +17037,22 @@ const TrainerData sTrainerData[] = {
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
                 .setEvs = { 0, 0, 0, 0, 0, 0 },
                 .nature = NATURE_JOLLY,
+                .shinyLock = 0,
+                .additionalFlags = 0,
+                .ballSeal = 0,
+            },
+            {
+                .ivs = 0,
+                .abilitySlot = TRAINER_POKEMON_ABILITY_1,
+                .level = 68,
+                .species = SPECIES_MANECTRIC,
+                .item = ITEM_LIFE_ORB,
+                .moves = { MOVE_THUNDERBOLT, MOVE_FLAMETHROWER, MOVE_THUNDER_WAVE, MOVE_DOUBLE_TEAM },
+                .ability = ABILITY_STATIC,
+                .ball = ITEM_POKE_BALL,
+                .setIvs = { 31, 31, 31, 31, 31, 31 },
+                .setEvs = { 0, 0, 0, 0, 0, 0 },
+                .nature = NATURE_TIMID,
                 .shinyLock = 0,
                 .additionalFlags = 0,
                 .ballSeal = 0,
@@ -22506,7 +22570,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = SINGLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -22580,7 +22644,7 @@ const TrainerData sTrainerData[] = {
                 .text = "My dream is to fly with my beloved\\nbird Pokémon.\\r",
             },
             {
-                .type = TRMSG_LOSE,
+                .type = TRMSG_DBL_LOSE_1,
                 .text = "I can dream, but I can’t ever fly...\\n",
             },
             {
@@ -23639,7 +23703,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_SCHOOL_KID_M,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = SINGLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -23680,8 +23744,8 @@ const TrainerData sTrainerData[] = {
                 .level = 51,
                 .species = SPECIES_MILTANK,
                 .item = ITEM_LEFTOVERS,
-                .moves = { MOVE_BODY_SLAM, MOVE_BODY_PRESS, MOVE_ZEN_HEADBUTT, MOVE_CURSE },
-                .ability = ABILITY_SCRAPPY,
+                .moves = { MOVE_BODY_SLAM, MOVE_BODY_PRESS, MOVE_PLAY_ROUGH, MOVE_CURSE },
+                .ability = ABILITY_SAP_SIPPER,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
                 .setEvs = { 0, 0, 0, 0, 0, 0 },
@@ -31478,8 +31542,8 @@ const TrainerData sTrainerData[] = {
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
                 .level = 60,
                 .species = SPECIES_TENTACRUEL,
-                .item = ITEM_CHOICE_SPECS,
-                .moves = { MOVE_SURF, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .item = ITEM_BLACK_SLUDGE,
+                .moves = { MOVE_SCALD, MOVE_ACID_SPRAY, MOVE_GIGA_DRAIN, MOVE_ACUPRESSURE },
                 .ability = ABILITY_CLEAR_BODY,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -35095,7 +35159,7 @@ const TrainerData sTrainerData[] = {
                 .level = 48,
                 .species = SPECIES_HAWLUCHA,
                 .item = ITEM_GRASSY_SEED,
-                .moves = { MOVE_CLOSE_COMBAT, MOVE_ACROBATICS, MOVE_POISON_JAB, MOVE_TAUNT },
+                .moves = { MOVE_CLOSE_COMBAT, MOVE_ACROBATICS, MOVE_ROLE_PLAY, MOVE_TAUNT },
                 .ability = ABILITY_UNBURDEN,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -35355,6 +35419,22 @@ const TrainerData sTrainerData[] = {
                 .additionalFlags = 0,
                 .ballSeal = 0,
             },
+            {
+                .ivs = 0,
+                .abilitySlot = TRAINER_POKEMON_ABILITY_1,
+                .level = 52,
+                .species = SPECIES_REVAVROOM,
+                .item = ITEM_SHUCA_BERRY,
+                .moves = { MOVE_POISON_JAB, MOVE_SPIN_OUT, MOVE_TEMPER_FLARE, MOVE_SHIFT_GEAR },
+                .ability = ABILITY_FILTER,
+                .ball = ITEM_POKE_BALL,
+                .setIvs = { 31, 31, 31, 31, 31, 31 },
+                .setEvs = { 0, 0, 0, 0, 0, 0 },
+                .nature = NATURE_JOLLY,
+                .shinyLock = 0,
+                .additionalFlags = 0,
+                .ballSeal = 0,
+            },
         },
         .text = {
             {
@@ -35470,7 +35550,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = SINGLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -35544,7 +35624,7 @@ const TrainerData sTrainerData[] = {
                 .text = "My weight puts me in the\\nfeatherweight class!\\r...Huh? What do you mean that\\ndoesn’t sound very strong?\\r",
             },
             {
-                .type = TRMSG_LOSE,
+                .type = TRMSG_DBL_LOSE_1,
                 .text = "I lost as lightly as a feather floats!\\n",
             },
             {

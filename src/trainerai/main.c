@@ -1449,7 +1449,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             }
         }
         break;
-    case MOVE_EFFECT_BOOST_ALLY_POWER_BY_50_PERCENT: 
+    //case MOVE_EFFECT_BOOST_ALLY_POWER_BY_50_PERCENT: 
     case MOVE_EFFECT_MAKE_GLOBAL_TARGET:// TODO
         if (ai->isDoubleBattle && ai->isAllyAlive) {
             moveScore += 6;

@@ -78362,23 +78362,23 @@
         "Move": "MOVE_HELPING_HAND"
       },
       {
-        "Level": 4,
+        "Level": 5,
         "Move": "MOVE_LIGHT_SCREEN"
       },
       {
-        "Level": 7,
+        "Level": 5,
         "Move": "MOVE_REFLECT"
       },
       {
-        "Level": 12,
+        "Level": 20,
         "Move": "MOVE_PSYBEAM"
       },
       {
-        "Level": 17,
+        "Level": 25,
         "Move": "MOVE_GRAVITY"
       },
       {
-        "Level": 26,
+        "Level": 30,
         "Move": "MOVE_PSYCHO_CUT"
       },
       {
@@ -78386,43 +78386,43 @@
         "Move": "MOVE_ICY_WIND"
       },
       {
-        "Level": 39,
+        "Level": 40,
         "Move": "MOVE_FUTURE_SIGHT"
       },
       {
-        "Level": 46,
+        "Level": 45,
         "Move": "MOVE_SAFEGUARD"
       },
       {
-        "Level": 55,
+        "Level": 50,
         "Move": "MOVE_LUNAR_DANCE"
       },
       {
-        "Level": 62,
+        "Level": 55,
         "Move": "MOVE_PSYSHOCK"
       },
       {
-        "Level": 69,
+        "Level": 60,
         "Move": "MOVE_ICE_BEAM"
       },
       {
-        "Level": 75,
+        "Level": 65,
         "Move": "MOVE_PSYCHO_SHIFT"
       },
       {
-        "Level": 81,
+        "Level": 67,
         "Move": "MOVE_MOONLIGHT"
       },
       {
-        "Level": 87,
+        "Level": 71,
         "Move": "MOVE_PSYCHIC"
       },
       {
-        "Level": 93,
+        "Level": 76,
         "Move": "MOVE_MOONBLAST"
       },
       {
-        "Level": 99,
+        "Level": 77,
         "Move": "MOVE_PSYCHO_BOOST"
       }
     ],
