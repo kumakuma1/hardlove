@@ -84,7 +84,7 @@ Medium
 Cameraman
 Reporter
 Idol
-Champion
+Elite Four
 Elite Four
 Elite Four
 Elite Four
@@ -108,7 +108,7 @@ Leader
 Leader
 Leader
 ₧₦ Trainer
-Leader
+Champion
 Elder
 Elite Four
 Scientist

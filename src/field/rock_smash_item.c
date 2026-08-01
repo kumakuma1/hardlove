@@ -102,6 +102,7 @@ BOOL LONG_CALL CheckRockSmashItemDrop(FieldSystem *fieldSystem, RockSmashItemChe
 int LONG_CALL DrawRockSmashIdx(FieldSystem *fieldSystem);
 
 BOOL LONG_CALL CheckRockSmashItemDrop(FieldSystem *fieldSystem, RockSmashItemCheckWork *env) {
+    return FALSE;
     int ability;
     RockSmashMapData data;
 

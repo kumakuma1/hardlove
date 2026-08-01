@@ -2693,8 +2693,10 @@
 
 // define your custom move effects below like this
 // #define ITEM_CUSTOM_1 (MAX_BASE_ITEM_NUM + 1)
+#define ITEM_INFINITE_CANDY 2685
+#define ITEM_STARTER_CARD   2686
 
-#define MAX_TOTAL_ITEM_NUM ITEM_CANARI_BREAD
+#define MAX_TOTAL_ITEM_NUM ITEM_STARTER_CARD
 
 
 #define NUM_MEGA_STONES (48) // includes the pixie plate, doesn't include plza megas due to overflowing bag

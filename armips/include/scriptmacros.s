@@ -3623,7 +3623,7 @@ RIBBON_MAX                    equ 80
 .halfword arg1
 .endmacro
 
-.macro scrcmd_561,arg0,arg1,arg2,arg3
+.macro screen_shake,arg0,arg1,arg2,arg3
 .halfword 561
 .halfword arg0
 .halfword arg1
@@ -4556,7 +4556,7 @@ RIBBON_MAX                    equ 80
 .halfword 726
 .endmacro
 
-.macro scrcmd_727,arg0
+.macro get_follow_poke_party_index,arg0
 .halfword 727
 .halfword arg0
 .endmacro
@@ -4705,7 +4705,7 @@ RIBBON_MAX                    equ 80
 .halfword arg2
 .endmacro
 
-.macro scrcmd_754,arg0
+.macro try_headbutt_encounter,arg0
 .halfword 754
 .halfword arg0
 .endmacro
@@ -6765,6 +6765,14 @@ RunNewCommand NEW_COMMAND_QUEUE_NEW_REPEL, 0x800C
 .halfword 209
 .byte slot
 .halfword unk
+.endmacro
+
+.macro RunNewUtility,slot,unk
+DummyTextTreasure slot, unk
+.endmacro
+
+.macro SetMonProperty
+RunNewUtility 0, 0x800C
 .endmacro
 
 .macro TextMapName,slot,location

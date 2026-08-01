@@ -1,0 +1,9 @@
+### Miracle Seed -> Never Melt Ice
+Function 16:
+	CompareVarValue 0x408D 0
+	JumpIf DIFFERENT Function#23
+	SetVar 0x408D 1
+	Message 5
+	SetVar 0x8004 239 ->  246
+
+5: ... of\nIce-type moves.\r

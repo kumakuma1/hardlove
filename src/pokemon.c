@@ -25,7 +25,17 @@ extern u32 word_to_store_form_at;
 // [preevo] = {species, form}, [postevo] = {species, form},
 u16 ALIGN4 gEvolutionSceneOverride[2][2];
 
-char __attribute__((section(".init"))) sHeaderString[] = "hg-engine rocks!";
+void LONG_CALL arrayShuffle(int array[], int n)
+{
+    for (int i = n - 1; i > 0; i--) {
+        int j = gf_rand() % (i + 1);
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+char __attribute__((section (".init"))) sHeaderString[] = "hg-engine rocks!";
 // #include "../data/IconPaletteTable.c"
 
 /**
@@ -1388,6 +1398,21 @@ BOOL LONG_CALL GiveMon(int heapId, void *saveData, int species, int level, int f
         ClearScriptFlag(HIDDEN_ABILITIES_FLAG);
     }
 
+#ifdef RANDOM_3_MAX_IVS
+    if (CheckScriptFlag(RANDOM_3_MAX_IVS_FLAG) == 1) {
+        int array[] = { 0, 1, 2, 3, 4, 5 };
+        arrayShuffle(array, 6);
+
+        int iv = 31;
+        // Randomly chooses 3 stats
+        for (int i = 0; i < 3; i++) {
+            u8 selectedValue = array[i];
+            SetMonData(pokemon, MON_DATA_HP_IV + selectedValue, &iv);
+        }
+        ClearScriptFlag(RANDOM_3_MAX_IVS_FLAG);
+    }
+#endif
+
     if (ability != 0) {
         SetMonData(pokemon, MON_DATA_ABILITY, &ability);
     } else {
@@ -1488,6 +1513,22 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
         SetBoxMonData(boxmon, MON_DATA_SPATK_IV, (u8 *)&j);
         j = (i & (0x001f << 10)) >> 10;
         SetBoxMonData(boxmon, MON_DATA_SPDEF_IV, (u8 *)&j);
+#ifdef RANDOM_3_MAX_IVS
+        if (CheckScriptFlag(RANDOM_3_MAX_IVS_FLAG) == 1 && CheckScriptFlag(164) == 1)
+        {
+            int array[] = { 0, 1, 2, 3, 4, 5 };
+            arrayShuffle(array, 6);
+
+            int iv = 31;
+            // Randomly chooses 3 stats
+            for (int kk = 0; kk < 3; kk++)
+            {
+                u8 selectedValue = array[kk];
+                SetBoxMonData(boxmon, MON_DATA_HP_IV + selectedValue, &iv);
+            }
+            ClearScriptFlag(RANDOM_3_MAX_IVS_FLAG);
+        }
+#endif
     }
 
     i = PokePersonalParaGet(species, PERSONAL_ABILITY_1);
@@ -1561,10 +1602,27 @@ u32 gLastPokemonLevelForMoneyCalc;
  */
 void set_starter_hidden_ability(struct Party *party UNUSED, struct PartyPokemon *pp)
 {
+    struct BoxPokemon *boxmon = &pp->box;
+
     if (CheckScriptFlag(HIDDEN_ABILITIES_STARTERS_FLAG) == 1) {
         SET_MON_HIDDEN_ABILITY_BIT(pp)
         SetBoxMonAbility((void *)&pp->box);
     }
+
+#ifdef RANDOM_3_MAX_IVS
+    if (CheckScriptFlag(RANDOM_3_MAX_IVS_FLAG) == 1) {
+        int array[] = { 0, 1, 2, 3, 4, 5 };
+        arrayShuffle(array, 6);
+
+        int iv = 31;
+        // Randomly chooses 3 stats
+        for (int i = 0; i < 3; i++) {
+            u8 selectedValue = array[i];
+            SetBoxMonData(boxmon, MON_DATA_HP_IV + selectedValue, &iv);
+        }
+        ClearScriptFlag(RANDOM_3_MAX_IVS_FLAG);
+    }
+#endif
 }
 
 /**

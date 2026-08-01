@@ -1502,12 +1502,13 @@ void LONG_CALL CalcPriorityAndQuickClawCustapBerry(void *bsys, struct BattleStru
     }
 }
 
-const u8 CriticalRateTable[] = {
-    24,
-    8,
-    2,
-    1,
-    1
+const u8 CriticalRateTable[] =
+{
+     16,
+     8,
+     2,
+     1,
+     1
 };
 
 // calculates the critical hit multiplier
@@ -1540,7 +1541,16 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_FARFETCHD)))
         + (2 * ((hold_effect == HOLD_EFFECT_FARFETCHD_CRITRATE_UP) && (species == SPECIES_SIRFETCHD)));
 
-    if (temp > 4 || attackerHasLaserFocus) {
+#ifdef HLG_CUSTOM_WEATHER
+    u32 weather = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE);
+    if (CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG) && (weather == 7 || weather == 8) && (attacker == 1 || attacker == 3)) {
+        temp++;
+    }
+#endif
+
+
+    if (temp > 4 || attackerHasLaserFocus)
+    {
         temp = 4;
     }
 
@@ -2641,7 +2651,14 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         return TRUE;
     }
 
-    if (!(sp->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE) // TODO: Is this flag a debug flag to ignore hit rates..?
+    // thunder wave when used by a electric type
+    if (move == MOVE_THUNDER_WAVE
+        && HasType(sp, battlerIdAttacker, TYPE_ELECTRIC)) {
+        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        return TRUE;
+    }
+
+    if (!(sp->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE) //TODO: Is this flag a debug flag to ignore hit rates..?
         && ((sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON
                 && sp->battlemon[battlerIdTarget].moveeffect.battlerIdLockOn == battlerIdAttacker)
             || GetBattlerAbility(sp, battlerIdAttacker) == ABILITY_NO_GUARD
@@ -3681,7 +3698,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->param[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
     }
-
+    /*
     else if (ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]].flag & FLAG_UNUSED_MOVE) {
 #ifdef DEBUG_ENABLE_UNIMPLEMENTED_MOVES
         debug_printf("Move %d at position %d for battler %d is not implemented/dexited\n", ctx->moveTbl[ctx->battlemon[battlerId].move[movePos]], movePos, battlerId);
@@ -3691,7 +3708,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         msg->id = BATTLE_MSG_MOVE_IS_UNIMPLEMENTED;
         ret = FALSE;
     }
-
+    */
     return ret;
 }
 

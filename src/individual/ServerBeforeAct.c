@@ -146,7 +146,8 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                             }
                             // ai requests mega
                             else {
-                                if (CheckCanMega(sp, client_no) && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_BATTLE_TOWER))) {
+                                if ((CheckCanMega(sp, client_no) && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_BATTLE_TOWER)))
+                                    || (sp->battlemon[client_no].species == SPECIES_GYARADOS && CheckScriptFlag(164) && sp->battlemon[client_no].level == 50)) {
                                     sp->battlemon[client_no].canMega = 1;
                                     newBS.SideMega[1] = TRUE;
                                     newBS.SideMega[3] = TRUE;

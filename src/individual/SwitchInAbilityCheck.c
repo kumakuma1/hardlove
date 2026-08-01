@@ -77,12 +77,65 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
                         case WEATHER_SYS_HIGH_SUN:
+                        case 20:
                             scriptnum = SUB_SEQ_OVERWORLD_SUN;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
                         case WEATHER_SYS_TRICK_ROOM:
                             scriptnum = SUB_SEQ_OVERWORLD_TRICK_ROOM;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        default:
+                            if (CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG))
+                            {
+                                scriptnum = SUB_SEQ_OVERWORLD_TRICK_ROOM;
+                                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+
+                                u32 weatherCase = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE);
+                                debug_printf("weather %d\n", weatherCase);
+                                switch (weatherCase) {
+                                case 0: // OW trick room
+                                case 1: // OW trick room
+                                    break;
+                                case 2:
+                                    sp->koban_counter = 2;
+                                    break;
+                                case 3: // no switch
+                                    scriptnum = 0;
+                                    break;
+                                case 4:
+                                    sp->koban_counter = 4;
+                                    switch (BattleRand(bw) % 4) {
+                                    case 0:
+                                        UpdateTerrainOverlay(sp, client_no, PSYCHIC_TERRAIN);
+                                        break;
+                                    case 1:
+                                        UpdateTerrainOverlay(sp, client_no, MISTY_TERRAIN);
+                                        break;
+                                    case 2:
+                                        UpdateTerrainOverlay(sp, client_no, ELECTRIC_TERRAIN);
+                                        break;
+                                    default:
+                                        UpdateTerrainOverlay(sp, client_no, GRASSY_TERRAIN);
+                                        break;
+                                    }
+                                    break;
+                                case 5:
+                                    scriptnum = SUB_SEQ_OVERWORLD_FOG;
+                                    break;
+                                case 6:
+                                    sp->koban_counter = 6; // tailwind
+                                    break;
+                                case 7: // crit
+                                    scriptnum = 0;
+                                    break;
+                                case 8:
+                                    sp->koban_counter = 8; // crit + tailwind
+                                    break;
+                                default:
+                                    break;
+                                }
+                            }
                             break;
                     }
                     if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
