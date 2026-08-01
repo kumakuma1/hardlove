@@ -36976,7 +36976,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "Team Rocket is a great\\nemployer with superb benefits.\\rThere is a pension plan,\\paid sick and maternity leave.\\r",
+                .text = "Team Rocket is a great\\nemployer with superb benefits.\\rThere is a pension plan,\\npaid sick and maternity leave.\\r",
             },
             {
                 .type = TRMSG_LOSE,
