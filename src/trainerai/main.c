@@ -197,14 +197,18 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                 }
                 break;
             }
-            default: {
+            case MOVE_AQUA_JET:
+            case MOVE_MACH_PUNCH:
+            case MOVE_BULLET_PUNCH:
+            case MOVE_VACUUM_WAVE:
+            case MOVE_SHADOW_SNEAK:
+            case MOVE_ICE_SHARD:
+            case MOVE_QUICK_ATTACK: {
                 if (ai->aimonAlly.item == ITEM_WEAKNESS_POLICY) {
-                    if (ctx->moveTbl[attackerMove].priority > 0 && ctx->moveTbl[attackerMove].power <= 40) {
-                        int movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, attackerMove);
-                        u32 moveEffectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, attackerMove, movetype, attacker, target, &ai->attackerMon, &ai->aimonAlly);
-                        if (moveEffectiveness >= TYPE_MUL_SUPER_EFFECTIVE) {
-                            moveScore += 12;
-                        }
+                    int movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, attackerMove);
+                    u32 moveEffectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, attackerMove, movetype, attacker, target, &ai->attackerMon, &ai->aimonAlly);
+                    if (moveEffectiveness >= TYPE_MUL_SUPER_EFFECTIVE) {
+                        moveScore += 12;
                     }
                 }
                 break;
@@ -1214,6 +1218,11 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     switch (ai->attackerMoveEffect) {
     case MOVE_EFFECT_PARTING_SHOT:
     {
+        if (ai->defenderImmuneToStatDrop)
+        {
+            moveScore -= NEVER_USE_MOVE_20;
+            break;
+        }
         moveScore += 6;
         if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) {
             if (ai->shouldSwitch) {

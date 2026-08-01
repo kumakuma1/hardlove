@@ -24394,10 +24394,18 @@
         "Level": 80,
         "Move": "MOVE_ME_FIRST"
       },
-      {
-        "Level": 82,
-        "Move": "MOVE_TRANSFORM"
-      }
+        {
+            "Level": 82,
+            "Move": "MOVE_TRANSFORM"
+        },
+        {
+            "Level": 83,
+            "Move": "MOVE_TAUNT"
+        },
+        {
+            "Level": 84,
+            "Move": "MOVE_PSYCHO_BOOST"
+        }
     ],
     "MachineMoves": [
         "MOVE_ACID_SPRAY",
@@ -40826,10 +40834,14 @@
         "Level": 75,
         "Move": "MOVE_LEAF_STORM"
       },
-      {
-        "Level": 80,
-        "Move": "MOVE_FUTURE_SIGHT"
-      }
+        {
+            "Level": 80,
+            "Move": "MOVE_FUTURE_SIGHT"
+        },
+        {
+            "Level": 84,
+            "Move": "MOVE_LEECH_SEED"
+        }
     ],
     "MachineMoves": [
       "MOVE_AERIAL_ACE",
@@ -61459,10 +61471,18 @@
         "Level": 65,
         "Move": "MOVE_DOOM_DESIRE"
       },
-      {
-        "Level": 70,
-        "Move": "MOVE_METEOR_MASH"
-      }
+        {
+            "Level": 70,
+            "Move": "MOVE_METEOR_MASH"
+        },
+        {
+            "Level": 82,
+            "Move": "MOVE_U_TURN"
+        },
+        {
+            "Level": 84,
+            "Move": "MOVE_ENCORE"
+        }
     ],
     "MachineMoves": [
       "MOVE_AERIAL_ACE",
@@ -147475,42 +147495,26 @@
     "LevelMoves": [
       {
         "Level": 1,
-        "Move": "MOVE_LEER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_EMBER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_ASTONISH"
-      },
-      {
-        "Level": 8,
         "Move": "MOVE_CLEAR_SMOG"
       },
       {
-        "Level": 12,
+        "Level": 1,
         "Move": "MOVE_FIRE_SPIN"
       },
       {
-        "Level": 16,
+        "Level": 20,
         "Move": "MOVE_WILL_O_WISP"
       },
       {
-        "Level": 20,
+        "Level": 30,
         "Move": "MOVE_NIGHT_SHADE"
       },
       {
-        "Level": 24,
-        "Move": "MOVE_FLAME_CHARGE"
-      },
-      {
-        "Level": 28,
+        "Level": 40,
         "Move": "MOVE_INCINERATE"
       },
       {
-        "Level": 32,
+        "Level": 50,
         "Move": "MOVE_LAVA_PLUME"
       }
     ],

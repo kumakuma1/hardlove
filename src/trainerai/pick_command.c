@@ -21,7 +21,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 {
     debug_printf("TrainerAI_PickCommand: %d\n", attacker);
     struct BattleStruct *ctx = bsys->sp;
-    if (BattleTypeGet(bsys) == BATTLE_TYPE_SAFARI || (BattleTypeGet(bsys) == BATTLE_TYPE_ROAMER && !CantEscape(bsys, ctx, attacker, NULL))) {
+    if (BattleTypeGet(bsys) == BATTLE_TYPE_SAFARI || BattleTypeGet(bsys) == BATTLE_TYPE_ROAMER) {
         return PLAYER_INPUT_FIGHT;
     }
     if ((BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER) == 0) {
