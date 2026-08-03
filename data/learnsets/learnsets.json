@@ -25056,66 +25056,66 @@
   },
   "SPECIES_MEGANIUM": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_TACKLE"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_GROWL"
-      },
-      {
-        "Level": 6,
-        "Move": "MOVE_RAZOR_LEAF"
-      },
-      {
-        "Level": 9,
-        "Move": "MOVE_POISON_POWDER"
-      },
-      {
-        "Level": 12,
-        "Move": "MOVE_MAGICAL_LEAF"
-      },
-      {
-        "Level": 18,
-        "Move": "MOVE_SYNTHESIS"
-      },
-      {
-        "Level": 22,
-        "Move": "MOVE_BODY_SLAM"
-      },
-      {
-        "Level": 26,
-        "Move": "MOVE_NATURAL_GIFT"
-      },
-      {
-        "Level": 30,
-        "Move": "MOVE_SEED_BOMB"
-      },
-      {
-        "Level": 34,
-        "Move": "MOVE_LIGHT_SCREEN"
-      },
-      {
-        "Level": 34,
-        "Move": "MOVE_REFLECT"
-      },
-      {
-        "Level": 40,
-        "Move": "MOVE_SAFEGUARD"
-      },
-      {
-        "Level": 44,
-        "Move": "MOVE_ENERGY_BALL"
-      },
-      {
-        "Level": 48,
-        "Move": "MOVE_AROMATHERAPY"
-      },
-      {
-        "Level": 51,
-        "Move": "MOVE_GRASS_WHISTLE"
-      },
+        {
+            "Level": 1,
+            "Move": "MOVE_TACKLE"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_GROWL"
+        },
+        {
+            "Level": 6,
+            "Move": "MOVE_RAZOR_LEAF"
+        },
+        {
+            "Level": 9,
+            "Move": "MOVE_POISON_POWDER"
+        },
+        {
+            "Level": 12,
+            "Move": "MOVE_MAGICAL_LEAF"
+        },
+        {
+            "Level": 18,
+            "Move": "MOVE_SYNTHESIS"
+        },
+        {
+            "Level": 22,
+            "Move": "MOVE_BODY_SLAM"
+        },
+        {
+            "Level": 26,
+            "Move": "MOVE_NATURAL_GIFT"
+        },
+        {
+            "Level": 30,
+            "Move": "MOVE_SEED_BOMB"
+        },
+        {
+            "Level": 34,
+            "Move": "MOVE_LIGHT_SCREEN"
+        },
+        {
+            "Level": 34,
+            "Move": "MOVE_REFLECT"
+        },
+        {
+            "Level": 40,
+            "Move": "MOVE_SAFEGUARD"
+        },
+        {
+            "Level": 44,
+            "Move": "MOVE_ENERGY_BALL"
+        },
+        {
+            "Level": 48,
+            "Move": "MOVE_AROMATHERAPY"
+        },
+        {
+            "Level": 51,
+            "Move": "MOVE_GRASS_WHISTLE"
+        },
         {
             "Level": 60,
             "Move": "MOVE_LEAF_STORM"
@@ -25123,6 +25123,10 @@
         {
             "Level": 65,
             "Move": "MOVE_DAZZLING_GLEAM"
+        },
+        {
+            "Level": 77,
+            "Move": "MOVE_SOLAR_BEAM"
         },
         {
             "Level": 82,
