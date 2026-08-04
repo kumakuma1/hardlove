@@ -256,7 +256,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                 if (IS_ITEM_MEGA_STONE(attackerMon.item)) {
                     switchInScore[i] -= 10;
                 }
-                int highestDamageHitLocal = (partyMonPercentDamageDealt > partyMonPercentDamageDealtAcross) ? partyMonPercentDamageDealt : partyMonPercentDamageDealtAcross;
+                int highestDamageHitLocal = (partyMonPercentDamageReceived > partyMonPercentDamageReceivedAcross) ? partyMonPercentDamageReceived : partyMonPercentDamageReceivedAcross;
                 monReceivesHighestDamagePrct[i] = highestDamageHitLocal;
             }
 
