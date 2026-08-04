@@ -17,7 +17,6 @@
 
 #define EXPLOSION_ON_LAST_MON 0
 #define SKILL_SWAP_SCORING 1
-#define BATTLE_DEBUG_OUTPUT 1
 // #define ATTRACT_WORK_ON_ALL_SEXES 1
 
 #define IMMUNE_TO_MOVE    40
@@ -39,9 +38,9 @@ BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attac
 
 enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct BattleSystem *bsys, u32 attacker)
 {
-#ifdef BATTLE_DEBUG_OUTPUT
+#ifdef DEBUG_AI_SCORING
     debug_printf("TrainerAI_Main: %d\n", attacker);
-#endif // BATTLE_DEBUG_OUTPUT
+#endif // DEBUG_AI_SCORING
 
     int score = 0;
     struct BattleStruct *ctx = bsys->sp;
@@ -74,9 +73,9 @@ int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker,
             if (attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice
                 || attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove) // if the attacker has a move that is forced, use it
             {
-#ifdef BATTLE_DEBUG_OUTPUT
+#ifdef DEBUG_AI_SCORING
                 debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);
-#endif // BATTLE_DEBUG_OUTPUT
+#endif // DEBUG_AI_SCORING
                 moveScores[target][i] += 1000;
             }
 
@@ -586,8 +585,9 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             moveScore += 2;
         }
     }
+#ifdef DEBUG_AI_SCORING
     debug_printf("move %d is %s damage %d == %d\n", i, ((isMoveHighestDamage == TRUE) ? "highest" : "not highest"), ai->attackerRolledMaxDamage, ai->attackerRolledMoveDamages[i]);
-
+#endif
     if (ai->monCanOneShotPlayerWithMove[i]) // if ai sees kill with this move
     {
         if (ai->aiMovesFirst || (ai->playerMovesFirst && ctx->moveTbl[ai->attackerMove].priority > 0)) {
@@ -807,7 +807,9 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 
 int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai)
 {
+#ifdef DEBUG_AI_SCORING
     debug_printf("Off: incap %d, movesFirst %d, is1H %d, maxRec %d, hp %d", ai->isDefenderIncapacitated, ai->aiMovesFirst, ai->playerCanOneShotMonWithAnyMove, ai->maxDamageReceived, ai->attackerMon.hp);
+#endif
     int moveScore = 0;
     if (ai->isDefenderIncapacitated) {
         moveScore += 3;
@@ -836,14 +838,16 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
     if (!ai->aiMovesFirst && (2 * ai->maxDamageReceived >= ai->attackerMon.hp)) {
         moveScore -= 5;
     }
-
+#ifdef DEBUG_AI_SCORING
     debug_printf(", score %d\n", moveScore);
+#endif
     return moveScore;
 }
 int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai)
 {
+#ifdef DEBUG_AI_SCORING
     debug_printf("Def: incap %d, movesFirst %d, is1H %d, maxRec %d, hp %d", ai->isDefenderIncapacitated, ai->aiMovesFirst, ai->playerCanOneShotMonWithAnyMove, ai->maxDamageReceived, ai->attackerMon.hp);
-    
+#endif
     int moveScore = 0;
     if (ai->isDefenderIncapacitated) {
         moveScore += 2;
@@ -857,7 +861,9 @@ int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
             moveScore += 1;
         }
     }
+#ifdef DEBUG_AI_SCORING
     debug_printf(", score %d\n", moveScore);
+#endif
     return moveScore;
 }
 

@@ -10,7 +10,6 @@
 #include "../../include/constants/battle_message_constants.h"
 #include "../../include/custom/custom_ai.h"
 
-#define BATTLE_DEBUG_OUTPUT 1
 
 u8 LONG_CALL FindTargets(struct BattleStruct *ctx, u8 attacker, int targets[4], int moveScores[4][4], int damages[4][4], int highestScoredMove);
 u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, int moveScores[4][4], int highestScoredMove);
@@ -19,7 +18,9 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
 
 int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 {
+#ifdef DEBUG_AI_SCORING
     debug_printf("TrainerAI_PickCommand: %d\n", attacker);
+#endif // DEBUG_AI_SCORING
     struct BattleStruct *ctx = bsys->sp;
     if (BattleTypeGet(bsys) == BATTLE_TYPE_SAFARI || BattleTypeGet(bsys) == BATTLE_TYPE_ROAMER) {
         return PLAYER_INPUT_FIGHT;
@@ -41,7 +42,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     u8 defender = BATTLER_OPPONENT(attacker);
 
 
-#ifdef BATTLE_DEBUG_OUTPUT
+#ifdef DEBUG_AI_SCORING
     if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) {
 
         debug_printf("att %d(%d), ally %d(%d), defendOp %d(%d), defendCross %d(%d)\n",
@@ -54,7 +55,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     {
         debug_printf("att %d(%d), defendOp %d(%d)\n", attacker, ctx->battlemon[attacker].species, defender, ctx->battlemon[defender].species);
     }
-#endif // BATTLE_DEBUG_OUTPUT
+#endif // DEBUG_AI_SCORING
 
     BOOL canDivert = FALSE;
     if ((BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
@@ -68,7 +69,9 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
             ally = attacker;
             attacker = swap;
             defender = BATTLER_OPPONENT(attacker);
+#ifdef DEBUG_AI_SCORING
             debug_printf("swapping attacker(%d) and ally(%d): %d < %d\n", attacker, ally, ctx->effectiveSpeed[ally], ctx->effectiveSpeed[attacker]);
+#endif // DEBUG_AI_SCORING
         }
     }
 
@@ -93,10 +96,14 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
         aiAlly1->partnerClicksAttackingMove = TRUE;
         aiAlly2->partnerClicksAttackingMove = TRUE;
         if (ai1->monCanOneShotPlayerWithAnyMove && ai1->aiMovesFirst) {
+#ifdef DEBUG_AI_SCORING
             debug_printf("attacker(%d) goes for fast kill on defender %d. Partner ignores target.\n", attacker, ai1->defender);
+#endif // DEBUG_AI_SCORING
             aiAlly2->ignoreTarget = TRUE;
         } else if (ai2->monCanOneShotPlayerWithAnyMove && ai2->aiMovesFirst) {
+#ifdef DEBUG_AI_SCORING
             debug_printf("attacker(%d) goes for fast kill on defender %d. Partner ignores target.\n", attacker, ai2->defender);
+#endif // DEBUG_AI_SCORING
             aiAlly1->ignoreTarget = TRUE;
         }
     }
@@ -143,14 +150,16 @@ u8 LONG_CALL FindTargets(struct BattleStruct *ctx, u8 attacker, int targets[4], 
         for (u8 i = 0; i < 4; i++) // movesScore
         {
             if (moveScores[k][i] == highestScoredMove) {
+#ifdef DEBUG_AI_SCORING
                 debug_printf("found target %d with score %d, dmg %d\n", k, highestScoredMove, damages[k][i]);
+#endif // DEBUG_AI_SCORING
                 targets[targetsSize] = k;
                 targetsSize++;
                 break;
             }
         }
     }
-#ifdef BATTLE_DEBUG_OUTPUT
+#ifdef DEBUG_AI_SCORING
     debug_printf("attacker %d (%d):\n", attacker, ctx->battlemon[attacker].species);
     u8 j = 0;
     for (int k = 0; k < 4; k++) {
@@ -165,7 +174,7 @@ u8 LONG_CALL FindTargets(struct BattleStruct *ctx, u8 attacker, int targets[4], 
         }
         debug_printf("\n");
     }
-#endif // BATTLE_DEBUG_OUTPUT
+#endif // DEBUG_AI_SCORING
 
     return targetsSize;
 }
@@ -182,9 +191,9 @@ u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, int moveScores[4]
     }
     u8 tieMoveIndex = (BattleRand(bsys) % tieMoveCount);
     u8 result = tiedMoveIndices[tieMoveIndex]; // % 4]; // randomly pick a move among the tie
-#ifdef BATTLE_DEBUG_OUTPUT
+#ifdef DEBUG_AI_SCORING
     debug_printf("got tieMoveIndex %d -> Resulting move: %d\n", tieMoveIndex, result);
-#endif // BATTLE_DEBUG_OUTPUT
+#endif // DEBUG_AI_SCORING
     return result;
 }
 
@@ -257,7 +266,9 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
         aiOp2->highestPostKoScoreFromParty = aiOp1->highestPostKoScoreFromParty;
         aiOp2->postKoScoringPosition = aiOp1->postKoScoringPosition;
     } else {
+#ifdef DEBUG_AI_SCORING
         debug_printf("attacker(%d) ignores target %d.\n", attacker, defender);
+#endif // DEBUG_AI_SCORING
     }
 
     if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) {
@@ -269,7 +280,9 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
             aiOp2->shouldSwitch = CalculateSwitch(bsys, attacker, defenderAcross, aiOp2);
         }
     } else {
+#ifdef DEBUG_AI_SCORING
         debug_printf("attacker(%d) ignores target %d.\n", attacker, defenderAcross);
+#endif // DEBUG_AI_SCORING
     }
 
 

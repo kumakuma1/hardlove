@@ -3,7 +3,7 @@
 #include "../battle.h"
 #include "../trainer_ai.h"
 
-//#define BATTLE_DEBUG_OUTPUT 1
+#define DEBUG_AI_SCORING 1
 
 
 

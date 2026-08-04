@@ -8595,7 +8595,7 @@ const TrainerData sTrainerData[] = {
             {
                 .ivs = 0,
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
-                .level = 100,
+                .level = 80,
                 .species = SPECIES_CHARMANDER,
                 .item = ITEM_CHOICE_SPECS,
                 .moves = { MOVE_WEATHER_BALL, MOVE_FOCUS_BLAST, MOVE_NONE, MOVE_NONE },
@@ -8611,7 +8611,7 @@ const TrainerData sTrainerData[] = {
             {
                 .ivs = 0,
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
-                .level = 100,
+                .level = 80,
                 .species = SPECIES_BULBASAUR,
                 .item = ITEM_POWER_HERB,
                 .moves = { MOVE_FRENZY_PLANT, MOVE_WEATHER_BALL, MOVE_NONE, MOVE_NONE },
@@ -8627,7 +8627,7 @@ const TrainerData sTrainerData[] = {
             {
                 .ivs = 0,
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
-                .level = 100,
+                .level = 80,
                 .species = SPECIES_SQUIRTLE,
                 .item = ITEM_EVIOLITE,
                 .moves = { MOVE_HYDRO_PUMP, MOVE_TERRAIN_PULSE, MOVE_SUBSTITUTE, MOVE_YAWN },
@@ -8643,7 +8643,7 @@ const TrainerData sTrainerData[] = {
             {
                 .ivs = 0,
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
-                .level = 100,
+                .level = 80,
                 .species = SPECIES_BAGON,
                 .item = ITEM_LIFE_ORB,
                 .moves = { MOVE_OUTRAGE, MOVE_IRON_HEAD, MOVE_ROCK_SLIDE, MOVE_DRAGON_DANCE },
@@ -8659,7 +8659,7 @@ const TrainerData sTrainerData[] = {
             {
                 .ivs = 0,
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
-                .level = 100,
+                .level = 80,
                 .species = SPECIES_PICHU,
                 .item = ITEM_EXPERT_BELT,
                 .moves = { MOVE_VOLT_TACKLE, MOVE_SURF, MOVE_REVERSAL, MOVE_ENDURE },

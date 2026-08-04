@@ -41,7 +41,9 @@ u32 calcPlayerAsDefender(struct BattleSystem *bsys, struct BattleStruct *ctx, st
                     monDealsRolledDamage[partySlot] = damages.damageRoll;
                 }
             }
+#ifdef DEBUG_AI_SCORING
             debug_printf("Dealing with move %d: %3d deals [%4d-%4d], roll %4d > def.HP %d\n", j, moveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, defenderMon->hp);
+#endif
         }
     }
 
@@ -72,7 +74,9 @@ u32 calcPlayerAsAttacker(struct BattleSystem *bsys, struct BattleStruct *ctx, in
                 monReceivesDamage[partySlot] = damages.damageRoll;
             }
         }
+#ifdef DEBUG_AI_SCORING
         debug_printf("Receiving from move %d: %3d is [%4d-%4d], roll %4d > att.HP %d\n", k, defenderMoveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, attackerMon->hp);
+#endif // DEBUG_AI_SCORING
     }
 
     return monReceivingHighestDamageMoveno;
@@ -103,7 +107,9 @@ s16 getNormalScore(int speedCalc, u8 aiMonCanOneshotPlayer, u8 playerCanOneShotA
 
 int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int attacker, int *score, BOOL calcWithHighestDamageHit)
 {
+#ifdef DEBUG_AI_SCORING
     debug_printf("BattleAI_PostKOSwitchIn_Internal %d\n", attacker);
+#endif // DEBUG_AI_SCORING
 
     struct BattleStruct *ctx = bsys->sp;
     int battleType = BattleTypeGet(bsys);
@@ -136,7 +142,9 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
     int partySize = 0;
     int picked = 6; // in Order
 
+#ifdef DEBUG_AI_SCORING
     debug_printf("Targeting defender in slot %d(%d) with hp %d\n", defender, ctx->battlemon[defender].species, ctx->battlemon[defender].hp);
+#endif // DEBUG_AI_SCORING
 
     if (battleType & (BATTLE_TYPE_TAG | BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)) {
         calcAcross = TRUE;
@@ -144,7 +152,9 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
             slot2 = BATTLER_ALLY(attacker);
         }
         if (ctx->battlemon[defender].hp == 0 && ctx->battlemon[defenderAcross].hp == 0) {
+#ifdef DEBUG_AI_SCORING
             debug_printf("No target\n");
+#endif // DEBUG_AI_SCORING
             return 6;
         }
         if (ctx->battlemon[defender].hp == 0)
@@ -155,7 +165,9 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
             calcAcross = FALSE;
         }
     } else if (ctx->battlemon[defender].hp == 0) {
+#ifdef DEBUG_AI_SCORING
         debug_printf("No target\n");
+#endif // DEBUG_AI_SCORING
         return 6;
     }
 
@@ -169,9 +181,10 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
     for (int i = 0; i < partySize; i++) {
         struct PartyPokemon *mon = Battle_GetClientPartyMon(bsys, attacker, i);
         attackerMon.species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
+#ifdef DEBUG_AI_SCORING
         debug_printf("Slot %d:%d hp:%d,\n", i, attackerMon.species, GetMonData(mon, MON_DATA_HP, 0));
         debug_printf("sel_m1 %d, sel_m2 %d, switchSl1 %d, switchSl1 %d\n", ctx->sel_mons_no[slot1], ctx->sel_mons_no[slot2], ctx->aiSwitchedPartySlot[slot1], ctx->aiSwitchedPartySlot[slot2]);
-
+#endif
         if (attackerMon.species != SPECIES_NONE && attackerMon.species != SPECIES_EGG && GetMonData(mon, MON_DATA_HP, 0)
             && i != ctx->sel_mons_no[slot1]
             && i != ctx->sel_mons_no[slot2]
@@ -182,7 +195,9 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
             FillDamageStructFromPartyMon(bsys, ctx, &attackerMon, mon, attacker, i);
 
             if (calcOpp) {
+#ifdef DEBUG_AI_SCORING
                 debug_printf("Opponent\n");
+#endif
                 speedCalc = BattleAI_CalcSpeed(bsys, ctx, defender, mon, CALCSPEED_FLAG_NO_PRIORITY);
                 monHighestDamageMoveno = calcPlayerAsDefender(bsys, ctx, mon, defender, attacker, &attackerMon, &defenderMon, monDealsRolledDamage, i);
                 monReceivingHighestDamageMoveno = calcPlayerAsAttacker(bsys, ctx, defender, attacker, &attackerMon, &defenderMon, monReceivesDamage, i);
@@ -190,7 +205,9 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 
 
             if (calcAcross) {
+#ifdef DEBUG_AI_SCORING
                 debug_printf("Across\n");
+#endif
                 speedCalcAcross = BattleAI_CalcSpeed(bsys, ctx, defenderAcross, mon, CALCSPEED_FLAG_NO_PRIORITY);
                 monHighestDamageMovenoAcross = calcPlayerAsDefender(bsys, ctx, mon, defenderAcross, attacker, &attackerMon, &defenderMonAcross, monDealsRolledDamageAcross, i);
                 monReceivingHighestDamageMovenoAcross = calcPlayerAsAttacker(bsys, ctx, defenderAcross, attacker, &attackerMon, &defenderMonAcross, monReceivesDamageAcross, i);
@@ -208,7 +225,9 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                 playerCanOneShotAiMon = CanAttackerOneShotDefender(monReceivesDamage[i], ctx->moveTbl[monReceivingHighestDamageMoveno].split, monReceivingHighestDamageMoveno, &defenderMon, &attackerMon);
                 partyMonPercentDamageDealt = (100 * monDealsRolledDamage[i] / defenderMon.hp);
                 partyMonPercentDamageReceived = (100 * monReceivesDamage[i] / attackerMon.hp);
+#ifdef DEBUG_AI_SCORING
                 debug_printf("SwitchScore: SpeedCalc %d. Attacker %d deals %dpct to defender %d. Receives %dpct:\n", speedCalc, attacker, (defenderMon.hp > 0 ? (100 * monDealsRolledDamage[i] / defenderMon.hp) : 0), defender, (100 * monReceivesDamage[i] / attackerMon.hp));
+#endif
             }
 
             u8 aiMonCanOneshotPlayerAcross = FALSE;
@@ -221,8 +240,10 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                 playerCanOneShotAiMonAcross = CanAttackerOneShotDefender(monReceivesDamageAcross[i], ctx->moveTbl[monReceivingHighestDamageMovenoAcross].split, monReceivingHighestDamageMovenoAcross, &defenderMonAcross, &attackerMon);
                 partyMonPercentDamageDealtAcross = (100 * monDealsRolledDamageAcross[i] / defenderMonAcross.hp);
                 partyMonPercentDamageReceivedAcross = (100 * monReceivesDamageAcross[i] / attackerMon.hp);
+#ifdef DEBUG_AI_SCORING
                 debug_printf("SwitchScore: SpeedCalc %d. Attacker %d deals %dpct to defender %d. Receives %dpct :\n", speedCalcAcross, attacker, (defenderMonAcross.hp > 0 ? (100 * monDealsRolledDamageAcross[i] / defenderMonAcross.hp) : 0), defenderAcross, (100 * monReceivesDamageAcross[i] / attackerMon.hp));
-            }
+#endif
+             }
 
 
             if (calcWithHighestDamageHit) {
@@ -260,7 +281,9 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                     }
                 }
             }
+#ifdef DEBUG_AI_SCORING
             debug_printf("%d\n", switchInScore[i]);
+#endif
             // default += 0;
         }
     }
@@ -273,10 +296,11 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
             currentScore = switchInScore[i];
         }
     }
+#ifdef DEBUG_AI_SCORING
     for (int i = 0; i < partySize; i++) {
         debug_printf("%i ", switchInScore[i]);
     }
     debug_printf("-> picked %i\n", picked);
-
+#endif
     return picked;
 }
