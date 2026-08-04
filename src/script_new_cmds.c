@@ -3,14 +3,21 @@
 #include "../include/constants/file.h"
 #include "../include/pokemon.h"
 #include "../include/repel.h"
+#include "../include/roamer.h"
 #include "../include/script.h"
 #include "../include/types.h"
+#include "../include/window.h"
 
 #define SCRIPT_NEW_CMD_REPEL_USE    0
 #define SCRIPT_NEW_CMD_STATUS_REPEL 1
 #define SCRIPT_NEW_CMD_TOGGLE_REPEL 2
 
+#define SCRIPT_NEW_CMD_CHAPTER_TEXT 200
+#define SCRIPT_NEW_CMD_CHAPTER_TEXT_CLOSE 201
 #define SCRIPT_NEW_CMD_MAX 256
+
+static struct Window window;
+static String *message;
 
 BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx)
 {
@@ -51,6 +58,44 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx)
             return TRUE;
         }
 
+        break;
+    }
+    case SCRIPT_NEW_CMD_CHAPTER_TEXT: {
+        void *bgConfig = ctx->fsys->bg_config;
+
+        u8 bgId = 3;
+        u8 paletteNum = 12;
+        u16 baseTile = 707;
+
+        //struct Window *msgWindow = (struct Window *)FieldSysGetAttrAddr(ctx->fsys, SCRIPTENV_WINDOW);
+        debug_printf("Adding window with parameters: bgConfig=%p, window=%p, 3, 8, 2, 16, 10, 12, 707\n", bgConfig, &window);
+        AddWindowParameterized(bgConfig, &window, 3, 8, 2, 16, 10, 12, 707);
+
+        debug_printf("Filling window pixel buffer\n");
+        FillWindowPixelBuffer(&window, 0xFF);
+
+        debug_printf("Drawing frame and window\n");
+        LoadUserFrameGfx1(bgConfig, bgId, 1, 8, 0, HEAPID_FIELD1);
+        DrawFrameAndWindow1(&window, TRUE, 1, 8);
+
+        debug_printf("Getting message ID and reading message data %d\n", GetScriptVar(0x8004));
+        int msgId = GetScriptVar(0x8004);
+        message = NewString_ReadMsgData((MsgData *)ctx->msg_data, msgId);
+
+        debug_printf("Adding text printer to window\n");
+        AddTextPrinterParameterized(&window, 0, message, 0, 0, 0, 0);
+
+        break;
+    }
+    case SCRIPT_NEW_CMD_CHAPTER_TEXT_CLOSE: {
+        debug_printf("Closing chapter text window\n");
+        sub_0200E5D4(&window, 0);
+        RemoveWindow(&window);
+
+        if (message != NULL) {
+            sys_FreeMemoryEz(message);
+            message = NULL;
+        }
         break;
     }
     default:
