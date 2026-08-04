@@ -44,8 +44,9 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
 
     int score = 0;
     struct BattleStruct *ctx = bsys->sp;
+    int highestDamageHitPrct = 0;
     if (attacker >= 10) {
-        return BattleAI_PostKOSwitchIn_Internal(bsys, attacker - 10, &score, FALSE);
+        return BattleAI_PostKOSwitchIn_Internal(bsys, attacker - 10, &score, FALSE, &highestDamageHitPrct);
     }
 
     if (BattleTypeGet(bsys) == BATTLE_TYPE_ROAMER && !CantEscape(bsys, ctx, attacker, NULL)) {

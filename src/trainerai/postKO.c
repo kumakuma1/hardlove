@@ -105,7 +105,7 @@ s16 getNormalScore(int speedCalc, u8 aiMonCanOneshotPlayer, u8 playerCanOneShotA
     return score;
 }
 
-int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int attacker, int *score, BOOL calcWithHighestDamageHit)
+int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int attacker, int *score, BOOL calcWithHighestDamageHit, int *highestDamageHitPrct)
 {
 #ifdef DEBUG_AI_SCORING
     debug_printf("BattleAI_PostKOSwitchIn_Internal %d\n", attacker);
@@ -138,6 +138,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
     u32 monReceivingHighestDamageMovenoAcross = 0;
     u32 monReceivesDamage[6] = { 0 };
     u32 monReceivesDamageAcross[6] = { 0 };
+    u32 monReceivesHighestDamagePrct[6] = { 0 };
     u16 switchInScore[6] = { 0 };
     int partySize = 0;
     int picked = 6; // in Order
@@ -255,6 +256,8 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                 if (IS_ITEM_MEGA_STONE(attackerMon.item)) {
                     switchInScore[i] -= 10;
                 }
+                int highestDamageHitLocal = (partyMonPercentDamageDealt > partyMonPercentDamageDealtAcross) ? partyMonPercentDamageDealt : partyMonPercentDamageDealtAcross;
+                monReceivesHighestDamagePrct[i] = highestDamageHitLocal;
             }
 
             if (calcOpp) {
@@ -294,13 +297,15 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
             picked = i;
             *score = switchInScore[i];
             currentScore = switchInScore[i];
+            *highestDamageHitPrct = monReceivesHighestDamagePrct[i];
         }
     }
 #ifdef DEBUG_AI_SCORING
     for (int i = 0; i < partySize; i++) {
         debug_printf("%i ", switchInScore[i]);
     }
-    debug_printf("-> picked %i\n", picked);
+    debug_printf("-> picked %i, (%i)\n", picked, *highestDamageHitPrct);
 #endif
+
     return picked;
 }

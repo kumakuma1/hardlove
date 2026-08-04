@@ -197,6 +197,18 @@ u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, int moveScores[4]
     return result;
 }
 
+int getVarianceFromDamage(struct AIContext *ai)
+{
+    if (ai->highestDamageHitPrct <= 0) {
+        return 30;
+    }
+    if (ai->highestDamageHitPrct >= 50) {
+        return 0;
+    }
+
+    return (50 - ai->highestDamageHitPrct) * 3 / 5;
+}
+
 BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *ai)
 {
     struct BattleStruct *ctx = bsys->sp;
@@ -237,14 +249,17 @@ BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defe
         }
     } else {
         if (ai->highestPostKoScoreFromParty == (104 + doublesAddon)) {
-            switchScore = 25;
+            switchScore = getVarianceFromDamage(ai);
         }
         if (ai->highestPostKoScoreFromParty >= (104 + doublesAddon + 1)) {
-            switchScore = 50;
+            switchScore = 25 + getVarianceFromDamage(ai);
         }
     }
 
     int rand = BattleRand(bsys) % 100;
+#ifdef DEBUG_AI_SCORING
+    debug_printf("rand %d, switchScore %d\n", rand, switchScore);
+#endif // DEBUG_AI_SCORING
     if (rand <= switchScore) {
         return TRUE;
     }

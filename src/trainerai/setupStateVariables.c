@@ -79,11 +79,13 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 
     if (ai->highestPostKoScoreFromParty == 0) {
         int score = 0;
-        ai->postKoScoringPosition = BattleAI_PostKOSwitchIn_Internal(bsys, attacker, &score, TRUE);
+        int highestDamageHitPrct = 0;
+        ai->postKoScoringPosition = BattleAI_PostKOSwitchIn_Internal(bsys, attacker, &score, TRUE, &highestDamageHitPrct);
         ai->highestPostKoScoreFromParty = score;
+        ai->highestDamageHitPrct = highestDamageHitPrct;
     }
 #ifdef DEBUG_AI_SCORING
-    debug_printf("PostKo: position %d with score %d\n", ai->postKoScoringPosition, ai->highestPostKoScoreFromParty);
+    debug_printf("PostKo: position %d with score %d and highest damage hit percent %d\n", ai->postKoScoringPosition, ai->highestPostKoScoreFromParty, ai->highestDamageHitPrct);
 #endif // DEBUG_AI_SCORING
 
     speedCalc = CalcSpeed(bsys, ctx, defender, attacker, CALCSPEED_FLAG_NO_PRIORITY); // checks actual turn order with field state considered
