@@ -23,7 +23,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     FillDamageStructFromBattleMon(bsys, ctx, &ai->attackerMon, attacker);
     FillDamageStructFromBattleMon(bsys, ctx, &ai->defenderMon, defender);
     ai->isDoubleBattle = FALSE;
-    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) {
+    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG)) {
         ai->isDoubleBattle = TRUE;
     }
     ai->isAllyAlive = FALSE;
@@ -132,8 +132,8 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
             && (ai->defenderMon.ability == ABILITY_GOOD_AS_GOLD
                 || ai->defenderMon.ability == ABILITY_PURIFYING_SALT
                 || (ai->defenderMon.ability == ABILITY_SHIELDS_DOWN && ai->defenderMon.percenthp > 50)
-                || (ai->defenderMon.ability == ABILITY_LEAF_GUARD && ctx->field_condition & WEATHER_SUNNY_ANY)))
-        || (ai->defenderMon.ability == ABILITY_HYDRATION && ctx->field_condition & WEATHER_RAIN_ANY)
+                || (ai->defenderMon.ability == ABILITY_LEAF_GUARD && ctx->field_condition & FIELD_CONDITION_SUN_ALL)))
+        || (ai->defenderMon.ability == ABILITY_HYDRATION && ctx->field_condition & FIELD_CONDITION_RAIN_ALL)
         || (ai->defenderMon.ability == ABILITY_COMATOSE)
         || (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_SAFEGUARD)) {
         isDefenderImmuneToAnyStatus = TRUE;

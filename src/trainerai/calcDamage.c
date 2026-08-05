@@ -34,7 +34,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     u32 attackModifier = UQ412__1_0;
     u32 defenseModifier = UQ412__1_0;
     u32 baseDamage = 0;
-    BOOL isDoubleBattle = (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG));
+    BOOL isDoubleBattle = (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG));
     BOOL attackerHasMoldBreaker = attacker->hasMoldBreaker;
     u32 weatherAttacker = BattleAI_GetWeather(bw, sp, attacker->ability);
 
@@ -186,7 +186,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
          case MOVE_GUST:
          case MOVE_TWISTER:
         //  TODO: handle charging turn of Sky Drop
-        if (defender->effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR) {
+        if (defender->effect_of_moves & MOVE_EFFECT_FLAG_FLY) {
             movepower *= 2;
         }
         break;
@@ -218,7 +218,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         break;
     case MOVE_WEATHER_BALL:
         if ((weatherAttacker & FIELD_CONDITION_WEATHER)
-            && !(weatherAttacker & (WEATHER_STRONG_WINDS | WEATHER_SNOW_ANY))) {
+            && !(weatherAttacker & (FIELD_CONDITION_STRONG_WINDS | FIELD_CONDITION_SNOW_ALL))) {
             movepower *= 2;
         }
         break;
@@ -343,7 +343,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         // case MOVE_FUSION_FLARE:
         // case MOVE_FUSION_BOLT:
     case MOVE_GRAV_APPLE:
-        if (sp->field_condition & FIELD_STATUS_GRAVITY) {
+        if (sp->field_condition & FIELD_CONDITION_GRAVITY) {
             basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
         }
         break;
@@ -369,7 +369,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
     }
 
-    if ((weatherAttacker & (FIELD_STATUS_FOG | WEATHER_HAIL_ANY | WEATHER_SANDSTORM_ANY | WEATHER_RAIN_ANY | WEATHER_SNOW_ANY))
+    if ((weatherAttacker & (FIELD_CONDITION_FOG | FIELD_CONDITION_SNOW_ALL | FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SANDSTORM_ALL | FIELD_CONDITION_RAIN_ALL))
         && (moveno == MOVE_SOLAR_BEAM || moveno == MOVE_SOLAR_BLADE)) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__0_5);
     }
@@ -467,7 +467,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
     // Sand Force boosts damage in sand for certain move types
     if ((attacker->ability == ABILITY_SAND_FORCE)
-        && (weatherAttacker & WEATHER_SANDSTORM_ANY)
+        && (weatherAttacker & FIELD_CONDITION_SANDSTORM_ALL)
         && (movetype == TYPE_GROUND || movetype == TYPE_ROCK || movetype == TYPE_STEEL)) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
     }
@@ -657,14 +657,14 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     // Step 3.1. handle Unaware
     if (!attackerHasMoldBreaker && defender->ability == ABILITY_UNAWARE) {
         attacker->states[STAT_ATTACK] = 0;
-        attacker->states[STAT_SPATK] = 0;
+        attacker->states[STAT_SPECIAL_ATTACK] = 0;
     }
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
     debug_printf("[AI_Damage] Step 3.1. handle Unaware\n");
     debug_printf("[AI_Damage] attacker->atkstate: %d\n", attacker->states[STAT_ATTACK]);
-    debug_printf("[AI_Damage] attacker->spatkstate: %d\n", attacker->states[STAT_SPATK]);
+    debug_printf("[AI_Damage] attacker->spatkstate: %d\n", attacker->states[STAT_SPECIAL_ATTACK]);
 #endif
 
     // Step 3.2. handle Foul Play
@@ -688,14 +688,14 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     if (critical > 1) {
         // critical hits ignore attacker attack drops
         attacker->states[STAT_ATTACK] = attacker->states[STAT_ATTACK] < 0 ? 0 : attacker->states[STAT_ATTACK];
-        attacker->states[STAT_SPATK] = attacker->states[STAT_SPATK] < 0 ? 0 : attacker->states[STAT_SPATK];
+        attacker->states[STAT_SPECIAL_ATTACK] = attacker->states[STAT_SPECIAL_ATTACK] < 0 ? 0 : attacker->states[STAT_SPECIAL_ATTACK];
     }
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
     debug_printf("[AI_Damage] Step 3.3. Critical hit\n");
     debug_printf("[AI_Damage] attacker->atkstate: %d\n", attacker->states[STAT_ATTACK]);
-    debug_printf("[AI_Damage] attacker->spatkstate: %d\n", attacker->states[STAT_SPATK]);
+    debug_printf("[AI_Damage] attacker->spatkstate: %d\n", attacker->states[STAT_SPECIAL_ATTACK]);
 #endif
 
     // Step 3.4. Attack boosts/drops
@@ -703,8 +703,8 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     attack /= StatBoostModifiers[attacker->states[STAT_ATTACK] + 6][1];
     attack = attack % 65536;
 
-    sp_attack = attacker->sp_attack * StatBoostModifiers[attacker->states[STAT_SPATK] + 6][0];
-    sp_attack /= StatBoostModifiers[attacker->states[STAT_SPATK] + 6][1];
+    sp_attack = attacker->sp_attack * StatBoostModifiers[attacker->states[STAT_SPECIAL_ATTACK] + 6][0];
+    sp_attack /= StatBoostModifiers[attacker->states[STAT_SPECIAL_ATTACK] + 6][1];
     sp_attack = sp_attack % 65536;
 
 #ifdef DEBUG_DAMAGE_CALC_AI
@@ -750,7 +750,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     }
 
     // handle weather boosts
-    if (weatherAttacker & WEATHER_SUNNY_ANY) {
+    if (weatherAttacker & FIELD_CONDITION_SUN_ALL) {
         if (attacker->ability == ABILITY_SOLAR_POWER && movesplit == SPLIT_SPECIAL) {
             attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
         }
@@ -841,7 +841,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     // handle Protosynthesis and Quark Drive
     // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-20#post-9423025
     if ((attacker->ability == ABILITY_PROTOSYNTHESIS || attacker->ability == ABILITY_QUARK_DRIVE)
-        && ((movesplit == SPLIT_PHYSICAL && attacker->paradoxBoostedStat == STAT_ATTACK) || (movesplit == SPLIT_SPECIAL && attacker->paradoxBoostedStat == STAT_SPATK))) {
+        && ((movesplit == SPLIT_PHYSICAL && attacker->paradoxBoostedStat == STAT_ATTACK) || (movesplit == SPLIT_SPECIAL && attacker->paradoxBoostedStat == STAT_SPECIAL_ATTACK))) {
         attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3);
     }
 
@@ -893,7 +893,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     if ((attacker->item_held_effect == HOLD_EFFECT_CUBONE_ATK_UP)
         && ((attacker->species == SPECIES_CUBONE) || (attacker->species == SPECIES_MAROWAK))
         // it’s not a Ditto/Smeargle/Mew Transformed into the species
-        && !(attacker->condition2 & STATUS2_TRANSFORMED)
+        && !(attacker->condition2 & STATUS2_TRANSFORM)
         && (movesplit == SPLIT_PHYSICAL)) {
         attackModifier = QMul_RoundUp(attackModifier, UQ412__2_0);
     }
@@ -902,7 +902,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     if ((attacker->item_held_effect == HOLD_EFFECT_CLAMPERL_SPATK)
         && (attacker->species == SPECIES_CLAMPERL)
         // it’s not a Ditto/Smeargle/Mew Transformed into the species
-        && !(attacker->condition2 & STATUS2_TRANSFORMED)
+        && !(attacker->condition2 & STATUS2_TRANSFORM)
         && (movesplit == SPLIT_SPECIAL)) {
         attackModifier = QMul_RoundUp(attackModifier, UQ412__2_0);
     }
@@ -911,7 +911,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     if ((attacker->item_held_effect == HOLD_EFFECT_PIKA_SPATK_UP)
         && (attacker->species == SPECIES_PIKACHU)
         // it’s not a Ditto/Smeargle/Mew Transformed into the species
-        && !(attacker->condition2 & STATUS2_TRANSFORMED)) {
+        && !(attacker->condition2 & STATUS2_TRANSFORM)) {
         attackModifier = QMul_RoundUp(attackModifier, UQ412__2_0);
     }
 
@@ -943,14 +943,14 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     if (sp->terrainOverlay.numberOfTurnsLeft > 0
         && ((sp->terrainOverlay.type == MISTY_TERRAIN && defender->item_held_effect == HOLD_EFFECT_BOOST_SPDEF_ON_PSYCHIC_TERRAIN)
             || (sp->terrainOverlay.type == PSYCHIC_TERRAIN && defender->item_held_effect == HOLD_EFFECT_BOOST_SPDEF_ON_PSYCHIC_TERRAIN))) {
-        defender->states[STAT_SPDEF] = defender->states[STAT_SPDEF] + 1;
+        defender->states[STAT_SPECIAL_DEFENSE] = defender->states[STAT_SPECIAL_DEFENSE] + 1;
     }
 
     // Step 4.1. handle Unaware
     // Step 4.2. Chip Away / Sacred Sword / Darkest Lariat
     if (attacker->ability == ABILITY_UNAWARE || moveno == MOVE_CHIP_AWAY || moveno == MOVE_SACRED_SWORD || moveno == MOVE_DARKEST_LARIAT) {
         defender->states[STAT_DEFENSE] = 0;
-        defender->states[STAT_SPDEF] = 0;
+        defender->states[STAT_SPECIAL_DEFENSE] = 0;
     }
 
 #ifdef DEBUG_DAMAGE_CALC_AI
@@ -978,14 +978,14 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     if (critical > 1) {
         // critical hits ignore defender's stat boosts
         defender->states[STAT_DEFENSE] = defender->states[STAT_DEFENSE] > 0 ? 0 : defender->states[STAT_DEFENSE];
-        defender->states[STAT_SPDEF] = defender->states[STAT_SPDEF] > 0 ? 0 : defender->states[STAT_SPDEF];
+        defender->states[STAT_SPECIAL_DEFENSE] = defender->states[STAT_SPECIAL_DEFENSE] > 0 ? 0 : defender->states[STAT_SPECIAL_DEFENSE];
     }
 
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
     debug_printf("[AI_Damage] Step 4.5. Critical hit\n");
     debug_printf("[AI_Damage] defender->defstate: %d\n", defender->states[STAT_DEFENSE]);
-    debug_printf("[AI_Damage] defender->spdefstate: %d\n", defender->states[STAT_SPDEF]);
+    debug_printf("[AI_Damage] defender->spdefstate: %d\n", defender->states[STAT_SPECIAL_DEFENSE]);
 #endif
 
     // Step 4.6. Defense boosts/drops
@@ -993,8 +993,8 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     defense /= StatBoostModifiers[defender->states[STAT_DEFENSE] + 6][1];
     defense = defense % 65536;
 
-    sp_defense = defender->sp_defense * StatBoostModifiers[defender->states[STAT_SPDEF] + 6][0];
-    sp_defense /= StatBoostModifiers[defender->states[STAT_SPDEF] + 6][1];
+    sp_defense = defender->sp_defense * StatBoostModifiers[defender->states[STAT_SPECIAL_DEFENSE] + 6][0];
+    sp_defense /= StatBoostModifiers[defender->states[STAT_SPECIAL_DEFENSE] + 6][1];
     sp_defense = sp_defense % 65536;
 
 #ifdef DEBUG_DAMAGE_CALC_AI
@@ -1005,10 +1005,10 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 #endif
 
     // Step 4.7. Sandstorm + Rock-type
-    if ((weatherAttacker & WEATHER_SANDSTORM_ANY) && ((defender->type1 == TYPE_ROCK) || (defender->type2 == TYPE_ROCK))) {
+    if ((weatherAttacker & FIELD_CONDITION_SANDSTORM_ALL) && ((defender->type1 == TYPE_ROCK) || (defender->type2 == TYPE_ROCK))) {
         sp_defense = QMul_RoundDown(sp_defense, UQ412__1_5);
     }
-    if ((weatherAttacker & WEATHER_SNOW_ANY) && ((defender->type1 == TYPE_ICE) || (defender->type2 == TYPE_ICE))) {
+    if ((weatherAttacker & FIELD_CONDITION_SNOW_ALL) && ((defender->type1 == TYPE_ICE) || (defender->type2 == TYPE_ICE))) {
         defense = QMul_RoundDown(defense, UQ412__1_5);
     }
 
@@ -1036,7 +1036,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
     // Abilities
     // handle weather boosts
-    if ((weatherAttacker & WEATHER_SUNNY_ANY) && movesplit == SPLIT_SPECIAL) {
+    if ((weatherAttacker & FIELD_CONDITION_SUN_ALL) && movesplit == SPLIT_SPECIAL) {
         if ((!attackerHasMoldBreaker && defender->ability == ABILITY_FLOWER_GIFT)
             || (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot)) == ABILITY_FLOWER_GIFT)) {
             defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
@@ -1086,7 +1086,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     if ((defender->item_held_effect == HOLD_EFFECT_CLAMPERL_SPDEF)
         && (defender->species == SPECIES_CLAMPERL)
         // it’s not a Ditto/Smeargle/Mew Transformed into the species
-        && !(defender->condition2 & STATUS2_TRANSFORMED)
+        && !(defender->condition2 & STATUS2_TRANSFORM)
         && (movesplit == SPLIT_SPECIAL)) {
         defenseModifier = QMul_RoundUp(defenseModifier, UQ412__2_0);
     }
@@ -1095,7 +1095,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     if ((defender->item_held_effect == HOLD_EFFECT_DITTO_DEF_UP)
         && (defender->species == SPECIES_DITTO)
         // it’s not a Ditto/Smeargle/Mew Transformed into the species
-        && !(defender->condition2 & STATUS2_TRANSFORMED)
+        && !(defender->condition2 & STATUS2_TRANSFORM)
         && (movesplit == SPLIT_PHYSICAL)) {
         defenseModifier = QMul_RoundUp(defenseModifier, UQ412__2_0);
     }
@@ -1161,14 +1161,14 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         switch (sp->current_move_index) {
         case MOVE_SURF:
         case MOVE_WHIRLPOOL:
-            if (defender->effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING) {
+            if (defender->effect_of_moves & MOVE_EFFECT_FLAG_DIVE) {
                 moveCanHit = TRUE;
             }
             break;
         case MOVE_EARTHQUAKE:
         case MOVE_FISSURE:
         case MOVE_MAGNITUDE:
-            if (defender->effect_of_moves & MOVE_EFFECT_FLAG_DIGGING) {
+            if (defender->effect_of_moves & MOVE_EFFECT_FLAG_DIG) {
                 moveCanHit = TRUE;
             }
             break;
@@ -1179,7 +1179,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         case MOVE_THUNDER:
         case MOVE_SMACK_DOWN:
         case MOVE_THOUSAND_ARROWS:
-            if (defender->effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR) {
+            if (defender->effect_of_moves & MOVE_EFFECT_FLAG_FLY) {
                 moveCanHit = TRUE;
             }
             break;
@@ -1284,7 +1284,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
 
 
-    if (!attackerHasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0 && !(defender->condition2 & STATUS2_TRANSFORMED) && movesplit == SPLIT_PHYSICAL) { // SPECIES_EISCUE
+    if (!attackerHasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0 && !(defender->condition2 & STATUS2_TRANSFORM) && movesplit == SPLIT_PHYSICAL) { // SPECIES_EISCUE
         return 0;
     }
 
@@ -1325,7 +1325,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     //=====Step 6. General Damage Modifiers=====
 
     // 6.1 Spread Move Modifier
-    BOOL isDoubleBattle = (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG));
+    BOOL isDoubleBattle = (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG));
     BOOL countPossibleHits = 0;
     if (isDoubleBattle) {
         for (unsigned i = 0; i < CLIENT_MAX; ++i) {
@@ -1348,7 +1348,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     // handle parental bond
 
     // 6.3 Weather Modifier
-    if (weatherAttacker & WEATHER_RAIN_ANY) {
+    if (weatherAttacker & FIELD_CONDITION_RAIN_ALL) {
         switch (type) {
         case TYPE_FIRE:
             damage = QMul_RoundDown(damage, UQ412__0_5);
@@ -1359,7 +1359,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         }
     }
 
-    if (weatherAttacker & WEATHER_SUNNY_ANY) {
+    if (weatherAttacker & FIELD_CONDITION_SUN_ALL) {
         switch (type) {
         case TYPE_FIRE:
             damage = QMul_RoundDown(damage, UQ412__1_5);
@@ -1535,17 +1535,17 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     // 6.9.14 Doubled-damage moves
 
     // 6.9.14.1 Minimize
-    if (defender->effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZED && IsMoveInMinimizeVulnerabilityMovesList(moveno)) { // && !dynamxed
+    if (defender->effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZE && IsMoveInMinimizeVulnerabilityMovesList(moveno)) { // && !dynamxed
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.2 Dig
-    if ((defender->effect_of_moves & MOVE_EFFECT_FLAG_DIGGING) && moveno == MOVE_EARTHQUAKE) {
+    if ((defender->effect_of_moves & MOVE_EFFECT_FLAG_DIG) && moveno == MOVE_EARTHQUAKE) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.3 Dive
-    if ((defender->effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING) && (moveno == MOVE_SURF || moveno == MOVE_WHIRLPOOL)) {
+    if ((defender->effect_of_moves & MOVE_EFFECT_FLAG_DIVE) && (moveno == MOVE_SURF || moveno == MOVE_WHIRLPOOL)) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 

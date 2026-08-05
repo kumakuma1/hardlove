@@ -86,7 +86,7 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
     monStruct->attackerHasMoveFailureLastTurn = 0;
     monStruct->canBelch = 0; // sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, attackerPos)][partyPos].berryEatenAndCanBelch;
     monStruct->paradoxBoostedStat = 0;
-    if ((monStruct->ability == ABILITY_PROTOSYNTHESIS && ((sp->field_condition & WEATHER_SUNNY_ANY) || monStruct->item == ITEM_BOOSTER_ENERGY))
+    if ((monStruct->ability == ABILITY_PROTOSYNTHESIS && ((sp->field_condition & FIELD_CONDITION_SUN_ALL) || monStruct->item == ITEM_BOOSTER_ENERGY))
         || (monStruct->ability == ABILITY_QUARK_DRIVE && ((sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft) || monStruct->item == ITEM_BOOSTER_ENERGY)))
     {
         monStruct->paradoxBoostedStat = BattleAI_GetHighestParadoxStat(monStruct->attack, monStruct->defense, monStruct->sp_attack, monStruct->sp_defense, monStruct->speed);
@@ -126,9 +126,9 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     }
 
     monStruct->states[STAT_ATTACK] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_ATK, NULL) - 6;
-    monStruct->states[STAT_SPATK] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
+    monStruct->states[STAT_SPECIAL_ATTACK] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_SPATK, NULL) - 6;
     monStruct->states[STAT_DEFENSE] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_DEF, NULL) - 6;
-    monStruct->states[STAT_SPDEF] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
+    monStruct->states[STAT_SPECIAL_DEFENSE] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_SPDEF, NULL) - 6;
     monStruct->states[STAT_SPEED] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_SPE, NULL) - 6;
     monStruct->states[STAT_ACCURACY] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_ACCURACY, NULL) - 6;
     monStruct->states[STAT_EVASION] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_EVASIVENESS, NULL) - 6;
@@ -173,11 +173,11 @@ u8 LONG_CALL BattleAI_GetHighestParadoxStat(u8 atk, u8 def, u8 spatk, u8 spdef, 
         highestStat = def;
     }
     if (highestStat < spatk) {
-        highestId = STAT_SPATK;
+        highestId = STAT_SPECIAL_ATTACK;
         highestStat = spatk;
     }
     if (highestStat < spdef) {
-        highestId = STAT_SPDEF;
+        highestId = STAT_SPECIAL_DEFENSE;
         highestStat = spdef;
     }
     if (highestStat < speed) {
@@ -572,24 +572,24 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
         break;
     case MOVE_WEATHER_BALL:
         if (weatherAttacker & FIELD_CONDITION_WEATHER) {
-            if (weatherAttacker & WEATHER_RAIN_ANY) {
+            if (weatherAttacker & FIELD_CONDITION_RAIN_ALL) {
                 type = TYPE_WATER;
             }
-            if (weatherAttacker & WEATHER_SANDSTORM_ANY) {
+            if (weatherAttacker & FIELD_CONDITION_SANDSTORM_ALL) {
                 type = TYPE_ROCK;
             }
-            if (weatherAttacker & WEATHER_SUNNY_ANY) {
+            if (weatherAttacker & FIELD_CONDITION_SUN_ALL) {
                 type = TYPE_FIRE;
             }
-            if (weatherAttacker & WEATHER_HAIL_ANY) {
+            if (weatherAttacker & FIELD_CONDITION_SNOW_ALL|FIELD_CONDITION_HAIL_ALL) {
                 type = TYPE_ICE;
             }
             // BUG: If the weather is foggy, then type doesn't get set properly before being returned
             // BUGFIX
-            if (weatherAttacker & FIELD_STATUS_FOG) {
+            if (weatherAttacker & FIELD_CONDITION_FOG) {
                 type = TYPE_NORMAL;
             }
-            if (weatherAttacker & WEATHER_SHADOWY_AURA_ANY) {
+            if (weatherAttacker & FIELD_CONDITION_SHADOWY_AURA_ALL) {
                 type = TYPE_TYPELESS;
             }
         }
@@ -808,7 +808,7 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
         typeLocal = TYPE_WATER;
     }
     // Ion Deluge's effect is applied after all type-modifying abilities have activated.
-    if (typeLocal == TYPE_NORMAL && (ctx->field_condition & FIELD_STATUS_ION_DELUGE) == FIELD_STATUS_ION_DELUGE) {
+    if (typeLocal == TYPE_NORMAL && (ctx->field_condition & FIELD_CONDITION_ION_DELUGE) == FIELD_CONDITION_ION_DELUGE) {
         typeLocal = TYPE_ELECTRIC;
     }
 
@@ -907,7 +907,7 @@ BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokem
     if ((GetMonData(pp, MON_DATA_ABILITY, 0) != ABILITY_LEVITATE && GetMonData(pp, MON_DATA_ABILITY, 0) != ABILITY_EELEVATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
             && !(GetMonData(pp, MON_DATA_TYPE_1, 0) == TYPE_FLYING) && !(GetMonData(pp, MON_DATA_TYPE_2, 0) == TYPE_FLYING))
         || (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED // holding Iron Ball
-            || (sp->field_condition & FIELD_STATUS_GRAVITY))) {
+            || (sp->field_condition & FIELD_CONDITION_GRAVITY))) {
         return TRUE;
     }
 
@@ -917,11 +917,11 @@ BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokem
 u32 LONG_CALL BattleAI_GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int ability)
 {
     if (ability == ABILITY_MEGA_SOL) {
-        return WEATHER_SUNNY;
+        return FIELD_CONDITION_NONE;
     }
 
     if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) || CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-        return WEATHER_NONE;
+        return FIELD_CONDITION_NONE;
     }
 
     return ctx->field_condition & FIELD_CONDITION_WEATHER;

@@ -147,7 +147,7 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                 if (BattleRand(bsys) % 2 == 0) {
                     moveScore += 2;
                 }
-                if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7) {
+                if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 7) {
                     moveScore -= 2;
                 }
                 break;
@@ -354,7 +354,7 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         break;
     case MOVE_EFFECT_STATUS_SLEEP:
     case MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN:
-        if (ai->defenderImmuneToSleep || (ai->defenderMon.effect_of_moves & MOVE_EFFECT_YAWN_COUNTER)) {
+        if (ai->defenderImmuneToSleep || (ai->defenderMon.effect_of_moves & MOVE_EFFECT_FLAG_YAWN)) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
@@ -375,27 +375,23 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_WEATHER_SANDSTORM:
-        if (ctx->field_condition & WEATHER_SANDSTORM_ANY) {
+        if (ctx->field_condition & FIELD_CONDITION_SANDSTORM_ALL) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
     case MOVE_EFFECT_WEATHER_HAIL:
-        if (ctx->field_condition & WEATHER_HAIL_ANY) {
-            moveScore -= NEVER_USE_MOVE_20;
-        }
-        break;
     case MOVE_EFFECT_WEATHER_SNOW:
-        if (ctx->field_condition & WEATHER_SNOW_ANY) {
+        if (ctx->field_condition & (FIELD_CONDITION_SNOW_ALL | FIELD_CONDITION_HAIL_ALL)) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
     case MOVE_EFFECT_WEATHER_RAIN:
-        if (ctx->field_condition & WEATHER_RAIN_ANY) {
+        if (ctx->field_condition & FIELD_CONDITION_RAIN_ALL) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
     case MOVE_EFFECT_WEATHER_SUN:
-        if (ctx->field_condition & WEATHER_SUNNY_ANY) {
+        if (ctx->field_condition & FIELD_CONDITION_SUN_ALL) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
@@ -412,7 +408,7 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     }
 
     if (ai->attackerMove == MOVE_SOLAR_BEAM){
-        if (ai->attackerMon.ability != ABILITY_MEGA_SOL && ((ctx->field_condition & WEATHER_SUNNY_ANY) == 0) && ai->attackerMon.item != ITEM_POWER_HERB) {
+        if (ai->attackerMon.ability != ABILITY_MEGA_SOL && ((ctx->field_condition & FIELD_CONDITION_SUN_ALL) == 0) && ai->attackerMon.item != ITEM_POWER_HERB) {
             moveScore -= NEVER_USE_MOVE_20;
         }
     }
@@ -503,7 +499,7 @@ int LONG_CALL SpecialAiAttackingMove(struct BattleSystem *bsys, u32 attacker, in
         }
         break;
     case MOVE_ELECTRO_SHOT:
-        if (ai->attackerMon.item == ITEM_POWER_HERB || ctx->field_condition & WEATHER_RAIN_ANY) {
+        if (ai->attackerMon.item == ITEM_POWER_HERB || ctx->field_condition & FIELD_CONDITION_RAIN_ALL) {
             moveScore += 9;
         } else {
             moveScore -= NEVER_USE_MOVE_20;
@@ -888,7 +884,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
 
     switch (ai->attackerMoveEffect) {
     case MOVE_EFFECT_WEATHER_RAIN:
-        if (ctx->field_condition & WEATHER_RAIN_ANY) {
+        if (ctx->field_condition & FIELD_CONDITION_RAIN_ALL) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {
             if (ai->attackerMon.ability == ABILITY_SWIFT_SWIM
@@ -905,7 +901,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_WEATHER_HAIL:
     case MOVE_EFFECT_WEATHER_SNOW:
         // case MOVE_EFFECT_SNOWSCAPE:
-        if (ctx->field_condition & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY)) {
+        if (ctx->field_condition & (FIELD_CONDITION_SNOW_ALL|FIELD_CONDITION_HAIL_ALL)) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {
             if (HasType(ctx, attacker, TYPE_ICE)
@@ -919,7 +915,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_WEATHER_SUN:
-        if (ctx->field_condition & WEATHER_SUNNY_ANY) {
+        if (ctx->field_condition & FIELD_CONDITION_SUN_ALL) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {
             if (HasType(ctx, attacker, TYPE_FIRE) || ai->attackerMon.ability == ABILITY_SOLAR_POWER) { //|| ai->attackerMon.ability == ABILITY_CHLOROPHYL
@@ -931,7 +927,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_WEATHER_SANDSTORM:
-        if (ctx->field_condition & WEATHER_SANDSTORM_ANY) {
+        if (ctx->field_condition & FIELD_CONDITION_SANDSTORM_ALL) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {
             if (HasType(ctx, attacker, TYPE_ROCK) || HasType(ctx, attacker, TYPE_GROUND) || HasType(ctx, attacker, TYPE_STEEL)
@@ -1024,7 +1020,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
                 moveScore -= 2;
             }
         }
-        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7) {
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 7) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
@@ -1044,13 +1040,13 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_ATK_UP: // howl
     case MOVE_EFFECT_ATK_UP_2: // swords dance
     case MOVE_EFFECT_ATK_UP_3:
-        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 11 || ctx->battlemon[attacker].states[STAT_SPATK] > 11) {
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 11 || ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 11) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
-        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7) {
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 7) {
             moveScore -= 2;
         }
-        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 8 || ctx->battlemon[attacker].states[STAT_SPATK] > 8) {
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 8 || ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 8) {
             moveScore -= 1;
         }
         moveScore += 6;
@@ -1061,13 +1057,13 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_TIDY_UP: // tidy up is basically ddance
     case MOVE_EFFECT_ATK_DEF_SPEED_UP: // victory dance
     case MOVE_EFFECT_RANDOM_STAT_UP_2: // accupressure
-        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 11 || ctx->battlemon[attacker].states[STAT_SPATK] > 11) {
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 11 || ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 11) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
-        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPATK] > 7 || ai->aiMovesFirst) {
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 7 || ai->aiMovesFirst) {
             moveScore -= 2;
         }
-        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 8 || ctx->battlemon[attacker].states[STAT_SPATK] > 8 || ai->aiMovesFirst) {
+        if (ctx->battlemon[attacker].states[STAT_ATTACK] > 8 || ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 8 || ai->aiMovesFirst) {
             moveScore -= 1;
         }
         moveScore += 6;
@@ -1107,13 +1103,13 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER: // Charge
     case MOVE_EFFECT_DEF_SP_DEF_UP: // cosmic power
     case MOVE_EFFECT_STUFF_CHEEKS:
-        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 11 || ctx->battlemon[attacker].states[STAT_SPDEF] > 11) {
+        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 11 || ctx->battlemon[attacker].states[STAT_SPECIAL_DEFENSE] > 11) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
-        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 7 || ctx->battlemon[attacker].states[STAT_SPDEF] > 7) {
+        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 7 || ctx->battlemon[attacker].states[STAT_SPECIAL_DEFENSE] > 7) {
             moveScore -= 3;
         }
-        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 8 || ctx->battlemon[attacker].states[STAT_SPDEF] > 8) {
+        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 8 || ctx->battlemon[attacker].states[STAT_SPECIAL_DEFENSE] > 8) {
             moveScore -= 1;
         }
         if (ai->attackerMoveEffect == MOVE_EFFECT_STUFF_CHEEKS && !IS_ITEM_BERRY(ai->attackerMon.item)) {
@@ -1123,10 +1119,10 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         moveScore += DefensiveSetup(bsys, attacker, i, ai);
         break;
     case MOVE_EFFECT_STOCKPILE:
-        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 8 || ctx->battlemon[attacker].states[STAT_SPDEF] > 8) {
+        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 8 || ctx->battlemon[attacker].states[STAT_SPECIAL_DEFENSE] > 8) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
-        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 7 || ctx->battlemon[attacker].states[STAT_SPDEF] > 7) {
+        if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 7 || ctx->battlemon[attacker].states[STAT_SPECIAL_DEFENSE] > 7) {
             moveScore -= 3;
         }
         moveScore += 6;
@@ -1135,13 +1131,13 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     case MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP: // quiver dance
     case MOVE_EFFECT_SP_ATK_SP_DEF_UP: // Calm Mind
         moveScore += 6;
-        if (ctx->battlemon[attacker].states[STAT_SPATK] > 11 || ctx->battlemon[attacker].states[STAT_SPDEF] > 11) {
+        if (ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 11 || ctx->battlemon[attacker].states[STAT_SPECIAL_DEFENSE] > 11) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
-        if (ctx->battlemon[attacker].states[STAT_SPATK] > 7 || ctx->battlemon[attacker].states[STAT_SPDEF] > 7) {
+        if (ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPECIAL_DEFENSE] > 7) {
             moveScore -= 2;
         }
-        if (ctx->battlemon[attacker].states[STAT_SPATK] > 8 || ctx->battlemon[attacker].states[STAT_SPDEF] > 8) {
+        if (ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 8 || ctx->battlemon[attacker].states[STAT_SPECIAL_DEFENSE] > 8) {
             moveScore -= 1;
         }
         if (ai->defenderHasAtleastOnePhysicalMove == FALSE && ai->defenderHasAtleastOneSpecialMove) {
@@ -1183,7 +1179,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_NEXT_ATTACK_ALWAYS_HITS: // mind reader, lock on
-        if (ctx->field_condition & FIELD_STATUS_FOG
+        if (ctx->field_condition & FIELD_CONDITION_FOG
             && (BattlerKnowsMove(bsys, ai->defender, MOVE_DEFOG, ai) == FALSE)
             && (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON) == 0) {
 
@@ -1270,7 +1266,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     }
     case MOVE_EFFECT_GRAVITY:
     {
-        if (ctx->field_condition & FIELD_STATUS_GRAVITY) {
+        if (ctx->field_condition & FIELD_CONDITION_GRAVITY) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {
             moveScore += 6;
@@ -1307,7 +1303,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         break;
     case MOVE_EFFECT_SURVIVE_WITH_1_HP: // endure
     {
-        BOOL monDiesEndTurnEndure = MonDiesFromResidualDamage(ctx, ai->attacker, ai->attackerMon.condition, (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE));
+        BOOL monDiesEndTurnEndure = MonDiesFromResidualDamage(ctx, ai->attacker, ai->attackerMon.condition, (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED));
 
         if (IsMonInflictedWithAnyNegativeStatus(ctx, attacker)) {
             moveScore -= 1;
@@ -1333,7 +1329,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     // case MOVE_EFFECT_SPIKEY_SHIELD:
     case MOVE_EFFECT_PROTECT: // TODO
     {
-        BOOL monDiesEndTurn = MonDiesFromResidualDamage(ctx, ai->attacker, ai->attackerMon.condition, (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE));
+        BOOL monDiesEndTurn = MonDiesFromResidualDamage(ctx, ai->attacker, ai->attackerMon.condition, (ctx->battlemon[ai->attacker].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED));
         moveScore += 6;
         if (IsMonInflictedWithAnyNegativeStatus(ctx, attacker)) {
             moveScore -= 1;
@@ -1411,7 +1407,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore += 5;
         }
 
-        if (ctx->field_condition & FIELD_STATUS_TRICK_ROOM) {
+        if (ctx->field_condition & FIELD_CONDITION_TRICK_ROOM) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
@@ -1453,7 +1449,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_SET_AURORA_VEIL:
-        if (ctx->side_condition[ai->attackerSide] & SIDE_STATUS_AURORA_VEIL || (ctx->field_condition & WEATHER_SNOW_ANY) == 0) {
+        if (ctx->side_condition[ai->attackerSide] & SIDE_STATUS_AURORA_VEIL || (ctx->field_condition & FIELD_CONDITION_SNOW_ALL) == 0) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {
             moveScore += 6;
@@ -1482,7 +1478,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         if (ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE) {
             moveScore -= IMPOSSIBLE_MOVE;
         }
-        if (ai->aiMovesFirst && (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE)) {
+        if (ai->aiMovesFirst && (ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED)) {
             moveScore += 2;
         }
         if (ai->defenderMon.condition & STATUS_SLEEP) {
@@ -1628,7 +1624,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_STATUS_LEECH_SEED:
-        if ((ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE) || HasType(ctx, ai->defender, TYPE_GRASS) || ai->defenderMon.ability == ABILITY_MAGIC_GUARD) {
+        if ((ctx->battlemon[ai->defender].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED) || HasType(ctx, ai->defender, TYPE_GRASS) || ai->defenderMon.ability == ABILITY_MAGIC_GUARD) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {
             moveScore += 6;
@@ -1781,7 +1777,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         break;
     case MOVE_EFFECT_VENOM_DRENCH:
         if (ai->defenderMon.condition & STATUS_POISON_ALL) {
-            if ((ai->defenderHasAtleastOnePhysicalMove && ctx->battlemon[ai->defender].states[STAT_ATTACK] >= 6) || (ai->defenderHasAtleastOneSpecialMove && ctx->battlemon[ai->defender].states[STAT_SPATK] >= 6)) {
+            if ((ai->defenderHasAtleastOnePhysicalMove && ctx->battlemon[ai->defender].states[STAT_ATTACK] >= 6) || (ai->defenderHasAtleastOneSpecialMove && ctx->battlemon[ai->defender].states[STAT_SPECIAL_ATTACK] >= 6)) {
                 moveScore += 5;
                 if (!ai->defenderImmuneToStatDrop) {
                     moveScore += 1;
@@ -1886,10 +1882,10 @@ u32 LONG_CALL GetRecoverAmountPercent(struct BattleSystem *bsys, u32 attackerMov
         recoverAmountPercent = 100;
         break;
     case MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER:
-        if ((attackerMove == MOVE_SHORE_UP && (ctx->field_condition & WEATHER_SANDSTORM_ANY))
-            || (attackerMove != MOVE_SHORE_UP && (ctx->field_condition & WEATHER_SUNNY_ANY))) {
+        if ((attackerMove == MOVE_SHORE_UP && (ctx->field_condition & FIELD_CONDITION_SANDSTORM_ALL))
+            || (attackerMove != MOVE_SHORE_UP && (ctx->field_condition & FIELD_CONDITION_SUN_ALL))) {
             recoverAmountPercent = 67;
-        } else if (ctx->field_condition & WEATHER_RAIN_ANY) {
+        } else if (ctx->field_condition & FIELD_CONDITION_RAIN_ALL) {
             recoverAmountPercent = 25;
         }
         break;
@@ -1993,7 +1989,7 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
                 || ai->attackerMon.ability == ABILITY_EARLY_BIRD || ai->attackerMon.ability == ABILITY_SHED_SKIN
                 || (ai->isDoubleBattle && ai->aimonAlly.ability == ABILITY_HEALER)
                 || BattlerKnowsMove(bsys, attacker, MOVE_SLEEP_TALK, ai) || BattlerKnowsMove(bsys, attacker, MOVE_SNORE, ai)
-                || (ai->attackerMon.ability == ABILITY_HYDRATION && (ctx->field_condition & WEATHER_RAIN_ANY))) {
+                || (ai->attackerMon.ability == ABILITY_HYDRATION && (ctx->field_condition & FIELD_CONDITION_RAIN_ALL))) {
                 moveScore += 8;
             } else {
                 moveScore += 7;

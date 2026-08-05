@@ -43,7 +43,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 
 
 #ifdef DEBUG_AI_SCORING
-    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) {
+    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG)) {
 
         debug_printf("att %d(%d), ally %d(%d), defendOp %d(%d), defendCross %d(%d)\n",
             attacker, ctx->battlemon[attacker].species,
@@ -58,7 +58,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 #endif // DEBUG_AI_SCORING
 
     BOOL canDivert = FALSE;
-    if ((BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG))
+    if ((BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG))
         && ctx->battlemon[attacker].hp
         && ctx->battlemon[ally].hp)
     {
@@ -232,11 +232,11 @@ BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defe
         return FALSE;
     }
     BOOL hasPerishSong = FALSE;
-    if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE) {
+    if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG) {
         hasPerishSong = TRUE;
     }
     int doublesAddon = 0;
-    if ((BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) 
+    if ((BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG)) 
         && ctx->battlemon[defender].hp 
         && ctx->battlemon[BATTLER_ALLY(defender)].hp) {
         doublesAddon = 3;
@@ -286,7 +286,7 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
 #endif // DEBUG_AI_SCORING
     }
 
-    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) {
+    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG)) {
         if (ctx->battlemon[defenderAcross].hp > 0 && !aiOp2->ignoreTarget) {
             SetupStateVariables(bsys, attacker, defenderAcross, aiOp2);
             for (u8 i = 0; i < 4; i++) {
@@ -312,7 +312,7 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
         turnState->highestScoredMove = ScoreMovesAgainstDefender(bsys, attacker, defender, turnState->moveScores, aiOp1);
     }
 
-    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_TAG)) {
+    if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG)) {
         int highestScoredMoveAcross = 0;
         if (ctx->battlemon[defenderAcross].hp > 0 && !aiOp2->ignoreTarget) {
             highestScoredMoveAcross = ScoreMovesAgainstDefender(bsys, attacker, defenderAcross, turnState->moveScores, aiOp2);
