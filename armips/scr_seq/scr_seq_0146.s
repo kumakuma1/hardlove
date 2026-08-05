@@ -7,7 +7,6 @@
 .include "armips/include/vars.s"
 
 .include "asm/include/items.inc"
-.include "asm/include/moves.inc"
 .include "asm/include/species.inc"
 .include "asm/include/std_scripts.inc"
 

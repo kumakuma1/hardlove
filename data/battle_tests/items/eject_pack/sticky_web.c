@@ -3,7 +3,7 @@
 BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_SINGLE,
-    .weather = WEATHER_NONE,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
