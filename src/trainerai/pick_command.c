@@ -22,14 +22,20 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     debug_printf("TrainerAI_PickCommand: %d\n", attacker);
 #endif // DEBUG_AI_SCORING
     struct BattleStruct *ctx = bsys->sp;
+    BOOL isTagPartner = FALSE;
+    if (attacker == 2) {
+        isTagPartner = TRUE;
+    }
+
     if (BattleTypeGet(bsys) == BATTLE_TYPE_SAFARI || BattleTypeGet(bsys) == BATTLE_TYPE_ROAMER) {
         return PLAYER_INPUT_FIGHT;
     }
     if ((BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER) == 0) {
         return PLAYER_INPUT_FIGHT;
     }
-    if (ctx->aiTurnScoring.calcState == CalcedEnemy_1_and_3 && (attacker == 1 || attacker == 3))
+    if (ctx->aiTurnScoring.calcState == CalcedEnemy_1_and_3 && !isTagPartner) {
         return PLAYER_INPUT_FIGHT;
+    }
 
     int targets[4] = { 0 };
     int targetsAlly[4] = { 0 };
@@ -60,7 +66,8 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     BOOL canDivert = FALSE;
     if ((BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG))
         && ctx->battlemon[attacker].hp
-        && ctx->battlemon[ally].hp)
+        && ctx->battlemon[ally].hp
+        && !isTagPartner)
     {
         canDivert = TRUE;
         int speedCalc = CalcSpeed(bsys, ctx, attacker, ally, CALCSPEED_FLAG_NO_PRIORITY);

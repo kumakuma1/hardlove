@@ -4,7 +4,7 @@ Mechanic Changes
 
 For any mechanic that's not described in here, assume Gen9 mechanics.
 
-Easy mode will reduce enemy trainer level by 1 for lvl <= 30, and 2 by lvl > 30. 
+Easy mode will reduce enemy trainer level by 1 + (int)(x/25), where x is the enemy level. (Toggle by talking to Mom.)
 Button L will toggle the repel.
 Button R will activate the Portable PC. (Disabled in Gauntlets.)
 Battle style is forced to set.
