@@ -27991,7 +27991,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_FIREBREATHER,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = SINGLE_BATTLE,
         },
         .party = {
             {
@@ -28016,7 +28016,7 @@ const TrainerData sTrainerData[] = {
                 .level = 50,
                 .species = SPECIES_CRABOMINABLE,
                 .item = ITEM_FOCUS_SASH,
-                .moves = { MOVE_CLOSE_COMBAT, MOVE_ICE_HAMMER, MOVE_CRABHAMMER, MOVE_IRON_HEAD },
+                .moves = { MOVE_CLOSE_COMBAT, MOVE_ICE_HAMMER, MOVE_MACH_PUNCH, MOVE_PURSUIT },
                 .ability = ABILITY_ANGER_POINT,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
