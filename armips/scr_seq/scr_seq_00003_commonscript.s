@@ -88,6 +88,7 @@ scrdef scr_seq_0003_070
 scrdef scr_seq_0003_071
 scrdef scr_seq_0003_072_repels
 scrdef scr_seq_0003_073_autobattle_testing
+scrdef scr_seq_0003_074
 scrdef_end
 
 scr_seq_0003_002:
@@ -1743,6 +1744,27 @@ scr_seq_0003_073_autobattle_testing:
     releaseall
     end
 
+scr_seq_0003_074:
+    play_se SEQ_SE_DP_SELECT
+    lockall
+    faceplayer
+    touchscreen_menu_hide
+    npc_msg 255
+    ListLocalText 1, 1, 0, 1, VAR_SPECIAL_RESULT
+    //AddListOption 256, 255, 0
+	//AddListOption 257, 255, 1
+	//AddListOption 258, 255, 2
+	//AddListOption 259, 255, 3
+    AddListOption 51, 255, 0
+	AddListOption 52, 255, 1
+	AddListOption 53, 255, 2
+    ShowList
+    wait_button_or_walk_away
+    closemsg
+    touchscreen_menu_show
+    releaseall
+    endstd
+    end
 
 
 .close

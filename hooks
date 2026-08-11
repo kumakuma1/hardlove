@@ -210,6 +210,9 @@ arm9 HiddenItemGetUnk3 02040578 1
 arm9 GetHiddenItemParams 020405AC 2
 arm9 AllocAndFetchNearbyHiddenItems 02040614 2
 
+
+ arm9 ScrCmd_AddListOption_070 02041988 2
+
 #hof/pokeathlon/pokewalker fix
 0063 grab_overworld_a081_index 080025E4 3
 0064 grab_overworld_a081_index 021E6E30 3
