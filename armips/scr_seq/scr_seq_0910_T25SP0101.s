@@ -111,7 +111,7 @@ _plain:
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _nomoney
     call _checkspace
-    SetVar VAR_TEMP_x4005, 674
+    SetVar VAR_TEMP_x4005, SPECIES_SANDILE
     GetRandom VAR_SPECIAL_RESULT, 3
     compare VAR_SPECIAL_RESULT, 0
     call_if_eq _plainoption1

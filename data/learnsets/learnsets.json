@@ -16361,10 +16361,22 @@
         "Level": 64,
         "Move": "MOVE_BOUNCE"
       },
-      {
-        "Level": 66,
-        "Move": "MOVE_HIGH_JUMP_KICK"
-      }
+        {
+            "Level": 66,
+            "Move": "MOVE_HIGH_JUMP_KICK"
+        },
+        {
+            "Level": 72,
+            "Move": "MOVE_AXE_KICK"
+        },
+        {
+            "Level": 77,
+            "Move": "MOVE_EARTHQUAKE"
+        },
+        {
+            "Level": 82,
+            "Move": "MOVE_SKULL_BASH"
+        }
     ],
     "MachineMoves": [
       "MOVE_ATTRACT",
@@ -16527,10 +16539,18 @@
         "Level": 55,
         "Move": "MOVE_DRAIN_PUNCH"
       },
-      {
-        "Level": 60,
-        "Move": "MOVE_CLOSE_COMBAT"
-      }
+        {
+            "Level": 60,
+            "Move": "MOVE_CLOSE_COMBAT"
+        },
+        {
+            "Level": 71,
+            "Move": "MOVE_EARTHQUAKE"
+        },
+        {
+            "Level": 82,
+            "Move": "MOVE_GIGA_IMPACT"
+        }
     ],
     "MachineMoves": [
       "MOVE_AGILITY",
@@ -33979,10 +33999,18 @@
         "Level": 64,
         "Move": "MOVE_HEAVY_SLAM"
       },
-      {
-        "Level": 65,
-        "Move": "MOVE_MAGNET_RISE"
-      }
+        {
+            "Level": 65,
+            "Move": "MOVE_MAGNET_RISE"
+        },
+        {
+            "Level": 76,
+            "Move": "MOVE_GYRO_BALL"
+        },
+        {
+            "Level": 82,
+            "Move": "MOVE_HEAD_SMASH"
+        }
     ],
     "MachineMoves": [
       "MOVE_ATTRACT",
@@ -38284,10 +38312,18 @@
         "Level": 51,
         "Move": "MOVE_TRIPLE_AXEL"
       },
-      {
-        "Level": 55,
-        "Move": "MOVE_CLOSE_COMBAT"
-      }
+        {
+            "Level": 55,
+            "Move": "MOVE_CLOSE_COMBAT"
+        },
+        {
+            "Level": 66,
+            "Move": "MOVE_EARTHQUAKE"
+        },
+        {
+            "Level": 82,
+            "Move": "MOVE_ICE_SPINNER"
+        }
     ],
     "MachineMoves": [
       "MOVE_AERIAL_ACE",
@@ -69207,10 +69243,26 @@
         "Level": 48,
         "Move": "MOVE_KNOCK_OFF"
       },
-      {
-        "Level": 51,
-        "Move": "MOVE_EXPLOSION"
-      }
+        {
+            "Level": 51,
+            "Move": "MOVE_EXPLOSION"
+        },
+        {
+            "Level": 55,
+            "Move": "MOVE_PLAY_ROUGH"
+        },
+        {
+            "Level": 64,
+            "Move": "MOVE_EXPLOSION"
+        },
+        {
+            "Level": 71,
+            "Move": "MOVE_GUNK_SHOT"
+        },
+        {
+            "Level": 82,
+            "Move": "MOVE_PUNISHMENT"
+        }
     ],
     "MachineMoves": [
         "MOVE_ACID_SPRAY",
@@ -71284,10 +71336,18 @@
         "Level": 55,
         "Move": "MOVE_METEOR_MASH"
       },
-      {
-        "Level": 65,
-        "Move": "MOVE_CLOSE_COMBAT"
-      }
+        {
+            "Level": 65,
+            "Move": "MOVE_CLOSE_COMBAT"
+        },
+        {
+            "Level": 71,
+            "Move": "MOVE_TERRAIN_PULSE"
+        },
+        {
+            "Level": 82,
+            "Move": "MOVE_HEAL_PULSE"
+        }
     ],
     "MachineMoves": [
       "MOVE_AERIAL_ACE",
@@ -71954,10 +72014,14 @@
         "Level": 48,
         "Move": "MOVE_LEECH_LIFE"
       },
-      {
-        "Level": 51,
-        "Move": "MOVE_CROSS_POISON"
-      }
+        {
+            "Level": 51,
+            "Move": "MOVE_CROSS_POISON"
+        },
+        {
+            "Level": 65,
+            "Move": "MOVE_FELL_STINGER"
+        }
     ],
     "MachineMoves": [
       "MOVE_AERIAL_ACE",
@@ -76098,10 +76162,14 @@
         "Level": 53,
         "Move": "MOVE_POWER_GEM"
       },
-      {
-        "Level": 55,
-        "Move": "MOVE_FLASH_CANNON"
-      }
+        {
+            "Level": 55,
+            "Move": "MOVE_FLASH_CANNON"
+        },
+        {
+            "Level": 77,
+            "Move": "MOVE_METEOR_BEAM"
+        }
     ],
     "MachineMoves": [
       "MOVE_ATTRACT",
@@ -88650,10 +88718,14 @@
         "Level": 51,
         "Move": "MOVE_STONE_EDGE"
       },
-      {
-        "Level": 55,
-        "Move": "MOVE_EARTHQUAKE"
-      }
+        {
+            "Level": 55,
+            "Move": "MOVE_EARTHQUAKE"
+        },
+        {
+            "Level": 71,
+            "Move": "MOVE_GUNK_SHOT"
+        }
     ],
     "MachineMoves": [
         "MOVE_AERIAL_ACE",

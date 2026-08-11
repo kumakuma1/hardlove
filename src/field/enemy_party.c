@@ -310,6 +310,10 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         }
 #endif
         if (CheckScriptFlag(CUSTOM_EASY_MODE)) {
+            if (level > 81) {
+                level = 81;
+            }
+
             if (level >= 75) {
                 level = level - 4;
             } else if (level >= 50) {
