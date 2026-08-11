@@ -1,6 +1,7 @@
-#include "types.h"
-#include "battle.h"
 #include "config.h"
+#include "debug.h"
+#include "types.h"
+
 #include "constants/ability.h"
 #include "constants/battle_message_constants.h"
 #include "constants/battle_script_constants.h"
@@ -10,9 +11,10 @@
 #include "constants/move_effects.h"
 #include "constants/moves.h"
 #include "constants/species.h"
-#include "constants/weather_numbers.h"
 #include "constants/system_control.h"
-#include "debug.h"
+#include "constants/weather_numbers.h"
+
+#include "battle.h"
 #include "mega.h"
 #include "message.h"
 #include "nitro.h"
@@ -1598,8 +1600,9 @@ BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_clien
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 {
     u32 ovyId, offset;
-    BOOL(*internalFunc)
-    (void *bw, struct BattleStruct *sp);
+    // clang-format off
+    BOOL (*internalFunc)(void *bw, struct BattleStruct *sp);
+    // clang-format on
 
     ovyId = OVERLAY_BTL_SCR_CMD_33_STATBUFFCHANGE;
     offset = 0x023C0400 | 1;
@@ -2226,8 +2229,8 @@ BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no)
     u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
 
     if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE
-        && sp->battlemon[client_no].ability != ABILITY_EELEVATE
-        && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
+            && sp->battlemon[client_no].ability != ABILITY_EELEVATE
+            && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
             && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, client_no, TYPE_FLYING))
         || (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED // holding Iron Ball
             || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
@@ -3731,8 +3734,9 @@ BOOL BtlCmd_CheckSubstitute(void *bsys, struct BattleStruct *ctx)
 u32 CalculateBallShakes(void *bw, struct BattleStruct *sp)
 {
     u32 ovyId, offset, ret;
-    BOOL(*internalFunc)
-    (void *bw, struct BattleStruct *sp);
+    // clang-format off
+    BOOL (*internalFunc)(void *bw, struct BattleStruct *sp);
+    // clang-format on
 
     ovyId = OVERLAY_CALCULATEBALLSHAKES;
     offset = 0x023C0400 | 1;
@@ -5481,8 +5485,7 @@ BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
     // ctx->battlemon[battlerID].weight *= 2;
 
     // if not defined in above table, should skip playing stat animation because it can not be found
-    if (totemID == NELEMS(TotemSpecies))
-    {
+    if (totemID == NELEMS(TotemSpecies)) {
         IncrementBattleScriptPtr(ctx, failAddr);
         return FALSE;
     }
@@ -5662,10 +5665,9 @@ BOOL BtlCmd_TryPerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx)
     return FALSE;
 }
 
-
 BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    //int metronomeIndex;
+    // int metronomeIndex;
     u32 moveNo;
 
     IncrementBattleScriptPtr(ctx, 1);
@@ -5673,16 +5675,16 @@ BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
     while (TRUE) {
         moveNo = RollMetronomeMove(bsys);
 
-       /* for (metronomeIndex = 0; metronomeIndex < MAX_MON_MOVES; metronomeIndex++) {
-           if (ctx->battlemon[ctx->attack_client].moves[metronomeIndex] == moveNo) {
-               break;
-           }
-       }
-
-        if (metronomeIndex != MAX_MON_MOVES) {
-            continue;
+        /* for (metronomeIndex = 0; metronomeIndex < MAX_MON_MOVES; metronomeIndex++) {
+            if (ctx->battlemon[ctx->attack_client].moves[metronomeIndex] == moveNo) {
+                break;
+            }
         }
-        */
+
+         if (metronomeIndex != MAX_MON_MOVES) {
+             continue;
+         }
+         */
         if (CheckLegalMetronomeMove(bsys, ctx, ctx->attack_client, moveNo) == FALSE) {
             continue;
         }

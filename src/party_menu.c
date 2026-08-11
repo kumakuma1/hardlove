@@ -1,16 +1,17 @@
+#include "../include/party_menu.h"
+
 #include "../include/bag.h"
 #include "../include/battle.h"
 #include "../include/config.h"
-#include "../include/overlay.h"
-#include "../include/party_menu.h"
-#include "../include/pokemon.h"
-#include "../include/message.h"
-#include "../include/types.h"
-#include "../include/window.h"
 #include "../include/constants/file.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
+#include "../include/message.h"
+#include "../include/overlay.h"
+#include "../include/pokemon.h"
+#include "../include/types.h"
+#include "../include/window.h"
 
 #if defined(USE_CUSTOM_FIELDMOVES_CHECK_IN_PARTY_MENU)
 u8 LONG_CALL customFieldMoveCheckInPartyMenu(struct PartyMenu *wk, struct PartyPokemon *pp, u8 *buf, u8 count)
@@ -74,7 +75,7 @@ extern const WindowTemplate sButtonWindowTemplates[];
 extern const s8 sButtonWindowIDs[][2][8];
 
 // mirrors the button layout
-static const u8 sPartyMenuRotomCatalogFormOrder[] = {3, 4, 5, /*quit*/ 0, 0, 1, 2};
+static const u8 sPartyMenuRotomCatalogFormOrder[] = { 3, 4, 5, /*quit*/ 0, 0, 1, 2 };
 
 u32 LONG_CALL getButtonColorDepressed(int selection);
 u32 LONG_CALL getButtonColorRaised(int selection);
@@ -96,18 +97,13 @@ u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
 
     buf[count] = PARTY_MON_CONTEXT_MENU_SUMMARY;
     ++count;
-    if (!FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom(wk->args->fieldSystem))
-    {
+    if (!FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom(wk->args->fieldSystem)) {
         buf[count] = PARTY_MON_CONTEXT_MENU_SWITCH;
         ++count;
-        if (!isEgg)
-        {
-            if (IS_ITEM_MAIL(item))
-            {
+        if (!isEgg) {
+            if (IS_ITEM_MAIL(item)) {
                 buf[count] = PARTY_MON_CONTEXT_MENU_MAIL;
-            }
-            else
-            {
+            } else {
                 buf[count] = PARTY_MON_CONTEXT_MENU_ITEM;
             }
             ++count;
@@ -121,14 +117,12 @@ u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
             for (i = 0; i < MAX_MON_MOVES; ++i)
             {
                 move = GetMonData(pp, MON_DATA_MOVE1 + i, NULL);
-                if (move == MOVE_NONE)
-                {
+                if (move == MOVE_NONE) {
                     break;
                 }
 
                 fieldEffect = MoveId_GetFieldEffectId(move);
-                if (fieldEffect != 0xFF)
-                {
+                if (fieldEffect != 0xFF) {
                     buf[count] = fieldEffect;
                     ++count;
                     PartyMenu_ContextMenuAddFieldMove(wk, move, fieldMoveIndex);
@@ -142,9 +136,7 @@ u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
             buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
             ++count;
         }
-    }
-    else
-	{
+    } else {
         buf[count] = PARTY_MON_CONTEXT_MENU_QUIT;
         ++count;
     }
@@ -160,7 +152,7 @@ void LONG_CALL sub_0207AFC4(struct PartyMenu *wk)
     buf = sys_AllocMemory(HEAP_ID_PARTY_MENU, MAX_BUTTONS_IN_PARTY_MENU);
     u8 numItems;
 
-    switch (wk->args->context)//(partyMenu->args->context)
+    switch (wk->args->context) //(partyMenu->args->context)
     {
     case PARTY_MENU_CONTEXT_0:
         numItems = sub_0207B0B0(wk, buf);
@@ -200,7 +192,8 @@ void LONG_CALL sub_0207AFC4(struct PartyMenu *wk)
  * @brief hooks rare candy usage in the bag to allow for repeated use without returning to the bag between each
  * thanks to yako for the for the format
  */
-int PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6(struct PartyMenu *wk) {
+int PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6(struct PartyMenu *wk)
+{
     struct PartyPokemon *mon = Party_GetMonByIndex(wk->args->party, wk->partyMonIndex);
     wk->args->species = GetMonEvolution(wk->args->party, mon, EVOCTX_LEVELUP, EVO_NONE, (int *)&wk->args->evoMethod);
     if (wk->args->species != SPECIES_NONE) {
@@ -220,7 +213,8 @@ int PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6(struct PartyMenu *wk) {
  * @brief hooks into the ending of pokeheartgold PartyMenu_ItemUseFunc_WaitTextPrinterThenExit
  * to allow for item reuse if not an evo item and the bag has more of the item
  */
-int PartyMenu_ItemUseFunc_ReuseItem(struct PartyMenu *wk) {
+int PartyMenu_ItemUseFunc_ReuseItem(struct PartyMenu *wk)
+{
     wk->args->selectedAction = 0;
     if (GetItemData(wk->args->itemId, ITEM_PARAM_EVOLUTION, HEAP_ID_PARTY_MENU) == 0 && Bag_HasItem(wk->args->bag, wk->args->itemId, 1, HEAP_ID_PARTY_MENU)) {
         ClearFrameAndWindow2(&wk->windows[34], TRUE);
@@ -230,7 +224,8 @@ int PartyMenu_ItemUseFunc_ReuseItem(struct PartyMenu *wk) {
     return 0x20;
 }
 
-void PartyMenu_LearnMoveToSlot(struct PartyMenu *partyMenu, struct PartyPokemon *mon, int moveIdx) {
+void PartyMenu_LearnMoveToSlot(struct PartyMenu *partyMenu, struct PartyPokemon *mon, int moveIdx)
+{
     int data = partyMenu->args->moveId;
     SetMonData(mon, MON_DATA_MOVE1 + moveIdx, &data);
     data = 0;
@@ -239,9 +234,9 @@ void PartyMenu_LearnMoveToSlot(struct PartyMenu *partyMenu, struct PartyPokemon 
     SetMonData(mon, MON_DATA_MOVE1PP + moveIdx, &data);
     if (partyMenu->args->itemId != ITEM_NONE) {
 #ifdef REUSABLE_TMS
-    BOOL consumeItem = IS_ITEM_TR(partyMenu->args->itemId);
+        BOOL consumeItem = IS_ITEM_TR(partyMenu->args->itemId);
 #else
-    BOOL consumeItem = IS_ITEM_TM(partyMenu->args->itemId) || IS_ITEM_TR(partyMenu->args->itemId);
+        BOOL consumeItem = IS_ITEM_TM(partyMenu->args->itemId) || IS_ITEM_TR(partyMenu->args->itemId);
 #endif // REUSABLE_TMS
         if (consumeItem) {
             Bag_TakeItem(partyMenu->args->bag, partyMenu->args->itemId, 1, HEAP_ID_PARTY_MENU);
@@ -292,7 +287,9 @@ void LONG_CALL PartyMonContextMenuAction_QuitToBag(struct PartyMenu *partyMenu, 
 int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
 {
     u32 ovyId, target, offset;
+    // clang-format off
     u16 (*internalFunc)(struct PartyMenu *);
+    // clang-format on
 
     ovyId = OVERLAY_PARTY_HANDLEUSEITEMONMON;
     offset = 0x023C0400 | 1;
@@ -359,10 +356,10 @@ void LONG_CALL sub_0207E3A8(struct PartyMenu *partyMenu, int numItems, int selec
     // shallow copy vanilla rectangle
     u8 tempRect[4];
     const u8 *rect = sButtonRects[id];
-    tempRect[0]=rect[0];
-    tempRect[1]=rect[1];
-    tempRect[2]=rect[2];
-    tempRect[3]=rect[3];
+    tempRect[0] = rect[0];
+    tempRect[1] = rect[1];
+    tempRect[2] = rect[2];
+    tempRect[3] = rect[3];
 
     // nudge down one tile to line up columns
     if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG) {

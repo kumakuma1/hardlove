@@ -1,8 +1,19 @@
-#include "types.h"
-#include "bag.h"
-#include "battle.h"
 #include "config.h"
 #include "debug.h"
+#include "types.h"
+
+#include "constants/ability.h"
+#include "constants/file.h"
+#include "constants/game.h"
+#include "constants/generated/learnsets.h"
+#include "constants/hold_item_effects.h"
+#include "constants/item.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+#include "constants/weather_numbers.h"
+
+#include "bag.h"
+#include "battle.h"
 #include "message.h"
 #include "party_menu.h"
 #include "pokemon.h"
@@ -10,15 +21,6 @@
 #include "save.h"
 #include "script.h"
 #include "window.h"
-#include "constants/ability.h"
-#include "constants/file.h"
-#include "constants/game.h"
-#include "constants/hold_item_effects.h"
-#include "constants/item.h"
-#include "constants/moves.h"
-#include "constants/species.h"
-#include "constants/weather_numbers.h"
-#include "constants/generated/learnsets.h"
 
 #define MOVE_TUTOR_NPC_FRONTIER_TOP_LEFT     0
 #define MOVE_TUTOR_NPC_FRONTIER_TOP_RIGHT    1
@@ -86,7 +88,8 @@ TutorMove sTutorMoves[] = {
     { MOVE_HEADBUTT,       0, MOVE_TUTOR_NPC_HEADBUTT              },
 };
 
-u16 LONG_CALL GetLearnableTutorMoves(struct PartyPokemon *mon, u32 moveTutorNpc, u8 dest[]) {
+u16 LONG_CALL GetLearnableTutorMoves(struct PartyPokemon *mon, u32 moveTutorNpc, u8 dest[])
+{
     int i;
     u16 currentMoves[MAX_MON_MOVES];
     for (i = 0; i < MAX_MON_MOVES; i++) {
@@ -97,7 +100,7 @@ u16 LONG_CALL GetLearnableTutorMoves(struct PartyPokemon *mon, u32 moveTutorNpc,
     u32 form = GetMonData(mon, MON_DATA_FORM, NULL);
     u32 tutorLearnset[TUTOR_LEARNSETS_BITFIELD_COUNT];
 
-    ReadFromNarcMemberByIdPair(tutorLearnset, ARC_CODE_ADDONS, CODE_ADDON_TUTOR_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * TUTOR_LEARNSETS_BITFIELD_COUNT  * sizeof(u32), TUTOR_LEARNSETS_BITFIELD_COUNT  * sizeof(u32));
+    ReadFromNarcMemberByIdPair(tutorLearnset, ARC_CODE_ADDONS, CODE_ADDON_TUTOR_LEARNSETS, PokeOtherFormMonsNoGet(species, form) * TUTOR_LEARNSETS_BITFIELD_COUNT * sizeof(u32), TUTOR_LEARNSETS_BITFIELD_COUNT * sizeof(u32));
 
     u16 numLearnableMoves = 0;
     for (u32 j = 0; j < NELEMS(sTutorMoves); j++) {
