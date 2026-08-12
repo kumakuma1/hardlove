@@ -884,6 +884,7 @@ _0D99:
 	end
 
 _0D9F:
+	setvar VAR_SPECIAL_RESULT, 0
 	//compare VAR_TEMP_x4010, 255
 	//goto_if_eq _0DC7
 	//check_registered_phone_number VAR_TEMP_x4010, VAR_SPECIAL_RESULT
