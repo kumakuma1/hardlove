@@ -658,20 +658,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
                     }
                 }
             }
-            break;
-        case MOVE_EFFECT_SWITCH_HIT:
-            if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) {
-                if (!isMoveHighestDamage) {
-                    moveScore += 6;
-                }
-                if (ai->shouldSwitch) {
-                    moveScore += 6;
-                }
-                if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67) {
-                    moveScore += 1;
-                }
-            }
-            break;
+            break;            
         case MOVE_EFFECT_USER_SP_ATK_DOWN_2:
         case MOVE_EFFECT_MAKE_IT_RAIN:
         case MOVE_EFFECT_USER_DEF_SP_DEF_DOWN_HIT:
@@ -698,6 +685,21 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     }
 
     switch (ai->attackerMove) {
+    case MOVE_U_TURN:
+    case MOVE_FLIP_TURN:
+    case MOVE_VOLT_SWITCH:
+        if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) {
+            if (!isMoveHighestDamage) {
+                moveScore += 6;
+            }
+            if (ai->shouldSwitch) {
+                moveScore += 6;
+            }
+            if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67) {
+                moveScore += 1;
+            }
+        }
+        break;
     case MOVE_RELIC_SONG: // TODO
         break;
     case MOVE_DOOM_DESIRE:
