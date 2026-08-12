@@ -599,7 +599,8 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
-    if (ai->attackerMoveEffect == MOVE_EFFECT_HIGH_CRITICAL && (ai->effectivenessOnPlayer[i] == TYPE_MUL_SUPER_EFFECTIVE || ai->effectivenessOnPlayer[i] == TYPE_MUL_DOUBLE_SUPER_EFFECTIVE || ai->effectivenessOnPlayer[i] == TYPE_MUL_TRIPLE_SUPER_EFFECTIVE)) {
+    if (ai->attackerMoveEffect == MOVE_EFFECT_HIGH_CRITICAL 
+        && (ai->effectivenessOnPlayer[i] == TYPE_MUL_SUPER_EFFECTIVE || ai->effectivenessOnPlayer[i] == TYPE_MUL_DOUBLE_SUPER_EFFECTIVE || ai->effectivenessOnPlayer[i] == TYPE_MUL_TRIPLE_SUPER_EFFECTIVE)) {
         if (BattleRand(bsys) % 2 == 0) {
             moveScore += 2;
         }
@@ -611,76 +612,88 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             moveScore += 11;
         }
     }
-    if (!isMoveHighestDamage && ai->attackerMon.ability == ABILITY_CONTRARY) // no Unaware check
-    {
-        switch (ai->attackerMove) {
-        case MOVE_OVERHEAT:
-        case MOVE_LEAF_STORM:
-        case MOVE_DRACO_METEOR:
-        case MOVE_CLOSE_COMBAT:
-        case MOVE_SUPERPOWER:
-        case MOVE_V_CREATE:
-            if (ai->isDefenderIncapacitated) {
-                moveScore += 3;
+    if (!isMoveHighestDamage) {
+        switch (ai->attackerMoveEffect) {
+        case MOVE_EFFECT_LOWER_SPEED_HIT:
+            if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100 && !ai->defenderImmuneToStatDrop)
+            {
+                if (ai->playerMovesFirst) {
+                    moveScore += 6;
+                } else {
+                    moveScore += 5;
+                }
+                if (ai->isDoubleBattle) {
+                    if (ai->attackerMove == MOVE_ICY_WIND || ai->attackerMove == MOVE_ELECTROWEB) {
+                        moveScore += 1;
+                    }
+                }
             }
-            if (ai->aiMovesFirst) {
-                moveScore += 3;
+            break;
+        case MOVE_EFFECT_LOWER_ATTACK_HIT:
+            if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100 && !ai->defenderImmuneToStatDrop) {
+                if (ai->defenderHasAtleastOnePhysicalMove) {
+                    moveScore += 6;
+                } else {
+                    moveScore += 5;
+                }
+
+                if (ai->isDoubleBattle) {
+                    if (ctx->moveTbl[ai->attackerMove].target == RANGE_ADJACENT_OPPONENTS) {
+                        moveScore += 1;
+                    }
+                }
             }
-            if (3 * ai->maxDamageReceived < ai->attackerMon.hp) {
-                moveScore += 3;
-                if (ai->aiMovesFirst) {
+            break;
+        case MOVE_EFFECT_LOWER_SP_ATK_HIT:
+            if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100 && !ai->defenderImmuneToStatDrop) {
+                if (ai->defenderHasAtleastOneSpecialMove) {
+                    moveScore += 6;
+                } else {
+                    moveScore += 5;
+                }
+
+                if (ai->isDoubleBattle) {
+                    if (ctx->moveTbl[ai->attackerMove].target == RANGE_ADJACENT_OPPONENTS) {
+                        moveScore += 1;
+                    }
+                }
+            }
+            break;
+        case MOVE_EFFECT_SWITCH_HIT:
+            if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) {
+                if (!isMoveHighestDamage) {
+                    moveScore += 6;
+                }
+                if (ai->shouldSwitch) {
+                    moveScore += 6;
+                }
+                if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67) {
                     moveScore += 1;
+                }
+            }
+            break;
+        case MOVE_EFFECT_USER_SP_ATK_DOWN_2:
+        case MOVE_EFFECT_MAKE_IT_RAIN:
+        case MOVE_EFFECT_USER_DEF_SP_DEF_DOWN_HIT:
+        case MOVE_EFFECT_USER_ATK_DEF_DOWN_HIT:
+        case MOVE_EFFECT_USER_DEF_SP_DEF_SPEED_DOWN_HIT:
+            if (ai->attackerMon.ability == ABILITY_CONTRARY) { // no Unaware check
+                if (ai->isDefenderIncapacitated) {
+                    moveScore += 3;
+                }
+                if (ai->aiMovesFirst) {
+                    moveScore += 3;
+                }
+                if (3 * ai->maxDamageReceived < ai->attackerMon.hp) {
+                    moveScore += 3;
+                    if (ai->aiMovesFirst) {
+                        moveScore += 1;
+                    }
                 }
             }
             break;
         default:
             break;
-        }
-    }
-
-    if (!isMoveHighestDamage 
-        && ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SPEED_HIT 
-        && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100
-        && !ai->defenderImmuneToStatDrop) {
-        if (ai->playerMovesFirst) {
-            moveScore += 6;
-        } else {
-            moveScore += 5;
-        }
-        if (ai->isDoubleBattle) {
-            if (ai->attackerMove == MOVE_ICY_WIND || ai->attackerMove == MOVE_ELECTROWEB) {
-                moveScore += 1;
-            }
-        }
-    }
-    if (!isMoveHighestDamage && ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100)
-    {
-        if (!ai->defenderImmuneToStatDrop
-            && ((ai->attackerMoveEffect == MOVE_EFFECT_LOWER_SP_ATK_HIT && ai->defenderHasAtleastOneSpecialMove)
-                || (ai->attackerMoveEffect == MOVE_EFFECT_LOWER_ATTACK_HIT && ai->defenderHasAtleastOnePhysicalMove)))
-        {
-            moveScore += 6;
-        } else {
-            moveScore += 5;
-        }
-
-        if (ai->isDoubleBattle) {
-            if (ctx->moveTbl[ai->attackerMove].target == RANGE_ADJACENT_OPPONENTS) {
-                moveScore += 1;
-            }
-        }
-    }
-
-    if (ai->attackerMoveEffect == MOVE_EFFECT_SWITCH_HIT && ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) {
-        if (!isMoveHighestDamage)
-        {
-            moveScore += 6;
-        }
-        if (ai->shouldSwitch) {
-            moveScore += 6;
-        }
-        if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67) {
-            moveScore += 1;
         }
     }
 
