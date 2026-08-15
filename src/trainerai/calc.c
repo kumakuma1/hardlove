@@ -581,7 +581,7 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
             if (weatherAttacker & FIELD_CONDITION_SUN_ALL) {
                 type = TYPE_FIRE;
             }
-            if (weatherAttacker & FIELD_CONDITION_SNOW_ALL|FIELD_CONDITION_HAIL_ALL) {
+            if (weatherAttacker & (FIELD_CONDITION_SNOW_ALL|FIELD_CONDITION_HAIL_ALL)) {
                 type = TYPE_ICE;
             }
             // BUG: If the weather is foggy, then type doesn't get set properly before being returned

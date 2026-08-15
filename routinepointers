@@ -9,3 +9,5 @@ arm9 Script_RunNewCmd 080FB040
 #New Script Commands, ID 0xD1(DummyTextTreasure)
 arm9 Script_RunNewUtility 080FB044
 
+# fainting sequence task wrapper
+0012 Task_PlayFaintingSequence_WithVictoryPose 0225ABB4
