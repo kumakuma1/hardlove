@@ -658,7 +658,10 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
                     }
                 }
             }
-            break;            
+            break;
+        case MOVE_EFFECT_USER_DEF_DOWN_HIT:
+        case MOVE_EFFECT_USER_SPEED_DOWN_2_HIT:
+        case MOVE_EFFECT_USER_SPEED_DOWN_HIT:
         case MOVE_EFFECT_USER_SP_ATK_DOWN_2:
         case MOVE_EFFECT_MAKE_IT_RAIN:
         case MOVE_EFFECT_USER_DEF_SP_DEF_DOWN_HIT:

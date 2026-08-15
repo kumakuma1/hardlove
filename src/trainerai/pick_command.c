@@ -199,7 +199,7 @@ u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, int moveScores[4]
     u8 tieMoveIndex = (BattleRand(bsys) % tieMoveCount);
     u8 result = tiedMoveIndices[tieMoveIndex]; // % 4]; // randomly pick a move among the tie
 #ifdef DEBUG_AI_SCORING
-    debug_printf("got tieMoveIndex %d -> Resulting move: %d\n", tieMoveIndex, result);
+    debug_printf("got tieMoveIndex/Count %d/%d -> Resulting move: %d\n", tieMoveIndex, tieMoveCount, result);
 #endif // DEBUG_AI_SCORING
     return result;
 }

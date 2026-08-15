@@ -5154,7 +5154,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "This is where I do my training!\\r",
+                .text = "My brothers and I are a gang.\\nWe beat up other people!\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -5162,7 +5162,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "If you fail in practice, then you have\\nto try harder! I’m aiming to be a\\fGym Leader!\\n",
+                .text = "I’ll tell my big brother!\\n",
             },
         },
     },
@@ -5233,15 +5233,15 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "I’m the best in my class at Pokémon.\\r",
+                .text = "My two brothers always watch me fight!\\rThey love seeing their brother succeed!\\r",
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "No! There are better Trainers...\\n",
+                .text = "No!\\n",
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "I’m trying hard so I can be the star in\\nmy class.\\n",
+                .text = "I’m trying so hard...\\n",
             },
             {
                 .type = TRMSG_PHONE_REMATCH_INTRO,
@@ -29096,15 +29096,15 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "I just got my Pokémon back from\\nDay Care. Let’s see how much stronger\\fit got!\\r",
+                .text = "Man, let me tell ya.\\nMy brothers are so annoying!\\r",
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "Why does it end this way?\\n",
+                .text = "They even distract in battle!\\n",
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "My Pokémon knew moves I didn’t know it\\nhad. That confounded me to no end!\\n",
+                .text = "They even distract in battle!\\n",
             },
         },
     },
