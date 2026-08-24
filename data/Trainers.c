@@ -491,7 +491,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "Behold my dexterity and grace!\\r",
+                .text = "If you ever need a prankster name.\\nI present you Lou Sassle.\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -499,7 +499,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "I was going to dazzle you with my prize\\nPokémon. But your prowess\\felectrified me!\\n",
+                .text = "Couldn’t crack you!\\n",
             },
             {
                 .type = TRMSG_PHONE_REMATCH_INTRO,

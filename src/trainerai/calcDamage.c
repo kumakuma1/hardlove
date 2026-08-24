@@ -1328,20 +1328,21 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     BOOL isDoubleBattle = (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG));
     BOOL countPossibleHits = 0;
     if (isDoubleBattle) {
-        for (unsigned i = 0; i < CLIENT_MAX; ++i) {
-            if (i == attackerSlot) {
+        for (int i = 0; i < CLIENT_MAX; ++i) {
+            if (i == attackerSlot || !sp->battlemon[i].hp) {
                 continue;
             }
-            if (move.target == RANGE_ALL_ADJACENT && i == BATTLER_ALLY(attackerSlot) && sp->battlemon[i].hp) {
-                countPossibleHits++;
-                continue;
+
+            BOOL isAlly = (i == BATTLER_ALLY(attackerSlot));
+            BOOL hitsAlly = (move.target == RANGE_ALL_ADJACENT && isAlly);
+            BOOL hitsOpponent = ((move.target == RANGE_ADJACENT_OPPONENTS || move.target == RANGE_ALL_ADJACENT) && !isAlly);
+
+            if (hitsAlly || hitsOpponent) {
+                if (++countPossibleHits > 1) {
+                    damage = QMul_RoundDown(damage, UQ412__0_75);
+                    break;
+                }
             }
-            if (move.target == RANGE_ADJACENT_OPPONENTS && i != BATTLER_ALLY(attackerSlot) && sp->battlemon[i].hp) {
-                countPossibleHits++;
-            }
-        }
-        if (countPossibleHits > 1) {
-            damage = QMul_RoundDown(damage, UQ412__0_75);
         }
     }
     // TODO
