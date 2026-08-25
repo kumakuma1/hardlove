@@ -131,12 +131,12 @@ Variables
 (16566 is unused)
 (16567 is unused)
 (16568 is unused)
-(16569 is unused)
+(16569/0x40B9 is used)  : embedded tower reset at league
 (16570/0x40BA is used)  : Elite Four Battle Style Counter for singles
-(16571/0x40BB is unused): Roamer1
-(16572/0x40BC is unused): Roamer2
-(16573/0x40BD is unused): Roamer3
-(16574/0x40BE is unused): Roamer4
+(16571/0x40BB is used)  : Roamer1
+(16572/0x40BC is used)  : Roamer2
+(16573/0x40BD is used)  : Roamer3
+(16574/0x40BE is used)  : Roamer4
 (16575/0x40BF is used)  : Portable PC enabled if 0, else disabled
 (16576/0x40C0 is used)  : starter gift in Mahogany Town
 (16577/0x40C1 is used)  : victreebelite in vermillion city
