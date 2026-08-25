@@ -48,9 +48,7 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
     monStruct->isGrounded = IsPartyPokemonGrounded(sp, pp);
 
     monStruct->speed = GetMonData(pp, MON_DATA_SPEED, 0);
-    monStruct->weight = 1;
-    // ArchiveDataLoadOfs(&monStruct->weight, ARC_DEX_LISTS, 1, PokeOtherFormMonsNoGet(monStruct->species, monStruct->form) * sizeof(s32), sizeof(s32));
-
+    
     monStruct->attack = GetMonData(pp, MON_DATA_ATTACK, 0);
     monStruct->defense = GetMonData(pp, MON_DATA_DEFENSE, 0);
     monStruct->sp_attack = GetMonData(pp, MON_DATA_SPECIAL_ATTACK, 0);
@@ -62,6 +60,11 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
 
     monStruct->level = GetMonData(pp, MON_DATA_LEVEL, 0);
     monStruct->form = GetMonData(pp, MON_DATA_FORM, 0);
+
+    int weight = 1;
+    ReadFromNarcMemberByIdPair(&weight, ARC_DEX_LISTS, 1, PokeOtherFormMonsNoGet(monStruct->species, monStruct->form) * sizeof(s32), sizeof(s32));
+    monStruct->weight = weight;
+    debug_printf("weight: %d, form %d\n", weight, monStruct->form);
 
     monStruct->hasMoldBreaker = FALSE;
     if (monStruct->ability == ABILITY_MOLD_BREAKER || monStruct->ability == ABILITY_TERAVOLT || monStruct->ability == ABILITY_TURBOBLAZE) {
@@ -115,7 +118,7 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
 
     monStruct->speed = sp->effectiveSpeed[numSlot];
     monStruct->weight = GetPokemonWeight(bw, sp, numSlot, numSlot);
-
+    debug_printf("weight: %d, form %d\n", monStruct->weight, monStruct->form);
     monStruct->form = sp->battlemon[numSlot].form_no;
     monStruct->attack = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_ATK, NULL);
     monStruct->defense = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_DEF, NULL);

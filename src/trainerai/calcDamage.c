@@ -94,7 +94,16 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         break;
     case MOVE_HEAVY_SLAM:
     case MOVE_HEAT_CRASH:
+        if (defender->weight == 0)
+        {
+            movepower = 120;
+            break;
+        }
         switch (attacker->weight / defender->weight) {
+        case 0:
+        case 1:
+            movepower = 40;
+            break;
         case 2:
             movepower = 60;
             break;
@@ -105,11 +114,8 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
             movepower = 100;
             break;
         case 5:
-            movepower = 120;
-            break;
-            // less than 2
         default:
-            movepower = 40;
+            movepower = 120;
             break;
         }
         break;
