@@ -211,7 +211,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         u32 defenderMoveno = ctx->battlemon[defender].move[k];
         struct BattleMove defenderMove = ctx->moveTbl[defenderMoveno];
 
-        if (defenderMove.split != SPLIT_STATUS && defenderMove.power && ctx->battlemon[defender].pp[k]) {
+        if (defenderMove.split != SPLIT_STATUS && defenderMove.power && IsMoveUsable(ctx, defender, defenderMoveno, ai->defenderLastUsedMove, defenderMove.split, k)) {
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, defenderMoveno, ctx->side_condition[BATTLER_IS_ENEMY(defender)], ctx->field_condition, defenderMove.power, defenderMove.type, critical, defender, attacker, &damages, &ai->defenderMon, &ai->attackerMon);
 
             damages.damageRoll = BattleAI_AdjustUnusualMoveDamage(&ai->defenderMon, &ai->attackerMon, damages.damageRoll, defenderMove.effect, defenderMoveno, damages.moveEffectiveness);
@@ -261,10 +261,10 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         struct AI_damage damages = { 0 };
         u32 attackerMoveno = ctx->battlemon[attacker].move[j];
         struct BattleMove attackerMove = ctx->moveTbl[attackerMoveno];
-        if (attackerMove.split == SPLIT_STATUS && ctx->battlemon[attacker].pp[j]) {
+        if (attackerMove.split == SPLIT_STATUS && IsMoveUsable(ctx, attacker, attackerMoveno, ai->attackerLastUsedMove, attackerMove.split, j)) {
             u8 movetype = GetAdjustedMoveTypeBasics(ctx, attackerMoveno, ai->attackerMon.ability, attackerMove.type);
             ai->effectivenessOnPlayer[j] = BattleAI_GetTypeEffectiveness(bsys, ctx, attackerMoveno, movetype, attacker, defender, &ai->attackerMon, &ai->defenderMon);
-        } else if (attackerMove.power && ctx->battlemon[attacker].pp[j]) {
+        } else if (attackerMove.power && IsMoveUsable(ctx, attacker, attackerMoveno, ai->attackerLastUsedMove, attackerMove.split, j)) {
             ai->attackerHasAttackingMoves = TRUE;
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, attackerMoveno, ctx->side_condition[BATTLER_IS_ENEMY(attacker)], ctx->field_condition, attackerMove.power, attackerMove.type, critical, attacker, defender, &damages, &ai->attackerMon, &ai->defenderMon);
             ai->effectivenessOnPlayer[j] = damages.moveEffectiveness;

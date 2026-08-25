@@ -229,19 +229,19 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
         {
             if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1)
             {
-                if (AI_ShouldUseNormalTypeEffCalc(sp, defender->item_held_effect, typeTableEntryNo)
+                if (ShouldUseNormalTypeEffCalc(sp, attackerSlot, defenderSlot, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1))
                 {
                     //no ring target
                     type1Effectiveness = UpdateTypeEffectiveness(moveno, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
             } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2) {
-                if (AI_ShouldUseNormalTypeEffCalc(sp, defender->item_held_effect, typeTableEntryNo)
+                if (ShouldUseNormalTypeEffCalc(sp, attackerSlot, defenderSlot, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2)) {
                     type2Effectiveness = UpdateTypeEffectiveness(moveno, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
             } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3) {
-                if (AI_ShouldUseNormalTypeEffCalc(sp, defender->item_held_effect, typeTableEntryNo)
+                if (ShouldUseNormalTypeEffCalc(sp, attackerSlot, defenderSlot, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3)) {
                     type3Effectiveness = UpdateTypeEffectiveness(moveno, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
@@ -250,17 +250,17 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
         else if (sp->current_move_index == MOVE_FLYING_PRESS && TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_FLYING)
         {
             if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1) {
-                if (AI_ShouldUseNormalTypeEffCalc(sp, defender->item_held_effect, typeTableEntryNo)
+                if (ShouldUseNormalTypeEffCalc(sp, attackerSlot, defenderSlot, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1)) {
                     type1Effectiveness_Dual = UpdateTypeEffectiveness(moveno, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
             } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2) {
-                if (AI_ShouldUseNormalTypeEffCalc(sp, defender->item_held_effect, typeTableEntryNo)
+                if (ShouldUseNormalTypeEffCalc(sp, attackerSlot, defenderSlot, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2)) {
                     type2Effectiveness_Dual = UpdateTypeEffectiveness(moveno, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
             } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3) {
-                if (AI_ShouldUseNormalTypeEffCalc(sp, defender->item_held_effect, typeTableEntryNo)
+                if (ShouldUseNormalTypeEffCalc(sp, attackerSlot, defenderSlot, typeTableEntryNo)
                     && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3)) {
                     type3Effectiveness_Dual = UpdateTypeEffectiveness(moveno, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
@@ -942,4 +942,22 @@ BOOL LONG_CALL HasMovePranksterPriority(struct BattleSystem *bsys, u8 attacker, 
         return TRUE;
     }
     return FALSE;
+}
+
+
+BOOL LONG_CALL IsMoveUsable(struct BattleStruct *ctx, u8 attacker, u32 move, u32 moveLastUsed, u8 split, u8 index)
+{
+    if (ctx->battlemon[attacker].pp[index] == 0) {
+        return FALSE;
+    }
+    if (ctx->battlemon[attacker].moveeffect.disabledTurns && move == ctx->battlemon[attacker].moveeffect.disabledMove) {
+        return FALSE;
+    }
+    if (ctx->battlemon[attacker].condition2 & STATUS2_TORMENT && move == moveLastUsed) {
+        return FALSE;
+    }
+    if (ctx->battlemon[attacker].moveeffect.tauntTurns > 0 && split == SPLIT_STATUS) {
+        return FALSE;
+    }
+    return TRUE;
 }

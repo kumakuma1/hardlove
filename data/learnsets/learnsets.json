@@ -3256,7 +3256,7 @@
         {
             "Level": 60,
             "Move": "MOVE_EARTHQUAKE"
-        }
+        },
         {
             "Level": 61,
             "Move": "MOVE_ROAR"
@@ -48055,10 +48055,6 @@
       },
       {
         "Level": 36,
-        "Move": "MOVE_EARTH_POWER"
-      },
-      {
-        "Level": 40,
         "Move": "MOVE_GRAVITY"
       },
       {
@@ -76120,7 +76116,7 @@
     "LevelMoves": [
       {
         "Level": 1,
-        "Move": "MOVE_WIDE_GUARD"
+        "Move": "MOVE_VOLT_SWITCH"
       },
       {
         "Level": 1,

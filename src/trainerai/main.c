@@ -853,6 +853,11 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
     if (!ai->aiMovesFirst && (2 * ai->maxDamageReceived >= ai->attackerMon.hp)) {
         moveScore -= 5;
     }
+    if ((2 * ai->maxDamageReceived >= ai->attackerMon.hp) && (BattleRand(bsys) % 2 == 0))
+    {
+        moveScore -= 2;
+    }
+
 #ifdef DEBUG_AI_SCORING
     debug_printf(", score %d\n", moveScore);
 #endif
