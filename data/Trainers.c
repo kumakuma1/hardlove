@@ -982,7 +982,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_BURGLAR,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = SINGLE_BATTLE,
         },
         .party = {
             {
@@ -1401,7 +1401,7 @@ const TrainerData sTrainerData[] = {
             {
                 .ivs = 0,
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
-                .level = 13,
+                .level = 14,
                 .species = SPECIES_EMOLGA,
                 .item = ITEM_ORAN_BERRY,
                 .moves = { MOVE_SHOCK_WAVE, MOVE_AIR_CUTTER, MOVE_ROOST, MOVE_THUNDER_WAVE },
@@ -1420,7 +1420,7 @@ const TrainerData sTrainerData[] = {
                 .level = 14,
                 .species = SPECIES_GLIGAR,
                 .item = ITEM_ORAN_BERRY,
-                .moves = { MOVE_BULLDOZE, MOVE_WING_ATTACK, MOVE_TOXIC, MOVE_QUICK_ATTACK },
+                .moves = { MOVE_BULLDOZE, MOVE_WING_ATTACK, MOVE_TOXIC, MOVE_ROOST },
                 .ability = ABILITY_HYPER_CUTTER,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -6176,7 +6176,7 @@ const TrainerData sTrainerData[] = {
             {
                 .ivs = 0,
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
-                .level = 40,
+                .level = 37,
                 .species = SPECIES_PICHU,
                 .item = ITEM_EXPERT_BELT,
                 .moves = { MOVE_THUNDERBOLT, MOVE_FIRE_PUNCH, MOVE_SURF, MOVE_IRON_TAIL },
@@ -6192,9 +6192,9 @@ const TrainerData sTrainerData[] = {
             {
                 .ivs = 0,
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
-                .level = 40,
+                .level = 37,
                 .species = SPECIES_DIGLETT,
-                .item = ITEM_CHOICE_BAND,
+                .item = ITEM_GROUND_GEM,
                 .moves = { MOVE_EARTHQUAKE, MOVE_IRON_HEAD, MOVE_ROCK_BLAST, MOVE_NONE },
                 .ability = ABILITY_ARENA_TRAP,
                 .ball = ITEM_POKE_BALL,
@@ -6208,7 +6208,7 @@ const TrainerData sTrainerData[] = {
             {
                 .ivs = 0,
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
-                .level = 40,
+                .level = 37,
                 .species = SPECIES_AZURILL,
                 .item = ITEM_SITRUS_BERRY,
                 .moves = { MOVE_AQUA_TAIL, MOVE_EARTHQUAKE, MOVE_PLAY_ROUGH, MOVE_BELLY_DRUM },
@@ -6224,7 +6224,7 @@ const TrainerData sTrainerData[] = {
             {
                 .ivs = 0,
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
-                .level = 40,
+                .level = 37,
                 .species = SPECIES_NYMBLE,
                 .item = ITEM_LIFE_ORB,
                 .moves = { MOVE_FIRST_IMPRESSION, MOVE_SUCKER_PUNCH, MOVE_LEECH_LIFE, MOVE_NONE },
@@ -13864,7 +13864,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_POKEFAN_M,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -15084,7 +15084,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = SINGLE_BATTLE,
         },
         .party = {
             {
@@ -17721,7 +17721,7 @@ const TrainerData sTrainerData[] = {
                 .moves = { MOVE_DISCHARGE, MOVE_FOCUS_BLAST, MOVE_HIDDEN_POWER, MOVE_AGILITY },
                 .ability = ABILITY_STATIC,
                 .ball = ITEM_POKE_BALL,
-                .setIvs = { 31, 31, 30, 31, 31, 31 },
+                .setIvs = { 31, 31, 31, 30, 31, 31 },
                 .setEvs = { 0, 0, 0, 0, 0, 0 },
                 .nature = NATURE_TIMID,
                 .shinyLock = 0,
@@ -17974,7 +17974,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = SINGLE_BATTLE,
         },
         .party = {
             {
@@ -19023,7 +19023,7 @@ const TrainerData sTrainerData[] = {
                 .species = SPECIES_GOLDUCK,
                 .item = ITEM_PSYCHIC_GEM,
                 .moves = { MOVE_SURF, MOVE_PSYSHOCK, MOVE_ICE_BEAM, MOVE_HYPNOSIS },
-                .ability = ABILITY_SPEED_BOOST,
+                .ability = ABILITY_SWIFT_SWIM,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
                 .setEvs = { 0, 0, 0, 0, 0, 0 },
@@ -22266,7 +22266,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_BURGLAR,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = DOUBLE_BATTLE,
+            .battleType = SINGLE_BATTLE,
         },
         .party = {
             {

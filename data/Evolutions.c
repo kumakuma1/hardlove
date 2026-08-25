@@ -5432,7 +5432,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
     [SPECIES_SNORUNT] = {
         .entries = {
             { EVO_LEVEL, 26, SPECIES_GLALIE },
-            { EVO_STONE_FEMALE, 109, SPECIES_FROSLASS },
+            { EVO_STONE, ITEM_DAWN_STONE, SPECIES_FROSLASS },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
