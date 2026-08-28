@@ -11529,7 +11529,7 @@ const EncounterData __data[] =
                 SPECIES_RAICHU,
                 MON_WITH_FORM(SPECIES_RAICHU, 1),
                 SPECIES_GOSSIFLEUR,
-                SPECIES_CARNIVINE,
+                SPECIES_CRADILY,
             },
             .speciesDay = {
                 SPECIES_MANECTRIC,
@@ -11543,7 +11543,7 @@ const EncounterData __data[] =
                 SPECIES_RAICHU,
                 MON_WITH_FORM(SPECIES_RAICHU, 1),
                 SPECIES_GOSSIFLEUR,
-                SPECIES_CARNIVINE,
+                SPECIES_CRADILY,
             },
             .speciesNight = {
                 SPECIES_MANECTRIC,
@@ -11557,7 +11557,7 @@ const EncounterData __data[] =
                 SPECIES_RAICHU,
                 MON_WITH_FORM(SPECIES_RAICHU, 1),
                 SPECIES_GOSSIFLEUR,
-                SPECIES_CARNIVINE,
+                SPECIES_CRADILY,
             },
         },
         .hoennSoundSpecies = {

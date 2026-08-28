@@ -80,7 +80,7 @@ static const u16 sMachineMoves[] = {
     MOVE_EXPLOSION,        // TM064
     MOVE_SHADOW_CLAW,      // TM065
     MOVE_PAYBACK,          // TM066
-    MOVE_RECYCLE,          // TM067
+    MOVE_HEALING_WISH,     // TM067
     MOVE_GIGA_IMPACT,      // TM068
     MOVE_ROCK_POLISH,      // TM069
     MOVE_FLASH,            // TM070

@@ -117,9 +117,10 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->type3 = sp->battlemon[numSlot].type3;
 
     monStruct->speed = sp->effectiveSpeed[numSlot];
+    monStruct->form = sp->battlemon[numSlot].form_no;
     monStruct->weight = GetPokemonWeight(bw, sp, numSlot, numSlot);
     debug_printf("weight: %d, form %d\n", monStruct->weight, monStruct->form);
-    monStruct->form = sp->battlemon[numSlot].form_no;
+
     monStruct->attack = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_ATK, NULL);
     monStruct->defense = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_DEF, NULL);
     monStruct->sp_attack = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPATK, NULL);
