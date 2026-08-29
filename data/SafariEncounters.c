@@ -2332,7 +2332,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BRUXISH, 50 },
                 { SPECIES_AVALUGG, 50 },
                 { SPECIES_BASCULEGION, 50 },
-                { SPECIES_AZUMARILL, 50 },
+                { MON_WITH_FORM(SPECIES_GOLEM, 1), 50 },
                 { SPECIES_GOREBYSS, 50 },
             },
             .speciesDay = {
@@ -2344,7 +2344,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BRUXISH, 50 },
                 { SPECIES_AVALUGG, 50 },
                 { SPECIES_BASCULEGION, 50 },
-                { SPECIES_AZUMARILL, 50 },
+                { MON_WITH_FORM(SPECIES_GOLEM, 1), 50 },
                 { SPECIES_GOREBYSS, 50 },
             },
             .speciesNight = {
@@ -2356,7 +2356,7 @@ const SafariZoneAreaEncounterFile __data[] =
                 { SPECIES_BRUXISH, 50 },
                 { SPECIES_AVALUGG, 50 },
                 { SPECIES_BASCULEGION, 50 },
-                { SPECIES_AZUMARILL, 50 },
+                { MON_WITH_FORM(SPECIES_GOLEM, 1), 50 },
                 { SPECIES_GOREBYSS, 50 },
             },
             .bonusSpeciesMorning = {
