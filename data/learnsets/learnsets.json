@@ -41032,58 +41032,62 @@
   },
   "SPECIES_TREECKO": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_ABSORB"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_LEER"
-      },
-      {
-        "Level": 5,
-        "Move": "MOVE_POUND"
-      },
-      {
-        "Level": 9,
-        "Move": "MOVE_BULLET_SEED"
-      },
-      {
-        "Level": 13,
-        "Move": "MOVE_MEGA_DRAIN"
-      },
-      {
-        "Level": 17,
-        "Move": "MOVE_PURSUIT"
-      },
-      {
-        "Level": 21,
-        "Move": "MOVE_QUICK_ATTACK"
-      },
-      {
-        "Level": 25,
-        "Move": "MOVE_MAGICAL_LEAF"
-      },
-      {
-        "Level": 30,
-        "Move": "MOVE_GIGA_DRAIN"
-      },
-      {
-        "Level": 36,
-        "Move": "MOVE_SYNTHESIS"
-      },
-      {
-        "Level": 41,
-        "Move": "MOVE_GRASS_WHISTLE"
-      },
-      {
-        "Level": 46,
-        "Move": "MOVE_DETECT"
-      },
-      {
-        "Level": 51,
-        "Move": "MOVE_ENERGY_BALL"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_ABSORB"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_LEER"
+        },
+        {
+            "Level": 5,
+            "Move": "MOVE_POUND"
+        },
+        {
+            "Level": 9,
+            "Move": "MOVE_BULLET_SEED"
+        },
+        {
+            "Level": 13,
+            "Move": "MOVE_MEGA_DRAIN"
+        },
+        {
+            "Level": 17,
+            "Move": "MOVE_PURSUIT"
+        },
+        {
+            "Level": 21,
+            "Move": "MOVE_QUICK_ATTACK"
+        },
+        {
+            "Level": 25,
+            "Move": "MOVE_MAGICAL_LEAF"
+        },
+        {
+            "Level": 30,
+            "Move": "MOVE_GIGA_DRAIN"
+        },
+        {
+            "Level": 36,
+            "Move": "MOVE_SYNTHESIS"
+        },
+        {
+            "Level": 41,
+            "Move": "MOVE_GRASS_WHISTLE"
+        },
+        {
+            "Level": 49,
+            "Move": "MOVE_DETECT"
+        },
+        {
+            "Level": 54,
+            "Move": "MOVE_GIGA_DRAIN"
+        },
+        {
+            "Level": 60,
+            "Move": "MOVE_SYNTHESIS"
+        }
     ],
     "MachineMoves": [
       "MOVE_ACROBATICS",
@@ -41174,58 +41178,58 @@
   },
   "SPECIES_GROVYLE": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_ABSORB"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_LEER"
-      },
-      {
-        "Level": 5,
-        "Move": "MOVE_POUND"
-      },
-      {
-        "Level": 9,
-        "Move": "MOVE_BULLET_SEED"
-      },
-      {
-        "Level": 13,
-        "Move": "MOVE_RAZOR_LEAF"
-      },
-      {
-        "Level": 18,
-        "Move": "MOVE_PURSUIT"
-      },
-      {
-        "Level": 23,
-        "Move": "MOVE_QUICK_ATTACK"
-      },
-      {
-        "Level": 30,
-        "Move": "MOVE_MAGICAL_LEAF"
-      },
-      {
-        "Level": 33,
-        "Move": "MOVE_LEAF_BLADE"
-      },
-      {
-        "Level": 39,
-        "Move": "MOVE_SYNTHESIS"
-      },
-      {
-        "Level": 44,
-        "Move": "MOVE_GRASS_WHISTLE"
-      },
-      {
-        "Level": 49,
-        "Move": "MOVE_DETECT"
-      },
-      {
-        "Level": 54,
-        "Move": "MOVE_ENERGY_BALL"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_ENDEAVOR"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_ABSORB"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_LEER"
+        },
+        {
+            "Level": 5,
+            "Move": "MOVE_POUND"
+        },
+        {
+            "Level": 9,
+            "Move": "MOVE_BULLET_SEED"
+        },
+        {
+            "Level": 13,
+            "Move": "MOVE_RAZOR_LEAF"
+        },
+        {
+            "Level": 18,
+            "Move": "MOVE_PURSUIT"
+        },
+        {
+            "Level": 23,
+            "Move": "MOVE_QUICK_ATTACK"
+        },
+        {
+            "Level": 28,
+            "Move": "MOVE_MAGICAL_LEAF"
+        },
+        {
+            "Level": 33,
+            "Move": "MOVE_LEAF_BLADE"
+        },
+        {
+            "Level": 40,
+            "Move": "MOVE_ENDURE"
+        },
+        {
+            "Level": 48,
+            "Move": "MOVE_LEAF_STORM"
+        },
+        {
+            "Level": 51,
+            "Move": "MOVE_GRASS_WHISTLE"
+        }
     ],
     "MachineMoves": [
       "MOVE_ACROBATICS",
@@ -41393,11 +41397,11 @@
             "Move": "MOVE_ENERGY_BALL"
         },
         {
-            "Level": 70,
+            "Level": 66,
             "Move": "MOVE_SOLAR_BEAM"
         },
         {
-            "Level": 70,
+            "Level": 66,
             "Move": "MOVE_SOLAR_BLADE"
         }
     ],
@@ -41558,25 +41562,25 @@
         "Move": "MOVE_BOUNCE"
       },
       {
-        "Level": 33,
-        "Move": "MOVE_FLAMETHROWER"
-      },
-      {
         "Level": 37,
         "Move": "MOVE_MIRROR_MOVE"
-      },
-      {
-        "Level": 41,
-        "Move": "MOVE_FLARE_BLITZ"
       },
       {
         "Level": 45,
         "Move": "MOVE_FEATHER_DANCE"
       },
-      {
-        "Level": 49,
-        "Move": "MOVE_OVERHEAT"
-      }
+        {
+            "Level": 54,
+            "Move": "MOVE_FLAMETHROWER"
+        },
+        {
+            "Level": 55,
+            "Move": "MOVE_OVERHEAT"
+        }
+        {
+            "Level": 65,
+            "Move": "MOVE_BLAST_BURN"
+        }
     ],
     "MachineMoves": [
       "MOVE_AERIAL_ACE",
@@ -41656,66 +41660,62 @@
   },
   "SPECIES_COMBUSKEN": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_SCRATCH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_GROWL"
-      },
-      {
-        "Level": 5,
-        "Move": "MOVE_EMBER"
-      },
-      {
-        "Level": 9,
-        "Move": "MOVE_SAND_ATTACK"
-      },
-      {
-        "Level": 13,
-        "Move": "MOVE_PECK"
-      },
-      {
-        "Level": 16,
-        "Move": "MOVE_DOUBLE_KICK"
-      },
-      {
-        "Level": 19,
-        "Move": "MOVE_QUICK_ATTACK"
-      },
-      {
-        "Level": 22,
-        "Move": "MOVE_FLAME_BURST"
-      },
-      {
-        "Level": 26,
-        "Move": "MOVE_FIRE_SPIN"
-      },
-      {
-        "Level": 30,
-        "Move": "MOVE_SKY_UPPERCUT"
-      },
-      {
-        "Level": 36,
-        "Move": "MOVE_FLAMETHROWER"
-      },
-      {
-        "Level": 49,
-        "Move": "MOVE_DETECT"
-      },
-      {
-        "Level": 50,
-        "Move": "MOVE_OVERHEAT"
-      },
-      {
-        "Level": 55,
-        "Move": "MOVE_CLOSE_COMBAT"
-      },
-      {
-        "Level": 61,
-        "Move": "MOVE_FLARE_BLITZ"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_REVERSAL"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_ACROBATICS"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_SCRATCH"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_GROWL"
+        },
+        {
+            "Level": 5,
+            "Move": "MOVE_EMBER"
+        },
+        {
+            "Level": 9,
+            "Move": "MOVE_SAND_ATTACK"
+        },
+        {
+            "Level": 13,
+            "Move": "MOVE_PECK"
+        },
+        {
+            "Level": 16,
+            "Move": "MOVE_DOUBLE_KICK"
+        },
+        {
+            "Level": 19,
+            "Move": "MOVE_QUICK_ATTACK"
+        },
+        {
+            "Level": 22,
+            "Move": "MOVE_FLAME_BURST"
+        },
+        {
+            "Level": 26,
+            "Move": "MOVE_FIRE_SPIN"
+        },
+        {
+            "Level": 30,
+            "Move": "MOVE_SKY_UPPERCUT"
+        },
+        {
+            "Level": 36,
+            "Move": "MOVE_BLAZE_KICK"
+        },
+        {
+            "Level": 46,
+            "Move": "MOVE_DETECT"
+        }
     ],
     "MachineMoves": [
       "MOVE_AERIAL_ACE",
@@ -41878,10 +41878,6 @@
         "Move": "MOVE_BRAVE_BIRD"
       },
       {
-        "Level": 51,
-        "Move": "MOVE_OVERHEAT"
-      },
-      {
         "Level": 55,
         "Move": "MOVE_CLOSE_COMBAT"
       },
@@ -42042,10 +42038,6 @@
         "Move": "MOVE_TAKE_DOWN"
       },
       {
-        "Level": 23,
-        "Move": "MOVE_BIDE"
-      },
-      {
         "Level": 28,
         "Move": "MOVE_ROCK_SLIDE"
       },
@@ -42058,13 +42050,17 @@
         "Move": "MOVE_DOUBLE_EDGE"
       },
       {
-        "Level": 41,
+        "Level": 54,
         "Move": "MOVE_PROTECT"
       },
-      {
-        "Level": 45,
-        "Move": "MOVE_HYDRO_PUMP"
-      }
+        {
+            "Level": 55,
+            "Move": "MOVE_HYDRO_PUMP"
+        },
+        {
+            "Level": 60,
+            "Move": "MOVE_ENDEAVOR"
+        }
     ],
     "MachineMoves": [
       "MOVE_AMNESIA",
@@ -42192,14 +42188,6 @@
       {
         "Level": 42,
         "Move": "MOVE_LIQUIDATION"
-      },
-      {
-        "Level": 47,
-        "Move": "MOVE_EARTHQUAKE"
-      },
-      {
-        "Level": 52,
-        "Move": "MOVE_HYDRO_PUMP"
       }
     ],
     "MachineMoves": [
@@ -42360,11 +42348,11 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_EARTHQUAKE"
+        "Move": "MOVE_HYDRO_PUMP"
       },
         {
             "Level": 55,
-            "Move": "MOVE_HYDRO_PUMP"
+            "Move": "MOVE_EARTHQUAKE"
         },
         {
             "Level": 83,
