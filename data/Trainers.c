@@ -885,7 +885,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [13] = {
-        .name = "Grunt #2",
+        .name = "Grunt 2",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET_F,
@@ -8032,7 +8032,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [101] = {
-        .name = "Grunt #1",
+        .name = "Grunt 1",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -12197,12 +12197,12 @@ const TrainerData sTrainerData[] = {
                 .level = 74,
                 .species = SPECIES_PIKACHU,
                 .item = ITEM_LIGHT_BALL,
-                .moves = { MOVE_THUNDER, MOVE_GRASS_KNOT, MOVE_SURF, MOVE_NUZZLE },
+                .moves = { MOVE_ZIPPY_ZAP, MOVE_FLOATY_FALL, MOVE_SPLISHY_SPLASH, MOVE_NUZZLE },
                 .ability = ABILITY_STATIC,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
                 .setEvs = { 0, 0, 0, 0, 0, 0 },
-                .nature = NATURE_TIMID,
+                .nature = NATURE_HASTY,
                 .shinyLock = 0,
                 .additionalFlags = 0,
                 .ballSeal = 0,
@@ -12779,7 +12779,7 @@ const TrainerData sTrainerData[] = {
                 .level = 74,
                 .species = SPECIES_OMASTAR,
                 .item = ITEM_FOCUS_SASH,
-                .moves = { MOVE_SURF, MOVE_POWER_GEM, MOVE_ICE_BEAM, MOVE_SHELL_SMASH },
+                .moves = { MOVE_SCALD, MOVE_POWER_GEM, MOVE_ICE_BEAM, MOVE_SHELL_SMASH },
                 .ability = ABILITY_SWIFT_SWIM,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -12795,7 +12795,7 @@ const TrainerData sTrainerData[] = {
                 .level = 74,
                 .species = SPECIES_ELECTIVIRE,
                 .item = ITEM_ASSAULT_VEST,
-                .moves = { MOVE_WILD_CHARGE, MOVE_CROSS_CHOP, MOVE_EARTHQUAKE, MOVE_WEATHER_BALL },
+                .moves = { MOVE_THUNDER, MOVE_CROSS_CHOP, MOVE_EARTHQUAKE, MOVE_WEATHER_BALL },
                 .ability = ABILITY_MOTOR_DRIVE,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -13820,7 +13820,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [179] = {
-        .name = "Grunt #19",
+        .name = "Grunt 19",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -14255,7 +14255,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [185] = {
-        .name = "Grunt #26",
+        .name = "Grunt 26",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -14370,7 +14370,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [186] = {
-        .name = "Grunt #30",
+        .name = "Grunt 30",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -14477,7 +14477,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [187] = {
-        .name = "Grunt #28",
+        .name = "Grunt 28",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -14584,7 +14584,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [188] = {
-        .name = "Grunt #29",
+        .name = "Grunt 29",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -14691,7 +14691,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [189] = {
-        .name = "Grunt #31",
+        .name = "Grunt 31",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -14814,7 +14814,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [190] = {
-        .name = "Grunt #32",
+        .name = "Grunt 32",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -14937,7 +14937,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [191] = {
-        .name = "Grunt #41",
+        .name = "Grunt 41",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -15060,7 +15060,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [192] = {
-        .name = "Grunt #33",
+        .name = "Grunt 33",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -15167,7 +15167,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [193] = {
-        .name = "Grunt #35",
+        .name = "Grunt 35",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -15294,7 +15294,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [195] = {
-        .name = "Grunt #37",
+        .name = "Grunt 37",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -15417,7 +15417,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [196] = {
-        .name = "Grunt #39",
+        .name = "Grunt 39",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -15540,7 +15540,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [197] = {
-        .name = "Grunt #40",
+        .name = "Grunt 40",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -15663,7 +15663,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [198] = {
-        .name = "Grunt #27",
+        .name = "Grunt 27",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET_F,
@@ -15770,7 +15770,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [199] = {
-        .name = "Grunt #38",
+        .name = "Grunt 38",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET_F,
@@ -15893,7 +15893,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [200] = {
-        .name = "Grunt #34",
+        .name = "Grunt 34",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -17210,7 +17210,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [216] = {
-        .name = "Grunt #14",
+        .name = "Grunt 14",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -17360,7 +17360,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [218] = {
-        .name = "Grunt #18",
+        .name = "Grunt 18",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -17467,7 +17467,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [219] = {
-        .name = "Grunt #20",
+        .name = "Grunt 20",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -17574,7 +17574,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [220] = {
-        .name = "Grunt #16",
+        .name = "Grunt 16",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -17792,7 +17792,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [223] = {
-        .name = "Grunt #8",
+        .name = "Grunt 8",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -17843,7 +17843,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [224] = {
-        .name = "Grunt #9",
+        .name = "Grunt 9",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -17934,7 +17934,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [227] = {
-        .name = "Grunt #41",
+        .name = "Grunt 41",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -18057,7 +18057,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [228] = {
-        .name = "Grunt #36",
+        .name = "Grunt 36",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -23322,7 +23322,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [297] = {
-        .name = "Grunt #24",
+        .name = "Grunt 24",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -23546,7 +23546,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [300] = {
-        .name = "Grunt #23",
+        .name = "Grunt 23",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -24545,7 +24545,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [328] = {
-        .name = "Grunt #10",
+        .name = "Grunt 10",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -25383,7 +25383,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [349] = {
-        .name = "Grunt #3",
+        .name = "Grunt 3",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -26949,7 +26949,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [382] = {
-        .name = "Grunt #11",
+        .name = "Grunt 11",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -30036,7 +30036,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [420] = {
-        .name = "Grunt #6",
+        .name = "Grunt 6",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -33683,7 +33683,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [492] = {
-        .name = "Grunt #4",
+        .name = "Grunt 4",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET_F,
@@ -36536,7 +36536,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [560] = {
-        .name = "Grunt #5",
+        .name = "Grunt 5",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -36690,7 +36690,7 @@ const TrainerData sTrainerData[] = {
                 .level = 48,
                 .species = SPECIES_HAWLUCHA,
                 .item = ITEM_GRASSY_SEED,
-                .moves = { MOVE_CLOSE_COMBAT, MOVE_ACROBATICS, MOVE_ROLE_PLAY, MOVE_TAUNT },
+                .moves = { MOVE_CLOSE_COMBAT, MOVE_ACROBATICS, MOVE_ENCORE, MOVE_TAUNT },
                 .ability = ABILITY_UNBURDEN,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -36984,7 +36984,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [564] = {
-        .name = "Grunt #7",
+        .name = "Grunt 7",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET_F,
@@ -37091,7 +37091,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [565] = {
-        .name = "Grunt #22",
+        .name = "Grunt 22",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -37186,7 +37186,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [566] = {
-        .name = "Grunt #17",
+        .name = "Grunt 17",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -37293,7 +37293,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [567] = {
-        .name = "Grunt #15",
+        .name = "Grunt 15",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -37404,7 +37404,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [568] = {
-        .name = "Grunt #21",
+        .name = "Grunt 21",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -37566,7 +37566,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [570] = {
-        .name = "Grunt #13",
+        .name = "Grunt 13",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -37617,7 +37617,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [571] = {
-        .name = "Grunt #12",
+        .name = "Grunt 12",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -40987,7 +40987,7 @@ const TrainerData sTrainerData[] = {
     },
 
     [676] = {
-        .name = "Grunt #25",
+        .name = "Grunt 25",
         .data = {
             .trainerType = TRAINER_DATA_TYPE_MOVES | TRAINER_DATA_TYPE_ITEMS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_BALL | TRAINER_DATA_TYPE_IV_EV_SET | TRAINER_DATA_TYPE_NATURE_SET | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_TEAM_ROCKET,
@@ -43568,7 +43568,7 @@ const TrainerData sTrainerData[] = {
                 .level = 82,
                 .species = SPECIES_RAICHU,
                 .item = ITEM_RAICHUNITE_Y,
-                .moves = { MOVE_ZAP_CANNON, MOVE_FOCUS_BLAST, MOVE_SURF, MOVE_GRASS_KNOT },
+                .moves = { MOVE_ZAP_CANNON, MOVE_FOCUS_BLAST, MOVE_SPLISHY_SPLASH, MOVE_GRASS_KNOT },
                 .ability = ABILITY_STATIC,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
