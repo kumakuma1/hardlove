@@ -144,7 +144,7 @@ void __attribute__((section(".init"))) ServerBeforeActInternal(struct BattleSyst
                         newBS.needMega[client_no] = MEGA_NEED;
                         if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
                             int ally = BATTLER_ALLY(client_no);
-                            if (sp->battlemon[client_no].id_no == sp->battlemon[ally].id_no) {
+                            if (bw->trainerId[client_no] == bw->trainerId[ally]) {
                                 newBS.SideMega[ally] = TRUE;
                             }
                         }
