@@ -103,7 +103,6 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
         return 0;
     }
 
-    
     int highestScoredMove = 0;
     for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++) {
         int moveScore = 0;
@@ -138,7 +137,10 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                     || (ai->attackerMon.ability == ABILITY_PRANKSTER && ai->aimonAlly.ability != ABILITY_PRANKSTER && ai->aimonAlly.species == SPECIES_BRELOOM)
                     || (ai->aimonAlly.ability == ABILITY_TRUANT && ai->aimonAlly.species == SPECIES_SLAKING)
                     || (ai->aimonAlly.ability == ABILITY_SLOW_START && ai->aimonAlly.species == SPECIES_REGIGIGAS)) {
-                    moveScore += 12;
+                    moveScore += 6;
+                    if (BattleRand(bsys) % 2 == 0) {
+                        moveScore += 3;
+                    }
                 }
                 break;
             }
@@ -193,7 +195,10 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                             || BattlerKnowsMove(bsys, BATTLER_ALLY(attacker), MOVE_HORN_DRILL, ai)))
                     || (ai->aimonAlly.ability == ABILITY_TRUANT && ai->aimonAlly.species == SPECIES_SLAKING)
                     || (ai->aimonAlly.ability == ABILITY_SLOW_START && ai->aimonAlly.species == SPECIES_REGIGIGAS)) {
-                    moveScore += 12;
+                    moveScore += 6;
+                    if (BattleRand(bsys) % 2 == 0) {
+                        moveScore += 3;
+                    }
                 }
                 break;
             }
@@ -208,7 +213,14 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                     int movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, attackerMove);
                     u32 moveEffectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, attackerMove, movetype, attacker, target, &ai->attackerMon, &ai->aimonAlly);
                     if (moveEffectiveness >= TYPE_MUL_SUPER_EFFECTIVE) {
-                        moveScore += 12;
+                        moveScore += 6;
+                        int rand = (BattleRand(bsys) % 4);
+                        if (rand == 0 || rand == 1) {
+                            moveScore += 3;
+                        }
+                        else if (rand == 3) {
+                            moveScore += 6;
+                        }
                     }
                 }
                 break;

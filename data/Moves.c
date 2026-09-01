@@ -16294,7 +16294,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_BUG,
             .accuracy = 100,
-            .pp = 20,
+            .pp = 5,
             .effectChance = 0,
         },
         .battle = {
