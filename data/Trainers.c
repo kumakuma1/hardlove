@@ -32473,7 +32473,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "I am Brianna,\\na newly promoted Executive!\rI received this promotion because\\nI deliver results, not excuses.\\r",
+                .text = "I am Brianna,\\na newly promoted Executive!\\rI received this promotion because\\nI deliver results, not excuses.\\r",
             },
             {
                 .type = TRMSG_LAST_POKE,

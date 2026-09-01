@@ -127,7 +127,7 @@ void __attribute__((section(".init"))) ServerBeforeActInternal(struct BattleSyst
                         if (!(client_no & 1) && (newBS.playerWantMega & No2Bit(client_no)) != 0) {
                             sp->battlemon[client_no].canMega = 1;
                             flag = TRUE;
-                        } else {
+                        } else if ((client_no & 1) != 0 || (client_no == 2 && (bw->trainerId[client_no] != 0))) {
                             // ai requests mega
                             if ((BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FRONTIER)) || isWildGyara) {
                                 sp->battlemon[client_no].canMega = 1;
