@@ -130,7 +130,7 @@ Variables
 (16565 is unused)
 (16566 is unused)
 (16567 is unused)
-(16568 is unused)
+(16568/0x40B8 is used)  : Mega Z trainer in victory road
 (16569/0x40B9 is used)  : embedded tower reset at league
 (16570/0x40BA is used)  : Elite Four Battle Style Counter for singles
 (16571/0x40BB is used)  : Roamer1
