@@ -392,7 +392,7 @@ It prevents the foe from using its\nheld item. Its Trainer is also\nprevented fr
 The user explodes to inflict damage\non all Pokémon in battle. The user\nfaints upon using this move.
 The user slashes with a sharp claw\nmade from shadows. It has a high\ncritical-hit ratio.
 If the user can use this attack\nafter the foe attacks, its power is\ndoubled.
-The user recycles a held item that\nhas been used in battle so it can be\nused again.
+The user faints. In return, the\nPokémon taking its place will have\nits HP restored and status cured.
 The user charges at the foe using\nevery bit of its power. The user\nmust rest on the next turn.
 The user polishes its body to reduce\ndrag. It can sharply raise the Speed\nstat.
 The user flashes a light that cuts\nthe foe’s accuracy. It can also be\nused to illuminate caves.
@@ -415,7 +415,7 @@ The user snares the foe with grass\nand trips it. The heavier the foe,\nthe grea
 The user enrages the foe into\nconfusion. However, it also sharply\nraises the foe’s Attack stat.
 The user pecks the foe. If the foe\nis holding a Berry, the user plucks\nit and gains its effect.
 After making its attack, the user\nrushes back to switch places with a\nparty Pokémon in waiting.
-The user makes a copy of itself\nusing some of its HP. The copy\nserves as the user’s decoy.
+It enables the user to evade all\nattacks. Its chance of failing rises\nif it is used in succession.
 The user gathers all its light\nenergy and releases it at once. It\nmay also lower the foe’s Sp. Def\rstat.
 The user creates a bizarre area in\nwhich slower Pokémon get to move\nfirst for five turns.
 The foe is cut with a scythe or a\nclaw. It can also be used to cut\ndown thin trees.

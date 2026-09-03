@@ -849,7 +849,7 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
 
     if (shouldSetup) {
         if (ai->aiMovesFirst) {
-            if (!ai->playerCanOneShotMonWithAnyMove) {
+            if (!ai->playerCanOneShotMonWithAnyMove && !ai->isDoubleBattle) {
                 moveScore += 2;
             }
         }

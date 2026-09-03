@@ -302,8 +302,18 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         case 538: // Super Nerd Hugh Mt Mortar
         {
             u16 levelcap = GetScriptVar(LEVEL_CAP_VARIABLE);
-            if (levelcap > 2) {
+            if (levelcap > 2 && levelcap != 100) {
                 level = (u8)(levelcap - 2);
+            }
+            break;
+        }
+        case 367: // Nuzlocker Ethan 1 Victory Road
+        case 428: // Nuzlocker Ethan 2 Victory Road
+        case 429: // Nuzlocker Ethan 3 Victory Road
+        {
+            u16 levelcap = GetScriptVar(LEVEL_CAP_VARIABLE);
+            if (levelcap > 2 && levelcap != 100) {
+                level = (u8)(levelcap - 3);
             }
             break;
         }

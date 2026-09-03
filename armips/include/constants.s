@@ -166,7 +166,7 @@
 .equ TRAINERCLASS_ACE_TRAINER_M,          24
 .equ TRAINERCLASS_ACE_TRAINER_F,          25
 .equ TRAINERCLASS_WAITRESS,               26
-.equ TRAINERCLASS_VETERAN,                27
+.equ TRAINERCLASS_VETERAN,                27//nuzlocker
 .equ TRAINERCLASS_NINJA_BOY,              28
 .equ TRAINERCLASS_DRAGON_TAMER,           29
 .equ TRAINERCLASS_BIRD_KEEPER,            30
