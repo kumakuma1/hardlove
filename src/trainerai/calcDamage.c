@@ -1336,7 +1336,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     BOOL countPossibleHits = 0;
     if (isDoubleBattle) {
         dragonDartsHitsTwice = FALSE;
-        if (moveno == MOVE_DRAGON_DARTS && HasType(ctx, BATTLER_ALLY(defenderSlot, TYPE_FAIRY))){
+        if (moveno == MOVE_DRAGON_DARTS && HasType(sp, BATTLER_ALLY(defenderSlot), TYPE_FAIRY)){
             dragonDartsHitsTwice = TRUE;
         }
         for (int i = 0; i < CLIENT_MAX; ++i) {
