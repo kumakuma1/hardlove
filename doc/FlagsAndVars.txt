@@ -29,7 +29,7 @@
 345   - 158-T22PC0101: Script File 860 - Maarep-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items + TMs 1, Cleared after Schorsch
 346   - 158-T22PC0101: Script File 860 - Wooper-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items 2, Cleared after Whitney
 347   - 158-T22PC0101: Script File 860 - Slugma-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items 3, Cleared after Morty
-347   -                                - Lucky Punch From Woman on R14 - Used for Gift in Blackthorn
+348   -                                - Lucky Punch From Woman on R14 - Unused
 385   -                                - Received Item from Lt. Surge after battle
 420   - 061-T20R0101 : Script File 225 - Function 25: Hide Lyra. Flag is set.
 421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
@@ -130,7 +130,7 @@ Variables
 (16565 is unused)
 (16566 is unused)
 (16567/0x40B7 is used)  : Mega Z trainer in victory road
-(16568/0x40B8 is unused)
+(16568/0x40B8 is used)  : Used for Gift in Blackthorn
 (16569/0x40B9 is used)  : embedded tower reset at league
 (16570/0x40BA is used)  : Elite Four Battle Style Counter for singles
 (16571/0x40BB is used)  : Roamer1
