@@ -184,8 +184,9 @@ BOOL Script_RunNewUtility(SCRIPTCONTEXT *ctx)
     }
 
     if (property == SET_BATTLE_BOND) {
-        currentAbility = ABILITY_BATTLE_BOND;
-        SetMonData(pp, MON_DATA_ABILITY, &currentAbility);
+        TOGGLE_MON_HIDDEN_ABILITY_BIT(pp)
+        ResetPartyPokemonAbility(pp);
+        RecalcPartyPokemonStats(pp);
     }
 
     if (property >= SET_NATURE_MIN && property <= SET_NATURE_MAX) {
