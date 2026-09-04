@@ -71,8 +71,10 @@ int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker,
         u32 attackerMove = ctx->battlemon[attacker].move[i];
         if (attackerMove != MOVE_NONE)
         {
-            if (attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice
-                || attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove) // if the attacker has a move that is forced, use it
+            int itemEffect = HeldItemHoldEffectGet(ctx, attacker);
+            if (attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove
+                || (attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice
+                    && (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK))) // if the attacker has a move that is forced, use it
             {
 #ifdef DEBUG_AI_SCORING
                 debug_printf("Attacker has choiced move %d:%d\n", i, ctx->battlemon[attacker].moveeffect.moveNoChoice);

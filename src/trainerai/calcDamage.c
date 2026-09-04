@@ -1331,9 +1331,14 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     //=====Step 6. General Damage Modifiers=====
 
     // 6.1 Spread Move Modifier
+    BOOL dragonDartsHitsTwice = TRUE;
     BOOL isDoubleBattle = (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG));
     BOOL countPossibleHits = 0;
     if (isDoubleBattle) {
+        dragonDartsHitsTwice = FALSE;
+        if (moveno == MOVE_DRAGON_DARTS && HasType(ctx, BATTLER_ALLY(defenderSlot, TYPE_FAIRY))){
+            dragonDartsHitsTwice = TRUE;
+        }
         for (int i = 0; i < CLIENT_MAX; ++i) {
             if (i == attackerSlot || !sp->battlemon[i].hp) {
                 continue;
@@ -1743,6 +1748,13 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     for (int u = 0; u < 16; u++) {
         damages->damageRange[u] = damages->damageRange[u] == 0 ? 1 : damages->damageRange[u];
         damages->damageRange[u] = damages->damageRange[u] % 65536;
+    }
+
+    if (moveno == MOVE_DRAGON_DARTS && dragonDartsHitsTwice) {
+        damages->damageRoll *= 2;
+        for (int u = 0; u < 16; u++) {
+            damages->damageRange[u] *= 2;
+        }
     }
 
 #ifdef DEBUG_DAMAGE_CALC_AI

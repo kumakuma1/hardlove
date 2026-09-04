@@ -459,6 +459,9 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(struct AI_sDamageCalc *attacker, 
     case MOVE_EFFECT_HIT_TWICE_AND_FLINCH: // double Iron bash
     case MOVE_EFFECT_POISON_MULTI_HIT: // twinneedle
     case MOVE_EFFECT_HIT_TWICE: // double hit, dual wingbeat, etc...
+        if (moveno == MOVE_DRAGON_DARTS) {
+            break;
+        }
         return damage *= 2;
     case MOVE_EFFECT_HALVE_HP: // super fang, nature's madness
         return defender->hp / 2;
