@@ -71,9 +71,15 @@ struct PACKED AIContext {
     int postKoScoringPosition;
     int highestDamageHitPrct;
 
-    BOOL isAllyAlive;
-    BOOL isDoubleBattle;
-    BOOL isPartnerGrounded;
+    BOOL isAllyAlive : 1;
+    BOOL isDoubleBattle : 1;
+    BOOL isPartnerGrounded : 1;
+
+    BOOL aiMovesFirst : 1;
+    BOOL playerMovesFirst : 1;
+    BOOL isSpeedTie : 1;
+    BOOL padding0 : 2;
+
 
     BOOL defenderHasMagicBounce : 1;
     BOOL defenderAllyHasMagicBounce : 1;
@@ -83,10 +89,6 @@ struct PACKED AIContext {
     BOOL defenderImmuneToSleep : 1;
     BOOL defenderImmuneToStatDrop : 1;
     BOOL padding1 : 1;
-
-    u8 aiMovesFirst;
-    u8 playerMovesFirst;
-    u8 isSpeedTie;
 
     int attacker;
     int defender;
@@ -126,14 +128,14 @@ struct PACKED AIContext {
     u32 maxDamageReceived;
 
     BOOL playerCanOneShotMonWithMove[4];
-    BOOL playerCanOneShotMonWithAnyMove;
-    BOOL monCanOneShotPlayerWithAnyMove;
-    BOOL defenderHasAtleastOnePhysicalMove;
-    BOOL defenderHasAtleastOneSpecialMove;
-    BOOL defenderHasAtleastOneStatusMove;
-    BOOL attackerHasValidSwitchingMove;
-    BOOL attackerHasValidDamagingMove;
-    BOOL shouldSwitch;
+    BOOL playerCanOneShotMonWithAnyMove : 1;
+    BOOL monCanOneShotPlayerWithAnyMove : 1;
+    BOOL defenderHasAtleastOnePhysicalMove : 1;
+    BOOL defenderHasAtleastOneSpecialMove : 1;
+    BOOL defenderHasAtleastOneStatusMove : 1;
+    BOOL attackerHasValidSwitchingMove : 1;
+    BOOL attackerHasValidDamagingMove : 1;
+    BOOL shouldSwitch : 1;
     
     BOOL monCanOneShotPlayerWithMove[4];
     u32 attackerRolledMoveDamages[4];
@@ -143,6 +145,8 @@ struct PACKED AIContext {
     u32 partnerMoveNo;
     BOOL partnerClicksAttackingMove;
     BOOL ignoreTarget;
+
+    u8 attackerPositiveStatChangesSum;
 };
 
 struct PACKED AI_damage {
@@ -201,7 +205,7 @@ BOOL LONG_CALL HasMovePranksterPriority(struct BattleSystem *bsys, u8 attacker, 
 BOOL LONG_CALL IsMoveUsable(struct BattleStruct *ctx, u8 attacker, u32 move, u32 moveLastUsed, u8 split, u8 index);
 
 
-int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem *bsys, u32 battler, struct AIContext *ai UNUSED);
+int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem *bsys, u32 battler);
 BOOL LONG_CALL MonDiesFromResidualDamage(struct BattleStruct *ctx, u32 attacker, u32 attackerCondition, BOOL isSeeded);
 BOOL LONG_CALL IsMonInflictedWithAnyNegativeStatus(struct BattleStruct *ctx, u32 attacker);
 

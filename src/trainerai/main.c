@@ -706,7 +706,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     case MOVE_FLIP_TURN:
     case MOVE_VOLT_SWITCH:
         if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) {
-            if (!isMoveHighestDamage) {
+            if (!isMoveHighestDamage && ai->livingMembersAttacker > (1+ai->isDoubleBattle)) {
                 moveScore += 6;
             }
             if (ai->shouldSwitch) {
@@ -977,7 +977,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_COPY_STAT_CHANGES: {
-        u8 sumStatChange = BattlerPositiveStatChangesSum(bsys, ai->defender, ai);
+        u8 sumStatChange = BattlerPositiveStatChangesSum(bsys, ai->defender);
         if (sumStatChange > 0) {
             moveScore += 5;
         }
@@ -1263,10 +1263,13 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore -= NEVER_USE_MOVE_20;
             break;
         }
-        moveScore += 6;
+
         if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) {
-            if (ai->shouldSwitch) {
+            if (ai->livingMembersAttacker > (1 + ai->isDoubleBattle)) {
                 moveScore += 6;
+            }
+            if (ai->shouldSwitch) {
+                moveScore += 3;
             }
             if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67) {
                 moveScore += 1;
@@ -1415,8 +1418,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_PASS_STATS_AND_STATUS:
-        if ((ai->isDoubleBattle && ai->livingMembersAttacker > 2) || (!ai->isDoubleBattle && ai->livingMembersAttacker > 1)) {
-            if ((BattlerPositiveStatChangesSum(bsys, ai->attacker, ai) >= 1) || ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE) {
+        if (ai->livingMembersAttacker > (1 + ai->isDoubleBattle)) {
+            if ((ai->attackerPositiveStatChangesSum >= 1) || ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE) {
                 moveScore += 14;
             }
         }

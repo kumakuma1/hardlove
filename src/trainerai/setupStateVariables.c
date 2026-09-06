@@ -202,6 +202,8 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         }
     }
 
+    ai->attackerPositiveStatChangesSum = BattlerPositiveStatChangesSum(bsys, ai->attacker);
+
     ai->attackerMovesKnown = GetBattlerLearnedMoveCount(bsys, ctx, attacker);
 
     int highestDamageMoveIndex = 0;

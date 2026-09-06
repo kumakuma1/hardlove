@@ -235,9 +235,18 @@ BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defe
         return FALSE;
     }
 
+    if (ai->attackerPositiveStatChangesSum > 0) {
+        return FALSE;
+    }
+
     if (ai->attackerMon.percenthp < 67) {
         return FALSE;
     }
+
+    if ((100*ai->maxDamageReceived/ai->attackerMon.hp) < (100*ai->attackerRolledMaxDamage/ai->defenderMon.hp)) {
+        return FALSE;
+    }
+
     BOOL hasPerishSong = FALSE;
     if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG) {
         hasPerishSong = TRUE;
@@ -256,10 +265,10 @@ BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defe
         }
     } else {
         if (ai->highestPostKoScoreFromParty == (104 + doublesAddon)) {
-            switchScore = getVarianceFromDamage(ai);
+            switchScore = getVarianceFromDamage(ai)/2;
         }
         if (ai->highestPostKoScoreFromParty >= (104 + doublesAddon + 1)) {
-            switchScore = 25 + getVarianceFromDamage(ai);
+            switchScore = 5 + getVarianceFromDamage(ai);
         }
     }
 
