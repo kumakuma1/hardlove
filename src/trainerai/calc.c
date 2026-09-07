@@ -105,13 +105,13 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->item = GetBattleMonItem(sp, numSlot);
     monStruct->item_held_effect = BattleItemDataGet(sp, monStruct->item, 1);
     monStruct->item_power = BattleItemDataGet(sp, monStruct->item, 2);
-
+    /*
     int megaForm = 0;
     if (CheckCanMega(sp, numSlot))
     {
-        megaForm = GrabMegaTargetForm(monStruct->species, monStruct->item);
+        megaForm = GrabMegaTargetForm(monStruct->species, monStruct->item); //might crash
     }
-    /* if (megaForm) {
+    if (megaForm) {
         void *pp2;
 
         pp2 = BattleWorkPokemonParamGet(bw, numSlot, sp->sel_mons_no[numSlot]);
