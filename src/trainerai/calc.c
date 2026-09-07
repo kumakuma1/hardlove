@@ -87,7 +87,7 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
     monStruct->metronomeTurns = 0;
     monStruct->lastResortCount = 0;
     monStruct->attackerHasMoveFailureLastTurn = 0;
-    monStruct->canBelch = 0; // sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, attackerPos)][partyPos].berryEatenAndCanBelch;
+    monStruct->canBelch = 0;
     monStruct->paradoxBoostedStat = 0;
     if ((monStruct->ability == ABILITY_PROTOSYNTHESIS && ((sp->field_condition & FIELD_CONDITION_SUN_ALL) || monStruct->item == ITEM_BOOSTER_ENERGY))
         || (monStruct->ability == ABILITY_QUARK_DRIVE && ((sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft) || monStruct->item == ITEM_BOOSTER_ENERGY)))
@@ -106,25 +106,64 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->item_held_effect = BattleItemDataGet(sp, monStruct->item, 1);
     monStruct->item_power = BattleItemDataGet(sp, monStruct->item, 2);
 
+    int megaForm = 0;
+    if (CheckCanMega(sp, numSlot))
+    {
+        megaForm = GrabMegaTargetForm(monStruct->species, monStruct->item);
+    }
+    /* if (megaForm) {
+        void *pp2;
+
+        pp2 = BattleWorkPokemonParamGet(bw, numSlot, sp->sel_mons_no[numSlot]);
+        SetMonData(pp2, MON_DATA_FORM, &megaForm);
+
+        RecalcPartyPokemonStats(pp2);
+        ResetPartyPokemonAbility(pp2);
+        monStruct->form = megaForm;
+        monStruct->ability = GetMonData(pp2, MON_DATA_ABILITY, NULL);
+
+        monStruct->attack = GetMonData(pp2, MON_DATA_ATTACK, NULL);
+        monStruct->defense = GetMonData(pp2, MON_DATA_DEFENSE, NULL);
+        monStruct->speed = GetMonData(pp2, MON_DATA_SPEED, NULL);
+        // calcSpeed
+        monStruct->sp_attack = GetMonData(pp2, MON_DATA_SPECIAL_ATTACK, NULL);
+        monStruct->sp_defense = GetMonData(pp2, MON_DATA_SPECIAL_DEFENSE, NULL);
+
+        monStruct->type1 = GetMonData(pp2, MON_DATA_TYPE_1, NULL);
+        monStruct->type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
+        monStruct->type3 = TYPE_TYPELESS;
+
+        //weight
+    } else*/
+    {
+        monStruct->form = sp->battlemon[numSlot].form_no;
+        monStruct->ability = GetBattlerAbility(sp, numSlot);
+
+        monStruct->attack = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_ATK, NULL);
+        monStruct->defense = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_DEF, NULL);
+        monStruct->sp_attack = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPATK, NULL);
+        monStruct->sp_defense = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPDEF, NULL);
+        monStruct->speed = sp->effectiveSpeed[numSlot];
+        // BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPE, NULL);
+        // calcSpeed
+
+        monStruct->type1 = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_TYPE1, NULL);
+        monStruct->type2 = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_TYPE2, NULL);
+        monStruct->type3 = sp->battlemon[numSlot].type3;
+
+        monStruct->weight = GetPokemonWeight(bw, sp, numSlot, numSlot);
+        debug_printf("weight: %d, form %d\n", monStruct->weight, monStruct->form);
+    }
+
+
     monStruct->condition = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_MAX_CONDITION, NULL);
     monStruct->condition2 = sp->battlemon[numSlot].condition2;
     monStruct->isGrounded = IsClientGrounded(sp, numSlot);
 
-    monStruct->ability = GetBattlerAbility(sp, numSlot);
+    
     monStruct->sex = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SEX, NULL);
-    monStruct->type1 = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_TYPE1, NULL);
-    monStruct->type2 = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_TYPE2, NULL);
-    monStruct->type3 = sp->battlemon[numSlot].type3;
-
-    monStruct->speed = sp->effectiveSpeed[numSlot];
-    monStruct->form = sp->battlemon[numSlot].form_no;
-    monStruct->weight = GetPokemonWeight(bw, sp, numSlot, numSlot);
-    debug_printf("weight: %d, form %d\n", monStruct->weight, monStruct->form);
-
-    monStruct->attack = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_ATK, NULL);
-    monStruct->defense = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_DEF, NULL);
-    monStruct->sp_attack = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPATK, NULL);
-    monStruct->sp_defense = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPDEF, NULL);
+    
+    
     for (int i = 0; i < 8; i++) {
         monStruct->states[i] = 0; // Reset all states to 0
     }
@@ -138,7 +177,6 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->states[STAT_EVASION] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_EVASIVENESS, NULL) - 6;
 
     monStruct->level = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_LEVEL, NULL);
-    monStruct->form = sp->battlemon[numSlot].form_no;
 
     monStruct->hasMoldBreaker = FALSE;
     if (monStruct->ability == ABILITY_MOLD_BREAKER || monStruct->ability == ABILITY_TERAVOLT || monStruct->ability == ABILITY_TURBOBLAZE) {
@@ -163,7 +201,7 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->metronomeTurns = sp->battlemon[numSlot].moveeffect.metronomeTurns;
     monStruct->lastResortCount = sp->battlemon[numSlot].moveeffect.lastResortCount;
     monStruct->attackerHasMoveFailureLastTurn = sp->moveConditionsFlags[numSlot].moveFailureLastTurn;
-    monStruct->canBelch = 0; // sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, numSlot)][sp->sel_mons_no[numSlot]].berryEatenAndCanBelch;
+    monStruct->canBelch = sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, numSlot)][sp->sel_mons_no[numSlot]].berryEatenAndCanBelch;
     monStruct->paradoxBoostedStat = sp->paradoxBoostedStat[numSlot];
 }
 
@@ -965,6 +1003,17 @@ BOOL LONG_CALL IsMoveUsable(struct BattleStruct *ctx, u8 attacker, u32 move, u32
     }
     if (ctx->battlemon[attacker].moveeffect.tauntTurns > 0 && split == SPLIT_STATUS) {
         return FALSE;
+    }
+    if (ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice != MOVE_NONE) {
+        if (ctx->battlemon[attacker].moveeffect.encoredTurns > 0 && move != ctx->battlemon[attacker].moveeffect.encoredMove) {
+            return FALSE;
+        }
+        int itemEffect = HeldItemHoldEffectGet(ctx, attacker);
+        if (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK) {
+            if (move != ctx->battlemon[attacker].moveeffect.moveNoChoice) {
+                return FALSE;
+            }
+        }
     }
     return TRUE;
 }
