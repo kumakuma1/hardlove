@@ -4671,9 +4671,10 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
         return TRUE;
     }
 
+    BOOL hasNoguard = ((GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_NO_GUARD)|| (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_NO_GUARD));
     // xxx is unaffected
     // OHKO moves against a target with higher level than the user / target is Dynamaxed
-    if (moveEffect == MOVE_EFFECT_ONE_HIT_KO && (ctx->battlemon[ctx->attack_client].level < ctx->battlemon[defender].level || ctx->battlemon[defender].is_currently_dynamaxed)) {
+    if (moveEffect == MOVE_EFFECT_ONE_HIT_KO && !hasNoguard && (ctx->battlemon[ctx->attack_client].level < ctx->battlemon[defender].level || ctx->battlemon[defender].is_currently_dynamaxed)) {
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_ONE_HIT_KO_FAILED;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;

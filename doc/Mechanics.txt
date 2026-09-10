@@ -25,6 +25,7 @@ Unseen Fist completely ignores Protect.
 Protean/Libero work as in Gen8.
 Moody can change Accuracy and Evasion.
 Hail has been replaced by Snow.
+Lock On and No Guard ignore the hit chance and level check of OHKO moves.
 Weather abilities/moves: Will set Weather permanently.
 Terrain abilities/moves: Will set Terrain permanently. Cannot be removed by Defog.
 Sleep works as in Gen4. (2-5 turns of sleep.)

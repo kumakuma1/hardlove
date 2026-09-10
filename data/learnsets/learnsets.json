@@ -26335,7 +26335,7 @@
       },
       {
         "Level": 25,
-        "Move": "MOVE_DOUBLE_HIT"
+        "Move": "MOVE_U_TURN"
       },
       {
         "Level": 28,
@@ -26357,10 +26357,14 @@
         "Level": 42,
         "Move": "MOVE_ME_FIRST"
       },
-      {
-        "Level": 47,
-        "Move": "MOVE_LAST_RESORT"
-      }
+        {
+            "Level": 47,
+            "Move": "MOVE_LAST_RESORT"
+        },
+        {
+            "Level": 50,
+            "Move": "MOVE_SUPER_FANG"
+        }
     ],
     "MachineMoves": [
       "MOVE_AMNESIA",
@@ -26506,7 +26510,7 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_DOUBLE_HIT"
+        "Move": "MOVE_U_TURN"
       },
       {
         "Level": 31,
@@ -26528,10 +26532,14 @@
         "Level": 45,
         "Move": "MOVE_ME_FIRST"
       },
-      {
-        "Level": 48,
-        "Move": "MOVE_LAST_RESORT"
-      }
+        {
+            "Level": 48,
+            "Move": "MOVE_LAST_RESORT"
+        },
+        {
+            "Level": 51,
+            "Move": "MOVE_SUPER_FANG"
+        }
     ],
     "MachineMoves": [
       "MOVE_AGILITY",

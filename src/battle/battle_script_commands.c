@@ -1624,53 +1624,40 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_54_ohko_move_handle(void *bsys, struct BattleStruct *ctx)
 {
-    u16 hit;
-    IncrementBattleScriptPtr(sp, 1);
+    u16 hitChance;
 
-    sp->server_status_flag |= SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC;
+    IncrementBattleScriptPtr(ctx, 1);
 
-    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE) {
-        sp->waza_status_flag |= MOVE_STATUS_STURDY;
+    ctx->server_status_flag |= BATTLE_STATUS_FLAT_HIT_RATE;
+    BOOL hasLockonOrNoGuard = (ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON)
+        || (GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_NO_GUARD)
+        || (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_NO_GUARD);
+
+    if (hasLockonOrNoGuard) {
+        hitChance = 1;
     } else {
-        if (((sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON) == 0)
-            && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_NO_GUARD)
-            && (GetBattlerAbility(sp, sp->defence_client) != ABILITY_NO_GUARD)) {
-            hit = sp->moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
-            if (((BattleRand(bw) % 100) < hit)
-                && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level)) {
-                hit = 1;
+        int levelDiff = ctx->battlemon[ctx->attack_client].level - ctx->battlemon[ctx->defence_client].level;
+        if (levelDiff >= 0) {
+            hitChance = ctx->moveTbl[ctx->current_move_index].accuracy + levelDiff;
+            if ((BattleRand(bsys) % 100) < hitChance) {
+                hitChance = 1;
             } else {
-                hit = 0;
+                hitChance = 0;
             }
         } else {
-            if ((((sp->battlemon[sp->defence_client].moveeffect.battlerIdLockOn == sp->attack_client) && (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON))
-                    || (GetBattlerAbility(sp, sp->attack_client) == ABILITY_NO_GUARD)
-                    || (GetBattlerAbility(sp, sp->defence_client) == ABILITY_NO_GUARD))
-                && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level)) {
-                hit = 1;
-            } else {
-                hit = sp->moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
-                if (((BattleRand(bw) % 100) < hit)
-                    && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level)) {
-                    hit = 1;
-                } else {
-                    hit = 0;
-                }
-            }
-            sp->waza_status_flag |= MOVE_STATUS_BYPASSED_ACCURACY;
+            hitChance = 0;
         }
-        if (hit) {
-            sp->damage = sp->battlemon[sp->defence_client].hp * -1;
-            sp->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO;
-        } else {
-            if (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level) {
-                sp->waza_status_flag |= FLAG_CONTACT;
-            } else {
-                sp->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO_FAILED;
-            }
-        }
+        ctx->waza_status_flag |= MOVE_STATUS_BYPASSED_ACCURACY;
+    }
+
+    if (hitChance) {
+        ctx->damage = (-1) * ctx->battlemon[ctx->defence_client].hp;
+        ctx->hit_damage = ctx->damage;
+        ctx->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO;
+    } else {
+        ctx->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO_FAILED;
     }
 
     return FALSE;
