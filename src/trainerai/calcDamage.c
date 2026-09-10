@@ -1393,7 +1393,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     debug_printf("[AI_Damage] damage: %d\n", damage);
 #endif
     // 6.3.5 Glaive Rush
-    if (sp->moveConditionsFlags[defenderSlot].glaiveRush) {
+    if (sp->moveConditionsFlags[defenderSlot].wideOpen) {
         damage = damage * 200 / 100;
     }
 
