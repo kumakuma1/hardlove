@@ -1640,6 +1640,12 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
             finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
         }
     }
+    if (!attackerHasMoldBreaker && defender->ability == ABILITY_AURA_GUARD) {
+        // 6.9.6 Aura Guard (contact moves)
+        if (IsContactBeingMade(attacker->ability, attacker->item_held_effect, defender->item_held_effect, moveno, sp->moveTbl[moveno].flag)) {
+            finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
+        }
+    }
 
     // 6.9.5 Multiscale / Shadow Shield
     if (!attackerHasMoldBreaker && (defender->ability == ABILITY_MULTISCALE || defender->ability == ABILITY_SHADOW_SHIELD) && (defender->hp == defender->maxhp)) {

@@ -265,7 +265,7 @@
 #define CHAMPIONS_POWER_CHANGES         1
 #define CHAMPIONS_TYPE_CHANGES          1
 #define CHAMPIONS_ACC_CHANGES           1
-#define CHAMPIONS_PP_CHANGES            0
+#define CHAMPIONS_PP_CHANGES            1
 #define CHAMPIONS_EFFECT_CHANCE_CHANGES 1
 
 // EXPAND_TRAINER_PRIZE_MONEY allows for additional trainers to have prize money associated.
