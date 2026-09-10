@@ -824,6 +824,23 @@ typedef struct MagicBounceContext {
     u8 bounceMaxCounter;
 } MagicBounceContext;
 
+typedef enum HealingConditionType {
+    HEALING_CONDITION_HEALING_NONE = 0,
+    HEALING_CONDITION_HEALING_WISH,
+    HEALING_CONDITION_HEALING_LUNAR_DANCE,
+} HealingConditionType;
+
+typedef struct HealingWishCounter {
+    u8 count : 4;
+    u8 front : 2;
+    u8 back : 2;
+} HealingWishCounter;
+
+typedef struct HealingWishQueue {
+    HealingConditionType queue[CLIENT_MAX][2];
+    HealingWishCounter counter[CLIENT_MAX];
+} HealingWishQueue;
+
 
 enum AI_calcState {
     Initial = 0,
@@ -1085,6 +1102,9 @@ struct BattleStruct {
     PursuitContext pursuitContext;
     DancerContext dancerContext;
     MagicBounceContext magicBounceContext;
+    HealingWishQueue healingWishQueue;
+    int field_condition2; // gen5+ field conditions
+    int magicRoomCounter;
 
 
 

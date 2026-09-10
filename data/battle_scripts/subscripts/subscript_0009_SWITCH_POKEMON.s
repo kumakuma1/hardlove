@@ -49,6 +49,7 @@ _047:
     WaitTime 72
     HealthbarSlideIn BATTLER_CATEGORY_SWITCHED_MON
     Wait 
+    Call BATTLE_SUBSCRIPT_HEALING_WISH
     Call BATTLE_SUBSCRIPT_HAZARDS_CHECK
     //TODO sticky web vs eject pack
     //SetCurrentMoveSwitchingStatus CURRENT_MOVE_NO_SWITCH
