@@ -1153,7 +1153,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     u8 movetype;
     u8 movesplit = GetMoveSplit(sp, moveno);
     u32 damage = 0;
-    u32 moveEffectiveness;
+    u32 moveEffectiveness = TYPE_MUL_NORMAL;
     u32 finalModifier = UQ412__1_0;
     BOOL attackerHasMoldBreaker = attacker->hasMoldBreaker;
     u32 weatherAttacker = BattleAI_GetWeather(bw, sp, attacker->ability);
@@ -1447,7 +1447,6 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     // TODO: need to factor in Tera Shell
     moveEffectiveness = BattleAI_GetTypeEffectiveness(bw, sp, moveno, movetype, attackerSlot, defenderSlot, attacker, defender);
     
-
     switch (moveno) {
     case MOVE_SHEER_COLD:
         if (defender->type1 == TYPE_ICE || defender->type2 == TYPE_ICE || defender->type3 == TYPE_ICE) {
@@ -1457,7 +1456,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     case MOVE_FISSURE:
     case MOVE_GUILLOTINE:
     case MOVE_HORN_DRILL:
-        if (attacker->level <= defender->level || (!attackerHasMoldBreaker && defender->ability == ABILITY_STURDY)){
+        if ((attacker->ability != NO_GUARD && attacker->level <= defender->level) || (!attackerHasMoldBreaker && defender->ability == ABILITY_STURDY)) {
             moveEffectiveness = TYPE_MUL_NO_EFFECT;
         }
     default:
