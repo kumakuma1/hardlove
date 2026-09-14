@@ -1456,7 +1456,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     case MOVE_FISSURE:
     case MOVE_GUILLOTINE:
     case MOVE_HORN_DRILL:
-        if ((attacker->ability != NO_GUARD && attacker->level <= defender->level) || (!attackerHasMoldBreaker && defender->ability == ABILITY_STURDY)) {
+        if ((attacker->ability != ABILITY_NO_GUARD && attacker->level <= defender->level) || (!attackerHasMoldBreaker && defender->ability == ABILITY_STURDY)) {
             moveEffectiveness = TYPE_MUL_NO_EFFECT;
         }
     default:

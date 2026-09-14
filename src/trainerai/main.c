@@ -913,10 +913,10 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
     if (ai->playerCanOneShotMonWithAnyMove || ai->defenderCanForceSwitching) {
-        shouldSetup = FALSE;
+        return 0;
     }
     if (ai->defenderMon.ability == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0)) {
-        shouldSetup = FALSE;
+        return 0;
     }
 
     switch (ai->attackerMoveEffect) {
