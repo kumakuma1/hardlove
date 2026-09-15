@@ -411,7 +411,25 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         }
     }
 
-    /* Not considered in AI:  Mud Sport, Water Sport, Dark Aura, Fairy Aura, Aura Beak  */
+    // All other abilities:
+    /* Not considered in AI:  Mud Sport, Water Sport  */
+    BOOL fieldHasFairyAura = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_FAIRY_AURA);
+    BOOL fieldHasDarkAura = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DARK_AURA);
+    BOOL fieldHasAuraBreak = CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AURA_BREAK);
+    if (movetype == TYPE_FAIRY && fieldHasFairyAura) {
+        if (fieldHasAuraBreak) {
+            basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__0_75);
+        } else {
+            basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_33);
+        }
+    }
+    if (movetype == TYPE_DARK && fieldHasDarkAura) {
+        if (fieldHasAuraBreak) {
+            basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__0_75);
+        } else {
+            basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_33);
+        }
+    }
 
     // handle Rivalry
     if (attacker->ability == ABILITY_RIVALRY) {

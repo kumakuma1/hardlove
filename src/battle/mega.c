@@ -508,7 +508,7 @@ BOOL CheckCanMega(struct BattleStruct *battle, int client)
         return FALSE;
     }
 
-    if (form) {
+    if (form && mon != SPECIES_FLOETTE) {
         return FALSE;
     }
 
