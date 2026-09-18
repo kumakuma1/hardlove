@@ -199,7 +199,10 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 #ifdef DEBUG_AI_SCORING
                 debug_printf("Opponent\n");
 #endif
-                speedCalc = BattleAI_CalcSpeed(bsys, ctx, defender, mon, CALCSPEED_FLAG_NO_PRIORITY);
+                int effectivePartyMonSpeed = attackerMon.speed;
+                speedCalc = BattleAI_CalcSpeed(bsys, ctx, defender, mon, CALCSPEED_FLAG_NO_PRIORITY, &effectivePartyMonSpeed);
+                attackerMon.speed = effectivePartyMonSpeed;
+
                 monHighestDamageMoveno = calcPlayerAsDefender(bsys, ctx, mon, defender, attacker, &attackerMon, &defenderMon, monDealsRolledDamage, i);
                 monReceivingHighestDamageMoveno = calcPlayerAsAttacker(bsys, ctx, defender, attacker, &attackerMon, &defenderMon, monReceivesDamage, i);
             }
@@ -209,7 +212,10 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 #ifdef DEBUG_AI_SCORING
                 debug_printf("Across\n");
 #endif
-                speedCalcAcross = BattleAI_CalcSpeed(bsys, ctx, defenderAcross, mon, CALCSPEED_FLAG_NO_PRIORITY);
+                int effectivePartyMonSpeed = attackerMon.speed;
+                speedCalcAcross = BattleAI_CalcSpeed(bsys, ctx, defenderAcross, mon, CALCSPEED_FLAG_NO_PRIORITY, &effectivePartyMonSpeed);
+                attackerMon.speed = effectivePartyMonSpeed;
+
                 monHighestDamageMovenoAcross = calcPlayerAsDefender(bsys, ctx, mon, defenderAcross, attacker, &attackerMon, &defenderMonAcross, monDealsRolledDamageAcross, i);
                 monReceivingHighestDamageMovenoAcross = calcPlayerAsAttacker(bsys, ctx, defenderAcross, attacker, &attackerMon, &defenderMonAcross, monReceivesDamageAcross, i);
             }

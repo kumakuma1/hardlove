@@ -592,7 +592,8 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     */else if (ai->attackerRolledMaxDamage == ai->attackerRolledMoveDamages[i]) {
         isMoveHighestDamage = TRUE;
         moveScore += 6;
-        if (BattleRand(bsys) % 10 < 2) {
+        if ((ai->attackerMoveEffect != MOVE_EFFECT_ONE_HIT_KO || ai->attackerMon.ability == ABILITY_NO_GUARD) 
+            && ((BattleRand(bsys) % 10) < 2)) { // OHKO moves dont the random +2 unless No Guard
             moveScore += 2;
         }
     }

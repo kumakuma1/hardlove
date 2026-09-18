@@ -17,7 +17,7 @@
 #include "../../include/custom/custom_ai.h"
 
 
-u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, struct PartyPokemon *partyMon, int flag)
+u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, struct PartyPokemon *partyMon, int flag, int *effectivePartyMonSpeed)
 {
     u8 ret = 0;
     u32 speed1, speedPartyMon;
@@ -86,7 +86,6 @@ u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, 
 #endif
 
     // Step 1: 2x Abilities
-
     if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
         && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
         if (((ability1 == ABILITY_SWIFT_SWIM) && (sp->field_condition & FIELD_CONDITION_RAIN_ALL))
@@ -328,6 +327,7 @@ u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, 
 
     //sp->effectiveSpeed[client1] = speed1;
     // sp->effectiveSpeed[client2] = speedPartyMon;
+    *effectivePartyMonSpeed = speedPartyMon;
 
 #ifdef DEBUG_AI_SPEED_CALC
     debug_printf("\n=================\n");
