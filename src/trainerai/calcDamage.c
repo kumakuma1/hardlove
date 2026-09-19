@@ -1296,18 +1296,6 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         return 0;
     }
 
-    switch (moveno) {
-    case MOVE_SELF_DESTRUCT:
-    case MOVE_EXPLOSION:
-    case MOVE_MISTY_EXPLOSION:
-    case MOVE_FINAL_GAMBIT:
-        return 0;
-    default:
-        break;
-    }
-
-
-
     if (!attackerHasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0 && !(defender->condition2 & STATUS2_TRANSFORM) && movesplit == SPLIT_PHYSICAL) { // SPECIES_EISCUE
         return 0;
     }
@@ -1482,6 +1470,17 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     }
 
     damages->moveEffectiveness = moveEffectiveness;
+
+    switch (moveno) {
+    case MOVE_SELF_DESTRUCT:
+    case MOVE_EXPLOSION:
+    case MOVE_MISTY_EXPLOSION:
+    case MOVE_FINAL_GAMBIT:
+        return 0;
+    default:
+        break;
+    }
+
     switch (moveEffectiveness) {
     case TYPE_MUL_NO_EFFECT:
         damages->damageRoll = 0;

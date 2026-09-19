@@ -139,11 +139,18 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 
     ctx->aiTurnScoring.targets[attacker] = target;
     ctx->aiTurnScoring.choice[attacker] = result;
+    if (ctx->battlemon[attacker].move[result] == MOVE_MILK_DRINK && target != BATTLER_ALLY(attacker)) {
+        ctx->aiTurnScoring.targets[attacker] = attacker;
+    }
 
     if (ai1->isDoubleBattle && ai1->isAllyAlive && (attacker == 1 || attacker == 3)) {
         ctx->aiTurnScoring.targets[ally] = allyTarget;
         ctx->aiTurnScoring.choice[ally] = resultAlly;
         ctx->aiTurnScoring.calcState = CalcedEnemy_1_and_3;
+
+        if (ctx->battlemon[ally].move[resultAlly] == MOVE_MILK_DRINK && allyTarget != BATTLER_ALLY(ally)) {
+            ctx->aiTurnScoring.targets[ally] = ally;
+        }
     }
 
     return PLAYER_INPUT_FIGHT;
