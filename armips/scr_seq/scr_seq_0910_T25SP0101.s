@@ -216,7 +216,7 @@ _glacier:
     goto _exitmessage
 
 _rising:
-    CheckBadge 6, VAR_SPECIAL_RESULT
+    CheckBadge 7, VAR_SPECIAL_RESULT
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _nobadge
     CompareMoney VAR_SPECIAL_RESULT, 60000 
