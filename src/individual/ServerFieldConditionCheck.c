@@ -1354,7 +1354,8 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 
                     if (sp->tailwindCount[side]) // update tailwind to use a separate counter so it can be larger
                     {
-                        if (side == 1 && CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG) && GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE) == 6)
+                        int owWeather = GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE);
+                        if (side == 1 && CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG) && (owWeather == 6 || owWeather == 8))
                         {
                             sp->tailwindCount[side] = 4;
                         }
