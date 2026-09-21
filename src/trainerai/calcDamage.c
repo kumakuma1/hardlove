@@ -497,14 +497,23 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     }
 
     // handle Analytic
-    if (attacker->ability == ABILITY_ANALYTIC) {
-        if (attacker->speed < defender->speed) {
+    if (attacker->ability == ABILITY_ANALYTIC && move.effect != MOVE_EFFECT_HIT_IN_3_TURNS) {
+        int k = 0;
+        for (k = 0; k < 4; k++) {
+            if (attacker == k || sp->battlemon[k].hp == 0) {
+                continue;
+            }
+            if (attacker->speed > sp->effectiveSpeed[k]) {
+                break;
+            }
+        }
+        if (k == 4) {
             basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
         }
     }
 
     // handle Tough Claws
-    if ((attacker->ability == ABILITY_TOUGH_CLAWS) && (IsContactBeingMade(attacker->ability, attacker->item_held_effect, defender->item_held_effect, moveno, sp->moveTbl[moveno].flag))) {
+    if ((attacker->ability == ABILITY_TOUGH_CLAWS) && (IsContactBeingMade(attacker->ability, attacker->item_held_effect, defender->item_held_effect, moveno, move.flag))) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
     }
 
@@ -1647,7 +1656,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
     if (!attackerHasMoldBreaker && defender->ability == ABILITY_FLUFFY) {
         // 6.9.6 Fluffy (contact moves)
-        if (IsContactBeingMade(attacker->ability, attacker->item_held_effect, defender->item_held_effect, moveno, sp->moveTbl[moveno].flag)) {
+        if (IsContactBeingMade(attacker->ability, attacker->item_held_effect, defender->item_held_effect, moveno, move.flag)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
         }
 
@@ -1658,7 +1667,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     }
     if (!attackerHasMoldBreaker && defender->ability == ABILITY_AURA_GUARD) {
         // 6.9.6 Aura Guard (contact moves)
-        if (IsContactBeingMade(attacker->ability, attacker->item_held_effect, defender->item_held_effect, moveno, sp->moveTbl[moveno].flag)) {
+        if (IsContactBeingMade(attacker->ability, attacker->item_held_effect, defender->item_held_effect, moveno, move.flag)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
         }
     }
