@@ -1361,7 +1361,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     case MOVE_EFFECT_PASS_STATS_AND_STATUS:
         if (ai->livingMembersAttacker > (1 + ai->isDoubleBattle)) {
             if ((ai->attackerPositiveStatChangesSum >= 1) || ctx->battlemon[ai->attacker].condition2 & STATUS2_SUBSTITUTE) {
-                moveScore += 14;
+                moveScore += 9;
             }
         }
         if (ai->livingMembersAttacker == 1) {

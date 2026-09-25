@@ -498,9 +498,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
 
     // handle Analytic
     if (attacker->ability == ABILITY_ANALYTIC && move.effect != MOVE_EFFECT_HIT_IN_3_TURNS) {
-        int k = 0;
+        u8 k = 0;
         for (k = 0; k < 4; k++) {
-            if (attacker == k || sp->battlemon[k].hp == 0) {
+            if (attackerSlot == k || sp->battlemon[k].hp == 0) {
                 continue;
             }
             if (attacker->speed > sp->effectiveSpeed[k]) {
