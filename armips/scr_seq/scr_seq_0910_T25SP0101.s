@@ -155,7 +155,7 @@ _storm:
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _nomoney
     call _checkspace
-    SetVar VAR_TEMP_x4005, 448
+    SetVar VAR_TEMP_x4005, 9//blastoise
     GetRandom VAR_SPECIAL_RESULT, 3
     compare VAR_SPECIAL_RESULT, 0
     call_if_eq _stormoption1
@@ -177,7 +177,7 @@ _mineral:
     compare VAR_SPECIAL_RESULT, 0
     goto_if_eq _nomoney
     call _checkspace
-    SetVar VAR_TEMP_x4005, 282
+    SetVar VAR_TEMP_x4005, 282 //gardevoir
     GetRandom VAR_SPECIAL_RESULT, 3
     compare VAR_SPECIAL_RESULT, 0
     call_if_eq _mineraloption1
@@ -260,19 +260,19 @@ _fogoption2:
      return
 
 _stormoption1:
-     SetVar VAR_TEMP_x4005, 308
+     SetVar VAR_TEMP_x4005, 308 //Medicham
      return
 
 _stormoption2:
-     SetVar VAR_TEMP_x4005, 428
+     SetVar VAR_TEMP_x4005, 428 //Lopunny
      return
 
 _mineraloption1:
-     SetVar VAR_TEMP_x4005, 334
+     SetVar VAR_TEMP_x4005, 334 //altaria
      return
 
 _mineraloption2:
-     SetVar VAR_TEMP_x4005, 303
+     SetVar VAR_TEMP_x4005, 751 //hawlucha
      return
 
 _glacieroption1:
