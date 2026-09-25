@@ -55,19 +55,19 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
         trade_dat->gender = POKEMON_GENDER_MALE;
         level = 5;
     } else if (tradeno == NPC_TRADE_BILLY_VOLTORB) {
-        nature = gf_rand() % 3;
-        if (nature == 0) {
-            trade_dat->give_species = SPECIES_ELECTRODE;
-        } else if (nature == 1) {
-            trade_dat->give_species = SPECIES_PAWMOT;
-        } else {
-            trade_dat->give_species = SPECIES_SCOVILLAIN;
-        }
+        trade_dat->give_species = SPECIES_PAWMOT;
+        ability = ABILITY_IRON_FIST;
         trade_dat->heldItem = getRandomBerry();
         trade_dat->gender = POKEMON_GENDER_MALE;
     } else if (tradeno == NPC_TRADE_PAUL_XATU) {
         trade_dat->heldItem = getRandomBerry();
         trade_dat->give_species = SPECIES_LILLIGANT;
+
+        nature = gf_rand() % 2;
+        if (nature == 0) {
+            trade_dat->give_species = SPECIES_SCOVILLAIN;
+        }
+
         ability = ABILITY_CHLOROPHYLL;
         trade_dat->gender = POKEMON_GENDER_MALE;
     } else if (tradeno == NPC_TRADE_MAGGIE_MAGNETON) {
