@@ -63017,8 +63017,16 @@
             "Move": "MOVE_OUTRAGE"
         },
         {
-            "Level": 82,
+            "Level": 67,
             "Move": "MOVE_HEADLONG_RUSH"
+        },
+        {
+            "Level": 72,
+            "Move": "MOVE_WIDE_GUARD"
+        },
+        {
+            "Level": 83,
+            "Move": "MOVE_STEALTH_ROCK"
         }
     ],
     "MachineMoves": [
@@ -116753,6 +116761,10 @@
         {
             "Level": 64,
             "Move": "MOVE_OUTRAGE"
+        },
+        {
+            "Level": 72,
+            "Move": "MOVE_PROTECT"
         },
         {
             "Level": 83,

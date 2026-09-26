@@ -8202,7 +8202,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_ACE_TRAINER_M,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = NO_PARTNER_DOUBLE_BATTLE,
+            .battleType = SINGLE_BATTLE,
         },
         .party = {
             {
@@ -8308,7 +8308,7 @@ const TrainerData sTrainerData[] = {
                 .text = "By experiencing tough battles, you\\ngain power.\\r",
             },
             {
-                .type = TRMSG_DBL_LOSE_1,
+                .type = TRMSG_LOSE,
                 .text = "Gah! Life is even tougher!\\n",
             },
             {
@@ -11394,7 +11394,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_ACE_TRAINER_F,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = NO_PARTNER_DOUBLE_BATTLE,
+            .battleType = SINGLE_BATTLE,
         },
         .party = {
             {
@@ -11500,7 +11500,7 @@ const TrainerData sTrainerData[] = {
                 .text = "You are not strong enough to make it\\nthrough Victory Road.\\r",
             },
             {
-                .type = TRMSG_DBL_LOSE_1,
+                .type = TRMSG_LOSE,
                 .text = "Gyaaaah!\\n",
             },
             {
@@ -29651,7 +29651,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_ACE_TRAINER_M,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = NO_PARTNER_DOUBLE_BATTLE,
+            .battleType = SINGLE_BATTLE,
         },
         .party = {
             {
@@ -29677,7 +29677,7 @@ const TrainerData sTrainerData[] = {
                 .species = SPECIES_ORBEETLE,
                 .item = ITEM_LUM_BERRY,
                 .moves = { MOVE_BUG_BUZZ, MOVE_PSYCHIC, MOVE_HYPNOSIS, MOVE_STICKY_WEB },
-                .ability = ABILITY_TELEPATHY,
+                .ability = ABILITY_SWARM,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
                 .setEvs = { 0, 0, 0, 0, 0, 0 },
@@ -29757,7 +29757,7 @@ const TrainerData sTrainerData[] = {
                 .text = "The road to the Pokémon League is a\\nhard challenge.\\rEvery trainer will fight tooth and\\nnail!\\r",
             },
             {
-                .type = TRMSG_DBL_LOSE_1,
+                .type = TRMSG_LOSE,
                 .text = "You’re too much!\\n",
             },
             {
