@@ -1,19 +1,28 @@
-.nds
-.thumb
+.include "asm/include/interop_macros.inc"
 
-.include "armips/include/scriptmacros.s"
-.include "armips/include/flags.s"
-.include "armips/include/soundeffects.s"
-.include "armips/include/vars.s"
+.include "asm/include/scriptmacros.inc"
+.include "asm/include/flags.inc"
+.include "asm/include/soundeffects.inc"
+.include "asm/include/vars.inc"
 
-.include "asm/include/items.inc"
-.include "asm/include/species.inc"
+.include "asm/include/events.inc"
+.include "asm/include/game_stats.inc"
+.include "asm/include/maps.inc"
+.include "asm/include/map_sections.inc"
+.include "asm/include/movements.inc"
+.include "asm/include/rankings.inc"
+.include "asm/include/spawns.inc"
 .include "asm/include/std_scripts.inc"
+.include "asm/include/trainers.inc"
+
+#include "constants/item.h"
+#include "constants/moves.h"
+#include "constants/species.h"
 
 
 // text archive to grab from: 199.txt
 
-.create "build/a012/2_141", 0
+.data
 
 
 scrdef scr_seq_0141_000
@@ -1840,7 +1849,5 @@ _19B8:
 	setvar VAR_SPECIAL_RESULT, 0
 	goto _182A
 
-	.align 4
+	.balign 4
 
-
-.close
