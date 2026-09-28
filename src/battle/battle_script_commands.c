@@ -56,7 +56,7 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp);
 void Task_DistributeExp_Extend(void *arg0, void *work);
 BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_client_no);
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp);
-BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_54_ohko_move_handle(void *bw UNUSED, struct BattleStruct *sp);
 BOOL btl_scr_cmd_5f_trysleeptalk(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_7c_beat_up_hit_count(void *bw, struct BattleStruct *sp);
@@ -1639,41 +1639,11 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_54_ohko_move_handle(void *bsys, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_54_ohko_move_handle(void *bw UNUSED, struct BattleStruct *sp)
 {
-    u16 hitChance;
-
-    IncrementBattleScriptPtr(ctx, 1);
-
-    ctx->server_status_flag |= BATTLE_STATUS_FLAT_HIT_RATE;
-    BOOL hasLockonOrNoGuard = (ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON)
-        || (GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_NO_GUARD)
-        || (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_NO_GUARD);
-
-    if (hasLockonOrNoGuard) {
-        hitChance = 1;
-    } else {
-        int levelDiff = ctx->battlemon[ctx->attack_client].level - ctx->battlemon[ctx->defence_client].level;
-        if (levelDiff >= 0) {
-            hitChance = ctx->moveTbl[ctx->current_move_index].accuracy + levelDiff;
-            if ((BattleRand(bsys) % 100) < hitChance) {
-                hitChance = 1;
-            } else {
-                hitChance = 0;
-            }
-        } else {
-            hitChance = 0;
-        }
-        ctx->waza_status_flag |= MOVE_STATUS_BYPASSED_ACCURACY;
-    }
-
-    if (hitChance) {
-        ctx->damage = (-1) * ctx->battlemon[ctx->defence_client].hp;
-        ctx->hit_damage = ctx->damage;
-        ctx->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO;
-    } else {
-        ctx->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO_FAILED;
-    }
+    IncrementBattleScriptPtr(sp, 1);
+    sp->damage = sp->battlemon[sp->defence_client].hp * -1;
+    sp->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO;
 
     return FALSE;
 }
