@@ -142,7 +142,7 @@ const HiddenItemData sHiddenItemParam[] = {
     { ITEM_REVIVE, 1, 0, 0, 181 }, // R27
     { ITEM_RARE_CANDY, 1, 0, 0, 182 }, // R27
     { ITEM_NUGGET, 1, 0, 0, 183 }, // R27
-    { ITEM_TINY_MUSHROOM, 1, 0, 0, 184 }, // R26
+    { ITEM_HEART_SCALE, 1, 0, 0, 184 }, // R26
     { ITEM_MAX_POTION, 1, 0, 0, 79 }, // Victory Road
     { ITEM_FULL_HEAL, 1, 0, 0, 80 }, // Victory Road
     { ITEM_MAX_REVIVE, 1, 0, 0, 185 }, // Victory Road

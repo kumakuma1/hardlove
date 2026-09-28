@@ -481,6 +481,11 @@ const struct MegaStruct sMegaTable[] = {
         .itemindex = ITEM_BAXCALIBRITE,
         .form = 1,
     },
+    {
+        .monindex = SPECIES_DARKRAI,
+        .itemindex = ITEM_DARKRANITE,
+        .form = 1,
+    },
 };
 
 const struct MegaStructMove sMegaMoveTable[] = {
