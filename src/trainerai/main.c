@@ -697,12 +697,8 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         break;
     }
     case MOVE_FAKE_OUT: {
-        if (ai->attackerTurnsOnField == 0 && ai->defenderMon.item != ITEM_COVERT_CLOAK) {
-            if (ai->attackerMon.hasMoldBreaker || (ai->defenderMon.ability != ABILITY_SHIELD_DUST && ai->defenderMon.ability != ABILITY_INNER_FOCUS)) {
+        if (ai->attackerTurnsOnField == 0 && !ai->defenderImmuneToFlinch) {
                 moveScore += 9;
-            } else {
-                    moveScore -= IMPOSSIBLE_MOVE;
-            }
         } else {
             moveScore -= IMPOSSIBLE_MOVE;
         }
@@ -1504,7 +1500,10 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         FALLTHROUGH;
     case MOVE_EFFECT_STATUS_PARALYZE:
         if (ai->playerMovesFirst || // and slower after para
-            (BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE) || (BattlerKnowsFlinchingMove(bsys, attacker, ai) == TRUE) || ctx->battlemon[ai->defender].condition2 & STATUS2_ATTRACT || ctx->battlemon[ai->defender].condition2 & STATUS2_CONFUSION) {
+            (BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE) 
+            || (BattlerKnowsFlinchingMove(bsys, attacker, ai) == TRUE && !ai->defenderImmuneToFlinch) 
+            || ctx->battlemon[ai->defender].condition2 & STATUS2_ATTRACT 
+            || ctx->battlemon[ai->defender].condition2 & STATUS2_CONFUSION) {
             moveScore += 8;
         } else {
             moveScore += 7;
