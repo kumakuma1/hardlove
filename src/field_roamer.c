@@ -164,9 +164,9 @@ u8 LONG_CALL SpeciesToRoamerIdx(u16 species)
     } else if (species == roamer2) {
         return ROAMER_ENTEI;
     } else if (species == roamer3) {
-        return ROAMER_LATIOS;
-    } else if (species == roamer4) {
         return ROAMER_LATIAS;
+    } else if (species == roamer4) {
+        return ROAMER_LATIOS;
     } else {
         GF_ASSERT(FALSE);
         return ROAMER_MAX;
