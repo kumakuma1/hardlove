@@ -274,7 +274,7 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
         { .tag = 394, .gfx = 193, .callback_params = 0x0000 },
         { .tag = 395, .gfx = 194, .callback_params = 0x5C06 },
         { .tag = 406, .gfx = 195, .callback_params = 0x0006 },
-        { .tag = 409, .gfx = 200, .callback_params = 0x0000 },
+        { .tag = 409, .gfx = 200, .callback_params = 0x0420 }, //0x0000 rotomf -> yellow
         { .tag = 410, .gfx = 198, .callback_params = 0x0000 },
         { .tag = 411, .gfx = 197, .callback_params = 0x0000 },
         { .tag = 412, .gfx = 199, .callback_params = 0x0000 },
@@ -1693,6 +1693,9 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
         MON_FOLLOWER_ENTRY(SPECIES_IRON_CROWN, OVERWORLD_SIZE_SMALL)
         MON_FOLLOWER_ENTRY(SPECIES_TERAPAGOS, OVERWORLD_SIZE_SMALL)
         MON_FOLLOWER_ENTRY(SPECIES_PECHARUNT, OVERWORLD_SIZE_SMALL)
+
+       // { .tag = NEW_NPC_TAG_START, .gfx = NEW_NPC_GFX_START, .callback_params = 0x0420 }, //yellowball
+       // { .tag = NEW_NPC_TAG_START + 1, .gfx = NEW_NPC_GFX_START + 1, .callback_params = 0x0420 }, //megastone
 
         { 0xFFFF, 0, 0 },
     };

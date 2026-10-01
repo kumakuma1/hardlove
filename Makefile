@@ -115,7 +115,7 @@ O2NARC := tools/o2narc
 SDATTOOL := $(PYTHON) tools/SDATTool.py
 JSONPROC := tools/jsonproc
 
-ROM_TOOL ?= $(DSROM)
+ROM_TOOL ?= $(NDSTOOL) //$(DSROM)
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
