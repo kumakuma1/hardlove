@@ -831,7 +831,7 @@ scr_seq_0141_095:
 
 scr_seq_0141_096:
 	// Whirls Islands B1F, Northwest, 1165 //ITEM_FULL_RESTORE
-	setvar VAR_SPECIAL_x8008, ITEM_EMBOARITE
+	setvar VAR_SPECIAL_x8008, ITEM_MAWILITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1053,7 +1053,7 @@ scr_seq_0141_132:
 
 scr_seq_0141_133:
 	// TR HQ B1F, north east, 1102 // hyper potion //moved to generator room in B2F
-	setvar VAR_SPECIAL_x8008, ITEM_SHARPEDONITE
+	setvar VAR_SPECIAL_x8008, ITEM_CHESNAUGHTITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1082,7 +1082,7 @@ scr_seq_0141_137:
 
 scr_seq_0141_138:
 	// TR HQ B3F, east, 1107 //full heal
-	setvar VAR_SPECIAL_x8008, ITEM_HOUNDOOMINITE
+	setvar VAR_SPECIAL_x8008, ITEM_EMBOARITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

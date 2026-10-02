@@ -277,7 +277,7 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
         { .tag = 409, .gfx = 200, .callback_params = 0x0420 }, //0x0000 rotomf -> yellow
         { .tag = 410, .gfx = 198, .callback_params = 0x0000 },
         { .tag = 411, .gfx = 197, .callback_params = 0x0000 },
-        { .tag = 412, .gfx = 199, .callback_params = 0x0000 },
+        { .tag = 412, .gfx = 199, .callback_params = 0x0420 },//0x0000 rotomw -> OW mega
         { .tag = 413, .gfx = 196, .callback_params = 0x0000 },
         { .tag = 349, .gfx = 243, .callback_params = 0x5C00 },
         { .tag = 234, .gfx = 242, .callback_params = 0x0024 },
