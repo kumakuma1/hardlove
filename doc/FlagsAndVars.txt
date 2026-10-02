@@ -48,11 +48,11 @@
 468   - 117-D36R0101 : Script File  92 - Caught Porenta in Ilex
 473   - olivine gym                    - Hide Jasmine
 474   - light tower 5f                 - Hide gym trainer. Used for Rocket on Route 47/48
-475   - light tower 5f                 - Hide gym trainer. Used for Misty on Route 25
+475   - light tower 5f                 - Hide gym trainer. Used for Misty on Route 25 first, bugs after white out
 476   - olivine gym                    - Hide gym trainer. Also used for tutor #2 in goldenrod
 477   - olivine gym                    - Hide gym trainer
 500   -                                - Hiding Petrel in TR HQ. FLag is set. Unused
-506   -                                - Hide Rockets in Route 43 passage house. Flag is not set. Unused
+506   -                                - Hide Rockets in Route 43 passage house. Flag is not set. Used for misty after flag 475 bugs on whiteout
 507   -                                - Hide Normal guard in Route 43 passage house. Flag is set. Unused
 510   -                                - hide Ace trainer Alton inside lake at lake of rage, flag is set. Unused
 511   -                                - hide Fisherman at lake of rage, flag is set. Unused
