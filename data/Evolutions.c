@@ -887,7 +887,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
     [SPECIES_GROWLITHE] = {
         .entries = {
             { EVO_STONE, ITEM_FIRE_STONE, SPECIES_ARCANINE },
-            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_LEVEL, 51, MON_WITH_FORM(SPECIES_ARCANINE, 1) },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -1652,7 +1652,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
     [SPECIES_KOFFING] = {
         .entries = {
             { EVO_LEVEL, 35, SPECIES_WEEZING },
-            { EVO_NONE, 0, SPECIES_NONE },
+            { EVO_STONE, ITEM_DUSK_STONE, MON_WITH_FORM(SPECIES_WEEZING, 1) },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
