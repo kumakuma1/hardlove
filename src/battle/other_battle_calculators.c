@@ -2470,6 +2470,16 @@ BOOL LONG_CALL IsDanceMove(u32 moveIndex)
     return FALSE;
 }
 
+BOOL LONG_CALL IsTriageBoostedMove(u32 moveIndex)
+{
+    for (u16 i = 0; i < NELEMS(TriageMovesList); i++) {
+        if (moveIndex == TriageMovesList[i]) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
 /**
  * @brief gets the actual attack and defense for damage calculation
  * @param sp battle structure

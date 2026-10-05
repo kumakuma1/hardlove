@@ -3076,6 +3076,7 @@ BOOL LONG_CALL IsDynamaxBannedWeightMove(u32 moveIndex);
 BOOL LONG_CALL IsBallOrBombMove(u32 moveIndex);
 
 BOOL LONG_CALL IsDanceMove(u32 moveIndex);
+BOOL LONG_CALL IsTriageBoostedMove(u32 moveIndex);
 
 /// @brief Get the priority of the client
 /// @param bsys
