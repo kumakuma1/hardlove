@@ -46,6 +46,7 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
     monStruct->condition = GetMonData(pp, MON_DATA_STATUS, 0);
     monStruct->condition2 = 0;
     monStruct->isGrounded = IsPartyPokemonGrounded(sp, pp);
+    monStruct->firstTurnOut = TRUE;
 
     monStruct->speed = GetMonData(pp, MON_DATA_SPEED, 0);
     
@@ -159,8 +160,8 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->condition = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_MAX_CONDITION, NULL);
     monStruct->condition2 = sp->battlemon[numSlot].condition2;
     monStruct->isGrounded = IsClientGrounded(sp, numSlot);
+    monStruct->firstTurnOut = (sp->total_turn == sp->battlemon[numSlot].moveeffect.fakeOutCount);
 
-    
     monStruct->sex = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SEX, NULL);
     
     

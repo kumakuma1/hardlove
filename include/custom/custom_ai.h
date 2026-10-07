@@ -62,7 +62,8 @@ struct PACKED AI_sDamageCalc {
     u8 canBelch : 1;
     u8 isSwitching : 1;
     u8 isGrounded : 1;
-    u8 padding : 2;
+    u8 firstTurnOut : 1;
+    u8 padding : 1;
 
     u8 hiddenPowerType;
     u8 paradoxBoostedStat :4;
@@ -120,8 +121,6 @@ struct PACKED AIContext {
     u32 attackerLastUsedMove;
     u32 defenderLastUsedMove;
     u32 defenderLastUsedMoveEffect;
-    u32 defenderTurnsOnField;
-    u32 attackerTurnsOnField;
 
     u32 attackerMove;
     u32 attackerMoveEffect;

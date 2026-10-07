@@ -202,11 +202,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         }
         break;
     //case MOVE_PAYBACK: gen5+
-    case MOVE_PURSUIT:
-        if (defender->isSwitching) {
-            movepower *= 2;
-        }
-        break;
+    //case MOVE_PURSUIT:
     case MOVE_ROUND:
         // TODO: Implement Round
         break;
@@ -1319,7 +1315,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     if (moveno == MOVE_POLTERGEIST && defender->item == ITEM_NONE) {
         return 0;
     }
-    if (move.effect == MOVE_EFFECT_ONE_HIT_KO && defender->ability == ABILITY_STURDY) {
+    if (move.effect == MOVE_EFFECT_ONE_HIT_KO && defender->ability == ABILITY_STURDY && !attackerHasMoldBreaker) {
         return 0;
     }
     if ((moveno == MOVE_BURN_UP && attacker->type1 != TYPE_FIRE && attacker->type2 != TYPE_FIRE && attacker->type3 != TYPE_FIRE)
@@ -1357,6 +1353,10 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     }
 
     if (sp->moveConditionsFlags[attackerSlot].throatChopTimer && IsMoveSoundBased(moveno)) {
+        return 0;
+    }
+
+    if (!attacker->firstTurnOut && (moveno == MOVE_FAKE_OUT || moveno == MOVE_FIRST_IMPRESSION)) {
         return 0;
     }
 

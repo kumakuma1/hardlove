@@ -41,8 +41,6 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->attackerLastUsedMove = ctx->waza_no_old[ai->attacker];
     ai->defenderLastUsedMove = ctx->waza_no_old[ai->defender];
     ai->defenderLastUsedMoveEffect = ctx->moveTbl[ai->defenderLastUsedMove].effect;
-    ai->defenderTurnsOnField = ctx->total_turn - ctx->battlemon[ai->defender].moveeffect.fakeOutCount;
-    ai->attackerTurnsOnField = ctx->total_turn - ctx->battlemon[attacker].moveeffect.fakeOutCount;
 
     ai->playerMovesFirst = 0;
     ai->aiMovesFirst = 0;
