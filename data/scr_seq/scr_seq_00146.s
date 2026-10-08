@@ -703,6 +703,9 @@ scr_seq_0146_005:
 	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_WATERFALL
 	compare VAR_SPECIAL_RESULT, 6
 	goto_if_eq _0997
+    CheckItem ITEM_HM07, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
+	goto_if_eq _0997
 	check_badge BADGE_RISING, VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 0
 	goto_if_eq _0997
@@ -750,7 +753,7 @@ scr_seq_0146_016:
 	//get_party_slot_with_move VAR_SPECIAL_RESULT, MOVE_WHIRLPOOL
 	compare VAR_SPECIAL_RESULT, 6
 	goto_if_eq _0A34
-	CheckItem ITEM_HM08, 1, VAR_SPECIAL_RESULT
+	CheckItem ITEM_HM05, 1, VAR_SPECIAL_RESULT
 	compare VAR_SPECIAL_RESULT, 0
 	goto_if_eq _0A34
 	check_badge BADGE_GLACIER, VAR_SPECIAL_RESULT
