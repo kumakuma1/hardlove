@@ -6,6 +6,7 @@
 //custom
 .include "armips/asm/custom/enable_surf_without_knowing_move.s"
 .include "armips/asm/custom/waterfall.s"
+.include "armips/asm/custom/oak_intro_turtwig_cry.s"
 
 .include "armips/asm/abilities.s" // ability expansion
 .include "armips/asm/moves.s" // repoints all the move table defines within the structure

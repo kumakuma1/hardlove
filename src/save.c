@@ -975,3 +975,35 @@ void LONG_CALL FieldSystem_RestoreMapObjectsFromSave(FieldSystem *fieldSystem)
 
     MapObjectManager_RestoreFromSave(fieldSystem->mapObjectMan, unk->subs, 64);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//https://github.com/pret/pokeheartgold/blob/9d8b7591f09b65804da2fb2dfd56f320633e0d36/src/map_matrix.c#L163
+BOOL LONG_CALL ShouldUseAlternateLakeOfRage(void *saveData UNUSED, u32 map_no UNUSED)
+{
+    SetScriptVar((0x4036 + 1), 0);
+    return FALSE;
+}

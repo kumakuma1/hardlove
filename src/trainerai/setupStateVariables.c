@@ -273,6 +273,9 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         if (attackerMove.split == SPLIT_STATUS && IsMoveUsable(ctx, attacker, attackerMoveno, ai->attackerLastUsedMove, attackerMove.split, j)) {
             u8 movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, attackerMoveno);
             ai->effectivenessOnPlayer[j] = BattleAI_GetTypeEffectiveness(bsys, ctx, attackerMoveno, movetype, attacker, defender, &ai->attackerMon, &ai->defenderMon);
+#ifdef DEBUG_AI_SCORING
+            debug_printf("atk %d, species %d, moveno %d, movetype %d, effectiveness %d (status)\n", attacker, ai->attackerMon.species, attackerMoveno, movetype, ai->effectivenessOnPlayer[j]);
+#endif
         } else if (attackerMove.power && IsMoveUsable(ctx, attacker, attackerMoveno, ai->attackerLastUsedMove, attackerMove.split, j)) {
             ai->attackerHasAttackingMoves = TRUE;
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, attackerMoveno, attackerMove.power, attacker, defender, &damages, &ai->attackerMon, &ai->defenderMon);
