@@ -247,7 +247,17 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
     u32 type2Effectiveness_Dual = TYPE_MUL_NORMAL;
     u32 type3Effectiveness_Dual = TYPE_MUL_NORMAL;
 
-    if (HasMovePranksterPriority(bw, attackerSlot, moveno, attacker->ability, defenderSlot) && HasType(sp, defenderSlot, TYPE_DARK)) {
+    BOOL hasPranksterPriority = HasMovePranksterPriority(bw, attackerSlot, moveno, attacker->ability, defenderSlot);
+    BOOL moveHasPriority = hasPranksterPriority || (sp->moveTbl[moveno].priority > 0);
+
+    if (hasPranksterPriority && HasType(sp, defenderSlot, TYPE_DARK)) {
+        return TYPE_MUL_NO_EFFECT;
+    }
+
+    if (IsMoveBlockedByAbility(attacker, defender, move_type, moveno, moveHasPriority)) {
+        return TYPE_MUL_NO_EFFECT;
+    }
+    if (IsPowderMove(moveno) && (defender->item == ITEM_SAFETY_GOGGLES || AI_MonHasType(attacker, TYPE_GRASS))) {
         return TYPE_MUL_NO_EFFECT;
     }
 
@@ -1035,4 +1045,73 @@ BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attac
         hasPriority = TRUE;
     }
     return hasPriority;
+}
+
+BOOL LONG_CALL IsMoveBlockedByAbility(struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender, int movetype, int moveno, BOOL moveHasPriority)
+{
+    if (!attacker->hasMoldBreaker) {
+        switch (defender->ability) {
+        case ABILITY_FLASH_FIRE:
+        case ABILITY_WELL_BAKED_BODY:
+            if (movetype == TYPE_FIRE) {
+                return TRUE;
+            }
+            break;
+        case ABILITY_LIGHTNING_ROD:
+        case ABILITY_VOLT_ABSORB:
+        case ABILITY_MOTOR_DRIVE:
+            if (movetype == TYPE_ELECTRIC) {
+                return TRUE;
+            }
+            break;
+        case ABILITY_WATER_ABSORB:
+        case ABILITY_STORM_DRAIN:
+        case ABILITY_DRY_SKIN:
+            if (movetype == TYPE_WATER) {
+                return TRUE;
+            }
+            break;
+        case ABILITY_SAP_SIPPER:
+            if (movetype == TYPE_GRASS) {
+                return TRUE;
+            }
+            break;
+        case ABILITY_LEVITATE:
+        case ABILITY_EARTH_EATER:
+        case ABILITY_EELEVATE:
+            if (movetype == TYPE_GROUND) {
+                return TRUE;
+            }
+            break;
+        case ABILITY_BULLETPROOF:
+            if (IsBallOrBombMove(moveno)) {
+                return TRUE;
+            }
+            break;
+        case ABILITY_DAZZLING:
+        case ABILITY_QUEENLY_MAJESTY:
+        case ABILITY_ARMOR_TAIL:
+            if (moveHasPriority) {
+                return TRUE;
+            }
+            break;
+        case ABILITY_SOUNDPROOF:
+            if (IsMoveSoundBased(moveno)) {
+                return TRUE;
+            }
+            break;
+        default:
+            break;
+        }
+    }
+    return FALSE;
+}
+
+
+BOOL LONG_CALL AI_MonHasType(struct AI_sDamageCalc *mon, int type)
+{
+    if (mon->type1 == type || mon->type2 == type || mon->type3 == type) {
+        return TRUE;
+    }
+    return FALSE;
 }

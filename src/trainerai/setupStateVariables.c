@@ -140,7 +140,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 
     ai->defenderImmuneToPoison = FALSE;
     if (isDefenderImmuneToAnyStatus
-        || ai->defenderMon.ability == ABILITY_MAGIC_GUARD || ai->defenderMon.ability == ABILITY_IMMUNITY || ai->defenderMon.ability == ABILITY_POISON_HEAL
+        || ai->defenderMon.ability == ABILITY_MAGIC_GUARD || ai->defenderMon.ability == ABILITY_IMMUNITY || ai->defenderMon.ability == ABILITY_POISON_HEAL || ai->defenderMon.ability == ABILITY_PASTEL_VEIL
         || (ai->defenderMon.isGrounded && ctx->terrainOverlay.type == MISTY_TERRAIN)
         || ((HasType(ctx, ai->defender, TYPE_POISON) || HasType(ctx, ai->defender, TYPE_STEEL)) && ai->attackerMon.ability != ABILITY_CORROSION)) {
         ai->defenderImmuneToPoison = TRUE;
@@ -271,7 +271,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         u32 attackerMoveno = ctx->battlemon[attacker].move[j];
         struct BattleMove attackerMove = ctx->moveTbl[attackerMoveno];
         if (attackerMove.split == SPLIT_STATUS && IsMoveUsable(ctx, attacker, attackerMoveno, ai->attackerLastUsedMove, attackerMove.split, j)) {
-            u8 movetype = GetAdjustedMoveTypeBasics(ctx, attackerMoveno, ai->attackerMon.ability, attackerMove.type);
+            u8 movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, attackerMoveno);
             ai->effectivenessOnPlayer[j] = BattleAI_GetTypeEffectiveness(bsys, ctx, attackerMoveno, movetype, attacker, defender, &ai->attackerMon, &ai->defenderMon);
         } else if (attackerMove.power && IsMoveUsable(ctx, attacker, attackerMoveno, ai->attackerLastUsedMove, attackerMove.split, j)) {
             ai->attackerHasAttackingMoves = TRUE;
