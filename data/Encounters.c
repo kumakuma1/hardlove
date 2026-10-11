@@ -7069,11 +7069,11 @@ const EncounterData __data[] =
             SPECIES_NONE,
         },
         .surfSlots = {
-            { 70, 70, SPECIES_MAGIKARP },
-            { 70, 70, SPECIES_MAGIKARP },
-            { 70, 70, SPECIES_MAGIKARP },
-            { 70, 70, SPECIES_MAGIKARP },
-            { 70, 70, SPECIES_MAGIKARP },
+            { 70, 70, SPECIES_CLODSIRE },
+            { 70, 70, SPECIES_FERALIGATR },
+            { 70, 70, SPECIES_GLALIE },
+            { 70, 70, SPECIES_FROSLASS },
+            { 70, 70, SPECIES_ALTARIA },
         },
         .rockSmashSlots = {
             { 0, 0, SPECIES_NONE },
@@ -7087,11 +7087,11 @@ const EncounterData __data[] =
             { 70, 70, SPECIES_WALREIN },
         },
         .goodRodSlots = {
-            { 20, 20, SPECIES_CLODSIRE },
-            { 20, 20, SPECIES_FERALIGATR },
-            { 20, 20, SPECIES_GLALIE },
-            { 20, 20, SPECIES_FROSLASS },
-            { 20, 20, SPECIES_ALTARIA },
+            { 20, 20, SPECIES_GOLDEEN },
+            { 20, 20, SPECIES_GOLDEEN },
+            { 20, 20, SPECIES_GOLDEEN },
+            { 20, 20, SPECIES_GOLDEEN },
+            { 20, 20, SPECIES_GOLDEEN },
         },
         .superRodSlots = {
             { 20, 20, SPECIES_GOLDEEN },
