@@ -340,10 +340,10 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
 
 
     if (aiOp1->playerCanOneShotMonWithAnyMove) {
-        aiOp2->playerCanOneShotMonWithAnyMove = TRUE;
+        aiOp2->anyPlayerMonCanOneShotMonWithAnyMove = TRUE;
     }
     if (aiOp2->playerCanOneShotMonWithAnyMove) {
-        aiOp1->playerCanOneShotMonWithAnyMove = TRUE;
+        aiOp1->anyPlayerMonCanOneShotMonWithAnyMove = TRUE;
     }
 
     if (ctx->battlemon[defender].hp > 0 && !aiOp1->ignoreTarget) {

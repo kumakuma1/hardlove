@@ -771,7 +771,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai)
 {
 #ifdef DEBUG_AI_SCORING
-    debug_printf("Off: incap %d, movesFirst %d, is1H %d, maxRec %d, hp %d", ai->isDefenderIncapacitated, ai->aiMovesFirst, ai->playerCanOneShotMonWithAnyMove, ai->maxDamageReceived, ai->attackerMon.hp);
+    debug_printf("Off: incap %d, movesFirst %d, is1H %d, maxRec %d, hp %d", ai->isDefenderIncapacitated, ai->aiMovesFirst, ai->anyPlayerMonCanOneShotMonWithAnyMove, ai->maxDamageReceived, ai->attackerMon.hp);
 #endif
     int moveScore = 0;
     if (ai->isDefenderIncapacitated) {
@@ -785,7 +785,7 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
 
     if (shouldSetup) {
         if (ai->aiMovesFirst) {
-            if (!ai->playerCanOneShotMonWithAnyMove && !ai->isDoubleBattle) {
+            if (!ai->anyPlayerMonCanOneShotMonWithAnyMove && !ai->isDoubleBattle) {
                 moveScore += 2;
             }
         }
@@ -814,7 +814,7 @@ int LONG_CALL OffensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUS
 int LONG_CALL DefensiveSetup(struct BattleSystem *bsys UNUSED, u32 attacker UNUSED, int i UNUSED, struct AIContext *ai)
 {
 #ifdef DEBUG_AI_SCORING
-    debug_printf("Def: incap %d, movesFirst %d, is1H %d, maxRec %d, hp %d", ai->isDefenderIncapacitated, ai->aiMovesFirst, ai->playerCanOneShotMonWithAnyMove, ai->maxDamageReceived, ai->attackerMon.hp);
+    debug_printf("Def: incap %d, movesFirst %d, is1H %d, maxRec %d, hp %d", ai->isDefenderIncapacitated, ai->aiMovesFirst, ai->anyPlayerMonCanOneShotMonWithAnyMove, ai->maxDamageReceived, ai->attackerMon.hp);
 #endif
     int moveScore = 0;
     if (ai->isDefenderIncapacitated) {
@@ -846,7 +846,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
-    if (ai->playerCanOneShotMonWithAnyMove || ai->defenderCanForceSwitching) {
+    if (ai->anyPlayerMonCanOneShotMonWithAnyMove || ai->defenderCanForceSwitching) {
         return 0;
     }
     if (ai->defenderMon.ability == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0)) {
@@ -1156,7 +1156,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
 
             moveScore += 6;
             if (ai->aiMovesFirst) {
-                if (!ai->playerCanOneShotMonWithAnyMove) {
+                if (!ai->anyPlayerMonCanOneShotMonWithAnyMove) {
                     moveScore += 3;
                 }
             }
@@ -1282,7 +1282,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         if (IsMonInflictedWithAnyNegativeStatus(ctx, attacker)) {
             moveScore -= 1;
         }
-        if (ai->playerMovesFirst && ai->playerCanOneShotMonWithAnyMove) {
+        if (ai->playerMovesFirst && ai->anyPlayerMonCanOneShotMonWithAnyMove) {
             moveScore += 6;
             if (IS_ITEM_BERRY(ai->attackerMon.item)) {
                 moveScore += 2;

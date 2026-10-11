@@ -35,7 +35,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     u32 defenseModifier = UQ412__1_0;
     u32 baseDamage = 0;
     BOOL isDoubleBattle = (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG));
-    BOOL attackerHasMoldBreaker = attacker->hasMoldBreaker;
+    BOOL attackerHasMoldBreaker = attacker->hasMoldBreaker || moveno == MOVE_SUNSTEEL_STRIKE;
     u32 weatherAttacker = BattleAI_GetWeather(bw, sp, attacker->ability);
 
     struct BattleMove move = sp->moveTbl[moveno];
@@ -1193,7 +1193,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     u32 damage = 0;
     u32 moveEffectiveness = TYPE_MUL_NORMAL;
     u32 finalModifier = UQ412__1_0;
-    BOOL attackerHasMoldBreaker = attacker->hasMoldBreaker;
+    BOOL attackerHasMoldBreaker = attacker->hasMoldBreaker || moveno == MOVE_SUNSTEEL_STRIKE;
     u32 weatherAttacker = BattleAI_GetWeather(bw, sp, attacker->ability);
 
     struct BattleMove move = sp->moveTbl[moveno];

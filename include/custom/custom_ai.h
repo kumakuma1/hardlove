@@ -131,7 +131,8 @@ struct PACKED AIContext {
     BOOL defenderCanForceSwitching : 1;
     BOOL defenderHasSturdyOrFocusSashActive : 1;
     BOOL attackerHasSturdyOrFocusSashActive : 1;
-    BOOL padding2 : 2;
+    BOOL anyPlayerMonCanOneShotMonWithAnyMove : 1;
+    BOOL padding2 : 1;
 
     u32 maxDamageReceived;
 
