@@ -199,7 +199,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         }
         break;
     case MOVE_HEX:
-        if (defender->condition & STATUS_ALL) {
+        if (defender->condition & STATUS_ALL || defender->ability == ABILITY_COMATOSE) {
             movepower *= 2;
         }
         break;
@@ -220,7 +220,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         }
         break;
     case MOVE_WAKE_UP_SLAP:
-        if (defender->condition & STATUS_SLEEP) {
+        if (defender->condition & STATUS_SLEEP || defender->ability == ABILITY_COMATOSE) {
             movepower *= 2;
         }
         break;

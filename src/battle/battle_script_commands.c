@@ -140,6 +140,7 @@ BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct 
 BOOL btl_scr_cmd_128_IsFieldCondition2On(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_129_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_12B_TryActivateReceiver(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -483,6 +484,7 @@ const u8 *BattleScrCmdNames[] = {
     "IsFieldCondition2On",
     "SetFieldCondition2",
     "GoToIfMoveConditionFlagSet",
+    "TryActivateReceiver"
     // "YourCustomCommand",
 };
 
@@ -490,7 +492,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12A
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12B
 
 // clang-format off
 const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
@@ -568,6 +570,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x128 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_128_IsFieldCondition2On,
     [0x129 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_129_SetFieldCondition2,
     [0x12A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12A_GoToIfMoveConditionFlagSet,
+    [0x12B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12B_TryActivateReceiver,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -1839,6 +1842,7 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
         sp->mp.param[1] = CreateNicknameTag(sp, sp->defence_client);
         sp->mp.param[2] = item;
         sp->battlemon[sp->defence_client].item = 0;
+        sp->battlemon[sp->defence_client].moveeffect.knockOffFlag = TRUE;
         // update:  no longer render further items unusable--just set the item to 0 here
         // sp->scw[side].knockoff_item |= No2Bit(sp->sel_mons_no[sp->defence_client]);
     } else {
@@ -3679,6 +3683,22 @@ BOOL btl_scr_cmd_FC_trystickyweb(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
+BOOL BtlCmd_RemoveItem(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int side = read_battle_script_param(ctx);
+    int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    ctx->recycle_item[battlerId] = ctx->battlemon[battlerId].item;
+    ctx->battlemon[battlerId].item = ITEM_NONE;
+
+    ctx->battlemon[battlerId].moveeffect.knockOffFlag = TRUE;
+
+    CopyBattleMonToPartyMon(bsys, ctx, battlerId);
+
+    return FALSE;
+}
 /**
  *  @brief check if a substitute is up and jump to destination if there is one up
  *
@@ -4002,6 +4022,7 @@ BOOL btl_scr_cmd_104_tryincinerate(void *bw UNUSED, struct BattleStruct *sp)
         sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
         sp->mp.param[1] = item;
         sp->battlemon[sp->defence_client].item = 0; // no recycle
+        sp->battlemon[sp->defence_client].moveeffect.knockOffFlag = TRUE;
     } else {
         IncrementBattleScriptPtr(sp, adrs);
     }
@@ -4103,6 +4124,7 @@ BOOL BtlCmd_TryPluck(void *bw, struct BattleStruct *sp)
         sp->mp.param[0] = CreateNicknameTag(sp, sp->attack_client);
         sp->mp.param[1] = item;
         sp->battlemon[sp->defence_client].item = 0; // no recycle
+        sp->battlemon[sp->defence_client].moveeffect.knockOffFlag = TRUE;
 
         if (GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
             sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->attack_client)][sp->sel_mons_no[sp->attack_client]].berryEatenAndCanBelch = TRUE;
@@ -4128,6 +4150,7 @@ BOOL BtlCmd_TryFling(void *bw, struct BattleStruct *sp)
     if (IS_ITEM_BERRY(item) && GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
         sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->defence_client)][sp->sel_mons_no[sp->defence_client]].berryEatenAndCanBelch = TRUE;
     }
+    sp->battlemon[sp->attack_client].moveeffect.knockOffFlag = TRUE;
 
     return FALSE;
 }
@@ -5879,6 +5902,24 @@ BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct 
         break;
     default:
         break;
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_12B_TryActivateReceiver(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 side = read_battle_script_param(ctx);
+    int noReceiver = read_battle_script_param(ctx);
+    u32 faintedClient = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    int ability = ctx->battlemon[faintedClient].ability;
+
+    if (AbilityNoReceiver(ability)) {
+        IncrementBattleScriptPtr(ctx, noReceiver);
+    } else {
+        ctx->battlerIdTemp = BATTLER_ALLY(faintedClient);
     }
 
     return FALSE;

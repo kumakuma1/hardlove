@@ -444,7 +444,7 @@ u16 PunchingMoveTable[25] = {
     MOVE_SURGING_STRIKES,
     MOVE_THUNDER_PUNCH,
     MOVE_WICKED_BLOW,
-    MOVE_DOUBLE_SHOCK,
+    MOVE_GROWL, // MOVE_DOUBLE_SHOCK, small hack to remove double shock
 };
 
 u16 BitingMoveTable[10] = {
@@ -4651,4 +4651,12 @@ BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *ctx, int attack_c
     }
 
     return ret;
+}
+
+/// @brief Check if ability causes Receiver and Power of Alchemy to fail
+/// @param ability
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityNoReceiver(int ability)
+{
+    return GetAbilityFlags(ability).failsReceiver;
 }
