@@ -1742,7 +1742,7 @@ int LONG_CALL Activate_FormChange(void *bsys, struct BattleStruct *ctx)
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FORM_CHANGE);
 #else
                 if ((ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] >= 12)
-                    && (ctx->battlemon[ctx->attack_client].states[STAT_SPECIAL_ATTACK] >= 12)
+                    //&& (ctx->battlemon[ctx->attack_client].states[STAT_SPECIAL_ATTACK] >= 12)
                     && (ctx->battlemon[ctx->attack_client].states[STAT_SPEED] >= 12)) {
                     break;
                 }

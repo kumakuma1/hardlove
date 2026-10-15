@@ -63,7 +63,7 @@ struct PACKED AI_sDamageCalc {
     u8 isSwitching : 1;
     u8 isGrounded : 1;
     u8 firstTurnOut : 1;
-    u8 padding : 1;
+    u8 abilityActivated : 1;
 
     u8 hiddenPowerType;
     u8 paradoxBoostedStat :4;

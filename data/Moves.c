@@ -12757,7 +12757,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .power = 0,
             .type = TYPE_ROCK,
             .accuracy = 0,
-            .pp = 10,
+            .pp = 1,
             .effectChance = 0,
         },
         .battle = {

@@ -59,6 +59,12 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
         monStruct->states[i] = 0; // Reset all states to 0
     }
 
+    if (monStruct->ability == ABILITY_DAUNTLESS_SHIELD) {
+        monStruct->states[STAT_DEFENSE] = 1;
+    } else if (monStruct->ability == ABILITY_INTREPID_SWORD) {
+        monStruct->states[STAT_ATTACK] = 1;
+    }
+
     monStruct->level = GetMonData(pp, MON_DATA_LEVEL, 0);
     monStruct->form = GetMonData(pp, MON_DATA_FORM, 0);
 
@@ -89,6 +95,8 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
     monStruct->lastResortCount = 0;
     monStruct->attackerHasMoveFailureLastTurn = 0;
     monStruct->canBelch = 0;
+    monStruct->abilityActivated = 0;
+
     monStruct->paradoxBoostedStat = 0;
     if ((monStruct->ability == ABILITY_PROTOSYNTHESIS && ((sp->field_condition & FIELD_CONDITION_SUN_ALL) || monStruct->item == ITEM_BOOSTER_ENERGY))
         || (monStruct->ability == ABILITY_QUARK_DRIVE && ((sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft) || monStruct->item == ITEM_BOOSTER_ENERGY)))
@@ -148,12 +156,14 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
         // BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPE, NULL);
         // calcSpeed
 
-        monStruct->type1 = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_TYPE1, NULL);
-        monStruct->type2 = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_TYPE2, NULL);
+        monStruct->type1 = sp->battlemon[numSlot].type1;
+        monStruct->type2 = sp->battlemon[numSlot].type2;
         monStruct->type3 = sp->battlemon[numSlot].type3;
 
         monStruct->weight = GetPokemonWeight(bw, sp, numSlot, numSlot);
-        debug_printf("weight: %d, form %d\n", monStruct->weight, monStruct->form);
+#ifdef DEBUG_AI_SCORING
+        debug_printf("species %d, weight: %d, form %d\n", monStruct->species, monStruct->weight, monStruct->form);
+#endif
     }
 
 
@@ -176,7 +186,9 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->states[STAT_SPEED] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_SPE, NULL) - 6;
     monStruct->states[STAT_ACCURACY] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_ACCURACY, NULL) - 6;
     monStruct->states[STAT_EVASION] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_EVASIVENESS, NULL) - 6;
-
+#ifdef DEBUG_AI_SCORING
+    debug_printf("States: %d atk, %d def, %d spatk, %d spdef, %d speed\n", monStruct->states[STAT_ATTACK], monStruct->states[STAT_DEFENSE], monStruct->states[STAT_SPECIAL_ATTACK], monStruct->states[STAT_SPECIAL_DEFENSE], monStruct->states[STAT_SPEED]);
+#endif
     monStruct->level = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_LEVEL, NULL);
 
     monStruct->hasMoldBreaker = FALSE;
@@ -203,6 +215,7 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->lastResortCount = sp->battlemon[numSlot].moveeffect.lastResortCount;
     monStruct->attackerHasMoveFailureLastTurn = sp->moveConditionsFlags[numSlot].moveFailureLastTurn;
     monStruct->canBelch = sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, numSlot)][sp->sel_mons_no[numSlot]].berryEatenAndCanBelch;
+    monStruct->abilityActivated = sp->battlemon[numSlot].ability_activated_flag;
     monStruct->paradoxBoostedStat = sp->paradoxBoostedStat[numSlot];
 }
 
@@ -299,8 +312,7 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
                     type3Effectiveness = UpdateTypeEffectiveness(moveno, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
                 }
             }
-        }
-        else if (sp->current_move_index == MOVE_FLYING_PRESS && TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_FLYING)
+        } else if (moveno == MOVE_FLYING_PRESS && TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_FLYING)
         {
             if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1) {
                 if (ShouldUseNormalTypeEffCalc(sp, attackerSlot, defenderSlot, typeTableEntryNo)
@@ -1011,7 +1023,7 @@ BOOL LONG_CALL IsMoveUsable(struct BattleStruct *ctx, u8 attacker, u32 move, u32
     if (ctx->battlemon[attacker].moveeffect.tauntTurns > 0 && split == SPLIT_STATUS) {
         return FALSE;
     }
-    if (ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice != MOVE_NONE) {
+    if (ctx->battlemon[attacker].moveeffect.moveNoChoice != MOVE_NONE) {
         if (ctx->battlemon[attacker].moveeffect.encoredTurns > 0 && move != ctx->battlemon[attacker].moveeffect.encoredMove) {
             return FALSE;
         }

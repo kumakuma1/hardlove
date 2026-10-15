@@ -342,13 +342,11 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         break;
     }
     case MOVE_EFFECT_PARALYZE_HIT:
-        if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance == 100) // nuzzle
+        if (ai->attackerMove != MOVE_NUZZLE)
         {
-            if (ai->defenderImmuneToParalysis || ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT) {
-                moveScore -= NEVER_USE_MOVE_20;
-            }
+            break;
         }
-        break;
+        FALLTHROUGH;
     case MOVE_EFFECT_STATUS_PARALYZE:
         if (ai->defenderImmuneToParalysis || ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT) {
             moveScore -= NEVER_USE_MOVE_20;
@@ -417,12 +415,6 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
 
     if (ai->attackerMove == MOVE_GIGATON_HAMMER && ai->attackerLastUsedMove == MOVE_GIGATON_HAMMER) {
         moveScore -= IMPOSSIBLE_MOVE;
-    }
-
-    if (ai->attackerMove == MOVE_SOLAR_BEAM){
-        if (ai->attackerMon.ability != ABILITY_MEGA_SOL && ((ctx->field_condition & FIELD_CONDITION_SUN_ALL) == 0) && ai->attackerMon.item != ITEM_POWER_HERB) {
-            moveScore -= NEVER_USE_MOVE_20;
-        }
     }
 
     return moveScore;
@@ -745,15 +737,17 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         break;
     case MOVE_EARTHQUAKE:
     case MOVE_MAGNITUDE: {
-        if (ai->isDoubleBattle) {
+        if (ai->isDoubleBattle && ai->isAllyAlive) {
             if (ai->isPartnerGrounded && ai->aimonAlly.ability != ABILITY_TELEPATHY) // TODO: or about to use magnetrise && faster
             {
-                if (ctx->battlemon[BATTLER_ALLY(ai->attacker)].hp) {
-                    if (HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_POISON) || HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_STEEL) || HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_FIRE) || HasType(ctx, BATTLER_ALLY(ai->attacker), TYPE_ROCK)) {
-                        moveScore -= 10;
-                    } else {
-                        moveScore -= 3;
-                    }
+                int movetype = BattleAI_GetDynamicMoveType(bsys, ctx, &ai->attackerMon, ai->attackerMove);
+                u32 moveEffectiveness = BattleAI_GetTypeEffectiveness(bsys, ctx, ai->attackerMove, movetype, ai->attacker, BATTLER_ALLY(ai->attacker), &ai->attackerMon, &ai->aimonAlly);
+                if (moveEffectiveness > TYPE_MUL_NORMAL) {
+                    moveScore -= 10;
+                } else if (moveEffectiveness == TYPE_MUL_NORMAL) {
+                    moveScore -= 3;
+                } else {
+                    moveScore += 2;
                 }
             } else {
                 moveScore += 2;
@@ -1190,6 +1184,27 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
     switch (ai->attackerMoveEffect) {
+    case MOVE_EFFECT_DISABLE:
+        if (ctx->battlemon[attacker].moveeffect.disabledTurns) {
+            moveScore -= NEVER_USE_MOVE_20;
+            break;
+        }
+
+        if (ctx->battlemon[ai->defender].moveeffect.moveNoChoice != MOVE_NONE) {
+            moveScore += 6;
+            if (ai->aiMovesFirst) {
+                moveScore += 3;
+            }
+        } else if (ai->playerMovesFirst) {
+            int itemEffect = HeldItemHoldEffectGet(ctx, ai->defender);
+            if (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK) {
+                moveScore += 6;
+                if (ai->anyPlayerMonCanOneShotMonWithAnyMove) {
+                    moveScore += 3;
+                }
+            }
+        }
+        break;
     case MOVE_EFFECT_PARTING_SHOT:
     {
         if (ai->defenderImmuneToStatDrop)
@@ -1491,12 +1506,12 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_PARALYZE_HIT:
-        if (ctx->moveTbl[ai->attackerMove].secondaryEffectChance < 100 || ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT /*has immunity*/) { // nuzzle
+        if (ai->attackerMove != MOVE_NUZZLE) {
             break;
         }
         FALLTHROUGH;
     case MOVE_EFFECT_STATUS_PARALYZE:
-        if (ai->playerMovesFirst || // and slower after para
+        if (ai->playerMovesFirst || // TODO and slower after para
             (BattlerKnowsMove(bsys, attacker, MOVE_HEX, ai) == TRUE) 
             || (BattlerKnowsFlinchingMove(bsys, attacker, ai) == TRUE && !ai->defenderImmuneToFlinch) 
             || ctx->battlemon[ai->defender].condition2 & STATUS2_ATTRACT 

@@ -24041,7 +24041,7 @@
         },
         {
             "Level": 72,
-            "Move": "MOVE_ZAP_CANNON"
+            "Move": "MOVE_DEFOG"
         },
         {
             "Level": 82,
@@ -106047,7 +106047,6 @@
       "MOVE_WATER_PULSE",
       "MOVE_WEATHER_BALL",
       "MOVE_WORK_UP",
-      "MOVE_ROAR",
       "MOVE_SMART_STRIKE"
     ],
     "EggMoves": [

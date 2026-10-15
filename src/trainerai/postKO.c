@@ -58,7 +58,10 @@ u32 calcPlayerAsAttacker(struct BattleSystem *bsys, struct BattleStruct *ctx, in
         u32 defenderMoveno = ctx->battlemon[defender].move[k];
         struct BattleMove defenderMove = ctx->moveTbl[defenderMoveno];
 
-        if (defenderMove.split != SPLIT_STATUS && defenderMove.power && ctx->battlemon[defender].pp[k]) {
+        if (defenderMoveno != MOVE_NONE
+            && defenderMove.split != SPLIT_STATUS 
+            && defenderMove.power 
+            && IsMoveUsable(ctx, defender, defenderMoveno, ctx->waza_no_old[defender], defenderMove.split, k)) {
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, defenderMoveno, defenderMove.power, defender, attacker, &damages, defenderMon, attackerMon);
             damages.damageRoll = damages.damageRange[15]; // max Damage
 

@@ -18,7 +18,6 @@
 
 int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u16 pow, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
-    u8 i = 0;
     u32 p;
     int positiveStatBoosts = 0;
     u16 movepower;
@@ -79,6 +78,8 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         // Weight-based
     case MOVE_LOW_KICK:
     case MOVE_GRASS_KNOT: // TODO
+    {
+        int i = 0;
         while (sLowKickWeightToPower[i][0] != 0xFFFF) {
             if (sLowKickWeightToPower[i][0] >= defender->weight) {
                 break;
@@ -91,6 +92,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         } else {
             movepower = 120;
         }
+    }
         break;
     case MOVE_HEAVY_SLAM:
     case MOVE_HEAT_CRASH:
@@ -287,7 +289,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     default:
         break;
     }
-
+#ifdef DEBUG_AI_SCORING
+    debug_printf("[AI_Damage] moveno: %d, movepower: %d\n", moveno, movepower);
+#endif
 #ifdef DEBUG_DAMAGE_CALC_AI
     debug_printf("\n=================\n");
     debug_printf("[AI_Damage] Step 1. Custom BP\n");
@@ -1437,8 +1441,9 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     debug_printf("[AI_Damage] damage: %d\n", damages->damageRoll);
 #endif
 
-    if (attacker->type1 == movetype || attacker->type2 == movetype || attacker->type3 == movetype 
-        || attacker->ability == ABILITY_PROTEAN || attacker->ability == ABILITY_LIBERO) {
+    if (AI_MonHasType(attacker, movetype)
+        || attacker->ability == ABILITY_LIBERO
+        || (attacker->ability == ABILITY_PROTEAN && !attacker->abilityActivated)) {
         if (attacker->ability == ABILITY_ADAPTABILITY) {
             damages->damageRoll = QMul_RoundDown(damages->damageRoll, UQ412__2_0);
             for (int u = 0; u < 16; u++) {
