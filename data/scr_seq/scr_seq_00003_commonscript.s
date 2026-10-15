@@ -357,7 +357,7 @@ _0445:
     setvar VAR_SPECIAL_x8004, 1
     goto _01AA
 
-.align 4
+.balign 4
 
 _0454:
     step 100, 1
@@ -1239,7 +1239,7 @@ _104A:
     setvar VAR_SPECIAL_x8007, 3
     return
 
-.align 4
+.balign 4
 
 _1054:
     step 0, 1

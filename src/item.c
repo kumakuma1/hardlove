@@ -195,7 +195,10 @@ u16 ItemToMachineMove(u16 itemId)
 BOOL MoveIsHM(u16 moveId)
 {
     for (u8 i = 0; i < NUM_HMS; i++) {
-        if (sMachineMoves[i + ITEM_HM01 - ITEM_TM001] == moveId) {
+        u16 moveTmp;
+        u16 index = i + ITEM_HM01 - ITEM_TM001;
+        ReadFromNarcMemberByIdPair(&moveTmp, ARC_CODE_ADDONS, CODE_ADDON_MACHINE_MOVES, sizeof(u16) * (index), sizeof(u16));
+        if (moveTmp == moveId) {
 #if defined(REUSABLE_TMS) && defined(DELETABLE_HMS)
             return FALSE;
 #else
