@@ -948,7 +948,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_CRIT_UP_2:
-        if (ai->defenderMon.ability == ABILITY_SHELL_ARMOR || ai->defenderMon.ability == ABILITY_BATTLE_ARMOR || ctx->battlemon[ctx->defence_client].condition2 & STATUS2_FOCUS_ENERGY) {
+        if (ai->defenderMon.ability == ABILITY_SHELL_ARMOR || ai->defenderMon.ability == ABILITY_BATTLE_ARMOR || ctx->battlemon[ai->defender].condition2 & STATUS2_FOCUS_ENERGY) {
             moveScore -= NEVER_USE_MOVE_20;
         } else if (ai->attackerMon.ability == ABILITY_SUPER_LUCK || ai->attackerMon.ability == ABILITY_SNIPER || ai->attackerMon.item == ITEM_SCOPE_LENS) { // or hight crit moves
             moveScore += 7;

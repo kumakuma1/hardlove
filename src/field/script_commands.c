@@ -501,7 +501,7 @@ void LONG_CALL SetOverworldRequestFlags(OVERWORLD_REQUEST_FLAGS *req, u16 trg)
     if (trg & PAD_BUTTON_L) {
         req->ToggleRepel = TRUE;
     }
-    if (trg & PAD_BUTTON_R && GetScriptVar(0x40BF) == 0) {
+    if (trg & PAD_BUTTON_R && ((GetScriptVar(0x40BF) == 0) || CheckScriptFlag(CUSTOM_EASY_MODE))) {
         req->OpenPCCheck = TRUE;
     }
 }

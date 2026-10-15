@@ -559,7 +559,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     }
 
     // handle Punk Rock
-    if (attacker->ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(sp->current_move_index)) {
+    if (attacker->ability == ABILITY_PUNK_ROCK && IsMoveSoundBased(moveno)) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
     }
 

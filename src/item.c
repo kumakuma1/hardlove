@@ -192,8 +192,9 @@ u16 ItemToMachineMove(u16 itemId)
     return move;
 }
 
-BOOL MoveIsHM(u16 moveId)
+BOOL MoveIsHM(u16 moveId UNUSED)
 {
+    /*
     for (u8 i = 0; i < NUM_HMS; i++) {
         u16 moveTmp;
         u16 index = i + ITEM_HM01 - ITEM_TM001;
@@ -202,10 +203,11 @@ BOOL MoveIsHM(u16 moveId)
 #if defined(REUSABLE_TMS) && defined(DELETABLE_HMS)
             return FALSE;
 #else
-            return TRUE;
+            return FALSE;
 #endif
+
         }
-    }
+    }*/
     return FALSE;
 }
 

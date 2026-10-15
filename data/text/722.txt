@@ -166,7 +166,7 @@ Moves can be used\nregardless of Abilities.
 Protects against attacks\nthat limit move choices.
 Protects Grass-type allies\nfrom stat/status effects.
 Restores HP as well when\nthe Pokémon eats a Berry.
-It changes type to that\nof the move it’s about to use.
+Changes type to used\nmove once.
 Halves the damage from\nphysical moves.
 Steals the held item of\na Pokémon it hits.
 Protects the Pokémon from\nsome ball and bomb moves.
@@ -234,7 +234,7 @@ Reduces damage from\nsuper-effective attacks.
 Powers up moves that\nare super-effective.
 Boosts Attack when\nentering a battle.
 Boosts Defense when\nentering a battle.
-It changes type to that\nof the move it’s about to use.
+Changes type to used\nmove.
 Retrieves the first thrown\nPoké Ball if it failed.
 Scatters Speed-lowering\ncotton fluff when hit.
 This Pokémon’s\nmoves cannot be redirected.

@@ -1305,11 +1305,27 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
     BoxMonInit(boxmon);
 
     flag = BoxMonSetFastModeOn(boxmon);
+    u32 personality;
 
-    if (!rndflag) {
-        rnd = (gf_rand() | (gf_rand() << 16));
+    if (CheckScriptFlag(106) == 0) {
+        int nature = GetScriptVar(0x4005);
+
+        if (nature != 25) {
+            do {
+                personality = (u32)(gf_rand() | (gf_rand() << 16));
+            } while (nature != (u8)(personality % 25));
+        } else {
+            personality = gf_rand() | (gf_rand() << 16);
+            personality = rnd;
+        }
+    } else {
+        if (!rndflag) {
+            rnd = gf_rand() | (gf_rand() << 16);
+        }
+        personality = rnd;
     }
-    SetBoxMonData(boxmon, MON_DATA_PERSONALITY, (u8 *)&rnd);
+
+    SetBoxMonData(boxmon, MON_DATA_PERSONALITY, &personality);
 
     if (idflag == ID_NO_SHINY) {
         do {
