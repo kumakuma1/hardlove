@@ -86,8 +86,9 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 #ifdef DEBUG_AI_SCORING
     debug_printf("PostKo: position %d with score %d and highest damage hit percent %d\n", ai->postKoScoringPosition, ai->highestPostKoScoreFromParty, ai->highestDamageHitPrct);
 #endif // DEBUG_AI_SCORING
+    
+    speedCalc = AI_IsClient2Faster(ctx, &ai->defenderMon, &ai->attackerMon);
 
-    speedCalc = CalcSpeed(bsys, ctx, defender, attacker, CALCSPEED_FLAG_NO_PRIORITY); // checks actual turn order with field state considered
     // evaluates to 0 if ai->defender > attacker (false)
     // and 1 if ai->defender < attacker (true)
     // if speed tie, then 2.
@@ -96,14 +97,13 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         ai->playerMovesFirst = 1;
     } else {
         ai->aiMovesFirst = 1;
-        if (ctx->effectiveSpeed[attacker] == ctx->effectiveSpeed[defender]) {
+        if (speedCalc == 2) {
             ai->isSpeedTie = 1;
         }
     }
-    ai->attackerMon.speed = ctx->effectiveSpeed[attacker];
-    ai->defenderMon.speed = ctx->effectiveSpeed[defender];
+
 #ifdef DEBUG_AI_SCORING
-    debug_printf("SpeedCalc %d, defMovesFirst %d, atkSpeed %d, defSpeed %d\n", speedCalc, ai->playerMovesFirst, ai->attackerMon.speed, ai->defenderMon.speed);
+    debug_printf("SpeedCalc %d, playerMovesFirst %d, aiSpeed %d, playerSpeed %d\n", speedCalc, ai->playerMovesFirst, ai->attackerMon.speed, ai->defenderMon.speed);
 #endif
     ai->isDefenderIncapacitated = FALSE;
     if ((ai->defenderMon.condition & STATUS_SLEEP)

@@ -36,7 +36,7 @@ struct PACKED AI_sDamageCalc {
     u8 type2;
     u8 type3;
 
-    u32 speed;
+    int speed;
 
     u32 weight;
 
@@ -65,6 +65,9 @@ struct PACKED AI_sDamageCalc {
     u8 firstTurnOut : 1;
     u8 abilityActivated : 1;
 
+    u8 knockOffFlag : 1;
+    u8 padding : 7;
+
     u8 hiddenPowerType;
     u8 paradoxBoostedStat :4;
     u8 metronomeTurns : 4;
@@ -76,6 +79,7 @@ struct PACKED AIContext {
     struct AI_sDamageCalc attackerMon;
     struct AI_sDamageCalc defenderMon; //"player"
     struct AI_sDamageCalc aimonAlly;
+    int defenderAllySpeed;
 
     int highestPostKoScoreFromParty;
     int postKoScoringPosition;
@@ -174,12 +178,10 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
 int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker);
 int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int attacker, int *score, BOOL calcWithHighestDamageHit, int *highestDamageHitPrct);
 
-u8 LONG_CALL BattleAI_CalcSpeed(void *bw, struct BattleStruct *sp, int client1, struct PartyPokemon *partyMon, int flag, int* effectivePartyMonSpeed);
-
 int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u16 pow, u8 critical, u8 attackerSlot, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender);
 int LONG_CALL BattleAI_CalcDamage(void *bw, struct BattleStruct *sp, int moveno, u16 pow, u8 attackerSlot, u8 defenderSlot, struct AI_damage *damages, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender);
 
-void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, struct PartyPokemon *pp, int attackerPos UNUSED, int partyPos UNUSED);
+void LONG_CALL FillDamageStructFromPartyMon(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, struct PartyPokemon *pp, int attackerPos UNUSED, int partyPos UNUSED);
 
 void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int numSlot);
 
@@ -198,7 +200,7 @@ BOOL LONG_CALL BattlerKnowsThawingMove(struct BattleSystem *bsys, u32 battler, s
 
 BOOL LONG_CALL IsChoicedMoveConsidedUseless(u32 moveno, u8 split);
 
-BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct BattleSystem *bsys, u8 slot, BOOL isDoubleBattle);
+BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct AIContext *ai, struct AI_sDamageCalc *attacker);
 
 BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokemon *pp);
 
@@ -226,4 +228,10 @@ BOOL LONG_CALL BattlerKnowsFlinchingMove(struct BattleSystem *bsys, u32 battler,
 BOOL LONG_CALL BattlerKnowsMove(struct BattleSystem *bsys, u32 battler, u32 move, struct AIContext *ai UNUSED);
 BOOL LONG_CALL BattlerKnowsMoveWithEffect(struct BattleSystem *bsys, u32 battler, u32 moveEffect, struct AIContext *ai UNUSED);
 BOOL LONG_CALL IsUsedMoveEncouragedToEncore(struct BattleSystem *bsys UNUSED, u32 move, u32 moveEffect);
+
+
+
+
+int LONG_CALL BattleAI_CalcEffectiveSpeed(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int numSlot, BOOL inParty);
+u8 LONG_CALL AI_IsClient2Faster(struct BattleStruct *sp, struct AI_sDamageCalc *client1, struct AI_sDamageCalc *client2);
 #endif // !CUSTOM_AI_H

@@ -14,8 +14,6 @@
 #include "../../include/q412.h"
 #include "../../include/types.h"
 
-// this has been moved to src/battle/other_battle_calculators.c so it can be used
-
 
 int GetHiddenPowerType(u32 hp_iv, u32 atk_iv, u32 def_iv, u32 spe_iv, u32 spatk_iv, u32 spdef_iv)
 {
@@ -27,7 +25,7 @@ int GetHiddenPowerType(u32 hp_iv, u32 atk_iv, u32 def_iv, u32 spe_iv, u32 spatk_
     return type;
 }
 
-void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, struct PartyPokemon *pp, int attackerPos UNUSED, int partyPos UNUSED)
+void LONG_CALL FillDamageStructFromPartyMon(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, struct PartyPokemon *pp, int attackerPos UNUSED, int partyPos UNUSED)
 {
     monStruct->species = GetMonData(pp, MON_DATA_SPECIES, 0);
     monStruct->hp = GetMonData(pp, MON_DATA_HP, 0);
@@ -96,6 +94,7 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
     monStruct->attackerHasMoveFailureLastTurn = 0;
     monStruct->canBelch = 0;
     monStruct->abilityActivated = 0;
+    monStruct->knockOffFlag = 0;
 
     monStruct->paradoxBoostedStat = 0;
     if ((monStruct->ability == ABILITY_PROTOSYNTHESIS && ((sp->field_condition & FIELD_CONDITION_SUN_ALL) || monStruct->item == ITEM_BOOSTER_ENERGY))
@@ -103,6 +102,8 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw UNUSED, struct BattleStruct
     {
         monStruct->paradoxBoostedStat = BattleAI_GetHighestParadoxStat(monStruct->attack, monStruct->defense, monStruct->sp_attack, monStruct->sp_defense, monStruct->speed);
     }
+
+    monStruct->speed = BattleAI_CalcEffectiveSpeed(bw, sp, monStruct, attackerPos, TRUE);
 }
 
 void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int numSlot)
@@ -152,9 +153,7 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
         monStruct->defense = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_DEF, NULL);
         monStruct->sp_attack = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPATK, NULL);
         monStruct->sp_defense = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPDEF, NULL);
-        monStruct->speed = sp->effectiveSpeed[numSlot];
-        // BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPE, NULL);
-        // calcSpeed
+        monStruct->speed = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPE, NULL);
 
         monStruct->type1 = sp->battlemon[numSlot].type1;
         monStruct->type2 = sp->battlemon[numSlot].type2;
@@ -216,7 +215,10 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->attackerHasMoveFailureLastTurn = sp->moveConditionsFlags[numSlot].moveFailureLastTurn;
     monStruct->canBelch = sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, numSlot)][sp->sel_mons_no[numSlot]].berryEatenAndCanBelch;
     monStruct->abilityActivated = sp->battlemon[numSlot].ability_activated_flag;
+    monStruct->knockOffFlag = sp->battlemon[numSlot].moveeffect.knockOffFlag;
     monStruct->paradoxBoostedStat = sp->paradoxBoostedStat[numSlot];
+
+    monStruct->speed = BattleAI_CalcEffectiveSpeed(bw, sp, monStruct, numSlot, FALSE);
 }
 
 u8 LONG_CALL BattleAI_GetHighestParadoxStat(u8 atk, u8 def, u8 spatk, u8 spdef, u8 speed)
@@ -949,14 +951,14 @@ BOOL LONG_CALL IsChoicedMoveConsidedUseless(u32 moveno, u8 split)
     return isUseless;
 }
 
-BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct BattleSystem *bsys, u8 slot, BOOL isDoubleBattle)
+BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct AIContext *ai, struct AI_sDamageCalc *attacker)
 {
-    struct BattleStruct *ctx = bsys->sp;
+
     BOOL isSlower = FALSE;
-    if (ctx->effectiveSpeed[slot] < ctx->effectiveSpeed[BATTLER_OPPONENT(slot)]) {
+    if (attacker->speed < ai->defenderMon.speed) {
         isSlower = TRUE;
     }
-    if (isDoubleBattle && ctx->effectiveSpeed[slot] < ctx->effectiveSpeed[BATTLER_ACROSS(slot)]) {
+    if (ai->isDoubleBattle && attacker->speed < ai->defenderAllySpeed) {
         isSlower = TRUE;
     }
     return isSlower;

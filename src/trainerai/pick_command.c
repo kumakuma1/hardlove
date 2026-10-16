@@ -323,6 +323,7 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
         debug_printf("attacker(%d) ignores target %d.\n", attacker, defender);
 #endif // DEBUG_AI_SCORING
     }
+    aiOp2->defenderAllySpeed = aiOp1->defenderMon.speed;
 
     if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG)) {
         if (ctx->battlemon[defenderAcross].hp > 0 && !aiOp2->ignoreTarget) {
@@ -337,7 +338,7 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
         debug_printf("attacker(%d) ignores target %d.\n", attacker, defenderAcross);
 #endif // DEBUG_AI_SCORING
     }
-
+    aiOp1->defenderAllySpeed = aiOp2->defenderMon.speed;
 
     if (aiOp1->playerCanOneShotMonWithAnyMove) {
         aiOp2->anyPlayerMonCanOneShotMonWithAnyMove = TRUE;

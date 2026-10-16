@@ -126,7 +126,7 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
             case MOVE_HEAL_PULSE:
             case MOVE_POLLEN_PUFF:
             {
-                if (!IsBattleMonSlowerThanOpposition(bsys, attacker, ai->isDoubleBattle) && ai->aimonAlly.percenthp <= 50) {
+                if (!IsBattleMonSlowerThanOpposition(ai, &ai->attackerMon) && ai->aimonAlly.percenthp <= 50) {
                     moveScore += 7;
                 }
                 break;
@@ -1377,28 +1377,34 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_DOUBLE_SPEED_3_TURNS:
-        if (IsBattleMonSlowerThanOpposition(bsys, attacker, ai->isDoubleBattle)
-            || (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp > 0 && IsBattleMonSlowerThanOpposition(bsys, BATTLER_ALLY(attacker), ai->isDoubleBattle))) { // or partner is slower
+        if (ctx->tailwindCount[ai->attackerSide]) {
+            moveScore -= NEVER_USE_MOVE_20;
+            break;
+        }
+        if (IsBattleMonSlowerThanOpposition(ai, &ai->attackerMon)
+            || (ai->isDoubleBattle 
+                && ai->isAllyAlive
+                && IsBattleMonSlowerThanOpposition(ai, &ai->aimonAlly))) { // or partner is slower
             moveScore += 9;
         } else {
             moveScore += 5;
         }
-        if (ctx->tailwindCount[ai->attackerSide])
-        {
-            moveScore -= NEVER_USE_MOVE_20;
-        }
+
         break;
     case MOVE_EFFECT_TRICK_ROOM:
-        if (IsBattleMonSlowerThanOpposition(bsys, attacker, ai->isDoubleBattle)
-            || (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp > 0 && IsBattleMonSlowerThanOpposition(bsys, BATTLER_ALLY(attacker), ai->isDoubleBattle))) { // or partner is slower
+        if (ctx->field_condition & FIELD_CONDITION_TRICK_ROOM) {
+            moveScore -= NEVER_USE_MOVE_20;
+            break;
+        }
+        if (IsBattleMonSlowerThanOpposition(ai, &ai->attackerMon)
+            || (ai->isDoubleBattle 
+                && ai->isAllyAlive
+                && IsBattleMonSlowerThanOpposition(ai, &ai->aimonAlly))) { // or partner is slower
             moveScore += 10;
         } else {
             moveScore += 5;
         }
 
-        if (ctx->field_condition & FIELD_CONDITION_TRICK_ROOM) {
-            moveScore -= NEVER_USE_MOVE_20;
-        }
         break;
     case MOVE_EFFECT_APPLY_TERRAINS:
         if (ai->attackerMon.item == ITEM_TERRAIN_EXTENDER) {

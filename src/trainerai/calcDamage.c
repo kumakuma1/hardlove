@@ -514,7 +514,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
             if (defenderSlot == k && defender->isSwitching) {
                 continue;
             }
-            if (attacker->speed > sp->effectiveSpeed[k]) {
+            if (attacker->speed > (int)sp->effectiveSpeed[k]) {
                 break;
             }
         }
