@@ -37,6 +37,7 @@ int LONG_CALL BattleAI_CalcEffectiveSpeed(void *bw, struct BattleStruct *sp, str
         case ABILITY_FULL_METAL_BODY:
         case ABILITY_CLEAR_BODY:
         case ABILITY_WHITE_SMOKE:
+        case ABILITY_MIRROR_ARMOR:
             break;
         case ABILITY_CONTRARY:
             stat_stage_spd = stat_stage_spd + 1;

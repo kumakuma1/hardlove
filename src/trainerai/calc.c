@@ -13,6 +13,7 @@
 #include "../../include/pokemon.h"
 #include "../../include/q412.h"
 #include "../../include/types.h"
+#include "../../include/mega.h"
 
 
 int GetHiddenPowerType(u32 hp_iv, u32 atk_iv, u32 def_iv, u32 spe_iv, u32 spatk_iv, u32 spdef_iv)
@@ -106,7 +107,7 @@ void LONG_CALL FillDamageStructFromPartyMon(void *bw, struct BattleStruct *sp, s
     monStruct->speed = BattleAI_CalcEffectiveSpeed(bw, sp, monStruct, attackerPos, TRUE);
 }
 
-void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int numSlot)
+void LONG_CALL FillDamageStructFromBattleMon(struct BattleSystem *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int numSlot)
 {
     monStruct->species = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SPECIES, NULL);
     monStruct->hp = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_HP, NULL);
@@ -115,11 +116,18 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->item = GetBattleMonItem(sp, numSlot);
     monStruct->item_held_effect = BattleItemDataGet(sp, monStruct->item, 1);
     monStruct->item_power = BattleItemDataGet(sp, monStruct->item, 2);
-    /*
+    
     int megaForm = 0;
-    if (CheckCanMega(sp, numSlot))
+    BOOL canMega = FALSE; 
+    BOOL isPlayer = (numSlot == 0 || (numSlot == 2 && (bw->trainerId[numSlot] == 0)));
+    if (!isPlayer && (IS_ITEM_MEGA_STONE(monStruct->item))) {
+        
+        canMega = CheckMegaData(monStruct->species, monStruct->item, sp->battlemon[numSlot].form_no);
+    }
+    if (canMega)
     {
-        megaForm = GrabMegaTargetForm(monStruct->species, monStruct->item); //might crash
+        megaForm = GrabMegaTargetForm(monStruct->species, monStruct->item, sp->battlemon[numSlot].form_no); // might crash
+        debug_printf("mega form %d\n", megaForm);
     }
     if (megaForm) {
         void *pp2;
@@ -135,7 +143,6 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
         monStruct->attack = GetMonData(pp2, MON_DATA_ATTACK, NULL);
         monStruct->defense = GetMonData(pp2, MON_DATA_DEFENSE, NULL);
         monStruct->speed = GetMonData(pp2, MON_DATA_SPEED, NULL);
-        // calcSpeed
         monStruct->sp_attack = GetMonData(pp2, MON_DATA_SPECIAL_ATTACK, NULL);
         monStruct->sp_defense = GetMonData(pp2, MON_DATA_SPECIAL_DEFENSE, NULL);
 
@@ -143,9 +150,13 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
         monStruct->type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
         monStruct->type3 = TYPE_TYPELESS;
 
-        //weight
-    } else*/
-    {
+        monStruct->abilityActivated = 0;
+        monStruct->knockOffFlag = 0;
+        monStruct->canBelch = 0;
+
+        int weight = 1;
+        ReadFromNarcMemberByIdPair(&weight, ARC_DEX_LISTS, 1, PokeOtherFormMonsNoGet(monStruct->species, monStruct->form) * sizeof(s32), sizeof(s32));
+    } else {
         monStruct->form = sp->battlemon[numSlot].form_no;
         monStruct->ability = GetBattlerAbility(sp, numSlot);
 
@@ -159,16 +170,16 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
         monStruct->type2 = sp->battlemon[numSlot].type2;
         monStruct->type3 = sp->battlemon[numSlot].type3;
 
-        monStruct->weight = GetPokemonWeight(bw, sp, numSlot, numSlot);
-#ifdef DEBUG_AI_SCORING
-        debug_printf("species %d, weight: %d, form %d\n", monStruct->species, monStruct->weight, monStruct->form);
-#endif
-    }
+        monStruct->abilityActivated = sp->battlemon[numSlot].ability_activated_flag;
+        monStruct->knockOffFlag = sp->battlemon[numSlot].moveeffect.knockOffFlag;
+        monStruct->canBelch = sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, numSlot)][sp->sel_mons_no[numSlot]].berryEatenAndCanBelch;
 
+        monStruct->weight = GetPokemonWeight(bw, sp, numSlot, numSlot);
+    }
 
     monStruct->condition = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_MAX_CONDITION, NULL);
     monStruct->condition2 = sp->battlemon[numSlot].condition2;
-    monStruct->isGrounded = IsClientGrounded(sp, numSlot);
+    monStruct->isGrounded = AI_IsClientGrounded(sp, monStruct, numSlot);
     monStruct->firstTurnOut = (sp->total_turn == sp->battlemon[numSlot].moveeffect.fakeOutCount);
 
     monStruct->sex = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SEX, NULL);
@@ -185,8 +196,9 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->states[STAT_SPEED] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_SPE, NULL) - 6;
     monStruct->states[STAT_ACCURACY] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_ACCURACY, NULL) - 6;
     monStruct->states[STAT_EVASION] = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_STATE_EVASIVENESS, NULL) - 6;
+
 #ifdef DEBUG_AI_SCORING
-    debug_printf("States: %d atk, %d def, %d spatk, %d spdef, %d speed\n", monStruct->states[STAT_ATTACK], monStruct->states[STAT_DEFENSE], monStruct->states[STAT_SPECIAL_ATTACK], monStruct->states[STAT_SPECIAL_DEFENSE], monStruct->states[STAT_SPEED]);
+    debug_printf("species %d, Weight: %d, Form %d, States (%d %d %d %d %d)\n", monStruct->species, monStruct->weight, monStruct->form, monStruct->states[STAT_ATTACK], monStruct->states[STAT_DEFENSE], monStruct->states[STAT_SPECIAL_ATTACK], monStruct->states[STAT_SPECIAL_DEFENSE], monStruct->states[STAT_SPEED]);
 #endif
     monStruct->level = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_LEVEL, NULL);
 
@@ -196,10 +208,8 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     }
 
     monStruct->effect_of_moves = sp->battlemon[numSlot].effect_of_moves;
-    monStruct->flashFireActivated = FALSE;
-    if (sp->battlemon[numSlot].moveeffect.flashFire) {
-        monStruct->flashFireActivated = TRUE;
-    }
+    monStruct->flashFireActivated = sp->battlemon[numSlot].moveeffect.flashFire; //TODO check
+
     monStruct->hiddenPowerType = GetHiddenPowerType(
         sp->battlemon[numSlot].hp_iv,
         sp->battlemon[numSlot].atk_iv,
@@ -213,9 +223,7 @@ void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, 
     monStruct->metronomeTurns = sp->battlemon[numSlot].moveeffect.metronomeTurns;
     monStruct->lastResortCount = sp->battlemon[numSlot].moveeffect.lastResortCount;
     monStruct->attackerHasMoveFailureLastTurn = sp->moveConditionsFlags[numSlot].moveFailureLastTurn;
-    monStruct->canBelch = sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, numSlot)][sp->sel_mons_no[numSlot]].berryEatenAndCanBelch;
-    monStruct->abilityActivated = sp->battlemon[numSlot].ability_activated_flag;
-    monStruct->knockOffFlag = sp->battlemon[numSlot].moveeffect.knockOffFlag;
+   
     monStruct->paradoxBoostedStat = sp->paradoxBoostedStat[numSlot];
 
     monStruct->speed = BattleAI_CalcEffectiveSpeed(bw, sp, monStruct, numSlot, FALSE);
@@ -1127,5 +1135,25 @@ BOOL LONG_CALL AI_MonHasType(struct AI_sDamageCalc *mon, int type)
     if (mon->type1 == type || mon->type2 == type || mon->type3 == type) {
         return TRUE;
     }
+    return FALSE;
+}
+
+
+BOOL LONG_CALL AI_IsClientGrounded(struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int client_no)
+{
+    if ((monStruct->ability != ABILITY_LEVITATE
+            && monStruct->ability != ABILITY_EELEVATE
+            && monStruct->item_held_effect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
+            && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && !AI_MonHasType(monStruct, TYPE_FLYING))
+        || (monStruct->item_held_effect == HOLD_EFFECT_SPEED_DOWN_GROUNDED // holding Iron Ball
+            || (monStruct->effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
+            || (sp->field_condition & FIELD_CONDITION_GRAVITY)
+            || (sp->moveConditionsFlags[client_no].grounded == TRUE))) {
+        // not in a semi-vulnerable state
+        if ((monStruct->effect_of_moves & (MOVE_EFFECT_FLAG_FLY | MOVE_EFFECT_FLAG_DIG | MOVE_EFFECT_FLAG_DIVE | MOVE_EFFECT_FLAG_PHANTOM_FORCE)) == 0) {
+            return TRUE;
+        }
+    }
+
     return FALSE;
 }

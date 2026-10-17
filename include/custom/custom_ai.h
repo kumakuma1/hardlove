@@ -183,7 +183,7 @@ int LONG_CALL BattleAI_CalcDamage(void *bw, struct BattleStruct *sp, int moveno,
 
 void LONG_CALL FillDamageStructFromPartyMon(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, struct PartyPokemon *pp, int attackerPos UNUSED, int partyPos UNUSED);
 
-void LONG_CALL FillDamageStructFromBattleMon(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int numSlot);
+void LONG_CALL FillDamageStructFromBattleMon(struct BattleSystem *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int numSlot);
 
 BOOL LONG_CALL IsMoveBoostedBySheerForce(u32 moveno, u32 moveeffect);
 int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, int moveno, int move_type, u8 attackerSlot, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender);
@@ -234,4 +234,5 @@ BOOL LONG_CALL IsUsedMoveEncouragedToEncore(struct BattleSystem *bsys UNUSED, u3
 
 int LONG_CALL BattleAI_CalcEffectiveSpeed(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int numSlot, BOOL inParty);
 u8 LONG_CALL AI_IsClient2Faster(struct BattleStruct *sp, struct AI_sDamageCalc *client1, struct AI_sDamageCalc *client2);
+BOOL LONG_CALL AI_IsClientGrounded(struct BattleStruct *sp, struct AI_sDamageCalc *monStruct, int client);
 #endif // !CUSTOM_AI_H
