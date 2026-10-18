@@ -168,7 +168,7 @@ struct PACKED AI_damage {
     u32 moveEffectiveness;
 };
 
-void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *ai);
+void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *ai, struct AI_sDamageCalc battlerMons[4]);
 
 
 int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext *ai);

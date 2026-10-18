@@ -14,7 +14,7 @@
 u8 LONG_CALL FindTargets(struct BattleStruct *ctx, u8 attacker, int targets[4], int moveScores[4][4], int damages[4][4], int highestScoredMove);
 u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, int moveScores[4][4], int highestScoredMove);
 BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *ai);
-void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *aiOp1, struct AIContext *aiOp2, struct AI_turnState *turnState);
+void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *aiOp1, struct AIContext *aiOp2, struct AI_turnState *turnState, struct AI_sDamageCalc battlerMons[4]);
 int LONG_CALL OverrideWrongTargetForMove(int move, u8 target, int attacker);
 
 int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
@@ -48,6 +48,13 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     u8 ally = BATTLER_ALLY(attacker);
     u8 defender = BATTLER_OPPONENT(attacker);
 
+    struct AI_sDamageCalc battlerMons[4] = { 0 };
+    int battlerCount = BattleWorkClientSetMaxGet(bsys);
+    for (int i = 0; i < battlerCount; i++) {
+        if (ctx->battlemon[i].hp) {
+            FillDamageStructFromBattleMon(bsys, ctx, &battlerMons[i], i);
+        }
+    }
 
 #ifdef DEBUG_AI_SCORING
     if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG)) {
@@ -71,14 +78,15 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
         && !isTagPartner)
     {
         canDivert = TRUE;
-        int speedCalc = CalcSpeed(bsys, ctx, attacker, ally, CALCSPEED_FLAG_NO_PRIORITY);
+        // mega speed
+        u8 speedCalc = AI_IsClient2Faster(ctx, &battlerMons[attacker], &battlerMons[ally]);
         if (speedCalc != 0) {
             int swap = ally;
             ally = attacker;
             attacker = swap;
             defender = BATTLER_OPPONENT(attacker);
 #ifdef DEBUG_AI_SCORING
-            debug_printf("swapping attacker(%d) and ally(%d): %d < %d\n", attacker, ally, ctx->effectiveSpeed[ally], ctx->effectiveSpeed[attacker]);
+            debug_printf("swapping attacker(%d) and ally(%d): %d < %d\n", attacker, ally, battlerMons[ally].speed, battlerMons[attacker].speed);
 #endif // DEBUG_AI_SCORING
         }
     }
@@ -89,7 +97,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     struct AIContext *aiAlly2 = &aiContext[ally][1];
     struct AI_turnState *turnState = &turnStateStruct[attacker];
 
-    CalcTurnStateDamagesAndScores(bsys, attacker, defender, ai1, ai2, turnState);
+    CalcTurnStateDamagesAndScores(bsys, attacker, defender, ai1, ai2, turnState, battlerMons);
 
     u8 attackerTargetSize = FindTargets(ctx, attacker, targets, turnState->moveScores, turnState->damages, turnState->highestScoredMove);
     u8 target = targets[(BattleRand(bsys) % attackerTargetSize)];
@@ -122,7 +130,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
         u8 defenderAlly = BATTLER_OPPONENT(ally);
        
         struct AI_turnState *turnStateAlly = &turnStateStruct[ally];
-        CalcTurnStateDamagesAndScores(bsys, ally, defenderAlly, aiAlly1, aiAlly2, turnStateAlly);
+        CalcTurnStateDamagesAndScores(bsys, ally, defenderAlly, aiAlly1, aiAlly2, turnStateAlly, battlerMons);
 
         u8 allyTargetSize = FindTargets(ctx, ally, targetsAlly, turnStateAlly->moveScores, turnStateAlly->damages, turnStateAlly->highestScoredMove);
         allyTarget = targetsAlly[(BattleRand(bsys) % allyTargetSize)];
@@ -305,13 +313,13 @@ BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defe
     return FALSE;
 }
 
-void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *aiOp1, struct AIContext *aiOp2, struct AI_turnState *turnState)
+void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *aiOp1, struct AIContext *aiOp2, struct AI_turnState *turnState, struct AI_sDamageCalc battlerMons[4])
 {
     struct BattleStruct *ctx = bsys->sp;
     u32 ally = BATTLER_ALLY(attacker);
     u32 defenderAcross = BATTLER_ACROSS(attacker);
     if (ctx->battlemon[defender].hp > 0 && !aiOp1->ignoreTarget) {
-        SetupStateVariables(bsys, attacker, defender, aiOp1);
+        SetupStateVariables(bsys, attacker, defender, aiOp1, battlerMons);
         for (u8 i = 0; i < 4; i++) {
             turnState->damages[defender][i] = aiOp1->attackerRolledMoveDamages[i];
         }
@@ -327,7 +335,7 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
 
     if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG)) {
         if (ctx->battlemon[defenderAcross].hp > 0 && !aiOp2->ignoreTarget) {
-            SetupStateVariables(bsys, attacker, defenderAcross, aiOp2);
+            SetupStateVariables(bsys, attacker, defenderAcross, aiOp2, battlerMons);
             for (u8 i = 0; i < 4; i++) {
                 turnState->damages[defenderAcross][i] = aiOp2->attackerRolledMoveDamages[i];
             }

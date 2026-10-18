@@ -14,13 +14,13 @@
 #include "../../include/q412.h"
 #include "../../include/types.h"
 
-void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *ai)
+void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *ai, struct AI_sDamageCalc battlerMons[4])
 {
     struct BattleStruct *ctx = bsys->sp;
     u8 speedCalc;
 
-    FillDamageStructFromBattleMon(bsys, ctx, &ai->attackerMon, attacker);
-    FillDamageStructFromBattleMon(bsys, ctx, &ai->defenderMon, defender);
+    ai->attackerMon = battlerMons[attacker];
+    ai->defenderMon = battlerMons[defender];
     ai->attackerMon.partnerMoveNo = ai->partnerMoveNo;
 
     ai->isDoubleBattle = FALSE;
@@ -30,7 +30,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->isAllyAlive = FALSE;
     if (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp) {
         ai->isAllyAlive = TRUE;
-        FillDamageStructFromBattleMon(bsys, ctx, &ai->aimonAlly, BATTLER_ALLY(attacker));
+        ai->aimonAlly = battlerMons[BATTLER_ALLY(attacker)];
     }
 
     ai->attacker = attacker;

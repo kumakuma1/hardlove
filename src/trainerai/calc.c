@@ -130,9 +130,9 @@ void LONG_CALL FillDamageStructFromBattleMon(struct BattleSystem *bw, struct Bat
         debug_printf("mega form %d\n", megaForm);
     }
     if (megaForm) {
-        void *pp2;
-
-        pp2 = BattleWorkPokemonParamGet(bw, numSlot, sp->sel_mons_no[numSlot]);
+        // we need a copy to not touch the real party mon
+        struct PartyPokemon *pp2 = AllocMonZeroed(5);
+        PokeCopyPPtoPP(BattleWorkPokemonParamGet(bw, numSlot, sp->sel_mons_no[numSlot]), pp2);
         SetMonData(pp2, MON_DATA_FORM, &megaForm);
 
         RecalcPartyPokemonStats(pp2);
@@ -150,12 +150,15 @@ void LONG_CALL FillDamageStructFromBattleMon(struct BattleSystem *bw, struct Bat
         monStruct->type2 = GetMonData(pp2, MON_DATA_TYPE_2, NULL);
         monStruct->type3 = TYPE_TYPELESS;
 
+        sys_FreeMemoryEz(pp2);
+
         monStruct->abilityActivated = 0;
         monStruct->knockOffFlag = 0;
         monStruct->canBelch = 0;
 
         int weight = 1;
         ReadFromNarcMemberByIdPair(&weight, ARC_DEX_LISTS, 1, PokeOtherFormMonsNoGet(monStruct->species, monStruct->form) * sizeof(s32), sizeof(s32));
+        monStruct->weight = weight;
     } else {
         monStruct->form = sp->battlemon[numSlot].form_no;
         monStruct->ability = GetBattlerAbility(sp, numSlot);
