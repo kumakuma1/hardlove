@@ -1097,7 +1097,6 @@ struct BattleStruct {
     u8 gemBoostingMovePadding : 3;
 
     int currentMoveSwitchStatus;
-    u8 ejectPackActivated;
 
     MoveConditionsFlags moveConditionsFlags[CLIENT_MAX];
     u8 paradoxBoostedStat[CLIENT_MAX];

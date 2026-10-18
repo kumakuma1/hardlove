@@ -122,7 +122,6 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         ctx->moveStatusFlagForSpreadMoves2[i] = 0;
         ctx->damageForSpreadMoves[i] = 0;
         ctx->store_damage[i] = 0;
-        ctx->moveConditionsFlags[i].anyStatLoweredThisMoveExecution = FALSE;
     }
     ctx->clientLoopForSpreadMoves = 0;
     ctx->movePerformanceSubstep = 0;
