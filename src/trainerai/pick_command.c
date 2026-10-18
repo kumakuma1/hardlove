@@ -368,7 +368,9 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
             }
         }
 
-        highestScoredMoveAcross = ScoreMovesAgainstAlly(bsys, attacker, ally, turnState->moveScores, aiOp1);
+        // aiOp1 is only set up if its target is alive and not ignored, so fall back to aiOp2
+        struct AIContext *aiForAlly = aiOp1->isDoubleBattle ? aiOp1 : aiOp2;
+        highestScoredMoveAcross = ScoreMovesAgainstAlly(bsys, attacker, ally, turnState->moveScores, aiForAlly);
         if (highestScoredMoveAcross > turnState->highestScoredMove) {
             turnState->highestScoredMove = highestScoredMoveAcross;
         }

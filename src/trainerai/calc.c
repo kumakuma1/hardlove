@@ -182,6 +182,7 @@ void LONG_CALL FillDamageStructFromBattleMon(struct BattleSystem *bw, struct Bat
 
     monStruct->condition = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_MAX_CONDITION, NULL);
     monStruct->condition2 = sp->battlemon[numSlot].condition2;
+    monStruct->effect_of_moves = sp->battlemon[numSlot].effect_of_moves;
     monStruct->isGrounded = AI_IsClientGrounded(sp, monStruct, numSlot);
     monStruct->firstTurnOut = (sp->total_turn == sp->battlemon[numSlot].moveeffect.fakeOutCount);
 
@@ -210,7 +211,6 @@ void LONG_CALL FillDamageStructFromBattleMon(struct BattleSystem *bw, struct Bat
         monStruct->hasMoldBreaker = TRUE;
     }
 
-    monStruct->effect_of_moves = sp->battlemon[numSlot].effect_of_moves;
     monStruct->flashFireActivated = sp->battlemon[numSlot].moveeffect.flashFire; //TODO check
 
     monStruct->hiddenPowerType = GetHiddenPowerType(
@@ -276,14 +276,17 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
     BOOL hasPranksterPriority = HasMovePranksterPriority(bw, attackerSlot, moveno, attacker->ability, defenderSlot);
     BOOL moveHasPriority = hasPranksterPriority || (sp->moveTbl[moveno].priority > 0);
 
-    if (hasPranksterPriority && HasType(sp, defenderSlot, TYPE_DARK)) {
+    if (hasPranksterPriority && AI_MonHasType(defender, TYPE_DARK)) {
         return TYPE_MUL_NO_EFFECT;
     }
 
     if (IsMoveBlockedByAbility(attacker, defender, move_type, moveno, moveHasPriority)) {
         return TYPE_MUL_NO_EFFECT;
     }
-    if (IsPowderMove(moveno) && (defender->item == ITEM_SAFETY_GOGGLES || AI_MonHasType(attacker, TYPE_GRASS))) {
+    if (IsPowderMove(moveno)
+        && (defender->item == ITEM_SAFETY_GOGGLES
+            || AI_MonHasType(defender, TYPE_GRASS)
+            || (defender->ability == ABILITY_OVERCOAT && !attacker->hasMoldBreaker))) {
         return TYPE_MUL_NO_EFFECT;
     }
 
@@ -919,6 +922,12 @@ BOOL LONG_CALL CanAttackerOneShotDefender(u32 attackerDamage, u8 split, u32 move
         canOneShot = FALSE;
     }
 
+   /* // intact Disguise (Mimikyu / Mimikyu-Large) takes the hit
+    if (!attacker->hasMoldBreaker && defender->ability == ABILITY_DISGUISE && defender->species == SPECIES_MIMIKYU
+        && (defender->form == 0 || defender->form == 2) && !(defender->condition2 & STATUS2_TRANSFORM)) {
+        canOneShot = FALSE;
+    }
+    */
     return canOneShot;
 }
 
@@ -962,14 +971,15 @@ BOOL LONG_CALL IsChoicedMoveConsidedUseless(u32 moveno, u8 split)
     return isUseless;
 }
 
-BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct AIContext *ai, struct AI_sDamageCalc *attacker)
-{
 
+BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct BattleStruct *ctx, struct AIContext *ai, struct AI_sDamageCalc *attacker)
+{
+    BOOL isTrickRoom = (ctx->field_condition & FIELD_CONDITION_TRICK_ROOM) != 0;
     BOOL isSlower = FALSE;
-    if (attacker->speed < ai->defenderMon.speed) {
+    if (isTrickRoom ? (attacker->speed > ai->defenderMon.speed) : (attacker->speed < ai->defenderMon.speed)) {
         isSlower = TRUE;
     }
-    if (ai->isDoubleBattle && attacker->speed < ai->defenderAllySpeed) {
+    if (ai->isDoubleBattle && (isTrickRoom ? (attacker->speed > ai->defenderAllySpeed) : (attacker->speed < ai->defenderAllySpeed))) {
         isSlower = TRUE;
     }
     return isSlower;

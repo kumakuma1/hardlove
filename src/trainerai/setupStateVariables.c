@@ -48,10 +48,6 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->maxDamageReceived = 0;
     ai->attackerRolledMaxDamage = 0;
 
-    ai->partnerMoveNo = 0;
-    ai->partnerClicksAttackingMove = FALSE;
-    ai->ignoreTarget = FALSE;
-
     ai->defenderKnowsThawingMove = BattlerKnowsThawingMove(bsys, ai->defender, ai);
 
     ai->isPartnerGrounded = FALSE;
@@ -116,7 +112,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->defenderAllyHasMagicBounce = FALSE;
     if (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(defender)].hp 
         && ctx->battlemon[BATTLER_ALLY(defender)].ability == ABILITY_MAGIC_BOUNCE && !ai->attackerMon.hasMoldBreaker) {
-        ai->defenderAllyHasMagicBounce = FALSE;
+        ai->defenderAllyHasMagicBounce = TRUE;
     }
 
     ai->defenderHasMagicBounce = FALSE;

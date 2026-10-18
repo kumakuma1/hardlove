@@ -200,7 +200,7 @@ BOOL LONG_CALL BattlerKnowsThawingMove(struct BattleSystem *bsys, u32 battler, s
 
 BOOL LONG_CALL IsChoicedMoveConsidedUseless(u32 moveno, u8 split);
 
-BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct AIContext *ai, struct AI_sDamageCalc *attacker);
+BOOL LONG_CALL IsBattleMonSlowerThanOpposition(struct BattleStruct *ctx, struct AIContext *ai, struct AI_sDamageCalc *attacker);
 
 BOOL LONG_CALL IsPartyPokemonGrounded(struct BattleStruct *sp, struct PartyPokemon *pp);
 

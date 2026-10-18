@@ -23,7 +23,7 @@ int LONG_CALL BattlerPositiveStatChangesSum(struct BattleSystem *bsys, u32 battl
 
     for (int stat = 0; stat < STAT_MAX; stat++) {
         if (ctx->battlemon[battler].states[stat] > 6) {
-            statSum += ctx->battlemon[battler].states[stat];
+            statSum += ctx->battlemon[battler].states[stat] - 6; // stages are stored with 6 as neutral
         }
     }
     return statSum;
@@ -96,7 +96,6 @@ BOOL LONG_CALL BattlerKnowsFlinchingMove(struct BattleSystem *bsys, u32 battler,
         case MOVE_ICE_FANG:
         case MOVE_ICICLE_CRASH:
         case MOVE_IRON_HEAD:
-        case MOVE_LOW_KICK:
         case MOVE_MOUNTAIN_GALE:
         case MOVE_NEEDLE_ARM:
         case MOVE_ROCK_SLIDE:

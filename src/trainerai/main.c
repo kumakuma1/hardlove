@@ -69,7 +69,7 @@ int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker,
         if (attackerMove != MOVE_NONE)
         {
             int itemEffect = HeldItemHoldEffectGet(ctx, attacker);
-            if (attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove
+            if ((ctx->battlemon[attacker].moveeffect.encoredTurns > 0 && attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove)
                 || (attackerMove == ctx->battlemon[attacker].moveeffect.moveNoChoice
                     && (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK))) // if the attacker has a move that is forced, use it
             {
@@ -126,7 +126,7 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
             case MOVE_HEAL_PULSE:
             case MOVE_POLLEN_PUFF:
             {
-                if (!IsBattleMonSlowerThanOpposition(ai, &ai->attackerMon) && ai->aimonAlly.percenthp <= 50) {
+                if (!IsBattleMonSlowerThanOpposition(ctx, ai, &ai->attackerMon) && ai->aimonAlly.percenthp <= 50) {
                     moveScore += 7;
                 }
                 break;
@@ -1035,19 +1035,20 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         moveScore += OffensiveSetup(bsys, attacker, i, ai);
         break;
     case MOVE_EFFECT_GROUND_TRAP_USER_CONTINUOUS_HEAL: // Ingrain
-        moveScore += 6;
         if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) {
             moveScore -= IMPOSSIBLE_MOVE;
             break;
         }
-        FALLTHROUGH;
-    case MOVE_EFFECT_RESTORE_HP_EVERY_TURN: // Aqua Ring
         moveScore += 6;
+        break;
+    case MOVE_EFFECT_RESTORE_HP_EVERY_TURN: // Aqua Ring
+        
         if (ctx->battlemon[attacker].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING) {
             moveScore -= IMPOSSIBLE_MOVE;
             break;
         }
-        FALLTHROUGH;
+        moveScore += 6;
+        break;
     case MOVE_EFFECT_DEF_UP: // harden
     case MOVE_EFFECT_DEF_UP_2: // iron defense
     case MOVE_EFFECT_DEF_UP_3: // cotton guard
@@ -1185,7 +1186,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
 
     switch (ai->attackerMoveEffect) {
     case MOVE_EFFECT_DISABLE:
-        if (ctx->battlemon[attacker].moveeffect.disabledTurns) {
+        if (ctx->battlemon[ai->defender].moveeffect.disabledTurns) {
             moveScore -= NEVER_USE_MOVE_20;
             break;
         }
@@ -1381,10 +1382,10 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore -= NEVER_USE_MOVE_20;
             break;
         }
-        if (IsBattleMonSlowerThanOpposition(ai, &ai->attackerMon)
+        if (IsBattleMonSlowerThanOpposition(ctx, ai, &ai->attackerMon)
             || (ai->isDoubleBattle 
                 && ai->isAllyAlive
-                && IsBattleMonSlowerThanOpposition(ai, &ai->aimonAlly))) { // or partner is slower
+                && IsBattleMonSlowerThanOpposition(ctx, ai, &ai->aimonAlly))) { // or partner is slower
             moveScore += 9;
         } else {
             moveScore += 5;
@@ -1396,10 +1397,10 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore -= NEVER_USE_MOVE_20;
             break;
         }
-        if (IsBattleMonSlowerThanOpposition(ai, &ai->attackerMon)
+        if (IsBattleMonSlowerThanOpposition(ctx, ai, &ai->attackerMon)
             || (ai->isDoubleBattle 
                 && ai->isAllyAlive
-                && IsBattleMonSlowerThanOpposition(ai, &ai->aimonAlly))) { // or partner is slower
+                && IsBattleMonSlowerThanOpposition(ctx, ai, &ai->aimonAlly))) { // or partner is slower
             moveScore += 10;
         } else {
             moveScore += 5;
@@ -1607,7 +1608,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         if (ctx->battlemon[ai->defender].condition2 & STATUS2_ATTRACT
             || (!ai->attackerMon.hasMoldBreaker && ai->defenderMon.ability == ABILITY_OBLIVIOUS)
 #ifndef ATTRACT_WORK_ON_ALL_SEXES
-            || ai->attackerMon.sex != POKEMON_GENDER_UNKNOWN
+            || ai->attackerMon.sex == POKEMON_GENDER_UNKNOWN
+            || ai->defenderMon.sex == POKEMON_GENDER_UNKNOWN
             || ai->attackerMon.sex == ai->defenderMon.sex
 #endif // !ATTRACT_WORK_ON_ALL_SEXES
         )

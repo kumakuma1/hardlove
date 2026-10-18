@@ -271,31 +271,19 @@ u8 LONG_CALL AI_IsClient2Faster(struct BattleStruct *sp, struct AI_sDamageCalc *
 
     // End of calculating Speed Modifiers
 
-    if (client1->item_held_effect == HOLD_EFFECT_PRIORITY_DOWN) {
-        move_last1 = 1;
+    // if both mons have the same one the slower mon moves first
+    move_last1 = (client1->item_held_effect == HOLD_EFFECT_PRIORITY_DOWN);
+    move_last2 = (client2->item_held_effect == HOLD_EFFECT_PRIORITY_DOWN);
+    if (move_last1 == move_last2 && move_last1 == 0) {
+        move_last1 = (client1->ability == ABILITY_STALL);
+        move_last2 = (client2->ability == ABILITY_STALL);
     }
 
-    if (client2->item_held_effect == HOLD_EFFECT_PRIORITY_DOWN) {
-        move_last2 = 1;
-    }
-
-    if (client1->ability == ABILITY_STALL) {
-        move_last1++;
-    }
-
-    if (client2->ability == ABILITY_STALL) {
-        move_last2++;
-    }
-
-    if (move_last1 == move_last2 && move_last1 == 0) //no Stall or Laggin Tail
-    {
-        if (speed1 > speed2) {
+    if (move_last1 != move_last2) {
+        if (move_last1 < move_last2) {
             return 0;
         }
-        if (speed1 == speed2) {
-            return 2;
-        }
-    } else if (move_last1 == move_last2 && move_last1 > 0) {
+    } else if (move_last1) {
         if (speed1 < speed2) {
             return 0;
         }
@@ -303,8 +291,11 @@ u8 LONG_CALL AI_IsClient2Faster(struct BattleStruct *sp, struct AI_sDamageCalc *
             return 2;
         }
     } else {
-        if (move_last1 < move_last2) {
+        if (speed1 > speed2) {
             return 0;
+        }
+        if (speed1 == speed2) {
+            return 2;
         }
     }
 
