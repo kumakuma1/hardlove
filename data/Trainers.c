@@ -16163,8 +16163,16 @@ const TrainerData sTrainerData[] = {
         },
         .text = {
             {
+                .type = TRMSG_INTRO,
+                .text = "You little weasel!\\nYou snuffed around enough!\\fI will end the snuffing!\\r",
+            },
+            {
                 .type = TRMSG_LOSE,
-                .text = "Oh, no! They’re so useless!\\n",
+                .text = "I got snuffed!\\n",
+            },
+            {
+                .type = TRMSG_AFTER,
+                .text = "Am I useless?\\n",
             },
         },
     },

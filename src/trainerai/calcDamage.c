@@ -572,7 +572,8 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
     }
 
-    if (isDoubleBattle) {
+    // ally abilities only work while the ally is alive
+    if (isDoubleBattle && sp->battlemon[BATTLER_ALLY(attackerSlot)].hp) {
         // handle Power Spot
         if (GetBattlerAbility(sp, BATTLER_ALLY(attackerSlot)) == ABILITY_POWER_SPOT) {
             basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
@@ -802,7 +803,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         if (attacker->ability == ABILITY_SOLAR_POWER && movesplit == SPLIT_SPECIAL) {
             attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
         }
-        if ((attacker->ability == ABILITY_FLOWER_GIFT || (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(attackerSlot)) == ABILITY_FLOWER_GIFT))
+        if ((attacker->ability == ABILITY_FLOWER_GIFT || (isDoubleBattle && sp->battlemon[BATTLER_ALLY(attackerSlot)].hp && GetBattlerAbility(sp, BATTLER_ALLY(attackerSlot)) == ABILITY_FLOWER_GIFT))
             && (movesplit == SPLIT_PHYSICAL)) {
             attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
         }
@@ -1090,7 +1091,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     // handle weather boosts
     if ((weatherAttacker & FIELD_CONDITION_SUN_ALL) && defensiveSplit == SPLIT_SPECIAL) {
         if ((!attackerHasMoldBreaker && defender->ability == ABILITY_FLOWER_GIFT)
-            || (isDoubleBattle && GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot)) == ABILITY_FLOWER_GIFT)) {
+            || (isDoubleBattle && sp->battlemon[BATTLER_ALLY(defenderSlot)].hp && GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot)) == ABILITY_FLOWER_GIFT)) {
             defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
         }
     }
@@ -1270,8 +1271,16 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         return 0;
     }
 
-    if (movetype == TYPE_GROUND && !defender->isGrounded) { // Levitate/Earth Eater vs MoldBreaker is checked above
-        return 0;
+    if (movetype == TYPE_GROUND && !defender->isGrounded) {
+        // Mold Breaker ignores Levitate, so the move still hits if grounded by iron ball etc
+        BOOL airborneOnlyByAbility = attackerHasMoldBreaker
+            && (defender->ability == ABILITY_LEVITATE || defender->ability == ABILITY_EELEVATE)
+            && defender->item_held_effect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT
+            && sp->battlemon[defenderSlot].moveeffect.magnetRiseTurns == 0
+            && !AI_MonHasType(defender, TYPE_FLYING);
+        if (!airborneOnlyByAbility) {
+            return 0;
+        }
     }
     if (moveno == MOVE_DREAM_EATER && (defender->condition & STATUS_SLEEP) == 0) {
         return 0;
@@ -1604,7 +1613,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     }
 
     // 6.9.14.2 Dig
-    if ((defender->effect_of_moves & MOVE_EFFECT_FLAG_DIG) && (moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE) {
+    if ((defender->effect_of_moves & MOVE_EFFECT_FLAG_DIG) && (moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE)) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
@@ -1706,7 +1715,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     }
 
     // 6.9.7 Friend Guard
-    if (isDoubleBattle && !attackerHasMoldBreaker && GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot)) == ABILITY_FRIEND_GUARD) {
+    if (isDoubleBattle && !attackerHasMoldBreaker && sp->battlemon[BATTLER_ALLY(defenderSlot)].hp && GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot)) == ABILITY_FRIEND_GUARD) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__0_75);
     }
 

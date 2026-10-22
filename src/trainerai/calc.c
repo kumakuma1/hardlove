@@ -1112,8 +1112,13 @@ BOOL LONG_CALL IsMoveBlockedByAbility(struct AI_sDamageCalc *attacker, struct AI
             }
             break;
         case ABILITY_LEVITATE:
-        case ABILITY_EARTH_EATER:
         case ABILITY_EELEVATE:
+            // Gravity, Iron Ball, Smack Down etc
+            if (movetype == TYPE_GROUND && !defender->isGrounded) {
+                return TRUE;
+            }
+            break;
+        case ABILITY_EARTH_EATER:
             if (movetype == TYPE_GROUND) {
                 return TRUE;
             }

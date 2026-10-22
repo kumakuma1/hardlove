@@ -215,7 +215,10 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         u32 defenderMoveno = ctx->battlemon[defender].move[k];
         struct BattleMove defenderMove = ctx->moveTbl[defenderMoveno];
 
-        if (defenderMove.split != SPLIT_STATUS && defenderMove.power && IsMoveUsable(ctx, defender, defenderMoveno, ai->defenderLastUsedMove, defenderMove.split, k)) {
+        if (defenderMove.split != SPLIT_STATUS) {
+            ai->defenderHasAtleastOneStatusMove = TRUE;
+        }
+        else if (defenderMove.split != SPLIT_STATUS && defenderMove.power && IsMoveUsable(ctx, defender, defenderMoveno, ai->defenderLastUsedMove, defenderMove.split, k)) {
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, defenderMoveno, defenderMove.power, defender, attacker, &damages, &ai->defenderMon, &ai->attackerMon);
             damages.damageRoll = damages.damageRange[15]; // max Damage
 
@@ -251,8 +254,6 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 #ifdef DEBUG_AI_SCORING
             debug_printf("Receiving from move %d: %3d is [%4d-%4d], roll %4d > att.HP %d\n", k, defenderMoveno, damages.damageRange[0], damages.damageRange[15], damages.damageRoll, ai->attackerMon.hp);
 #endif  
-        } else {
-            ai->defenderHasAtleastOneStatusMove = TRUE;
         }
     }
 
