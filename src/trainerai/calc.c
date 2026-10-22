@@ -280,7 +280,7 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
         return TYPE_MUL_NO_EFFECT;
     }
 
-    if (IsMoveBlockedByAbility(attacker, defender, move_type, moveno, moveHasPriority)) {
+    if (IsMoveBlockedByAbility(sp, defenderSlot, attacker, defender, move_type, moveno, moveHasPriority)) {
         return TYPE_MUL_NO_EFFECT;
     }
     if (IsPowderMove(moveno)
@@ -1082,7 +1082,7 @@ BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attac
     return hasPriority;
 }
 
-BOOL LONG_CALL IsMoveBlockedByAbility(struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender, int movetype, int moveno, BOOL moveHasPriority)
+BOOL LONG_CALL IsMoveBlockedByAbility(struct BattleStruct *sp, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender, int movetype, int moveno, BOOL moveHasPriority)
 {
     if (!attacker->hasMoldBreaker) {
         switch (defender->ability) {
@@ -1143,6 +1143,12 @@ BOOL LONG_CALL IsMoveBlockedByAbility(struct AI_sDamageCalc *attacker, struct AI
         default:
             break;
         }
+    }
+
+    if (movetype == TYPE_GROUND && !defender->isGrounded
+        && (defender->item_held_effect == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // Air Balloon
+            || (!defender->isSwitching && sp->battlemon[defenderSlot].moveeffect.magnetRiseTurns))) {
+        return TRUE;
     }
     return FALSE;
 }

@@ -1267,21 +1267,10 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         return 0;
     }
 
-    if (IsMoveBlockedByAbility(attacker, defender, movetype, moveno, moveHasPriority)) {
+    if (IsMoveBlockedByAbility(sp, defenderSlot, attacker, defender, movetype, moveno, moveHasPriority)) {
         return 0;
     }
 
-    if (movetype == TYPE_GROUND && !defender->isGrounded) {
-        // Mold Breaker ignores Levitate, so the move still hits if grounded by iron ball etc
-        BOOL airborneOnlyByAbility = attackerHasMoldBreaker
-            && (defender->ability == ABILITY_LEVITATE || defender->ability == ABILITY_EELEVATE)
-            && defender->item_held_effect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT
-            && sp->battlemon[defenderSlot].moveeffect.magnetRiseTurns == 0
-            && !AI_MonHasType(defender, TYPE_FLYING);
-        if (!airborneOnlyByAbility) {
-            return 0;
-        }
-    }
     if (moveno == MOVE_DREAM_EATER && (defender->condition & STATUS_SLEEP) == 0) {
         return 0;
     }

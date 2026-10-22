@@ -187,7 +187,7 @@ void LONG_CALL FillDamageStructFromBattleMon(struct BattleSystem *bw, struct Bat
 
 BOOL LONG_CALL IsMoveBoostedBySheerForce(u32 moveno, u32 moveeffect);
 int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, int moveno, int move_type, u8 attackerSlot, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender);
-BOOL LONG_CALL IsMoveBlockedByAbility(struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender, int movetype, int moveno, BOOL moveHasPriority);
+BOOL LONG_CALL IsMoveBlockedByAbility(struct BattleStruct *sp, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender, int movetype, int moveno, BOOL moveHasPriority);
 
 BOOL LONG_CALL BattleAI_AttackerHasOnlyIneffectiveMoves(struct BattleStruct *ctx, u32 attacker, int knownMoves, u32 effectiveness[4]);
 

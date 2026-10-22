@@ -1233,7 +1233,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore -= NEVER_USE_MOVE_20;
         }
         else if (ai->defenderMon.ability == ABILITY_OBLIVIOUS || ai->defenderMon.ability == ABILITY_AROMA_VEIL
-            || (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(ai->defender)].hp > 0 && ctx->battlemon[BATTLER_ALLY((ai->defender)].ability == ABILITY_AROMA_VEIL))
+            || (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(ai->defender)].hp > 0 && ctx->battlemon[BATTLER_ALLY(ai->defender)].ability == ABILITY_AROMA_VEIL))
         {
             moveScore -= NEVER_USE_MOVE_20;
         }
@@ -1885,7 +1885,8 @@ u32 LONG_CALL GetRecoverAmountPercent(struct BattleSystem *bsys, u32 attackerMov
         if ((attackerMove == MOVE_SHORE_UP && (ctx->field_condition & FIELD_CONDITION_SANDSTORM_ALL))
             || (attackerMove != MOVE_SHORE_UP && ((ctx->field_condition & FIELD_CONDITION_SUN_ALL) || ai->attackerMon.ability == ABILITY_MEGA_SOL))) {
             recoverAmountPercent = 67;
-        } else if (ctx->field_condition & ( FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SANDSTORM_ALL | FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL ) {
+        } else if (attackerMove != MOVE_SHORE_UP
+            && (ctx->field_condition & (FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SANDSTORM_ALL | FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL))) {
             recoverAmountPercent = 25;
         }
         break;
