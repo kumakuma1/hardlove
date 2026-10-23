@@ -261,7 +261,7 @@ BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defe
         return FALSE;
     }
 
-    if (ai->attackerPositiveStatChangesSum > 0) {
+    if (ai->attackerPositiveStatChangesSum > 0 || ctx->battlemon[attacker].condition2 & STATUS2_SUBSTITUTE) {
         return FALSE;
     }
 

@@ -887,7 +887,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         if (ctx->field_condition & FIELD_CONDITION_SUN_ALL) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {
-            if (HasType(ctx, attacker, TYPE_FIRE) || ai->attackerMon.ability == ABILITY_SOLAR_POWER) { //|| ai->attackerMon.ability == ABILITY_CHLOROPHYL
+            if (HasType(ctx, attacker, TYPE_FIRE) || ai->attackerMon.ability == ABILITY_SOLAR_POWER || ai->attackerMon.ability == ABILITY_CHLOROPHYLL) {
                 moveScore += 9;
             }
             if (ai->attackerMon.item == ITEM_HEAT_ROCK) {
@@ -1231,7 +1231,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     }
-    case MOVE_EFFECT_TAUNT: //TODO
+    case MOVE_EFFECT_TAUNT:
         if (ctx->battlemon[ai->defender].moveeffect.tauntTurns > 0)
         {
             moveScore -= NEVER_USE_MOVE_20;
@@ -1241,13 +1241,23 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         {
             moveScore -= NEVER_USE_MOVE_20;
         }
-        else if (BattlerKnowsMove(bsys, ai->defender, MOVE_DEFOG, ai) == TRUE && ai->aiMovesFirst)
-        {
-            moveScore += 9;
-        }
         else
         {
-            moveScore += 5;
+            // stop a status move that would actually do something for the player this turn
+            BOOL playerSideHasHazards = (ctx->side_condition[ai->defenderSide] & (SIDE_STATUS_SPIKES | SIDE_STATUS_TOXIC_SPIKES | SIDE_STATUS_STEALTH_ROCK | SIDE_STATUS_STICKY_WEB))
+                || ctx->scw[ai->defenderSide].spikesLayers
+                || ctx->scw[ai->defenderSide].toxicSpikesLayers;
+            BOOL blocksUsefulMove = (playerSideHasHazards && BattlerKnowsMove(bsys, ai->defender, MOVE_DEFOG, ai))
+                || (!ctx->tailwindCount[ai->defenderSide] && BattlerKnowsMove(bsys, ai->defender, MOVE_TAILWIND, ai))
+                || (!(ctx->field_condition & FIELD_CONDITION_TRICK_ROOM) && BattlerKnowsMove(bsys, ai->defender, MOVE_TRICK_ROOM, ai));
+
+            if (blocksUsefulMove && ai->aiMovesFirst) {
+                moveScore += 9;
+            } else if (ai->defenderHasAtleastOneStatusMove) {
+                moveScore += 6;
+            } else {
+                moveScore += 5;
+            }
         }
         break;
     case MOVE_EFFECT_RECYCLE: {
@@ -1586,7 +1596,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_SWITCH_HELD_ITEMS:
-        if ((ai->attackerMon.item == ITEM_TOXIC_ORB && !ai->defenderImmuneToPoison) || (ai->attackerMon.item == ITEM_FLAME_ORB && !ai->defenderImmuneToBurn) || (ai->attackerMon.item == ITEM_BLACK_SLUDGE && !HasType(ctx, ai->defender, TYPE_POISON))) {
+        if ((ai->attackerMon.item == ITEM_TOXIC_ORB && !ai->defenderImmuneToPoison) || (ai->attackerMon.item == ITEM_FLAME_ORB && !ai->defenderImmuneToBurn)) {
             moveScore += 6;
             if (BattleRand(bsys) % 2) { // 50%
                 moveScore += 1;
@@ -1648,19 +1658,20 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_USE_RANDOM_LEARNED_MOVE_SLEEP:
-    case MOVE_EFFECT_DAMAGE_WHILE_ASLEEP:
-        if (ctx->battlemon[attacker].condition & STATUS_SLEEP) {
-            moveScore += 6;
-            if (ai->attackerLastUsedMove == MOVE_REST) {
-                moveScore += 10;
-            }
-            if (BattleRand(bsys) % 2 == 0) {
-                moveScore += 1;
-            }
+    case MOVE_EFFECT_DAMAGE_WHILE_ASLEEP: {
+        // sleep counter decreases by 1 (2 with Early Bird) before the move
+        u32 sleepCounter = ctx->battlemon[attacker].condition & STATUS_SLEEP;
+        u32 sleepCounterDecrease = (GetBattlerAbility(ctx, attacker) == ABILITY_EARLY_BIRD) ? 2 : 1;
+        BOOL wokenByUproar = (ctx->field_condition & FIELD_CONDITION_UPROAR) && GetBattlerAbility(ctx, attacker) != ABILITY_SOUNDPROOF;
+        BOOL staysAsleep = sleepCounter > sleepCounterDecrease && !wokenByUproar;
+
+        if (staysAsleep) {
+            moveScore += 24;
         } else {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
+    }
     case MOVE_EFFECT_CURSE:
         if (!HasType(ctx, attacker, TYPE_GHOST)) {
             break;

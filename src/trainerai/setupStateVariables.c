@@ -216,10 +216,18 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         u32 defenderMoveno = ctx->battlemon[defender].move[k];
         struct BattleMove defenderMove = ctx->moveTbl[defenderMoveno];
 
-        if (defenderMove.split != SPLIT_STATUS) {
-            ai->defenderHasAtleastOneStatusMove = TRUE;
-        }
-        else if (defenderMove.split != SPLIT_STATUS && defenderMove.power && IsMoveUsable(ctx, defender, defenderMoveno, ai->defenderLastUsedMove, defenderMove.split, k)) {
+        if (defenderMove.split == SPLIT_STATUS) {
+            
+            if (IsMoveUsable(ctx, defender, defenderMoveno, ai->defenderLastUsedMove, defenderMove.split, k)) {
+                ai->defenderHasAtleastOneStatusMove = TRUE;
+                if (IsMoveUsefulSoundMove(defenderMoveno)) { // perish song, sing, roar...
+                    ai->defenderHasAtleastOneUsefulSoundMove = TRUE;
+                }
+                if (IsMoveForceSwitching(defenderMoveno)) { // roar, whirlwind
+                    ai->defenderCanForceSwitching = TRUE;
+                }
+            }
+        } else if (defenderMove.power && IsMoveUsable(ctx, defender, defenderMoveno, ai->defenderLastUsedMove, defenderMove.split, k)) {
             damages.damageRoll = BattleAI_CalcDamage(bsys, ctx, defenderMoveno, defenderMove.power, defender, attacker, &damages, &ai->defenderMon, &ai->attackerMon);
             damages.damageRoll = damages.damageRange[15]; // max Damage
 
@@ -245,10 +253,10 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
                     ai->defenderHasAtleastOnePhysicalMove = 1;
                 }
             }
-            if (IsMoveUsefulSoundMove(defenderMoveno) && (defenderMove.split == SPLIT_STATUS || damages.moveEffectiveness >= TYPE_MUL_NORMAL)) {
+            if (IsMoveUsefulSoundMove(defenderMoveno) && damages.moveEffectiveness >= TYPE_MUL_NORMAL) {
                 ai->defenderHasAtleastOneUsefulSoundMove = TRUE;
             }
-            if (IsMoveForceSwitching(defenderMoveno)) {
+            if (IsMoveForceSwitching(defenderMoveno)) { // dragon tail, circle throw
                 ai->defenderCanForceSwitching = TRUE;
             }
 

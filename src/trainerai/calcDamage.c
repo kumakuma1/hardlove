@@ -1840,7 +1840,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 
 
 
-BOOL LONG_CALL BattleAI_IsParentalBondMove(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *attacker, int moveno)
+BOOL LONG_CALL BattleAI_IsParentalBondMove(void *bw, struct BattleStruct *sp, int moveno)
 {
     if (IsBannedParentalBondMove(moveno)) { // bans multi-hit moves
         return FALSE;
@@ -1873,7 +1873,7 @@ int LONG_CALL BattleAI_CalcDamage(void *bw, struct BattleStruct *sp, int moveno,
 
         damages->moveEffectiveness = damagesLocal.moveEffectiveness;
         return damages->damageRoll;
-    } else if (attacker->ability == ABILITY_PARENTAL_BOND && BattleAI_IsParentalBondMove(bw, sp, attacker, moveno))
+    } else if (attacker->ability == ABILITY_PARENTAL_BOND && BattleAI_IsParentalBondMove(bw, sp, moveno))
     {
         struct AI_damage secondHit = { 0 };
         BattleAI_CalcDamageInternal(bw, sp, moveno, pow, attackerSlot, defenderSlot, damages, attacker, defender, FALSE);
