@@ -1201,7 +1201,7 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
     return baseDamage;
 }
 
-int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int moveno, u16 pow, u8 attackerSlot, u8 defenderSlot, struct AI_damage *damages, struct AI_sDamageCalc *attackerIn, struct AI_sDamageCalc *defenderIn)
+int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int moveno, u16 pow, u8 attackerSlot, u8 defenderSlot, struct AI_damage *damages, struct AI_sDamageCalc *attackerIn, struct AI_sDamageCalc *defenderIn, BOOL isParentalBondSecondHit)
 {
     // the base damage calc adjusts stats and stages in place, so work on copies to not leak them into other calcs
     struct AI_sDamageCalc attackerCopy = *attackerIn;
@@ -1390,8 +1390,10 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
             }
         }
     }
-    // TODO
-    // handle parental bond
+    // 6.2 Parental Bond Modifier
+    if (isParentalBondSecondHit) {
+        damage = QMul_RoundDown(damage, UQ412__0_25);
+    }
 
     // 6.3 Weather Modifier
     if (weatherAttacker & FIELD_CONDITION_RAIN_ALL && defender->item != ITEM_UTILITY_UMBRELLA) {
@@ -1837,9 +1839,25 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
 }
 
 
+
+BOOL LONG_CALL BattleAI_IsParentalBondMove(void *bw, struct BattleStruct *sp, struct AI_sDamageCalc *attacker, int moveno)
+{
+    if (IsBannedParentalBondMove(moveno)) { // bans multi-hit moves
+        return FALSE;
+    }
+
+
+    if (BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI)) {
+        u8 target = sp->moveTbl[moveno].target;
+        if (target == RANGE_ADJACENT_OPPONENTS || target == RANGE_ALL_ADJACENT) {
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+
 int LONG_CALL BattleAI_CalcDamage(void *bw, struct BattleStruct *sp, int moveno, u16 pow, u8 attackerSlot, u8 defenderSlot, struct AI_damage *damages, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
-    // TODO: Parental bond, Triple Axel, Triple Kick
     if (moveno == MOVE_TRIPLE_AXEL || moveno == MOVE_TRIPLE_KICK) {
         struct AI_damage damagesLocal = { 0 };
         for (unsigned i = 0; i < 3; ++i) {
@@ -1847,7 +1865,7 @@ int LONG_CALL BattleAI_CalcDamage(void *bw, struct BattleStruct *sp, int moveno,
             if (moveno == MOVE_TRIPLE_AXEL) {
                 basePower = 20;
             }
-            damages->damageRoll += BattleAI_CalcDamageInternal(bw, sp, moveno, (i+1) * basePower, attackerSlot, defenderSlot, &damagesLocal, attacker, defender);
+            damages->damageRoll += BattleAI_CalcDamageInternal(bw, sp, moveno, (i+1) * basePower, attackerSlot, defenderSlot, &damagesLocal, attacker, defender, FALSE);
             for (int u = 0; u < 16; u++) {
                 damages->damageRange[u] += damagesLocal.damageRange[u];
             }
@@ -1855,9 +1873,19 @@ int LONG_CALL BattleAI_CalcDamage(void *bw, struct BattleStruct *sp, int moveno,
 
         damages->moveEffectiveness = damagesLocal.moveEffectiveness;
         return damages->damageRoll;
+    } else if (attacker->ability == ABILITY_PARENTAL_BOND && BattleAI_IsParentalBondMove(bw, sp, attacker, moveno))
+    {
+        struct AI_damage secondHit = { 0 };
+        BattleAI_CalcDamageInternal(bw, sp, moveno, pow, attackerSlot, defenderSlot, damages, attacker, defender, FALSE);
+        BattleAI_CalcDamageInternal(bw, sp, moveno, pow, attackerSlot, defenderSlot, &secondHit, attacker, defender, TRUE);
+        damages->damageRoll += secondHit.damageRoll;
+        for (int u = 0; u < 16; u++) {
+            damages->damageRange[u] += secondHit.damageRange[u];
+        }
+        return damages->damageRoll;
     }
     else
     {
-        return BattleAI_CalcDamageInternal(bw, sp, moveno, pow, attackerSlot, defenderSlot, damages, attacker, defender);
+        return BattleAI_CalcDamageInternal(bw, sp, moveno, pow, attackerSlot, defenderSlot, damages, attacker, defender, FALSE);
     }
 }

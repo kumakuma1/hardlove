@@ -47,6 +47,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
     ai->isSpeedTie = 0;
     ai->maxDamageReceived = 0;
     ai->attackerRolledMaxDamage = 0;
+    ai->attackerMaxRollDamage = 0;
 
     ai->defenderKnowsThawingMove = BattlerKnowsThawingMove(bsys, ai->defender, ai);
 
@@ -296,6 +297,9 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 #endif
             if (ai->attackerRolledMoveDamages[j] > ai->attackerRolledMaxDamage) {
                 ai->attackerRolledMaxDamage = ai->attackerRolledMoveDamages[j];
+            }
+            if (damages.damageRange[15] > ai->attackerMaxRollDamage) {
+                ai->attackerMaxRollDamage = damages.damageRange[15];
             }
 
             if (ai->effectivenessOnPlayer[j] >= TYPE_MUL_NORMAL)

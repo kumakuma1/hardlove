@@ -154,6 +154,7 @@ struct PACKED AIContext {
     u32 attackerRolledMoveDamages[4];
     u32 effectivenessOnPlayer[4];
     u32 attackerRolledMaxDamage;
+    u32 attackerMaxRollDamage;
 
     u32 partnerMoveNo;
     BOOL partnerClicksAttackingMove;

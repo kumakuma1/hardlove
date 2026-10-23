@@ -264,6 +264,10 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                 }
                 int highestDamageHitLocal = (partyMonPercentDamageReceived > partyMonPercentDamageReceivedAcross) ? partyMonPercentDamageReceived : partyMonPercentDamageReceivedAcross;
                 monReceivesHighestDamagePrct[i] = highestDamageHitLocal;
+
+                if (highestDamageHitLocal <= 25) {
+                    switchInScore[i] += 2;
+                }
             }
 
             if (calcOpp) {
@@ -297,7 +301,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
         }
     }
 
-    u16 currentScore = switchInScore[0];
+    u16 currentScore = 0;
     for (int i = 0; i < partySize; i++) {
         if (switchInScore[i] > currentScore) {
             picked = i;

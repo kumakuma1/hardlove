@@ -507,6 +507,9 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(struct AI_sDamageCalc *attacker, 
     if (effectiveness == TYPE_MUL_NO_EFFECT) {
         return 0;
     }
+
+    u32 fixedDamageHits = (attacker->ability == ABILITY_PARENTAL_BOND) ? 2 : 1;
+
     // struct BattleStruct* ctx = bsys->sp;
     switch (moveEffect) {
     case MOVE_EFFECT_UP_TO_10_HITS:
@@ -528,7 +531,7 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(struct AI_sDamageCalc *attacker, 
         return damage *= 3;
     case MOVE_EFFECT_LEVEL_DAMAGE_FLAT: // night shade, seismic toss
     case MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL: // psywave
-        return attacker->level;
+        return attacker->level * fixedDamageHits;
     case MOVE_EFFECT_10_DAMAGE_FLAT: // sonic boom
         return 20;
     case MOVE_EFFECT_40_DAMAGE_FLAT: // dragon rage
@@ -541,6 +544,10 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(struct AI_sDamageCalc *attacker, 
         }
         return damage *= 2;
     case MOVE_EFFECT_HALVE_HP: // super fang, nature's madness
+        if (fixedDamageHits == 2) {
+            // second hit halves the hp that is left
+            return defender->hp / 2 + (defender->hp - defender->hp / 2) / 2;
+        }
         return defender->hp / 2;
     case MOVE_EFFECT_AVERAGE_HP: // pain split
     {

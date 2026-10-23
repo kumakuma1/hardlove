@@ -260,7 +260,11 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     if (ctx->battlemon[ai->attacker].moveeffect.tauntTurns > 0 && ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS) {
         moveScore -= IMPOSSIBLE_MOVE; // taunted, so no status moves
     }
-    if ((IsPowderMove(ai->attackerMove) || ai->attackerMove == MOVE_LEECH_SEED) && HasType(ctx, ai->defender, TYPE_GRASS)) {
+    if (ai->attackerMove == MOVE_LEECH_SEED && HasType(ctx, ai->defender, TYPE_GRASS)) {
+        moveScore -= IMMUNE_TO_MOVE;
+    }
+
+    if (IsPowderMove(ai->attackerMove) && ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT && ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS) {
         moveScore -= IMMUNE_TO_MOVE;
     }
 
@@ -1457,9 +1461,10 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             }
         }
         break;
-    //case MOVE_EFFECT_BOOST_ALLY_POWER_BY_50_PERCENT: 
-    case MOVE_EFFECT_MAKE_GLOBAL_TARGET:// TODO
-        if (ai->isDoubleBattle && ai->isAllyAlive) {
+    case MOVE_EFFECT_MAKE_GLOBAL_TARGET:
+        if (ai->defenderMon.ability == ABILITY_STALWART || ai->defenderMon.ability == ABILITY_PROPELLER_TAIL) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else if (ai->isDoubleBattle && ai->isAllyAlive) {
             moveScore += 6;
             if (BattleRand(bsys) % 10 < 2) {
                 moveScore += 2;

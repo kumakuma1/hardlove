@@ -269,7 +269,8 @@ BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defe
         return FALSE;
     }
 
-    if ((100*ai->maxDamageReceived/ai->attackerMon.hp) < (100*ai->attackerRolledMaxDamage/ai->defenderMon.hp)) {
+    // compare max rolls
+    if ((100*ai->maxDamageReceived/ai->attackerMon.hp) < (100*ai->attackerMaxRollDamage/ai->defenderMon.hp)) {
         return FALSE;
     }
 
@@ -326,6 +327,7 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
         aiOp1->shouldSwitch = CalculateSwitch(bsys, attacker, defender, aiOp1);
         aiOp2->highestPostKoScoreFromParty = aiOp1->highestPostKoScoreFromParty;
         aiOp2->postKoScoringPosition = aiOp1->postKoScoringPosition;
+        aiOp2->highestDamageHitPrct = aiOp1->highestDamageHitPrct; // SetupStateVariables skips the post-KO calc for aiOp2 in thsi case
     } else {
 #ifdef DEBUG_AI_SCORING
         debug_printf("attacker(%d) ignores target %d.\n", attacker, defender);
