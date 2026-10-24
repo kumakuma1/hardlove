@@ -538,13 +538,13 @@ scr_seq_0141_044:
 	goto scr_seq_0141_255
 
 scr_seq_0141_045:
-	//ilex forest north, 1085
-	setvar VAR_SPECIAL_x8008, 18
+	//ilex forest north, 1085 // antidode, moved to south east
+	setvar VAR_SPECIAL_x8008, ITEM_TM047
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_046:
-	//ilex forest north east, 1086
+	//ilex forest north east, 1086 //Ether
 	setvar VAR_SPECIAL_x8008, 38
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255

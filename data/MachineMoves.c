@@ -52,7 +52,7 @@ const u16 sMachineMoves[] = {
     MOVE_TAILWIND,             // TM044
     MOVE_DRAINING_KISS,          // TM045
     MOVE_PLAY_ROUGH,            // TM046
-    MOVE_STEEL_WING,       // TM047
+    MOVE_SOAK,       // TM047
     MOVE_SKILL_SWAP,       // TM048
     MOVE_ROCK_SLIDE,           // TM049
     MOVE_EARTH_POWER,         // TM050
