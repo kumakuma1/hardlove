@@ -149,7 +149,8 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                 if (BattleRand(bsys) % 2 == 0) {
                     moveScore += 2;
                 }
-                if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7 || ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] > 7) {
+
+                if (ctx->battlemon[target].states[STAT_ATTACK] > 7 || ctx->battlemon[target].states[STAT_SPECIAL_ATTACK] > 7) {
                     moveScore -= 2;
                 }
                 break;
@@ -160,10 +161,11 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                 if (BattleRand(bsys) % 2 == 0) {
                     moveScore += 2;
                 }
-                if (ctx->battlemon[attacker].states[STAT_ATTACK] > 7) {
+
+                if (ctx->battlemon[target].states[STAT_ATTACK] > 7) {
                     moveScore -= 1;
                 }
-                if (ctx->battlemon[attacker].states[STAT_DEFENSE] > 7) {
+                if (ctx->battlemon[target].states[STAT_DEFENSE] > 7) {
                     moveScore -= 1;
                 }
                 break;
@@ -362,7 +364,8 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_SWITCH_HELD_ITEMS:
-        if (ai->attackerMon.item == ITEM_NONE && ai->defenderMon.item == ITEM_NONE) {
+        if ((ai->attackerMon.item == ITEM_NONE && ai->defenderMon.item == ITEM_NONE)
+            || (ai->defenderMon.ability == ABILITY_STICKY_HOLD && !ai->attackerMon.hasMoldBreaker)) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
@@ -379,7 +382,8 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         }
         break;
     case MOVE_EFFECT_STATUS_NIGHTMARE:
-        if (ctx->battlemon[ai->defender].condition2 & STATUS2_NIGHTMARE || ai->defenderMon.ability == ABILITY_MAGIC_GUARD) {
+        if (ctx->battlemon[ai->defender].condition2 & STATUS2_NIGHTMARE || ai->defenderMon.ability == ABILITY_MAGIC_GUARD
+            || (!(ai->defenderMon.condition & STATUS_SLEEP) && ai->defenderMon.ability != ABILITY_COMATOSE)) {
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
@@ -441,8 +445,15 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     switch (ai->attackerMove) {
     case MOVE_SELF_DESTRUCT:
     case MOVE_EXPLOSION:
-    case MOVE_MISTY_EXPLOSION:
-        if ((ai->defenderMon.ability != ABILITY_DAMP || ai->attackerMon.hasMoldBreaker) && ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) // no immunity
+    case MOVE_MISTY_EXPLOSION: {
+        // damp on any mon on the field stops the move, not just on the target
+        BOOL dampOnField = FALSE;
+        for (int k = 0; k < BattleWorkClientSetMaxGet(bsys); k++) {
+            if (ctx->battlemon[k].hp && GetBattlerAbility(ctx, k) == ABILITY_DAMP) {
+                dampOnField = TRUE;
+            }
+        }
+        if ((!dampOnField || ai->attackerMon.hasMoldBreaker) && ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) // no immunity
         {
             if (ai->attackerMon.percenthp < 10) {
                 moveScore += 10;
@@ -469,6 +480,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
 #endif
         }
         break;
+    }
     case MOVE_FINAL_GAMBIT:
         if (ai->effectivenessOnPlayer[i] > TYPE_MUL_NO_EFFECT) {
             if (ai->aiMovesFirst && ai->attackerMon.hp >= ai->defenderMon.hp) {
@@ -509,7 +521,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     case MOVE_WRAP:
     case MOVE_WHIRLPOOL:
     case MOVE_INFESTATION:
-        if (ctx->binding_turns[ai->defender] != 0 || HasType(ctx, ai->defender, TYPE_GHOST) || ai->attackerMon.item == ITEM_SHED_SHELL) {
+        if (ctx->binding_turns[ai->defender] != 0 || HasType(ctx, ai->defender, TYPE_GHOST) || ai->defenderMon.item == ITEM_SHED_SHELL) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {
             moveScore += 6;
@@ -951,8 +963,11 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
-    case MOVE_EFFECT_CRIT_UP_2:
-        if (ai->defenderMon.ability == ABILITY_SHELL_ARMOR || ai->defenderMon.ability == ABILITY_BATTLE_ARMOR || ctx->battlemon[ai->defender].condition2 & STATUS2_FOCUS_ENERGY) {
+    case MOVE_EFFECT_CRIT_UP_2: { // focus energy
+        BOOL targetCantBeCritted = (!ai->attackerMon.hasMoldBreaker && (ai->defenderMon.ability == ABILITY_SHELL_ARMOR || ai->defenderMon.ability == ABILITY_BATTLE_ARMOR))
+            || (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_LUCKY_CHANT)
+            || (ai->defenderMon.effect_of_moves & MOVE_EFFECT_FLAG_NO_CRITICAL);
+        if (targetCantBeCritted || ctx->battlemon[attacker].condition2 & STATUS2_FOCUS_ENERGY) {
             moveScore -= NEVER_USE_MOVE_20;
         } else if (ai->attackerMon.ability == ABILITY_SUPER_LUCK || ai->attackerMon.ability == ABILITY_SNIPER || ai->attackerMon.item == ITEM_SCOPE_LENS) { // or hight crit moves
             moveScore += 7;
@@ -960,8 +975,24 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
             moveScore += 5;
         }
         break;
+    }
+    case MOVE_EFFECT_LASER_FOCUS: {
+        BOOL targetCantBeCritted = (!ai->attackerMon.hasMoldBreaker && (ai->defenderMon.ability == ABILITY_SHELL_ARMOR || ai->defenderMon.ability == ABILITY_BATTLE_ARMOR))
+            || (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_LUCKY_CHANT)
+            || (ai->defenderMon.effect_of_moves & MOVE_EFFECT_FLAG_NO_CRITICAL);
+        if (ctx->moveConditionsFlags[attacker].laserFocusTimer || targetCantBeCritted) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            moveScore += 6;
+        }
+        break;
+    }
     // case MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_LOSE_HALF_MAX_HP: //filet away
     case MOVE_EFFECT_MAX_ATK_LOSE_HALF_MAX_HP: // belly drum
+        if (ai->attackerMon.hp <= ai->attackerMon.maxhp / 2 || ctx->battlemon[attacker].states[STAT_ATTACK] == 12) {
+            moveScore -= IMPOSSIBLE_MOVE;
+            break;
+        }
         moveScore += 4;
         if (ai->isDefenderIncapacitated) {
             moveScore += 5;
@@ -1743,10 +1774,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             if (2 * ai->maxDamageReceived < ai->attackerMon.hp && 2 * ai->attackerRolledMaxDamage < ai->defenderMon.hp)
             {
                 if (!ai->defenderImmuneToStatDrop) {
-                    if (ai->defenderMon.ability != ABILITY_BULLETPROOF || ai->attackerMon.hasMoldBreaker)
-                    {
-                        moveScore += 1;
-                    }
+                    moveScore += 1;
                 }
                 if (ai->playerMovesFirst)
                 {
@@ -1849,6 +1877,11 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_FORCE_SWITCH:
+        if ((ai->defenderMon.ability == ABILITY_SUCTION_CUPS && !ai->attackerMon.hasMoldBreaker)
+            || (ai->defenderMon.effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)) {
+            moveScore -= IMPOSSIBLE_MOVE;
+            break;
+        }
         if (ai->livingMembersDefender > 1) {
             moveScore += 6;
             if (BattleRand(bsys) % 2 == 0) {
@@ -1955,10 +1988,6 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
     struct BattleStruct *ctx = bsys->sp;
     BOOL isHealingMove = TRUE;
 
-    if (ctx->battlemon[attacker].moveeffect.healBlockTurns) {
-        return (-1) * NEVER_USE_MOVE_20;
-    }
-
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
@@ -2000,7 +2029,18 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
         }
         break;
     }
-    case MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP:
+    case MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP: {
+        BOOL partnerHasSweetVeil = ai->isDoubleBattle && ai->isAllyAlive && ai->aimonAlly.ability == ABILITY_SWEET_VEIL;
+        BOOL blockedByTerrain = ai->attackerMon.isGrounded && ctx->terrainOverlay.numberOfTurnsLeft > 0
+            && (ctx->terrainOverlay.type == ELECTRIC_TERRAIN || ctx->terrainOverlay.type == MISTY_TERRAIN);
+        if ((ai->attackerMon.condition & STATUS_SLEEP)
+            || (ctx->field_condition & FIELD_CONDITION_UPROAR)
+            || ai->attackerMon.ability == ABILITY_SWEET_VEIL
+            || partnerHasSweetVeil || blockedByTerrain) {
+            moveScore -= IMPOSSIBLE_MOVE;
+            break;
+        }
+
         if (aiShouldRecover) {
             if (ai->attackerMon.item == ITEM_CHESTO_BERRY || ai->attackerMon.item == ITEM_LUM_BERRY
                 || ai->attackerMon.ability == ABILITY_EARLY_BIRD || ai->attackerMon.ability == ABILITY_SHED_SKIN
@@ -2014,6 +2054,7 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
         } else {
             moveScore += 5;
         }
+    }
         break;
     default:
         isHealingMove = FALSE;
@@ -2022,6 +2063,8 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
 
     if (!isHealingMove) {
         moveScore = 0;
+    } else if (ctx->battlemon[attacker].moveeffect.healBlockTurns) {
+        moveScore = 0 - NEVER_USE_MOVE_20;
     } else if (ai->attackerMon.percenthp == 100) {
         moveScore = 0 - NEVER_USE_MOVE_20;
     }

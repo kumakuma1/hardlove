@@ -41,7 +41,7 @@ _00C8:
 
 _0174:
     cmd43
-    cmd0C 0, -32
+    cmd0C 0, 0
     cmd0C 1, 0
     cmd0C 6, 1
     cmd0C 7, 1

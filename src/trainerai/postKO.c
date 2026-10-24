@@ -266,7 +266,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                 monReceivesHighestDamagePrct[i] = highestDamageHitLocal;
 
                 if (highestDamageHitLocal <= 25) {
-                    switchInScore[i] += 2;
+                    switchInScore[i] += 1;
                 }
             }
 

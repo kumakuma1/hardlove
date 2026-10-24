@@ -211,6 +211,8 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
 
     int highestDamageMoveIndex = 0;
     ai->playerCanOneShotMonWithAnyMove = FALSE;
+
+    BOOL playerIsThroatChopped = ctx->moveConditionsFlags[defender].throatChopTimer != 0;
     for (int k = 0; k < GetBattlerLearnedMoveCount(bsys, ctx, ai->defender); k++) {
         struct AI_damage damages = { 0 };
         u32 defenderMoveno = ctx->battlemon[defender].move[k];
@@ -220,7 +222,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
             
             if (IsMoveUsable(ctx, defender, defenderMoveno, ai->defenderLastUsedMove, defenderMove.split, k)) {
                 ai->defenderHasAtleastOneStatusMove = TRUE;
-                if (IsMoveUsefulSoundMove(defenderMoveno)) { // perish song, sing, roar...
+                if (IsMoveUsefulSoundMove(defenderMoveno) && !playerIsThroatChopped) { // perish song, sing, roar...
                     ai->defenderHasAtleastOneUsefulSoundMove = TRUE;
                 }
                 if (IsMoveForceSwitching(defenderMoveno)) { // roar, whirlwind
@@ -253,7 +255,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
                     ai->defenderHasAtleastOnePhysicalMove = 1;
                 }
             }
-            if (IsMoveUsefulSoundMove(defenderMoveno) && damages.moveEffectiveness >= TYPE_MUL_NORMAL) {
+            if (IsMoveUsefulSoundMove(defenderMoveno) && !playerIsThroatChopped && damages.moveEffectiveness >= TYPE_MUL_NORMAL) {
                 ai->defenderHasAtleastOneUsefulSoundMove = TRUE;
             }
             if (IsMoveForceSwitching(defenderMoveno)) { // dragon tail, circle throw
