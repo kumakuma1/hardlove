@@ -891,6 +891,9 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
     case SPECIES_TATSUGIRI:
         form = gf_rand() % 3; // equal chance for all forms
         break;
+    case SPECIES_TAUROS:
+        form = gf_rand() % 4; // equal chance for kantonian, combat, blaze and aqua
+        break;
 #endif
     default:
         shouldUpdate = FALSE;
