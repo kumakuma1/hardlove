@@ -80,7 +80,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
         canDivert = TRUE;
         // mega speed
         u8 speedCalc = AI_IsClient2Faster(ctx, &battlerMons[attacker], &battlerMons[ally]);
-        if (speedCalc != 0) {
+        if (speedCalc == 1) {
             int swap = ally;
             ally = attacker;
             attacker = swap;
@@ -294,7 +294,7 @@ BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defe
     int switchScore = 0;
     if (hasPerishSong) {
         if (ai->highestPostKoScoreFromParty >= (103 + doublesAddon)) {
-            switchScore = 33 * (ai->highestPostKoScoreFromParty - (102 + doublesAddon));
+            switchScore = 30 * (ai->highestPostKoScoreFromParty - (102 + doublesAddon));
         }
     } else {
         if (ai->highestPostKoScoreFromParty == (104 + doublesAddon)) {
