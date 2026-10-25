@@ -2033,8 +2033,7 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
         BOOL partnerHasSweetVeil = ai->isDoubleBattle && ai->isAllyAlive && ai->aimonAlly.ability == ABILITY_SWEET_VEIL;
         BOOL blockedByTerrain = ai->attackerMon.isGrounded && ctx->terrainOverlay.numberOfTurnsLeft > 0
             && (ctx->terrainOverlay.type == ELECTRIC_TERRAIN || ctx->terrainOverlay.type == MISTY_TERRAIN);
-        if ((ai->attackerMon.condition & STATUS_SLEEP)
-            || (ctx->field_condition & FIELD_CONDITION_UPROAR)
+        if ((ctx->field_condition & FIELD_CONDITION_UPROAR)
             || ai->attackerMon.ability == ABILITY_SWEET_VEIL
             || partnerHasSweetVeil || blockedByTerrain) {
             moveScore -= IMPOSSIBLE_MOVE;
