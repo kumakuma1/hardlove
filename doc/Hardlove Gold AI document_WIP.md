@@ -360,6 +360,7 @@ Special case for doubles here.
 
 - **+6** (50%), **+8** (50%)
 - AI will not use Helping Hand if its partner is also using Helping Hand, its partner is using a status move, or its partner is ignoring its target.
+- The faster AI mon picks its move first. It only uses Helping Hand if its partner has an attacking move it can use this turn and is not asleep, frozen or recharging. If it does, the partner never uses a status move that turn (**-20**).
 
 ### Follow Me, Rage Powder
 
