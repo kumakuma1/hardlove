@@ -569,3 +569,39 @@ arm9 020701AC 08 E0
 
 # sub_02070854 always call GetMonPicHeightBySpeciesGenderForm
 arm9 020708B0 06 E0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#leave ho - oh animation on bottom screen black
+# 0060 021E6024 C0 46 C0 46
+#cry
+# 0060 021E5AA4 FA
+#removes roamer on pokegear map
+# 0101 021E7B10 00 20 C0 46

@@ -28,9 +28,25 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         ai->isDoubleBattle = TRUE;
     }
     ai->isAllyAlive = FALSE;
+    ai->partnerCanAttack = FALSE;
     if (ai->isDoubleBattle && ctx->battlemon[BATTLER_ALLY(attacker)].hp) {
+        u32 ally = BATTLER_ALLY(attacker);
         ai->isAllyAlive = TRUE;
-        ai->aimonAlly = battlerMons[BATTLER_ALLY(attacker)];
+        ai->aimonAlly = battlerMons[ally];
+
+        // the partner has an attacking move it can click this turn (used by helping hand when the partner hasn't picked yet)
+        // enemy side only, a tag partner can't know what the player clicks
+        if (BATTLER_IS_ENEMY(attacker) && !(ctx->battlemon[ally].condition & (STATUS_SLEEP | STATUS_FREEZE)) && !(ctx->battlemon[ally].condition2 & STATUS2_RECHARGE)) {
+            for (int i = 0; i < 4; i++) {
+                u32 allyMoveno = ctx->battlemon[ally].move[i];
+                struct BattleMove allyMove = ctx->moveTbl[allyMoveno];
+                if (allyMoveno != MOVE_NONE && allyMove.split != SPLIT_STATUS
+                    && IsMoveUsable(ctx, ally, allyMoveno, ctx->waza_no_old[ally], allyMove.split, i)) {
+                    ai->partnerCanAttack = TRUE;
+                    break;
+                }
+            }
+        }
     }
 
     ai->attacker = attacker;

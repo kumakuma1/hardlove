@@ -158,6 +158,7 @@ struct PACKED AIContext {
 
     u32 partnerMoveNo;
     BOOL partnerClicksAttackingMove;
+    BOOL partnerCanAttack;
     BOOL ignoreTarget;
 
     u8 attackerPositiveStatChangesSum;

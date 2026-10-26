@@ -110,7 +110,9 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
             switch (attackerMove) {
             case MOVE_HELPING_HAND:
             {
-                if (ai->ignoreTarget || ai->partnerMoveNo == MOVE_HELPING_HAND || !ai->partnerClicksAttackingMove) {
+                // the slower mon knows the partner's move, the faster mon picks first and checks if the partner can attack
+                BOOL partnerAttacks = (ai->partnerMoveNo != MOVE_NONE) ? ai->partnerClicksAttackingMove : ai->partnerCanAttack;
+                if (ai->ignoreTarget || ai->partnerMoveNo == MOVE_HELPING_HAND || !partnerAttacks) {
                     moveScore -= NEVER_USE_MOVE_20;
                 }
                 else
@@ -228,6 +230,9 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
                 break;
             }
             }
+            if (ai->partnerMoveNo == MOVE_HELPING_HAND && ctx->moveTbl[attackerMove].split == SPLIT_STATUS) {
+                moveScore -= NEVER_USE_MOVE_20; // the faster partner uses helping hand, so attack
+            }
             if (moveScore > 0) {
                 moveScore += 1000;
             }
@@ -264,6 +269,12 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     }
     if (ai->attackerMove == MOVE_LEECH_SEED && HasType(ctx, ai->defender, TYPE_GRASS)) {
         moveScore -= IMMUNE_TO_MOVE;
+    }
+    if (ai->attackerMove == MOVE_HELPING_HAND) {
+        moveScore -= IMPOSSIBLE_MOVE; // only scored against the ally, where the partner's move is checked
+    }
+    if (ai->partnerMoveNo == MOVE_HELPING_HAND && ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS) {
+        moveScore -= NEVER_USE_MOVE_20; // the faster partner uses helping hand, so attack
     }
 
     if (IsPowderMove(ai->attackerMove) && ai->effectivenessOnPlayer[i] == TYPE_MUL_NO_EFFECT && ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS) {
