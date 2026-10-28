@@ -1313,13 +1313,15 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
     if (CheckScriptFlag(106) == 0) {
         int nature = GetScriptVar(0x4005);
 
-        if (nature != 25) {
+        // 0-24 is a chosen nature, 25 = random
+        if (nature >= 0 && nature <= NATURE_QUIRKY) {
             do {
                 personality = (u32)(gf_rand() | (gf_rand() << 16));
             } while (nature != (u8)(personality % 25));
+        } else if (rndflag) {
+            personality = rnd;
         } else {
             personality = gf_rand() | (gf_rand() << 16);
-            personality = rnd;
         }
     } else {
         if (!rndflag) {

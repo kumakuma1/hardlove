@@ -33,7 +33,7 @@ At times, you will be challenged\nby others to a battle.\nAt other times, wild c
 However, your adventure is not\nsolely about becoming powerful.
 On your travels, we hope that\nyou will meet countless people\nand, through them, achieve\npersonal growth.\n\nThis is the most important\nobjective of this adventure.
 On your journey, you will find various\nPokémon, each with their own style\fand niche.\rSome are strong, some are weak,\nsome are old reliable.\r
-But all of them will help you get\nthrough this challenge.\fThat’s what this is about, isn’t it?\rBeating this challenge?\nMaybe!\fThe will game provide different\foptions for different playstyles.\r
+But all of them will help you get\nthrough this challenge.\fThat’s what this is about, isn’t it?\rBeating this challenge?\nMaybe!\fThe game will provide different\foptions for different playstyles.\r
 Now, why don’t you tell me a little bit\nabout yourself?\r
 Are you a boy?\nOr are you a girl?\fWon’t you please tell me? {YESNO 0}
 So, you’re a boy then? {YESNO 0}
