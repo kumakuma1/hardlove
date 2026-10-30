@@ -8,14 +8,24 @@
 #include "../../include/constants/species.h"
 #include "../../include/constants/battle_script_constants.h"
 #include "../../include/constants/battle_message_constants.h"
+#include "../../include/constants/file.h"
 #include "../../include/custom/custom_ai.h"
 
 
-u8 LONG_CALL FindTargets(struct BattleStruct *ctx, u8 attacker, int targets[4], int moveScores[4][4], int damages[4][4], int highestScoredMove);
-u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, int moveScores[4][4], int highestScoredMove);
+u8 LONG_CALL FindTargets(struct BattleStruct *ctx, u8 attacker, int targets[4], s16 moveScores[4][4], int damages[4][4], int highestScoredMove);
+u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, s16 moveScores[4][4], int highestScoredMove);
 BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *ai);
 void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *aiOp1, struct AIContext *aiOp2, struct AI_turnState *turnState, struct AI_sDamageCalc battlerMons[4]);
 int LONG_CALL OverrideWrongTargetForMove(int move, u8 target, int attacker);
+
+
+#define AI_SLOT(battler) ((battler) / 2)
+
+struct AI_PickCommandWork {
+    struct AIContext aiContext[2][2];
+    struct AI_turnState turnStateStruct[2];
+    struct AI_sDamageCalc battlerMons[4];
+};
 
 int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 {
@@ -42,13 +52,15 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     int targetsAlly[4] = { 0 };
     enum AIActionChoice result = AI_ENEMY_ATTACK_1;
 
-    struct AIContext aiContext[4][2] = { 0 };
-    struct AI_turnState turnStateStruct[4] = { 0 };
+    struct AI_PickCommandWork *work = sys_AllocMemory(HEAPID_BATTLE_HEAP, sizeof(struct AI_PickCommandWork));
+    memset(work, 0, sizeof(struct AI_PickCommandWork));
+    struct AIContext (*aiContext)[2] = work->aiContext;
+    struct AI_turnState *turnStateStruct = work->turnStateStruct;
+    struct AI_sDamageCalc *battlerMons = work->battlerMons;
 
     u8 ally = BATTLER_ALLY(attacker);
     u8 defender = BATTLER_OPPONENT(attacker);
 
-    struct AI_sDamageCalc battlerMons[4] = { 0 };
     int battlerCount = BattleWorkClientSetMaxGet(bsys);
     for (int i = 0; i < battlerCount; i++) {
         if (ctx->battlemon[i].hp) {
@@ -91,11 +103,11 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
         }
     }
 
-    struct AIContext *ai1 = &aiContext[attacker][0];
-    struct AIContext *ai2 = &aiContext[attacker][1];
-    struct AIContext *aiAlly1 = &aiContext[ally][0];
-    struct AIContext *aiAlly2 = &aiContext[ally][1];
-    struct AI_turnState *turnState = &turnStateStruct[attacker];
+    struct AIContext *ai1 = &aiContext[AI_SLOT(attacker)][0];
+    struct AIContext *ai2 = &aiContext[AI_SLOT(attacker)][1];
+    struct AIContext *aiAlly1 = &aiContext[AI_SLOT(ally)][0];
+    struct AIContext *aiAlly2 = &aiContext[AI_SLOT(ally)][1];
+    struct AI_turnState *turnState = &turnStateStruct[AI_SLOT(attacker)];
 
     CalcTurnStateDamagesAndScores(bsys, attacker, defender, ai1, ai2, turnState, battlerMons);
 
@@ -129,7 +141,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     if (ai1->isDoubleBattle && ai1->isAllyAlive && (attacker == 1 || attacker == 3)) { // only enemy side
         u8 defenderAlly = BATTLER_OPPONENT(ally);
        
-        struct AI_turnState *turnStateAlly = &turnStateStruct[ally];
+        struct AI_turnState *turnStateAlly = &turnStateStruct[AI_SLOT(ally)];
         CalcTurnStateDamagesAndScores(bsys, ally, defenderAlly, aiAlly1, aiAlly2, turnStateAlly, battlerMons);
 
         u8 allyTargetSize = FindTargets(ctx, ally, targetsAlly, turnStateAlly->moveScores, turnStateAlly->damages, turnStateAlly->highestScoredMove);
@@ -142,6 +154,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
             && (!ai1->attackerHasValidSwitchingMove || (ai1->playerMovesFirst && ai1->playerCanOneShotMonWithAnyMove)))
         {
             ctx->aiSwitchedPartySlot[attacker] = ai1->postKoScoringPosition;
+            sys_FreeMemoryEz(work);
             return PLAYER_INPUT_PARTY;
         }
     }
@@ -156,6 +169,7 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
         ctx->aiTurnScoring.calcState = CalcedEnemy_1_and_3;
     }
 
+    sys_FreeMemoryEz(work);
     return PLAYER_INPUT_FIGHT;
 }
 
@@ -174,7 +188,7 @@ int LONG_CALL OverrideWrongTargetForMove(int move, u8 target, int attacker)
     return target;
 }
 
-u8 LONG_CALL FindTargets(struct BattleStruct *ctx, u8 attacker, int targets[4], int moveScores[4][4], int damages[4][4], int highestScoredMove)
+u8 LONG_CALL FindTargets(struct BattleStruct *ctx, u8 attacker, int targets[4], s16 moveScores[4][4], int damages[4][4], int highestScoredMove)
 {
     int targetsSize = 0;
     for (u8 k = 0; k < 4; k++) //targets
@@ -211,7 +225,7 @@ u8 LONG_CALL FindTargets(struct BattleStruct *ctx, u8 attacker, int targets[4], 
     return targetsSize;
 }
 
-u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, int moveScores[4][4], int highestScoredMove)
+u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, s16 moveScores[4][4], int highestScoredMove)
 {
     int tieMoveCount = 0;
     int tiedMoveIndices[4] = { 0 };

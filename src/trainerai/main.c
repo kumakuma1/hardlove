@@ -59,7 +59,7 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
 }
 
 
-int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext *ai)
+int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker, u32 target, s16 moveScores[4][4], struct AIContext *ai)
 {
     struct BattleStruct *ctx = bsys->sp;
     int highestScoredMove = 0;
@@ -95,7 +95,7 @@ int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker,
     return highestScoredMove;
 }
 
-int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext *ai)
+int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32 target, s16 moveScores[4][4], struct AIContext *ai)
 {
     struct BattleStruct *ctx = bsys->sp;
     if (!ai->isDoubleBattle || !ai->isAllyAlive) {
@@ -1231,6 +1231,9 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
     switch (ai->attackerMoveEffect) {
+    case MOVE_EFFECT_CALL_RANDOM_MOVE:
+        moveScore += 6;
+        break;
     case MOVE_EFFECT_DISABLE:
         if (ctx->battlemon[ai->defender].moveeffect.disabledTurns) {
             moveScore -= NEVER_USE_MOVE_20;

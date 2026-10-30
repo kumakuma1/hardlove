@@ -9,11 +9,11 @@
 
 
 struct PACKED AI_turnState {
-    int moveScores[4][4]; // account for BATTLER_OPPONENT (0), attacker (1), BATTLER_ACROSS(2), BATTLER_ALLY(3),  4 moves each or
+    s16 moveScores[4][4]; // account for BATTLER_OPPONENT (0), attacker (1), BATTLER_ACROSS(2), BATTLER_ALLY(3),  4 moves each or
                           // account for BATTLER_OPPONENT (2), attacker (3), BATTLER_ACROSS(0), BATTLER_ALLY(1),  4 moves each
     int damages[4][4]; // rolled damage for each move against each target
 
-    int highestScoredMove;
+    s16 highestScoredMove;
 };
 
 struct PACKED AI_sDamageCalc {
@@ -21,9 +21,8 @@ struct PACKED AI_sDamageCalc {
     u16 hp;
     u16 maxhp;
     u16 percenthp;
-    u16 dummy;
     u32 item;
-    u32 item_held_effect;
+    u16 item_held_effect;
     u32 item_power;
 
     u32 condition;
@@ -40,13 +39,13 @@ struct PACKED AI_sDamageCalc {
 
     u32 weight;
 
-    u32 attack;
-    u32 defense;
-    u32 sp_attack;
-    u32 sp_defense;
+    u16 attack;
+    u16 defense;
+    u16 sp_attack;
+    u16 sp_defense;
     s8 states[8];
     u8 level;
-    u32 form;
+    u8 form;
 
    
     u32 effect_of_moves;
@@ -66,13 +65,12 @@ struct PACKED AI_sDamageCalc {
     u8 abilityActivated : 1;
 
     u8 knockOffFlag : 1;
-    u8 padding : 7;
+    u8 hiddenPowerType : 7;
 
-    u8 hiddenPowerType;
     u8 paradoxBoostedStat :4;
     u8 metronomeTurns : 4;
 
-    u32 partnerMoveNo;
+    u16 partnerMoveNo;
 };
 
 struct PACKED AIContext {
@@ -81,85 +79,86 @@ struct PACKED AIContext {
     struct AI_sDamageCalc aimonAlly;
     int defenderAllySpeed;
 
-    int highestPostKoScoreFromParty;
-    int postKoScoringPosition;
+    s8 highestPostKoScoreFromParty;
+    s8 postKoScoringPosition;
     int highestDamageHitPrct;
 
-    BOOL isAllyAlive : 1;
-    BOOL isDoubleBattle : 1;
-    BOOL isPartnerGrounded : 1;
+    u8 isAllyAlive : 1;
+    u8 isDoubleBattle : 1;
+    u8 isPartnerGrounded : 1;
 
-    BOOL aiMovesFirst : 1;
-    BOOL playerMovesFirst : 1;
-    BOOL isSpeedTie : 1;
-    BOOL padding0 : 2;
+    u8 aiMovesFirst : 1;
+    u8 playerMovesFirst : 1;
+    u8 isSpeedTie : 1;
+    u8 padding0 : 2;
 
 
-    BOOL defenderHasMagicBounce : 1;
-    BOOL defenderAllyHasMagicBounce : 1;
-    BOOL defenderImmuneToPoison : 1;
-    BOOL defenderImmuneToParalysis : 1;
-    BOOL defenderImmuneToBurn : 1;
-    BOOL defenderImmuneToSleep : 1;
-    BOOL defenderImmuneToStatDrop : 1;
-    BOOL defenderImmuneToFlinch : 1;
+    u8 defenderHasMagicBounce : 1;
+    u8 defenderAllyHasMagicBounce : 1;
+    u8 defenderImmuneToPoison : 1;
+    u8 defenderImmuneToParalysis : 1;
+    u8 defenderImmuneToBurn : 1;
+    u8 defenderImmuneToSleep : 1;
+    u8 defenderImmuneToStatDrop : 1;
+    u8 defenderImmuneToFlinch : 1;
 
-    int attacker;
-    int defender;
-    int defenderSide;
-    int attackerSide;
+    u8 attacker;
+    u8 defender;
+    u8 defenderSide;
+    u8 attackerSide;
 
     int attackerSpeed;
     int defenderSpeed;
 
-    u8 partySizeAttacker;
-    u8 livingMembersAttacker;
+    u8 partySizeAttacker : 4;
+    u8 livingMembersAttacker: 4;
     u8 monWithMegaInParty;
 
-    u8 partySizeDefender;
-    u8 livingMembersDefender;
+    u8 partySizeDefender : 4;
+    u8 livingMembersDefender: 4;
 
     u8 attackerMovesKnown;
-    BOOL attackerHasAttackingMoves;
+    u8 attackerHasAttackingMoves : 1;
+    u8 partnerClicksAttackingMove : 1;
+    u8 partnerCanAttack : 1;
+    u8 ignoreTarget : 1;
+    u8 padding1 : 4;
 
-    u32 attackerLastUsedMove;
-    u32 defenderLastUsedMove;
-    u32 defenderLastUsedMoveEffect;
+    u16 attackerLastUsedMove;
+    u16 defenderLastUsedMove;
+    u16 defenderLastUsedMoveEffect;
 
-    u32 attackerMove;
-    u32 attackerMoveEffect;
+    u16 attackerMove;
+    u16 attackerMoveEffect;
 
-    BOOL isDefenderIncapacitated : 1;
-    BOOL defenderKnowsThawingMove : 1;
-    BOOL defenderHasAtleastOneUsefulSoundMove : 1;
-    BOOL defenderCanForceSwitching : 1;
-    BOOL defenderHasSturdyOrFocusSashActive : 1;
-    BOOL attackerHasSturdyOrFocusSashActive : 1;
-    BOOL anyPlayerMonCanOneShotMonWithAnyMove : 1;
-    BOOL padding2 : 1;
+    u8 isDefenderIncapacitated : 1;
+    u8 defenderKnowsThawingMove : 1;
+    u8 defenderHasAtleastOneUsefulSoundMove : 1;
+    u8 defenderCanForceSwitching : 1;
+    u8 defenderHasSturdyOrFocusSashActive : 1;
+    u8 attackerHasSturdyOrFocusSashActive : 1;
+    u8 anyPlayerMonCanOneShotMonWithAnyMove : 1;
+    u8 padding2 : 1;
 
     u32 maxDamageReceived;
 
-    BOOL playerCanOneShotMonWithMove[4];
-    BOOL playerCanOneShotMonWithAnyMove : 1;
-    BOOL monCanOneShotPlayerWithAnyMove : 1;
-    BOOL defenderHasAtleastOnePhysicalMove : 1;
-    BOOL defenderHasAtleastOneSpecialMove : 1;
-    BOOL defenderHasAtleastOneStatusMove : 1;
-    BOOL attackerHasValidSwitchingMove : 1;
-    BOOL attackerHasValidDamagingMove : 1;
-    BOOL shouldSwitch : 1;
+    u8 playerCanOneShotMonWithMove[4];
+    u8 playerCanOneShotMonWithAnyMove : 1;
+    u8 monCanOneShotPlayerWithAnyMove : 1;
+    u8 defenderHasAtleastOnePhysicalMove : 1;
+    u8 defenderHasAtleastOneSpecialMove : 1;
+    u8 defenderHasAtleastOneStatusMove : 1;
+    u8 attackerHasValidSwitchingMove : 1;
+    u8 attackerHasValidDamagingMove : 1;
+    u8 shouldSwitch : 1;
     
-    BOOL monCanOneShotPlayerWithMove[4];
+    u8 monCanOneShotPlayerWithMove[4];
     u32 attackerRolledMoveDamages[4];
     u32 effectivenessOnPlayer[4];
     u32 attackerRolledMaxDamage;
     u32 attackerMaxRollDamage;
 
-    u32 partnerMoveNo;
-    BOOL partnerClicksAttackingMove;
-    BOOL partnerCanAttack;
-    BOOL ignoreTarget;
+    u16 partnerMoveNo;
 
     u8 attackerPositiveStatChangesSum;
 };
@@ -173,8 +172,8 @@ struct PACKED AI_damage {
 void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *ai, struct AI_sDamageCalc battlerMons[4]);
 
 
-int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext *ai);
-int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32 target, int moveScores[4][4], struct AIContext *ai);
+int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker, u32 target, s16 moveScores[4][4], struct AIContext *ai);
+int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32 target, s16 moveScores[4][4], struct AIContext *ai);
 
 
 int LONG_CALL BattleAI_PostKOSwitchIn(struct BattleSystem *bsys, int attacker);
