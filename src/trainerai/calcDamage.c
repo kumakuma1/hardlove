@@ -1267,7 +1267,7 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         return 0;
     }
 
-    if (IsMoveBlockedByAbility(sp, defenderSlot, attacker, defender, movetype, moveno, moveHasPriority)) {
+    if (IsMoveBlockedByAbility(bw, sp, defenderSlot, attacker, defender, movetype, moveno, moveHasPriority)) {
         return 0;
     }
 

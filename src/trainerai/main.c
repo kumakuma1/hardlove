@@ -43,6 +43,7 @@ enum AIActionChoice __attribute__((section(".init"))) TrainerAI_Main(struct Batt
     struct BattleStruct *ctx = bsys->sp;
     int highestDamageHitPrct = 0;
     if (attacker >= 10) {
+        debug_printf("\n\nPostKo calc after faint/switch\n");
         return BattleAI_PostKOSwitchIn_Internal(bsys, attacker - 10, &score, FALSE, &highestDamageHitPrct);
     }
 
@@ -550,7 +551,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             break;
         }
         if (ai->aiMovesFirst && ai->playerCanOneShotMonWithAnyMove) {
-            moveScore += 8;
+            moveScore += 7;
         } else {
             moveScore += 6;
         }
@@ -560,7 +561,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             isMoveHighestDamage = TRUE;
             moveScore += 6;
             if ((ai->attackerMoveEffect != MOVE_EFFECT_ONE_HIT_KO || ai->attackerMon.ability == ABILITY_NO_GUARD)
-                && ((BattleRand(bsys) % 10) < 2)) { // OHKO moves dont the random +2 unless No Guard
+                && ((BattleRand(bsys) % 4) == 0)) { // OHKO moves dont the random +2 unless No Guard
                 moveScore += 2;
             }
         }

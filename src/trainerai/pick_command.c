@@ -30,7 +30,7 @@ struct AI_PickCommandWork {
 int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 {
 #ifdef DEBUG_AI_SCORING
-    debug_printf("TrainerAI_PickCommand: %d\n", attacker);
+    debug_printf("\nTrainerAI_PickCommand: %d\n", attacker);
 #endif // DEBUG_AI_SCORING
     struct BattleStruct *ctx = bsys->sp;
     BOOL isTagPartner = FALSE;
@@ -123,12 +123,15 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
     {
         aiAlly1->partnerClicksAttackingMove = TRUE;
         aiAlly2->partnerClicksAttackingMove = TRUE;
-        if (ai1->monCanOneShotPlayerWithAnyMove && ai1->aiMovesFirst) {
+        // only ignore a target if both player mons are up, otherwise the partner is left without any target and picks
+        // a random move slot (even an empty one) against a random battler
+        BOOL bothPlayerMonsUp = ctx->battlemon[defender].hp && ctx->battlemon[BATTLER_ACROSS(attacker)].hp;
+        if (bothPlayerMonsUp && ai1->monCanOneShotPlayerWithAnyMove && ai1->aiMovesFirst) {
 #ifdef DEBUG_AI_SCORING
             debug_printf("attacker(%d) goes for fast kill on defender %d. Partner ignores target.\n", attacker, ai1->defender);
 #endif // DEBUG_AI_SCORING
             aiAlly2->ignoreTarget = TRUE;
-        } else if (ai2->monCanOneShotPlayerWithAnyMove && ai2->aiMovesFirst) {
+        } else if (bothPlayerMonsUp && ai2->monCanOneShotPlayerWithAnyMove && ai2->aiMovesFirst) {
 #ifdef DEBUG_AI_SCORING
             debug_printf("attacker(%d) goes for fast kill on defender %d. Partner ignores target.\n", attacker, ai2->defender);
 #endif // DEBUG_AI_SCORING
@@ -366,11 +369,9 @@ void LONG_CALL CalcTurnStateDamagesAndScores(struct BattleSystem *bsys, u32 atta
     }
     aiOp1->defenderAllySpeed = aiOp2->defenderMon.speed;
 
-    if (aiOp1->playerCanOneShotMonWithAnyMove) {
-        aiOp2->anyPlayerMonCanOneShotMonWithAnyMove = TRUE;
-    }
-    if (aiOp2->playerCanOneShotMonWithAnyMove) {
+    if (aiOp1->playerCanOneShotMonWithAnyMove || aiOp2->playerCanOneShotMonWithAnyMove) {
         aiOp1->anyPlayerMonCanOneShotMonWithAnyMove = TRUE;
+        aiOp2->anyPlayerMonCanOneShotMonWithAnyMove = TRUE;
     }
 
     if (ctx->battlemon[defender].hp > 0 && !aiOp1->ignoreTarget) {

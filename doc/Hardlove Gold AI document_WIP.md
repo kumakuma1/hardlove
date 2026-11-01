@@ -35,9 +35,9 @@ Lastly, the AI has a basic function to check if a move is useless. For example, 
 
 | Situation | Score |
 |---|---|
-| Highest damaging move | +6 (80%), +8 (20%) |
-| Slow kill (AI kills but is slower than target) | +9 (80%), +11 (20%) |
-| Fast kill (AI kills and is faster\* than target) | +12 (80%), +14 (20%) |
+| Highest damaging move | +6 (75%), +8 (25%) |
+| Slow kill (AI kills but is slower than target) | +9 (75%), +11 (25%) |
+| Fast kill (AI kills and is faster\* than target) | +12 (75%), +14 (25%) |
 
 \*AI sees speed ties as them being faster than the Player. A kill with a priority move counts as a fast kill.
 
@@ -127,7 +127,7 @@ The AI will calculate the faster mon first (Mega speed included). If it sees a f
 
 AI will roll a random damage roll for all of its attacking moves\*, and the highest damaging move gets the following score:
 
-- **+6** (~80%), **+8** (~20%)
+- **+6** (~75%), **+8** (~25%)
 
 If multiple moves kill, then they are all considered the highest damaging move and all get this score. OHKO moves (Fissure etc.) can only get the +8 if the AI has No Guard.
 
@@ -199,7 +199,7 @@ U-Turn, Flip Turn, Volt Switch:
 
 ### Future Sight, Doom Desire
 
-- If AI is faster than target and is KO'd by target: **+8**
+- If AI is faster than target and is KO'd by target: **+7**
 - Else: **+6**
 - Never used if one is already hitting the target.
 
@@ -661,6 +661,10 @@ These "setup" moves are a little unique and do not have the checks that normal s
 
 - If AI is faster and dies to Player Mon: **+6** (~80%), **+7** (~20%)
 - If AI is slower: **+5** (50%), **+6** (50%)
+
+### Metronome
+
+- **+6**
 
 ### Disable
 

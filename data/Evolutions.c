@@ -887,7 +887,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
     [SPECIES_GROWLITHE] = {
         .entries = {
             { EVO_STONE, ITEM_FIRE_STONE, SPECIES_ARCANINE },
-            { EVO_LEVEL, 51, MON_WITH_FORM(SPECIES_ARCANINE, 1) },
+            { EVO_LEVEL, 48, MON_WITH_FORM(SPECIES_ARCANINE, 1) },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -14131,7 +14131,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_KUBFU] = {
         .entries = {
-            { EVO_LEVEL_PID_HI, 50, SPECIES_URSHIFU },
+            { EVO_LEVEL_PID_LO, 50, SPECIES_URSHIFU },
             { EVO_LEVEL_PID_HI, 50, MON_WITH_FORM(SPECIES_URSHIFU, 1) },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },

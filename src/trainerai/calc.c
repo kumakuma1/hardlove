@@ -184,7 +184,7 @@ void LONG_CALL FillDamageStructFromBattleMon(struct BattleSystem *bw, struct Bat
     monStruct->condition2 = sp->battlemon[numSlot].condition2;
     monStruct->effect_of_moves = sp->battlemon[numSlot].effect_of_moves;
     monStruct->isGrounded = AI_IsClientGrounded(sp, monStruct, numSlot);
-    monStruct->firstTurnOut = (sp->total_turn == sp->battlemon[numSlot].moveeffect.fakeOutCount);
+    monStruct->firstTurnOut = BattlerFirstTurnOut(sp, numSlot);
 
     monStruct->sex = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_SEX, NULL);
     
@@ -280,7 +280,7 @@ int LONG_CALL BattleAI_GetTypeEffectiveness(void *bw, struct BattleStruct *sp, i
         return TYPE_MUL_NO_EFFECT;
     }
 
-    if (IsMoveBlockedByAbility(sp, defenderSlot, attacker, defender, move_type, moveno, moveHasPriority)) {
+    if (IsMoveBlockedByAbility(bw, sp, defenderSlot, attacker, defender, move_type, moveno, moveHasPriority)) {
         return TYPE_MUL_NO_EFFECT;
     }
     if (IsPowderMove(moveno)
@@ -1089,8 +1089,21 @@ BOOL LONG_CALL HasMovePriority(struct BattleSystem *bsys, u8 attacker, u32 attac
     return hasPriority;
 }
 
-BOOL LONG_CALL IsMoveBlockedByAbility(struct BattleStruct *sp, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender, int movetype, int moveno, BOOL moveHasPriority)
+BOOL LONG_CALL IsMoveBlockedByAbility(void *bw, struct BattleStruct *sp, u8 defenderSlot, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender, int movetype, int moveno, BOOL moveHasPriority)
 {
+    if (moveHasPriority && !attacker->hasMoldBreaker
+        && (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG))
+        && sp->battlemon[BATTLER_ALLY(defenderSlot)].hp) {
+        switch (GetBattlerAbility(sp, BATTLER_ALLY(defenderSlot))) {
+        case ABILITY_DAZZLING:
+        case ABILITY_QUEENLY_MAJESTY:
+        case ABILITY_ARMOR_TAIL:
+            return TRUE;
+        default:
+            break;
+        }
+    }
+
     if (!attacker->hasMoldBreaker) {
         switch (defender->ability) {
         case ABILITY_FLASH_FIRE:

@@ -4863,15 +4863,15 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "I found some good Pokémon in the grass!\\nI think they’ll do it for me!\\r",
+                .text = "I post and police others in an online\\nchat forum.\\rYou could say I am a pretty big deal\\nthere.\\r",
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "Shucks. I thought I could win.\\n",
+                .text = "I will post this online!\\n",
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "Each Pokémon has its own nature.\\nThey seem different every time I catch\\fone. So there must be many natures!\\n",
+                .text = "Wanna see all my internet points?!\\n",
             },
         },
     },
@@ -10785,7 +10785,7 @@ const TrainerData sTrainerData[] = {
             .trainerClass = TRAINERCLASS_FISHERMAN,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_EVALUATE_ATTACKS,
-            .battleType = SINGLE_BATTLE,
+            .battleType = NO_PARTNER_DOUBLE_BATTLE,
         },
         .party = {
             {
@@ -10875,7 +10875,7 @@ const TrainerData sTrainerData[] = {
                 .text = "Let me battle with the Pokémon\\nI just caught!\\r",
             },
             {
-                .type = TRMSG_LOSE,
+                .type = TRMSG_DBL_LOSE_1,
                 .text = "I might be an expert angler, but I stink\\nas a Pokémon Trainer...\\n",
             },
             {
@@ -23683,7 +23683,7 @@ const TrainerData sTrainerData[] = {
                 .level = 65,
                 .species = SPECIES_MEW,
                 .item = ITEM_LEFTOVERS,
-                .moves = { MOVE_PSYCHIC_FANGS, MOVE_PLAY_ROUGH, MOVE_BLAZE_KICK, MOVE_DRAGON_DANCE },
+                .moves = { MOVE_PSYCHIC_FANGS, MOVE_PLAY_ROUGH, MOVE_LIQUIDATION, MOVE_DRAGON_DANCE },
                 .ability = ABILITY_SYNCHRONIZE,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -23697,7 +23697,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "Sorry about being away.\\nLet’s get on with it!\\r",
+                .text = "...\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -23705,7 +23705,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "I’ll be swimming quietly.\\n",
+                .text = "...\\n",
             },
         },
     },
@@ -30483,7 +30483,7 @@ const TrainerData sTrainerData[] = {
                 .level = 48,
                 .species = SPECIES_MACHAMP,
                 .item = ITEM_FLAME_ORB,
-                .moves = { MOVE_CLOSE_COMBAT, MOVE_ICE_PUNCH, MOVE_ICE_FANG, MOVE_BULLET_PUNCH },
+                .moves = { MOVE_CLOSE_COMBAT, MOVE_ICE_PUNCH, MOVE_FIRE_PUNCH, MOVE_BULLET_PUNCH },
                 .ability = ABILITY_GUTS,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -33388,7 +33388,7 @@ const TrainerData sTrainerData[] = {
                 .level = 60,
                 .species = SPECIES_AVALUGG,
                 .item = ITEM_ASSAULT_VEST,
-                .moves = { MOVE_ICICLE_SPEAR, MOVE_BODY_PRESS, MOVE_GYRO_BALL, MOVE_EARTH_POWER },
+                .moves = { MOVE_ICICLE_SPEAR, MOVE_BODY_PRESS, MOVE_GYRO_BALL, MOVE_EARTHQUAKE },
                 .ability = ABILITY_STURDY,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -41575,12 +41575,12 @@ const TrainerData sTrainerData[] = {
                 .level = 65,
                 .species = SPECIES_GRENINJA,
                 .item = ITEM_LIFE_ORB,
-                .moves = { MOVE_HYDRO_PUMP, MOVE_WATER_SHURIKEN, MOVE_DARK_PULSE, MOVE_GRASS_KNOT },
+                .moves = { MOVE_LIQUIDATION, MOVE_WATER_SHURIKEN, MOVE_NIGHT_SLASH, MOVE_GUNK_SHOT },
                 .ability = ABILITY_BATTLE_BOND,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
                 .setEvs = { 0, 0, 0, 0, 0, 0 },
-                .nature = NATURE_TIMID,
+                .nature = NATURE_HASTY,
                 .shinyLock = 0,
                 .additionalFlags = 0,
                 .ballSeal = 0,
@@ -41591,7 +41591,7 @@ const TrainerData sTrainerData[] = {
                 .level = 65,
                 .species = SPECIES_MEOWSTIC,
                 .item = ITEM_MEOWSTICITE,
-                .moves = { MOVE_FUTURE_SIGHT, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL, MOVE_THUNDER_WAVE },
+                .moves = { MOVE_PSYCHIC, MOVE_THUNDERBOLT, MOVE_SHADOW_BALL, MOVE_THUNDER_WAVE },
                 .ability = ABILITY_PRANKSTER,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -44358,7 +44358,7 @@ const TrainerData sTrainerData[] = {
                 .species = SPECIES_LUCARIO,
                 .item = ITEM_AIR_BALLOON,
                 .moves = { MOVE_CLOSE_COMBAT, MOVE_PSYCHIC, MOVE_HEAL_PULSE, MOVE_COACHING },
-                .ability = ABILITY_SAND_RUSH,
+                .ability = ABILITY_INNER_FOCUS,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
                 .setEvs = { 0, 0, 0, 0, 0, 0 },
