@@ -21122,7 +21122,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Snap Trap",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_BIND_HIT,
             .split = SPLIT_PHYSICAL,
             .power = 35,
             .type = TYPE_STEEL,

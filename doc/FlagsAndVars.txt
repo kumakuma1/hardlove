@@ -128,7 +128,7 @@ Variables
 (16563 is unused)
 (16564 is unused)
 (16565 is unused)
-(16566 is unused)
+(16566/0x40B6 is used)  : roughneck in victory road
 (16567/0x40B7 is used)  : Mega Z trainer in victory road
 (16568/0x40B8 is used)  : Used for Gift in Blackthorn
 (16569/0x40B9 is used)  : embedded tower reset at league

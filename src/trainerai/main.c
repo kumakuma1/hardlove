@@ -531,6 +531,7 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     case MOVE_WRAP:
     case MOVE_WHIRLPOOL:
     case MOVE_INFESTATION:
+    case MOVE_SNAP_TRAP:
         if (ctx->binding_turns[ai->defender] != 0 || HasType(ctx, ai->defender, TYPE_GHOST) || ai->defenderMon.item == ITEM_SHED_SHELL) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {
