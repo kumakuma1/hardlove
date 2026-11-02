@@ -511,8 +511,6 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     case MOVE_METEOR_BEAM:
         if (ai->attackerMon.item == ITEM_POWER_HERB) {
             moveScore += 9;
-        } else {
-            moveScore -= NEVER_USE_MOVE_20;
         }
         break;
     case MOVE_ELECTRO_SHOT:
@@ -697,8 +695,9 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
         break;
     }
+    case MOVE_THUNDERCLAP:
     case MOVE_SUCKER_PUNCH: {
-        if (ai->attackerLastUsedMove == MOVE_SUCKER_PUNCH) {
+        if (ctx->waza_no_sketch[ai->attacker] == MOVE_SUCKER_PUNCH || ctx->waza_no_sketch[ai->attacker] == MOVE_THUNDERCLAP) {
             if (BattleRand(bsys) % 2 == 0) {
                 moveScore -= NEVER_USE_MOVE_20;
             }
@@ -1748,7 +1747,16 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_CHANGE_TO_WATER_TYPE:
-        if (HasType(ctx, ai->defender, TYPE_WATER)) {
+    case MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE:
+        if (IsPureType(ctx, ai->defender, ai->attackerMoveEffect == MOVE_EFFECT_CHANGE_TO_WATER_TYPE ? TYPE_WATER : TYPE_PSYCHIC)) {
+            moveScore -= NEVER_USE_MOVE_20;
+        } else {
+            moveScore += 6;
+        }
+        break;
+    case MOVE_EFFECT_ADD_TYPE_GHOST:
+    case MOVE_EFFECT_ADD_TYPE_GRASS:
+        if (HasType(ctx, ai->defender, ai->attackerMoveEffect == MOVE_EFFECT_ADD_TYPE_GHOST ? TYPE_GHOST : TYPE_GRASS)) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {
             moveScore += 6;

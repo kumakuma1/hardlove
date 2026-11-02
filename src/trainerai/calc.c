@@ -1053,10 +1053,10 @@ BOOL LONG_CALL IsMoveUsable(struct BattleStruct *ctx, u8 attacker, u32 move, u32
     if (ctx->battlemon[attacker].moveeffect.tauntTurns > 0 && split == SPLIT_STATUS) {
         return FALSE;
     }
+    if (ctx->battlemon[attacker].moveeffect.encoredTurns > 0 && move != ctx->battlemon[attacker].moveeffect.encoredMove) {
+        return FALSE;
+    }
     if (ctx->battlemon[attacker].moveeffect.moveNoChoice != MOVE_NONE) {
-        if (ctx->battlemon[attacker].moveeffect.encoredTurns > 0 && move != ctx->battlemon[attacker].moveeffect.encoredMove) {
-            return FALSE;
-        }
         int itemEffect = HeldItemHoldEffectGet(ctx, attacker);
         if (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK) {
             if (move != ctx->battlemon[attacker].moveeffect.moveNoChoice) {
@@ -1171,6 +1171,12 @@ BOOL LONG_CALL IsMoveBlockedByAbility(void *bw, struct BattleStruct *sp, u8 defe
         return TRUE;
     }
     return FALSE;
+}
+
+u16 LONG_CALL GetCappedDamagePercent(u32 damage, u32 hp)
+{
+    u32 percent = 100 * damage / hp;
+    return percent > 100 ? 100 : percent;
 }
 
 

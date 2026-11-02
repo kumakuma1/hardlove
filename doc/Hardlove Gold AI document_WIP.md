@@ -15,21 +15,22 @@
 - [Other status moves](#other-status-moves)
 - [Recovery moves](#recovery-moves)
 - [Counter moves](#counter-moves)
+- [Doubles AI](#doubles-ai)
 - [Extra details](#extra-details)
 
 ---
 
 ## Brief summary
 
-The AI will calculate a score for every move and choose the highest scoring move to click on any given turn. If multiple moves have the same score, it randomly selects between one of them. In Double battles, the AI will calculate a score for each of its moves on each possible target, and choose the highest scoring move + target. If multiple targets have the same highest move score, the AI will randomly roll the target first, before choosing the highest move score.
+The AI will calculate a score for every move and choose the highest scoring move to click on any given turn. If multiple moves have the same score, it randomly selects between one of them. In Double battles, the AI will calculate a score for each of its moves on each possible target, and choose the highest scoring move + target. If multiple targets have the same highest move score, the AI will randomly roll the target first, before choosing the highest move score. All damages are capped at max HP for any comparison.
 
-The AI knows your full team's stats, moves, items and Abilities at the start of the battle. It sees accurate damage and speed, including Mega Evolution: if an AI mon is **on the field** and can Mega Evolve, it already uses the Mega's stats, Ability and typing for any calculation. It also sees Sticky Webs, if Terrain Seeds and/or Unburden would proc, Libero STAB, guaranteed critical hits, any effect that prevents moves from being usable like Encore, Choice Lock, Taunt, Throat Chop, etc.
+The AI knows your full team's stats, moves, items and Abilities at the start of the battle. It sees accurate damage and speed, including Mega Evolution: if an AI mon is **on the field** and can Mega Evolve, it already uses the Mega's Stats, Ability and Typing for any calculation. It also sees Sticky Webs, if Terrain Seeds and/or Unburden would proc, Libero STAB, guaranteed critical hits, any effect that prevents moves from being usable like Encore, Choice Lock, Taunt, Throat Chop, etc.
 
 The AI does not read Player input. The only instance where the AI "cheats" is reading its sleep counter, so that the AI knows when it wakes up and can click a move or Sleep Talk/Snore.
 
 The rest of this document will list out the possible scores for the relevant moves in the game, and the scenarios in which those scores are possible. As a general rule, the default score for non-attacking moves is **+6** (tied with the highest damage attacking move).
 
-Lastly, the AI has a basic function to check if a move is useless. For example, if Stealth Rocks are already set, the AI will not try to click SR again. If you are paralyzed, it will not try to paralyze you again. It also never clicks moves that would fail or do nothing: moves without PP, disabled or Taunted moves, moves you are immune to (type, Ability, Levitate, Air Balloon, Grass/Overcoat/Safety Goggles against powder moves), priority moves into Psychic Terrain, Prankster status moves into Dark types, Nightmare on an awake target and so on.
+Lastly, the AI has a basic function to check if a move is useless. For example, if Stealth Rocks are already set, the AI will not try to click SR again. If you are paralyzed, it will not try to paralyze you again. It also never clicks moves that would fail or do nothing: moves without PP, disabled or Taunted moves, moves you are immune to (Type, Ability, Air Balloon, Grass/Overcoat/Safety Goggles against Powder moves), Priority moves into Psychic Terrain, Prankster status moves into Dark types, Nightmare on an awake target and so on.
 
 ### Common scores to be aware of
 
@@ -66,7 +67,7 @@ If the best Switch-In Score is below +3, the AI never switches. Otherwise it che
 30% * (Switch-In Score - 2)
 ```
 
-i.e. with a +4 Switch-In Score, the AI has a 66% chance to switch.
+i.e. with a +4 Switch-In Score, the AI has a 60% chance to switch.
 
 **If Perish Song is not active** and the Switch-In Score is +4 or higher, the AI calculates the rate to switch according to the highest damage the Switch-In would receive:
 
@@ -107,7 +108,7 @@ After a KO only, once:
 
 - Wobbuffet / Wynaut that is not OHKO'd: **+2**
 - Ditto that is faster: **+2**
-- Zoroark that is faster: **+0 to +2** (random)
+- Zoroark(-H) that is faster: **+0,+1,+2** (random)
 
 Mons that are KO'd on the switch, or slower and 2HKO'd, are effectively never picked for a hard switch.
 
@@ -205,9 +206,9 @@ U-Turn, Flip Turn, Volt Switch:
 
 > **Note:** This stacks with bonuses for kills listed in the "All damaging moves" section.
 
-### Sucker Punch
+### Sucker Punch, Thunderclap
 
-- If AI used Sucker Punch last turn: **-20** (50%), no score change other 50%
+- If AI clicked Sucker Punch last turn: **-20** (50%), no score change other 50%
 
 > **Note:** Whether the Sucker failed or not last turn does not affect its score in any way.
 
@@ -249,7 +250,6 @@ U-Turn, Flip Turn, Volt Switch:
 ### Meteor Beam
 
 - If AI is holding a Power Herb: **+9**
-- Else: never used (**-20**)
 
 ### Electro Shot
 
@@ -305,20 +305,6 @@ Other Protect-like moves like King's Shield have no unique AI, and are equivalen
   - If AI is inflicted with any of the statuses listed for Protect: additional **-1**
 - Same rules as Protect for using it multiple turns in a row and for dying to secondary damage.
 
-### Role Play
-
-- If the AI's partner has Huge Power or Pure Power, and the AI mon doesn't: **+9** (75%), **+12** (25%)
-
-### Skill Swap (on partner)
-
-- For a few specific combos (e.g. giving Truant/Slow Start away, Prankster to Breloom, Technician/Flash Fire to Durant): **+6** (50%), **+9** (50%)
-
-### Shadow Sneak, Aqua Jet, Ice Shard, Mach Punch, Bullet Punch, Vacuum Wave, Quick Attack
-
-Special case for doubles here.
-
-- If their partner has Weakness Policy and this move is super effective on the partner, these get **+6** (25%), **+9** (50%), **+12** (25%) when used on the partner.
-
 ### Magnitude, Earthquake
 
 Special case for doubles here.
@@ -356,37 +342,11 @@ Special case for doubles here.
 
 - **+6**, never used if Gravity is already up
 
-### Helping Hand
-
-- **+6** (50%), **+8** (50%)
-- AI will not use Helping Hand if its partner is also using Helping Hand, its partner is using a status move, or its partner is ignoring its target.
-- The faster AI mon picks its move first. It only uses Helping Hand if its partner has an attacking move it can use this turn and is not asleep, frozen or recharging. If it does, the partner never uses a status move that turn (**-20**).
-
 ### Follow Me, Rage Powder
 
 - In doubles, if the partner is alive: **+6** (~80%), **+8** (~20%)
 - Never used in singles, or against a target with Stalwart or Propeller Tail.
 - Rage Powder is also never used against a target that is immune to powder moves (Grass type, Overcoat, Safety Goggles).
-
-### Heal Pulse, Pollen Puff, Milk Drink (on partner)
-
-- If the AI isn't slower than the Player Mons and its partner is at 50% HP or lower: **+7**
-
-### Decorate
-
-- **+6** (50%), **+8** (50%)
-- Additional **-2** if the partner's Attack or Sp. Atk is +2 or higher
-
-### Coaching
-
-Only used in Double battles:
-
-- **+6** (50%), **+8** (50%)
-- Additional **-1** if the partner's Attack is +2 or higher, another **-1** if its Defense is +2 or higher
-
-### Acupressure (on partner)
-
-- **+6** (50%), **+8** (50%)
 
 ### Final Gambit
 
@@ -486,7 +446,7 @@ AI will not use Memento if the AI is on its last mon.
 - If AI is holding one of the following: Iron Ball, Lagging Tail, Sticky Barb: **+7**
 - Never used if neither mon holds an item, or the target has Sticky Hold.
 
-### Yawn, Dark Void and all other non-damaging sleep moves (i.e. Grasswhistle, Sing)
+### Yawn, Dark Void and all other non-damaging sleep moves (i.e. Grass Whistle, Sing)
 
 - Starts at **+6**
 - Sleep moves (not Yawn) get an additional **+2** if the AI has Prankster
@@ -734,9 +694,13 @@ Only used if the target is poisoned and has an attacking move that isn't already
 
 - Only used in doubles: **+6**, never used if the target is a Ground type or has Volt Absorb
 
-### Soak
+### Soak, Magic Powder
 
-- **+6**, never used if the target is already a Water type
+- **+6**, never used if the target is already pure Water type (Soak) or pure Psychic type (Magic Powder)
+
+### Trick-or-Treat, Forest's Curse
+
+- **+6**, never used if the target already has the Ghost type (Trick-or-Treat) or the Grass type (Forest's Curse)
 
 ---
 
@@ -791,6 +755,53 @@ Only used if the target is poisoned and has an attacking move that isn't already
 - Regardless of above, if Player has status moves it can use: additional **-1** (25%), no score change other 75%
 
 ---
+
+## Doubles AI
+
+In Double battles, the AI also scores its moves on its partner as a target. Only the moves listed below can score positively on the partner, every other move is never used on the partner.
+
+### Helping Hand
+
+- **+6** (50%), **+8** (50%)
+- AI will not use Helping Hand if its partner is also using Helping Hand, its partner is using a status move, or its partner is ignoring its target.
+- The faster AI mon picks its move first. It only uses Helping Hand if its partner has an attacking move it can use this turn and is not asleep, frozen or recharging. If it does, the partner never uses a status move that turn (**-20**).
+
+### Heal Pulse, Pollen Puff, Milk Drink (on partner)
+
+- If the AI isn't slower than the Player Mons and its partner is at 50% HP or lower: **+7**
+
+### Decorate
+
+- **+6** (50%), **+8** (50%)
+- Additional **-2** if the partner's Attack or Sp. Atk is +2 or higher
+
+### Coaching
+
+- **+6** (50%), **+8** (50%)
+- Additional **-1** if the partner's Attack is +2 or higher, another **-1** if its Defense is +2 or higher
+
+### Acupressure (on partner)
+
+- **+6** (50%), **+8** (50%)
+
+### Role Play
+
+- If the AI's partner has Huge Power or Pure Power, and the AI mon doesn't: **+9** (75%), **+12** (25%)
+
+### Skill Swap (on partner)
+
+- For a few specific combos (e.g. giving Truant/Slow Start away, Prankster to Breloom, Technician/Flash Fire to Durant): **+6** (50%), **+9** (50%)
+
+### Entrainment (on partner)
+
+- If the AI mon has No Guard and its partner knows Fissure or Horn Drill, or to replace the partner's Truant (Slaking) or Slow Start (Regigigas): **+6** (50%), **+9** (50%)
+
+### Shadow Sneak, Aqua Jet, Ice Shard, Mach Punch, Bullet Punch, Vacuum Wave, Quick Attack (on partner)
+
+- If their partner has Weakness Policy and this move is super effective on the partner: **+6** (25%), **+9** (50%), **+12** (25%)
+
+---
+
 
 ## Extra details
 

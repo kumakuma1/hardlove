@@ -24767,13 +24767,13 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Alluring Voice",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_CONFUSE_HIT,
             .split = SPLIT_SPECIAL,
             .power = 80,
             .type = TYPE_FAIRY,
             .accuracy = 100,
             .pp = 10,
-            .effectChance = 0,
+            .effectChance = 30,
         },
         .battle = {
             .target = RANGE_SINGLE_TARGET,

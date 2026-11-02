@@ -287,8 +287,7 @@ BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defe
             return FALSE;
         }
 
-        // compare max rolls
-        if ((100 * ai->maxDamageReceived / ai->attackerMon.hp) < (100 * ai->attackerMaxRollDamage / ai->defenderMon.hp)) {
+        if (GetCappedDamagePercent(ai->maxDamageReceived, ai->attackerMon.hp) < GetCappedDamagePercent(ai->attackerMaxRollDamage, ai->defenderMon.hp)) {
             return FALSE;
         }
     }
