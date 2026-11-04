@@ -10673,14 +10673,14 @@ const ITEMDATA __data[] =
 
 [ITEM_RAZZ_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 60 : 80,
-    .naturalGiftType = TYPE_STEEL,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_NORMAL,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -10738,14 +10738,14 @@ const ITEMDATA __data[] =
 
 [ITEM_BLUK_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_FIRE,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_FIGHTING,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -10803,14 +10803,14 @@ const ITEMDATA __data[] =
 
 [ITEM_NANAB_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_WATER,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_FLYING,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -10868,14 +10868,14 @@ const ITEMDATA __data[] =
 
 [ITEM_WEPEAR_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_ELECTRIC,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_POISON,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -10933,14 +10933,14 @@ const ITEMDATA __data[] =
 
 [ITEM_PINAP_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_GRASS,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_GROUND,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -10998,14 +10998,14 @@ const ITEMDATA __data[] =
 
 [ITEM_POMEG_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_ICE,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_PSYCHIC,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -11047,7 +11047,7 @@ const ITEMDATA __data[] =
         .friendship_mod_lo = TRUE,
         .friendship_mod_med = TRUE,
         .friendship_mod_hi = TRUE,
-        .hp_ev_up_param = -10,
+        .hp_ev_up_param = 0,
         .atk_ev_up_param = 0,
         .def_ev_up_param = 0,
         .speed_ev_up_param = 0,
@@ -11063,14 +11063,14 @@ const ITEMDATA __data[] =
 
 [ITEM_KELPSY_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_FIGHTING,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_ICE,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -11113,7 +11113,7 @@ const ITEMDATA __data[] =
         .friendship_mod_med = TRUE,
         .friendship_mod_hi = TRUE,
         .hp_ev_up_param = 0,
-        .atk_ev_up_param = -10,
+        .atk_ev_up_param = 0,
         .def_ev_up_param = 0,
         .speed_ev_up_param = 0,
         .spatk_ev_up_param = 0,
@@ -11128,14 +11128,14 @@ const ITEMDATA __data[] =
 
 [ITEM_QUALOT_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_POISON,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_DRAGON,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -11179,7 +11179,7 @@ const ITEMDATA __data[] =
         .friendship_mod_hi = TRUE,
         .hp_ev_up_param = 0,
         .atk_ev_up_param = 0,
-        .def_ev_up_param = -10,
+        .def_ev_up_param = 0,
         .speed_ev_up_param = 0,
         .spatk_ev_up_param = 0,
         .spdef_ev_up_param = 0,
@@ -11193,14 +11193,14 @@ const ITEMDATA __data[] =
 
 [ITEM_HONDEW_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_GROUND,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_DARK,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -11246,7 +11246,7 @@ const ITEMDATA __data[] =
         .atk_ev_up_param = 0,
         .def_ev_up_param = 0,
         .speed_ev_up_param = 0,
-        .spatk_ev_up_param = -10,
+        .spatk_ev_up_param = 0,
         .spdef_ev_up_param = 0,
         .hp_restore_param = 0,
         .pp_restore_param = 0,
@@ -11388,14 +11388,14 @@ const ITEMDATA __data[] =
 
 [ITEM_CORNN_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_BUG,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_ROCK,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -11453,14 +11453,14 @@ const ITEMDATA __data[] =
 
 [ITEM_MAGOST_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_ROCK,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_BUG,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -11518,13 +11518,13 @@ const ITEMDATA __data[] =
 
 [ITEM_RABUTA_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
+    .naturalGiftPower = 90,
     .naturalGiftType = TYPE_GHOST,
     .prevent_toss = FALSE,
     .selectable = FALSE,
@@ -11583,14 +11583,14 @@ const ITEMDATA __data[] =
 
 [ITEM_NOMEL_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_DRAGON,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_STEEL,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -11648,14 +11648,14 @@ const ITEMDATA __data[] =
 
 [ITEM_SPELON_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_DARK,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_FAIRY,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -11713,14 +11713,14 @@ const ITEMDATA __data[] =
 
 [ITEM_PAMTRE_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 70 : 90,
-    .naturalGiftType = TYPE_STEEL,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_FIRE,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -11778,14 +11778,14 @@ const ITEMDATA __data[] =
 
 [ITEM_WATMEL_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 80 : 100,
-    .naturalGiftType = TYPE_FIRE,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_WATER,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -11843,14 +11843,14 @@ const ITEMDATA __data[] =
 
 [ITEM_DURIN_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 80 : 100,
-    .naturalGiftType = TYPE_WATER,
+    .naturalGiftPower = 90,
+    .naturalGiftType = TYPE_GRASS,
     .prevent_toss = FALSE,
     .selectable = FALSE,
     .fieldPocket = POCKET_BERRIES,
@@ -11908,13 +11908,13 @@ const ITEMDATA __data[] =
 
 [ITEM_BELUE_BERRY] =
 {
-    ITEM_PRICE(20),
+    ITEM_PRICE(100),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
     .flingEffect = 0,
     .flingPower = 10,
-    .naturalGiftPower = NATURAL_GIFT_POWER_GEN < 6 ? 80 : 100,
+    .naturalGiftPower = 90,
     .naturalGiftType = TYPE_ELECTRIC,
     .prevent_toss = FALSE,
     .selectable = FALSE,

@@ -1340,7 +1340,7 @@ scr_seq_0141_180:
 
 scr_seq_0141_181:
 	// Victory road 2F, north west, 1122 //tm26
-	setvar VAR_SPECIAL_x8008, ITEM_DRAGALGITE
+	setvar VAR_SPECIAL_x8008, ITEM_NUGGET //ITEM_DRAGALGITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

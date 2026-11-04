@@ -62,7 +62,7 @@
 
 578   -                                - Ho-oH in bell tower
 579   -                                - Lugia in whirl islands
-580   -                                - kimono girls in bell tower. Flag is set. Unused
+580   -                                - kimono girls in bell tower. Flag is set. Used for Lyra/etha in olivine after lighthouse. Cleared after getting task from Jasmine
 581   -                                - Alola girls in whirl islands
 591   -                                - Aprikoko Guy in Route 30. Used for Healing in Gyms
 598   -                                - Hide Misty on Route 25
@@ -127,7 +127,7 @@ Variables
 (16562/0x40B2 is used for encounter)
 (16563 is unused)
 (16564 is unused)
-(16565 is unused)
+(16565/0x40B5 is used)  : ethan/lyra in olivine after lighthouse. Set to 2 after getting task from Jasmine
 (16566/0x40B6 is used)  : roughneck in victory road
 (16567/0x40B7 is used)  : Mega Z trainer in victory road
 (16568/0x40B8 is used)  : Used for Gift in Blackthorn
