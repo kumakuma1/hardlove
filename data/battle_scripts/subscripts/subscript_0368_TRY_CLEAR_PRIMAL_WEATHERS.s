@@ -4,7 +4,7 @@
 .data
 
 _000:
-    CanClearPrimalWeather 1, _006, _020, _034, _050
+    //CanClearPrimalWeather 1, _006, _020, _034, _050
     End 
 
 _006:

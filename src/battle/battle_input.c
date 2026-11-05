@@ -261,19 +261,17 @@ void Sub_PokeIconResourceFree(struct BI_PARAM *bip)
         }
         newBS.MegaIconLight = 0;
     }
+    //TODO check main
+    if (newBS.WeatherOAM) {
+        OAM_FreeResourceChar(crp, WEATHER_ICON_SPRITE_TAG);
+        OAM_FreeResourceCell(crp, WEATHER_ICON_CELL_TAG);
+        OAM_FreeResourceCellAnm(crp, WEATHER_ICON_CELL_ANIM_TAG);
+        OAM_FreeResourcePltt(crp, WEATHER_ICON_PAL_TAG);
 
-    if (bip->bw->sp->field_condition & WEATHER_ANY_ICONS) {
-        if (newBS.WeatherOAM) {
-            OAM_FreeResourceChar(crp, WEATHER_ICON_SPRITE_TAG);
-            OAM_FreeResourceCell(crp, WEATHER_ICON_CELL_TAG);
-            OAM_FreeResourceCellAnm(crp, WEATHER_ICON_CELL_ANIM_TAG);
-            OAM_FreeResourcePltt(crp, WEATHER_ICON_PAL_TAG);
-
-            CATS_ActorPointerDelete_S(newBS.WeatherOAM);
-            newBS.WeatherOAM = NULL;
-            DestroySysTask(newBS.weatherUpdateTask);
-            newBS.weatherUpdateTask = NULL;
-        }
+        DestroySysTask(newBS.weatherUpdateTask);
+        newBS.weatherUpdateTask = NULL;
+        CATS_ActorPointerDelete_S(newBS.WeatherOAM);
+        newBS.WeatherOAM = NULL;
     }
 }
 
@@ -322,7 +320,7 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         OAM_ObjectUpdate(newBS.MegaOAM->act);
     }
 
-    if (bip->bw->sp->field_condition & WEATHER_ANY_ICONS) {
+    if (!newBS.WeatherOAM && (bip->bw->sp->field_condition & WEATHER_ANY_ICONS)) {
         u32 ncgr;
         csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);

@@ -840,7 +840,7 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
 #ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
     case SPECIES_DEERLING:
     case SPECIES_SAWSBUCK:
-        form = GrabCurrentSeason(); // update to the current season
+        form = gf_rand() % 4; // % GrabCurrentSeason(); // update to the current season
         break;
 #endif
     case SPECIES_UNFEZANT:
@@ -856,7 +856,7 @@ void LONG_CALL UpdatePassiveForms(struct PartyPokemon *pp)
         break;
 #ifdef IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
     case SPECIES_PYROAR:
-        form = (gf_rand() % 8 != 0); // 1/8 male
+        form = 0;//(gf_rand() % 8 != 0); // 1/8 male
         break;
 #endif
     case SPECIES_DUNSPARCE: // TODO: move to evolution function
