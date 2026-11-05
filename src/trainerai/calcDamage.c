@@ -249,11 +249,9 @@ int LONG_CALL BattleAI_CalcBaseDamage(void *bw, struct BattleStruct *sp, int mov
         // Item-based
     case MOVE_FLING:
         movepower = GetItemData(attacker->item, ITEM_PARAM_FLING_POWER, 5); // TODO: check heap
-        // TODO: wonder room: if(wonder room) movepower = 0;
         break;
     case MOVE_NATURAL_GIFT:
-        movepower = GetItemData(attacker->item, ITEM_PARAM_NATURAL_GIFT_POWER, 5); // TODO: check heap
-        //TODO: wonder room: if(wonder room) movepower = 0;
+        movepower = BattleItemDataGet(sp, attacker->item, ITEM_PARAM_NATURAL_GIFT_POWER);
         break;
         // Other
         // case MOVE_BEAT_UP:

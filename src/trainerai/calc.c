@@ -113,7 +113,7 @@ void LONG_CALL FillDamageStructFromBattleMon(struct BattleSystem *bw, struct Bat
     monStruct->hp = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_HP, NULL);
     monStruct->maxhp = BattlePokemonParamGet(sp, numSlot, BATTLE_MON_DATA_MAX_HP, NULL);
     monStruct->percenthp = (monStruct->hp * 100) / monStruct->maxhp;
-    monStruct->item = GetBattleMonItem(sp, numSlot);
+    monStruct->item = GetBattleMonItemIgnoringUnnerve(sp, numSlot);
     monStruct->item_held_effect = BattleItemDataGet(sp, monStruct->item, 1);
     monStruct->item_power = BattleItemDataGet(sp, monStruct->item, 2);
     
@@ -593,7 +593,7 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
     case MOVE_NATURAL_GIFT:
         // https://github.com/pret/pokeheartgold/blob/29282f7bb45946dee63475022a8d506092bc3748/src/battle/overlay_12_0224E4FC.c#L4600
         // type = GetNaturalGiftType(ctx, battlerId);
-        type = GetItemData(attacker->item, ITEM_PARAM_NATURAL_GIFT_TYPE, 5); // TODO: check heap
+        type = BattleItemDataGet(ctx, attacker->item, ITEM_PARAM_NATURAL_GIFT_TYPE);
         break;
     case MOVE_JUDGMENT:
         switch (attacker->item_held_effect) {

@@ -1438,7 +1438,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
         }
         break;
     case MOVE_EFFECT_DOUBLE_SPEED_3_TURNS:
-        if (ctx->tailwindCount[ai->attackerSide]) {
+        // the faster partner already clicked tailwind, so it would fail
+        if (ctx->tailwindCount[ai->attackerSide] || ai->partnerMoveNo == MOVE_TAILWIND) {
             moveScore -= NEVER_USE_MOVE_20;
             break;
         }
@@ -1453,7 +1454,8 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
 
         break;
     case MOVE_EFFECT_TRICK_ROOM:
-        if (ctx->field_condition & FIELD_CONDITION_TRICK_ROOM) {
+        // the faster partner already clicked trick room, a second one would cancel it
+        if ((ctx->field_condition & FIELD_CONDITION_TRICK_ROOM) || ai->partnerMoveNo == MOVE_TRICK_ROOM) {
             moveScore -= NEVER_USE_MOVE_20;
             break;
         }
