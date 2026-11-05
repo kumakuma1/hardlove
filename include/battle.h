@@ -3413,7 +3413,10 @@ int LONG_CALL Battler_GetRandomOpposingBattlerId(struct BattleSystem *bsys, stru
 
 int LONG_CALL GetBattlerLearnedMoveCount(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
+BOOL LONG_CALL SideSharesParty(struct BattleSystem *bsys, int battler);
+
 BOOL LONG_CALL CanSwitchMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+BOOL LONG_CALL CanSwitchMonConsideringPendingSwitches(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
 BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, int battlerIdAttacker, int battlerIdTarget, int move);
 
@@ -3894,8 +3897,6 @@ BOOL LONG_CALL IsBattlerOnField(struct BattleStruct *ctx, int battlerId);
 
 BOOL LONG_CALL AnyPendingSwitches(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BattlerFirstTurnOut(struct BattleStruct *ctx, int battlerId);
-
-BOOL LONG_CALL CanSwitchMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
 void LONG_CALL InitSwitchWork(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 void LONG_CALL ov12_02256F78(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u8 selectedMonIndex);
