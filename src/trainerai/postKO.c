@@ -106,6 +106,17 @@ s16 getNormalScore(int speedCalc, u8 aiMonCanOneshotPlayer, u8 playerCanOneShotA
     return score;
 }
 
+static BOOL CanPartySlotSwitchIn(struct BattleStruct *ctx, struct PartyPokemon *mon, int partySlot, u8 slot1, u8 slot2)
+{
+    u32 species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
+
+    return species != SPECIES_NONE && species != SPECIES_EGG && GetMonData(mon, MON_DATA_HP, 0)
+        && partySlot != ctx->sel_mons_no[slot1]
+        && partySlot != ctx->sel_mons_no[slot2]
+        && partySlot != ctx->aiSwitchedPartySlot[slot1]
+        && partySlot != ctx->aiSwitchedPartySlot[slot2];
+}
+
 int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int attacker, int *score, BOOL calcWithHighestDamageHit, int *highestDamageHitPrct)
 {
 #ifdef DEBUG_AI_SCORING
@@ -157,6 +168,12 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 #ifdef DEBUG_AI_SCORING
             debug_printf("No target\n");
 #endif // DEBUG_AI_SCORING
+            partySize = Battle_GetClientPartySize(bsys, attacker);
+            for (int i = 0; i < partySize; i++) {
+                if (CanPartySlotSwitchIn(ctx, Battle_GetClientPartyMon(bsys, attacker, i), i, slot1, slot2)) {
+                    return i;
+                }
+            }
             return 6;
         }
         if (ctx->battlemon[defender].hp == 0)
@@ -187,11 +204,7 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
         debug_printf("\nSlot %d:%d hp:%d,\n", i, partyMon.species, GetMonData(mon, MON_DATA_HP, 0));
         debug_printf("sel_m1 %d, sel_m2 %d, switchSl1 %d, switchSl1 %d\n", ctx->sel_mons_no[slot1], ctx->sel_mons_no[slot2], ctx->aiSwitchedPartySlot[slot1], ctx->aiSwitchedPartySlot[slot2]);
 #endif
-        if (partyMon.species != SPECIES_NONE && partyMon.species != SPECIES_EGG && GetMonData(mon, MON_DATA_HP, 0)
-            && i != ctx->sel_mons_no[slot1]
-            && i != ctx->sel_mons_no[slot2]
-            && i != ctx->aiSwitchedPartySlot[slot1]
-            && i != ctx->aiSwitchedPartySlot[slot2]) {
+        if (CanPartySlotSwitchIn(ctx, mon, i, slot1, slot2)) {
             switchInScore[i] = 100;
 
             FillDamageStructFromPartyMon(bsys, ctx, &partyMon, mon, attacker, i);
