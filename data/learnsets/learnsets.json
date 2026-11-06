@@ -7939,54 +7939,58 @@
   },
   "SPECIES_GROWLITHE": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_EMBER"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_BITE"
-      },
-      {
-        "Level": 6,
-        "Move": "MOVE_COVET"
-      },
-      {
-        "Level": 10,
-        "Move": "MOVE_ODOR_SLEUTH"
-      },
-      {
-        "Level": 12,
-        "Move": "MOVE_FLAME_WHEEL"
-      },
-      {
-        "Level": 17,
-        "Move": "MOVE_FIRE_FANG"
-      },
-      {
-        "Level": 22,
-        "Move": "MOVE_TAKE_DOWN"
-      },
-      {
-        "Level": 26,
-        "Move": "MOVE_FLAME_BURST"
-      },
-      {
-        "Level": 35,
-        "Move": "MOVE_FLAMETHROWER"
-      },
-      {
-        "Level": 39,
-        "Move": "MOVE_CRUNCH"
-      },
-      {
-        "Level": 43,
-        "Move": "MOVE_THUNDER_FANG"
-      },
-      {
-        "Level": 45,
-        "Move": "MOVE_FLARE_BLITZ"
-      },
+        {
+            "Level": 1,
+            "Move": "MOVE_EMBER"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_BITE"
+        },
+        {
+            "Level": 6,
+            "Move": "MOVE_COVET"
+        },
+        {
+            "Level": 10,
+            "Move": "MOVE_ODOR_SLEUTH"
+        },
+        {
+            "Level": 12,
+            "Move": "MOVE_FLAME_WHEEL"
+        },
+        {
+            "Level": 17,
+            "Move": "MOVE_FIRE_FANG"
+        },
+        {
+            "Level": 20,
+            "Move": "MOVE_INCINERATE"
+        },
+        {
+            "Level": 22,
+            "Move": "MOVE_TAKE_DOWN"
+        },
+        {
+            "Level": 26,
+            "Move": "MOVE_FLAME_BURST"
+        },
+        {
+            "Level": 35,
+            "Move": "MOVE_FLAMETHROWER"
+        },
+        {
+            "Level": 39,
+            "Move": "MOVE_CRUNCH"
+        },
+        {
+            "Level": 43,
+            "Move": "MOVE_THUNDER_FANG"
+        },
+        {
+            "Level": 45,
+            "Move": "MOVE_FLARE_BLITZ"
+        },
         {
             "Level": 48,
             "Move": "MOVE_OUTRAGE"
@@ -8107,6 +8111,10 @@
         {
             "Level": 17,
             "Move": "MOVE_FIRE_FANG"
+        },
+        {
+            "Level": 20,
+            "Move": "MOVE_INCINERATE"
         },
         {
             "Level": 22,
@@ -17018,10 +17026,10 @@
         "Level": 1,
         "Move": "MOVE_SMOG"
       },
-      {
-        "Level": 1,
-        "Move": "MOVE_TACKLE"
-      },
+        {
+            "Level": 1,
+            "Move": "MOVE_INCINERATE"
+        },
       {
         "Level": 4,
         "Move": "MOVE_SMOKESCREEN"
@@ -17163,7 +17171,7 @@
       },
       {
         "Level": 1,
-        "Move": "MOVE_SMOG"
+        "Move": "MOVE_INCINERATE"
       },
       {
         "Level": 1,
@@ -37400,10 +37408,10 @@
         "Level": 1,
         "Move": "MOVE_LEER"
       },
-      {
-        "Level": 1,
-        "Move": "MOVE_EMBER"
-      },
+        {
+            "Level": 1,
+            "Move": "MOVE_INCINERATE"
+        },
       {
         "Level": 8,
         "Move": "MOVE_SMOG"
@@ -37554,7 +37562,7 @@
         },
         {
             "Level": 1,
-            "Move": "MOVE_EMBER"
+            "Move": "MOVE_INCINERATE"
         },
         {
             "Level": 8,
@@ -39000,66 +39008,70 @@
   },
   "SPECIES_MAGBY": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_EMBER"
-      },
-      {
-        "Level": 5,
-        "Move": "MOVE_LEER"
-      },
-      {
-        "Level": 8,
-        "Move": "MOVE_CONFUSE_RAY"
-      },
-      {
-        "Level": 11,
-        "Move": "MOVE_SMOG"
-      },
-      {
-        "Level": 14,
-        "Move": "MOVE_FLAME_WHEEL"
-      },
-      {
-        "Level": 17,
-        "Move": "MOVE_SMOKESCREEN"
-      },
-      {
-        "Level": 20,
-        "Move": "MOVE_SCARY_FACE"
-      },
-      {
-        "Level": 23,
-        "Move": "MOVE_TOXIC"
-      },
-      {
-        "Level": 27,
-        "Move": "MOVE_LAVA_PLUME"
-      },
-      {
-        "Level": 29,
-        "Move": "MOVE_HEAT_WAVE"
-      },
-      {
-        "Level": 33,
-        "Move": "MOVE_CLEAR_SMOG"
-      },
-      {
-        "Level": 37,
-        "Move": "MOVE_FLAMETHROWER"
-      },
-      {
-        "Level": 41,
-        "Move": "MOVE_SLACK_OFF"
-      },
-      {
-        "Level": 45,
-        "Move": "MOVE_WILL_O_WISP"
-      },
-      {
-        "Level": 49,
-        "Move": "MOVE_FIRE_BLAST"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_EMBER"
+        },
+        {
+            "Level": 5,
+            "Move": "MOVE_LEER"
+        },
+        {
+            "Level": 8,
+            "Move": "MOVE_CONFUSE_RAY"
+        },
+        {
+            "Level": 11,
+            "Move": "MOVE_SMOG"
+        },
+        {
+            "Level": 14,
+            "Move": "MOVE_FLAME_WHEEL"
+        },
+        {
+            "Level": 17,
+            "Move": "MOVE_SMOKESCREEN"
+        },
+        {
+            "Level": 20,
+            "Move": "MOVE_SCARY_FACE"
+        },
+        {
+            "Level": 23,
+            "Move": "MOVE_TOXIC"
+        },
+        {
+            "Level": 26,
+            "Move": "MOVE_INCINERATE"
+        },
+        {
+            "Level": 27,
+            "Move": "MOVE_LAVA_PLUME"
+        },
+        {
+            "Level": 29,
+            "Move": "MOVE_HEAT_WAVE"
+        },
+        {
+            "Level": 33,
+            "Move": "MOVE_CLEAR_SMOG"
+        },
+        {
+            "Level": 37,
+            "Move": "MOVE_FLAMETHROWER"
+        },
+        {
+            "Level": 41,
+            "Move": "MOVE_SLACK_OFF"
+        },
+        {
+            "Level": 45,
+            "Move": "MOVE_WILL_O_WISP"
+        },
+        {
+            "Level": 49,
+            "Move": "MOVE_FIRE_BLAST"
+        }
     ],
     "MachineMoves": [
       "MOVE_ACID_SPRAY",
@@ -63405,10 +63417,10 @@
         "Level": 1,
         "Move": "MOVE_LEER"
       },
-      {
-        "Level": 5,
-        "Move": "MOVE_EMBER"
-      },
+        {
+            "Level": 5,
+            "Move": "MOVE_INCINERATE"
+        },
       {
         "Level": 10,
         "Move": "MOVE_MACH_PUNCH"
@@ -63558,10 +63570,10 @@
         "Level": 1,
         "Move": "MOVE_LEER"
       },
-      {
-        "Level": 5,
-        "Move": "MOVE_EMBER"
-      },
+        {
+            "Level": 5,
+            "Move": "MOVE_INCINERATE"
+        },
       {
         "Level": 10,
         "Move": "MOVE_MACH_PUNCH"
@@ -63735,10 +63747,10 @@
         "Level": 1,
         "Move": "MOVE_LEER"
       },
-      {
-        "Level": 5,
-        "Move": "MOVE_EMBER"
-      },
+        {
+            "Level": 5,
+            "Move": "MOVE_INCINERATE"
+        },
       {
         "Level": 10,
         "Move": "MOVE_MACH_PUNCH"
@@ -81849,7 +81861,7 @@
       },
       {
         "Level": 9,
-        "Move": "MOVE_ODOR_SLEUTH"
+        "Move": "MOVE_INCINERATE"
       },
       {
         "Level": 12,
@@ -81978,10 +81990,10 @@
         "Level": 7,
         "Move": "MOVE_ROCK_SMASH"
       },
-      {
-        "Level": 9,
-        "Move": "MOVE_ODOR_SLEUTH"
-      },
+        {
+            "Level": 9,
+            "Move": "MOVE_INCINERATE"
+        },
       {
         "Level": 12,
         "Move": "MOVE_FLAME_WHEEL"
@@ -82144,10 +82156,10 @@
         "Level": 7,
         "Move": "MOVE_ROCK_SMASH"
       },
-      {
-        "Level": 9,
-        "Move": "MOVE_ODOR_SLEUTH"
-      },
+        {
+            "Level": 9,
+            "Move": "MOVE_INCINERATE"
+        },
       {
         "Level": 12,
         "Move": "MOVE_FLAME_WHEEL"
@@ -99664,7 +99676,7 @@
       },
       {
         "Level": 5,
-        "Move": "MOVE_HONE_CLAWS"
+        "Move": "MOVE_INCINERATE"
       },
       {
         "Level": 9,
@@ -120814,54 +120826,58 @@
   },
   "SPECIES_SALANDIT": {
     "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_SCRATCH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_SMOG"
-      },
-      {
-        "Level": 5,
-        "Move": "MOVE_EMBER"
-      },
-      {
-        "Level": 8,
-        "Move": "MOVE_SWEET_SCENT"
-      },
-      {
-        "Level": 13,
-        "Move": "MOVE_VENOM_DRENCH"
-      },
-      {
-        "Level": 17,
-        "Move": "MOVE_FLAME_BURST"
-      },
-      {
-        "Level": 21,
-        "Move": "MOVE_DRAGON_RAGE"
-      },
-      {
-        "Level": 24,
-        "Move": "MOVE_TOXIC"
-      },
-      {
-        "Level": 29,
-        "Move": "MOVE_VENOSHOCK"
-      },
-      {
-        "Level": 34,
-        "Move": "MOVE_FLAMETHROWER"
-      },
-      {
-        "Level": 40,
-        "Move": "MOVE_SLUDGE_BOMB"
-      },
-      {
-        "Level": 48,
-        "Move": "MOVE_DRAGON_PULSE"
-      }
+        {
+            "Level": 1,
+            "Move": "MOVE_SCRATCH"
+        },
+        {
+            "Level": 1,
+            "Move": "MOVE_SMOG"
+        },
+        {
+            "Level": 5,
+            "Move": "MOVE_EMBER"
+        },
+        {
+            "Level": 8,
+            "Move": "MOVE_SWEET_SCENT"
+        },
+        {
+            "Level": 13,
+            "Move": "MOVE_VENOM_DRENCH"
+        },
+        {
+            "Level": 16,
+            "Move": "MOVE_INCINERATE"
+        },
+        {
+            "Level": 17,
+            "Move": "MOVE_FLAME_BURST"
+        },
+        {
+            "Level": 21,
+            "Move": "MOVE_DRAGON_RAGE"
+        },
+        {
+            "Level": 24,
+            "Move": "MOVE_TOXIC"
+        },
+        {
+            "Level": 29,
+            "Move": "MOVE_VENOSHOCK"
+        },
+        {
+            "Level": 34,
+            "Move": "MOVE_FLAMETHROWER"
+        },
+        {
+            "Level": 40,
+            "Move": "MOVE_SLUDGE_BOMB"
+        },
+        {
+            "Level": 48,
+            "Move": "MOVE_DRAGON_PULSE"
+        }
     ],
     "MachineMoves": [
       "MOVE_DRAGON_CLAW",
