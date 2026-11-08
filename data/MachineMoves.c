@@ -58,7 +58,7 @@ const u16 sMachineMoves[] = {
     MOVE_EARTH_POWER,         // TM050
     MOVE_ROOST,            // TM051
     MOVE_FOCUS_BLAST,      // TM052
-    MOVE_ENERGY_BALL,      // TM053
+    MOVE_POUND,      // TM053
     MOVE_FALSE_SWIPE,      // TM054
     MOVE_BRINE,            // TM055
     MOVE_FLING,            // TM056
@@ -85,13 +85,13 @@ const u16 sMachineMoves[] = {
     MOVE_ENERGY_BALL,         // TM077
     MOVE_CAPTIVATE,        // TM078
     MOVE_DARK_PULSE,       // TM079
-    MOVE_ROCK_SLIDE,       // TM080
+    MOVE_TACKLE,       // TM080
     MOVE_X_SCISSOR,        // TM081
     MOVE_SLEEP_TALK,       // TM082
-    MOVE_NATURAL_GIFT,     // TM083
-    MOVE_SCALD,       // TM084
-    MOVE_DREAM_EATER,      // TM085
-    MOVE_GRASS_KNOT,       // TM086
+    MOVE_BUG_BITE,     // TM083
+    MOVE_POUNCE,       // TM084
+    MOVE_MUD_SHOT,      // TM085
+    MOVE_BULLDOZE,       // TM086
     MOVE_SWAGGER,          // TM087
     MOVE_PLUCK,            // TM088
     MOVE_U_TURN,           // TM089

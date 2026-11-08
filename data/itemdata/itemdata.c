@@ -21333,7 +21333,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM001] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -21398,7 +21398,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM002] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -21463,7 +21463,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM003] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -21528,7 +21528,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM004] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -21593,7 +21593,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM005] =
 {
-    ITEM_PRICE(800),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -21658,7 +21658,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM006] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -21853,7 +21853,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM009] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22048,7 +22048,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM012] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22113,7 +22113,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM013] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22178,7 +22178,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM014] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22308,7 +22308,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM016] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22373,7 +22373,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM017] =
 {
-    ITEM_PRICE(1000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22438,7 +22438,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM018] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22503,7 +22503,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM019] =
 {
-    ITEM_PRICE(800),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22568,7 +22568,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM020] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22698,7 +22698,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM022] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22763,7 +22763,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM023] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22828,7 +22828,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM024] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22893,7 +22893,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM025] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -22958,7 +22958,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM026] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23023,7 +23023,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM027] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(1000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23088,7 +23088,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM028] =
 {
-    ITEM_PRICE(6000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23153,7 +23153,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM029] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23218,7 +23218,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM030] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23283,7 +23283,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM031] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23348,7 +23348,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM032] =
 {
-    ITEM_PRICE(800),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23413,7 +23413,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM033] =
 {
-    ITEM_PRICE(6000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23543,7 +23543,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM035] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23608,7 +23608,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM036] =
 {
-    ITEM_PRICE(6000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23673,7 +23673,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM037] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23738,7 +23738,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM038] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23933,7 +23933,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM041] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -23998,7 +23998,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM042] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24063,7 +24063,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM043] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24128,7 +24128,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM044] =
 {
-    ITEM_PRICE(6000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24193,7 +24193,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM045] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24258,7 +24258,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM046] =
 {
-    ITEM_PRICE(6000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24323,7 +24323,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM047] =
 {
-    ITEM_PRICE(800),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24388,7 +24388,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM048] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24453,7 +24453,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM049] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24518,7 +24518,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM050] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24583,7 +24583,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM051] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24648,7 +24648,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM052] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24713,7 +24713,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM053] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24778,7 +24778,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM054] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(1000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24843,7 +24843,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM055] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24908,7 +24908,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM056] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -24973,7 +24973,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM057] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(1000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25038,7 +25038,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM058] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25103,7 +25103,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM059] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25168,7 +25168,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM060] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25233,7 +25233,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM061] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25298,7 +25298,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM062] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25363,7 +25363,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM063] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25428,7 +25428,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM064] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25493,7 +25493,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM065] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25558,7 +25558,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM066] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25623,7 +25623,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM067] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25688,7 +25688,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM068] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25753,7 +25753,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM069] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25883,7 +25883,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM071] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -25948,7 +25948,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM072] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26013,7 +26013,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM073] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26078,7 +26078,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM074] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26143,7 +26143,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM075] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26208,7 +26208,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM076] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26273,7 +26273,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM077] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26338,7 +26338,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM078] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26403,7 +26403,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM079] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26468,7 +26468,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM080] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26533,7 +26533,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM081] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26598,7 +26598,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM082] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26663,7 +26663,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM083] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(1000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26728,7 +26728,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM084] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(1000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26793,7 +26793,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM085] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(1000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26858,7 +26858,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM086] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(1000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -26923,7 +26923,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM087] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -27053,7 +27053,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM089] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -27118,7 +27118,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM090] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -27183,7 +27183,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM091] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -27248,7 +27248,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM092] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -40183,7 +40183,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM093] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -40248,7 +40248,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM094] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -40313,7 +40313,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM095] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -44863,7 +44863,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM096] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -44928,7 +44928,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM097] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -44993,7 +44993,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM098] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -45058,7 +45058,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM099] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -45123,7 +45123,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM100] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -79963,7 +79963,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM00] =
 {
-    ITEM_PRICE(10000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -140413,7 +140413,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM100_SV] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -140478,7 +140478,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM101] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -140543,7 +140543,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM102] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -140608,7 +140608,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM103] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -140673,7 +140673,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM104] =
 {
-    ITEM_PRICE(6000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -140738,7 +140738,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM105] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -140803,7 +140803,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM106] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -140868,7 +140868,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM107] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -140933,7 +140933,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM108] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -140998,7 +140998,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM109] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141063,7 +141063,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM110] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141128,7 +141128,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM111] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141193,7 +141193,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM112] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141258,7 +141258,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM113] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141323,7 +141323,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM114] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141388,7 +141388,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM115] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141453,7 +141453,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM116] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141518,7 +141518,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM117] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141583,7 +141583,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM118] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141648,7 +141648,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM119] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141713,7 +141713,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM120] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141778,7 +141778,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM121] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141843,7 +141843,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM122] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141908,7 +141908,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM123] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -141973,7 +141973,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM124] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142038,7 +142038,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM125] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142103,7 +142103,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM126] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142168,7 +142168,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM127] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142233,7 +142233,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM128] =
 {
-    ITEM_PRICE(6000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142298,7 +142298,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM129] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142363,7 +142363,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM130] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142428,7 +142428,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM131] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142493,7 +142493,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM132] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142558,7 +142558,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM133] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142623,7 +142623,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM134] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142688,7 +142688,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM135] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142753,7 +142753,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM136] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142818,7 +142818,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM137] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142883,7 +142883,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM138] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -142948,7 +142948,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM139] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143013,7 +143013,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM140] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143078,7 +143078,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM141] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143143,7 +143143,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM142] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143208,7 +143208,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM143] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143273,7 +143273,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM144] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143338,7 +143338,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM145] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143403,7 +143403,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM146] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143468,7 +143468,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM147] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143533,7 +143533,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM148] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143598,7 +143598,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM149] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143663,7 +143663,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM150] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143728,7 +143728,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM151] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143793,7 +143793,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM152] =
 {
-    ITEM_PRICE(56000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143858,7 +143858,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM153] =
 {
-    ITEM_PRICE(56000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143923,7 +143923,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM154] =
 {
-    ITEM_PRICE(56000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -143988,7 +143988,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM155] =
 {
-    ITEM_PRICE(56000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144053,7 +144053,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM156] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144118,7 +144118,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM157] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144183,7 +144183,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM158] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144248,7 +144248,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM159] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144313,7 +144313,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM160] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144378,7 +144378,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM161] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144443,7 +144443,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM162] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144508,7 +144508,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM163] =
 {
-    ITEM_PRICE(56000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144573,7 +144573,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM164] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144638,7 +144638,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM165] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144703,7 +144703,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM166] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144768,7 +144768,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM167] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144833,7 +144833,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM168] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144898,7 +144898,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM169] =
 {
-    ITEM_PRICE(56000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -144963,7 +144963,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM170] =
 {
-    ITEM_PRICE(56000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145028,7 +145028,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM171] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145093,7 +145093,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM172] =
 {
-    ITEM_PRICE(800),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145158,7 +145158,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM173] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145223,7 +145223,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM174] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145288,7 +145288,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM175] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145353,7 +145353,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM176] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145418,7 +145418,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM177] =
 {
-    ITEM_PRICE(800),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145483,7 +145483,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM178] =
 {
-    ITEM_PRICE(1600),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145548,7 +145548,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM179] =
 {
-    ITEM_PRICE(3200),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145613,7 +145613,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM180] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145678,7 +145678,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM181] =
 {
-    ITEM_PRICE(56000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145743,7 +145743,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM182] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145808,7 +145808,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM183] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145873,7 +145873,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM184] =
 {
-    ITEM_PRICE(12000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -145938,7 +145938,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM185] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146003,7 +146003,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM186] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146068,7 +146068,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM187] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146133,7 +146133,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM188] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146198,7 +146198,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM189] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146263,7 +146263,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM190] =
 {
-    ITEM_PRICE(48000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146328,7 +146328,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM191] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146393,7 +146393,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM192] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146458,7 +146458,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM193] =
 {
-    ITEM_PRICE(6000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146523,7 +146523,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM194] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146588,7 +146588,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM195] =
 {
-    ITEM_PRICE(32000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146653,7 +146653,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM196] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146718,7 +146718,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM197] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146783,7 +146783,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM198] =
 {
-    ITEM_PRICE(56000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146848,7 +146848,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM199] =
 {
-    ITEM_PRICE(20000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146913,7 +146913,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM200] =
 {
-    ITEM_PRICE(40000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -146978,7 +146978,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM201] =
 {
-    ITEM_PRICE(56000),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147043,7 +147043,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM202] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147108,7 +147108,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM203] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147173,7 +147173,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM204] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147238,7 +147238,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM205] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147303,7 +147303,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM206] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147368,7 +147368,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM207] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147433,7 +147433,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM208] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147498,7 +147498,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM209] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147563,7 +147563,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM210] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147628,7 +147628,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM211] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147693,7 +147693,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM212] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147758,7 +147758,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM213] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147823,7 +147823,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM214] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147888,7 +147888,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM215] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -147953,7 +147953,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM216] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148018,7 +148018,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM217] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148083,7 +148083,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM218] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148148,7 +148148,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM219] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148213,7 +148213,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM220] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148278,7 +148278,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM221] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148343,7 +148343,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM222] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148408,7 +148408,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM223] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148473,7 +148473,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM224] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148538,7 +148538,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM225] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148603,7 +148603,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM226] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148668,7 +148668,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM227] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148733,7 +148733,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM228] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,
@@ -148798,7 +148798,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TM229] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(3000),
     .holdEffect = SOUBI_NONE,
     .holdEffectParam = 0,
     .pluckEffect = TUIBAMU_NONE,

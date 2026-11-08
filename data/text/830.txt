@@ -372,13 +372,13 @@ It reduces the foe’s evasion stat.\nIt also removes spikes, light\nscreens, et
 The user whips up a turbulent\nwhirlwind that ups the Speed of all\nparty Pokémon for three turns.
 An energy-stealing kiss. The user’s\nHP is restored by half the damage\ntaken by the target.
 The user attacks by playing rough\nwith the target. This may also lower\nthe target’s Attack stat.
-The foe is hit with wings of steel.\nIt may also raise the user’s Defense\nstat.
+The user shoots a torrent of water\nat the target and changes the\ntarget’s type to Water.
 The user employs its psychic power\nto exchange abilities with the foe.
 Large boulders are hurled at the foe\nto inflict damage. It may also make\nthe target flinch.
 The user makes the ground under the\nfoe erupt with power. It may also\nlower the target’s Sp. Def.
 The user lands and rests its body.\nIt restores the user’s HP by up to\nhalf of its max HP.
 The user heightens its mental focus\nand unleashes its power. It may also\nlower the target’s Sp. Def.
-The user draws power from nature and\nfires it at the foe. It may also\nlower the target’s Sp. Def.
+The foe is physically pounded with a\nlong tail or a foreleg, etc.
 A restrained attack that prevents\nthe foe from fainting. The target is\nleft with at least 1 HP.
 If the foe’s HP is down to about\nhalf, this attack will hit with\ndouble the power.
 The user flings its held item at the\nfoe to attack. Its power and effects\ndepend on the item.
@@ -405,13 +405,13 @@ The user turns the target’s power\nagainst it. Power increases with the\nfoe�
 The user draws power from nature and\nfires it at the foe. It may also\nlower the target’s Sp. Def.
 If it is the opposite gender of the\nuser, the foe is charmed into\nsharply lowering its Sp. Atk stat.
 The user releases a horrible aura\nimbued with dark thoughts. It may\nalso make the target flinch.
-Large boulders are hurled at the foe\nto inflict damage. It may also make\nthe target flinch.
+A physical attack in which the user\ncharges and slams into the foe with\nits whole body.
 The user slashes at the foe by\ncrossing its scythes or claws as if\nthey were a pair of scissors.
 While it is asleep, the user\nrandomly uses one of the moves it\nknows.
-The user draws power to attack by\nusing its held Berry. The Berry\ndetermines its type and power.
-Boiling water is shot at the foe. It\nmay also cause a burn.
-An attack that works only on a\nsleeping foe. It absorbs half the\ndamage caused to heal the user’s HP.
-The user snares the foe with grass\nand trips it. The heavier the foe,\nthe greater the damage.
+The user bites the foe. If the foe\nis holding a Berry, the user eats it\nand gains its effect.
+The user attacks by pouncing on the\ntarget. This also lowers the\ntarget’s Speed stat.
+The user attacks by hurling a blob\nof mud at the foe. It also reduces\nthe target’s Speed.
+The user hits all Pokémon in battle\nby stomping. Lowers Speed of those\nhit.
 The user enrages the foe into\nconfusion. However, it also sharply\nraises the foe’s Attack stat.
 The user pecks the foe. If the foe\nis holding a Berry, the user plucks\nit and gains its effect.
 After making its attack, the user\nrushes back to switch places with a\nparty Pokémon in waiting.

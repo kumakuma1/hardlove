@@ -31,6 +31,7 @@ scrdef scr_seq_T25SP0101_002
 scrdef scr_seq_T25SP0101_003
 scrdef scr_seq_T25SP0101_004
 scrdef scr_seq_T25SP0101_005
+scrdef scr_seq_T25SP0101_006
 scrdef_end
 
 scr_seq_T25SP0101_000:
@@ -527,6 +528,15 @@ _trade_choicespecs:
     buffer_item_name 2, ITEM_CHOICE_SPECS
     npc_msg 30
     goto _exittrade
+
+
+scr_seq_T25SP0101_006:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+    CommonScript 0x28CA
+	releaseall
+    end
 
 .balign 4
 

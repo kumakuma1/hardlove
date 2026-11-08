@@ -52,9 +52,10 @@ u16 sVioletCityMart[] = {
 
 u16 sAzaleaCityMart[] = {
     ITEM_TM010,
-    ITEM_TM054,    
-    ITEM_TM070, 
-    ITEM_TM088, 
+    ITEM_TM054,
+    ITEM_TM070,
+    ITEM_TM083,
+    ITEM_TM088,
     0xFFFF
 };
 
@@ -90,6 +91,10 @@ u16 sGoldenrodDepartment3F[] = {
     ITEM_TM034,
     ITEM_TM039,
     ITEM_TM040,
+    ITEM_TM083,
+    ITEM_TM084,
+    ITEM_TM085,
+    ITEM_TM086,
     ITEM_TM088,
     0xFFFF//... NIGHT_SHADE
 };
