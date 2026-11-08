@@ -147,7 +147,7 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
                 || (ai->defenderMon.ability == ABILITY_LEAF_GUARD && ctx->field_condition & FIELD_CONDITION_SUN_ALL)))
         || (ai->defenderMon.ability == ABILITY_HYDRATION && ctx->field_condition & FIELD_CONDITION_RAIN_ALL)
         || (ai->defenderMon.ability == ABILITY_COMATOSE)
-        || (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_SAFEGUARD)) {
+        || ((ctx->side_condition[ai->defenderSide] & SIDE_STATUS_SAFEGUARD) && ai->attackerMon.ability != ABILITY_INFILTRATOR)) { // infiltrator bypasses safeguard
         isDefenderImmuneToAnyStatus = TRUE;
     }
 

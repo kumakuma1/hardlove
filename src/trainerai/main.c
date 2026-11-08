@@ -584,7 +584,8 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
     }
 
-    if (ai->attackerMoveEffect == MOVE_EFFECT_HIGH_CRITICAL 
+    if (ai->attackerMoveEffect == MOVE_EFFECT_HIGH_CRITICAL
+        && !(ctx->side_condition[ai->defenderSide] & SIDE_STATUS_LUCKY_CHANT)
         && (ai->effectivenessOnPlayer[i] == TYPE_MUL_SUPER_EFFECTIVE || ai->effectivenessOnPlayer[i] == TYPE_MUL_DOUBLE_SUPER_EFFECTIVE || ai->effectivenessOnPlayer[i] == TYPE_MUL_TRIPLE_SUPER_EFFECTIVE)) {
         if (BattleRand(bsys) % 2 == 0) {
             moveScore += 2;
@@ -1657,7 +1658,7 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
     case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION:
     case MOVE_EFFECT_STATUS_CONFUSE:
         if ((ctx->battlemon[ai->defender].condition2 & STATUS2_CONFUSION)
-            || (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_SAFEGUARD)
+            || ((ctx->side_condition[ai->defenderSide] & SIDE_STATUS_SAFEGUARD) && ai->attackerMon.ability != ABILITY_INFILTRATOR) // infiltrator bypasses safeguard
             || (!ai->attackerMon.hasMoldBreaker && ai->defenderMon.ability == ABILITY_OWN_TEMPO)) {
             moveScore -= NEVER_USE_MOVE_20;
         } else {

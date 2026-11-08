@@ -30,6 +30,10 @@ static BOOL ShouldPlayVictoryPoseForBattler(struct BattleSystem *battleSystem, s
         return FALSE;
     }
 
+    if (battleCtx->battlemon[battler].hp == 0) {
+        return FALSE;
+    }
+
     return !(battleCtx->no_reshuffle_client & No2Bit(battler));
 }
 #endif // PLAY_MON_VICTORY_POSE

@@ -1350,13 +1350,18 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     }
 #endif //HLG_CUSTOM_WEATHER
 
-    if (critCondition >= 4 || sp->moveConditionsFlags[attackerSlot].laserFocusTimer) { // guaranteed crit
-        if (!attackerHasMoldBreaker && (defender->ability == ABILITY_SHELL_ARMOR || defender->ability == ABILITY_BATTLE_ARMOR)) {
-            ; // do nothing, crit is prevented
-        } else {
-            critical = 2;
-        }
-     }
+    // guaranteed crits
+    BOOL guaranteedCrit = critCondition >= 4
+        || sp->moveConditionsFlags[attackerSlot].laserFocusTimer
+        || move.effect == MOVE_EFFECT_ALWAYS_CRITICAL // frost breath, storm throw, wicked blow, flower trick
+        || move.effect == MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL // surging strikes
+        || (attacker->ability == ABILITY_MERCILESS && (defender->condition & STATUS_POISON_ALL));
+    BOOL critPrevented = (!attackerHasMoldBreaker && (defender->ability == ABILITY_SHELL_ARMOR || defender->ability == ABILITY_BATTLE_ARMOR))
+        || (sp->side_condition[defenderSlot & 1] & SIDE_STATUS_LUCKY_CHANT)
+        || (defender->effect_of_moves & MOVE_EFFECT_FLAG_NO_CRITICAL);
+    if (guaranteedCrit && !critPrevented) {
+        critical = 2;
+    }
         
     damage = BattleAI_CalcBaseDamage(bw, sp, moveno, pow, critical, attackerSlot, defenderSlot, attacker, defender);
 
