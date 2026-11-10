@@ -2491,7 +2491,7 @@ const SafariZoneAreaEncounterFile __data[] =
         .land = {
             .speciesMorning = {
                 { SPECIES_STARAPTOR, 50 },
-                { SPECIES_GOLISOPOD, 50 },
+                { SPECIES_LOKIX, 50 },
                 { SPECIES_BEEDRILL, 50 },
                 { SPECIES_GLALIE, 50 },
                 { SPECIES_AERODACTYL, 50 },
@@ -2503,7 +2503,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
             .speciesDay = {
                 { SPECIES_STARAPTOR, 50 },
-                { SPECIES_GOLISOPOD, 50 },
+                { SPECIES_LOKIX, 50 },
                 { SPECIES_BEEDRILL, 50 },
                 { SPECIES_GLALIE, 50 },
                 { SPECIES_AERODACTYL, 50 },
@@ -2515,7 +2515,7 @@ const SafariZoneAreaEncounterFile __data[] =
             },
             .speciesNight = {
                 { SPECIES_STARAPTOR, 50 },
-                { SPECIES_GOLISOPOD, 50 },
+                { SPECIES_LOKIX, 50 },
                 { SPECIES_BEEDRILL, 50 },
                 { SPECIES_GLALIE, 50 },
                 { SPECIES_AERODACTYL, 50 },
