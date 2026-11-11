@@ -731,3 +731,5 @@ arm9 FieldSystem_RestoreMapObjectsFromSave 0203B9F4 1
 arm9 PhoneCallPersistentState_MomGiftQueue_IsFull 0202F240 2
 # disable Lake of Rage Wednesday check
 arm9 ShouldUseAlternateLakeOfRage 0203B114 2
+#remove random calls
+0002 ov02_02251FDC 02251FDC 1
