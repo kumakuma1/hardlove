@@ -3833,6 +3833,8 @@ BOOL LONG_CALL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStr
 
 BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg);
 
+BOOL LONG_CALL IsOwPlayerWhirlpoolActive(void *bw, int battlerId);
+
 /**
  * @brief Inject a custom callback function to allow
  * loading new battle bgs at the start of a battle

@@ -897,6 +897,14 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     ret = 1;
+                } else if (IsOwPlayerWhirlpoolActive(bw, battlerId) && IsBattlerOnField(sp, battlerId) && sp->battlemon[battlerId].hp) {
+                    sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, 8);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BIND_EFFECT);
+                    sp->waza_work = MOVE_WHIRLPOOL;
+                    sp->battlerIdTemp = battlerId;
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = 22;
+                    ret = 1;
                 }
 
                 sp->scc_work++;
@@ -1173,6 +1181,17 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_PERISH_COUNT\n");
 
 #endif
+
+            // perish song weather
+            if (sp->scc_work == 0 && CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG) && GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE) == OW_WEATHER_PERISH_SONG) {
+                for (battlerId = 0; battlerId < client_set_max; battlerId++) {
+                    if (sp->battlemon[battlerId].hp && !(sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG)
+                        && GetBattlerAbility(sp, battlerId) != ABILITY_SOUNDPROOF) {
+                        sp->battlemon[battlerId].effect_of_moves |= MOVE_EFFECT_FLAG_PERISH_SONG;
+                        sp->battlemon[battlerId].moveeffect.perishSongTurns = 3;
+                    }
+                }
+            }
 
             while (sp->scc_work < client_set_max) {
                 battlerId = sp->turnOrder[sp->scc_work];

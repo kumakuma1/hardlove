@@ -2132,7 +2132,8 @@ BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, Batt
         return TRUE;
     }
 
-    if ((sp->battlemon[battlerId].condition2 & (STATUS2_MEAN_LOOK)) || (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) || sp->binding_turns[battlerId] != 0) {
+    if ((sp->battlemon[battlerId].condition2 & (STATUS2_MEAN_LOOK)) || (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) || sp->binding_turns[battlerId] != 0
+        || IsOwPlayerWhirlpoolActive(bw, battlerId)) {
         if (msg == NULL) {
             return TRUE;
         }
@@ -2142,6 +2143,13 @@ BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, Batt
     }
 
     return FALSE;
+}
+
+BOOL LONG_CALL IsOwPlayerWhirlpoolActive(void *bw, int battlerId)
+{
+    return CheckScriptFlag(PERMANENT_OW_WEATHER_FLAG)
+        && GetScriptVar(PERMANENT_OW_WEATHER_VARIABLE) == OW_WEATHER_PLAYER_WHIRLPOOL
+        && !IsClientEnemy(bw, battlerId);
 }
 
 /**
@@ -2161,7 +2169,8 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *sp, int battlerId)
         return FALSE;
     }
 
-    if ((sp->battlemon[battlerId].condition2 & (STATUS2_MEAN_LOOK)) || (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) || sp->binding_turns[battlerId] != 0) {
+    if ((sp->battlemon[battlerId].condition2 & (STATUS2_MEAN_LOOK)) || (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) || sp->binding_turns[battlerId] != 0
+        || IsOwPlayerWhirlpoolActive(bw, battlerId)) {
         ret = TRUE;
     }
 

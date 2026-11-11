@@ -5720,7 +5720,9 @@ BOOL BtlCmd_TryPerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx)
     for (int battlerId = 0; battlerId < maxBattlers; battlerId++) {
         if (ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG
             || ctx->battlemon[battlerId].hp == 0
-            || (ctx->addeffect_type != SIDE_EFFECT_TYPE_ABILITY && MoldBreakerAbilityCheck(ctx, ctx->attack_client, battlerId, ABILITY_SOUNDPROOF) == TRUE)) {
+            || (ctx->addeffect_type == SIDE_EFFECT_TYPE_OW_PERISH_SONG && GetBattlerAbility(ctx, battlerId) == ABILITY_SOUNDPROOF)
+            || (ctx->addeffect_type != SIDE_EFFECT_TYPE_ABILITY && ctx->addeffect_type != SIDE_EFFECT_TYPE_OW_PERISH_SONG
+                && MoldBreakerAbilityCheck(ctx, ctx->attack_client, battlerId, ABILITY_SOUNDPROOF) == TRUE)) {
             cnt++;
         } else {
             if (ctx->addeffect_type == SIDE_EFFECT_TYPE_ABILITY

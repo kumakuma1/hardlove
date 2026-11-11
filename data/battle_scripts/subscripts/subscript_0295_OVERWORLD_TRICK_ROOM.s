@@ -8,6 +8,8 @@ _000:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_PAY_DAY_COUNT, 4, _randomTerrain
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_PAY_DAY_COUNT, 6, _enemyTailwind
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_PAY_DAY_COUNT, 8, _enemyTailwind
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_PAY_DAY_COUNT, 9, _playerWhirlpool
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_PAY_DAY_COUNT, 10, _owPerishSong
 
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_TRICK_ROOM
     PlayMoveAnimation BATTLER_CATEGORY_MSG_TEMP
@@ -68,6 +70,43 @@ _enemyTailwind:
     WaitButtonABTime 30
     SetTailwindCounter BATTLER_CATEGORY_ENEMY
     UpdateVar OPCODE_SET, BSCRIPT_VAR_PAY_DAY_COUNT, 0
+    End
+
+_playerWhirlpool:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_BATTLER_ATTACKER, 1
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_BATTLER_TARGET, 0
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_WHIRLPOOL
+    PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
+    Wait
+    // {0} became trapped in the vortex!
+    PrintMessage 242, TAG_NICKNAME, BATTLER_CATEGORY_PLAYER_SLOT_1
+    Wait
+    WaitButtonABTime 30
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_DOUBLES, _playerWhirlpoolEnd
+    PrintMessage 242, TAG_NICKNAME, BATTLER_CATEGORY_PLAYER_SLOT_2
+    Wait
+    WaitButtonABTime 30
+
+_playerWhirlpoolEnd:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_PAY_DAY_COUNT, 0
+    End
+
+_owPerishSong:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_PAY_DAY_COUNT, 0
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_OW_PERISH_SONG
+    TryPerishSong _owPerishSongEnd
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_BATTLER_ATTACKER, 1
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_BATTLER_TARGET, 0
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_PERISH_SONG
+    PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
+    Wait
+    // All Pokémon hearing the song will faint in three turns!
+    PrintMessage 822, TAG_NONE
+    Wait
+    WaitButtonABTime 30
+
+_owPerishSongEnd:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_NONE
     End
 
 _010:

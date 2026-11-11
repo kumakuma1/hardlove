@@ -863,6 +863,7 @@ typedef enum BattleBg {
 #define SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY 0x8
 #define SIDE_EFFECT_TYPE_STICKY_WEB         0x9
 #define SIDE_EFFECT_TYPE_CONTACT_PROTECTED  0xA
+#define SIDE_EFFECT_TYPE_OW_PERISH_SONG     100 // overworld perish weather
 
 #ifndef __ASSEMBLER__
 typedef enum Terrain {

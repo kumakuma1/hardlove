@@ -193,6 +193,12 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         case 8:
                             sp->koban_counter = 8; // crit + tailwind
                             break;
+                        case OW_WEATHER_PLAYER_WHIRLPOOL: // player side whirlpool
+                            sp->koban_counter = OW_WEATHER_PLAYER_WHIRLPOOL;
+                            break;
+                        case OW_WEATHER_PERISH_SONG: // perish song
+                            sp->koban_counter = OW_WEATHER_PERISH_SONG;
+                            break;
                         default:
                             break;
                         }
