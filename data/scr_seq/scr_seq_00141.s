@@ -627,7 +627,7 @@ scr_seq_0141_059:
 
 scr_seq_0141_060:
 	//radio tower 4F, 1089
-	setvar VAR_SPECIAL_x8008, 2
+	setvar VAR_SPECIAL_x8008, ITEM_ABILITY_CAPSULE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
