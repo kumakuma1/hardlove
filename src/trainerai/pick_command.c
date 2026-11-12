@@ -250,13 +250,13 @@ u8 LONG_CALL ChooseMove(struct BattleSystem *bsys, int target, s16 moveScores[4]
 int getVarianceFromDamage(struct AIContext *ai)
 {
     if (ai->highestDamageHitPrct <= 0) {
-        return 30;
+        return 25;
     }
     if (ai->highestDamageHitPrct >= 50) {
         return 0;
     }
 
-    return (50 - ai->highestDamageHitPrct) * 3 / 5;
+    return (50 - ai->highestDamageHitPrct) / 2;
 }
 
 BOOL LONG_CALL CalculateSwitch(struct BattleSystem *bsys, u32 attacker, u32 defender, struct AIContext *ai)

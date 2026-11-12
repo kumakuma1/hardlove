@@ -722,6 +722,14 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         }
         break;
     }
+    case MOVE_FLING: {
+        if (ai->attackerMon.item == ITEM_KINGS_ROCK && !ai->attackerMon.firstTurnOut && !ai->defenderImmuneToFlinch) {
+            moveScore += 9;
+        } else {
+            moveScore -= IMPOSSIBLE_MOVE;
+        }
+        break;
+    }
     case MOVE_PURSUIT: {
         if (ai->aiMovesFirst) {
             moveScore += 3;
@@ -1255,6 +1263,21 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
                     moveScore += 3;
                 }
             }
+        }
+        break;
+    case MOVE_EFFECT_FLEE_FROM_WILD_BATTLE:
+        if (!ai->aiMovesFirst) {
+            if (ai->livingMembersAttacker > (1 + ai->isDoubleBattle)) {
+                moveScore += 6;
+            }
+            if (ai->shouldSwitch) {
+                moveScore += 3;
+            }
+            if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67) {
+                moveScore += 1;
+            }
+        } else {
+            moveScore -= NEVER_USE_MOVE_20;
         }
         break;
     case MOVE_EFFECT_PARTING_SHOT:
