@@ -44408,7 +44408,7 @@ const ITEMDATA __data[] =
 
 [ITEM_GARCHOMPITE] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(100000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -49348,7 +49348,7 @@ const ITEMDATA __data[] =
 
 [ITEM_SHARPEDONITE] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(100000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -167907,7 +167907,7 @@ const ITEMDATA __data[] =
 
 [ITEM_HAWLUCHANITE] =
 {
-    ITEM_PRICE(100000),
+    ITEM_PRICE(0),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,

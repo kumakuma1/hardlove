@@ -72,7 +72,7 @@ i.e. with a +4 Switch-In Score, the AI has a 60% chance to switch.
 **If Perish Song is not active** and the Switch-In Score is +4 or higher, the AI calculates the rate to switch according to the highest damage the Switch-In would receive:
 
 ```
-MAX(0, (50% - damageInPercent) * 3 / 5)
+MAX(0, (50% - damageInPercent) / 2)
 ```
 
 With a +4 Switch-In Score only half of this rate is used. With +5 or higher it adds a flat 5% to the rate:
@@ -80,8 +80,8 @@ With a +4 Switch-In Score only half of this rate is used. With +5 or higher it a
 | Switch-In Score | Switch chance |
 |---|---|
 | +3 or lower | 0% |
-| +4 | 0-15% |
-| +5 or higher | 5-35% |
+| +4 | 0-12% |
+| +5 or higher | 5-30% |
 
 If the AI has a pivot move it can use, it will use the pivot move instead of hard switching, unless it would be KO'd before it moves.
 
@@ -102,7 +102,6 @@ Hard switch only:
 
 - If the Switch-In is KO'd on the switch, or is slower and takes 50% or more: **-10**
 - If the Switch-In holds a Mega Stone (the AI saves its Mega): **-10**
-- If the Switch-In takes 25% or less: **+1**
 
 After a KO only, once:
 
@@ -216,6 +215,13 @@ U-Turn, Flip Turn, Volt Switch:
 
 - If it's the AI mon's first turn out (and the target is not immune to flinching for Fake Out): **+9**
 - Else: never used
+
+### Fling
+
+- If the AI is holding a King's Rock, it is **not** the AI mon's first turn out, and the target is not immune to flinching: **+9**
+- Else: never used
+
+> **Note:** This is meant for King's Rock Fling as a "second Fake Out" on the turn after Fake Out. It stacks with bonuses for kills listed in the "All damaging moves" section.
 
 ### Pursuit
 
@@ -657,6 +663,14 @@ These "setup" moves are a little unique and do not have the checks that normal s
   - If the AI wants to switch out (see [Switch AI](#switch-ai)): additional **+3**
   - If the AI has Regenerator and is below 67% HP: additional **+1**
 - Never used if the target can't have its stats lowered.
+
+### Teleport
+
+- If the AI is slower than the target:
+  - If the AI has another mon to switch to: **+6**
+  - If the AI wants to switch out (see [Switch AI](#switch-ai)): additional **+3**
+  - If the AI has Regenerator and is below 67% HP: additional **+1**
+- If the AI is faster: never used (**-20**)
 
 ### Roar, Whirlwind
 

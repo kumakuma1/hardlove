@@ -668,8 +668,8 @@ scr_seq_0141_066:
 	goto scr_seq_0141_255
 
 scr_seq_0141_067:
-	//burned tower 1F north, 1291
-	setvar VAR_SPECIAL_x8008, ITEM_BLACK_SLUDGE
+	//burned tower 1F north, 1291 //facade
+	setvar VAR_SPECIAL_x8008, ITEM_TM042
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -951,7 +951,7 @@ scr_seq_0141_115:
 
 scr_seq_0141_116:
 	// mortar 1F back, central, strength, 1178 //max potion
-	setvar VAR_SPECIAL_x8008, 24
+	setvar VAR_SPECIAL_x8008, ITEM_CELL_BATTERY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -981,7 +981,7 @@ scr_seq_0141_120:
 
 scr_seq_0141_121:
 	// mortar 1F back, east, rock climb, 1195//protector
-	setvar VAR_SPECIAL_x8008, ITEM_GARCHOMPITE
+	setvar VAR_SPECIAL_x8008, ITEM_SHED_SHELL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1047,7 +1047,7 @@ scr_seq_0141_131:
 
 scr_seq_0141_132:
 	// mortar 3F, north, surf, 1192 //hyperpotion //moved to the area only accesiable with waterfall
-	setvar VAR_SPECIAL_x8008, ITEM_GALLADITE
+	setvar VAR_SPECIAL_x8008, ITEM_HAWLUCHANITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1214,13 +1214,13 @@ scr_seq_0141_159:
 
 scr_seq_0141_160:
 	//route 45 north west, 1212 elixier
-	setvar VAR_SPECIAL_x8008, 40
+	setvar VAR_SPECIAL_x8008, ITEM_AIR_BALLOON
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_161:
 	//route 45 north east, 1213 max potion
-	setvar VAR_SPECIAL_x8008, 24
+	setvar VAR_SPECIAL_x8008, ITEM_WEAKNESS_POLICY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
