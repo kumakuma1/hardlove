@@ -904,38 +904,31 @@ int LONG_CALL BattleAI_GetDynamicMoveType(struct BattleSystem *bsys, struct Batt
 
 BOOL LONG_CALL CanAttackerOneShotDefender(u32 attackerDamage, u8 split, u32 moveno, struct AI_sDamageCalc *attacker, struct AI_sDamageCalc *defender)
 {
-    //BOOL isMoveMultihit = IsMultiHitMove(moveno);
-    BOOL canOneShot = TRUE;
-
-    if (attackerDamage >= defender->hp) { /*
-        if (defender->hp == defender->maxhp) {
-
-            if (!isMoveMultihit
-                && (defender->item == ITEM_FOCUS_SASH
-                    || (!attacker->hasMoldBreaker && defender->ability == ABILITY_STURDY))) {
-                canOneShot = FALSE;
-            }
-
-            if (!attacker->hasMoldBreaker && defender->ability == ABILITY_DISGUISE) { // SPECIES_MIMIKYU
-                canOneShot = FALSE;
-            }
-        }
-        */
-    } else {
-        canOneShot = FALSE;
+    if (attackerDamage < defender->hp) {
+        return FALSE;
     }
 
     if (!attacker->hasMoldBreaker && defender->ability == ABILITY_ICE_FACE && defender->form == 0 && split == SPLIT_PHYSICAL) { // SPECIES_EISCUE
-        canOneShot = FALSE;
+        return FALSE;
     }
 
-   /* // intact Disguise (Mimikyu / Mimikyu-Large) takes the hit
+    // multi-hit moves break through Sash/Sturdy/Disguise with the later hits
+    if (IsMultiHitMove(moveno)) {
+        return TRUE;
+    }
+
+    if (defender->hp == defender->maxhp
+        && (defender->item == ITEM_FOCUS_SASH || (!attacker->hasMoldBreaker && defender->ability == ABILITY_STURDY))) {
+        return FALSE;
+    }
+
+    // intact Disguise (Mimikyu / Mimikyu-Large) is treated like Sturdy: takes the hit unless Mold Breaker
     if (!attacker->hasMoldBreaker && defender->ability == ABILITY_DISGUISE && defender->species == SPECIES_MIMIKYU
         && (defender->form == 0 || defender->form == 2) && !(defender->condition2 & STATUS2_TRANSFORM)) {
-        canOneShot = FALSE;
+        return FALSE;
     }
-    */
-    return canOneShot;
+
+    return TRUE;
 }
 
 BOOL BattleAI_AttackerHasOnlyIneffectiveMoves(struct BattleStruct *ctx, u32 attacker, int knownMoves, u32 effectiveness[4])

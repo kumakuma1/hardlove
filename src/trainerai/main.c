@@ -877,7 +877,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
-    if (ai->anyPlayerMonCanOneShotMonWithAnyMove || ai->defenderCanForceSwitching) {
+    if (ai->anyPlayerMonCanOneShotMonWithAnyMove || ai->defenderCanForceSwitching || ai->defenderHasSturdyOrFocusSashActive) {
         return 0;
     }
     if (ai->defenderMon.ability == ABILITY_UNAWARE && (BattleRand(bsys) % 4 > 0)) {

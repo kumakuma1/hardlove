@@ -42,6 +42,7 @@ Lastly, the AI has a basic function to check if a move is useless. For example, 
 
 \*AI sees speed ties as them being faster than the Player. A kill with a priority move counts as a fast kill.
 
+**Focus Sash, Sturdy and Disguise:** a hit only counts as a KO if the target would actually faint. A mon with Disguise or at full HP with Focus Sash or Sturdy survives any single-hit move.
 ---
 
 ## Switch AI
@@ -518,7 +519,7 @@ Swords Dance, Howl, Nasty Plot, Tail Glow, Growth, Work Up, Hone Claws, Dragon D
 - If AI is already at +2 or higher in Attack or Sp. Atk: additional **-2**, and another **-1** at +3 or higher
   - Dragon Dance, Shift Gear, Tidy Up, Victory Dance: the same -2/-1 also apply if the AI is already faster
 - If Player Mon is incapacitated (frozen with no thawing move, asleep, recharging, loafing around due to Truant): additional **+3**
-- If the Player Mon has no active Focus Sash/Sturdy:
+- If the Player Mon has no active Focus Sash/Sturdy/Disguise:
   - If AI is faster, it is a single battle and no Player Mon can KO the AI: additional **+2**
   - If AI takes less than 1/3 of its HP from the Player Mon: additional **+3**, and another **+1** if AI is faster
 - If AI is slower and is 2HKO'd by Player Mon: additional **-5**

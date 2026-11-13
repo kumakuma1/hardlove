@@ -82,6 +82,11 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
         }
     }
 
+    if (!ai->attackerMon.hasMoldBreaker && ai->defenderMon.ability == ABILITY_DISGUISE && ai->defenderMon.species == SPECIES_MIMIKYU
+        && (ai->defenderMon.form == 0 || ai->defenderMon.form == 2) && !(ai->defenderMon.condition2 & STATUS2_TRANSFORM)) {
+        ai->defenderHasSturdyOrFocusSashActive = TRUE;
+    }
+
     ai->attackerHasSturdyOrFocusSashActive = FALSE;
     if (ai->attackerMon.hp == ai->attackerMon.maxhp) {
         if (ai->attackerMon.item == ITEM_FOCUS_SASH || (ai->attackerMon.ability == ABILITY_STURDY && !ai->defenderMon.hasMoldBreaker)) {
