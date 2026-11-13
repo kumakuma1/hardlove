@@ -993,7 +993,7 @@ int LONG_CALL SetupScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         } else if (ai->attackerMon.ability == ABILITY_SUPER_LUCK || ai->attackerMon.ability == ABILITY_SNIPER || ai->attackerMon.item == ITEM_SCOPE_LENS) { // or hight crit moves
             moveScore += 7;
         } else {
-            moveScore += 5;
+            moveScore += 6;
         }
         break;
     }

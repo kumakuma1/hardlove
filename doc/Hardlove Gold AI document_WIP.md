@@ -578,7 +578,7 @@ Also Trailblaze and Rapid Spin when they are not the highest damaging move.
 ### Focus Energy
 
 - If AI has Super Luck/Sniper, or is holding Scope Lens: **+7**
-- Else: **+5**
+- Else: **+6**
 - AI will not use Focus Energy if the Player Mon has Shell Armor or Battle Armor, or if the AI already has Focus Energy.
 
 ### Laser Focus
