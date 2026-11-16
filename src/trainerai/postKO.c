@@ -15,8 +15,9 @@
 #include "../../include/types.h"
 
 
-u32 calcPlayerAsDefender(struct BattleSystem *bsys, struct BattleStruct *ctx, struct PartyPokemon *mon, int defender, int attacker, struct AI_sDamageCalc *attackerMon, struct AI_sDamageCalc *defenderMon, u32 monDealsRolledDamage[6], u32 partySlot)
+u32 calcPlayerAsDefender(struct BattleSystem *bsys, struct BattleStruct *ctx, struct PartyPokemon *mon, int defender, int attacker, struct AI_sDamageCalc *attackerMon, struct AI_sDamageCalc *defenderMon, u32 monDealsRolledDamage[6], u32 partySlot, u8 *canOneShot)
 {
+    *canOneShot = FALSE;
     u32 monHighestDamageMoveno = 0;
 
     for (u8 j = 0; j < CLIENT_MAX; ++j) {
@@ -35,6 +36,10 @@ u32 calcPlayerAsDefender(struct BattleSystem *bsys, struct BattleStruct *ctx, st
                     damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(attackerMon, defenderMon, damages.damageRange[u], attackerMove.effect, moveno, damages.moveEffectiveness);
                 }
 
+                if (CanAttackerOneShotDefender(damages.damageRoll, attackerMove.split, moveno, attackerMon, defenderMon)) {
+                    *canOneShot = TRUE;
+                }
+
                 if (damages.damageRoll > monDealsRolledDamage[partySlot]) {
                     monHighestDamageMoveno = moveno;
                     monDealsRolledDamage[partySlot] = damages.damageRoll;
@@ -49,8 +54,9 @@ u32 calcPlayerAsDefender(struct BattleSystem *bsys, struct BattleStruct *ctx, st
     return monHighestDamageMoveno;
 }
 
-u32 calcPlayerAsAttacker(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender, int attacker, struct AI_sDamageCalc *attackerMon, struct AI_sDamageCalc *defenderMon, u32 monReceivesDamage[6], u32 partySlot)
+u32 calcPlayerAsAttacker(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender, int attacker, struct AI_sDamageCalc *attackerMon, struct AI_sDamageCalc *defenderMon, u32 monReceivesDamage[6], u32 partySlot, u8 *canOneShot)
 {
+    *canOneShot = FALSE;
     u32 monReceivingHighestDamageMoveno = 0;
 
     for (int k = 0; k < GetBattlerLearnedMoveCount(bsys, ctx, defender); ++k) {
@@ -68,6 +74,10 @@ u32 calcPlayerAsAttacker(struct BattleSystem *bsys, struct BattleStruct *ctx, in
             damages.damageRoll = BattleAI_AdjustUnusualMoveDamage(defenderMon, attackerMon, damages.damageRoll, defenderMove.effect, defenderMoveno, damages.moveEffectiveness);
             for (int u = 0; u < 16; u++) {
                 damages.damageRange[u] = BattleAI_AdjustUnusualMoveDamage(defenderMon, attackerMon, damages.damageRange[u], defenderMove.effect, defenderMoveno, damages.moveEffectiveness);
+            }
+
+            if (CanAttackerOneShotDefender(damages.damageRoll, defenderMove.split, defenderMoveno, defenderMon, attackerMon)) {
+                *canOneShot = TRUE;
             }
 
             if (damages.damageRoll > monReceivesDamage[partySlot]) {
@@ -144,10 +154,6 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 
     u32 monDealsRolledDamage[6] = { 0 };
     u32 monDealsRolledDamageAcross[6] = { 0 };
-    u32 monHighestDamageMoveno = 0;
-    u32 monHighestDamageMovenoAcross = 0;
-    u32 monReceivingHighestDamageMoveno = 0;
-    u32 monReceivingHighestDamageMovenoAcross = 0;
     u32 monReceivesDamage[6] = { 0 };
     u32 monReceivesDamageAcross[6] = { 0 };
     u32 monReceivesHighestDamagePrct[6] = { 0 };
@@ -213,14 +219,19 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
                 partyMon.isSwitching = TRUE;
             }
 
+            u8 aiMonCanOneshotPlayer = FALSE;
+            u8 playerCanOneShotAiMon = FALSE;
+            u8 aiMonCanOneshotPlayerAcross = FALSE;
+            u8 playerCanOneShotAiMonAcross = FALSE;
+
             if (calcOpp) {
 
                 speedCalc = AI_IsClient2Faster(ctx, &defenderMon, &partyMon);
 #ifdef DEBUG_AI_SCORING
                 debug_printf("Opponent %d : %d > %d \n", speedCalc, partyMon.speed, defenderMon.speed);
 #endif
-                monHighestDamageMoveno = calcPlayerAsDefender(bsys, ctx, mon, defender, attacker, &partyMon, &defenderMon, monDealsRolledDamage, i);
-                monReceivingHighestDamageMoveno = calcPlayerAsAttacker(bsys, ctx, defender, attacker, &partyMon, &defenderMon, monReceivesDamage, i);
+                calcPlayerAsDefender(bsys, ctx, mon, defender, attacker, &partyMon, &defenderMon, monDealsRolledDamage, i, &aiMonCanOneshotPlayer);
+                calcPlayerAsAttacker(bsys, ctx, defender, attacker, &partyMon, &defenderMon, monReceivesDamage, i, &playerCanOneShotAiMon);
             }
 
 
@@ -229,20 +240,16 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 #ifdef DEBUG_AI_SCORING
                 debug_printf("Across %d : %d > %d \n", speedCalcAcross, partyMon.speed, defenderMonAcross.speed);
 #endif
-                monHighestDamageMovenoAcross = calcPlayerAsDefender(bsys, ctx, mon, defenderAcross, attacker, &partyMon, &defenderMonAcross, monDealsRolledDamageAcross, i);
-                monReceivingHighestDamageMovenoAcross = calcPlayerAsAttacker(bsys, ctx, defenderAcross, attacker, &partyMon, &defenderMonAcross, monReceivesDamageAcross, i);
+                calcPlayerAsDefender(bsys, ctx, mon, defenderAcross, attacker, &partyMon, &defenderMonAcross, monDealsRolledDamageAcross, i, &aiMonCanOneshotPlayerAcross);
+                calcPlayerAsAttacker(bsys, ctx, defenderAcross, attacker, &partyMon, &defenderMonAcross, monReceivesDamageAcross, i, &playerCanOneShotAiMonAcross);
             }
 
 
 
-            u8 aiMonCanOneshotPlayer = FALSE;
-            u8 playerCanOneShotAiMon = FALSE;
             u16 partyMonPercentDamageDealt = 1;
             u16 partyMonPercentDamageReceived = 1;
             // TODO stealth rocks, spikes, toxic spikes, etc...
             if (calcOpp) {
-                aiMonCanOneshotPlayer = CanAttackerOneShotDefender(monDealsRolledDamage[i], ctx->moveTbl[monHighestDamageMoveno].split, monHighestDamageMoveno, &partyMon, &defenderMon);
-                playerCanOneShotAiMon = CanAttackerOneShotDefender(monReceivesDamage[i], ctx->moveTbl[monReceivingHighestDamageMoveno].split, monReceivingHighestDamageMoveno, &defenderMon, &partyMon);
                 partyMonPercentDamageDealt = GetCappedDamagePercent(monDealsRolledDamage[i], defenderMon.hp);
                 partyMonPercentDamageReceived = GetCappedDamagePercent(monReceivesDamage[i], partyMon.hp);
 #ifdef DEBUG_AI_SCORING
@@ -250,14 +257,10 @@ int LONG_CALL BattleAI_PostKOSwitchIn_Internal(struct BattleSystem *bsys, int at
 #endif
             }
 
-            u8 aiMonCanOneshotPlayerAcross = FALSE;
-            u8 playerCanOneShotAiMonAcross = FALSE;
             u16 partyMonPercentDamageDealtAcross = 1;
             u16 partyMonPercentDamageReceivedAcross = 1;
 
              if (calcAcross) {
-                aiMonCanOneshotPlayerAcross = CanAttackerOneShotDefender(monDealsRolledDamageAcross[i], ctx->moveTbl[monHighestDamageMovenoAcross].split, monHighestDamageMovenoAcross, &partyMon, &defenderMonAcross);
-                playerCanOneShotAiMonAcross = CanAttackerOneShotDefender(monReceivesDamageAcross[i], ctx->moveTbl[monReceivingHighestDamageMovenoAcross].split, monReceivingHighestDamageMovenoAcross, &defenderMonAcross, &partyMon);
                 partyMonPercentDamageDealtAcross = GetCappedDamagePercent(monDealsRolledDamageAcross[i], defenderMonAcross.hp);
                 partyMonPercentDamageReceivedAcross = GetCappedDamagePercent(monReceivesDamageAcross[i], partyMon.hp);
 #ifdef DEBUG_AI_SCORING

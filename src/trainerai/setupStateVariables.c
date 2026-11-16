@@ -322,6 +322,9 @@ void LONG_CALL SetupStateVariables(struct BattleSystem *bsys, u32 attacker, u32 
                 ai->monCanOneShotPlayerWithAnyMove = TRUE;
                 ai->monCanOneShotPlayerWithMove[j] = TRUE;
                 ai->attackerRolledMoveDamages[j] = ai->defenderMon.hp; // cap killing move's damage at defender HP, so that all killing moves are treated equally as "highest damage"
+            } else if (damages.damageRoll >= ai->defenderMon.hp && ai->defenderMon.hp > 0) {
+                // sash, sturdy
+                ai->attackerRolledMoveDamages[j] = ai->defenderMon.hp - 1;
             }
 #ifdef DEBUG_AI_SCORING
             debug_printf("Dealing with move %d: %3d (%2dpp) is [%4d-%4d], roll %4d > def.HP %d\n", j, attackerMoveno, ctx->battlemon[attacker].pp[j], damages.damageRange[0], damages.damageRange[15], damages.damageRoll, ai->defenderMon.hp);
