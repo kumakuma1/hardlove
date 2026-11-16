@@ -1357,7 +1357,7 @@ scr_seq_0141_183:
 	goto scr_seq_0141_255
 
 scr_seq_0141_184:
-	// Victory road 3F, north rocksmash, 1125 //ultra ball
+	// Victory road 3F, north rocksmash, 1125 //ultra ball  //moved to R28
 	setvar VAR_SPECIAL_x8008, ITEM_EXCADRITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
@@ -1602,19 +1602,19 @@ scr_seq_0141_229:
 
 scr_seq_0141_230:
 	//route 28, east, 1280, //tm35
-	setvar VAR_SPECIAL_x8008, ITEM_TM089
+	setvar VAR_SPECIAL_x8008, ITEM_ABILITY_CAPSULE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_231:
 	//Mt silver entry, west, 1231 //reaper cloth
-	setvar VAR_SPECIAL_x8008, ITEM_MASTER_BALL
+	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_232:
 	//Mt silver 1F northeast, 1241, //full restore
-	setvar VAR_SPECIAL_x8008, ITEM_RARE_CANDY
+	setvar VAR_SPECIAL_x8008, ITEM_MASTER_BALL
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1638,13 +1638,13 @@ scr_seq_0141_235:
 
 scr_seq_0141_236:
 	//Mt silver  outside, west, 1245, //tm76
-	setvar VAR_SPECIAL_x8008, 403
+	setvar VAR_SPECIAL_x8008, ITEM_TM090 //protect
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
 scr_seq_0141_237:
-	//Mt silver  1f small cave, 1246, //expert belt removed -> Archer
-	setvar VAR_SPECIAL_x8008, 268
+	//Mt silver  1f small cave, 1246, //expert belt
+	setvar VAR_SPECIAL_x8008, ITEM_TM089
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

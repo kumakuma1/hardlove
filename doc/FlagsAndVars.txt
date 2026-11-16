@@ -15,6 +15,7 @@
 215   -                                - Flag for getting Sharp Beak from Monica on Route 40
 216   -                                - Flag for getting Twisted spoon on Route 29, used in olivine restaurant to give spoon.
 223   -                                - Flag for getting black glasses in dark cave. used for mawilite
+242   -                                - acces to Mt Silver in Lab
 259   -                                - got item from kimono gauntlet in ecruteak dance theater
 264   -                                - after story fight against ho-oh
 266   -                                - kimono dance in bell tower done

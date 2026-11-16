@@ -11973,7 +11973,7 @@ const ITEMDATA __data[] =
 
 [ITEM_OCCA_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_FIRE,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12038,7 +12038,7 @@ const ITEMDATA __data[] =
 
 [ITEM_PASSHO_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_WATER,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12103,7 +12103,7 @@ const ITEMDATA __data[] =
 
 [ITEM_WACAN_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_ELECTRIC,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12168,7 +12168,7 @@ const ITEMDATA __data[] =
 
 [ITEM_RINDO_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_GRASS,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12233,7 +12233,7 @@ const ITEMDATA __data[] =
 
 [ITEM_YACHE_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_ICE,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12298,7 +12298,7 @@ const ITEMDATA __data[] =
 
 [ITEM_CHOPLE_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_FIGHT,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12363,7 +12363,7 @@ const ITEMDATA __data[] =
 
 [ITEM_KEBIA_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_POISON,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12428,7 +12428,7 @@ const ITEMDATA __data[] =
 
 [ITEM_SHUCA_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_GROUND,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12493,7 +12493,7 @@ const ITEMDATA __data[] =
 
 [ITEM_COBA_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_FLYING,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12558,7 +12558,7 @@ const ITEMDATA __data[] =
 
 [ITEM_PAYAPA_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_PSYCHIC,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12623,7 +12623,7 @@ const ITEMDATA __data[] =
 
 [ITEM_TANGA_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_BUG,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12688,7 +12688,7 @@ const ITEMDATA __data[] =
 
 [ITEM_CHARTI_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_ROCK,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12753,7 +12753,7 @@ const ITEMDATA __data[] =
 
 [ITEM_KASIB_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_GHOST,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12818,7 +12818,7 @@ const ITEMDATA __data[] =
 
 [ITEM_HABAN_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_DRAGON,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12883,7 +12883,7 @@ const ITEMDATA __data[] =
 
 [ITEM_COLBUR_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_DARK,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -12948,7 +12948,7 @@ const ITEMDATA __data[] =
 
 [ITEM_BABIRI_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_STEEL,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -13013,7 +13013,7 @@ const ITEMDATA __data[] =
 
 [ITEM_CHILAN_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_NORMAL,
     .holdEffectParam = 0,
     .pluckEffect = 0,
@@ -44603,7 +44603,7 @@ const ITEMDATA __data[] =
 
 [ITEM_ROSELI_BERRY] =
 {
-    ITEM_PRICE(80),
+    ITEM_PRICE(30000),
     .holdEffect = HOLD_EFFECT_WEAKEN_SE_FAIRY,
     .holdEffectParam = 0,
     .pluckEffect = 0,
