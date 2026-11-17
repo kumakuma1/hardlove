@@ -16,6 +16,7 @@
 #include "task.h"
 #include "types.h"
 #include "trainer_ai.h"
+#include "window.h"
 
 #define CLIENT_MAX 4
 
@@ -853,6 +854,12 @@ typedef struct SwitchInFlags {
     u8 padding : 4;
 } SwitchInFlags;
 
+typedef struct AbilityProcessingFlags {
+    u8 pendingSymbiosis : 1;
+    u8 symbiosisAlly : 3;
+    u8 boosterEnergyStat : 4;
+} AbilityProcessingFlags;
+
 enum AI_calcState {
     Initial = 0,
     CalcedEnemy_1_and_3,
@@ -1107,7 +1114,8 @@ struct BattleStruct {
     u8 futureSightNoAttacker : 1;
     u8 futureSightSTAB : 1;
     u8 ejectPackActivated : 1;
-    u8 gemBoostingMovePadding : 3;
+    u8 moveInProgress : 1;
+    u8 gemBoostingMovePadding : 2;
 
     int currentMoveSwitchStatus;
 
@@ -1120,10 +1128,13 @@ struct BattleStruct {
     MagicBounceContext magicBounceContext;
     HealingWishQueue healingWishQueue;
     SwitchInFlags switchInFlags[CLIENT_MAX];
+    AbilityProcessingFlags abilityProcessingFlags[CLIENT_MAX];
     int field_condition2; // gen5+ field conditions
     int magicRoomCounter;
 
     int recoilDamage;
+    u8 pickpocketBattler;
+    u8 pickpocketAttackerSlot; // account for red card
 
 
 
@@ -2638,6 +2649,42 @@ BOOL LONG_CALL CheckItemGradualHPRestore(struct BattleSystem *bsys, struct Battl
 BOOL LONG_CALL ov12_02252218(struct BattleStruct *ctx, int battlerId);
 BOOL LONG_CALL TryHeldItemNegativeEffect(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
+typedef struct HealthBox {
+    u8 state;
+    void *mainSprite;
+    void *arrowSprites;
+    struct BattleSystem *battleSys;
+    SysTask *unk10;
+    struct Window unk14;
+    u8 battler;
+    u8 type;
+    u8 selectedPartySlot;
+    u8 numSafariBalls;
+    s32 curHp;
+    s32 maxHp;
+    s32 damage;
+    s32 hpTemp;
+    s32 curExp;
+    s32 maxExp;
+    s32 expReward;
+    s32 expTemp;
+    u8 level;
+    u8 gender;
+    u8 status;
+    u8 caughtSpecies;
+    u8 command;
+    u8 delay;
+    u8 expSoundTimer;
+    u8 scrollDirection : 1;
+    u8 doneScrolling : 1;
+    u8 unused_4F_2 : 1;
+    u8 numberMode : 1;
+    SysTask *bobbingAnimTask;
+    u16 degrees;
+} HealthBox;
+
+void LONG_CALL HealthBox_DrawLevelText(HealthBox *healthBox);
+
 typedef struct ANIM_CMD_STRUCT {
     u8 padding_0[0x18];
     u32 *animScriptPtr;
@@ -2857,6 +2904,7 @@ s32 LONG_CALL GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp,
 void LONG_CALL LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
 /* https://github.com/pret/pokeheartgold/blob/master/src/battle/overlay_12_0224E4FC.c#L202 */
 BOOL LONG_CALL PopBattleScript(struct BattleStruct *sp);
+BOOL LONG_CALL TryActivateSymbiosis(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 /**
  *  @brief load battle script and queue up the current one to go after this one

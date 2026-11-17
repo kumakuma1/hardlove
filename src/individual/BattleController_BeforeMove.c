@@ -233,7 +233,13 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         if (IsAttackerOnField(ctx)) {
             ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_DESTINY_BOND;
             ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_GRUDGE;
+            ctx->battlemon[ctx->attack_client].sheer_force_flag = 0;
         }
+        for (int battler = 0; battler < CLIENT_MAX; battler++) {
+            // To clear flag set during switch-in due to banned item
+            ctx->abilityProcessingFlags[battler].pendingSymbiosis = 0;
+        }
+        ctx->moveInProgress = TRUE;
         // reset new stuff here, because subscript is modified
         // ctx->battlemon[ctx->attack_client].moveeffect.custapBerryFlag = 0;
         // ctx->battlemon[ctx->attack_client].moveeffect.quickClawFlag = 0;
@@ -5236,5 +5242,6 @@ void RemoveItemOnFlingFailure(struct BattleStruct *ctx)
         ctx->recycle_item[ctx->attack_client] = ctx->battlemon[ctx->attack_client].item;
         ctx->battlemon[ctx->attack_client].item = ITEM_NONE;
         ctx->battlemon[ctx->attack_client].moveeffect.knockOffFlag = TRUE;
+        ctx->abilityProcessingFlags[ctx->attack_client].pendingSymbiosis = 1;
     }
 }
