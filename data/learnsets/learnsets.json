@@ -47758,7 +47758,7 @@
             "Move": "MOVE_SCREECH"
         },
         {
-            "Level": 83,
+            "Level": 85,
             "Move": "MOVE_STEALTH_ROCK"
         }
     ],
@@ -60844,7 +60844,7 @@
             "Move": "MOVE_WIDE_GUARD"
         },
         {
-            "Level": 83,
+            "Level": 85,
             "Move": "MOVE_STEALTH_ROCK"
         }
     ],
@@ -149861,7 +149861,7 @@
             "Move": "MOVE_HEADLONG_RUSH"
         },
         {
-            "Level": 85,
+            "Level": 87,
             "Move": "MOVE_STEALTH_ROCK"
         }
     ],
