@@ -511,18 +511,6 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     case MOVE_ROLLOUT:
         moveScore += 7;
         break;
-    case MOVE_METEOR_BEAM:
-        if (ai->attackerMon.item == ITEM_POWER_HERB) {
-            moveScore += 9;
-        }
-        break;
-    case MOVE_ELECTRO_SHOT:
-        if (ai->attackerMon.item == ITEM_POWER_HERB || ctx->field_condition & FIELD_CONDITION_RAIN_ALL) {
-            moveScore += 9;
-        } else {
-            moveScore -= NEVER_USE_MOVE_20;
-        }
-        break;
     case MOVE_SAND_TOMB:
         if (!ai->defenderMon.isGrounded) {
             break;
@@ -568,6 +556,13 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             }
         }
         break;
+    }
+
+    if (ai->attackerMove == MOVE_METEOR_BEAM && ai->attackerMon.item == ITEM_POWER_HERB) {
+        moveScore += 3;
+    }
+    if (ai->attackerMove == MOVE_ELECTRO_SHOT && (ai->attackerMon.item == ITEM_POWER_HERB || ctx->field_condition & FIELD_CONDITION_RAIN_ALL)) {
+        moveScore += 3;
     }
 
 #ifdef DEBUG_AI_SCORING
@@ -726,10 +721,8 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
         break;
     }
     case MOVE_FLING: {
-        if (ai->attackerMon.item == ITEM_KINGS_ROCK && !ai->attackerMon.firstTurnOut && !ai->defenderImmuneToFlinch) {
+        if ((ai->attackerMon.item == ITEM_KINGS_ROCK || ai->attackerMon.item == ITEM_RAZOR_FANG) && !ai->attackerMon.firstTurnOut && !ai->defenderImmuneToFlinch) {
             moveScore += 9;
-        } else {
-            moveScore -= IMPOSSIBLE_MOVE;
         }
         break;
     }

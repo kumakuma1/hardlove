@@ -140,7 +140,7 @@ If multiple moves kill, then they are all considered the highest damaging move a
 
 > \***Note:** There are a few specific damaging moves that do not have their damage rolled normally and are thus never considered the "highest damaging move".
 >
-> These moves are Explosion, Self-Destruct, Misty Explosion, Final Gambit, Rollout, Ice Ball, Meteor Beam, Electro Shot, damaging trapping moves (e.g. Whirlpool), Future Sight and Doom Desire.
+> These moves are Explosion, Self-Destruct, Misty Explosion, Final Gambit, Rollout, Ice Ball, damaging trapping moves (e.g. Whirlpool), Future Sight and Doom Desire.
 >
 > All of these moves still have a check to see if they kill the target mon. If so, the above boosts for kills still apply. They will just never get the +6 or +8 boost from being the "highest damaging move". They all also have separate AI that is listed later in this file, which stacks additively with any score boosts from kills.
 
@@ -219,10 +219,10 @@ U-Turn, Flip Turn, Volt Switch:
 
 ### Fling
 
-- If the AI is holding a King's Rock, it is **not** the AI mon's first turn out, and the target is not immune to flinching: **+9**
-- Else: never used
+- Scored like a normal damaging move, using the held item's Fling power (never used without a held item)
+- If the AI is holding a King's Rock or Razor Fang, it is **not** the AI mon's first turn out, and the target is not immune to flinching: additional **+9**
 
-> **Note:** This is meant for King's Rock Fling as a "second Fake Out" on the turn after Fake Out. It stacks with bonuses for kills listed in the "All damaging moves" section.
+> **Note:** This is meant for King's Rock Fling as a "second Fake Out" on the turn after Fake Out. It stacks with the highest damage and kill bonuses listed in the "All damaging moves" section.
 
 ### Pursuit
 
@@ -256,12 +256,11 @@ U-Turn, Flip Turn, Volt Switch:
 
 ### Meteor Beam
 
-- If AI is holding a Power Herb: **+9**
+- Scored like a normal damaging move (can be the highest damaging move), plus: if AI is holding a Power Herb: additional **+3**
 
 ### Electro Shot
 
-- If AI is holding a Power Herb or it is raining: **+9**
-- Else: never used (**-20**)
+- Scored like a normal damaging move (can be the highest damaging move), plus: if AI is holding a Power Herb or it is raining: additional **+3**
 
 ---
 
