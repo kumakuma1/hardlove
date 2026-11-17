@@ -298,4 +298,6 @@ void *LONG_CALL LoadItemDataOrGfx(u16 itemId, int attrno, int heapID);
 
 s32 LONG_CALL GetItemAttr_PreloadedItemData(struct ItemData *itemData, u16 attrno);
 
+s32 LONG_CALL GetItemAttr(u16 item, u16 attrno, u32 heapId);
+
 #endif // POKEDIAMOND_ITEM_H

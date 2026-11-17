@@ -64,10 +64,12 @@ int LONG_CALL ScoreMovesAgainstDefender(struct BattleSystem *bsys, u32 attacker,
 {
     struct BattleStruct *ctx = bsys->sp;
     int highestScoredMove = 0;
+
+    u32 unusableMoves = StruggleCheck(bsys, ctx, attacker, 0, 0xFFFFFFFF);
     for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++)
     {
         u32 attackerMove = ctx->battlemon[attacker].move[i];
-        if (attackerMove != MOVE_NONE)
+        if (attackerMove != MOVE_NONE && !(unusableMoves & No2Bit(i)))
         {
             int itemEffect = HeldItemHoldEffectGet(ctx, attacker);
             if ((ctx->battlemon[attacker].moveeffect.encoredTurns > 0 && attackerMove == ctx->battlemon[attacker].moveeffect.encoredMove)
@@ -104,10 +106,11 @@ int LONG_CALL ScoreMovesAgainstAlly(struct BattleSystem *bsys, u32 attacker, u32
     }
 
     int highestScoredMove = 0;
+    u32 unusableMoves = StruggleCheck(bsys, ctx, attacker, 0, 0xFFFFFFFF);
     for (int i = 0; i < GetBattlerLearnedMoveCount(bsys, ctx, attacker); i++) {
         int moveScore = 0;
         u32 attackerMove = ctx->battlemon[attacker].move[i];
-        if (attackerMove != MOVE_NONE) {
+        if (attackerMove != MOVE_NONE && !(unusableMoves & No2Bit(i))) {
             switch (attackerMove) {
             case MOVE_HELPING_HAND:
             {

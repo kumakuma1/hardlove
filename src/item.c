@@ -256,6 +256,20 @@ s32 LONG_CALL GetItemAttr_PreloadedItemData(ITEMDATA *itemData, u16 attrno)
     return 0;
 }
 
+#define HEAP_ID_BAG 6 // pokeheartgold enum HeapID, the bag app reads the sell price with this heap
+
+s32 LONG_CALL GetItemAttr(u16 item, u16 attrno, u32 heapId)
+{
+    if (attrno == ITEM_PARAM_PRICE && heapId == HEAP_ID_BAG && (IS_ITEM_BERRY(item) || (IS_ITEM_MEGA_STONE(item)))) {
+        return 0;
+    }
+
+    ITEMDATA *itemData = LoadItemDataOrGfx(item, 0, heapId); // 0 = item data, not gfx
+    s32 ret = GetItemAttr_PreloadedItemData(itemData, attrno);
+    sys_FreeMemoryEz(itemData);
+    return ret;
+}
+
 void ItemMenuUseFunc_RevealGlass(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED)
 {
     FieldSystem *fieldSystem = data->taskManager->fieldSystem; // TaskManager_GetFieldSystem(data->taskManager);

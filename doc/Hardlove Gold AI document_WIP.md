@@ -24,7 +24,7 @@
 
 The AI will calculate a score for every move and choose the highest scoring move to click on any given turn. If multiple moves have the same score, it randomly selects between one of them. In Double battles, the AI will calculate a score for each of its moves on each possible target, and choose the highest scoring move + target. If multiple targets have the same highest move score, the AI will randomly roll the target first, before choosing the highest move score. All damages are capped at max HP for any comparison.
 
-The AI knows your full team's stats, moves, items and Abilities at the start of the battle. It sees accurate damage and speed, including Mega Evolution: if an AI mon is **on the field** and can Mega Evolve, it already uses the Mega's Stats, Ability and Typing for any calculation. It also sees Sticky Webs, if Terrain Seeds and/or Unburden would proc, Libero STAB, guaranteed critical hits, any effect that prevents moves from being usable like Encore, Choice Lock, Taunt, Throat Chop, etc.
+The AI knows your full team's stats, moves, items and Abilities at the start of the battle. It sees accurate damage and speed, including Mega Evolution: if **the AI's own Pokémon is on the field** and can Mega Evolve, it already uses the Mega's Stats, Ability and Typing for any calculation. The AI will not see a the Player's potential Mega Evolution. It also sees Sticky Webs, if Terrain Seeds and/or Unburden would proc, Libero STAB, guaranteed critical hits, any effect that prevents moves from being usable like Encore, Choice Lock, Taunt, Throat Chop, etc.
 
 The AI does not read Player input. The only instance where the AI "cheats" is reading its sleep counter, so that the AI knows when it wakes up and can click a move or Sleep Talk/Snore.
 

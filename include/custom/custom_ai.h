@@ -8,7 +8,7 @@
 
 
 
-struct PACKED AI_turnState {
+struct AI_turnState {
     s16 moveScores[4][4]; // account for BATTLER_OPPONENT (0), attacker (1), BATTLER_ACROSS(2), BATTLER_ALLY(3),  4 moves each or
                           // account for BATTLER_OPPONENT (2), attacker (3), BATTLER_ACROSS(0), BATTLER_ALLY(1),  4 moves each
     int damages[4][4]; // rolled damage for each move against each target
