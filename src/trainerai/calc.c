@@ -411,6 +411,23 @@ BOOL IsMoveBoostedBySheerForce(u32 moveno, u32 moveeffect)
     case MOVE_EFFECT_HIGH_CRITICAL_POISON_HIT: // cross poison
     case MOVE_EFFECT_RECOIL_BURN_HIT: // flare blitz
     case MOVE_EFFECT_RECOIL_PARALYZE_HIT:
+    case MOVE_EFFECT_ALWAYS_FLINCH_FIRST_TURN_ONLY: // fake out
+    case MOVE_EFFECT_SLEEP_HIT: // relic song, wicked torque
+    case MOVE_EFFECT_POISON_HIT_DOUBLE_POWER_ON_POISONED: // barb barrage
+    case MOVE_EFFECT_SLEEP_POISON_PARALYZE_HIT: // dire claw
+    case MOVE_EFFECT_THROAT_CHOP:
+    case MOVE_EFFECT_SANDSEAR_STORM:
+    case MOVE_EFFECT_BLEAKWIND_STORM:
+    case MOVE_EFFECT_WILDBOLT_STORM:
+    case MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS: // axe kick
+    case MOVE_EFFECT_HIT_TWICE_AND_FLINCH: // double iron bash
+    case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH: // sky attack
+    case MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT: // matcha gotcha
+    case MOVE_EFFECT_RAISE_DEF_HIT: // steel wing
+    case MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING: // rapid spin
+    case MOVE_EFFECT_RAISE_DEF_2_HIT: // diamond storm
+    case MOVE_EFFECT_RAISE_EVA_HIT: // zippy zap
+    case MOVE_EFFECT_HIGH_CRITICAL_RAISE_SPEED_HIT: // esper wing
         isBoosted = TRUE;
         break;
     default:
@@ -423,7 +440,15 @@ BOOL IsMoveBoostedBySheerForce(u32 moveno, u32 moveeffect)
     case MOVE_ANCHOR_SHOT:
     case MOVE_CEASELESS_EDGE:
     case MOVE_STONE_AXE:
+    case MOVE_GENESIS_SUPERNOVA:
+    case MOVE_EERIE_SPELL:
+    case MOVE_SALT_CURE:
+    case MOVE_SYRUP_BOMB:
+    case MOVE_SHELL_SIDE_ARM:
+    case MOVE_ORDER_UP:
+#if SHEER_FORCE_GENERATION < GEN_CHAMPIONS
     case MOVE_ELECTRO_SHOT:
+#endif
         isBoosted = TRUE;
         break;
     default:
