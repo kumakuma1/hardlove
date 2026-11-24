@@ -537,6 +537,10 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(struct AI_sDamageCalc *attacker, 
 
     // struct BattleStruct* ctx = bsys->sp;
     switch (moveEffect) {
+    case MOVE_EFFECT_COUNTER: // counter
+    case MOVE_EFFECT_MIRROR_COAT: // mirror coat
+    case MOVE_EFFECT_METAL_BURST: // metal burst, comeuppance
+        return 0;
     case MOVE_EFFECT_UP_TO_10_HITS:
         if (attacker->ability == ABILITY_SKILL_LINK) {
             return damage * 10;
@@ -574,14 +578,6 @@ int LONG_CALL BattleAI_AdjustUnusualMoveDamage(struct AI_sDamageCalc *attacker, 
             return defender->hp / 2 + (defender->hp - defender->hp / 2) / 2;
         }
         return defender->hp / 2;
-    case MOVE_EFFECT_AVERAGE_HP: // pain split
-    {
-        if (attacker->hp < defender->hp) {
-            return defender->hp - ((attacker->hp + defender->hp) / 2);
-        } else {
-            return 0;
-        }
-    }
     case MOVE_EFFECT_SET_HP_EQUAL_TO_USER: // endeavor
     {
         if (attacker->hp < defender->hp) {

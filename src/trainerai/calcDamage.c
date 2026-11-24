@@ -1275,7 +1275,26 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
     if (moveno == MOVE_STEEL_ROLLER && sp->terrainOverlay.type == TERRAIN_NONE) {
         return 0;
     }
-    if (moveno == MOVE_BELCH && defender->canBelch == FALSE) {
+    if (moveno == MOVE_BELCH && attacker->canBelch == FALSE) {
+        return 0;
+    }
+
+    if (moveno == MOVE_GIGATON_HAMMER && !attacker->firstTurnOut && sp->waza_no_old[attackerSlot] == MOVE_GIGATON_HAMMER) {
+        return 0;
+    }
+    if ((moveno == MOVE_FAKE_OUT || moveno == MOVE_FIRST_IMPRESSION) && !attacker->firstTurnOut) {
+        return 0;
+    }
+    if (moveno == MOVE_FOCUS_PUNCH
+        && !(attacker->condition2 & STATUS2_SUBSTITUTE)
+        && !(defender->condition & (STATUS_SLEEP | STATUS_FREEZE))
+        && !(defender->condition2 & STATUS2_RECHARGE)) {
+        return 0;
+    }
+    if (IsMoveSoundBased(moveno) && !attacker->firstTurnOut && sp->moveConditionsFlags[attackerSlot].throatChopTimer) {
+        return 0;
+    }
+    if ((moveno == MOVE_FUTURE_SIGHT || moveno == MOVE_DOOM_DESIRE) && sp->fcc.future_prediction_count[defenderSlot] != 0) {
         return 0;
     }
     if (moveno == MOVE_POLTERGEIST && defender->item == ITEM_NONE) {
@@ -1316,10 +1335,6 @@ int LONG_CALL BattleAI_CalcDamageInternal(void *bw, struct BattleStruct *sp, int
         default:
             break;
         }
-    }
-
-    if (sp->moveConditionsFlags[attackerSlot].throatChopTimer && IsMoveSoundBased(moveno)) {
-        return 0;
     }
 
     if (!attacker->firstTurnOut && (moveno == MOVE_FAKE_OUT || moveno == MOVE_FIRST_IMPRESSION)) {

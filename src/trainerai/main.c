@@ -296,7 +296,8 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         moveScore -= IMMUNE_TO_MOVE;
     }
 
-    if (ctx->moveConditionsFlags[ai->attacker].throatChopTimer && IsMoveSoundBased(ai->attackerMove)) {
+    if (ctx->moveConditionsFlags[ai->attacker].throatChopTimer && IsMoveSoundBased(ai->attackerMove)
+        && ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS) {
         moveScore -= IMPOSSIBLE_MOVE;
     }
 
@@ -307,16 +308,6 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
     }
 
     switch (ai->attackerMoveEffect) {
-    case MOVE_EFFECT_FLING:
-        if (ai->attackerMon.item == ITEM_NONE) {
-            moveScore -= IMPOSSIBLE_MOVE;
-        }
-        break;
-    case MOVE_EFFECT_BELCH:
-        if (ai->attackerMon.canBelch == FALSE) {
-            moveScore -= IMPOSSIBLE_MOVE;
-        }
-        break;
     case MOVE_EFFECT_STEALTH_ROCK:
         if (ctx->side_condition[ai->defenderSide] & SIDE_STATUS_STEALTH_ROCK || ai->livingMembersDefender == 1 || ai->defenderHasMagicBounce || ai->defenderAllyHasMagicBounce) {
             moveScore -= NEVER_USE_MOVE_20;
@@ -432,13 +423,6 @@ int LONG_CALL BasicScoring(struct BattleSystem *bsys, u32 attacker, int i, struc
         break;
     }
 
-    if (ai->attackerMove == MOVE_STEEL_ROLLER && ctx->terrainOverlay.type == TERRAIN_NONE) {
-        moveScore -= IMPOSSIBLE_MOVE;
-    }
-
-    if (ai->attackerMove == MOVE_GIGATON_HAMMER && ai->attackerLastUsedMove == MOVE_GIGATON_HAMMER) {
-        moveScore -= IMPOSSIBLE_MOVE;
-    }
 
     return moveScore;
 }
@@ -449,19 +433,18 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     struct BattleStruct *ctx = bsys->sp;
     BOOL isMoveHighestDamage = FALSE;
 
+    ai->attackerMove = ctx->battlemon[attacker].move[i];
+    ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
+
     if (ctx->moveTbl[ai->attackerMove].split == SPLIT_STATUS) {
         return 0;
     }
-
-    ai->attackerMove = ctx->battlemon[attacker].move[i];
-    ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
 
 
     switch (ai->attackerMove) {
     case MOVE_SELF_DESTRUCT:
     case MOVE_EXPLOSION:
     case MOVE_MISTY_EXPLOSION: {
-        // damp on any mon on the field stops the move, not just on the target
         BOOL dampOnField = FALSE;
         for (int k = 0; k < BattleWorkClientSetMaxGet(bsys); k++) {
             if (ctx->battlemon[k].hp && GetBattlerAbility(ctx, k) == ABILITY_DAMP) {
@@ -511,25 +494,45 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
     case MOVE_ROLLOUT:
         moveScore += 7;
         break;
-    case MOVE_SAND_TOMB:
-        if (!ai->defenderMon.isGrounded) {
-            break;
+    case MOVE_METAL_BURST:
+    case MOVE_COMEUPPANCE:
+        moveScore += 6;
+        if (ai->attackerHasSturdyOrFocusSashActive) {
+            moveScore += 2;
         }
-        FALLTHROUGH;
-    case MOVE_BIND:
-    case MOVE_CLAMP:
-    case MOVE_FIRE_SPIN:
-    case MOVE_WRAP:
-    case MOVE_WHIRLPOOL:
-    case MOVE_INFESTATION:
-    case MOVE_SNAP_TRAP:
-        if (ctx->binding_turns[ai->defender] != 0 || HasType(ctx, ai->defender, TYPE_GHOST) || ai->defenderMon.item == ITEM_SHED_SHELL) {
+        if (ai->aiMovesFirst && BattleRand(bsys) % 4 == 0) {
+            moveScore -= 1;
+        }
+        if (ai->defenderHasAtleastOneStatusMove && BattleRand(bsys) % 4 == 0) {
+            moveScore -= 1;
+        }
+        break;
+    case MOVE_MIRROR_COAT:
+    case MOVE_COUNTER:
+        moveScore += 6;
+        if (ai->playerCanOneShotMonWithAnyMove && !ai->attackerHasSturdyOrFocusSashActive) {
             moveScore -= NEVER_USE_MOVE_20;
-        } else {
-            moveScore += 6;
-            if (BattleRand(bsys) % 10 < 2) {
+        }
+
+        if (ai->attackerMove == MOVE_COUNTER && !ai->defenderHasAtleastOneSpecialMove) {
+            moveScore += 2;
+            if (ai->attackerHasSturdyOrFocusSashActive) {
                 moveScore += 2;
             }
+        }
+
+        if (ai->attackerMove == MOVE_MIRROR_COAT && !ai->defenderHasAtleastOnePhysicalMove) {
+            moveScore += 2;
+            if (ai->attackerHasSturdyOrFocusSashActive) {
+                moveScore += 2;
+            }
+        }
+
+        if (ai->aiMovesFirst && BattleRand(bsys) % 4 == 0) {
+            moveScore -= 1;
+        }
+        if (ai->defenderHasAtleastOneStatusMove && BattleRand(bsys) % 4 == 0) {
+            moveScore -= 1;
         }
         break;
     case MOVE_RELIC_SONG: // TODO
@@ -684,6 +687,26 @@ int LONG_CALL DamagingMoveScoring(struct BattleSystem *bsys, u32 attacker, int i
             }
             if (ai->attackerMon.ability == ABILITY_REGENERATOR && ai->attackerMon.percenthp < 67) {
                 moveScore += 1;
+            }
+        }
+        break;
+    case MOVE_SAND_TOMB:
+        if (!ai->defenderMon.isGrounded) {
+            break;
+        }
+        FALLTHROUGH;
+    case MOVE_BIND:
+    case MOVE_CLAMP:
+    case MOVE_FIRE_SPIN:
+    case MOVE_WRAP:
+    case MOVE_WHIRLPOOL:
+    case MOVE_INFESTATION:
+    case MOVE_SNAP_TRAP:
+        if (!isMoveHighestDamage
+            && !(ctx->binding_turns[ai->defender] != 0 || HasType(ctx, ai->defender, TYPE_GHOST) || ai->defenderMon.item == ITEM_SHED_SHELL)) {
+            moveScore += 6;
+            if (BattleRand(bsys) % 10 < 2) {
+                moveScore += 2;
             }
         }
         break;
@@ -1882,46 +1905,6 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore -= NEVER_USE_MOVE_20;
         }
         break;
-    case MOVE_EFFECT_METAL_BURST:
-        moveScore += 6;
-        if (ai->attackerHasSturdyOrFocusSashActive) {
-            moveScore += 2;
-        }
-        if (ai->aiMovesFirst && BattleRand(bsys) % 4 == 0) {
-            moveScore -= 1;
-        }
-        if (ai->defenderHasAtleastOneStatusMove && BattleRand(bsys) % 4 == 0) {
-            moveScore -= 1;
-        }
-        break;
-    case MOVE_EFFECT_MIRROR_COAT:
-    case MOVE_EFFECT_COUNTER:
-        moveScore += 6;
-        if (ai->playerCanOneShotMonWithAnyMove && !ai->attackerHasSturdyOrFocusSashActive) {
-            moveScore -= NEVER_USE_MOVE_20;
-        }
-        
-        if (ai->attackerMoveEffect == MOVE_EFFECT_COUNTER  && !ai->defenderHasAtleastOneSpecialMove) {
-            moveScore += 2;
-            if (ai->attackerHasSturdyOrFocusSashActive) {
-                moveScore += 2;
-            }
-        }
-
-        if (ai->attackerMoveEffect == MOVE_EFFECT_MIRROR_COAT && !ai->defenderHasAtleastOnePhysicalMove) {
-            moveScore += 2;
-            if (ai->attackerHasSturdyOrFocusSashActive) {
-                moveScore += 2;
-            }
-        }
-
-        if (ai->aiMovesFirst && BattleRand(bsys) % 4 == 0) {
-            moveScore -= 1;
-        }
-        if (ai->defenderHasAtleastOneStatusMove && BattleRand(bsys) % 4 == 0) {
-            moveScore -= 1;
-        }
-        break;
     case MOVE_EFFECT_FORCE_SWITCH:
         if ((ai->defenderMon.ability == ABILITY_SUCTION_CUPS && !ai->attackerMon.hasMoldBreaker)
             || (ai->defenderMon.effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)) {
@@ -2033,6 +2016,7 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
     int moveScore = 0;
     struct BattleStruct *ctx = bsys->sp;
     BOOL isHealingMove = TRUE;
+    BOOL painSplitIsHighestDamage = FALSE;
 
     ai->attackerMove = ctx->battlemon[attacker].move[i];
     ai->attackerMoveEffect = ctx->moveTbl[ai->attackerMove].effect;
@@ -2101,6 +2085,29 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
         }
     }
         break;
+    case MOVE_EFFECT_AVERAGE_HP: {
+        if (ai->attackerMon.hp >= ai->defenderMon.hp) {
+            moveScore -= NEVER_USE_MOVE_20;
+            break;
+        }
+        u32 averageHp = (ai->attackerMon.hp + ai->defenderMon.hp) / 2;
+        u32 damageDealt = ai->defenderMon.hp - averageHp;
+        u32 hpHealed = averageHp - ai->attackerMon.hp;
+        if (ai->attackerMon.hp + hpHealed > ai->attackerMon.maxhp) {
+            hpHealed = ai->attackerMon.maxhp - ai->attackerMon.hp;
+        }
+
+        painSplitIsHighestDamage = damageDealt > ai->attackerRolledMaxDamage;
+        if (painSplitIsHighestDamage || hpHealed * 100 > 30 * ai->attackerMon.maxhp) {
+            moveScore += 7;
+            if (painSplitIsHighestDamage && ai->attackerMon.percenthp >= 85) {
+                moveScore += 6;
+            }
+        } else {
+            moveScore += 5;
+        }
+        break;
+    }
     default:
         isHealingMove = FALSE;
         break;
@@ -2110,7 +2117,7 @@ int LONG_CALL RecoveryScoring(struct BattleSystem *bsys, u32 attacker, int i, st
         moveScore = 0;
     } else if (ctx->battlemon[attacker].moveeffect.healBlockTurns) {
         moveScore = 0 - NEVER_USE_MOVE_20;
-    } else if (ai->attackerMon.percenthp == 100) {
+    } else if (ai->attackerMon.percenthp == 100 && !painSplitIsHighestDamage) {
         moveScore = 0 - NEVER_USE_MOVE_20;
     }
 

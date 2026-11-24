@@ -5949,10 +5949,10 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         },
         .data = {
             .effect = MOVE_EFFECT_AVERAGE_HP,
-            .split = SPLIT_PHYSICAL,
-            .power = 1,
+            .split = SPLIT_STATUS,
+            .power = 0,
             .type = TYPE_DARK,
-            .accuracy = 100,
+            .accuracy = 0,
             .pp = 20,
             .effectChance = 0,
         },

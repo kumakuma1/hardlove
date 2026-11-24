@@ -140,7 +140,7 @@ If multiple moves kill, then they are all considered the highest damaging move a
 
 > \***Note:** There are a few specific damaging moves that do not have their damage rolled normally and are thus never considered the "highest damaging move".
 >
-> These moves are Explosion, Self-Destruct, Misty Explosion, Final Gambit, Rollout, Ice Ball, damaging trapping moves (e.g. Whirlpool), Future Sight and Doom Desire.
+> These moves are Explosion, Self-Destruct, Misty Explosion, Final Gambit, Rollout, Ice Ball, Future Sight and Doom Desire.
 >
 > All of these moves still have a check to see if they kill the target mon. If so, the above boosts for kills still apply. They will just never get the +6 or +8 boost from being the "highest damaging move". They all also have separate AI that is listed later in this file, which stacks additively with any score boosts from kills.
 
@@ -159,10 +159,11 @@ AI will not use a Boom move if the target is immune or any mon on the field has 
 
 ### Damaging trapping moves
 
-Whirlpool, Fire Spin, Sand Tomb, Bind, Wrap, Clamp, Infestation:
+Whirlpool, Fire Spin, Sand Tomb, Bind, Wrap, Clamp, Infestation, Snap Trap:
 
-- **+6** (~80%), **+8** (~20%)
-- Never used if the target is already trapped, a Ghost type or holds a Shed Shell (Sand Tomb only scores if the target is grounded)
+- Scored like a normal damaging move, so they can get the highest damage bonus
+- If not the highest damaging move and the target can be trapped: **+6** (~80%), **+8** (~20%)
+- The target can't be trapped if it is already trapped, a Ghost type or holds a Shed Shell (Sand Tomb only gets the trapping score if the target is grounded)
 
 ### Damaging speed reduction moves with guaranteed effect
 
@@ -747,6 +748,13 @@ Only used if the target is poisoned and has an attacking move that isn't already
   - If none of the above conditions are true: **+7**
 - If AI decides it should not recover: **+5**
 - Never used if Rest would fail: AI is already asleep, Uproar is active, AI has Insomnia, Vital Spirit, Comatose, Sweet Veil (or its partner has it), Leaf Guard or Shields Down, or it is grounded in Electric or Misty Terrain.
+
+### Pain Split
+
+- Never used if the AI's current HP is equal to or higher than the player's (it would lose HP or gain nothing): **-20**
+- If the HP Pain Split takes from the player is higher than the AI's highest damage move, or the AI would heal more than 30% of its max HP: **+7**
+- Otherwise: **+5**
+- AI will not use it at full HP (**-20**) or at 85% or higher (**-6**), unless Pain Split is its highest damage option
 
 ---
 
