@@ -75,10 +75,22 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
         trade_dat->gender = POKEMON_GENDER_FEMALE;
         trade_dat->heldItem = ITEM_NONE;
     }
+    else if (tradeno == NPC_TRADE_HORNLETTE_RHYHORN)
+    {
+        trade_dat->heldItem = getRandomBerry();
+        trade_dat->give_species = SPECIES_SLOWKING;
+        ability = ABILITY_CURIOUS_MEDICINE;
+        if (gf_rand() % 2 == 0) {
+            ability = ABILITY_REGENERATOR;
+        }
+    }
 #endif
     randomIV(trade_dat);
     PokeParaSet(mon, trade_dat->give_species, level, 32, FALSE, gf_rand() /* trade_dat->pid */, OT_ID_PRESET, trade_dat->otId); // OT_ID_PRESET, trade_dat->otId);
-    if (trade_dat->give_species == SPECIES_ARCANINE || trade_dat->give_species == SPECIES_ELECTRODE || trade_dat->give_species == SPECIES_LILLIGANT) {
+    if (trade_dat->give_species == SPECIES_ARCANINE 
+        || trade_dat->give_species == SPECIES_ELECTRODE 
+        || trade_dat->give_species == SPECIES_SLOWKING 
+        || trade_dat->give_species == SPECIES_LILLIGANT) {
         int form = 1;
         SetMonData(mon, MON_DATA_FORM, &form);
     }

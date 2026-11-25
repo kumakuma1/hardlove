@@ -1808,10 +1808,10 @@ int LONG_CALL HarassmentScoring(struct BattleSystem *bsys, u32 attacker, int i, 
             moveScore += 6;
         }
         break;
-    case MOVE_EFFECT_ATK_DOWN:
+    case MOVE_EFFECT_ATK_DOWN: //growl
     case MOVE_EFFECT_ATK_DOWN_2:
     case MOVE_EFFECT_ATK_DOWN_3:
-    case MOVE_EFFECT_ATK_DEF_DOWN:
+    case MOVE_EFFECT_ATK_DEF_DOWN: //tickle
         if (ai->defenderHasAtleastOnePhysicalMove)
         {
             moveScore += 5;

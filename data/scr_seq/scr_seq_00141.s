@@ -663,7 +663,7 @@ scr_seq_0141_065:
 
 scr_seq_0141_066:
 	//route 36 central, 1276
-	setvar VAR_SPECIAL_x8008, 25
+	setvar VAR_SPECIAL_x8008, ITEM_BIG_ROOT
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1094,7 +1094,7 @@ scr_seq_0141_139:
 
 scr_seq_0141_140:
 	// TR HQ B3F, west, right, 1109 // X sp atck
-	setvar VAR_SPECIAL_x8008, ITEM_CAMERUPTITE
+	setvar VAR_SPECIAL_x8008, ITEM_DRAMPANITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1112,7 +1112,7 @@ scr_seq_0141_142:
 	
 scr_seq_0141_143:
 	//lake of rage, north west, 1288
-	setvar VAR_SPECIAL_x8008, ITEM_FLYING_GEM
+	setvar VAR_SPECIAL_x8008, ITEM_CRABOMINITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 
@@ -1596,7 +1596,8 @@ scr_seq_0141_228:
 	goto scr_seq_0141_255
 
 scr_seq_0141_229:
-	setvar VAR_SPECIAL_x8008, 382
+	// route 19, 1199, TM55  -> moved to Route 25 
+	setvar VAR_SPECIAL_x8008, ITEM_CAMERUPTITE
 	setvar VAR_SPECIAL_x8009, 1
 	goto scr_seq_0141_255
 

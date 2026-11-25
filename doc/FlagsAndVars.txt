@@ -32,6 +32,8 @@
 347   - 158-T22PC0101: Script File 860 - Slugma-Egg Primo. Flag is not set. | Mom sets 063 - used for goldenrod Evolution Items 3, Cleared after Morty
 348   -                                - Lucky Punch From Woman on R14 - Unused
 385   -                                - Received Item from Lt. Surge after battle
+410   -                                - Teacher in Violet
+411   -                                - Teacher in Violet in School. Cleared after talking to him.
 420   - 061-T20R0101 : Script File 225 - Function 25: Hide Lyra. Flag is set.
 421   - 061-T20R0101 : Script File 225 - Function 25: Hide Marill. Flag is set.
 423   - 117-D36R0101 : Script File  92 - Porenta to hunt in Ilex

@@ -127,7 +127,7 @@ const HiddenItemData sHiddenItemParam[] = {
     { ITEM_GHOST_GEM, 1, 0, 0, 51 }, // Rocket HQ B1F E
     { ITEM_POISON_GEM, 1, 0, 0, 54 }, // Rocket HQ B2F S
     { ITEM_ELECTRIC_GEM, 1, 0, 0, 55 }, // Rocket HQ B2F E
-    { ITEM_FULL_RESTORE, 1, 0, 0, 36 }, // Lake of Rage SW
+    { ITEM_FLYING_GEM, 1, 0, 0, 36 }, // Lake of Rage SW
     { ITEM_RARE_CANDY, 1, 0, 0, 37 }, // Lake of Rage E
     { ITEM_HEART_SCALE, 1, 0, 0, 102 }, // Lake of Rage NE
     { ITEM_HEART_SCALE, 1, 0, 0, 100 }, // R44

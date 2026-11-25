@@ -873,7 +873,7 @@ const TrainerData sTrainerData[] = {
                 .level = 18,
                 .species = SPECIES_TANGELA,
                 .item = ITEM_ROCK_GEM,
-                .moves = { MOVE_MEGA_DRAIN, MOVE_STUN_SPORE, MOVE_ANCIENT_POWER, MOVE_NONE },
+                .moves = { MOVE_MEGA_DRAIN, MOVE_STUN_SPORE, MOVE_ANCIENT_POWER, MOVE_TICKLE },
                 .ability = ABILITY_REGENERATOR,
                 .ball = ITEM_POKE_BALL,
                 .setIvs = { 31, 31, 31, 31, 31, 31 },
@@ -3944,7 +3944,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_PHONE_REMATCH_INTRO,
-                .text = "I’ve been waiting!\\nI’ve been wanting to brag to you!\\r\\n",
+                .text = "I’ve been waiting!\\nI’ve been wanting to brag to you!\\r",
             },
         },
     },
@@ -11716,7 +11716,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "Imagine losing against an overleveled\\nJigglypuff. Would you be salty\\r?",
+                .text = "Imagine losing against an overleveled\\nJigglypuff. Would you be salty?\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -15407,7 +15407,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "Now you’re gonna get it!\\r ",
+                .text = "Now you’re gonna get it!\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -25637,15 +25637,15 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "Here’s No. 3!\\nI won’t be easy.\\r",
+                .text = "To all my prompts I add\\n’make no mistakes’.\\rThat way the AI will not make any\\nmistakes!\\r",
             },
             {
                 .type = TRMSG_LOSE,
-                .text = "Ow! Stomped flat!\\n",
+                .text = "I made a mistake!\\n",
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "I did my best.\\nI have no regrets.\\n",
+                .text = "I should always add,\\nthat my life depends on it...\\n",
             },
         },
     },
@@ -27837,7 +27837,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_HIT_POKE_FIRST_TIME,
-                .text = "Tough crowd, huh?!"\\n",
+                .text = "Tough crowd, huh?!\\n",
             },
             {
                 .type = TRMSG_CURRENT_POKE_HALF,
@@ -37285,7 +37285,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "I use AI for competitive VGC battles\\n.You will see how good I am!\\r",
+                .text = "I use AI for competitive VGC battles.\\nYou will see how good I am!\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -38005,7 +38005,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "Really? Rather than always catching new\\nPokémon, it’s good to train them?\\n\\n",
+                .text = "Really? Rather than always catching new\\nPokémon, it’s good to train them?\\n",
             },
             {
                 .type = TRMSG_PHONE_REMATCH_INTRO,
@@ -40110,7 +40110,7 @@ const TrainerData sTrainerData[] = {
         .text = {
             {
                 .type = TRMSG_INTRO,
-                .text = "We knew you’d come.\\nBut you cannot stop us.\\rArcher is about to finish your\\nLARPer friend with the cape.\\rAnd my only job is to stall for\\na little more time!\\r ",
+                .text = "We knew you’d come.\\nBut you cannot stop us.\\rArcher is about to finish your\\nLARPer friend with the cape.\\rAnd my only job is to stall for\\na little more time!\\r",
             },
             {
                 .type = TRMSG_LOSE,
@@ -40734,7 +40734,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "We Bird Keepers think we’re using bird\\nPokémon. But somewhere along the line,\\fthe bird Pokémon started using us...\\n\\n",
+                .text = "We Bird Keepers think we’re using bird\\nPokémon. But somewhere along the line,\\fthe bird Pokémon started using us...\\n",
             },
         },
     },
@@ -44195,7 +44195,7 @@ const TrainerData sTrainerData[] = {
             },
             {
                 .type = TRMSG_AFTER,
-                .text = "Doesn’t matter what kind of Pokémon--\\fas long as you like them, they all\\nlook cute.\\n\\n",
+                .text = "Doesn’t matter what kind of Pokémon--\\fas long as you like them, they all\\nlook cute.\\n",
             },
         },
     },
